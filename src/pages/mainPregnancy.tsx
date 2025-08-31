@@ -7,23 +7,23 @@ import GlobalContextsProvider from "../../components/plasmic/liom_hamyar/Plasmic
 import { UnnamedGlobalGroupOfVariants4ContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants4";
 import { UnnamedGlobalGroupOfVariants5ContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants5";
 import { UnnamedGlobalGroupOfVariants6ContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants6";
-import { PlasmicMainPagePregnancy } from "../../components/plasmic/liom_hamyar/PlasmicMainPagePregnancy";
+import { PlasmicMainPregnancy } from "../../components/plasmic/liom_hamyar/PlasmicMainPregnancy";
 import { useRouter } from "next/router";
 
-function MainPagePregnancy() {
-  // Use PlasmicMainPagePregnancy to render this component as it was
+function MainPregnancy() {
+  // Use PlasmicMainPregnancy to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
   // can also install whatever React hooks you need here to manage state or
   // fetch data.
   //
-  // Props you can pass into PlasmicMainPagePregnancy are:
+  // Props you can pass into PlasmicMainPregnancy are:
   // 1. Variants you want to activate,
   // 2. Contents for slots you want to fill,
   // 3. Overrides for any named node in the component to attach behavior and data,
   // 4. Props to set on the root node.
   //
-  // By default, PlasmicMainPagePregnancy is wrapped by your project's global
+  // By default, PlasmicMainPregnancy is wrapped by your project's global
   // variant context providers. These wrappers may be moved to
   // Next.js Custom App component
   // (https://nextjs.org/docs/advanced-features/custom-app).
@@ -38,7 +38,7 @@ function MainPagePregnancy() {
               params={useRouter()?.query}
               query={useRouter()?.query}
             >
-              <PlasmicMainPagePregnancy />
+              <PlasmicMainPregnancy />
             </PageParamsProvider__>
           </GlobalContextsProvider>
         </UnnamedGlobalGroupOfVariants4ContextProvider>
@@ -47,4 +47,4 @@ function MainPagePregnancy() {
   );
 }
 
-export default MainPagePregnancy;
+export default MainPregnancy;

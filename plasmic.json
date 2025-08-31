@@ -4240,20 +4240,6 @@
           "componentType": "component"
         },
         {
-          "id": "VrCIr6RFUjlL",
-          "name": "MainPagePregnancy",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMainPagePregnancy.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/main-page-pregnancy.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicMainPagePregnancy.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/main-page-pregnancy"
-        },
-        {
           "id": "YjjiCvkREMP5",
           "name": "TabPage",
           "type": "managed",
@@ -4276,6 +4262,33 @@
             "modulePath": "Reminder.tsx"
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicReminder.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "x3lX8YdIXcEA",
+          "name": "MainPregnancy",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMainPregnancy.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/mainPregnancy.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicMainPregnancy.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/mainPregnancy"
+        },
+        {
+          "id": "-kbj-rjG1hPY",
+          "name": "FooterPregnancyMain",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicFooterPregnancyMain.tsx",
+          "importSpec": {
+            "modulePath": "FooterPregnancyMain.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicFooterPregnancyMain.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }
@@ -6120,6 +6133,31 @@
           "id": "rQHnbmXyT27Z",
           "name": "Icon277Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon277.tsx"
+        },
+        {
+          "id": "CPpihkrGcjaH",
+          "name": "Icon278Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon278.tsx"
+        },
+        {
+          "id": "Qr54kbo55kl8",
+          "name": "Icon279Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon279.tsx"
+        },
+        {
+          "id": "Q1zg9JItuLZ-",
+          "name": "Icon280Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon280.tsx"
+        },
+        {
+          "id": "LFRF9KNEKTKm",
+          "name": "Icon281Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon281.tsx"
+        },
+        {
+          "id": "7X0kotbii7tD",
+          "name": "Icon282Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon282.tsx"
         }
       ],
       "images": [

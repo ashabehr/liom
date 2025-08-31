@@ -93,6 +93,7 @@ import { DialogTitle } from "@plasmicpkgs/radix-ui";
 import { Iframe } from "@plasmicpkgs/plasmic-basic-components";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import MobileDialog from "../../MobileDialog"; // plasmic-import: h7ceF9lBthFF/component
+import Reminder from "../../Reminder"; // plasmic-import: 3v9tn6uUJCPM/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -111,9 +112,10 @@ import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMW
 import Icon125Icon from "./icons/PlasmicIcon__Icon125"; // plasmic-import: Q7X4s11MfEIR/icon
 import Icon124Icon from "./icons/PlasmicIcon__Icon124"; // plasmic-import: PTcWiaBFyPBw/icon
 import Icon126Icon from "./icons/PlasmicIcon__Icon126"; // plasmic-import: MKLSqOtGUXQ0/icon
-import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: boEzwrzcFMy4/icon
-import Icon211Icon from "./icons/PlasmicIcon__Icon211"; // plasmic-import: KpMP1zk7kNoc/icon
-import Icon209Icon from "./icons/PlasmicIcon__Icon209"; // plasmic-import: DRGXDQN0NiBM/icon
+import Icon280Icon from "./icons/PlasmicIcon__Icon280"; // plasmic-import: Q1zg9JItuLZ-/icon
+import Icon278Icon from "./icons/PlasmicIcon__Icon278"; // plasmic-import: CPpihkrGcjaH/icon
+import Icon281Icon from "./icons/PlasmicIcon__Icon281"; // plasmic-import: LFRF9KNEKTKm/icon
+import Icon282Icon from "./icons/PlasmicIcon__Icon282"; // plasmic-import: 7X0kotbii7tD/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 import Icon272Icon from "./icons/PlasmicIcon__Icon272"; // plasmic-import: HLKs0puyq9Ra/icon
 import Icon142Icon from "./icons/PlasmicIcon__Icon142"; // plasmic-import: SJsM-_NDX4Yl/icon
@@ -135,15 +137,18 @@ createPlasmicElementProxy;
 export type PlasmicHamyar__VariantMembers = {
   lackOfCourseInformation: "lackOfCourseInformation";
   noPartner: "noPartner";
+  reminder: "reminder";
 };
 export type PlasmicHamyar__VariantsArgs = {
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
   noPartner?: SingleBooleanChoiceArg<"noPartner">;
+  reminder?: SingleBooleanChoiceArg<"reminder">;
 };
 type VariantPropType = keyof PlasmicHamyar__VariantsArgs;
 export const PlasmicHamyar__VariantProps = new Array<VariantPropType>(
   "lackOfCourseInformation",
-  "noPartner"
+  "noPartner",
+  "reminder"
 );
 
 export type PlasmicHamyar__ArgsType = {};
@@ -166,6 +171,7 @@ export type PlasmicHamyar__OverridesType = {
   button10?: Flex__<typeof Button>;
   button15?: Flex__<typeof Button>;
   countdown4?: Flex__<typeof Countdown>;
+  button21?: Flex__<typeof Button>;
   checkbox?: Flex__<typeof Checkbox>;
   reveal?: Flex__<typeof Reveal>;
   useful2?: Flex__<typeof Useful>;
@@ -218,7 +224,8 @@ export type PlasmicHamyar__OverridesType = {
   mobileDialog?: Flex__<typeof MobileDialog>;
   telegram?: Flex__<typeof Dialog>;
   button18?: Flex__<typeof Button>;
-  apiRequest?: Flex__<typeof ApiRequest>;
+  remember?: Flex__<typeof ApiRequest>;
+  reminder2?: Flex__<typeof Reminder>;
 };
 
 export interface DefaultHamyarProps {}
@@ -1986,22 +1993,52 @@ function PlasmicHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "apiRequest.data",
+        path: "remember.data",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "apiRequest.error",
+        path: "remember.error",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "apiRequest.loading",
+        path: "remember.loading",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "reminder",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.reminder
+      },
+      {
+        path: "button21.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button21.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button21.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "reminder2.refresh",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -2066,7 +2103,8 @@ function PlasmicHamyar__RenderFunc(props: {
                 "lackOfCourseInformation",
                 "lackOfCourseInformation"
               ),
-              [sty.rootnoPartner]: hasVariant($state, "noPartner", "noPartner")
+              [sty.rootnoPartner]: hasVariant($state, "noPartner", "noPartner"),
+              [sty.rootreminder]: hasVariant($state, "reminder", "reminder")
             }
           )}
           onLoad={async event => {
@@ -3047,7 +3085,9 @@ function PlasmicHamyar__RenderFunc(props: {
           />
 
           {(
-            hasVariant($state, "noPartner", "noPartner")
+            hasVariant($state, "reminder", "reminder")
+              ? true
+              : hasVariant($state, "noPartner", "noPartner")
               ? true
               : (() => {
                   try {
@@ -3079,7 +3119,8 @@ function PlasmicHamyar__RenderFunc(props: {
                   $state,
                   "noPartner",
                   "noPartner"
-                )
+                ),
+                [sty.mainreminder]: hasVariant($state, "reminder", "reminder")
               })}
             >
               <div
@@ -8256,6 +8297,11 @@ function PlasmicHamyar__RenderFunc(props: {
                             $state,
                             "noPartner",
                             "noPartner"
+                          ),
+                          [sty.freeBoxreminder__d04NJuHqpO]: hasVariant(
+                            $state,
+                            "reminder",
+                            "reminder"
                           )
                         }
                       )}
@@ -8269,6 +8315,11 @@ function PlasmicHamyar__RenderFunc(props: {
                               $state,
                               "noPartner",
                               "noPartner"
+                            ),
+                            [sty.freeBoxreminder__aErc9UHqpO]: hasVariant(
+                              $state,
+                              "reminder",
+                              "reminder"
                             )
                           }
                         )}
@@ -8276,8 +8327,8 @@ function PlasmicHamyar__RenderFunc(props: {
                         <PlasmicIcon__
                           PlasmicIconType={
                             hasVariant(globalVariants, "screen", "mobile")
-                              ? Icon38Icon
-                              : Icon38Icon
+                              ? Icon280Icon
+                              : Icon280Icon
                           }
                           className={classNames(projectcss.all, sty.svg__bTclB)}
                           role={"img"}
@@ -8342,6 +8393,11 @@ function PlasmicHamyar__RenderFunc(props: {
                               $state,
                               "noPartner",
                               "noPartner"
+                            ),
+                            [sty.freeBoxreminder__rYpc3UHqpO]: hasVariant(
+                              $state,
+                              "reminder",
+                              "reminder"
                             )
                           }
                         )}
@@ -8608,7 +8664,343 @@ function PlasmicHamyar__RenderFunc(props: {
                             </div>
                           </div>
                         ) : null}
+                        {(() => {
+                          try {
+                            return $ctx.query.r == "8z1hf8";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__l2UhF
+                            )}
+                          />
+                        ) : null}
+                        {(() => {
+                          try {
+                            return $ctx.query.r == "8z1hf8";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                          ? (_par =>
+                              !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                              (() => {
+                                try {
+                                  return $state.remember.data.slice(0, 2);
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                              const currentItem = __plasmic_item_0;
+                              const currentIndex = __plasmic_idx_0;
+                              return (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__pwA8
+                                  )}
+                                  key={currentIndex}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__pl4Lo
+                                    )}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text___1Hn38
+                                      )}
+                                    >
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return currentItem.name + ":";
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "\u0634\u0631\u0648\u0639 pms :";
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                      </React.Fragment>
+                                    </div>
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__jb0B
+                                      )}
+                                      style={
+                                        hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "mobile"
+                                        )
+                                          ? (() => {
+                                              try {
+                                                return (() => {
+                                                  let future1 = new Date(
+                                                    currentItem.date_greg
+                                                  );
+                                                  let current_date1 =
+                                                    new Date();
+                                                  let delta1 =
+                                                    future1 - current_date1;
+                                                  let days_remaining1 =
+                                                    Math.floor(
+                                                      delta1 /
+                                                        (1000 * 60 * 60 * 24)
+                                                    );
+                                                  if (days_remaining1 < 7) {
+                                                    return { color: "#8B0000" };
+                                                  }
+                                                })();
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })()
+                                          : (() => {
+                                              try {
+                                                return (() => {
+                                                  let future1 = new Date(
+                                                    currentItem.date_greg
+                                                  );
+                                                  let current_date1 =
+                                                    new Date();
+                                                  let delta1 =
+                                                    future1 - current_date1;
+                                                  let days_remaining1 =
+                                                    Math.floor(
+                                                      delta1 /
+                                                        (1000 * 60 * 60 * 24)
+                                                    );
+                                                  if (days_remaining1 < 7) {
+                                                    return { color: "#8B0000" };
+                                                  }
+                                                })();
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })()
+                                      }
+                                    >
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return (() => {
+                                              let future1 = new Date(
+                                                currentItem.date_greg
+                                              );
+                                              let current_date1 = new Date();
+                                              let delta1 =
+                                                future1 - current_date1;
+                                              let days_remaining1 = Math.floor(
+                                                delta1 / (1000 * 60 * 60 * 24)
+                                              );
+                                              if (days_remaining1 == 0)
+                                                return "تا پایان امروز";
+                                              return (
+                                                days_remaining1 +
+                                                " روز " +
+                                                "دیگر"
+                                              );
+                                            })();
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "\u0646\u0627 \u0645\u0639\u0644\u0648\u0645";
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                      </React.Fragment>
+                                    </div>
+                                  </div>
+                                </div>
+                              );
+                            })
+                          : null}
                       </div>
+                      {(() => {
+                        try {
+                          return $ctx.query.r == "8z1hf8";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <Button
+                          data-plasmic-name={"button21"}
+                          data-plasmic-override={overrides.button21}
+                          className={classNames("__wab_instance", sty.button21)}
+                          color={generateStateValueProp($state, [
+                            "button21",
+                            "color"
+                          ])}
+                          load={generateStateValueProp($state, [
+                            "button21",
+                            "load"
+                          ])}
+                          loading={generateStateValueProp($state, [
+                            "button21",
+                            "loading"
+                          ])}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["updateReminder"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    vgroup: "reminder",
+                                    operation: 2
+                                  };
+                                  return (({ vgroup, value }) => {
+                                    if (typeof value === "string") {
+                                      value = [value];
+                                    }
+
+                                    const oldValue = $stateGet($state, vgroup);
+                                    $stateSet($state, vgroup, !oldValue);
+                                    return !oldValue;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateReminder"] != null &&
+                              typeof $steps["updateReminder"] === "object" &&
+                              typeof $steps["updateReminder"].then ===
+                                "function"
+                            ) {
+                              $steps["updateReminder"] = await $steps[
+                                "updateReminder"
+                              ];
+                            }
+                          }}
+                          onColorChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button21",
+                                "color"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                          onLoadChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button21",
+                                "load"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                          onLoadingChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button21",
+                                "loading"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                          showStartIcon={true}
+                          size={"compact"}
+                          startIcon={
+                            <Icon278Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__dSSsb
+                              )}
+                              role={"img"}
+                            />
+                          }
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__unfSc
+                            )}
+                          >
+                            {
+                              "\u062a\u0646\u0638\u06cc\u0645 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627"
+                            }
+                          </div>
+                        </Button>
+                      ) : null}
                     </div>
                   </div>
                 </div>
@@ -10895,7 +11287,7 @@ function PlasmicHamyar__RenderFunc(props: {
                           }
                         )}
                       >
-                        <Icon211Icon
+                        <Icon281Icon
                           className={classNames(projectcss.all, sty.svg__xixaG)}
                           role={"img"}
                         />
@@ -11053,7 +11445,7 @@ function PlasmicHamyar__RenderFunc(props: {
                           sty.freeBox___70Fr
                         )}
                       >
-                        <Icon209Icon
+                        <Icon282Icon
                           className={classNames(
                             projectcss.all,
                             sty.svg___4Unhz
@@ -11685,7 +12077,12 @@ function PlasmicHamyar__RenderFunc(props: {
                                   $state,
                                   "lackOfCourseInformation",
                                   "lackOfCourseInformation"
-                                )
+                                ),
+                              [sty.textreminder__z49PwUHqpO]: hasVariant(
+                                $state,
+                                "reminder",
+                                "reminder"
+                              )
                             }
                           )}
                         >
@@ -20515,19 +20912,23 @@ function PlasmicHamyar__RenderFunc(props: {
               </AntdTooltip>
             </div>
           ) : null}
-          {(() => {
-            try {
-              return $state.loadingPage;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })() ? (
+          {(
+            hasVariant($state, "reminder", "reminder")
+              ? true
+              : (() => {
+                  try {
+                    return $state.loadingPage;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()
+          ) ? (
             <div
               data-plasmic-name={"loading"}
               data-plasmic-override={overrides.loading}
@@ -20536,6 +20937,11 @@ function PlasmicHamyar__RenderFunc(props: {
                   $state,
                   "noPartner",
                   "noPartner"
+                ),
+                [sty.loadingreminder]: hasVariant(
+                  $state,
+                  "reminder",
+                  "reminder"
                 )
               })}
             >
@@ -20638,7 +21044,14 @@ function PlasmicHamyar__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         sty.freeBox__z35I0,
-                        "shimmer"
+                        "shimmer",
+                        {
+                          [sty.freeBoxreminder__z35I0UHqpO]: hasVariant(
+                            $state,
+                            "reminder",
+                            "reminder"
+                          )
+                        }
                       )}
                     />
                   </div>
@@ -20837,22 +21250,26 @@ function PlasmicHamyar__RenderFunc(props: {
               </Button>
             </div>
           ) : null}
-          {(() => {
-            try {
-              return !(
-                window.FlutterChannel &&
-                typeof window.FlutterChannel.postMessage === "function"
-              );
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })() ? (
+          {(
+            hasVariant($state, "reminder", "reminder")
+              ? true
+              : (() => {
+                  try {
+                    return !(
+                      window.FlutterChannel &&
+                      typeof window.FlutterChannel.postMessage === "function"
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()
+          ) ? (
             <section
               data-plasmic-name={"section"}
               data-plasmic-override={overrides.section}
@@ -20861,6 +21278,11 @@ function PlasmicHamyar__RenderFunc(props: {
                   $state,
                   "noPartner",
                   "noPartner"
+                ),
+                [sty.sectionreminder]: hasVariant(
+                  $state,
+                  "reminder",
+                  "reminder"
                 )
               })}
             >
@@ -24937,53 +25359,38 @@ function PlasmicHamyar__RenderFunc(props: {
             );
           })()}
           <ApiRequest
-            data-plasmic-name={"apiRequest"}
-            data-plasmic-override={overrides.apiRequest}
-            className={classNames("__wab_instance", sty.apiRequest)}
-            errorDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__lk9Hn
-                )}
-              >
-                {"Error fetching data"}
-              </div>
-            }
-            loadingDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___1UuN9
-                )}
-              >
-                {"Loading..."}
-              </div>
-            }
-            method={"GET"}
+            data-plasmic-name={"remember"}
+            data-plasmic-override={overrides.remember}
+            className={classNames("__wab_instance", sty.remember, {
+              [sty.rememberreminder]: hasVariant($state, "reminder", "reminder")
+            })}
+            errorDisplay={null}
+            loadingDisplay={null}
+            method={hasVariant($state, "reminder", "reminder") ? "GET" : "GET"}
             onError={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(
+              generateStateOnChangeProp($state, ["remember", "error"]).apply(
                 null,
                 eventArgs
               );
             }}
             onLoading={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, [
-                "apiRequest",
-                "loading"
-              ]).apply(null, eventArgs);
+              generateStateOnChangeProp($state, ["remember", "loading"]).apply(
+                null,
+                eventArgs
+              );
             }}
             onSuccess={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
+              generateStateOnChangeProp($state, ["remember", "data"]).apply(
                 null,
                 eventArgs
               );
             }}
             params={(() => {
               try {
-                return undefined;
+                return {
+                  man_id: $state.userdata.result.man.id,
+                  r: $state.reminder2.refresh
+                };
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -24994,8 +25401,269 @@ function PlasmicHamyar__RenderFunc(props: {
                 throw e;
               }
             })()}
-            shouldFetch={true}
+            shouldFetch={(() => {
+              try {
+                return $state.userdata?.result?.man?.id ? true : false;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })()}
             url={"https://n8n.staas.ir/webhook/hamyar/reminder"}
+          />
+
+          <Reminder
+            data-plasmic-name={"reminder2"}
+            data-plasmic-override={overrides.reminder2}
+            back={async () => {
+              const $steps = {};
+
+              $steps["updateReminder"] = true
+                ? (() => {
+                    const actionArgs = { vgroup: "reminder", operation: 2 };
+                    return (({ vgroup, value }) => {
+                      if (typeof value === "string") {
+                        value = [value];
+                      }
+
+                      const oldValue = $stateGet($state, vgroup);
+                      $stateSet($state, vgroup, !oldValue);
+                      return !oldValue;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateReminder"] != null &&
+                typeof $steps["updateReminder"] === "object" &&
+                typeof $steps["updateReminder"].then === "function"
+              ) {
+                $steps["updateReminder"] = await $steps["updateReminder"];
+              }
+            }}
+            className={classNames("__wab_instance", sty.reminder2, {
+              [sty.reminder2reminder]: hasVariant(
+                $state,
+                "reminder",
+                "reminder"
+              )
+            })}
+            data={(() => {
+              try {
+                return $state.remember.data;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return [
+                    {
+                      id: 32,
+                      man_id: 3,
+                      name: "\u062a\u0648\u0644\u062f \u062a\u0627\u0646\u0627\u0646\u062a\u0627\u062a\u0646",
+                      date_greg: "2025-12-02",
+                      date_shamsi: "1386/10/10",
+                      type: "ChildBirthday",
+                      description: null,
+                      repeat_yearly: 1,
+                      remind_before: 0,
+                      smsActive: 1
+                    },
+                    {
+                      id: 31,
+                      man_id: 3,
+                      name: "\u062a\u0648\u0644\u062f \u0646\u062a\u0627\u0646\u062a\u0627",
+                      date_greg: "2025-12-05",
+                      date_shamsi: "1386/10/10",
+                      type: "ChildBirthday",
+                      description: null,
+                      repeat_yearly: 1,
+                      remind_before: 0,
+                      smsActive: 1
+                    },
+                    {
+                      id: 30,
+                      man_id: 3,
+                      name: "\u062a\u0648\u0644\u062f \u0645\u062d\u0645\u062f",
+                      date_greg: "2025-12-15",
+                      date_shamsi: "1386/10/10",
+                      type: "ChildBirthday",
+                      description: null,
+                      repeat_yearly: 1,
+                      remind_before: 0,
+                      smsActive: 0
+                    },
+                    {
+                      id: 29,
+                      man_id: 3,
+                      name: "\u062a\u0648\u0644\u062f \u0639\u0644\u06cc",
+                      date_greg: "2025-12-31",
+                      date_shamsi: "1388/10/10",
+                      type: "ChildBirthday",
+                      description: null,
+                      repeat_yearly: 1,
+                      remind_before: 0,
+                      smsActive: 0
+                    },
+                    {
+                      id: 21,
+                      man_id: 3,
+                      name: "\u0631\u0648\u0632 \u0632\u0646 \u0648 \u0645\u0627\u062f\u0631",
+                      date_greg: "2026-02-09",
+                      date_shamsi: "1404/11/20",
+                      type: "Occasion",
+                      description:
+                        "\u0648\u0644\u0627\u062f\u062a \u062d\u0636\u0631\u062a \u0641\u0627\u0637\u0645\u0647 \u0632\u0647\u0631\u0627 (\u0633)",
+                      repeat_yearly: 1,
+                      remind_before: 3,
+                      smsActive: 0
+                    },
+                    {
+                      id: 24,
+                      man_id: 3,
+                      name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
+                      date_greg: "2026-02-14",
+                      date_shamsi: "1404/11/25",
+                      type: "Occasion",
+                      description:
+                        "\u0631\u0648\u0632 \u0639\u0634\u0642 \u062c\u0647\u0627\u0646\u06cc",
+                      repeat_yearly: 1,
+                      remind_before: 7,
+                      smsActive: 0
+                    },
+                    {
+                      id: 25,
+                      man_id: 3,
+                      name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
+                      date_greg: "2026-02-19",
+                      date_shamsi: "1404/11/30",
+                      type: "Occasion",
+                      description:
+                        "\u0631\u0648\u0632 \u0632\u0646 \u0648 \u0639\u0634\u0642 \u062f\u0631 \u0627\u06cc\u0631\u0627\u0646 \u0628\u0627\u0633\u062a\u0627\u0646",
+                      repeat_yearly: 1,
+                      remind_before: 7,
+                      smsActive: 0
+                    },
+                    {
+                      id: 23,
+                      man_id: 3,
+                      name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
+                      date_greg: "2026-03-08",
+                      date_shamsi: "1404/12/17",
+                      type: "Occasion",
+                      description: "International Women's Day",
+                      repeat_yearly: 1,
+                      remind_before: 7,
+                      smsActive: 0
+                    },
+                    {
+                      id: 22,
+                      man_id: 3,
+                      name: "\u0631\u0648\u0632 \u062f\u062e\u062a\u0631",
+                      date_greg: "2026-05-30",
+                      date_shamsi: "1405/03/09",
+                      type: "Occasion",
+                      description:
+                        "\u0648\u0644\u0627\u062f\u062a \u062d\u0636\u0631\u062a \u0645\u0639\u0635\u0648\u0645\u0647 (\u0633)",
+                      repeat_yearly: 1,
+                      remind_before: 3,
+                      smsActive: 0
+                    },
+                    {
+                      id: 26,
+                      man_id: 3,
+                      name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
+                      date_greg: "2026-10-11",
+                      date_shamsi: "1405/07/19",
+                      type: "Occasion",
+                      description: "International Day of the Girl Child",
+                      repeat_yearly: 1,
+                      remind_before: 7,
+                      smsActive: 0
+                    },
+                    {
+                      id: 28,
+                      man_id: 3,
+                      name: "\u062a\u0648\u0644\u062f \u0632\u0647\u0631\u0627",
+                      date_greg: "2026-12-30",
+                      date_shamsi: "1379/10/10",
+                      type: "SpouseBirthday",
+                      description: null,
+                      repeat_yearly: 1,
+                      remind_before: 0,
+                      smsActive: 0
+                    }
+                  ];
+                }
+                throw e;
+              }
+            })()}
+            manId={(() => {
+              try {
+                return $state.userdata?.result?.man?.id;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            onRefreshChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["reminder2", "refresh"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            refresh={generateStateValueProp($state, ["reminder2", "refresh"])}
+            shop={async () => {
+              const $steps = {};
+
+              $steps["updateDialogOpendialog"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["dialog", "opendialog"]
+                      },
+                      operation: 0,
+                      value: true
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateDialogOpendialog"] != null &&
+                typeof $steps["updateDialogOpendialog"] === "object" &&
+                typeof $steps["updateDialogOpendialog"].then === "function"
+              ) {
+                $steps["updateDialogOpendialog"] = await $steps[
+                  "updateDialogOpendialog"
+                ];
+              }
+            }}
           />
         </div>
       </div>
@@ -25020,6 +25688,7 @@ const PlasmicDescendants = {
     "button10",
     "button15",
     "countdown4",
+    "button21",
     "checkbox",
     "reveal",
     "useful2",
@@ -25072,7 +25741,8 @@ const PlasmicDescendants = {
     "mobileDialog",
     "telegram",
     "button18",
-    "apiRequest"
+    "remember",
+    "reminder2"
   ],
   sideEffect: ["sideEffect"],
   main: [
@@ -25089,6 +25759,7 @@ const PlasmicDescendants = {
     "button10",
     "button15",
     "countdown4",
+    "button21",
     "checkbox",
     "reveal",
     "useful2",
@@ -25130,6 +25801,7 @@ const PlasmicDescendants = {
   button10: ["button10"],
   button15: ["button15"],
   countdown4: ["countdown4"],
+  button21: ["button21"],
   checkbox: ["checkbox"],
   reveal: ["reveal", "useful2", "useful"],
   useful2: ["useful2"],
@@ -25203,7 +25875,8 @@ const PlasmicDescendants = {
   mobileDialog: ["mobileDialog"],
   telegram: ["telegram", "button18"],
   button18: ["button18"],
-  apiRequest: ["apiRequest"]
+  remember: ["remember"],
+  reminder2: ["reminder2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -25224,6 +25897,7 @@ type NodeDefaultElementType = {
   button10: typeof Button;
   button15: typeof Button;
   countdown4: typeof Countdown;
+  button21: typeof Button;
   checkbox: typeof Checkbox;
   reveal: typeof Reveal;
   useful2: typeof Useful;
@@ -25276,7 +25950,8 @@ type NodeDefaultElementType = {
   mobileDialog: typeof MobileDialog;
   telegram: typeof Dialog;
   button18: typeof Button;
-  apiRequest: typeof ApiRequest;
+  remember: typeof ApiRequest;
+  reminder2: typeof Reminder;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -25378,6 +26053,7 @@ export const PlasmicHamyar = Object.assign(
     button10: makeNodeComponent("button10"),
     button15: makeNodeComponent("button15"),
     countdown4: makeNodeComponent("countdown4"),
+    button21: makeNodeComponent("button21"),
     checkbox: makeNodeComponent("checkbox"),
     reveal: makeNodeComponent("reveal"),
     useful2: makeNodeComponent("useful2"),
@@ -25430,7 +26106,8 @@ export const PlasmicHamyar = Object.assign(
     mobileDialog: makeNodeComponent("mobileDialog"),
     telegram: makeNodeComponent("telegram"),
     button18: makeNodeComponent("button18"),
-    apiRequest: makeNodeComponent("apiRequest"),
+    remember: makeNodeComponent("remember"),
+    reminder2: makeNodeComponent("reminder2"),
 
     // Metadata about props expected for PlasmicHamyar
     internalVariantProps: PlasmicHamyar__VariantProps,

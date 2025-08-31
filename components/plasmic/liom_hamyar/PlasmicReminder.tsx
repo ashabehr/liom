@@ -95,12 +95,20 @@ export type PlasmicReminder__ArgsType = {
   data?: any;
   manId?: string;
   subscription?: boolean;
+  refresh?: string;
+  onRefreshChange?: (val: string) => void;
+  shop?: () => void;
+  back?: () => void;
 };
 type ArgPropType = keyof PlasmicReminder__ArgsType;
 export const PlasmicReminder__ArgProps = new Array<ArgPropType>(
   "data",
   "manId",
-  "subscription"
+  "subscription",
+  "refresh",
+  "onRefreshChange",
+  "shop",
+  "back"
 );
 
 export type PlasmicReminder__OverridesType = {
@@ -154,6 +162,10 @@ export interface DefaultReminderProps {
   data?: any;
   manId?: string;
   subscription?: boolean;
+  refresh?: string;
+  onRefreshChange?: (val: string) => void;
+  shop?: () => void;
+  back?: () => void;
   className?: string;
 }
 
@@ -580,6 +592,14 @@ function PlasmicReminder__RenderFunc(props: {
         path: "switchbest4[].isChecked",
         type: "private",
         variableType: "boolean"
+      },
+      {
+        path: "refresh",
+        type: "writable",
+        variableType: "text",
+
+        valueProp: "refresh",
+        onChangeProp: "onRefreshChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -2128,19 +2148,6 @@ function PlasmicReminder__RenderFunc(props: {
                                 __plasmic_idx_0,
                                 "isChecked"
                               ]) ?? false,
-                            isDisabled: (() => {
-                              try {
-                                return !$props.subscription;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
-                                }
-                                throw e;
-                              }
-                            })(),
                             onChange: async (...eventArgs: any) => {
                               ((...eventArgs) => {
                                 generateStateOnChangeProp($state, [
@@ -2161,7 +2168,47 @@ function PlasmicReminder__RenderFunc(props: {
                               (async isChecked => {
                                 const $steps = {};
 
-                                $steps["update"] = true
+                                $steps["runShop"] = !$props.subscription
+                                  ? (() => {
+                                      const actionArgs = {
+                                        eventRef: $props["shop"]
+                                      };
+                                      return (({ eventRef, args }) => {
+                                        return eventRef?.(...(args ?? []));
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runShop"] != null &&
+                                  typeof $steps["runShop"] === "object" &&
+                                  typeof $steps["runShop"].then === "function"
+                                ) {
+                                  $steps["runShop"] = await $steps["runShop"];
+                                }
+
+                                $steps["runCode"] = !$props.subscription
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return ($state.switchbest2[
+                                            currentIndex
+                                          ].isChecked = false);
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runCode"] != null &&
+                                  typeof $steps["runCode"] === "object" &&
+                                  typeof $steps["runCode"].then === "function"
+                                ) {
+                                  $steps["runCode"] = await $steps["runCode"];
+                                }
+
+                                $steps["update"] = $props.subscription
                                   ? (() => {
                                       const actionArgs = {
                                         args: [
