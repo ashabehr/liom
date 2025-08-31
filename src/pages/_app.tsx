@@ -9,6 +9,16 @@ import { useEffect } from "react";
 export default function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     if (typeof window !== "undefined") {
+            if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/firebase-messaging-sw.js")
+          .then((registration) => {
+            console.log("✅ Service Worker ثبت شد:", registration);
+          })
+          .catch((err) =>
+            console.log("❌ خطا در ثبت Service Worker:", err)
+          );
+      }
       // 📌 Import دینامیک فایل notifications
       import("../firebase/fcm").then(
         ({ requestPermission, onMessageListener }) => {
@@ -23,34 +33,25 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             }
           });
 
-          // گوش دادن به پیام‌های Foreground
-          // onMessageListener((payload) => {
-          //   console.log("📩 پیام Foreground:", payload);
+          گوش دادن به پیام‌های Foreground
+          onMessageListener((payload) => {
+            console.log("📩 پیام Foreground:", payload);
 
-          //   // نمایش نوتیف ساده
-          //   if (payload.notification?.title) {
-          //     new Notification(payload.notification.title, {
-          //       body: payload.notification.body,
-          //       icon:
-          //         payload.notification.image ||
-          //         "/icons/icon-192x192.png",
-          //     });
-          //   }
-          // });
+            // نمایش نوتیف ساده
+            if (payload.notification?.title) {
+              new Notification(payload.notification.title, {
+                body: payload.notification.body,
+                icon:
+                  payload.notification.image ||
+                  "/icons/icon-192x192.png",
+              });
+            }
+          });
         }
       );
 
       // 📌 ثبت Service Worker برای Background Messages
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker
-          .register("/firebase-messaging-sw.js")
-          .then((registration) => {
-            console.log("✅ Service Worker ثبت شد:", registration);
-          })
-          .catch((err) =>
-            console.log("❌ خطا در ثبت Service Worker:", err)
-          );
-      }
+
     }
   }, []);
 
