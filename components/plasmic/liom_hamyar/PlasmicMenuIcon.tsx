@@ -80,6 +80,10 @@ import Icon266Icon from "./icons/PlasmicIcon__Icon266"; // plasmic-import: D9XHc
 import Icon268Icon from "./icons/PlasmicIcon__Icon268"; // plasmic-import: KIX_jZFHfv2N/icon
 import Icon269Icon from "./icons/PlasmicIcon__Icon269"; // plasmic-import: nhqlCi92__jt/icon
 import Icon270Icon from "./icons/PlasmicIcon__Icon270"; // plasmic-import: Y171g_Z8ZZ84/icon
+import Icon273Icon from "./icons/PlasmicIcon__Icon273"; // plasmic-import: 15Q2P76_Urdc/icon
+import Icon274Icon from "./icons/PlasmicIcon__Icon274"; // plasmic-import: s-mb3EBJTqB8/icon
+import Icon275Icon from "./icons/PlasmicIcon__Icon275"; // plasmic-import: JX2J1clropJv/icon
+import Icon277Icon from "./icons/PlasmicIcon__Icon277"; // plasmic-import: rQHnbmXyT27Z/icon
 
 createPlasmicElementProxy;
 
@@ -96,7 +100,11 @@ export type PlasmicMenuIcon__VariantMembers = {
     | "chartbar"
     | "users"
     | "message"
-    | "settings";
+    | "settings"
+    | "occasion"
+    | "birthday"
+    | "love"
+    | "alert";
 };
 export type PlasmicMenuIcon__VariantsArgs = {
   select?: SingleBooleanChoiceArg<"select">;
@@ -112,6 +120,10 @@ export type PlasmicMenuIcon__VariantsArgs = {
     | "users"
     | "message"
     | "settings"
+    | "occasion"
+    | "birthday"
+    | "love"
+    | "alert"
   >;
 };
 type VariantPropType = keyof PlasmicMenuIcon__VariantsArgs;
@@ -142,6 +154,10 @@ export interface DefaultMenuIconProps {
     | "users"
     | "message"
     | "settings"
+    | "occasion"
+    | "birthday"
+    | "love"
+    | "alert"
   >;
   className?: string;
 }
@@ -224,7 +240,15 @@ function PlasmicMenuIcon__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       PlasmicIconType={
-        hasVariant($state, "icons", "settings")
+        hasVariant($state, "icons", "alert")
+          ? Icon277Icon
+          : hasVariant($state, "icons", "love")
+          ? Icon275Icon
+          : hasVariant($state, "icons", "birthday")
+          ? Icon274Icon
+          : hasVariant($state, "icons", "occasion")
+          ? Icon273Icon
+          : hasVariant($state, "icons", "settings")
           ? Icon270Icon
           : hasVariant($state, "icons", "message")
           ? Icon269Icon
@@ -256,12 +280,16 @@ function PlasmicMenuIcon__RenderFunc(props: {
         styleTokensClassNames_plasmic_rich_components,
         sty.root,
         {
+          [sty.rooticons_alert]: hasVariant($state, "icons", "alert"),
           [sty.rooticons_barChart]: hasVariant($state, "icons", "barChart"),
+          [sty.rooticons_birthday]: hasVariant($state, "icons", "birthday"),
           [sty.rooticons_chart]: hasVariant($state, "icons", "chart"),
           [sty.rooticons_chartbar]: hasVariant($state, "icons", "chartbar"),
           [sty.rooticons_history]: hasVariant($state, "icons", "history"),
+          [sty.rooticons_love]: hasVariant($state, "icons", "love"),
           [sty.rooticons_message]: hasVariant($state, "icons", "message"),
           [sty.rooticons_notebook]: hasVariant($state, "icons", "notebook"),
+          [sty.rooticons_occasion]: hasVariant($state, "icons", "occasion"),
           [sty.rooticons_questioncircle]: hasVariant(
             $state,
             "icons",

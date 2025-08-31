@@ -1781,7 +1781,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                               }
                             })(),
                             date: "dey",
-                            onRemainingSecondsChange: async (
+                            onRemainingSecondsChange2: async (
                               ...eventArgs: any
                             ) => {
                               generateStateOnChangeProp($state, [

@@ -2044,7 +2044,7 @@
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
           "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicPregnancy.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/pregnancy.tsx"
+            "modulePath": "../src/pages/pregnancyy.tsx"
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicPregnancy.module.css",
           "scheme": "blackbox",
@@ -2985,7 +2985,7 @@
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
           "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicPregnancy2.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/pregnancy-2.tsx"
+            "modulePath": "../src/pages/pregnancy.tsx"
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicPregnancy2.module.css",
           "scheme": "blackbox",
@@ -4240,20 +4240,6 @@
           "componentType": "component"
         },
         {
-          "id": "3v9tn6uUJCPM",
-          "name": "NewPage2",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicNewPage2.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/new-page-2.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicNewPage2.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/new-page-2"
-        },
-        {
           "id": "VrCIr6RFUjlL",
           "name": "MainPagePregnancy",
           "type": "managed",
@@ -4277,6 +4263,19 @@
             "modulePath": "TabPage.tsx"
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicTabPage.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "3v9tn6uUJCPM",
+          "name": "Reminder",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicReminder.tsx",
+          "importSpec": {
+            "modulePath": "Reminder.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicReminder.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }
@@ -6096,6 +6095,31 @@
           "id": "oY9JP2YB2Sfi",
           "name": "Group10Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Group10.tsx"
+        },
+        {
+          "id": "15Q2P76_Urdc",
+          "name": "Icon273Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon273.tsx"
+        },
+        {
+          "id": "s-mb3EBJTqB8",
+          "name": "Icon274Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon274.tsx"
+        },
+        {
+          "id": "JX2J1clropJv",
+          "name": "Icon275Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon275.tsx"
+        },
+        {
+          "id": "vsvSQuMiRjgJ",
+          "name": "Icon276Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon276.tsx"
+        },
+        {
+          "id": "rQHnbmXyT27Z",
+          "name": "Icon277Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon277.tsx"
         }
       ],
       "images": [

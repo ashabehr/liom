@@ -1,6 +1,6 @@
 .root {
   display: inline-flex;
-  flex-direction: column;
+  flex-direction: row;
   position: relative;
   width: auto;
   height: auto;
@@ -176,28 +176,4 @@
 .root:hover .thumb {
   background: #f9f9f9;
   border-color: #c8c7c1;
-}
-.text {
-  position: absolute;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  left: 0px;
-  top: 0px;
-  text-align: center;
-  background: #ffffff;
-  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
-  transition-property: all;
-  transition-duration: 1s;
-  transition-timing-function: ease-in-out;
-  min-width: 0;
-  display: none;
-  -webkit-transition-property: all;
-  -webkit-transition-timing-function: ease-in-out;
-  -webkit-transition-duration: 1s;
-  border-radius: 5px;
-  padding: 5px;
-}
-.rootisDisabled:hover .textisDisabled {
-  display: block;
 }

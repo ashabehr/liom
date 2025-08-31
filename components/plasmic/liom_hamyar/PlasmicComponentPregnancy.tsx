@@ -9930,6 +9930,9 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                             const active = filteredItem
                                               ? filteredItem.active
                                               : false;
+                                            console.log(allowance);
+                                            console.log(filteredItem);
+                                            console.log(active);
                                             return (
                                               !active && currentItem.vip == 1
                                             );

@@ -114,7 +114,6 @@ export type PlasmicSwitchbest__OverridesType = {
   toggle?: Flex__<"div">;
   track?: Flex__<"div">;
   thumb?: Flex__<"div">;
-  text?: Flex__<"div">;
 };
 
 export interface DefaultSwitchbestProps extends pp.SwitchProps {
@@ -196,11 +195,6 @@ function PlasmicSwitchbest__RenderFunc(props: {
     $refs
   });
 
-  const [isRootHover, triggerRootHoverProps] = useTrigger("useHover", {});
-  const triggers = {
-    hover_root: isRootHover
-  };
-
   const styleTokensClassNames = _useStyleTokens();
   const styleTokensClassNames_antd_5_hostless =
     useStyleTokens_antd_5_hostless();
@@ -228,7 +222,6 @@ function PlasmicSwitchbest__RenderFunc(props: {
           [sty.rootnoLabel]: hasVariant($state, "noLabel", "noLabel")
         }
       )}
-      data-plasmic-trigger-props={[triggerRootHoverProps]}
     >
       {(hasVariant($state, "noLabel", "noLabel") ? false : true) ? (
         <div
@@ -301,17 +294,6 @@ function PlasmicSwitchbest__RenderFunc(props: {
           })}
         />
       </div>
-      <div
-        data-plasmic-name={"text"}
-        data-plasmic-override={overrides.text}
-        className={classNames(projectcss.all, projectcss.__wab_text, sty.text, {
-          [sty.textisDisabled]: hasVariant($state, "isDisabled", "isDisabled")
-        })}
-      >
-        {
-          "\u0634\u0645\u0627 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0646\u062f\u0627\u0631\u06cc\u062f"
-        }
-      </div>
     </div>
   ) as React.ReactElement | null;
 }
@@ -339,12 +321,11 @@ function useBehavior<P extends pp.SwitchProps>(props: P, ref: pp.SwitchRef) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "labelContainer", "toggle", "track", "thumb", "text"],
+  root: ["root", "labelContainer", "toggle", "track", "thumb"],
   labelContainer: ["labelContainer"],
   toggle: ["toggle", "track", "thumb"],
   track: ["track"],
-  thumb: ["thumb"],
-  text: ["text"]
+  thumb: ["thumb"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -355,7 +336,6 @@ type NodeDefaultElementType = {
   toggle: "div";
   track: "div";
   thumb: "div";
-  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -422,7 +402,6 @@ export const PlasmicSwitchbest = Object.assign(
     toggle: makeNodeComponent("toggle"),
     track: makeNodeComponent("track"),
     thumb: makeNodeComponent("thumb"),
-    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicSwitchbest
     internalVariantProps: PlasmicSwitchbest__VariantProps,

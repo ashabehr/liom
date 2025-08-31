@@ -74,28 +74,31 @@ import sty from "./PlasmicCountdown.module.css"; // plasmic-import: 1ruheQLCU5pc
 createPlasmicElementProxy;
 
 export type PlasmicCountdown__VariantMembers = {
-  color: "green" | "red";
+  color: "green" | "red" | "base2";
   date: "dey" | "moanth";
+  normal: "normal";
 };
 export type PlasmicCountdown__VariantsArgs = {
-  color?: SingleChoiceArg<"green" | "red">;
+  color?: SingleChoiceArg<"green" | "red" | "base2">;
   date?: SingleChoiceArg<"dey" | "moanth">;
+  normal?: SingleBooleanChoiceArg<"normal">;
 };
 type VariantPropType = keyof PlasmicCountdown__VariantsArgs;
 export const PlasmicCountdown__VariantProps = new Array<VariantPropType>(
   "color",
-  "date"
+  "date",
+  "normal"
 );
 
 export type PlasmicCountdown__ArgsType = {
   remainingSeconds?: number;
-  onRemainingSecondsChange?: (val: string) => void;
+  onRemainingSecondsChange2?: (val: string) => void;
   targetTimeUtc?: string;
 };
 type ArgPropType = keyof PlasmicCountdown__ArgsType;
 export const PlasmicCountdown__ArgProps = new Array<ArgPropType>(
   "remainingSeconds",
-  "onRemainingSecondsChange",
+  "onRemainingSecondsChange2",
   "targetTimeUtc"
 );
 
@@ -107,10 +110,11 @@ export type PlasmicCountdown__OverridesType = {
 
 export interface DefaultCountdownProps {
   remainingSeconds?: number;
-  onRemainingSecondsChange?: (val: string) => void;
+  onRemainingSecondsChange2?: (val: string) => void;
   targetTimeUtc?: string;
-  color?: SingleChoiceArg<"green" | "red">;
+  color?: SingleChoiceArg<"green" | "red" | "base2">;
   date?: SingleChoiceArg<"dey" | "moanth">;
+  normal?: SingleBooleanChoiceArg<"normal">;
   className?: string;
 }
 
@@ -165,7 +169,7 @@ function PlasmicCountdown__RenderFunc(props: {
         variableType: "number",
 
         valueProp: "remainingSeconds",
-        onChangeProp: "onRemainingSecondsChange"
+        onChangeProp: "onRemainingSecondsChange2"
       },
       {
         path: "color",
@@ -178,6 +182,12 @@ function PlasmicCountdown__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.date
+      },
+      {
+        path: "normal",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.normal
       }
     ],
     [$props, $ctx, $refs]
@@ -222,110 +232,19 @@ function PlasmicCountdown__RenderFunc(props: {
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
         className={classNames(projectcss.all, sty.freeBox, {
+          [sty.freeBoxcolor_base2]: hasVariant($state, "color", "base2"),
           [sty.freeBoxcolor_green]: hasVariant($state, "color", "green"),
+          [sty.freeBoxdate_dey]: hasVariant($state, "date", "dey"),
           [sty.freeBoxdate_moanth]: hasVariant($state, "date", "moanth"),
           [sty.freeBoxdate_moanth_color_green]:
             hasVariant($state, "date", "moanth") &&
-            hasVariant($state, "color", "green")
+            hasVariant($state, "color", "green"),
+          [sty.freeBoxnormal]: hasVariant($state, "normal", "normal"),
+          [sty.freeBoxnormal_date_moanth]:
+            hasVariant($state, "normal", "normal") &&
+            hasVariant($state, "date", "moanth")
         })}
       >
-        <CountdownNumber
-          className={classNames("__wab_instance", sty.countdownNumber__dJw6J, {
-            [sty.countdownNumbercolor_green__dJw6Jzcge]: hasVariant(
-              $state,
-              "color",
-              "green"
-            ),
-            [sty.countdownNumberdate_moanth__dJw6JrMljd]: hasVariant(
-              $state,
-              "date",
-              "moanth"
-            )
-          })}
-          number={
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___77QVc,
-                {
-                  [sty.textcolor_green___77QVCzcge]: hasVariant(
-                    $state,
-                    "color",
-                    "green"
-                  ),
-                  [sty.textdate_moanth___77QVCrMljd]: hasVariant(
-                    $state,
-                    "date",
-                    "moanth"
-                  )
-                }
-              )}
-            >
-              {hasVariant($state, "date", "moanth") ? (
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return Math.floor(
-                        $state.remainingSeconds / 60 / 60 / 24 / 30
-                      );
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "42";
-                      }
-                      throw e;
-                    }
-                  })()}
-                </React.Fragment>
-              ) : (
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return Math.floor($state.remainingSeconds / 60 / 60 / 24);
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "42";
-                      }
-                      throw e;
-                    }
-                  })()}
-                </React.Fragment>
-              )}
-            </div>
-          }
-          unit={
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__qsTu,
-                {
-                  [sty.textcolor_green__qsTuzcge]: hasVariant(
-                    $state,
-                    "color",
-                    "green"
-                  ),
-                  [sty.textdate_moanth__qsTurMljd]: hasVariant(
-                    $state,
-                    "date",
-                    "moanth"
-                  )
-                }
-              )}
-            >
-              {hasVariant($state, "date", "moanth")
-                ? "\u0645\u0627\u0647"
-                : "\u0631\u0648\u0632"}
-            </div>
-          }
-        />
-
         {(hasVariant($state, "date", "moanth") ? true : false) ? (
           <CountdownNumber
             className={classNames(
@@ -341,7 +260,14 @@ function PlasmicCountdown__RenderFunc(props: {
                   $state,
                   "date",
                   "moanth"
-                )
+                ),
+                [sty.countdownNumbernormal_color_red_date_moanth__fO6AfRfGe3T6TjRMljd]:
+                  hasVariant($state, "normal", "normal") &&
+                  hasVariant($state, "color", "red") &&
+                  hasVariant($state, "date", "moanth"),
+                [sty.countdownNumbernormal_date_moanth__fO6AfRfGe3RMljd]:
+                  hasVariant($state, "date", "moanth") &&
+                  hasVariant($state, "normal", "normal")
               }
             )}
             number={
@@ -360,18 +286,73 @@ function PlasmicCountdown__RenderFunc(props: {
                       $state,
                       "date",
                       "moanth"
-                    )
+                    ),
+                    [sty.textnormal_color_green__lPfgfRfGe3Zcge]:
+                      hasVariant($state, "normal", "normal") &&
+                      hasVariant($state, "color", "green"),
+                    [sty.textnormal_color_red_date_moanth__lPfgfRfGe3T6TjRMljd]:
+                      hasVariant($state, "normal", "normal") &&
+                      hasVariant($state, "color", "red") &&
+                      hasVariant($state, "date", "moanth"),
+                    [sty.textnormal_date_moanth__lPfgfRfGe3RMljd]:
+                      hasVariant($state, "normal", "normal") &&
+                      hasVariant($state, "date", "moanth"),
+                    [sty.textnormal_date_moanth_color_green__lPfgfRfGe3RMljdZcge]:
+                      hasVariant($state, "normal", "normal") &&
+                      hasVariant($state, "color", "green") &&
+                      hasVariant($state, "date", "moanth")
                   }
                 )}
               >
-                {hasVariant($state, "date", "moanth") &&
-                hasVariant(globalVariants, "screen", "mobile") ? (
+                {hasVariant($state, "normal", "normal") &&
+                hasVariant($state, "date", "moanth") ? (
                   <React.Fragment>
                     {(() => {
                       try {
                         return (
                           Math.floor($state.remainingSeconds / 60 / 60 / 24) %
                           30
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "42";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                ) : hasVariant($state, "date", "moanth") &&
+                  hasVariant(globalVariants, "screen", "mobile") ? (
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return (
+                          Math.floor($state.remainingSeconds / 60 / 60 / 24) %
+                          30
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "42";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                ) : hasVariant($state, "date", "moanth") ? (
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return (
+                          Math.floor($state.remainingSeconds / 60 / 60 / 24) %
+                          Math.floor(
+                            $state.remainingSeconds / 60 / 60 / 24 / 30
+                          )
                         );
                       } catch (e) {
                         if (
@@ -421,7 +402,18 @@ function PlasmicCountdown__RenderFunc(props: {
                       $state,
                       "date",
                       "moanth"
-                    )
+                    ),
+                    [sty.textnormal_color_red_date_moanth__oilAgRfGe3T6TjRMljd]:
+                      hasVariant($state, "normal", "normal") &&
+                      hasVariant($state, "color", "red") &&
+                      hasVariant($state, "date", "moanth"),
+                    [sty.textnormal_date_moanth__oilAgRfGe3RMljd]:
+                      hasVariant($state, "normal", "normal") &&
+                      hasVariant($state, "date", "moanth"),
+                    [sty.textnormal_date_moanth_color_green__oilAgRfGe3RMljdZcge]:
+                      hasVariant($state, "normal", "normal") &&
+                      hasVariant($state, "date", "moanth") &&
+                      hasVariant($state, "color", "green")
                   }
                 )}
               >
@@ -431,7 +423,179 @@ function PlasmicCountdown__RenderFunc(props: {
           />
         ) : null}
         <CountdownNumber
+          className={classNames("__wab_instance", sty.countdownNumber__dJw6J, {
+            [sty.countdownNumbercolor_base2__dJw6Jw7ETd]: hasVariant(
+              $state,
+              "color",
+              "base2"
+            ),
+            [sty.countdownNumbercolor_green__dJw6Jzcge]: hasVariant(
+              $state,
+              "color",
+              "green"
+            ),
+            [sty.countdownNumberdate_moanth__dJw6JrMljd]: hasVariant(
+              $state,
+              "date",
+              "moanth"
+            ),
+            [sty.countdownNumbernormal__dJw6JRfGe3]: hasVariant(
+              $state,
+              "normal",
+              "normal"
+            ),
+            [sty.countdownNumbernormal_date_moanth__dJw6JRfGe3RMljd]:
+              hasVariant($state, "date", "moanth") &&
+              hasVariant($state, "normal", "normal")
+          })}
+          number={
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___77QVc,
+                {
+                  [sty.textcolor_base2___77QVCw7ETd]: hasVariant(
+                    $state,
+                    "color",
+                    "base2"
+                  ),
+                  [sty.textcolor_green___77QVCzcge]: hasVariant(
+                    $state,
+                    "color",
+                    "green"
+                  ),
+                  [sty.textdate_moanth___77QVCrMljd]: hasVariant(
+                    $state,
+                    "date",
+                    "moanth"
+                  ),
+                  [sty.textnormal___77QVcRfGe3]: hasVariant(
+                    $state,
+                    "normal",
+                    "normal"
+                  ),
+                  [sty.textnormal_color_green___77QVcRfGe3Zcge]:
+                    hasVariant($state, "normal", "normal") &&
+                    hasVariant($state, "color", "green"),
+                  [sty.textnormal_color_red___77QVcRfGe3T6Tj]:
+                    hasVariant($state, "normal", "normal") &&
+                    hasVariant($state, "color", "red"),
+                  [sty.textnormal_date_moanth___77QVcRfGe3RMljd]:
+                    hasVariant($state, "normal", "normal") &&
+                    hasVariant($state, "date", "moanth")
+                }
+              )}
+            >
+              {hasVariant($state, "normal", "normal") &&
+              hasVariant($state, "date", "moanth") ? (
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return Math.floor(
+                        $state.remainingSeconds / 60 / 60 / 24 / 30
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "42";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              ) : hasVariant($state, "date", "moanth") ? (
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return Math.floor(
+                        $state.remainingSeconds / 60 / 60 / 24 / 30
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "42";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              ) : (
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return Math.floor($state.remainingSeconds / 60 / 60 / 24);
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "42";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              )}
+            </div>
+          }
+          unit={
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__qsTu,
+                {
+                  [sty.textcolor_base2__qsTuw7ETd]: hasVariant(
+                    $state,
+                    "color",
+                    "base2"
+                  ),
+                  [sty.textcolor_green__qsTuzcge]: hasVariant(
+                    $state,
+                    "color",
+                    "green"
+                  ),
+                  [sty.textdate_moanth__qsTurMljd]: hasVariant(
+                    $state,
+                    "date",
+                    "moanth"
+                  ),
+                  [sty.textnormal__qsTuRfGe3]: hasVariant(
+                    $state,
+                    "normal",
+                    "normal"
+                  ),
+                  [sty.textnormal_color_green__qsTuRfGe3Zcge]:
+                    hasVariant($state, "normal", "normal") &&
+                    hasVariant($state, "color", "green"),
+                  [sty.textnormal_color_red__qsTuRfGe3T6Tj]:
+                    hasVariant($state, "normal", "normal") &&
+                    hasVariant($state, "color", "red"),
+                  [sty.textnormal_date_moanth__qsTuRfGe3RMljd]:
+                    hasVariant($state, "date", "moanth") &&
+                    hasVariant($state, "normal", "normal")
+                }
+              )}
+            >
+              {hasVariant($state, "date", "moanth")
+                ? "\u0645\u0627\u0647"
+                : "\u0631\u0648\u0632"}
+            </div>
+          }
+        />
+
+        <CountdownNumber
           className={classNames("__wab_instance", sty.countdownNumber__tPnLe, {
+            [sty.countdownNumbercolor_base2__tPnLew7ETd]: hasVariant(
+              $state,
+              "color",
+              "base2"
+            ),
             [sty.countdownNumbercolor_green__tPnLezcge]: hasVariant(
               $state,
               "color",
@@ -441,7 +605,18 @@ function PlasmicCountdown__RenderFunc(props: {
               $state,
               "date",
               "moanth"
-            )
+            ),
+            [sty.countdownNumbernormal__tPnLeRfGe3]: hasVariant(
+              $state,
+              "normal",
+              "normal"
+            ),
+            [sty.countdownNumbernormal_color_green__tPnLeRfGe3Zcge]:
+              hasVariant($state, "normal", "normal") &&
+              hasVariant($state, "color", "green"),
+            [sty.countdownNumbernormal_date_moanth__tPnLeRfGe3RMljd]:
+              hasVariant($state, "date", "moanth") &&
+              hasVariant($state, "normal", "normal")
           })}
           number={
             <div
@@ -450,6 +625,11 @@ function PlasmicCountdown__RenderFunc(props: {
                 projectcss.__wab_text,
                 sty.text__nCs9,
                 {
+                  [sty.textcolor_base2__nCs9W7ETd]: hasVariant(
+                    $state,
+                    "color",
+                    "base2"
+                  ),
                   [sty.textcolor_green__nCs9Zcge]: hasVariant(
                     $state,
                     "color",
@@ -459,7 +639,18 @@ function PlasmicCountdown__RenderFunc(props: {
                     $state,
                     "date",
                     "moanth"
-                  )
+                  ),
+                  [sty.textnormal__nCs9RfGe3]: hasVariant(
+                    $state,
+                    "normal",
+                    "normal"
+                  ),
+                  [sty.textnormal_color_green__nCs9RfGe3Zcge]:
+                    hasVariant($state, "normal", "normal") &&
+                    hasVariant($state, "color", "green"),
+                  [sty.textnormal_color_red__nCs9RfGe3T6Tj]:
+                    hasVariant($state, "normal", "normal") &&
+                    hasVariant($state, "color", "red")
                 }
               )}
             >
@@ -487,11 +678,39 @@ function PlasmicCountdown__RenderFunc(props: {
                 projectcss.__wab_text,
                 sty.text__gpy6Q,
                 {
+                  [sty.textcolor_base2__gpy6Qw7ETd]: hasVariant(
+                    $state,
+                    "color",
+                    "base2"
+                  ),
                   [sty.textcolor_green__gpy6Qzcge]: hasVariant(
                     $state,
                     "color",
                     "green"
-                  )
+                  ),
+                  [sty.textdate_moanth__gpy6QrMljd]: hasVariant(
+                    $state,
+                    "date",
+                    "moanth"
+                  ),
+                  [sty.textnormal__gpy6QRfGe3]: hasVariant(
+                    $state,
+                    "normal",
+                    "normal"
+                  ),
+                  [sty.textnormal_color_green__gpy6QRfGe3Zcge]:
+                    hasVariant($state, "normal", "normal") &&
+                    hasVariant($state, "color", "green"),
+                  [sty.textnormal_color_red__gpy6QRfGe3T6Tj]:
+                    hasVariant($state, "normal", "normal") &&
+                    hasVariant($state, "color", "red"),
+                  [sty.textnormal_color_red_date_moanth__gpy6QRfGe3T6TjRMljd]:
+                    hasVariant($state, "normal", "normal") &&
+                    hasVariant($state, "color", "red") &&
+                    hasVariant($state, "date", "moanth"),
+                  [sty.textnormal_date_moanth__gpy6QRfGe3RMljd]:
+                    hasVariant($state, "normal", "normal") &&
+                    hasVariant($state, "date", "moanth")
                 }
               )}
             >
@@ -506,7 +725,10 @@ function PlasmicCountdown__RenderFunc(props: {
               $state,
               "color",
               "green"
-            )
+            ),
+            [sty.countdownNumbernormal_date_moanth___4HVdRfGe3RMljd]:
+              hasVariant($state, "date", "moanth") &&
+              hasVariant($state, "normal", "normal")
           })}
           number={
             <div
@@ -515,6 +737,11 @@ function PlasmicCountdown__RenderFunc(props: {
                 projectcss.__wab_text,
                 sty.text__u8Ay,
                 {
+                  [sty.textcolor_base2__u8AyW7ETd]: hasVariant(
+                    $state,
+                    "color",
+                    "base2"
+                  ),
                   [sty.textcolor_green__u8AyZcge]: hasVariant(
                     $state,
                     "color",
@@ -524,7 +751,22 @@ function PlasmicCountdown__RenderFunc(props: {
                     $state,
                     "date",
                     "moanth"
-                  )
+                  ),
+                  [sty.textnormal__u8AyRfGe3]: hasVariant(
+                    $state,
+                    "normal",
+                    "normal"
+                  ),
+                  [sty.textnormal_color_green__u8AyRfGe3Zcge]:
+                    hasVariant($state, "normal", "normal") &&
+                    hasVariant($state, "color", "green"),
+                  [sty.textnormal_color_red__u8AyRfGe3T6Tj]:
+                    hasVariant($state, "normal", "normal") &&
+                    hasVariant($state, "color", "red"),
+                  [sty.textnormal_date_moanth_color_green__u8AyRfGe3RMljdZcge]:
+                    hasVariant($state, "normal", "normal") &&
+                    hasVariant($state, "color", "green") &&
+                    hasVariant($state, "date", "moanth")
                 }
               )}
             >
@@ -552,11 +794,27 @@ function PlasmicCountdown__RenderFunc(props: {
                 projectcss.__wab_text,
                 sty.text__rdxiz,
                 {
+                  [sty.textcolor_base2__rdxiZw7ETd]: hasVariant(
+                    $state,
+                    "color",
+                    "base2"
+                  ),
                   [sty.textcolor_green__rdxiZzcge]: hasVariant(
                     $state,
                     "color",
                     "green"
-                  )
+                  ),
+                  [sty.textnormal__rdxizRfGe3]: hasVariant(
+                    $state,
+                    "normal",
+                    "normal"
+                  ),
+                  [sty.textnormal_color_green__rdxizRfGe3Zcge]:
+                    hasVariant($state, "normal", "normal") &&
+                    hasVariant($state, "color", "green"),
+                  [sty.textnormal_color_red__rdxizRfGe3T6Tj]:
+                    hasVariant($state, "normal", "normal") &&
+                    hasVariant($state, "color", "red")
                 }
               )}
             >

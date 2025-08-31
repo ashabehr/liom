@@ -3841,7 +3841,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                                           throw e;
                                         }
                                       })(),
-                                  onRemainingSecondsChange: async (
+                                  onRemainingSecondsChange2: async (
                                     ...eventArgs: any
                                   ) => {
                                     generateStateOnChangeProp($state, [
