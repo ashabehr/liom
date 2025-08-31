@@ -218,6 +218,7 @@ export type PlasmicHamyar__OverridesType = {
   mobileDialog?: Flex__<typeof MobileDialog>;
   telegram?: Flex__<typeof Dialog>;
   button18?: Flex__<typeof Button>;
+  apiRequest?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultHamyarProps {}
@@ -1983,6 +1984,24 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "apiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -24917,6 +24936,67 @@ function PlasmicHamyar__RenderFunc(props: {
               </Dialog>
             );
           })()}
+          <ApiRequest
+            data-plasmic-name={"apiRequest"}
+            data-plasmic-override={overrides.apiRequest}
+            className={classNames("__wab_instance", sty.apiRequest)}
+            errorDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__lk9Hn
+                )}
+              >
+                {"Error fetching data"}
+              </div>
+            }
+            loadingDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___1UuN9
+                )}
+              >
+                {"Loading..."}
+              </div>
+            }
+            method={"GET"}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "apiRequest",
+                "loading"
+              ]).apply(null, eventArgs);
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            params={(() => {
+              try {
+                return undefined;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            shouldFetch={true}
+            url={"https://n8n.staas.ir/webhook/hamyar/reminder"}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -24991,7 +25071,8 @@ const PlasmicDescendants = {
     "button16",
     "mobileDialog",
     "telegram",
-    "button18"
+    "button18",
+    "apiRequest"
   ],
   sideEffect: ["sideEffect"],
   main: [
@@ -25121,7 +25202,8 @@ const PlasmicDescendants = {
   button16: ["button16"],
   mobileDialog: ["mobileDialog"],
   telegram: ["telegram", "button18"],
-  button18: ["button18"]
+  button18: ["button18"],
+  apiRequest: ["apiRequest"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -25194,6 +25276,7 @@ type NodeDefaultElementType = {
   mobileDialog: typeof MobileDialog;
   telegram: typeof Dialog;
   button18: typeof Button;
+  apiRequest: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -25347,6 +25430,7 @@ export const PlasmicHamyar = Object.assign(
     mobileDialog: makeNodeComponent("mobileDialog"),
     telegram: makeNodeComponent("telegram"),
     button18: makeNodeComponent("button18"),
+    apiRequest: makeNodeComponent("apiRequest"),
 
     // Metadata about props expected for PlasmicHamyar
     internalVariantProps: PlasmicHamyar__VariantProps,

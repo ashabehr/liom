@@ -135,18 +135,19 @@ export type PlasmicReminder__OverridesType = {
   todayMeeting?: Flex__<"div">;
   frame?: Flex__<"div">;
   frame2?: Flex__<"div">;
-  frame3?: Flex__<"div">;
-  frame4?: Flex__<"div">;
-  frame5?: Flex__<"div">;
-  frame6?: Flex__<"div">;
-  frame7?: Flex__<"div">;
-  group2?: Flex__<"div">;
-  group3?: Flex__<"div">;
-  frame8?: Flex__<"div">;
-  countdown?: Flex__<typeof Countdown>;
-  frame9?: Flex__<"div">;
-  button?: Flex__<typeof Button>;
-  switchbest?: Flex__<typeof Switchbest>;
+  frame19?: Flex__<"div">;
+  frame20?: Flex__<"div">;
+  frame21?: Flex__<"div">;
+  frame22?: Flex__<"div">;
+  frame23?: Flex__<"div">;
+  group6?: Flex__<"div">;
+  group7?: Flex__<"div">;
+  frame24?: Flex__<"div">;
+  countdown3?: Flex__<typeof Countdown>;
+  frame25?: Flex__<"div">;
+  button6?: Flex__<typeof Button>;
+  popover2?: Flex__<typeof AntdPopover>;
+  switchbest4?: Flex__<typeof Switchbest>;
 };
 
 export interface DefaultReminderProps {
@@ -188,7 +189,7 @@ function PlasmicReminder__RenderFunc(props: {
               description: null,
               repeat_yearly: 1,
               remind_before: 0,
-              smsActive: 0
+              smsActive: 1
             },
             {
               id: 31,
@@ -200,7 +201,7 @@ function PlasmicReminder__RenderFunc(props: {
               description: null,
               repeat_yearly: 1,
               remind_before: 0,
-              smsActive: 0
+              smsActive: 1
             },
             {
               id: 30,
@@ -341,31 +342,6 @@ function PlasmicReminder__RenderFunc(props: {
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
-      {
-        path: "button[].color",
-        type: "private",
-        variableType: "text"
-      },
-      {
-        path: "button[].loading",
-        type: "private",
-        variableType: "boolean"
-      },
-      {
-        path: "button[].load",
-        type: "private",
-        variableType: "boolean"
-      },
-      {
-        path: "switchbest[].isChecked",
-        type: "private",
-        variableType: "boolean"
-      },
-      {
-        path: "countdown[].remainingSeconds",
-        type: "private",
-        variableType: "number"
-      },
       {
         path: "type",
         type: "private",
@@ -572,6 +548,36 @@ function PlasmicReminder__RenderFunc(props: {
       },
       {
         path: "popover[].open",
+        type: "private",
+        variableType: "boolean"
+      },
+      {
+        path: "countdown3[].remainingSeconds",
+        type: "private",
+        variableType: "number"
+      },
+      {
+        path: "button6[].color",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "button6[].loading",
+        type: "private",
+        variableType: "boolean"
+      },
+      {
+        path: "button6[].load",
+        type: "private",
+        variableType: "boolean"
+      },
+      {
+        path: "popover2[].open",
+        type: "private",
+        variableType: "boolean"
+      },
+      {
+        path: "switchbest4[].isChecked",
         type: "private",
         variableType: "boolean"
       }
@@ -1978,7 +1984,22 @@ function PlasmicReminder__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__i0HbK,
-                          "zoom-animation"
+                          (() => {
+                            try {
+                              return $props.subscription &&
+                                !currentItem.smsActive
+                                ? "bounce-yellow"
+                                : "";
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
                         )}
                       >
                         {(() => {
@@ -2002,7 +2023,7 @@ function PlasmicReminder__RenderFunc(props: {
                               </div>
                             ),
                             contentText: "Popover contents",
-                            defaultOpen: true,
+                            defaultOpen: false,
                             defaultStylesClassName: classNames(
                               projectcss.root_reset,
                               projectcss.plasmic_default_styles,
@@ -2053,7 +2074,8 @@ function PlasmicReminder__RenderFunc(props: {
                             [
                               {
                                 name: "popover[].open",
-                                initFunc: ({ $props, $state, $queries }) => true
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  false
                               }
                             ],
                             [__plasmic_idx_0]
@@ -2390,64 +2412,96 @@ function PlasmicReminder__RenderFunc(props: {
             const currentIndex = __plasmic_idx_0;
             return (
               <div
-                data-plasmic-name={"frame3"}
-                data-plasmic-override={overrides.frame3}
-                className={classNames(projectcss.all, sty.frame3)}
+                data-plasmic-name={"frame19"}
+                data-plasmic-override={overrides.frame19}
+                className={classNames(projectcss.all, sty.frame19)}
                 key={currentIndex}
               >
                 <div
-                  data-plasmic-name={"frame4"}
-                  data-plasmic-override={overrides.frame4}
-                  className={classNames(projectcss.all, sty.frame4)}
+                  data-plasmic-name={"frame20"}
+                  data-plasmic-override={overrides.frame20}
+                  className={classNames(projectcss.all, sty.frame20)}
                 >
                   <div
-                    data-plasmic-name={"frame5"}
-                    data-plasmic-override={overrides.frame5}
-                    className={classNames(projectcss.all, sty.frame5)}
+                    data-plasmic-name={"frame21"}
+                    data-plasmic-override={overrides.frame21}
+                    className={classNames(projectcss.all, sty.frame21)}
                   >
                     <div
-                      data-plasmic-name={"frame6"}
-                      data-plasmic-override={overrides.frame6}
-                      className={classNames(projectcss.all, sty.frame6)}
+                      data-plasmic-name={"frame22"}
+                      data-plasmic-override={overrides.frame22}
+                      className={classNames(projectcss.all, sty.frame22)}
                     >
                       <div
-                        data-plasmic-name={"frame7"}
-                        data-plasmic-override={overrides.frame7}
-                        className={classNames(projectcss.all, sty.frame7)}
+                        data-plasmic-name={"frame23"}
+                        data-plasmic-override={overrides.frame23}
+                        className={classNames(projectcss.all, sty.frame23)}
                       >
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__f5MGm
+                            sty.freeBox__glafg
                           )}
                         >
                           <div
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__p1C1M
+                              sty.freeBox___9WLwx
                             )}
                           >
                             <div
-                              data-plasmic-name={"group2"}
-                              data-plasmic-override={overrides.group2}
-                              className={classNames(projectcss.all, sty.group2)}
+                              data-plasmic-name={"group6"}
+                              data-plasmic-override={overrides.group6}
+                              className={classNames(projectcss.all, sty.group6)}
                             >
                               <div
-                                data-plasmic-name={"group3"}
-                                data-plasmic-override={overrides.group3}
+                                data-plasmic-name={"group7"}
+                                data-plasmic-override={overrides.group7}
                                 className={classNames(
                                   projectcss.all,
-                                  sty.group3
+                                  sty.group7
                                 )}
+                                style={(() => {
+                                  try {
+                                    return {
+                                      background:
+                                        $props.subscription &&
+                                        !currentItem.smsActive
+                                          ? "#FAAD14"
+                                          : ""
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()}
                               >
                                 <MenuIcon
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.menuIcon___5Cf
+                                    sty.menuIcon__pgJwo
                                   )}
                                   icons={(() => {
                                     try {
-                                      return currentItem.type.toLowerCase();
+                                      return (() => {
+                                        if (
+                                          $props.subscription &&
+                                          !currentItem.smsActive
+                                        )
+                                          return "alert";
+                                        else
+                                          return currentItem.type
+                                            .toLowerCase()
+                                            .includes("birthday")
+                                            ? "birthday"
+                                            : currentItem.type.toLocaleLowerCase();
+                                      })();
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -2466,7 +2520,7 @@ function PlasmicReminder__RenderFunc(props: {
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text__eruD
+                                sty.text__slQH
                               )}
                             >
                               <React.Fragment>
@@ -2491,7 +2545,7 @@ function PlasmicReminder__RenderFunc(props: {
                             className={classNames(
                               projectcss.all,
                               projectcss.__wab_text,
-                              sty.text__qgcKu
+                              sty.text__eBhr
                             )}
                           >
                             <React.Fragment>
@@ -2513,15 +2567,15 @@ function PlasmicReminder__RenderFunc(props: {
                           </div>
                         </div>
                         <div
-                          data-plasmic-name={"frame8"}
-                          data-plasmic-override={overrides.frame8}
-                          className={classNames(projectcss.all, sty.frame8)}
+                          data-plasmic-name={"frame24"}
+                          data-plasmic-override={overrides.frame24}
+                          className={classNames(projectcss.all, sty.frame24)}
                         >
                           {(() => {
                             const child$Props = {
                               className: classNames(
                                 "__wab_instance",
-                                sty.countdown
+                                sty.countdown3
                               ),
                               color: (() => {
                                 try {
@@ -2556,7 +2610,7 @@ function PlasmicReminder__RenderFunc(props: {
                                 ...eventArgs: any
                               ) => {
                                 generateStateOnChangeProp($state, [
-                                  "countdown",
+                                  "countdown3",
                                   __plasmic_idx_0,
                                   "remainingSeconds"
                                 ]).apply(null, eventArgs);
@@ -2570,7 +2624,7 @@ function PlasmicReminder__RenderFunc(props: {
                                 }
                               },
                               remainingSeconds: generateStateValueProp($state, [
-                                "countdown",
+                                "countdown3",
                                 __plasmic_idx_0,
                                 "remainingSeconds"
                               ])
@@ -2580,7 +2634,7 @@ function PlasmicReminder__RenderFunc(props: {
                               $state,
                               [
                                 {
-                                  name: "countdown[].remainingSeconds",
+                                  name: "countdown3[].remainingSeconds",
                                   initFunc: ({ $props, $state, $queries }) =>
                                     (() => {
                                       try {
@@ -2614,8 +2668,8 @@ function PlasmicReminder__RenderFunc(props: {
                             );
                             return (
                               <Countdown
-                                data-plasmic-name={"countdown"}
-                                data-plasmic-override={overrides.countdown}
+                                data-plasmic-name={"countdown3"}
+                                data-plasmic-override={overrides.countdown3}
                                 {...child$Props}
                               />
                             );
@@ -2624,14 +2678,14 @@ function PlasmicReminder__RenderFunc(props: {
                       </div>
                     </div>
                     <div
-                      data-plasmic-name={"frame9"}
-                      data-plasmic-override={overrides.frame9}
-                      className={classNames(projectcss.all, sty.frame9)}
+                      data-plasmic-name={"frame25"}
+                      data-plasmic-override={overrides.frame25}
+                      className={classNames(projectcss.all, sty.frame25)}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__l7TzI
+                          sty.freeBox___9PwDv
                         )}
                       >
                         {(() => {
@@ -2651,27 +2705,166 @@ function PlasmicReminder__RenderFunc(props: {
                               const child$Props = {
                                 className: classNames(
                                   "__wab_instance",
-                                  sty.button
+                                  sty.button6
                                 ),
                                 color: generateStateValueProp($state, [
-                                  "button",
+                                  "button6",
                                   __plasmic_idx_0,
                                   "color"
                                 ]),
                                 load: generateStateValueProp($state, [
-                                  "button",
+                                  "button6",
                                   __plasmic_idx_0,
                                   "load"
                                 ]),
                                 loading: generateStateValueProp($state, [
-                                  "button",
+                                  "button6",
                                   __plasmic_idx_0,
                                   "loading"
                                 ]),
+                                onClick: async event => {
+                                  const $steps = {};
+
+                                  $steps["updateSelect2"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          variable: {
+                                            objRoot: $state,
+                                            variablePath: ["select2"]
+                                          },
+                                          operation: 0,
+                                          value: currentItem
+                                        };
+                                        return (({
+                                          variable,
+                                          value,
+                                          startIndex,
+                                          deleteCount
+                                        }) => {
+                                          if (!variable) {
+                                            return;
+                                          }
+                                          const { objRoot, variablePath } =
+                                            variable;
+
+                                          $stateSet(
+                                            objRoot,
+                                            variablePath,
+                                            value
+                                          );
+                                          return value;
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["updateSelect2"] != null &&
+                                    typeof $steps["updateSelect2"] ===
+                                      "object" &&
+                                    typeof $steps["updateSelect2"].then ===
+                                      "function"
+                                  ) {
+                                    $steps["updateSelect2"] = await $steps[
+                                      "updateSelect2"
+                                    ];
+                                  }
+
+                                  $steps["updateDate"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          variable: {
+                                            objRoot: $state,
+                                            variablePath: ["date"]
+                                          },
+                                          operation: 0,
+                                          value: {
+                                            f: currentItem.date_shamsi,
+                                            g: currentItem.date_greg
+                                          }
+                                        };
+                                        return (({
+                                          variable,
+                                          value,
+                                          startIndex,
+                                          deleteCount
+                                        }) => {
+                                          if (!variable) {
+                                            return;
+                                          }
+                                          const { objRoot, variablePath } =
+                                            variable;
+
+                                          $stateSet(
+                                            objRoot,
+                                            variablePath,
+                                            value
+                                          );
+                                          return value;
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["updateDate"] != null &&
+                                    typeof $steps["updateDate"] === "object" &&
+                                    typeof $steps["updateDate"].then ===
+                                      "function"
+                                  ) {
+                                    $steps["updateDate"] = await $steps[
+                                      "updateDate"
+                                    ];
+                                  }
+
+                                  $steps["updateDialogOpendialog"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          variable: {
+                                            objRoot: $state,
+                                            variablePath: [
+                                              "dialog",
+                                              "opendialog"
+                                            ]
+                                          },
+                                          operation: 4
+                                        };
+                                        return (({
+                                          variable,
+                                          value,
+                                          startIndex,
+                                          deleteCount
+                                        }) => {
+                                          if (!variable) {
+                                            return;
+                                          }
+                                          const { objRoot, variablePath } =
+                                            variable;
+
+                                          const oldValue = $stateGet(
+                                            objRoot,
+                                            variablePath
+                                          );
+                                          $stateSet(
+                                            objRoot,
+                                            variablePath,
+                                            !oldValue
+                                          );
+                                          return !oldValue;
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["updateDialogOpendialog"] != null &&
+                                    typeof $steps["updateDialogOpendialog"] ===
+                                      "object" &&
+                                    typeof $steps["updateDialogOpendialog"]
+                                      .then === "function"
+                                  ) {
+                                    $steps["updateDialogOpendialog"] =
+                                      await $steps["updateDialogOpendialog"];
+                                  }
+                                },
                                 onColorChange: async (...eventArgs: any) => {
                                   ((...eventArgs) => {
                                     generateStateOnChangeProp($state, [
-                                      "button",
+                                      "button6",
                                       __plasmic_idx_0,
                                       "color"
                                     ])(eventArgs[0]);
@@ -2688,7 +2881,7 @@ function PlasmicReminder__RenderFunc(props: {
                                 onLoadChange: async (...eventArgs: any) => {
                                   ((...eventArgs) => {
                                     generateStateOnChangeProp($state, [
-                                      "button",
+                                      "button6",
                                       __plasmic_idx_0,
                                       "load"
                                     ])(eventArgs[0]);
@@ -2705,7 +2898,7 @@ function PlasmicReminder__RenderFunc(props: {
                                 onLoadingChange: async (...eventArgs: any) => {
                                   ((...eventArgs) => {
                                     generateStateOnChangeProp($state, [
-                                      "button",
+                                      "button6",
                                       __plasmic_idx_0,
                                       "loading"
                                     ])(eventArgs[0]);
@@ -2727,17 +2920,17 @@ function PlasmicReminder__RenderFunc(props: {
                                 $state,
                                 [
                                   {
-                                    name: "button[].color",
+                                    name: "button6[].color",
                                     initFunc: ({ $props, $state, $queries }) =>
                                       undefined
                                   },
                                   {
-                                    name: "button[].loading",
+                                    name: "button6[].loading",
                                     initFunc: ({ $props, $state, $queries }) =>
                                       undefined
                                   },
                                   {
-                                    name: "button[].load",
+                                    name: "button6[].load",
                                     initFunc: ({ $props, $state, $queries }) =>
                                       false
                                   }
@@ -2746,15 +2939,15 @@ function PlasmicReminder__RenderFunc(props: {
                               );
                               return (
                                 <Button
-                                  data-plasmic-name={"button"}
-                                  data-plasmic-override={overrides.button}
+                                  data-plasmic-name={"button6"}
+                                  data-plasmic-override={overrides.button6}
                                   {...child$Props}
                                 >
                                   <div
                                     className={classNames(
                                       projectcss.all,
                                       projectcss.__wab_text,
-                                      sty.text__zhHrc
+                                      sty.text__dJOc1
                                     )}
                                   >
                                     {"\u0648\u06cc\u0631\u0627\u06cc\u0634"}
@@ -2764,81 +2957,270 @@ function PlasmicReminder__RenderFunc(props: {
                             })()
                           : null}
                       </div>
-                      {(() => {
-                        const child$Props = {
-                          className: classNames(
-                            "__wab_instance",
-                            sty.switchbest
-                          ),
-                          isChecked:
-                            generateStateValueProp($state, [
-                              "switchbest",
-                              __plasmic_idx_0,
-                              "isChecked"
-                            ]) ?? false,
-                          onChange: async (...eventArgs: any) => {
-                            ((...eventArgs) => {
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__rvlK4,
+                          (() => {
+                            try {
+                              return $props.subscription &&
+                                !currentItem.smsActive
+                                ? "bounce-yellow"
+                                : "";
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        )}
+                      >
+                        {(() => {
+                          const child$Props = {
+                            arrow: true,
+                            className: classNames(
+                              "__wab_instance",
+                              sty.popover2
+                            ),
+                            content: (
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__qe7Ei
+                                )}
+                              >
+                                {
+                                  "\u0628\u0627 \u0641\u0639\u0627\u0644\u200c\u0633\u0627\u0632\u06cc \u0627\u06cc\u0646 \u06af\u0632\u06cc\u0646\u0647\u060c \u062f\u06cc\u06af\u0647 \u0647\u06cc\u0686 \u0645\u0646\u0627\u0633\u0628\u062a\u06cc  \u0631\u0648 \u0627\u0632 \u062f\u0633\u062a \u0646\u0645\u06cc\u200c\u062f\u06cc\u061b \u0647\u0645 \u062f\u0631 \u062a\u0644\u06af\u0631\u0627\u0645 \u0648 \u0647\u0645 \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0631\u0627\u062a \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u200c\u0634\u0647."
+                                }
+                              </div>
+                            ),
+                            contentText: "Popover contents",
+                            defaultOpen: false,
+                            defaultStylesClassName: classNames(
+                              projectcss.root_reset,
+                              projectcss.plasmic_default_styles,
+                              projectcss.plasmic_mixins,
+                              styleTokensClassNames,
+                              styleTokensClassNames_antd_5_hostless,
+                              styleTokensClassNames_plasmic_rich_components
+                            ),
+                            mouseEnterDelay: 0,
+                            mouseLeaveDelay: 0,
+                            onOpenChange: async (...eventArgs: any) => {
                               generateStateOnChangeProp($state, [
-                                "switchbest",
+                                "popover2",
+                                __plasmic_idx_0,
+                                "open"
+                              ]).apply(null, eventArgs);
+                            },
+                            open: generateStateValueProp($state, [
+                              "popover2",
+                              __plasmic_idx_0,
+                              "open"
+                            ]),
+                            overlayClassName: classNames({
+                              [sty["pcls_8kHyAFUqFcFV"]]: true
+                            }),
+                            placement: "bottom",
+                            popoverContentClassName: classNames({
+                              [sty["pcls_ZRvGNYd2A3_M"]]: true
+                            }),
+                            popoverScopeClassName: sty["popover2__popover"],
+                            title: null,
+                            trigger: "click"
+                          };
+                          initializeCodeComponentStates(
+                            $state,
+                            [
+                              {
+                                name: "open",
+                                plasmicStateName: "popover2[].open"
+                              }
+                            ],
+                            [__plasmic_idx_0],
+                            undefined ?? {},
+                            child$Props
+                          );
+                          initializePlasmicStates(
+                            $state,
+                            [
+                              {
+                                name: "popover2[].open",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  false
+                              }
+                            ],
+                            [__plasmic_idx_0]
+                          );
+                          return (
+                            <AntdPopover
+                              data-plasmic-name={"popover2"}
+                              data-plasmic-override={overrides.popover2}
+                              {...child$Props}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__p7KF
+                                )}
+                              >
+                                <InfoIcon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__smxx2
+                                  )}
+                                  role={"img"}
+                                />
+
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__bnGgz
+                                  )}
+                                >
+                                  {
+                                    "\u0627\u0631\u0633\u0627\u0644 \u06cc\u0627\u062f\u0622\u0648\u0631"
+                                  }
+                                </div>
+                              </div>
+                            </AntdPopover>
+                          );
+                        })()}
+                        {(() => {
+                          const child$Props = {
+                            children: null,
+                            className: classNames(
+                              "__wab_instance",
+                              sty.switchbest4
+                            ),
+                            isChecked:
+                              generateStateValueProp($state, [
+                                "switchbest4",
                                 __plasmic_idx_0,
                                 "isChecked"
-                              ])(eventArgs[0]);
-                            }).apply(null, eventArgs);
-
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          }
-                        };
-
-                        initializePlasmicStates(
-                          $state,
-                          [
-                            {
-                              name: "switchbest[].isChecked",
-                              initFunc: ({ $props, $state, $queries }) =>
-                                (() => {
-                                  try {
-                                    return currentItem.smsActive;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return [];
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                            }
-                          ],
-                          [__plasmic_idx_0]
-                        );
-                        return (
-                          <Switchbest
-                            data-plasmic-name={"switchbest"}
-                            data-plasmic-override={overrides.switchbest}
-                            {...child$Props}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__xBe
-                              )}
-                            >
-                              {
-                                "\u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9"
+                              ]) ?? false,
+                            isDisabled: (() => {
+                              try {
+                                return !$props.subscription;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
                               }
-                            </div>
-                          </Switchbest>
-                        );
-                      })()}
+                            })(),
+                            onChange: async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "switchbest4",
+                                  __plasmic_idx_0,
+                                  "isChecked"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+
+                              (async isChecked => {
+                                const $steps = {};
+
+                                $steps["update"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        args: [
+                                          "POST",
+                                          "https://n8n.staas.ir/webhook/hamyar/reminder/smsactive",
+                                          undefined,
+                                          (() => {
+                                            try {
+                                              return {
+                                                id: currentItem.id,
+                                                man_id: $props.manId,
+                                                smsActive: $state.switchbest2[
+                                                  currentIndex
+                                                ].isChecked
+                                                  ? 1
+                                                  : 0
+                                              };
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                        ]
+                                      };
+                                      return $globalActions[
+                                        "Fragment.apiRequest"
+                                      ]?.apply(null, [...actionArgs.args]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["update"] != null &&
+                                  typeof $steps["update"] === "object" &&
+                                  typeof $steps["update"].then === "function"
+                                ) {
+                                  $steps["update"] = await $steps["update"];
+                                }
+                              }).apply(null, eventArgs);
+                            }
+                          };
+
+                          initializePlasmicStates(
+                            $state,
+                            [
+                              {
+                                name: "switchbest4[].isChecked",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  (() => {
+                                    try {
+                                      return (
+                                        $props.subscription &&
+                                        currentItem.smsActive
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return [];
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                              }
+                            ],
+                            [__plasmic_idx_0]
+                          );
+                          return (
+                            <Switchbest
+                              data-plasmic-name={"switchbest4"}
+                              data-plasmic-override={overrides.switchbest4}
+                              {...child$Props}
+                            />
+                          );
+                        })()}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -2884,18 +3266,19 @@ const PlasmicDescendants = {
     "todayMeeting",
     "frame",
     "frame2",
-    "frame3",
-    "frame4",
-    "frame5",
-    "frame6",
-    "frame7",
-    "group2",
-    "group3",
-    "frame8",
-    "countdown",
-    "frame9",
-    "button",
-    "switchbest"
+    "frame19",
+    "frame20",
+    "frame21",
+    "frame22",
+    "frame23",
+    "group6",
+    "group7",
+    "frame24",
+    "countdown3",
+    "frame25",
+    "button6",
+    "popover2",
+    "switchbest4"
   ],
   section: [
     "section",
@@ -2996,69 +3379,74 @@ const PlasmicDescendants = {
     "todayMeeting",
     "frame",
     "frame2",
-    "frame3",
-    "frame4",
-    "frame5",
-    "frame6",
-    "frame7",
-    "group2",
-    "group3",
-    "frame8",
-    "countdown",
-    "frame9",
-    "button",
-    "switchbest"
+    "frame19",
+    "frame20",
+    "frame21",
+    "frame22",
+    "frame23",
+    "group6",
+    "group7",
+    "frame24",
+    "countdown3",
+    "frame25",
+    "button6",
+    "popover2",
+    "switchbest4"
   ],
   frame: ["frame", "frame2"],
   frame2: ["frame2"],
-  frame3: [
-    "frame3",
-    "frame4",
-    "frame5",
-    "frame6",
-    "frame7",
-    "group2",
-    "group3",
-    "frame8",
-    "countdown",
-    "frame9",
-    "button",
-    "switchbest"
+  frame19: [
+    "frame19",
+    "frame20",
+    "frame21",
+    "frame22",
+    "frame23",
+    "group6",
+    "group7",
+    "frame24",
+    "countdown3",
+    "frame25",
+    "button6",
+    "popover2",
+    "switchbest4"
   ],
-  frame4: [
-    "frame4",
-    "frame5",
-    "frame6",
-    "frame7",
-    "group2",
-    "group3",
-    "frame8",
-    "countdown",
-    "frame9",
-    "button",
-    "switchbest"
+  frame20: [
+    "frame20",
+    "frame21",
+    "frame22",
+    "frame23",
+    "group6",
+    "group7",
+    "frame24",
+    "countdown3",
+    "frame25",
+    "button6",
+    "popover2",
+    "switchbest4"
   ],
-  frame5: [
-    "frame5",
-    "frame6",
-    "frame7",
-    "group2",
-    "group3",
-    "frame8",
-    "countdown",
-    "frame9",
-    "button",
-    "switchbest"
+  frame21: [
+    "frame21",
+    "frame22",
+    "frame23",
+    "group6",
+    "group7",
+    "frame24",
+    "countdown3",
+    "frame25",
+    "button6",
+    "popover2",
+    "switchbest4"
   ],
-  frame6: ["frame6", "frame7", "group2", "group3", "frame8", "countdown"],
-  frame7: ["frame7", "group2", "group3", "frame8", "countdown"],
-  group2: ["group2", "group3"],
-  group3: ["group3"],
-  frame8: ["frame8", "countdown"],
-  countdown: ["countdown"],
-  frame9: ["frame9", "button", "switchbest"],
-  button: ["button"],
-  switchbest: ["switchbest"]
+  frame22: ["frame22", "frame23", "group6", "group7", "frame24", "countdown3"],
+  frame23: ["frame23", "group6", "group7", "frame24", "countdown3"],
+  group6: ["group6", "group7"],
+  group7: ["group7"],
+  frame24: ["frame24", "countdown3"],
+  countdown3: ["countdown3"],
+  frame25: ["frame25", "button6", "popover2", "switchbest4"],
+  button6: ["button6"],
+  popover2: ["popover2"],
+  switchbest4: ["switchbest4"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -3095,18 +3483,19 @@ type NodeDefaultElementType = {
   todayMeeting: "div";
   frame: "div";
   frame2: "div";
-  frame3: "div";
-  frame4: "div";
-  frame5: "div";
-  frame6: "div";
-  frame7: "div";
-  group2: "div";
-  group3: "div";
-  frame8: "div";
-  countdown: typeof Countdown;
-  frame9: "div";
-  button: typeof Button;
-  switchbest: typeof Switchbest;
+  frame19: "div";
+  frame20: "div";
+  frame21: "div";
+  frame22: "div";
+  frame23: "div";
+  group6: "div";
+  group7: "div";
+  frame24: "div";
+  countdown3: typeof Countdown;
+  frame25: "div";
+  button6: typeof Button;
+  popover2: typeof AntdPopover;
+  switchbest4: typeof Switchbest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3199,18 +3588,19 @@ export const PlasmicReminder = Object.assign(
     todayMeeting: makeNodeComponent("todayMeeting"),
     frame: makeNodeComponent("frame"),
     frame2: makeNodeComponent("frame2"),
-    frame3: makeNodeComponent("frame3"),
-    frame4: makeNodeComponent("frame4"),
-    frame5: makeNodeComponent("frame5"),
-    frame6: makeNodeComponent("frame6"),
-    frame7: makeNodeComponent("frame7"),
-    group2: makeNodeComponent("group2"),
-    group3: makeNodeComponent("group3"),
-    frame8: makeNodeComponent("frame8"),
-    countdown: makeNodeComponent("countdown"),
-    frame9: makeNodeComponent("frame9"),
-    button: makeNodeComponent("button"),
-    switchbest: makeNodeComponent("switchbest"),
+    frame19: makeNodeComponent("frame19"),
+    frame20: makeNodeComponent("frame20"),
+    frame21: makeNodeComponent("frame21"),
+    frame22: makeNodeComponent("frame22"),
+    frame23: makeNodeComponent("frame23"),
+    group6: makeNodeComponent("group6"),
+    group7: makeNodeComponent("group7"),
+    frame24: makeNodeComponent("frame24"),
+    countdown3: makeNodeComponent("countdown3"),
+    frame25: makeNodeComponent("frame25"),
+    button6: makeNodeComponent("button6"),
+    popover2: makeNodeComponent("popover2"),
+    switchbest4: makeNodeComponent("switchbest4"),
 
     // Metadata about props expected for PlasmicReminder
     internalVariantProps: PlasmicReminder__VariantProps,
