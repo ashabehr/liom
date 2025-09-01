@@ -34,15 +34,16 @@ export const requestPermission = async (): Promise<string | null> => {
 };
 
 // تابع با callback برای Foreground
+// فقط پیام رو گوش بده و پاس بده بیرون
 export const onMessageListener = (callback: (payload: any) => void) => {
   onMessage(messaging, (payload) => {
-    console.log("📩 پیام Foreground fcm دریافت شد:", payload);
+    // console.log("📩 پیام Foreground fcm دریافت شد:", payload);
     callback(payload);
   });
 };
 
-// هندل مسیر کلیک روی نوتیف
-function handleNotificationClick(action: string | null) {
+// همون تابع کلیک
+export function handleNotificationClick(action: string | null) {
   let targetUrl = "/";
 
   if (action) {
@@ -54,8 +55,6 @@ function handleNotificationClick(action: string | null) {
         targetUrl = "https://apps.liom.app/shop";
         break;
       case "calendar":
-        targetUrl = "https://apps.liom.app/main";
-        break;
       case "maincalendar":
         targetUrl = "https://apps.liom.app/main";
         break;
