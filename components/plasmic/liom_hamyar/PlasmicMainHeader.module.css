@@ -28,6 +28,7 @@
 .svg__lyXjc {
   object-fit: cover;
   max-width: 100%;
+  cursor: pointer;
   height: 1em;
 }
 .text__xj0O6 {
@@ -398,6 +399,14 @@
   border-right-style: solid;
   min-width: 0;
   flex-shrink: 0;
+}
+.text___6YewD {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-R_Rsn0nP9oIv);
+  min-width: 0;
 }
 .freeBox___0Wkzo {
   display: flex;

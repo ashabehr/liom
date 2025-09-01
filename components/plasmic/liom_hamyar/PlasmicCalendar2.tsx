@@ -1837,64 +1837,41 @@ function PlasmicCalendar2__RenderFunc(props: {
                 const actionArgs = {
                   customFunction: async () => {
                     return (() => {
-                      try {
-                        $state.advace = JSON.parse(
-                          window.sessionStorage.getItem("advice")
+                      if (typeof $state !== "undefined" && $state !== null) {
+                        function safeParse(storage, key) {
+                          try {
+                            const raw = storage.getItem(key);
+                            if (!raw) return null;
+                            return JSON.parse(raw);
+                          } catch (e) {
+                            console.error(`خطا در parsing ${key}:`, e);
+                            return null;
+                          }
+                        }
+                        $state.advice = safeParse(
+                          window.sessionStorage,
+                          "advice"
                         );
-                      } catch (e) {
-                        console.error("خطا در parsing advice:", e);
-                        $state.advace = null;
-                      }
-                      console.log("advace:", $state.advace);
-                      try {
-                        $state.sing = JSON.parse(
-                          window.sessionStorage.getItem("sing")
-                        );
-                      } catch (e) {
-                        console.error("خطا در parsing sing:", e);
-                        $state.sing = null;
-                      }
-                      console.log("sing:", $state.sing);
-                      try {
-                        $state.day = JSON.parse(
-                          window.sessionStorage.getItem("day")
-                        );
-                      } catch (e) {
-                        console.error("خطا در parsing day:", e);
-                        $state.day = null;
-                      }
-                      console.log("day:", $state.day);
-                      let user;
-                      try {
-                        user = JSON.parse(
-                          window.localStorage.getItem("userinfo")
-                        );
-                      } catch (e) {
-                        console.error("خطا در parsing userinfo:", e);
-                        user = null;
-                      }
-                      console.log("user:", user);
-                      $state.userInfo = {
-                        success: true,
-                        result: user
-                      };
-                      console.log("userInfo:", $state.userInfo);
-                      $state.name = $state.userInfo.result?.user?.name || null;
-                      console.log("name:", $state.name);
-                      $state.status =
-                        $state.userInfo.result?.userStatus?.periodStatus ||
-                        null;
-                      console.log("status:", $state.status);
-                      if (user) {
+                        console.log("advice:", $state.advice);
+                        $state.sing = safeParse(window.sessionStorage, "sing");
+                        console.log("sing:", $state.sing);
+                        $state.day = safeParse(window.sessionStorage, "day");
+                        console.log("day:", $state.day);
+                        const user = safeParse(window.localStorage, "userinfo");
+                        console.log("user:", user);
                         $state.userInfo = {
                           success: true,
                           result: user
                         };
                         console.log("userInfo:", $state.userInfo);
-                        $state.name = user.user?.name || null;
+                        $state.name = user?.user?.name || null;
                         console.log("name:", $state.name);
-                        $state.status = user.userStatus?.periodStatus || null;
+                        $state.status = user?.userStatus?.periodStatus || null;
                         return console.log("status:", $state.status);
+                      } else {
+                        return console.log(
+                          "$state تعریف نشده است. کد اجرا نشد."
+                        );
                       }
                     })();
                   }
@@ -1918,7 +1895,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                   customFunction: async () => {
                     return (() => {
                       const queryString = window.location.search;
-                      const urlParams = new URLSearchParams(queryString);
+                      const urlParams = new window.URLSearchParams(queryString);
                       return urlParams.forEach((value, key) => {
                         $state.paramsObject[key] = value;
                       });
@@ -1943,7 +1920,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                 const actionArgs = {
                   customFunction: async () => {
                     return (() => {
-                      const searchParams = new URLSearchParams(
+                      const searchParams = new window.URLSearchParams(
                         window.location.search
                       );
                       searchParams.delete("token");

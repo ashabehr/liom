@@ -186,7 +186,20 @@ function PlasmicMainHeader__RenderFunc(props: {
         path: "drawer.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props["dopen"]
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.dopen;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "button.color",
@@ -274,6 +287,12 @@ function PlasmicMainHeader__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "variable",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -316,40 +335,6 @@ function PlasmicMainHeader__RenderFunc(props: {
               className={classNames(projectcss.all, sty.svg__lyXjc)}
               onClick={async event => {
                 const $steps = {};
-
-                $steps["updateDrawerOpen"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["drawer", "open"]
-                        },
-                        operation: 0,
-                        value: true
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateDrawerOpen"] != null &&
-                  typeof $steps["updateDrawerOpen"] === "object" &&
-                  typeof $steps["updateDrawerOpen"].then === "function"
-                ) {
-                  $steps["updateDrawerOpen"] = await $steps["updateDrawerOpen"];
-                }
               }}
               role={"img"}
             />
@@ -491,6 +476,40 @@ function PlasmicMainHeader__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
+                    $steps["updateDopen"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["dopen"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDopen"] != null &&
+                      typeof $steps["updateDopen"] === "object" &&
+                      typeof $steps["updateDopen"].then === "function"
+                    ) {
+                      $steps["updateDopen"] = await $steps["updateDopen"];
+                    }
+
                     $steps["invokeGlobalAction2"] = true
                       ? (() => {
                           const actionArgs = { eventRef: $props["openEdit"] };
@@ -573,40 +592,6 @@ function PlasmicMainHeader__RenderFunc(props: {
                       $steps["invokeGlobalAction"] = await $steps[
                         "invokeGlobalAction"
                       ];
-                    }
-
-                    $steps["updateDopen"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["dopen"]
-                            },
-                            operation: 0,
-                            value: false
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateDopen"] != null &&
-                      typeof $steps["updateDopen"] === "object" &&
-                      typeof $steps["updateDopen"].then === "function"
-                    ) {
-                      $steps["updateDopen"] = await $steps["updateDopen"];
                     }
                   }}
                 >
@@ -1300,6 +1285,86 @@ function PlasmicMainHeader__RenderFunc(props: {
               code={"<hr></hr>"}
             />
 
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___6YewD
+              )}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            let statusText = "";
+                            if (!("Notification" in window)) {
+                              statusText +=
+                                "\u274C مرورگر Notification پشتیبانی نمی‌کنه.\n";
+                            } else if (
+                              window.Notification.permission === "granted"
+                            ) {
+                              statusText +=
+                                "\u2705 کاربر دسترسی به Notification داده.\n";
+                            } else if (
+                              window.Notification.permission === "denied"
+                            ) {
+                              statusText +=
+                                "\u274C کاربر دسترسی Notification رو رد کرده.\n";
+                            } else {
+                              statusText +=
+                                "\u26A0️ دسترسی Notification هنوز درخواست نشده.\n";
+                            }
+                            if (!("serviceWorker" in window.navigator)) {
+                              statusText +=
+                                "\u274C مرورگر Service Worker پشتیبانی نمی‌کنه.\n";
+                              showStatus(statusText);
+                            } else {
+                              window.navigator.serviceWorker
+                                .getRegistration()
+                                .then(function (reg) {
+                                  if (reg) {
+                                    statusText +=
+                                      "\u2705 Service Worker رجیستر شده.\n";
+                                  } else {
+                                    statusText +=
+                                      "\u274C Service Worker پیدا نشد.\n";
+                                  }
+                                  const token =
+                                    localStorage.getItem("fcmToken");
+                                  if (token) {
+                                    statusText +=
+                                      "\u2705 FCM Token ذخیره شده: " +
+                                      token +
+                                      "\n";
+                                  } else {
+                                    statusText +=
+                                      "\u274C FCM Token ذخیره نشده.\n";
+                                  }
+                                });
+                            }
+                            return alert(statusText);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }}
+            >
+              {"\u06cc\u0631\u0633\u0631\u0631\u0631\u0633\u0631\u0633"}
+            </div>
             <div
               className={classNames(projectcss.all, sty.freeBox___0Wkzo)}
               onClick={async event => {
