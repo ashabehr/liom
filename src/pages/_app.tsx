@@ -31,7 +31,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
       // 📌 Import دینامیک فایل notifications
       import("../firebase/fcm").then(
-        ({ requestPermission, onMessageListener }) => {
+        ({ requestPermission, onMessageListener ,handleNotificationClick}) => {
           requestPermission().then((token) => {
             if (token) {
               localStorage.setItem("fcmToken", token);
@@ -40,18 +40,24 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             }
           });
 
-          onMessageListener((payload) => {
-            console.log("📩 پیام Foreground:", payload);
+onMessageListener((payload) => {
+  console.log("📩 پیام Foreground -app:", payload);
 
-            if (payload.notification?.title) {
-              new Notification(payload.notification.title, {
-                body: payload.notification.body,
-                icon:
-                  payload.notification.image ||
-                  "/icons/icon-192x192.png",
-              });
-            }
-          });
+  if (payload.notification?.title) {
+    const action = payload.data?.action || null;
+
+    const notification = new Notification(payload.notification.title, {
+      body: payload.notification.body,
+      icon: payload.notification.image || "/icons/icon-192x192.png",
+      data: { action },
+    });
+
+    notification.onclick = (event) => {
+      event.preventDefault();
+      handleNotificationClick(action);
+    };
+  }
+});
         }
       );
     }
