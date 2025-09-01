@@ -1830,6 +1830,63 @@ function PlasmicCalendar2__RenderFunc(props: {
             $steps["runCode4"] = await $steps["runCode4"];
           }
 
+          $steps["params"] = true
+            ? (() => {
+                const actionArgs = {
+                  customFunction: async () => {
+                    return (() => {
+                      const queryString = window.location.search;
+                      const urlParams = new window.URLSearchParams(queryString);
+                      return urlParams.forEach((value, key) => {
+                        $state.paramsObject[key] = value;
+                      });
+                    })();
+                  }
+                };
+                return (({ customFunction }) => {
+                  return customFunction();
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["params"] != null &&
+            typeof $steps["params"] === "object" &&
+            typeof $steps["params"].then === "function"
+          ) {
+            $steps["params"] = await $steps["params"];
+          }
+
+          $steps["clearParams"] = true
+            ? (() => {
+                const actionArgs = {
+                  customFunction: async () => {
+                    return (() => {
+                      const searchParams = new window.URLSearchParams(
+                        window.location.search
+                      );
+                      searchParams.delete("token");
+                      searchParams.delete("userId");
+                      searchParams.delete("user_id");
+                      const newUrl = `${
+                        window.location.pathname
+                      }?${searchParams.toString()}`;
+                      return window.history.replaceState(null, "", newUrl);
+                    })();
+                  }
+                };
+                return (({ customFunction }) => {
+                  return customFunction();
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["clearParams"] != null &&
+            typeof $steps["clearParams"] === "object" &&
+            typeof $steps["clearParams"].then === "function"
+          ) {
+            $steps["clearParams"] = await $steps["clearParams"];
+          }
+
           $steps["runCode2"] = (
             window.sessionStorage.getItem("cash") ? true : false
           )
@@ -1887,63 +1944,6 @@ function PlasmicCalendar2__RenderFunc(props: {
             typeof $steps["runCode2"].then === "function"
           ) {
             $steps["runCode2"] = await $steps["runCode2"];
-          }
-
-          $steps["params"] = true
-            ? (() => {
-                const actionArgs = {
-                  customFunction: async () => {
-                    return (() => {
-                      const queryString = window.location.search;
-                      const urlParams = new window.URLSearchParams(queryString);
-                      return urlParams.forEach((value, key) => {
-                        $state.paramsObject[key] = value;
-                      });
-                    })();
-                  }
-                };
-                return (({ customFunction }) => {
-                  return customFunction();
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["params"] != null &&
-            typeof $steps["params"] === "object" &&
-            typeof $steps["params"].then === "function"
-          ) {
-            $steps["params"] = await $steps["params"];
-          }
-
-          $steps["clearParams"] = true
-            ? (() => {
-                const actionArgs = {
-                  customFunction: async () => {
-                    return (() => {
-                      const searchParams = new window.URLSearchParams(
-                        window.location.search
-                      );
-                      searchParams.delete("token");
-                      searchParams.delete("userId");
-                      searchParams.delete("user_id");
-                      const newUrl = `${
-                        window.location.pathname
-                      }?${searchParams.toString()}`;
-                      return window.history.replaceState(null, "", newUrl);
-                    })();
-                  }
-                };
-                return (({ customFunction }) => {
-                  return customFunction();
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["clearParams"] != null &&
-            typeof $steps["clearParams"] === "object" &&
-            typeof $steps["clearParams"].then === "function"
-          ) {
-            $steps["clearParams"] = await $steps["clearParams"];
           }
 
           $steps["setCookie"] = true
