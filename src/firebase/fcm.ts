@@ -36,23 +36,7 @@ export const requestPermission = async (): Promise<string | null> => {
 // تابع با callback برای Foreground
 export const onMessageListener = (callback: (payload: any) => void) => {
   onMessage(messaging, (payload) => {
-    console.log("📩 پیام Foreground دریافت شد:", payload);
-
-    const notificationTitle = payload.notification?.title || "پیام جدید";
-    const action = payload.data?.action || null;
-
-    const notificationOptions: NotificationOptions = {
-      body: payload.notification?.body,
-      icon: payload.data?.image || "/icons/icon-192x192.png",
-      data: { action },
-    };
-
-    const notification = new Notification(notificationTitle, notificationOptions);
-    notification.onclick = (event) => {
-      event.preventDefault();
-      handleNotificationClick(action);
-    };
-
+    console.log("📩 پیام Foreground fcm دریافت شد:", payload);
     callback(payload);
   });
 };
