@@ -8,35 +8,41 @@ import { useEffect } from "react";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    if (typeof window !== "undefined") {
-            if ("serviceWorker" in navigator) {
-        navigator.serviceWorker
-          .register("/firebase-messaging-sw.js")
-          .then((registration) => {
-            console.log("✅ Service Worker ثبت شد:", registration);
-          })
-          .catch((err) =>
-            console.log("❌ خطا در ثبت Service Worker:", err)
-          );
-      }
+    if (typeof window !== "undefined" && "serviceWorker" in navigator) {
+      // چک کنیم آیا Service Worker از قبل وجود داره یا نه
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        const alreadyRegistered = registrations.some((reg) =>
+          reg.active?.scriptURL.includes("firebase-messaging-sw.js")
+        );
+
+        if (!alreadyRegistered) {
+          navigator.serviceWorker
+            .register("/firebase-messaging-sw.js")
+            .then((registration) => {
+              console.log("✅ Service Worker ثبت شد:", registration);
+            })
+            .catch((err) =>
+              console.log("❌ خطا در ثبت Service Worker:", err)
+            );
+        } else {
+          console.log("⚡ Service Worker از قبل وجود دارد");
+        }
+      });
+
       // 📌 Import دینامیک فایل notifications
       import("../firebase/fcm").then(
         ({ requestPermission, onMessageListener }) => {
-          // گرفتن اجازه و دریافت توکن
           requestPermission().then((token) => {
             if (token) {
               localStorage.setItem("fcmToken", token);
               console.log("✅ ذخیره شد FCM Token:", token);
-
-              // اینجا می‌تونی توکن رو به سرور هم بفرستی
-              // fetch("/api/save-token", { method: "POST", body: JSON.stringify({ token }) });
+              // اینجا می‌تونی به سرور بفرستی
             }
           });
 
           onMessageListener((payload) => {
             console.log("📩 پیام Foreground:", payload);
 
-            // نمایش نوتیف ساده
             if (payload.notification?.title) {
               new Notification(payload.notification.title, {
                 body: payload.notification.body,
@@ -48,9 +54,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           });
         }
       );
-
-      // 📌 ثبت Service Worker برای Background Messages
-
     }
   }, []);
 
@@ -58,8 +61,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <link rel="icon" href="/icons/favicon.ico" type="image/x-icon" />
-          <link rel="manifest" href="/manifest.json" />
-
+        <link rel="manifest" href="/manifest.json" />
       </Head>
       <PlasmicRootProvider Head={Head}>
         <Component {...pageProps} />
