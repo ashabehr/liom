@@ -4304,6 +4304,34 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicMainPregnancyHeader.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "6gW75kKqp0CM",
+          "name": "AboutUsPregnancy",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicAboutUsPregnancy.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/about-us-pregnancy.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicAboutUsPregnancy.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/about-us-pregnancy"
+        },
+        {
+          "id": "qTUyS4Zc6vEE",
+          "name": "ContactUsPregnancy",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicContactUsPregnancy.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/contact-us-pregnancy.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicContactUsPregnancy.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/contact-us-pregnancy"
         }
       ],
       "icons": [

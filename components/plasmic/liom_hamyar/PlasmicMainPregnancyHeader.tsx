@@ -1120,9 +1120,7 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
                   sty.text__bf7A
                 )}
               >
-                {
-                  "\u0646\u0634\u0627\u0646\u0647\u200c\u0647\u0627\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc"
-                }
+                <React.Fragment>{"نشانه های بارداری"}</React.Fragment>
               </div>
               <ChevronLeftIcon
                 className={classNames(projectcss.all, sty.svg__lpT7)}
@@ -1143,7 +1141,7 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
-                          return window.open("/about-us", "_self");
+                          return window.open("/about-us-pregnancy", "_self");
                         }
                       };
                       return (({ customFunction }) => {
@@ -1222,7 +1220,7 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
-                          return window.open("/contact-us", "_self");
+                          return window.open("/contact-us-pregnancy", "_self");
                         }
                       };
                       return (({ customFunction }) => {
