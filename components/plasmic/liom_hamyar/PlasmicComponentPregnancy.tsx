@@ -105,9 +105,11 @@ type VariantPropType = keyof PlasmicComponentPregnancy__VariantsArgs;
 export const PlasmicComponentPregnancy__VariantProps =
   new Array<VariantPropType>("darkMod");
 
-export type PlasmicComponentPregnancy__ArgsType = {};
+export type PlasmicComponentPregnancy__ArgsType = { newView?: boolean };
 type ArgPropType = keyof PlasmicComponentPregnancy__ArgsType;
-export const PlasmicComponentPregnancy__ArgProps = new Array<ArgPropType>();
+export const PlasmicComponentPregnancy__ArgProps = new Array<ArgPropType>(
+  "newView"
+);
 
 export type PlasmicComponentPregnancy__OverridesType = {
   root?: Flex__<"div">;
@@ -136,6 +138,7 @@ export type PlasmicComponentPregnancy__OverridesType = {
 };
 
 export interface DefaultComponentPregnancyProps {
+  newView?: boolean;
   darkMod?: SingleBooleanChoiceArg<"darkMod">;
   className?: string;
 }
@@ -160,7 +163,9 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
   const args = React.useMemo(
     () =>
       Object.assign(
-        {},
+        {
+          newView: false
+        },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
         )
@@ -1272,7 +1277,14 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         styleTokensClassNames_antd_5_hostless,
         styleTokensClassNames_plasmic_rich_components,
         sty.root,
-        { [sty.rootdarkMod]: hasVariant($state, "darkMod", "darkMod") }
+        {
+          [sty.rootdarkMod]: hasVariant($state, "darkMod", "darkMod"),
+          [sty.rootglobal_newView_newView]: hasVariant(
+            globalVariants,
+            "newView",
+            "newView"
+          )
+        }
       )}
       onLoad={async event => {
         const $steps = {};

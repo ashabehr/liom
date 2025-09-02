@@ -7094,6 +7094,12 @@
         "name": "UnnamedGlobalGroupOfVariants6",
         "projectId": "suVPi77vb6vv9K5rYJwyxC",
         "contextFilePath": "plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants6.tsx"
+      },
+      {
+        "id": "hHiAGMMhvYzb",
+        "name": "NewView",
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "contextFilePath": "plasmic/liom_hamyar/PlasmicGlobalVariant__NewView.tsx"
       }
     ]
   },

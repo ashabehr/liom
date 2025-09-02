@@ -406,6 +406,10 @@
   max-width: 100%;
   object-fit: cover;
 }
+.serviceWorker:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
 .freeBox__v0Dkh {
   display: flex;
   flex-direction: column;
@@ -3633,8 +3637,4 @@
 }
 .text__cIoMc {
   font-size: 16px;
-}
-.serviceWorker:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
 }
