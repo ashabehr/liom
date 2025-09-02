@@ -15,55 +15,50 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
 useEffect(() => {
   if (typeof window !== "undefined" && "serviceWorker" in navigator) {
-    navigator.serviceWorker.getRegistrations().then((registrations) => {
-      const alreadyRegistered = registrations.some((reg) =>
-        reg.active?.scriptURL.includes("service-firebase.js")
-      );
+    navigator.serviceWorker
+      .register("/service-firebase.js")
+      .then(async (registration) => {
+        console.log("✅ Service Worker ثبت شد:", registration);
 
-      navigator.serviceWorker
-        .register("/service-firebase.js")
-        .then(async (registration) => {
-          console.log("✅ Service Worker ثبت شد:", registration);
-
-          // 🟢 پاک کردن subscription های قدیمی
-          try {
-            const subscription = await registration.pushManager.getSubscription();
-            if (subscription) {
-              await subscription.unsubscribe();
-              console.log("🗑️ Subscription قدیمی پاک شد");
-            }
-          } catch (err) {
-            console.warn("⚠️ خطا در پاک کردن Subscription قدیمی:", err);
+        // 🟢 پاک کردن subscription قدیمی
+        try {
+          const subscription = await registration.pushManager.getSubscription();
+          if (subscription) {
+            await subscription.unsubscribe();
+            console.log("🗑️ Subscription قدیمی پاک شد");
           }
-        })
-        .catch((err) =>
-          console.log("❌ خطا در ثبت Service Worker:", err)
-        );
-    });
+        } catch (err) {
+          console.warn("⚠️ خطا در پاک کردن Subscription:", err);
+        }
 
-    // Import دینامیک FCM
-    import("../firebase/fcm").then(
-      ({ requestPermission, onMessageListener }) => {
-        requestPermission().then((token) => {
+        // 🟢 گرفتن توکن جدید FCM بعد از پاکسازی
+        try {
+          const { requestPermission, onMessageListener } = await import("../firebase/fcm");
+
+          const token = await requestPermission(registration); 
           if (token) {
             localStorage.setItem("fcmToken", token);
-            console.log("✅ ذخیره شد FCM Token:", token);
+            console.log("✅ توکن جدید FCM ذخیره شد:", token);
           }
-        });
 
-        onMessageListener((payload) => {
-          console.log("📩 پیام Foreground -app:", payload);
-
-          if (payload.notification?.title) {
-            setModalData({
-              title: payload.notification.title,
-              body: payload.notification.body || "",
-              action: payload.data?.action || null,
-            });
-          }
-        });
-      }
-    );
+          // گوش دادن به پیام‌ها
+          onMessageListener((payload) => {
+            console.log("📩 پیام Foreground -app:", payload);
+            if (payload.notification?.title) {
+              setModalData({
+                title: payload.notification.title,
+                body: payload.notification.body || "",
+                action: payload.data?.action || null,
+              });
+            }
+          });
+        } catch (err) {
+          console.error("❌ خطا در گرفتن توکن جدید:", err);
+        }
+      })
+      .catch((err) =>
+        console.log("❌ خطا در ثبت Service Worker:", err)
+      );
   }
 }, []);
 
