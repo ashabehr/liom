@@ -52,7 +52,7 @@ self.addEventListener('notificationclick', (event) => {
   const action = notification.data?.action;
   notification.close();
 
-  let targetUrl = '/'; // پیش‌فرض
+  let targetUrl = '/login'; // پیش‌فرض
 
   if (action) {
     const pureAction = action.replace('#', '').split('-')[0];
