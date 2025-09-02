@@ -557,9 +557,9 @@ function PlasmicMain__RenderFunc(props: {
                                     ) {
                                       statusText +=
                                         "\u274C مرورگر Service Worker پشتیبانی نمی‌کنه.\n";
-                                      showStatus(statusText);
+                                      return alert(statusText);
                                     } else {
-                                      window.navigator.serviceWorker
+                                      return window.navigator.serviceWorker
                                         .getRegistration()
                                         .then(function (reg) {
                                           if (reg) {
@@ -580,9 +580,9 @@ function PlasmicMain__RenderFunc(props: {
                                             statusText +=
                                               "\u274C FCM Token ذخیره نشده.\n";
                                           }
+                                          alert(statusText);
                                         });
                                     }
-                                    return alert(statusText);
                                   })();
                                 }
                               };
