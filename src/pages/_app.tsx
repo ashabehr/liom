@@ -13,14 +13,15 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     action?: string | null;
   } | null>(null);
 
-useEffect(() => {
+  useEffect(() => {
     if (typeof window !== "undefined" && "serviceWorker" in navigator) {
-
+      // چک کنیم آیا Service Worker از قبل وجود داره یا نه
       navigator.serviceWorker.getRegistrations().then((registrations) => {
         const alreadyRegistered = registrations.some((reg) =>
           reg.active?.scriptURL.includes("service-firebase.js")
         );
-          
+
+        if (!alreadyRegistered) {
           navigator.serviceWorker
             .register("/service-firebase.js")
             .then((registration) => {
@@ -29,6 +30,9 @@ useEffect(() => {
             .catch((err) =>
               console.log("❌ خطا در ثبت Service Worker:", err)
             );
+        } else {
+          console.log("⚡ Service Worker از قبل وجود دارد");
+        }
       });
 
       // Import دینامیک FCM
@@ -47,8 +51,8 @@ useEffect(() => {
             if (payload.notification?.title) {
               setModalData({
                 title: payload.notification.title,
-                body: payload.notification.body  "",
-                action: payload.data?.action  null,
+                body: payload.notification.body || "",
+                action: payload.data?.action || null,
               });
             }
           });
