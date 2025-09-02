@@ -30,17 +30,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
               console.log("❌ خطا در ثبت Service Worker:", err)
             );
       });
-          navigator.serviceWorker.ready.then((registration) => {
-      registration.pushManager.getSubscription().then((subscription) => {
-        if (subscription) {
-          subscription.unsubscribe().then(() => {
-            console.log("🔕 Push Subscription لغو شد");
-          });
-        }
-      });
-    });
-
-
       // Import دینامیک FCM
       import("../firebase/fcm").then(
         ({ requestPermission, onMessageListener }) => {
