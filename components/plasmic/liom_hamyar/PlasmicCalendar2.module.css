@@ -3634,3 +3634,7 @@
 .text__cIoMc {
   font-size: 16px;
 }
+.serviceWorker:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}

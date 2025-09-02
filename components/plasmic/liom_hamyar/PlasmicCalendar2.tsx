@@ -175,6 +175,7 @@ export type PlasmicCalendar2__OverridesType = {
   heart?: Flex__<typeof Heart>;
   loading?: Flex__<"div">;
   button?: Flex__<typeof Button>;
+  serviceWorker?: Flex__<typeof Embed>;
 };
 
 export interface DefaultCalendar2Props {
@@ -55830,6 +55831,14 @@ function PlasmicCalendar2__RenderFunc(props: {
           </Button>
         </div>
       ) : null}
+      <Embed
+        data-plasmic-name={"serviceWorker"}
+        data-plasmic-override={overrides.serviceWorker}
+        className={classNames("__wab_instance", sty.serviceWorker)}
+        code={
+          '<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>\r\n<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging-compat.js"></script>\r\n\r\n<script>\r\n  // \u062a\u0646\u0638\u06cc\u0645\u0627\u062a Firebase\r\n  var firebaseConfig = {\r\n    apiKey: "AIzaSyBVtKyIzcD0xVEMOjeMYjDdNRozFVVrmRo",\r\n    authDomain: "liom-31952.firebaseapp.com",\r\n    databaseURL: "https://liom-31952.firebaseio.com",\r\n    projectId: "liom-31952",\r\n    storageBucket: "liom-31952.appspot.com",\r\n    messagingSenderId: "518322220404",\r\n    appId: "1:518322220404:web:09527c8a42f2f017d89021",\r\n    measurementId: "G-TVWYWYEH1D"\r\n  };\r\n\r\n  // Initialize Firebase\r\n  firebase.initializeApp(firebaseConfig);\r\n  const messaging = firebase.messaging();\r\n\r\n  // \u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0645\u062c\u0648\u0632 \u0628\u0631\u0627\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646\r\nfunction requestPermission() {\r\n  console.log("\u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0645\u062c\u0648\u0632...");\r\nif (!("Notification" in window)) {\r\n  console.log("\u274c \u0627\u06cc\u0646 \u0645\u0631\u0648\u0631\u06af\u0631 \u06cc\u0627 \u0645\u062d\u06cc\u0637 \u0641\u0639\u0644\u06cc \u0627\u0632 \u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc \u0646\u0645\u06cc\u200c\u06a9\u0646\u062f.");\r\n} else {\r\n  Notification.requestPermission().then((permission) => {\r\n    if (permission === "granted") {\r\n      console.log("\u0645\u062c\u0648\u0632 \u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646 \u062f\u0627\u062f\u0647 \u0634\u062f.");\r\n\r\n      messaging.getToken({\r\n        vapidKey: "BDroVn6KRs9iN1laogFt-J47xc9WsWIfblgIBCi2QllonFT-PAu9up26gRlL-9uL7R1FSllN7I13eTR6IZiH72g"\r\n      })\r\n        .then((currentToken) => {\r\n          if (currentToken) {\r\n            console.log("\u062a\u0648\u06a9\u0646 FCM: ", currentToken);\r\n            sendTokenToServer(currentToken);\r\n          } else {\r\n            console.warn("\u0647\u06cc\u0686 \u062a\u0648\u06a9\u0646\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0634\u062f. \u0634\u0627\u06cc\u062f \u06a9\u0627\u0631\u0628\u0631 \u062f\u0633\u062a\u0631\u0633\u06cc \u0631\u0627 \u0631\u062f \u06a9\u0631\u062f\u0647.");\r\n          }\r\n        })\r\n        .catch((err) => {\r\n          console.error("\u274c \u062e\u0637\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0641\u062a \u062a\u0648\u06a9\u0646:", err);\r\n        });\r\n\r\n    } else if (permission === "denied") {\r\n      console.warn("\u274c \u06a9\u0627\u0631\u0628\u0631 \u062f\u0633\u062a\u0631\u0633\u06cc \u0628\u0647 \u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646 \u0631\u0627 \u0631\u062f \u06a9\u0631\u062f\u0647.");\r\n    } else {\r\n      console.log("\u06a9\u0627\u0631\u0628\u0631 \u0647\u0646\u0648\u0632 \u062a\u0635\u0645\u06cc\u0645\u06cc \u0646\u06af\u0631\u0641\u062a\u0647.");\r\n    }\r\n  });\r\n}\r\n}\r\n\r\n  function sendTokenToServer(token) {\r\n    console.log("\u0627\u0631\u0633\u0627\u0644 \u062a\u0648\u06a9\u0646 \u0628\u0647 \u0633\u0631\u0648\u0631...", token);\r\n    window.localStorage.setItem("fcmToken", token);\r\n  }\r\n</script>\r\n'
+        }
+      />
     </div>
   ) as React.ReactElement | null;
 }
@@ -55876,7 +55885,8 @@ const PlasmicDescendants = {
     "tooltip",
     "heart",
     "loading",
-    "button"
+    "button",
+    "serviceWorker"
   ],
   sideEffect: ["sideEffect"],
   favicon: ["favicon"],
@@ -55950,7 +55960,8 @@ const PlasmicDescendants = {
   tooltip: ["tooltip", "heart"],
   heart: ["heart"],
   loading: ["loading"],
-  button: ["button"]
+  button: ["button"],
+  serviceWorker: ["serviceWorker"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -55997,6 +56008,7 @@ type NodeDefaultElementType = {
   heart: typeof Heart;
   loading: "div";
   button: typeof Button;
+  serviceWorker: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -56099,6 +56111,7 @@ export const PlasmicCalendar2 = Object.assign(
     heart: makeNodeComponent("heart"),
     loading: makeNodeComponent("loading"),
     button: makeNodeComponent("button"),
+    serviceWorker: makeNodeComponent("serviceWorker"),
 
     // Metadata about props expected for PlasmicCalendar2
     internalVariantProps: PlasmicCalendar2__VariantProps,
