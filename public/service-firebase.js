@@ -1,17 +1,13 @@
-self.addEventListener('install', (event) => {
-  // فوراً SW جدید رو آماده فعال کردن
-  self.skipWaiting();
-});
+// firebase-messaging-sw.js
 
-// ---------------------------
-// 🔹 ۱. Import Firebase
-// ---------------------------
+// 1) نصب و فعال‌سازی سریع SW
+self.addEventListener('install', () => self.skipWaiting());
+
+// 2) Import های Firebase (compat برای v9.6.1)
 importScripts('https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js');
 importScripts('https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging-compat.js');
 
-// ---------------------------
-// 🔹 ۲. Firebase Config
-// ---------------------------
+// 3) پیکربندی Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyBVtKyIzcD0xVEMOjeMYjDdNRozFVVrmRo",
   authDomain: "liom-31952.firebaseapp.com",
@@ -26,86 +22,73 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
-// ---------------------------
-// 🔹 ۳. Background Messaging (اصلاح شده برای compat)
-// ---------------------------
-messaging.setBackgroundMessageHandler(function (payload) {
-  console.log('📩 پیام پس‌زمینه دریافت شد: ', payload);
+// 4) هندل پیام‌های پس‌زمینه با onBackgroundMessage (در compat)
+messaging.onBackgroundMessage((payload) => {
+  console.log('📩 پیام پس‌زمینه دریافت شد:', payload);
 
-  const notificationTitle = payload.data?.title || payload.notification?.title || "پیام جدید";
-  const notificationOptions = {
-    body: payload.data?.body || payload.notification?.body || "",
-    icon: payload.data?.icon || "/icons/favicon.ico",
-    image: payload.data?.image,
-    data: {
-      action: payload.data?.action || null
-    }
+  const title =
+    payload?.data?.title ||
+    payload?.notification?.title ||
+    'پیام جدید';
+
+  const options = {
+    body:
+      payload?.data?.body ||
+      payload?.notification?.body ||
+      '',
+    icon: payload?.data?.icon || '/icons/favicon.ico',
+    image: payload?.data?.image,
+    data: { action: payload?.data?.action || null }
   };
 
-  return self.registration.showNotification(notificationTitle, notificationOptions);
+  return self.registration.showNotification(title, options);
 });
 
-// ---------------------------
-// 🔹 ۴. Handle Notification Click
-// ---------------------------
+// 5) کلیک روی نوتیفیکیشن
 self.addEventListener('notificationclick', (event) => {
-  const notification = event.notification;
-  const action = notification.data?.action;
-  notification.close();
+  const action = event.notification?.data?.action;
+  event.notification.close();
 
-  let targetUrl = '/'; // پیش‌فرض
-
+  let targetUrl = '/';
   if (action) {
     const pureAction = action.replace('#', '').split('-')[0];
     const actionParam = action.replace('#', '').split('-').slice(1).join('-');
 
     switch (pureAction) {
       case 'healthSubscription':
-        targetUrl = `https://apps.liom.app/shop`;
-        break;
       case 'calendar':
-        targetUrl = `https://apps.liom.app/shop`;
+        targetUrl = 'https://apps.liom.app/shop';
         break;
       case 'maincalendar':
-        targetUrl = `https://apps.liom.app/calendar`;
+        targetUrl = 'https://apps.liom.app/calendar';
         break;
       case 'specialOffer':
-        targetUrl = `/offers/special`;
+        targetUrl = '/offers/special';
         break;
       case 'orderStatus':
         targetUrl = `/orders/status/${actionParam}`;
         break;
       case 'newFeature':
-        targetUrl = `/features/new`;
+        targetUrl = '/features/new';
         break;
       case 'post':
         targetUrl = `https://old.liom.app/social/?post=${actionParam}`;
         break;
       default:
         targetUrl = 'https://apps.liom.app/login';
-        break;
     }
   }
 
-  event.waitUntil(
-    clients.openWindow(targetUrl)
-  );
+  event.waitUntil(clients.openWindow(targetUrl));
 });
 
-// ---------------------------
-// 🔹 ۵. پاک کردن کش قدیمی هنگام فعال شدن
-// ---------------------------
+// 6) فعال‌سازی و claim کردن کلاینت‌ها
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((cacheNames) =>
-      Promise.all(
-        cacheNames.map((cacheName) => caches.delete(cacheName))
-      )
-    ).then(() => self.clients.claim())
+    caches.keys()
+      .then((names) => Promise.all(names.map((n) => caches.delete(n))))
+      .then(() => self.clients.claim())
   );
 });
 
-// ---------------------------
-// 🔹 ۶. حذف هندل کردن fetch (هیچ کشی اعمال نمی‌شود)
-// ---------------------------
-// اینجا نیازی به fetch event نداری چون کش نمی‌کنی
+// 7) fetch هندل نمی‌شود (بدون کش)
