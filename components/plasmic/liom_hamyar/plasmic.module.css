@@ -275,6 +275,8 @@
   --plasmic-token-primary-soft: var(--token-bdv-dtXXZl0T);
   --token-my-eDT9W5v2h: #74b0ff4d;
   --plasmic-token-primary-light: var(--token-my-eDT9W5v2h);
+  --token-V9F2RDyAp-Aj: #1e3a8a;
+  --plasmic-token-bavarian-blue: var(--token-V9F2RDyAp-Aj);
 }
 
 .plasmic_tokens {
