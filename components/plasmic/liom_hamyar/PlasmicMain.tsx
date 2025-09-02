@@ -113,7 +113,6 @@ export type PlasmicMain__OverridesType = {
   mainHeader?: Flex__<typeof MainHeader>;
   freeBox?: Flex__<"div">;
   svg?: Flex__<"svg">;
-  text?: Flex__<"div">;
   footerMain?: Flex__<typeof FooterMain>;
   settingCycle4?: Flex__<typeof SettingCycle4>;
   subItemsComponnet?: Flex__<typeof SubItemsComponnet>;
@@ -502,6 +501,109 @@ function PlasmicMain__RenderFunc(props: {
                     $steps["updateEdit"] = await $steps["updateEdit"];
                   }
                 }}
+                slot={
+                  (() => {
+                    try {
+                      return (
+                        JSON.parse(window.localStorage.getItem("userinfo")).user
+                          .id == "1"
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__oIq8I
+                      )}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    let statusText = "";
+                                    if (!("Notification" in window)) {
+                                      statusText +=
+                                        "\u274C مرورگر Notification پشتیبانی نمی‌کنه.\n";
+                                    } else if (
+                                      window.Notification.permission ===
+                                      "granted"
+                                    ) {
+                                      statusText +=
+                                        "\u2705 کاربر دسترسی به Notification داده.\n";
+                                    } else if (
+                                      window.Notification.permission ===
+                                      "denied"
+                                    ) {
+                                      statusText +=
+                                        "\u274C کاربر دسترسی Notification رو رد کرده.\n";
+                                    } else {
+                                      statusText +=
+                                        "\u26A0️ دسترسی Notification هنوز درخواست نشده.\n";
+                                    }
+                                    if (
+                                      !("serviceWorker" in window.navigator)
+                                    ) {
+                                      statusText +=
+                                        "\u274C مرورگر Service Worker پشتیبانی نمی‌کنه.\n";
+                                      showStatus(statusText);
+                                    } else {
+                                      window.navigator.serviceWorker
+                                        .getRegistration()
+                                        .then(function (reg) {
+                                          if (reg) {
+                                            statusText +=
+                                              "\u2705 Service Worker رجیستر شده.\n";
+                                          } else {
+                                            statusText +=
+                                              "\u274C Service Worker پیدا نشد.\n";
+                                          }
+                                          const token =
+                                            localStorage.getItem("fcmToken");
+                                          if (token) {
+                                            statusText +=
+                                              "\u2705 FCM Token ذخیره شده: " +
+                                              token +
+                                              "\n";
+                                          } else {
+                                            statusText +=
+                                              "\u274C FCM Token ذخیره نشده.\n";
+                                          }
+                                        });
+                                    }
+                                    return alert(statusText);
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      }}
+                    >
+                      {"\u062a\u0633\u062a \u0646\u0648\u062a\u06cc\u0641"}
+                    </div>
+                  ) : null
+                }
                 token={(() => {
                   try {
                     return localStorage.getItem("token");
@@ -583,12 +685,10 @@ function PlasmicMain__RenderFunc(props: {
                   />
 
                   <div
-                    data-plasmic-name={"text"}
-                    data-plasmic-override={overrides.text}
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text
+                      sty.text__ajJTs
                     )}
                   >
                     <React.Fragment>
@@ -1073,7 +1173,6 @@ const PlasmicDescendants = {
     "mainHeader",
     "freeBox",
     "svg",
-    "text",
     "footerMain",
     "settingCycle4",
     "subItemsComponnet",
@@ -1081,20 +1180,11 @@ const PlasmicDescendants = {
     "backHandler",
     "sideEffect"
   ],
-  main: [
-    "main",
-    "mainPage",
-    "mainHeader",
-    "freeBox",
-    "svg",
-    "text",
-    "footerMain"
-  ],
+  main: ["main", "mainPage", "mainHeader", "freeBox", "svg", "footerMain"],
   mainPage: ["mainPage"],
-  mainHeader: ["mainHeader", "freeBox", "svg", "text"],
-  freeBox: ["freeBox", "svg", "text"],
+  mainHeader: ["mainHeader", "freeBox", "svg"],
+  freeBox: ["freeBox", "svg"],
   svg: ["svg"],
-  text: ["text"],
   footerMain: ["footerMain"],
   settingCycle4: ["settingCycle4"],
   subItemsComponnet: ["subItemsComponnet"],
@@ -1112,7 +1202,6 @@ type NodeDefaultElementType = {
   mainHeader: typeof MainHeader;
   freeBox: "div";
   svg: "svg";
-  text: "div";
   footerMain: typeof FooterMain;
   settingCycle4: typeof SettingCycle4;
   subItemsComponnet: typeof SubItemsComponnet;
@@ -1211,7 +1300,6 @@ export const PlasmicMain = Object.assign(
     mainHeader: makeNodeComponent("mainHeader"),
     freeBox: makeNodeComponent("freeBox"),
     svg: makeNodeComponent("svg"),
-    text: makeNodeComponent("text"),
     footerMain: makeNodeComponent("footerMain"),
     settingCycle4: makeNodeComponent("settingCycle4"),
     subItemsComponnet: makeNodeComponent("subItemsComponnet"),

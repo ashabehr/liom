@@ -1860,18 +1860,37 @@ function PlasmicCalendar2__RenderFunc(props: {
             ? (() => {
                 const actionArgs = {
                   customFunction: async () => {
-                    return (() => {
-                      const searchParams = new window.URLSearchParams(
+                    return function cleanUrlParams() {
+                      const searchParams = new URLSearchParams(
                         window.location.search
-                      );
-                      searchParams.delete("token");
-                      searchParams.delete("userId");
-                      searchParams.delete("user_id");
-                      const newUrl = `${
-                        window.location.pathname
-                      }?${searchParams.toString()}`;
-                      return window.history.replaceState(null, "", newUrl);
-                    })();
+                      ); // 1
+                      const paramsToDelete = ["token", "userId", "user_id"]; // 2
+                      let removed = false; // 3
+
+                      paramsToDelete.forEach(param => {
+                        // 4
+                        if (searchParams.has(param)) {
+                          searchParams.delete(param);
+                          removed = true;
+                        }
+                      });
+
+                      const queryString = searchParams.toString(); // 5
+                      const newUrl = queryString
+                        ? `${window.location.pathname}?${queryString}` // 6
+                        : window.location.pathname;
+
+                      window.history.replaceState(null, "", newUrl); // 7
+
+                      if (removed) {
+                        // 8
+                        console.log(
+                          "✅ پارامترهای خواسته‌شده به ترتیب حذف شدند"
+                        );
+                      } else {
+                        console.log("ℹ️ هیچ‌کدوم از پارامترها وجود نداشتند");
+                      }
+                    };
                   }
                 };
                 return (({ customFunction }) => {
@@ -1909,25 +1928,26 @@ function PlasmicCalendar2__RenderFunc(props: {
                           window.sessionStorage,
                           "advice"
                         );
-                        console.log("advice:", $state.advice);
                         $state.sing = safeParse(window.sessionStorage, "sing");
-                        console.log("sing:", $state.sing);
                         $state.day = safeParse(window.sessionStorage, "day");
-                        console.log("day:", $state.day);
                         const user = safeParse(window.localStorage, "userinfo");
-                        console.log("user:", user);
                         $state.userInfo = {
                           success: true,
                           result: user
                         };
-                        console.log("userInfo:", $state.userInfo);
                         $state.name = user?.user?.name || null;
-                        console.log("name:", $state.name);
                         $state.status = user?.userStatus?.periodStatus || null;
-                        return console.log("status:", $state.status);
+                        return console.log("\u2705 state مقداردهی شد:", {
+                          advice: $state.advice,
+                          sing: $state.sing,
+                          day: $state.day,
+                          userInfo: $state.userInfo,
+                          name: $state.name,
+                          status: $state.status
+                        });
                       } else {
                         return console.log(
-                          "$state تعریف نشده است. کد اجرا نشد."
+                          "ℹ️ $state تعریف نشده است. کد اجرا نشد."
                         );
                       }
                     })();
