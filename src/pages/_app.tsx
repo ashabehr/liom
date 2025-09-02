@@ -21,7 +21,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           reg.active?.scriptURL.includes("firebase-messaging-sw.js")
         );
 
-        if (!alreadyRegistered) {
           navigator.serviceWorker
             .register("/firebase-messaging-sw.js")
             .then((registration) => {
@@ -30,9 +29,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             .catch((err) =>
               console.log("❌ خطا در ثبت Service Worker:", err)
             );
-        } else {
-          console.log("⚡ Service Worker از قبل وجود دارد");
-        }
       });
 
       // Import دینامیک FCM
