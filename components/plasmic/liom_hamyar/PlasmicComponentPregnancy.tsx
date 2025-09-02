@@ -1413,9 +1413,17 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                   }
                 }}
               >
-                {
-                  "\u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc \u0645\u062c\u062f\u062f \u0635\u0641\u062d\u0647"
-                }
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__rig6C
+                  )}
+                >
+                  {
+                    "\u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc \u0645\u062c\u062f\u062f \u0635\u0641\u062d\u0647"
+                  }
+                </div>
               </Button>
             </div>
           ) : null}
@@ -19436,9 +19444,17 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                         }
                                       }}
                                     >
-                                      {
-                                        "\u0645\u0634\u0627\u0647\u062f\u0647 \u0645\u0646\u0627\u0628\u0639 \u063a\u0630\u0627\u06cc\u06cc"
-                                      }
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.__wab_text,
+                                          sty.text__xnZeo
+                                        )}
+                                      >
+                                        {
+                                          "\u0645\u0634\u0627\u0647\u062f\u0647 \u0645\u0646\u0627\u0628\u0639 \u063a\u0630\u0627\u06cc\u06cc"
+                                        }
+                                      </div>
                                     </Button>
                                   </div>
                                 ) : null}

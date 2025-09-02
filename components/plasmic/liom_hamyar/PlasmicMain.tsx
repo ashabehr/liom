@@ -1008,6 +1008,60 @@ function PlasmicMain__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
+              $steps["runCode2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          function cleanUrlParams() {
+                            const searchParams = new URLSearchParams(
+                              window.location.search
+                            );
+                            const paramsToDelete = [
+                              "token",
+                              "userId",
+                              "user_id"
+                            ];
+
+                            let removed = false;
+                            paramsToDelete.forEach(param => {
+                              if (searchParams.has(param)) {
+                                searchParams.delete(param);
+                                removed = true;
+                              }
+                            });
+                            const queryString = searchParams.toString();
+                            const newUrl = queryString
+                              ? `${window.location.pathname}?${queryString}`
+                              : window.location.pathname;
+                            window.history.replaceState(null, "", newUrl);
+                            if (removed) {
+                              console.log(
+                                "\u2705 پارامترهای خواسته‌شده به ترتیب حذف شدند"
+                              );
+                            } else {
+                              console.log(
+                                "ℹ️ هیچ‌کدوم از پارامترها وجود نداشتند"
+                              );
+                            }
+                          }
+                          return cleanUrlParams();
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode2"] != null &&
+                typeof $steps["runCode2"] === "object" &&
+                typeof $steps["runCode2"].then === "function"
+              ) {
+                $steps["runCode2"] = await $steps["runCode2"];
+              }
+
               $steps["runCode"] = true
                 ? (() => {
                     const actionArgs = {
@@ -1064,60 +1118,6 @@ function PlasmicMain__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
-              $steps["runCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          function cleanUrlParams() {
-                            const searchParams = new URLSearchParams(
-                              window.location.search
-                            );
-                            const paramsToDelete = [
-                              "token",
-                              "userId",
-                              "user_id"
-                            ];
-
-                            let removed = false;
-                            paramsToDelete.forEach(param => {
-                              if (searchParams.has(param)) {
-                                searchParams.delete(param);
-                                removed = true;
-                              }
-                            });
-                            const queryString = searchParams.toString();
-                            const newUrl = queryString
-                              ? `${window.location.pathname}?${queryString}`
-                              : window.location.pathname;
-                            window.history.replaceState(null, "", newUrl);
-                            if (removed) {
-                              console.log(
-                                "\u2705 پارامترهای خواسته‌شده به ترتیب حذف شدند"
-                              );
-                            } else {
-                              console.log(
-                                "ℹ️ هیچ‌کدوم از پارامترها وجود نداشتند"
-                              );
-                            }
-                          }
-                          return cleanUrlParams();
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
-              }
-
               $steps["invokeGlobalAction"] = true
                 ? (() => {
                     const actionArgs = {
@@ -1127,7 +1127,24 @@ function PlasmicMain__RenderFunc(props: {
                         undefined,
                         (() => {
                           try {
-                            return undefined;
+                            return {
+                              platform: (() => {
+                                const userAgent = window.navigator.userAgent;
+                                const platform = window.navigator.userAgent;
+                                if (/Windows/i.test(platform)) return "Windows";
+                                if (/Mac/i.test(platform)) return "macOS";
+                                if (/Linux/i.test(platform)) return "Linux";
+                                if (/Android/i.test(userAgent))
+                                  return "Android";
+                                if (/iPhone|iPad|iPod/i.test(userAgent))
+                                  return "iOS";
+                                return "Unknown OS";
+                              })(),
+                              store: "pwa",
+                              versionCode: 1,
+                              versionName: "PWA 1.0.0",
+                              isUpdate: true
+                            };
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
