@@ -1127,6 +1127,88 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
                 role={"img"}
               />
             </div>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__u9Q2P)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return window.open(
+                            `/setting-pregnancy?token=${$props.token}&userId=${$props.userInfo.userId}`,
+                            "_self"
+                          );
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+
+                $steps["updateDopen"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["dopen"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateDopen"] != null &&
+                  typeof $steps["updateDopen"] === "object" &&
+                  typeof $steps["updateDopen"].then === "function"
+                ) {
+                  $steps["updateDopen"] = await $steps["updateDopen"];
+                }
+              }}
+            >
+              <Icon190Icon
+                className={classNames(projectcss.all, sty.svg__sksbq)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__d17G8
+                )}
+              >
+                <React.Fragment>{"تنظیمات"}</React.Fragment>
+              </div>
+              <ChevronLeftIcon
+                className={classNames(projectcss.all, sty.svg__te8Xz)}
+                role={"img"}
+              />
+            </div>
             <Embed
               className={classNames("__wab_instance", sty.embedHtml__ch1D4)}
               code={"<hr></hr>"}

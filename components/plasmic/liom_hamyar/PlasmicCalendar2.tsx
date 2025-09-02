@@ -12558,9 +12558,9 @@ function PlasmicCalendar2__RenderFunc(props: {
                                     ) {
                                       statusText +=
                                         "\u274C مرورگر Service Worker پشتیبانی نمی‌کنه.\n";
-                                      return alert(statusText);
+                                      alert(statusText);
                                     } else {
-                                      return window.navigator.serviceWorker
+                                      window.navigator.serviceWorker
                                         .getRegistration()
                                         .then(function (reg) {
                                           if (reg) {
@@ -12584,6 +12584,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                                           alert(statusText);
                                         });
                                     }
+                                    return requestPermission();
                                   })();
                                 }
                               };
