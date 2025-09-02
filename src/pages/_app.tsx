@@ -22,7 +22,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         );
 
           navigator.serviceWorker
-            .register("/firebase-messaging-sw.js")
+            .register("/service-firebase.js")
             .then((registration) => {
               console.log("✅ Service Worker ثبت شد:", registration);
             })
