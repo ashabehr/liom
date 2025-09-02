@@ -1,9 +1,7 @@
-
 self.addEventListener('install', (event) => {
   // فوراً SW جدید رو آماده فعال کردن
   self.skipWaiting();
 });
-
 
 // ---------------------------
 // 🔹 ۱. Import Firebase
@@ -29,26 +27,22 @@ firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
 // ---------------------------
-// 🔹 ۳. Background Messaging
+// 🔹 ۳. Background Messaging (اصلاح شده برای compat)
 // ---------------------------
-messaging.onBackgroundMessage(async (payload) => {
+messaging.setBackgroundMessageHandler(function (payload) {
   console.log('📩 پیام پس‌زمینه دریافت شد: ', payload);
 
-  const notificationTitle = payload.notification.title;
+  const notificationTitle = payload.data?.title || payload.notification?.title || "پیام جدید";
   const notificationOptions = {
-    body: payload.notification.body,
-    icon: payload.data?.image || "/icons/favicon.ico",
+    body: payload.data?.body || payload.notification?.body || "",
+    icon: payload.data?.icon || "/icons/favicon.ico",
     image: payload.data?.image,
     data: {
       action: payload.data?.action || null
     }
   };
 
-  try {
-    await self.registration.showNotification(notificationTitle, notificationOptions);
-  } catch (error) {
-    console.error("❗️ خطا در نمایش نوتیفیکیشن:", error);
-  }
+  return self.registration.showNotification(notificationTitle, notificationOptions);
 });
 
 // ---------------------------
@@ -114,3 +108,4 @@ self.addEventListener('activate', (event) => {
 // ---------------------------
 // 🔹 ۶. حذف هندل کردن fetch (هیچ کشی اعمال نمی‌شود)
 // ---------------------------
+// اینجا نیازی به fetch event نداری چون کش نمی‌کنی
