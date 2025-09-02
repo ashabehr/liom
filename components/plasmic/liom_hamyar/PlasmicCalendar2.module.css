@@ -669,17 +669,30 @@
     font-size: 14px;
   }
 }
+.freeBox__heCuk {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  margin-top: -40px;
+  margin-bottom: 0px;
+  padding: 0px;
+}
 .lottie__gyW1M:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
   width: 180px;
-  margin-top: -40px;
-  margin-bottom: 0px;
   color: #eb464a;
+  flex-shrink: 0;
 }
 @media (max-width: 640px) {
   .lottie__gyW1M:global(.__wab_instance) {
     width: 130px;
+    flex-shrink: 0;
   }
 }
 .freeBox__rXaxo {
