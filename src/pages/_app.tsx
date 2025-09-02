@@ -18,11 +18,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       // چک کنیم آیا Service Worker از قبل وجود داره یا نه
       navigator.serviceWorker.getRegistrations().then((registrations) => {
         const alreadyRegistered = registrations.some((reg) =>
-          reg.active?.scriptURL.includes("service-firebase.js")
+          reg.active?.scriptURL.includes("firebase-messaging-sw.js")
         );
 
           navigator.serviceWorker
-            .register("/service-firebase.js")
+            .register("/firebase-messaging-sw.js")
             .then((registration) => {
               console.log("✅ Service Worker ثبت شد:", registration);
             })
