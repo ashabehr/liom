@@ -119,7 +119,6 @@ export type PlasmicMain__OverridesType = {
   subItemsComponnet?: Flex__<typeof SubItemsComponnet>;
   editProfile2?: Flex__<typeof EditProfile2>;
   backHandler?: Flex__<typeof BackHandler>;
-  sideEffect?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultMainProps {}
@@ -1005,9 +1004,7 @@ function PlasmicMain__RenderFunc(props: {
           />
 
           <SideEffect
-            data-plasmic-name={"sideEffect"}
-            data-plasmic-override={overrides.sideEffect}
-            className={classNames("__wab_instance", sty.sideEffect)}
+            className={classNames("__wab_instance", sty.sideEffect__nf1SX)}
             onMount={async () => {
               const $steps = {};
 
@@ -1061,6 +1058,104 @@ function PlasmicMain__RenderFunc(props: {
               }
             }}
           />
+
+          <SideEffect
+            className={classNames("__wab_instance", sty.sideEffect__jmdmg)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          function cleanUrlParams() {
+                            const searchParams = new URLSearchParams(
+                              window.location.search
+                            );
+                            const paramsToDelete = [
+                              "token",
+                              "userId",
+                              "user_id"
+                            ];
+
+                            let removed = false;
+                            paramsToDelete.forEach(param => {
+                              if (searchParams.has(param)) {
+                                searchParams.delete(param);
+                                removed = true;
+                              }
+                            });
+                            const queryString = searchParams.toString();
+                            const newUrl = queryString
+                              ? `${window.location.pathname}?${queryString}`
+                              : window.location.pathname;
+                            window.history.replaceState(null, "", newUrl);
+                            if (removed) {
+                              console.log(
+                                "\u2705 پارامترهای خواسته‌شده به ترتیب حذف شدند"
+                              );
+                            } else {
+                              console.log(
+                                "ℹ️ هیچ‌کدوم از پارامترها وجود نداشتند"
+                              );
+                            }
+                          }
+                          return cleanUrlParams();
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+
+              $steps["invokeGlobalAction"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://n8n.staas.ir/webhook/version",
+                        undefined,
+                        (() => {
+                          try {
+                            return undefined;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
+            }}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -1080,8 +1175,7 @@ const PlasmicDescendants = {
     "settingCycle4",
     "subItemsComponnet",
     "editProfile2",
-    "backHandler",
-    "sideEffect"
+    "backHandler"
   ],
   main: [
     "main",
@@ -1101,8 +1195,7 @@ const PlasmicDescendants = {
   settingCycle4: ["settingCycle4"],
   subItemsComponnet: ["subItemsComponnet"],
   editProfile2: ["editProfile2"],
-  backHandler: ["backHandler"],
-  sideEffect: ["sideEffect"]
+  backHandler: ["backHandler"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1120,7 +1213,6 @@ type NodeDefaultElementType = {
   subItemsComponnet: typeof SubItemsComponnet;
   editProfile2: typeof EditProfile2;
   backHandler: typeof BackHandler;
-  sideEffect: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1219,7 +1311,6 @@ export const PlasmicMain = Object.assign(
     subItemsComponnet: makeNodeComponent("subItemsComponnet"),
     editProfile2: makeNodeComponent("editProfile2"),
     backHandler: makeNodeComponent("backHandler"),
-    sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicMain
     internalVariantProps: PlasmicMain__VariantProps,

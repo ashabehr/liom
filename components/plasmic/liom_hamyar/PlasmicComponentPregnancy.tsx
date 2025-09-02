@@ -1424,7 +1424,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
-              $steps["getParams"] = false
+              $steps["getParams"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -1450,7 +1450,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 $steps["getParams"] = await $steps["getParams"];
               }
 
-              $steps["clearParams"] = false
+              $steps["clearParams"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -1482,7 +1482,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 $steps["clearParams"] = await $steps["clearParams"];
               }
 
-              $steps["setCookie"] = false
+              $steps["setCookie"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -1522,7 +1522,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 $steps["setCookie"] = await $steps["setCookie"];
               }
 
-              $steps["getCookie"] = false
+              $steps["getCookie"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -1980,7 +1980,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 $steps["goToPageSetting"] = await $steps["goToPageSetting"];
               }
 
-              $steps["scroll"] = false
+              $steps["scroll"] = !$state.isNoData
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -2605,7 +2605,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 $steps["setUser"] = await $steps["setUser"];
               }
 
-              $steps["scroll"] = false
+              $steps["scroll"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
