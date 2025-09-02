@@ -13,49 +13,59 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     action?: string | null;
   } | null>(null);
 
-  useEffect(() => {
-    if (typeof window !== "undefined" && "serviceWorker" in navigator) {
-      // چک کنیم آیا Service Worker از قبل وجود داره یا نه
-      navigator.serviceWorker.getRegistrations().then((registrations) => {
-        const alreadyRegistered = registrations.some((reg) =>
-          reg.active?.scriptURL.includes("firebase-messaging-sw.js")
-        );
-
-          navigator.serviceWorker
-            .register("/service-firebase.js")
-            .then((registration) => {
-              console.log("✅ Service Worker ثبت شد:", registration);
-            })
-            .catch((err) =>
-              console.log("❌ خطا در ثبت Service Worker:", err)
-            );
-      });
-
-      // Import دینامیک FCM
-      import("../firebase/fcm").then(
-        ({ requestPermission, onMessageListener }) => {
-          requestPermission().then((token) => {
-            if (token) {
-              localStorage.setItem("fcmToken", token);
-              console.log("✅ ذخیره شد FCM Token:", token);
-            }
-          });
-
-          onMessageListener((payload) => {
-            console.log("📩 پیام Foreground -app:", payload);
-
-            if (payload.notification?.title) {
-              setModalData({
-                title: payload.notification.title,
-                body: payload.notification.body || "",
-                action: payload.data?.action || null,
-              });
-            }
-          });
-        }
+useEffect(() => {
+  if (typeof window !== "undefined" && "serviceWorker" in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      const alreadyRegistered = registrations.some((reg) =>
+        reg.active?.scriptURL.includes("service-firebase.js")
       );
-    }
-  }, []);
+
+      navigator.serviceWorker
+        .register("/service-firebase.js")
+        .then(async (registration) => {
+          console.log("✅ Service Worker ثبت شد:", registration);
+
+          // 🟢 پاک کردن subscription های قدیمی
+          try {
+            const subscription = await registration.pushManager.getSubscription();
+            if (subscription) {
+              await subscription.unsubscribe();
+              console.log("🗑️ Subscription قدیمی پاک شد");
+            }
+          } catch (err) {
+            console.warn("⚠️ خطا در پاک کردن Subscription قدیمی:", err);
+          }
+        })
+        .catch((err) =>
+          console.log("❌ خطا در ثبت Service Worker:", err)
+        );
+    });
+
+    // Import دینامیک FCM
+    import("../firebase/fcm").then(
+      ({ requestPermission, onMessageListener }) => {
+        requestPermission().then((token) => {
+          if (token) {
+            localStorage.setItem("fcmToken", token);
+            console.log("✅ ذخیره شد FCM Token:", token);
+          }
+        });
+
+        onMessageListener((payload) => {
+          console.log("📩 پیام Foreground -app:", payload);
+
+          if (payload.notification?.title) {
+            setModalData({
+              title: payload.notification.title,
+              body: payload.notification.body || "",
+              action: payload.data?.action || null,
+            });
+          }
+        });
+      }
+    );
+  }
+}, []);
 
   return (
     <>
