@@ -21,7 +21,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           reg.active?.scriptURL.includes("service-firebase.js")
         );
 
-        if (!alreadyRegistered) {
           navigator.serviceWorker
             .register("/service-firebase.js")
             .then((registration) => {
@@ -30,10 +29,17 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             .catch((err) =>
               console.log("❌ خطا در ثبت Service Worker:", err)
             );
-        } else {
-          console.log("⚡ Service Worker از قبل وجود دارد");
+      });
+          navigator.serviceWorker.ready.then((registration) => {
+      registration.pushManager.getSubscription().then((subscription) => {
+        if (subscription) {
+          subscription.unsubscribe().then(() => {
+            console.log("🔕 Push Subscription لغو شد");
+          });
         }
       });
+    });
+
 
       // Import دینامیک FCM
       import("../firebase/fcm").then(
