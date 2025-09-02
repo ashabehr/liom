@@ -1,6 +1,6 @@
 // firebase.ts
-import { initializeApp } from "firebase/app";
-import { getMessaging } from "firebase/messaging";
+import firebase from "firebase/compat/app";
+import "firebase/compat/messaging";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBVtKyIzcD0xVEMOjeMYjDdNRozFVVrmRo",
@@ -13,7 +13,10 @@ const firebaseConfig = {
   measurementId: "G-TVWYWYEH1D",
 };
 
-const app = initializeApp(firebaseConfig);
-const messaging = getMessaging(app);
+// اطمینان از اینکه app فقط یک بار initialize شود
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 
-export { messaging };
+// export کردن messaging از compat
+export const messaging = firebase.messaging();
