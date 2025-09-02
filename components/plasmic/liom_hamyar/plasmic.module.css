@@ -242,6 +242,11 @@
   }
 }
 
+.plasmic_tokens:where(.global_newView_newView) {
+  --token-qvl81LxkOSoe: var(--token-0xHMxyAHbOos);
+  --plasmic-token-basic-border: var(--token-qvl81LxkOSoe);
+}
+
 .plasmic_tokens {
   --plsmc-standard-width: 800px;
   --plsmc-wide-width: 1280px;

@@ -1027,7 +1027,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkMTdiNmJkLTkzZmYtNGYzZS04ZGYzLTQwMDNkOTU2NGJkOCIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzQ2MjU3MDQ1fQ.VGtD4MdU57dGqdh7uxLTL3lCugmBcv_kybVqfb_2dSI"
       },
       {
         path: "paramsObject",
@@ -1423,7 +1424,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
-              $steps["getParams"] = true
+              $steps["getParams"] = false
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -1449,7 +1450,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 $steps["getParams"] = await $steps["getParams"];
               }
 
-              $steps["clearParams"] = true
+              $steps["clearParams"] = false
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -1481,7 +1482,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 $steps["clearParams"] = await $steps["clearParams"];
               }
 
-              $steps["setCookie"] = true
+              $steps["setCookie"] = false
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -1521,7 +1522,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 $steps["setCookie"] = await $steps["setCookie"];
               }
 
-              $steps["getCookie"] = true
+              $steps["getCookie"] = false
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -1979,7 +1980,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 $steps["goToPageSetting"] = await $steps["goToPageSetting"];
               }
 
-              $steps["scroll"] = !$state.isNoData
+              $steps["scroll"] = false
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -2409,10 +2410,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                           method: "GET"
                         })
                           .then(response => response.json())
-                          .then(data => {
-                            // console.log("tools");
-                            // $state.getTools = data
-                          })
+                          .then(data => {})
                           .catch(error => console.error("Error-tools:", error));
                       }
                     };
@@ -2607,35 +2605,34 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 $steps["setUser"] = await $steps["setUser"];
               }
 
-              $steps["scroll"] =
-                !$state.isNoData && false
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            const list =
-                              document.getElementById("my-scroll-list");
-                            const list2 = list.children[0];
-                            const fourthItem =
-                              list2.children[$state.selectedWeek];
-                            if (fourthItem) {
-                              const itemPosition =
-                                fourthItem.offsetLeft -
-                                list.offsetWidth * 0.35 +
-                                fourthItem.offsetWidth / 2;
-                              return list.scrollTo({
-                                left: itemPosition,
-                                behavior: "smooth"
-                              });
-                            }
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
+              $steps["scroll"] = false
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const list =
+                            document.getElementById("my-scroll-list");
+                          const list2 = list.children[0];
+                          const fourthItem =
+                            list2.children[$state.selectedWeek];
+                          if (fourthItem) {
+                            const itemPosition =
+                              fourthItem.offsetLeft -
+                              list.offsetWidth * 0.35 +
+                              fourthItem.offsetWidth / 2;
+                            return list.scrollTo({
+                              left: itemPosition,
+                              behavior: "smooth"
+                            });
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
               if (
                 $steps["scroll"] != null &&
                 typeof $steps["scroll"] === "object" &&
