@@ -434,13 +434,13 @@
   padding: 0px 8px;
 }
 .text__cj34W {
-  background: #fffbff;
+  background: var(--token-sN1yASr7oAvM);
   text-align: center;
   font-size: 17px;
   color: var(--token-7PpYZbnZ9AQj);
   border-radius: 8px;
   padding: 4px 6px;
-  border: 1px dashed #8254c6;
+  border: 1px dashed var(--token-h0Lrt0a3YiLk);
 }
 @media (max-width: 640px) {
   .text__cj34W {

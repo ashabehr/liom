@@ -6772,8 +6772,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                             ).active
                                           : false;
                                         var a =
-                                          become_father &&
-                                          baby_growth &&
+                                          become_father ||
+                                          baby_growth ||
                                           better_relation
                                             ? "#hamyarInfo"
                                             : "#healthSubscription";
@@ -13079,11 +13079,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                           );
                                           randomStr2 += chars[rnd];
                                         }
-                                        var token =
-                                          $ctx.query.token ||
-                                          new URLSearchParams(
-                                            window.location.search
-                                          ).get("token");
+                                        var token = $state.token;
                                         if (!token.startsWith("ey")) {
                                           token = token.slice(
                                             6,
