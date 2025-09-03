@@ -1,7 +1,7 @@
 // firebase-messaging-sw.js
 
 // 1) نصب و فعال‌سازی سریع SW
-self.addEventListener('install', () => self.skipWaiting());
+//self.addEventListener('install', () => self.skipWaiting());
 
 // 2) Import های Firebase (compat برای v9.6.1)
 importScripts('https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js');
@@ -55,23 +55,25 @@ self.addEventListener('notificationclick', (event) => {
 
     switch (pureAction) {
       case 'healthSubscription':
-      case 'calendar':
-        targetUrl = 'https://apps.liom.app/shop';
+        targetUrl = `https://apps.liom.app/shop`;
         break;
       case 'maincalendar':
-        targetUrl = 'https://apps.liom.app/calendar';
+        targetUrl = `https://apps.liom.app/calendar`;
+        break;
+      case '"calendar"':
+        targetUrl = `https://apps.liom.app/calendar`;
         break;
       case 'specialOffer':
-        targetUrl = '/offers/special';
+        targetUrl = `/offers/special`;
         break;
       case 'orderStatus':
-        targetUrl = '/orders/status/';
+        targetUrl = `/orders/status/`;
         break;
       case 'newFeature':
-        targetUrl = '/features/new';
+        targetUrl = `/features/new`;
         break;
       case 'post':
-        targetUrl = 'https://old.liom.app/social/?post=';
+        targetUrl = `https://old.liom.app/social/?post=${actionParam}`;
         break;
       default:
         targetUrl = 'https://apps.liom.app/login';
