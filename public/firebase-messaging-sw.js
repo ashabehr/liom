@@ -2,7 +2,7 @@
 importScripts('https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js');
 importScripts('https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging-compat.js');
 
-// پیکربندی Firebase
+// پیکربندی Firebase //
 const firebaseConfig = {
   apiKey: "AIzaSyBVtKyIzcD0xVEMOjeMYjDdNRozFVVrmRo",
   authDomain: "liom-31952.firebaseapp.com",
