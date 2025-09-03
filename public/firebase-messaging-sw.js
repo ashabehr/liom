@@ -12,7 +12,7 @@ const firebaseConfig = {
   authDomain: "liom-31952.firebaseapp.com",
   databaseURL: "https://liom-31952.firebaseio.com",
   projectId: "liom-31952",
-  storageBucket: "liom-31952.firebasestorage.app",
+  storageBucket: "liom-31952.appspot.com",
   messagingSenderId: "518322220404",
   appId: "1:518322220404:web:09527c8a42f2f017d89021",
   measurementId: "G-TVWYWYEH1D"
@@ -25,28 +25,28 @@ const messaging = firebase.messaging();
 messaging.onBackgroundMessage((payload) => {
   console.log('📩 پیام پس‌زمینه دریافت شد:', payload);
 
-  const title =
-    payload?.data?.title ||
-    payload?.notification?.title ||
-    'پیام جدید';
-
-  const options = {
-    body:
-      payload?.data?.body ||
-      payload?.notification?.body ||
-      '',
-    icon: payload?.data?.icon || '/icons/favicon.ico',
-    image: payload?.data?.image,
-    data: { action: payload?.data?.action || null }
+  const notificationTitle = payload.notification.title;
+  const notificationOptions = {
+    body: payload.notification.body,
+    icon: payload.data?.image || "/icons/favicon.ico", // اگر تصویر داشت
+    image: payload.data?.image, // تصویر اصلی نوتیفیکیشن (درصورت پشتیبانی مرورگر)
+    data: {
+      action: payload.data?.action || null // ذخیره کردن action برای کلیک بعدی
+    }
   };
 
-  return self.registration.showNotification(title, options);
+  try {
+    await self.registration.showNotification(notificationTitle, notificationOptions);
+  } catch (error) {
+    console.error("❗️خطا در نمایش نوتیفیکیشن:", error);
+  }
 });
 
 // 5) کلیک روی نوتیفیکیشن
 self.addEventListener('notificationclick', (event) => {
-  const action = event.notification?.data?.action;
-  event.notification.close();
+  const notification = event.notification;
+  const action = notification.data?.action;
+  notification.close();
 
   let targetUrl = '/';
   if (action) {
@@ -65,28 +65,22 @@ self.addEventListener('notificationclick', (event) => {
         targetUrl = '/offers/special';
         break;
       case 'orderStatus':
-        targetUrl = `/orders/status/${actionParam}`;
+        targetUrl = '/orders/status/'+${actionParam};
         break;
       case 'newFeature':
         targetUrl = '/features/new';
         break;
       case 'post':
-        targetUrl = `https://old.liom.app/social/?post=${actionParam}`;
+        targetUrl = 'https://old.liom.app/social/?post='+${actionParam};
         break;
       default:
         targetUrl = 'https://apps.liom.app/login';
+        break;
     }
   }
 
-  event.waitUntil(clients.openWindow(targetUrl));
-});
-
-// 6) فعال‌سازی و claim کردن کلاینت‌ها
-self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys()
-      .then((names) => Promise.all(names.map((n) => caches.delete(n))))
-      .then(() => self.clients.claim())
+    clients.openWindow(targetUrl)
   );
 });
 
