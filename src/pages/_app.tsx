@@ -7,7 +7,7 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import NotificationToast from "@/components/NotificationToast";
 
-import { NewViewContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__NewView.tsx";
+import { NewViewContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__NewView";
 export default function MyApp({ Component, pageProps }: AppProps) {
     const [newView, setNewView] = useState<"newView" | undefined>(undefined);
   const [modalData, setModalData] = useState<{
