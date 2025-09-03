@@ -26008,11 +26008,15 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                         customFunction: async () => {
                           return (() => {
                             try {
-                              return localStorage.setItem(
+                              console.log("saveInfo");
+                              localStorage.setItem(
                                 "userinfo",
                                 JSON.stringify($state.getUserInfo?.[0].result)
                               );
-                            } catch {}
+                              return console.log("saveInfo:ok");
+                            } catch {
+                              return console.log("saveInfo:errore");
+                            }
                           })();
                         }
                       };
