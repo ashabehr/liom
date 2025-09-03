@@ -297,6 +297,11 @@ function PlasmicMainPregnancy__RenderFunc(props: {
             sty.root,
             {
               [sty.rootedit]: hasVariant($state, "edit", "edit"),
+              [sty.rootglobal_newView_newView]: hasVariant(
+                globalVariants,
+                "newView",
+                "newView"
+              ),
               [sty.rootsetting]: hasVariant($state, "setting", "setting"),
               [sty.rootsubItem]: hasVariant($state, "subItem", "subItem")
             }
@@ -477,7 +482,13 @@ function PlasmicMainPregnancy__RenderFunc(props: {
             >
               {(() => {
                 const child$Props = {
-                  className: classNames("__wab_instance", sty.footerMain),
+                  className: classNames("__wab_instance", sty.footerMain, {
+                    [sty.footerMainglobal_newView_newView]: hasVariant(
+                      globalVariants,
+                      "newView",
+                      "newView"
+                    )
+                  }),
                   footer2: (() => {
                     try {
                       return $state.footerMain.type;

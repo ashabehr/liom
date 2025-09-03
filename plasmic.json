@@ -3686,20 +3686,6 @@
           "path": "/is-ready"
         },
         {
-          "id": "brmLuDhzOfGk",
-          "name": "Login2",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicLogin2.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/login-2.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicLogin2.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/login-2"
-        },
-        {
           "id": "j_hR0f0gqi6e",
           "name": "Main",
           "type": "managed",

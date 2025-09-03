@@ -8,7 +8,7 @@
   justify-items: center;
   justify-content: flex-start;
   align-items: center;
-  background: #f8f8f8;
+  background: var(--token-AupbASVTnAsv);
   padding-top: 70px;
   padding-bottom: 100px;
   min-width: 0;
@@ -28,6 +28,9 @@
   .root > * {
     grid-column: 4;
   }
+}
+.rootglobal_newView_newView > * {
+  grid-column: 4;
 }
 .rootsetting > * {
   grid-column: 4;

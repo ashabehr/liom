@@ -124,7 +124,7 @@
   }
 }
 .freeBoxfooter2_calendar__fHxnqp4EhE {
-  background: #8254c61a;
+  background: var(--token-my-eDT9W5v2h);
 }
 @media (max-width: 640px) {
   .freeBoxfooter2_tools__fHxnQwWhUi {
@@ -195,7 +195,7 @@
   }
 }
 .freeBoxfooter2_tools__yn06RwWhUi {
-  background: #8254c61a;
+  background: var(--token-my-eDT9W5v2h);
 }
 .svg__abCaO {
   object-fit: cover;

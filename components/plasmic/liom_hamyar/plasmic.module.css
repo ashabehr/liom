@@ -271,13 +271,15 @@
 }
 
 .plasmic_tokens:where(.global_newView_newView) {
+  --token-yL32ChWVky0P: #ffffff;
+  --plasmic-token-app-bg: var(--token-yL32ChWVky0P);
   --token-_Tqr-iwbEpLO: #4595ff;
   --plasmic-token-light-purple: var(--token-_Tqr-iwbEpLO);
   --token-SX03PBUzWAqr: #1264d1;
   --plasmic-token-primary: var(--token-SX03PBUzWAqr);
   --token-RfhqiwT2YAVo: #d1e5ff;
   --plasmic-token-serface: var(--token-RfhqiwT2YAVo);
-  --token-AupbASVTnAsv: #d1e5ff;
+  --token-AupbASVTnAsv: #fafcff;
   --plasmic-token-bg-liom: var(--token-AupbASVTnAsv);
   --token-qvl81LxkOSoe: var(--token-0xHMxyAHbOos);
   --plasmic-token-basic-border: var(--token-qvl81LxkOSoe);

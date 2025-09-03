@@ -1285,7 +1285,7 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                               const actionArgs = {
                                 customFunction: async () => {
                                   return window.Android.onButtonClicked(
-                                    "tesssssst"
+                                    "#shopDialog"
                                   );
                                 }
                               };
