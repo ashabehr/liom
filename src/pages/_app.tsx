@@ -25,31 +25,31 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         setNewView(undefined);
       }
     }
-    if (typeof window !== "undefined" && "serviceWorker" in navigator) {
+    // if (typeof window !== "undefined" && "serviceWorker" in navigator) {
 
-      import("../firebase/fcm").then(
-        ({ requestPermission, onMessageListener }) => {
-          requestPermission().then((token) => {
-            if (token) {
-              localStorage.setItem("fcmToken", token);
-              console.log("✅ ذخیره شد FCM Token:", token);
-            }
-          });
+    //   import("../firebase/fcm").then(
+    //     ({ requestPermission, onMessageListener }) => {
+    //       requestPermission().then((token) => {
+    //         if (token) {
+    //           localStorage.setItem("fcmToken", token);
+    //           console.log("✅ ذخیره شد FCM Token:", token);
+    //         }
+    //       });
 
-          onMessageListener((payload) => {
-            console.log("📩 پیام Foreground -app:", payload);
+    //       onMessageListener((payload) => {
+    //         console.log("📩 پیام Foreground -app:", payload);
 
-            if (payload.notification?.title) {
-              setModalData({
-                title: payload.notification.title,
-                body: payload.notification.body || "",
-                action: payload.data?.action || null,
-              });
-            }
-          });
-        }
-      );
-    }
+    //         if (payload.notification?.title) {
+    //           setModalData({
+    //             title: payload.notification.title,
+    //             body: payload.notification.body || "",
+    //             action: payload.data?.action || null,
+    //           });
+    //         }
+    //       });
+    //     }
+    //   );
+    // }
   }, []);
 
   return (
