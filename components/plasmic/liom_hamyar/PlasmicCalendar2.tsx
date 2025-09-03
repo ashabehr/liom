@@ -12541,7 +12541,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                           ? (() => {
                               const actionArgs = {
                                 customFunction: async () => {
-                                  return (() => {
+                                  return (async () => {
                                     let statusText = "";
                                     if (!("Notification" in window)) {
                                       statusText +=
@@ -12570,14 +12570,40 @@ function PlasmicCalendar2__RenderFunc(props: {
                                       alert(statusText);
                                     } else {
                                       window.navigator.serviceWorker
-                                        .getRegistration()
-                                        .then(function (reg) {
-                                          if (reg) {
-                                            statusText +=
-                                              "\u2705 Service Worker رجیستر شده.\n";
+                                        .getRegistrations()
+                                        .then(async registrations => {
+                                          if (registrations.length > 0) {
+                                            statusText += `✅ ${registrations.length} Service Worker رجیستر شده.\n`;
                                           } else {
                                             statusText +=
-                                              "\u274C Service Worker پیدا نشد.\n";
+                                              "\u274C هیچ Service Worker پیدا نشد.\n";
+                                          }
+                                          for (
+                                            let i = 0;
+                                            i < registrations.length;
+                                            i++
+                                          ) {
+                                            const reg = registrations[i];
+                                            const scriptURL =
+                                              reg.active?.scriptURL ||
+                                              reg.installing?.scriptURL ||
+                                              reg.waiting?.scriptURL ||
+                                              "\u274C فایل اسکریپت پیدا نشد";
+                                            statusText += `\n🔹 Service Worker شماره ${
+                                              i + 1
+                                            }\n`;
+                                            statusText += `   ➡️ Scope: ${reg.scope}\n`;
+                                            statusText += `   ➡️ Script URL: ${scriptURL}\n`;
+                                            try {
+                                              const res = await fetch(
+                                                scriptURL
+                                              );
+                                              const code = await res.text();
+                                              statusText += `📜 کد Service Worker:\n${code}\n\n`;
+                                            } catch (e) {
+                                              statusText +=
+                                                "\u26A0️ نتونستم کد سرویس‌ورکر رو بگیرم.\n";
+                                            }
                                           }
                                           const token =
                                             localStorage.getItem("fcmToken");
@@ -12593,7 +12619,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                                           alert(statusText);
                                         });
                                     }
-                                    return requestPermission();
+                                    return requestPermission?.();
                                   })();
                                 }
                               };
