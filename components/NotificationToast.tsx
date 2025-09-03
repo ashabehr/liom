@@ -1,6 +1,6 @@
 // components/NotificationToast.tsx
 import { useEffect } from "react";
-import { handleNotificationClick } from "../firebase/fcm";
+import { handleNotificationClick } from "../src/firebase/fcm";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface NotificationToastProps {
@@ -60,3 +60,4 @@ const NotificationToast: React.FC<NotificationToastProps> = ({
 };
 
 export default NotificationToast;
+
