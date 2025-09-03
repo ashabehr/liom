@@ -1098,35 +1098,6 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["updateLoading3"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return (() => {
-                                  const url = new URL($props.redirectUrl);
-                                  url.searchParams.set(
-                                    "buyId",
-                                    $state.topShop.id
-                                  );
-                                  return ($props.redirectUrl = url.toString());
-                                })();
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoading3"] != null &&
-                        typeof $steps["updateLoading3"] === "object" &&
-                        typeof $steps["updateLoading3"].then === "function"
-                      ) {
-                        $steps["updateLoading3"] = await $steps[
-                          "updateLoading3"
-                        ];
-                      }
-
                       $steps["updateLoading"] = true
                         ? (() => {
                             const actionArgs = {
@@ -1161,40 +1132,70 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                         $steps["updateLoading"] = await $steps["updateLoading"];
                       }
 
-                      $steps["invokeGlobalAction"] = true
+                      $steps["updateLoading3"] = true
                         ? (() => {
                             const actionArgs = {
-                              args: [
-                                "POST",
-                                "https://n8n.staas.ir/webhook/rest/shop/list",
-                                undefined,
-                                (() => {
-                                  try {
-                                    return {
-                                      id: $state.topShop.id,
-                                      offCode: "",
-                                      redirectUrl: $props.redirectUrl,
-                                      authorization: $props.token
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              ]
+                              customFunction: async () => {
+                                return (() => {
+                                  const url = new URL($props.redirectUrl);
+                                  url.searchParams.set(
+                                    "buyId",
+                                    $state.topShop.id
+                                  );
+                                  return ($props.redirectUrl = url.toString());
+                                })();
+                              }
                             };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
+                      if (
+                        $steps["updateLoading3"] != null &&
+                        typeof $steps["updateLoading3"] === "object" &&
+                        typeof $steps["updateLoading3"].then === "function"
+                      ) {
+                        $steps["updateLoading3"] = await $steps[
+                          "updateLoading3"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction"] =
+                        !(window.Android && window.Android.onButtonClicked) ??
+                        false
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://n8n.staas.ir/webhook/rest/shop/list",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        id: $state.topShop.id,
+                                        offCode: "",
+                                        redirectUrl: $props.redirectUrl,
+                                        authorization: $props.token
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
                       if (
                         $steps["invokeGlobalAction"] != null &&
                         typeof $steps["invokeGlobalAction"] === "object" &&
@@ -1275,6 +1276,30 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                         $steps["invokeGlobalAction2"] = await $steps[
                           "invokeGlobalAction2"
                         ];
+                      }
+
+                      $steps["runCode"] =
+                        (window.Android && window.Android.onButtonClicked) ??
+                        false
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return window.Android.onButtonClicked(
+                                    "tesssssst"
+                                  );
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
                       }
 
                       $steps["updateLoading2"] = true

@@ -436,7 +436,15 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
         }}
         open={generateStateValueProp($state, ["drawer", "open"])}
         title={
-          <div className={classNames(projectcss.all, sty.freeBox__xiPYl)}>
+          <div
+            className={classNames(projectcss.all, sty.freeBox__xiPYl, {
+              [sty.freeBoxglobal_newView_newView__xiPYl0DHva]: hasVariant(
+                globalVariants,
+                "newView",
+                "newView"
+              )
+            })}
+          >
             <div className={classNames(projectcss.all, sty.freeBox__gXdLc)}>
               <div className={classNames(projectcss.all, sty.freeBox__xx1Ox)}>
                 <div className={classNames(projectcss.all, sty.freeBox__d8Mvy)}>

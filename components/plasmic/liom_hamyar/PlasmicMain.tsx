@@ -1143,7 +1143,20 @@ function PlasmicMain__RenderFunc(props: {
                               store: "pwa",
                               versionCode: 1,
                               versionName: "PWA 1.0.0",
-                              isUpdate: true
+                              isUpdate: true,
+                              Authorization: (() => {
+                                var getCookie = name => {
+                                  const cookies =
+                                    window.document.cookie.split("; ");
+                                  for (let cookie of cookies) {
+                                    const [key, value] = cookie.split("=");
+                                    if (key === name)
+                                      return JSON.parse(value)[0];
+                                  }
+                                  return "";
+                                };
+                                return getCookie("token");
+                              })()
                             };
                           } catch (e) {
                             if (
