@@ -47,7 +47,7 @@ export const requestPermission = async (): Promise<string | null> => {
       return savedToken;
     }
 
-    const currentToken = await messaging.getToken({ vapidKey: VAPID_KEY });
+    const currentToken = await messaging!.getToken({ vapidKey: VAPID_KEY });
     if (currentToken) await sendTokenToServer(currentToken);
     return currentToken;
   } catch (err) {
