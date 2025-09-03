@@ -2,6 +2,13 @@
 
 // 1) نصب و فعال‌سازی سریع SW
 //self.addEventListener('install', () => self.skipWaiting());
+self.addEventListener("install", (event) => {
+  self.skipWaiting(); // از حالت waiting سریع بپره active
+});
+
+self.addEventListener("activate", (event) => {
+  event.waitUntil(clients.claim()); // کنترل همه تب‌ها رو بگیره
+});
 
 // 2) Import های Firebase (compat برای v9.6.1)
 importScripts('https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js');
