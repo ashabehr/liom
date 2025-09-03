@@ -32,16 +32,16 @@ messaging.onBackgroundMessage((payload) => {
   // اگر سرور با کلید "notification" فرستاده باشد، خود مرورگر نمایش می‌دهد؛
   // پس فقط وقتی notification نداریم خودمان نمایش می‌دهیم.
   if (!payload.notification) {
-    const title = payload.data?.title || "New message";
-    const body  = payload.data?.body || "";
-    const icon  = payload.data?.icon || "/icon-192.png";
-    const url   = payload.data?.click_action || "/";
+    // const title = payload.data?.title || "New message";
+    // const body  = payload.data?.body || "";
+    // const icon  = payload.data?.icon || "/icon-192.png";
+    // const url   = payload.data?.click_action || "/";
 
-    self.registration.showNotification(title, {
-      body,
-      icon,
-      data: { url },
-    });
+    // self.registration.showNotification(title, {
+    //   body,
+    //   icon,
+    //   data: { url },
+    // });
   }
 });
 
