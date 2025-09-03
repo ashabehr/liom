@@ -21,9 +21,9 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
-// 4) هندل پیام‌های پس‌زمینه با onBackgroundMessage (در compat)
-messaging.onBackgroundMessage((payload) => {
-  console.log('📩 پیام پس‌زمینه دریافت شد:', payload);
+// دریافت پیام در پس‌زمینه
+messaging.onBackgroundMessage(async (payload) => {
+  console.log('📩 پیام پس‌زمینه دریافت شد: ', payload);
 
   const notificationTitle = payload.notification.title;
   const notificationOptions = {
@@ -36,7 +36,7 @@ messaging.onBackgroundMessage((payload) => {
   };
 
   try {
-    await self.registration.showNotification(notificationTitle, notificationOptions);
+     self.registration.showNotification(notificationTitle, notificationOptions);
   } catch (error) {
     console.error("❗️خطا در نمایش نوتیفیکیشن:", error);
   }
