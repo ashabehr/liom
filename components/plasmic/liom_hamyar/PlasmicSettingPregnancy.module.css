@@ -27,6 +27,9 @@
     grid-column: 4;
   }
 }
+.rootglobal_newView_newView > * {
+  grid-column: 4;
+}
 .rootdark {
   background: #0f0f0f;
 }
@@ -455,6 +458,7 @@
   text-align: center;
   padding-bottom: 8px;
   padding-top: 8px;
+  color: var(--token-_Tqr-iwbEpLO);
   min-width: 0;
   border-radius: 8px;
   border: 1px solid var(--token-55cSeNPovQFh);
@@ -490,6 +494,7 @@
   text-align: center;
   padding-bottom: 8px;
   padding-top: 8px;
+  color: var(--token-_Tqr-iwbEpLO);
   min-width: 0;
   border-radius: 8px;
   border: 1px solid var(--token-55cSeNPovQFh);

@@ -33,9 +33,13 @@
   padding: 8px;
 }
 .butBoxselect {
-  background: linear-gradient(#8254c61a, #8254c61a), var(--token-R_Rsn0nP9oIv);
+  background: linear-gradient(
+      var(--token-my-eDT9W5v2h),
+      var(--token-my-eDT9W5v2h)
+    ),
+    var(--token-R_Rsn0nP9oIv);
   border-radius: 8px;
-  border: 1px solid #7444bc;
+  border: 1px solid var(--token-_ZJXI4jrgWEl);
 }
 .butBoxshaoe_circle {
   height: 50px;

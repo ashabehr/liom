@@ -24,7 +24,7 @@
   align-items: center;
 }
 .root:hover {
-  background: #8254c699;
+  background: var(--token-tdm3bsKUybvD);
 }
 .svg__pVgKk {
   object-fit: cover;

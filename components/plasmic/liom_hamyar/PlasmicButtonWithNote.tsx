@@ -270,6 +270,9 @@ function PlasmicButtonWithNote__RenderFunc(props: {
         data-plasmic-name={"butBox"}
         data-plasmic-override={overrides.butBox}
         className={classNames(projectcss.all, sty.butBox, {
+          [sty.butBoxglobal_newView_newView_select]:
+            hasVariant($state, "select", "select") &&
+            hasVariant(globalVariants, "newView", "newView"),
           [sty.butBoxselect]: hasVariant($state, "select", "select"),
           [sty.butBoxselect_shaoe_circle]:
             hasVariant($state, "shaoe", "circle") &&

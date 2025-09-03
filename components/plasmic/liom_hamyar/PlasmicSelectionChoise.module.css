@@ -33,7 +33,7 @@
   border-radius: 8px;
 }
 .freeBoxselect {
-  background: #c197ff;
+  background: var(--token-dcSKjrUoFVAy);
 }
 .freeBoxfilter {
   box-shadow: 0px 4px 16px 0px #0000001a;

@@ -449,7 +449,14 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
             styleTokensClassNames_antd_5_hostless,
             styleTokensClassNames_plasmic_rich_components,
             sty.root,
-            { [sty.rootdark]: hasVariant($state, "dark", "dark") }
+            {
+              [sty.rootdark]: hasVariant($state, "dark", "dark"),
+              [sty.rootglobal_newView_newView]: hasVariant(
+                globalVariants,
+                "newView",
+                "newView"
+              )
+            }
           )}
         >
           <Embed
@@ -695,7 +702,15 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
               </div>
             </div>
           ) : null}
-          <div className={classNames(projectcss.all, sty.freeBox__ikTgu)}>
+          <div
+            className={classNames(projectcss.all, sty.freeBox__ikTgu, {
+              [sty.freeBoxglobal_newView_newView__ikTgu0DHva]: hasVariant(
+                globalVariants,
+                "newView",
+                "newView"
+              )
+            })}
+          >
             <div className={classNames(projectcss.all, sty.freeBox__iW6Ev)}>
               <div className={classNames(projectcss.all, sty.freeBox__rckdR)}>
                 <div
@@ -1763,27 +1778,54 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text___1YyBe
-                        )}
-                        style={(() => {
-                          try {
-                            return {
-                              "background-color":
-                                $state.typeInterDate == "dateOfBirth"
-                                  ? "rgb(130, 84, 198 , 0.1)"
-                                  : "rgb(130, 84, 198 , 0)",
-                              color: "#7444BC"
-                            };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
+                          sty.text___1YyBe,
+                          {
+                            [sty.textglobal_newView_newView___1YyBe0DHva]:
+                              hasVariant(globalVariants, "newView", "newView")
                           }
-                        })()}
+                        )}
+                        style={
+                          hasVariant(globalVariants, "newView", "newView")
+                            ? (() => {
+                                try {
+                                  return {
+                                    "background-color":
+                                      $state.typeInterDate == "dateOfBirth"
+                                        ? "rgb(130, 84, 198 , 0.1)"
+                                        : "rgb(130, 84, 198 , 0)"
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            : (() => {
+                                try {
+                                  return {
+                                    "background-color":
+                                      $state.typeInterDate == "dateOfBirth"
+                                        ? "rgb(130, 84, 198 , 0.1)"
+                                        : "rgb(130, 84, 198 , 0)",
+                                    color: "#7444BC"
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                        }
                       >
                         {
                           "\u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646"
@@ -1848,7 +1890,11 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__vjiLz
+                          sty.text__vjiLz,
+                          {
+                            [sty.textglobal_newView_newView__vjiLz0DHva]:
+                              hasVariant(globalVariants, "newView", "newView")
+                          }
                         )}
                         style={(() => {
                           try {
@@ -1856,8 +1902,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                               "background-color":
                                 $state.typeInterDate == "lastTime"
                                   ? "rgb(130, 84, 198 , 0.1)"
-                                  : "rgb(130, 84, 198 , 0)",
-                              color: "#7444BC"
+                                  : "rgb(130, 84, 198 , 0)"
                             };
                           } catch (e) {
                             if (
@@ -1941,8 +1986,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                               "background-color":
                                 $state.typeInterDate == "manually"
                                   ? "rgb(130, 84, 198 , 0.1)"
-                                  : "rgb(130, 84, 198 , 0)",
-                              color: "#7444BC"
+                                  : "rgb(130, 84, 198 , 0)"
                             };
                           } catch (e) {
                             if (
@@ -2384,7 +2428,14 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                     }
                   })() ? (
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__otCka)}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__otCka,
+                        {
+                          [sty.freeBoxglobal_newView_newView__otCka0DHva]:
+                            hasVariant(globalVariants, "newView", "newView")
+                        }
+                      )}
                       onClick={async event => {
                         const $steps = {};
 

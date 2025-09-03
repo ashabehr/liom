@@ -193,7 +193,14 @@ function PlasmicLoginBox__RenderFunc(props: {
         styleTokensClassNames_antd_5_hostless,
         styleTokensClassNames_plasmic_rich_components,
         sty.root,
-        { [sty.rootloading]: hasVariant($state, "loading", "loading") }
+        {
+          [sty.rootglobal_newView_newView]: hasVariant(
+            globalVariants,
+            "newView",
+            "newView"
+          ),
+          [sty.rootloading]: hasVariant($state, "loading", "loading")
+        }
       )}
       onClick={args.onClick}
     >
