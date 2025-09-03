@@ -5,7 +5,7 @@ import { PlasmicRootProvider } from "@plasmicapp/react-web";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import NotificationToast from "@/components/NotificationToast";
+import NotificationToast from "../../components/NotificationToast";
 
 import { NewViewContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__NewView";
 export default function MyApp({ Component, pageProps }: AppProps) {
