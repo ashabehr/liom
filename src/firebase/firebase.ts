@@ -10,12 +10,18 @@ const firebaseConfig = {
   storageBucket: "liom-31952.firebasestorage.app",
   messagingSenderId: "518322220404",
   appId: "1:518322220404:web:09527c8a42f2f017d89021",
-  measurementId: "G-TVWYWYEH1D"
+  measurementId: "G-TVWYWYEH1D",
 };
+
 // اطمینان از اینکه app فقط یک بار initialize شود
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
 
-// export کردن messaging از compat
-export const messaging = firebase.messaging();
+// فقط در مرورگر messaging رو ست می‌کنیم
+let messaging: firebase.messaging.Messaging | null = null;
+if (typeof window !== "undefined" && "serviceWorker" in navigator) {
+  messaging = firebase.messaging();
+}
+
+export { firebase, messaging };
