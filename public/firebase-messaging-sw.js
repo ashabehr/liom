@@ -42,11 +42,11 @@ messaging.onBackgroundMessage(async (payload) => {
     }
   };
 
-  try {
-     self.registration.showNotification(notificationTitle, notificationOptions);
-  } catch (error) {
-    console.error("❗️خطا در نمایش نوتیفیکیشن:", error);
-  }
+  // try {
+  //    self.registration.showNotification(notificationTitle, notificationOptions);
+  // } catch (error) {
+  //   console.error("❗️خطا در نمایش نوتیفیکیشن:", error);
+  // }
 });
 
 // 5) کلیک روی نوتیفیکیشن
