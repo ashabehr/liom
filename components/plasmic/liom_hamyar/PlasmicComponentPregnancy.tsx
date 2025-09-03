@@ -2222,7 +2222,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                       customFunction: async () => {
                         return (() => {
                           $state.loadingAdvice = true;
-                          return fetch(
+                          fetch(
                             "https://n8n.staas.ir/webhook/getAdvice-v2/?weekNumber=" +
                               $state.selectedWeek,
                             { method: "GET" }
@@ -2249,6 +2249,11 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                 );
                             })
                             .catch(error => console.error("Error2:", error));
+                          return console.log(
+                            "newView:" +
+                              (window.localStorage.getItem("newView") ||
+                                "false")
+                          );
                         })();
                       }
                     };

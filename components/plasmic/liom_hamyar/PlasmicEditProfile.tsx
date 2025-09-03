@@ -1886,357 +1886,205 @@ function PlasmicEditProfile__RenderFunc(props: {
                   sty.verticalForProbabilityOfGettingPregnant
                 )}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__dYr8N)}>
+                {(() => {
+                  try {
+                    return (
+                      $state.getInfo.data.result.user.healthStatus == "period"
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__nFiv)}
+                    className={classNames(projectcss.all, sty.freeBox__dYr8N)}
                   >
-                    <Icon67Icon
-                      className={classNames(projectcss.all, sty.svg__lW4M)}
-                      role={"img"}
-                    />
-
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__x4Ezn
-                      )}
+                      className={classNames(projectcss.all, sty.freeBox__nFiv)}
                     >
-                      {
-                        "\u0646\u0645\u0627\u06cc\u0634 \u0627\u062d\u062a\u0645\u0627\u0644 \u0628\u0627\u0631\u062f\u0627\u0631 \u0634\u062f\u0646 \u062f\u0631  \u0647\u0631 \u0631\u0648\u0632 "
-                      }
-                    </div>
-                    <Switchbest
-                      data-plasmic-name={"switchbest"}
-                      data-plasmic-override={overrides.switchbest}
-                      children={null}
-                      className={classNames("__wab_instance", sty.switchbest)}
-                      isChecked={
-                        generateStateValueProp($state, [
-                          "switchbest",
-                          "isChecked"
-                        ]) ?? false
-                      }
-                      onChange={async (...eventArgs: any) => {
-                        ((...eventArgs) => {
-                          generateStateOnChangeProp($state, [
+                      <Icon67Icon
+                        className={classNames(projectcss.all, sty.svg__lW4M)}
+                        role={"img"}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__x4Ezn
+                        )}
+                      >
+                        {
+                          "\u0646\u0645\u0627\u06cc\u0634 \u0627\u062d\u062a\u0645\u0627\u0644 \u0628\u0627\u0631\u062f\u0627\u0631 \u0634\u062f\u0646 \u062f\u0631  \u0647\u0631 \u0631\u0648\u0632 "
+                        }
+                      </div>
+                      <Switchbest
+                        data-plasmic-name={"switchbest"}
+                        data-plasmic-override={overrides.switchbest}
+                        children={null}
+                        className={classNames("__wab_instance", sty.switchbest)}
+                        isChecked={
+                          generateStateValueProp($state, [
                             "switchbest",
                             "isChecked"
-                          ])(eventArgs[0]);
-                        }).apply(null, eventArgs);
-
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
+                          ]) ?? false
                         }
+                        onChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "switchbest",
+                              "isChecked"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
 
-                        (async isChecked => {
-                          const $steps = {};
-
-                          $steps["updateVariableSwichForProbility"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["variableSwichForProbility"]
-                                  },
-                                  operation: 0,
-                                  value: $state.switchbest.isChecked
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
                           if (
-                            $steps["updateVariableSwichForProbility"] != null &&
-                            typeof $steps["updateVariableSwichForProbility"] ===
-                              "object" &&
-                            typeof $steps["updateVariableSwichForProbility"]
-                              .then === "function"
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
                           ) {
-                            $steps["updateVariableSwichForProbility"] =
-                              await $steps["updateVariableSwichForProbility"];
+                            return;
                           }
-                        }).apply(null, eventArgs);
-                      }}
-                    />
+
+                          (async isChecked => {
+                            const $steps = {};
+
+                            $steps["updateVariableSwichForProbility"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: [
+                                        "variableSwichForProbility"
+                                      ]
+                                    },
+                                    operation: 0,
+                                    value: $state.switchbest.isChecked
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateVariableSwichForProbility"] !=
+                                null &&
+                              typeof $steps[
+                                "updateVariableSwichForProbility"
+                              ] === "object" &&
+                              typeof $steps["updateVariableSwichForProbility"]
+                                .then === "function"
+                            ) {
+                              $steps["updateVariableSwichForProbility"] =
+                                await $steps["updateVariableSwichForProbility"];
+                            }
+                          }).apply(null, eventArgs);
+                        }}
+                      />
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__kqKzh)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___0Q61M
+                        )}
+                      >
+                        {
+                          '\u0627\u06cc\u0646 \u062f\u0631\u0635\u062f \u062f\u0631 \u0637\u0631\u0627\u062d\u06cc  \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc \u0628\u062e\u0634 \u0642\u0627\u0639\u062f\u06af\u06cc \u062f\u0631 \u0642\u0633\u0645\u062a "\u062f\u0648\u0631\u0647 \u062c\u0627\u0631\u06cc \u062f\u0631\u06cc\u06a9 \u0646\u06af\u0627\u0647"\u0646\u0645\u0627\u06cc\u0634 \u062f\u0627\u062f\u0647 \u0645\u06cc\u0634\u0648\u062f'
+                        }
+                      </div>
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+              {(() => {
+                try {
+                  return (
+                    $state.getInfo.data.result.user.healthStatus == "period"
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  data-plasmic-name={"verticalForMenstrualCycle"}
+                  data-plasmic-override={overrides.verticalForMenstrualCycle}
+                  className={classNames(
+                    projectcss.all,
+                    sty.verticalForMenstrualCycle
+                  )}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__ka4AS
+                    )}
+                  >
+                    {
+                      "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc"
+                    }
                   </div>
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__kqKzh)}
+                    data-plasmic-name={"numberOfDaysOfBleeding2"}
+                    data-plasmic-override={overrides.numberOfDaysOfBleeding2}
+                    className={classNames(
+                      projectcss.all,
+                      sty.numberOfDaysOfBleeding2
+                    )}
                   >
                     <div
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text___0Q61M
+                        sty.text__k37BQ
                       )}
                     >
                       {
-                        '\u0627\u06cc\u0646 \u062f\u0631\u0635\u062f \u062f\u0631 \u0637\u0631\u0627\u062d\u06cc  \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc \u0628\u062e\u0634 \u0642\u0627\u0639\u062f\u06af\u06cc \u062f\u0631 \u0642\u0633\u0645\u062a "\u062f\u0648\u0631\u0647 \u062c\u0627\u0631\u06cc \u062f\u0631\u06cc\u06a9 \u0646\u06af\u0627\u0647"\u0646\u0645\u0627\u06cc\u0634 \u062f\u0627\u062f\u0647 \u0645\u06cc\u0634\u0648\u062f'
+                        "\u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u062e\u0648\u0646\u0631\u06cc\u0632\u06cc"
                       }
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                data-plasmic-name={"verticalForMenstrualCycle"}
-                data-plasmic-override={overrides.verticalForMenstrualCycle}
-                className={classNames(
-                  projectcss.all,
-                  sty.verticalForMenstrualCycle
-                )}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__ka4AS
-                  )}
-                >
-                  {
-                    "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc"
-                  }
-                </div>
-                <div
-                  data-plasmic-name={"numberOfDaysOfBleeding2"}
-                  data-plasmic-override={overrides.numberOfDaysOfBleeding2}
-                  className={classNames(
-                    projectcss.all,
-                    sty.numberOfDaysOfBleeding2
-                  )}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__k37BQ
-                    )}
-                  >
-                    {
-                      "\u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u062e\u0648\u0646\u0631\u06cc\u0632\u06cc"
-                    }
-                  </div>
-                  <div
-                    data-plasmic-name={"numberOfDaysOfBleeding3"}
-                    data-plasmic-override={overrides.numberOfDaysOfBleeding3}
-                    className={classNames(
-                      projectcss.all,
-                      sty.numberOfDaysOfBleeding3
-                    )}
-                    onClick={async event => {
-                      const $steps = {};
+                    <div
+                      data-plasmic-name={"numberOfDaysOfBleeding3"}
+                      data-plasmic-override={overrides.numberOfDaysOfBleeding3}
+                      className={classNames(
+                        projectcss.all,
+                        sty.numberOfDaysOfBleeding3
+                      )}
+                      onClick={async event => {
+                        const $steps = {};
 
-                      $steps["updateNumberOfDaysOfBleedingOpendialog"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: [
-                                  "dialogNumberOfDaysOfBleeding",
-                                  "opendialog"
-                                ]
-                              },
-                              operation: 0,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateNumberOfDaysOfBleedingOpendialog"] !=
-                          null &&
-                        typeof $steps[
-                          "updateNumberOfDaysOfBleedingOpendialog"
-                        ] === "object" &&
-                        typeof $steps["updateNumberOfDaysOfBleedingOpendialog"]
-                          .then === "function"
-                      ) {
-                        $steps["updateNumberOfDaysOfBleedingOpendialog"] =
-                          await $steps[
-                            "updateNumberOfDaysOfBleedingOpendialog"
-                          ];
-                      }
-                    }}
-                  >
-                    <TextInput
-                      data-plasmic-name={"nameInput2"}
-                      data-plasmic-override={overrides.nameInput2}
-                      antdInput2={
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__liNza
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return $state.numberOfDaysOfBleedingPicker;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                      }
-                      className={classNames("__wab_instance", sty.nameInput2)}
-                      endIcon={
-                        <CheckSvgIcon
-                          className={classNames(
-                            projectcss.all,
-                            sty.svg___2Yc3Q
-                          )}
-                          role={"img"}
-                        />
-                      }
-                      error={(() => {
-                        try {
-                          return $state.empty.lenght == false;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
-                        }
-                      })()}
-                      errorText={
-                        "\u067e\u0631 \u06a9\u0631\u062f\u0646  \u0627\u06cc\u0646 \u0628\u062e\u0634 \u0636\u0631\u0648\u0631\u06cc \u0627\u0633\u062a"
-                      }
-                      onChange={async (...eventArgs: any) => {
-                        ((...eventArgs) => {
-                          generateStateOnChangeProp($state, [
-                            "nameInput2",
-                            "value"
-                          ])((e => e.target?.value).apply(null, eventArgs));
-                        }).apply(null, eventArgs);
-
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
-                        }
-
-                        (async event => {
-                          const $steps = {};
-
-                          $steps["updateName"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["name"]
-                                  },
-                                  operation: 0,
-                                  value: $state.nameInput2.value
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateName"] != null &&
-                            typeof $steps["updateName"] === "object" &&
-                            typeof $steps["updateName"].then === "function"
-                          ) {
-                            $steps["updateName"] = await $steps["updateName"];
-                          }
-                        }).apply(null, eventArgs);
-                      }}
-                      placeholder={"6 \u0631\u0648\u0632"}
-                      showEndIcon={true}
-                      startIcon={
-                        <SearchSvgIcon
-                          className={classNames(projectcss.all, sty.svg__bfkIg)}
-                          role={"img"}
-                        />
-                      }
-                      type={"tel"}
-                      value={
-                        generateStateValueProp($state, [
-                          "nameInput2",
-                          "value"
-                        ]) ?? ""
-                      }
-                    />
-                  </div>
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__rribl)}>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__gmUae
-                    )}
-                  >
-                    {
-                      "\u0637\u0648\u0644 \u0633\u06cc\u06a9\u0644 \u067e\u0631\u06cc\u0648\u062f"
-                    }
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___9PFte)}
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["updateDialogForPeriodCycleLengthOpendialog"] =
-                        true
+                        $steps["updateNumberOfDaysOfBleedingOpendialog"] = true
                           ? (() => {
                               const actionArgs = {
                                 variable: {
                                   objRoot: $state,
                                   variablePath: [
-                                    "dialogForPeriodCycleLength",
+                                    "dialogNumberOfDaysOfBleeding",
                                     "opendialog"
                                   ]
                                 },
@@ -2259,349 +2107,567 @@ function PlasmicEditProfile__RenderFunc(props: {
                               })?.apply(null, [actionArgs]);
                             })()
                           : undefined;
-                      if (
-                        $steps["updateDialogForPeriodCycleLengthOpendialog"] !=
-                          null &&
-                        typeof $steps[
-                          "updateDialogForPeriodCycleLengthOpendialog"
-                        ] === "object" &&
-                        typeof $steps[
-                          "updateDialogForPeriodCycleLengthOpendialog"
-                        ].then === "function"
-                      ) {
-                        $steps["updateDialogForPeriodCycleLengthOpendialog"] =
-                          await $steps[
-                            "updateDialogForPeriodCycleLengthOpendialog"
-                          ];
-                      }
-                    }}
-                  >
-                    <TextInput
-                      data-plasmic-name={"nameInput3"}
-                      data-plasmic-override={overrides.nameInput3}
-                      antdInput2={
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__qfJn9
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return $state.periodCycleLength;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                      }
-                      className={classNames("__wab_instance", sty.nameInput3)}
-                      endIcon={
-                        <CheckSvgIcon
-                          className={classNames(projectcss.all, sty.svg__hFpF)}
-                          role={"img"}
-                        />
-                      }
-                      error={(() => {
-                        try {
-                          return $state.empty.cyclel == false;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
+                        if (
+                          $steps["updateNumberOfDaysOfBleedingOpendialog"] !=
+                            null &&
+                          typeof $steps[
+                            "updateNumberOfDaysOfBleedingOpendialog"
+                          ] === "object" &&
+                          typeof $steps[
+                            "updateNumberOfDaysOfBleedingOpendialog"
+                          ].then === "function"
+                        ) {
+                          $steps["updateNumberOfDaysOfBleedingOpendialog"] =
+                            await $steps[
+                              "updateNumberOfDaysOfBleedingOpendialog"
+                            ];
                         }
-                      })()}
-                      errorText={
-                        "\u067e\u0631 \u06a9\u0631\u062f\u0646  \u0627\u06cc\u0646 \u0628\u062e\u0634 \u0636\u0631\u0648\u0631\u06cc \u0627\u0633\u062a"
+                      }}
+                    >
+                      <TextInput
+                        data-plasmic-name={"nameInput2"}
+                        data-plasmic-override={overrides.nameInput2}
+                        antdInput2={
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__liNza
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return $state.numberOfDaysOfBleedingPicker;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        }
+                        className={classNames("__wab_instance", sty.nameInput2)}
+                        endIcon={
+                          <CheckSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg___2Yc3Q
+                            )}
+                            role={"img"}
+                          />
+                        }
+                        error={(() => {
+                          try {
+                            return $state.empty.lenght == false;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        errorText={
+                          "\u067e\u0631 \u06a9\u0631\u062f\u0646  \u0627\u06cc\u0646 \u0628\u062e\u0634 \u0636\u0631\u0648\u0631\u06cc \u0627\u0633\u062a"
+                        }
+                        onChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "nameInput2",
+                              "value"
+                            ])((e => e.target?.value).apply(null, eventArgs));
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+
+                          (async event => {
+                            const $steps = {};
+
+                            $steps["updateName"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["name"]
+                                    },
+                                    operation: 0,
+                                    value: $state.nameInput2.value
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateName"] != null &&
+                              typeof $steps["updateName"] === "object" &&
+                              typeof $steps["updateName"].then === "function"
+                            ) {
+                              $steps["updateName"] = await $steps["updateName"];
+                            }
+                          }).apply(null, eventArgs);
+                        }}
+                        placeholder={"6 \u0631\u0648\u0632"}
+                        showEndIcon={true}
+                        startIcon={
+                          <SearchSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__bfkIg
+                            )}
+                            role={"img"}
+                          />
+                        }
+                        type={"tel"}
+                        value={
+                          generateStateValueProp($state, [
+                            "nameInput2",
+                            "value"
+                          ]) ?? ""
+                        }
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__rribl)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__gmUae
+                      )}
+                    >
+                      {
+                        "\u0637\u0648\u0644 \u0633\u06cc\u06a9\u0644 \u067e\u0631\u06cc\u0648\u062f"
                       }
-                      onChange={async (...eventArgs: any) => {
-                        ((...eventArgs) => {
-                          generateStateOnChangeProp($state, [
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___9PFte
+                      )}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateDialogForPeriodCycleLengthOpendialog"] =
+                          true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: [
+                                      "dialogForPeriodCycleLength",
+                                      "opendialog"
+                                    ]
+                                  },
+                                  operation: 0,
+                                  value: true
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps[
+                            "updateDialogForPeriodCycleLengthOpendialog"
+                          ] != null &&
+                          typeof $steps[
+                            "updateDialogForPeriodCycleLengthOpendialog"
+                          ] === "object" &&
+                          typeof $steps[
+                            "updateDialogForPeriodCycleLengthOpendialog"
+                          ].then === "function"
+                        ) {
+                          $steps["updateDialogForPeriodCycleLengthOpendialog"] =
+                            await $steps[
+                              "updateDialogForPeriodCycleLengthOpendialog"
+                            ];
+                        }
+                      }}
+                    >
+                      <TextInput
+                        data-plasmic-name={"nameInput3"}
+                        data-plasmic-override={overrides.nameInput3}
+                        antdInput2={
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__qfJn9
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return $state.periodCycleLength;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        }
+                        className={classNames("__wab_instance", sty.nameInput3)}
+                        endIcon={
+                          <CheckSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__hFpF
+                            )}
+                            role={"img"}
+                          />
+                        }
+                        error={(() => {
+                          try {
+                            return $state.empty.cyclel == false;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        errorText={
+                          "\u067e\u0631 \u06a9\u0631\u062f\u0646  \u0627\u06cc\u0646 \u0628\u062e\u0634 \u0636\u0631\u0648\u0631\u06cc \u0627\u0633\u062a"
+                        }
+                        onChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "nameInput3",
+                              "value"
+                            ])((e => e.target?.value).apply(null, eventArgs));
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+
+                          (async event => {
+                            const $steps = {};
+
+                            $steps["updateName"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["name"]
+                                    },
+                                    operation: 0,
+                                    value: $state.nameInput3.value
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateName"] != null &&
+                              typeof $steps["updateName"] === "object" &&
+                              typeof $steps["updateName"].then === "function"
+                            ) {
+                              $steps["updateName"] = await $steps["updateName"];
+                            }
+                          }).apply(null, eventArgs);
+                        }}
+                        placeholder={"17 \u0631\u0648\u0631"}
+                        showEndIcon={true}
+                        startIcon={
+                          <SearchSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__zkzMm
+                            )}
+                            role={"img"}
+                          />
+                        }
+                        type={"tel"}
+                        value={
+                          generateStateValueProp($state, [
                             "nameInput3",
                             "value"
-                          ])((e => e.target?.value).apply(null, eventArgs));
-                        }).apply(null, eventArgs);
-
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
+                          ]) ?? ""
                         }
-
-                        (async event => {
-                          const $steps = {};
-
-                          $steps["updateName"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["name"]
-                                  },
-                                  operation: 0,
-                                  value: $state.nameInput3.value
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateName"] != null &&
-                            typeof $steps["updateName"] === "object" &&
-                            typeof $steps["updateName"].then === "function"
-                          ) {
-                            $steps["updateName"] = await $steps["updateName"];
-                          }
-                        }).apply(null, eventArgs);
-                      }}
-                      placeholder={"17 \u0631\u0648\u0631"}
-                      showEndIcon={true}
-                      startIcon={
-                        <SearchSvgIcon
-                          className={classNames(projectcss.all, sty.svg__zkzMm)}
-                          role={"img"}
-                        />
+                      />
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___03Fx9
+                      )}
+                    >
+                      {
+                        "\u0641\u0627\u0635\u0644\u0647 \u0627\u0648\u0644\u06cc\u0646 \u0631\u0648\u0632  \u0642\u0627\u0639\u062f\u06af\u06cc \u062a\u0627 \u0634\u0631\u0648\u0639 \u0642\u0627\u062f\u06af\u06cc \u0628\u0639\u062f\u06cc\u062a \u0627\u0633\u062a.(\u062d\u0648\u0627\u0633\u062a \u0628\u0627\u0634\u0647 \u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u067e\u0631\u06cc\u0648\u062f\u06cc\u062a (\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc)  \u0631\u0648 \u0647\u0645  \u062c\u0633\u0627\u0628 \u06a9\u0646\u06cc."
                       }
-                      type={"tel"}
-                      value={
-                        generateStateValueProp($state, [
-                          "nameInput3",
-                          "value"
-                        ]) ?? ""
+                    </div>
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__xSZgy)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__zr4Gx
+                      )}
+                    >
+                      {
+                        "\u062a\u0627\u0631\u06cc\u062e \u0627\u0648\u0644\u06cc\u0646 \u0631\u0648\u0632 \u0627\u0632 \u0627\u062e\u0631\u06cc\u0646 \u0642\u0627\u0639\u062f\u06af\u06cc \u0634\u0645\u0627"
                       }
-                    />
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___03Fx9
-                    )}
-                  >
-                    {
-                      "\u0641\u0627\u0635\u0644\u0647 \u0627\u0648\u0644\u06cc\u0646 \u0631\u0648\u0632  \u0642\u0627\u0639\u062f\u06af\u06cc \u062a\u0627 \u0634\u0631\u0648\u0639 \u0642\u0627\u062f\u06af\u06cc \u0628\u0639\u062f\u06cc\u062a \u0627\u0633\u062a.(\u062d\u0648\u0627\u0633\u062a \u0628\u0627\u0634\u0647 \u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u067e\u0631\u06cc\u0648\u062f\u06cc\u062a (\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc)  \u0631\u0648 \u0647\u0645  \u062c\u0633\u0627\u0628 \u06a9\u0646\u06cc."
-                    }
-                  </div>
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__xSZgy)}>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__zr4Gx
-                    )}
-                  >
-                    {
-                      "\u062a\u0627\u0631\u06cc\u062e \u0627\u0648\u0644\u06cc\u0646 \u0631\u0648\u0632 \u0627\u0632 \u0627\u062e\u0631\u06cc\u0646 \u0642\u0627\u0639\u062f\u06af\u06cc \u0634\u0645\u0627"
-                    }
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__xNeYo)}
-                    onClick={async event => {
-                      const $steps = {};
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__xNeYo)}
+                      onClick={async event => {
+                        const $steps = {};
 
-                      $steps[
-                        "updateDialogForTheDateOfTheFirstDayOfYourLastPeriodOpendialog"
-                      ] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: [
-                                  "dialogForTheDateOfTheFirstDayOfYourLastPeriod",
-                                  "opendialog"
-                                ]
-                              },
-                              operation: 0,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
                         $steps[
                           "updateDialogForTheDateOfTheFirstDayOfYourLastPeriodOpendialog"
-                        ] != null &&
-                        typeof $steps[
-                          "updateDialogForTheDateOfTheFirstDayOfYourLastPeriodOpendialog"
-                        ] === "object" &&
-                        typeof $steps[
-                          "updateDialogForTheDateOfTheFirstDayOfYourLastPeriodOpendialog"
-                        ].then === "function"
-                      ) {
-                        $steps[
-                          "updateDialogForTheDateOfTheFirstDayOfYourLastPeriodOpendialog"
-                        ] = await $steps[
-                          "updateDialogForTheDateOfTheFirstDayOfYourLastPeriodOpendialog"
-                        ];
-                      }
-                    }}
-                  >
-                    <TextInput
-                      data-plasmic-name={"nameInput4"}
-                      data-plasmic-override={overrides.nameInput4}
-                      antdInput2={
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__cL78D
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return $state.variableForTheDateOfTheFirstDayOfYourLastPeriod.find(
-                                  a => a.value === $state.variableForLastPeriod
-                                ).label;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
+                        ] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: [
+                                    "dialogForTheDateOfTheFirstDayOfYourLastPeriod",
+                                    "opendialog"
+                                  ]
+                                },
+                                operation: 0,
+                                value: true
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
                                 }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                      }
-                      className={classNames("__wab_instance", sty.nameInput4)}
-                      endIcon={
-                        <CheckSvgIcon
-                          className={classNames(projectcss.all, sty.svg___3RnG)}
-                          role={"img"}
-                        />
-                      }
-                      error={(() => {
-                        try {
-                          return $state.empty.lasttime == false;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps[
+                            "updateDialogForTheDateOfTheFirstDayOfYourLastPeriodOpendialog"
+                          ] != null &&
+                          typeof $steps[
+                            "updateDialogForTheDateOfTheFirstDayOfYourLastPeriodOpendialog"
+                          ] === "object" &&
+                          typeof $steps[
+                            "updateDialogForTheDateOfTheFirstDayOfYourLastPeriodOpendialog"
+                          ].then === "function"
+                        ) {
+                          $steps[
+                            "updateDialogForTheDateOfTheFirstDayOfYourLastPeriodOpendialog"
+                          ] = await $steps[
+                            "updateDialogForTheDateOfTheFirstDayOfYourLastPeriodOpendialog"
+                          ];
                         }
-                      })()}
-                      errorText={
-                        "\u067e\u0631 \u06a9\u0631\u062f\u0646  \u0627\u06cc\u0646 \u0628\u062e\u0634 \u0636\u0631\u0648\u0631\u06cc \u0627\u0633\u062a"
-                      }
-                      onChange={async (...eventArgs: any) => {
-                        ((...eventArgs) => {
-                          generateStateOnChangeProp($state, [
+                      }}
+                    >
+                      <TextInput
+                        data-plasmic-name={"nameInput4"}
+                        data-plasmic-override={overrides.nameInput4}
+                        antdInput2={
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__cL78D
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return $state.variableForTheDateOfTheFirstDayOfYourLastPeriod.find(
+                                    a =>
+                                      a.value === $state.variableForLastPeriod
+                                  ).label;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        }
+                        className={classNames("__wab_instance", sty.nameInput4)}
+                        endIcon={
+                          <CheckSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg___3RnG
+                            )}
+                            role={"img"}
+                          />
+                        }
+                        error={(() => {
+                          try {
+                            return $state.empty.lasttime == false;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        errorText={
+                          "\u067e\u0631 \u06a9\u0631\u062f\u0646  \u0627\u06cc\u0646 \u0628\u062e\u0634 \u0636\u0631\u0648\u0631\u06cc \u0627\u0633\u062a"
+                        }
+                        onChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "nameInput4",
+                              "value"
+                            ])((e => e.target?.value).apply(null, eventArgs));
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+
+                          (async event => {
+                            const $steps = {};
+
+                            $steps["updateName"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["name"]
+                                    },
+                                    operation: 0,
+                                    value: $state.nameInput4.value
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateName"] != null &&
+                              typeof $steps["updateName"] === "object" &&
+                              typeof $steps["updateName"].then === "function"
+                            ) {
+                              $steps["updateName"] = await $steps["updateName"];
+                            }
+                          }).apply(null, eventArgs);
+                        }}
+                        showEndIcon={true}
+                        startIcon={
+                          <SearchSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__pxRsM
+                            )}
+                            role={"img"}
+                          />
+                        }
+                        type={"tel"}
+                        value={
+                          generateStateValueProp($state, [
                             "nameInput4",
                             "value"
-                          ])((e => e.target?.value).apply(null, eventArgs));
-                        }).apply(null, eventArgs);
-
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
+                          ]) ?? ""
                         }
-
-                        (async event => {
-                          const $steps = {};
-
-                          $steps["updateName"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["name"]
-                                  },
-                                  operation: 0,
-                                  value: $state.nameInput4.value
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateName"] != null &&
-                            typeof $steps["updateName"] === "object" &&
-                            typeof $steps["updateName"].then === "function"
-                          ) {
-                            $steps["updateName"] = await $steps["updateName"];
-                          }
-                        }).apply(null, eventArgs);
-                      }}
-                      showEndIcon={true}
-                      startIcon={
-                        <SearchSvgIcon
-                          className={classNames(projectcss.all, sty.svg__pxRsM)}
-                          role={"img"}
-                        />
-                      }
-                      type={"tel"}
-                      value={
-                        generateStateValueProp($state, [
-                          "nameInput4",
-                          "value"
-                        ]) ?? ""
-                      }
-                    />
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
+              ) : null}
               <div
                 data-plasmic-name={"heightAndWeight"}
                 data-plasmic-override={overrides.heightAndWeight}

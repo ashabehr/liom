@@ -26,20 +26,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       }
     }
     if (typeof window !== "undefined" && "serviceWorker" in navigator) {
-      navigator.serviceWorker.getRegistrations().then((registrations) => {
-        const alreadyRegistered = registrations.some((reg) =>
-          reg.active?.scriptURL.includes("firebase-messaging-sw.js")
-        );
-
-        navigator.serviceWorker
-          .register("/firebase-messaging-sw.js")
-          .then((registration) => {
-            console.log("✅ Service Worker ثبت شد:", registration);
-          })
-          .catch((err) =>
-            console.log("❌ خطا در ثبت Service Worker:", err)
-          );
-      });
 
       import("../firebase/fcm").then(
         ({ requestPermission, onMessageListener }) => {
