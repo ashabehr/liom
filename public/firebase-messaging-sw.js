@@ -65,13 +65,13 @@ self.addEventListener('notificationclick', (event) => {
         targetUrl = '/offers/special';
         break;
       case 'orderStatus':
-        targetUrl = '/orders/status/'+${actionParam};
+        targetUrl = '/orders/status/';
         break;
       case 'newFeature':
         targetUrl = '/features/new';
         break;
       case 'post':
-        targetUrl = 'https://old.liom.app/social/?post='+${actionParam};
+        targetUrl = 'https://old.liom.app/social/?post=';
         break;
       default:
         targetUrl = 'https://apps.liom.app/login';
