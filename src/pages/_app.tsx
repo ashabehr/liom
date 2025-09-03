@@ -17,6 +17,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   } | null>(null);
 
   useEffect(() => {
+
+     if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/firebase-messaging-swV2.js").catch(console.error);
+    }
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("newView");
       if (saved === "true") {
