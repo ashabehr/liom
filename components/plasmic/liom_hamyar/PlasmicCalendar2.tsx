@@ -148,7 +148,6 @@ export type PlasmicCalendar2__OverridesType = {
   button21?: Flex__<typeof Button>;
   directDialog?: Flex__<typeof DirectDialog2>;
   timer?: Flex__<typeof Timer>;
-  serviceWorker?: Flex__<typeof Embed>;
   button18?: Flex__<typeof Button>;
   main?: Flex__<"div">;
   cyclebox2?: Flex__<typeof Cyclebox2>;
@@ -4480,15 +4479,6 @@ function PlasmicCalendar2__RenderFunc(props: {
           }
         }}
         runWhileEditing={false}
-      />
-
-      <Embed
-        data-plasmic-name={"serviceWorker"}
-        data-plasmic-override={overrides.serviceWorker}
-        className={classNames("__wab_instance", sty.serviceWorker)}
-        code={
-          '\r\n<script>\r\n  // \u062a\u0646\u0638\u06cc\u0645\u0627\u062a Firebase\r\n  var firebaseConfig = {\r\n    apiKey: "AIzaSyBVtKyIzcD0xVEMOjeMYjDdNRozFVVrmRo",\r\n    authDomain: "liom-31952.firebaseapp.com",\r\n    databaseURL: "https://liom-31952.firebaseio.com",\r\n    projectId: "liom-31952",\r\n    storageBucket: "liom-31952.appspot.com",\r\n    messagingSenderId: "518322220404",\r\n    appId: "1:518322220404:web:09527c8a42f2f017d89021",\r\n    measurementId: "G-TVWYWYEH1D"\r\n  };\r\n\r\n  // Initialize Firebase\r\n  firebase.initializeApp(firebaseConfig);\r\n  const messaging = firebase.messaging();\r\n\r\n  // \u06af\u0631\u0641\u062a\u0646 \u06a9\u0648\u06a9\u06cc\r\n  var getCookie = name => {\r\n    const cookies = document.cookie.split("; ");\r\n    for (let cookie of cookies) {\r\n      const [key, value] = cookie.split("=");\r\n      if (key === name)\r\n        return JSON.parse(value)[0]\r\n    }\r\n    return "";\r\n  };\r\n\r\n  // \u0627\u0631\u0633\u0627\u0644 \u062a\u0648\u06a9\u0646 \u0628\u0647 \u0633\u0631\u0648\u0631 \u0641\u0642\u0637 \u0648\u0642\u062a\u06cc \u062a\u063a\u06cc\u06cc\u0631 \u06a9\u0631\u062f\u0647\r\n  function sendTokenToServer(token) {\r\n    const savedToken = window.localStorage.getItem("fcmToken");\r\n    if (savedToken === token) {\r\n      console.log("\u2705 \u062a\u0648\u06a9\u0646 \u0642\u0628\u0644\u06cc \u0647\u0646\u0648\u0632 \u0645\u0639\u062a\u0628\u0631 \u0627\u0633\u062a\u060c \u0627\u0631\u0633\u0627\u0644 \u0628\u0647 \u0633\u0631\u0648\u0631 \u0644\u0627\u0632\u0645 \u0646\u06cc\u0633\u062a.");\r\n      return;\r\n    }\r\n\r\n    const authToken = getCookie("token");\r\n    if (!authToken) {\r\n      console.warn("\u274c \u062a\u0648\u06a9\u0646 \u06a9\u0627\u0631\u0628\u0631 \u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a\u060c \u0627\u0631\u0633\u0627\u0644 FCM \u0644\u063a\u0648 \u0634\u062f.");\r\n      return;\r\n    }\r\n\r\n    window.localStorage.setItem("fcmToken", token);\r\n    console.log("\u0627\u0631\u0633\u0627\u0644 \u062a\u0648\u06a9\u0646 FCM \u0628\u0647 \u0633\u0631\u0648\u0631...", token);\r\n\r\n    fetch("https://n8n.staas.ir/webhook/rest/user/setFcm", {\r\n      method: "POST",\r\n      headers: {\r\n        "Content-Type": "application/json"\r\n      },\r\n      body: JSON.stringify({\r\n        fcm: token,\r\n        Authorization: authToken\r\n      })\r\n    })\r\n      .then(res => {\r\n        if (!res.ok) throw new Error("\u062e\u0637\u0627 \u062f\u0631 \u0627\u0631\u0633\u0627\u0644 \u062a\u0648\u06a9\u0646");\r\n        return res.json();\r\n      })\r\n      .then(data => console.log("\u2705 \u062a\u0648\u06a9\u0646 FCM \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0628\u0647 \u0633\u0631\u0648\u0631 \u0627\u0631\u0633\u0627\u0644 \u0634\u062f:", data))\r\n      .catch(err => console.error("\u274c \u062e\u0637\u0627 \u062f\u0631 \u0627\u0631\u0633\u0627\u0644 \u062a\u0648\u06a9\u0646 FCM:", err));\r\n  }\r\n\r\n  // \u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0645\u062c\u0648\u0632 \u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646 \u0648 \u062f\u0631\u06cc\u0627\u0641\u062a \u062a\u0648\u06a9\u0646\r\n  function requestPermission() {\r\n    console.log("\u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0645\u062c\u0648\u0632...");\r\n    if (!("Notification" in window)) {\r\n      console.log("\u274c \u0627\u06cc\u0646 \u0645\u0631\u0648\u0631\u06af\u0631 \u06cc\u0627 \u0645\u062d\u06cc\u0637 \u0641\u0639\u0644\u06cc \u0627\u0632 \u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc \u0646\u0645\u06cc\u200c\u06a9\u0646\u062f.");\r\n      return;\r\n    }\r\n\r\n    Notification.requestPermission().then(permission => {\r\n      if (permission === "granted") {\r\n        console.log("\u0645\u062c\u0648\u0632 \u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646 \u062f\u0627\u062f\u0647 \u0634\u062f.");\r\n\r\n        // \u0627\u0648\u0644 \u0628\u0631\u0631\u0633\u06cc \u06a9\u0646\u06cc\u0645 \u06a9\u0647 \u062a\u0648\u06a9\u0646 \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f\u0647 \u062f\u0627\u0631\u06cc\u0645 \u06cc\u0627 \u0646\u0647\r\n        const savedToken = window.localStorage.getItem("fcmToken");\r\n        if (savedToken) {\r\n          console.log("\u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u062a\u0648\u06a9\u0646 \u0642\u0628\u0644\u06cc:", savedToken);\r\n          sendTokenToServer(savedToken);\r\n          return;\r\n        }\r\n\r\n        // \u062f\u0631\u06cc\u0627\u0641\u062a \u062a\u0648\u06a9\u0646 \u062c\u062f\u06cc\u062f\r\n        messaging.getToken({\r\n          vapidKey: "BDroVn6KRs9iN1laogFt-J47xc9WsWIfblgIBCi2QllonFT-PAu9up26gRlL-9uL7R1FSllN7I13eTR6IZiH72g"\r\n        })\r\n        .then(currentToken => {\r\n          if (currentToken) {\r\n            console.log("\u062a\u0648\u06a9\u0646 FCM \u062c\u062f\u06cc\u062f:", currentToken);\r\n            sendTokenToServer(currentToken);\r\n          } else {\r\n            console.warn("\u0647\u06cc\u0686 \u062a\u0648\u06a9\u0646\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0634\u062f. \u0634\u0627\u06cc\u062f \u06a9\u0627\u0631\u0628\u0631 \u062f\u0633\u062a\u0631\u0633\u06cc \u0631\u0627 \u0631\u062f \u06a9\u0631\u062f\u0647.");\r\n          }\r\n        })\r\n        .catch(err => console.error("\u274c \u062e\u0637\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0641\u062a \u062a\u0648\u06a9\u0646:", err));\r\n\r\n      } else if (permission === "denied") {\r\n        console.warn("\u274c \u06a9\u0627\u0631\u0628\u0631 \u062f\u0633\u062a\u0631\u0633\u06cc \u0628\u0647 \u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646 \u0631\u0627 \u0631\u062f \u06a9\u0631\u062f\u0647.");\r\n      } else {\r\n        console.log("\u06a9\u0627\u0631\u0628\u0631 \u0647\u0646\u0648\u0632 \u062a\u0635\u0645\u06cc\u0645\u06cc \u0646\u06af\u0631\u0641\u062a\u0647.");\r\n      }\r\n    });\r\n  }\r\n</script>\r\n'
-        }
       />
 
       {(
@@ -12562,6 +12552,17 @@ function PlasmicCalendar2__RenderFunc(props: {
                                       statusText +=
                                         "\u26A0️ دسترسی Notification هنوز درخواست نشده.\n";
                                     }
+                                    const token =
+                                      localStorage.getItem("fcmToken");
+                                    if (token) {
+                                      statusText +=
+                                        "\u2705 FCM Token ذخیره شده: " +
+                                        token +
+                                        "\n";
+                                    } else {
+                                      statusText +=
+                                        "\u274C FCM Token ذخیره نشده.\n";
+                                    }
                                     if (
                                       !("serviceWorker" in window.navigator)
                                     ) {
@@ -12604,17 +12605,6 @@ function PlasmicCalendar2__RenderFunc(props: {
                                               statusText +=
                                                 "\u26A0️ نتونستم کد سرویس‌ورکر رو بگیرم.\n";
                                             }
-                                          }
-                                          const token =
-                                            localStorage.getItem("fcmToken");
-                                          if (token) {
-                                            statusText +=
-                                              "\u2705 FCM Token ذخیره شده: " +
-                                              token +
-                                              "\n";
-                                          } else {
-                                            statusText +=
-                                              "\u274C FCM Token ذخیره نشده.\n";
                                           }
                                           alert(statusText);
                                         });
@@ -55887,7 +55877,6 @@ const PlasmicDescendants = {
     "button21",
     "directDialog",
     "timer",
-    "serviceWorker",
     "button18",
     "main",
     "cyclebox2",
@@ -55929,7 +55918,6 @@ const PlasmicDescendants = {
   button21: ["button21"],
   directDialog: ["directDialog"],
   timer: ["timer"],
-  serviceWorker: ["serviceWorker"],
   button18: ["button18"],
   main: [
     "main",
@@ -56009,7 +55997,6 @@ type NodeDefaultElementType = {
   button21: typeof Button;
   directDialog: typeof DirectDialog2;
   timer: typeof Timer;
-  serviceWorker: typeof Embed;
   button18: typeof Button;
   main: "div";
   cyclebox2: typeof Cyclebox2;
@@ -56112,7 +56099,6 @@ export const PlasmicCalendar2 = Object.assign(
     button21: makeNodeComponent("button21"),
     directDialog: makeNodeComponent("directDialog"),
     timer: makeNodeComponent("timer"),
-    serviceWorker: makeNodeComponent("serviceWorker"),
     button18: makeNodeComponent("button18"),
     main: makeNodeComponent("main"),
     cyclebox2: makeNodeComponent("cyclebox2"),
