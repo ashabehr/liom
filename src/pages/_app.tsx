@@ -35,7 +35,7 @@ function getCookie(name: string): any {
 }
 
     
-function sendTokenToServer(token, retryCount = 0) {
+function sendTokenToServer(token: string, retryCount = 0) {
   const savedToken = window.localStorage.getItem("fcmToken");
   if (savedToken === token) return;
 
