@@ -54,6 +54,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
       import("../firebase/fcm").then(
         ({ requestPermission, onMessageListener }) => {
+            console.log("درخواست به FCM");
            requestPermission().then((token) => {
               if (token) {
                 console.log("✅ FCM Token:", token);
