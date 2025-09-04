@@ -19,37 +19,59 @@ const VAPID_KEY =
 // مقدار messaging رو فقط در مرورگر ست می‌کنیم
 let messaging: Messaging | null = null;
 if (typeof window !== "undefined" && "serviceWorker" in navigator) {
+  console.log("[FCM] Initializing Firebase app...");
   const app = initializeApp(firebaseConfig);
   // dynamic import → باعث میشه SSR کرش نکنه
   import("firebase/messaging").then(({ getMessaging }) => {
     messaging = getMessaging(app);
+    console.log("[FCM] Messaging initialized:", messaging);
   });
 }
 
 // گرفتن کوکی
 const getCookie = (name: string): string | null => {
-  if (typeof document === "undefined") return null;
+  if (typeof document === "undefined") {
+    console.log("[FCM] Document not available (SSR).");
+    return null;
+  }
   const cookies = document.cookie.split("; ");
+  console.log("[FCM] All cookies:", cookies);
   for (let cookie of cookies) {
     const [key, value] = cookie.split("=");
     if (key === name) {
-  try {
-    return JSON.parse(value)[0]; // فقط آیتم اول
-  } catch {
-    return value; // اگه JSON نبود، همون رشته رو برگردونه
+      try {
+        const parsed = JSON.parse(value)[0];
+        console.log(`[FCM] Cookie ${name} parsed:`, parsed);
+        return parsed;
+      } catch {
+        console.log(`[FCM] Cookie ${name} raw:`, value);
+        return value;
+      }
+    }
   }
-}
-  }
+  console.log(`[FCM] Cookie ${name} not found.`);
   return null;
 };
 
 // ارسال توکن به سرور
 const sendTokenToServer = async (token: string) => {
+  console.log("[FCM] Sending token to server:", token);
+
   const savedToken = localStorage.getItem("fcmToken");
-  if (savedToken === token) return;
+  console.log("[FCM] Saved token in localStorage:", savedToken);
+
+  if (savedToken === token) {
+    console.log("[FCM] Token already saved, skipping...");
+    return;
+  }
 
   const authToken = getCookie("token");
-  if (!authToken) return;
+  console.log("[FCM] Auth token from cookie:", authToken);
+
+  if (!authToken) {
+    console.warn("[FCM] No auth token found, skipping send.");
+    return;
+  }
 
   try {
     const res = await fetch("https://n8n.staas.ir/webhook/rest/user/setFcm", {
@@ -57,52 +79,75 @@ const sendTokenToServer = async (token: string) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ fcm: token, Authorization: authToken }),
     });
+    console.log("[FCM] Server response status:", res.status);
     if (!res.ok) throw new Error("خطا در ارسال توکن FCM");
+
     localStorage.setItem("fcmToken", token);
+    console.log("[FCM] Token saved to localStorage.");
   } catch (err) {
-    console.error(err);
+    console.error("[FCM] Error sending token to server:", err);
   }
 };
 
 // درخواست مجوز و دریافت توکن
 export const requestPermission = async (): Promise<string | null> => {
-  if (!messaging) return null;
+  if (!messaging) {
+    console.warn("[FCM] Messaging not initialized.");
+    return null;
+  }
 
   try {
+    console.log("[FCM] Requesting notification permission...");
     const permission = await Notification.requestPermission();
+    console.log("[FCM] Notification permission result:", permission);
+
     if (permission !== "granted") return null;
 
     const savedToken = localStorage.getItem("fcmToken");
     if (savedToken) {
+      console.log("[FCM] Using saved token:", savedToken);
       await sendTokenToServer(savedToken);
       return savedToken;
     }
 
     const { getToken } = await import("firebase/messaging");
+    console.log("[FCM] Getting new token...");
     const currentToken = await getToken(messaging, { vapidKey: VAPID_KEY });
+    console.log("[FCM] New token received:", currentToken);
+
     if (currentToken) await sendTokenToServer(currentToken);
     return currentToken;
   } catch (err) {
-    console.error(err);
+    console.error("[FCM] Error requesting permission:", err);
     return null;
   }
 };
 
 // Foreground messaging listener
 export const onMessageListener = (callback: (payload: any) => void) => {
-  if (!messaging) return;
+  if (!messaging) {
+    console.warn("[FCM] Messaging not initialized for onMessage.");
+    return;
+  }
+  console.log("[FCM] Setting up onMessage listener...");
   import("firebase/messaging").then(({ onMessage }) => {
-    onMessage(messaging!, (payload) => callback(payload));
+    onMessage(messaging!, (payload) => {
+      console.log("[FCM] Foreground message received:", payload);
+      callback(payload);
+    });
   });
 };
 
 // تابع کلیک روی Notification
 export function handleNotificationClick(action: string | null) {
+  console.log("[FCM] Handling notification click, action:", action);
   let targetUrl = "/login";
 
   if (action) {
     const pureAction = action.replace("#", "").split("-")[0];
     const actionParam = action.replace("#", "").split("-").slice(1).join("-");
+    console.log("[FCM] Parsed action:", pureAction, "Param:", actionParam);
+
     switch (pureAction) {
       case "healthSubscription":
         targetUrl = "https://apps.liom.app/shop"; break;
@@ -122,5 +167,6 @@ export function handleNotificationClick(action: string | null) {
     }
   }
 
+  console.log("[FCM] Redirecting to:", targetUrl);
   window.open(targetUrl, "_self");
 }
