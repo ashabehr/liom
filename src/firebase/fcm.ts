@@ -32,7 +32,13 @@ const getCookie = (name: string): string | null => {
   const cookies = document.cookie.split("; ");
   for (let cookie of cookies) {
     const [key, value] = cookie.split("=");
-    if (key === name) return JSON.parse(value)[0];
+    if (key === name) {
+  try {
+    return JSON.parse(value)[0]; // فقط آیتم اول
+  } catch {
+    return value; // اگه JSON نبود، همون رشته رو برگردونه
+  }
+}
   }
   return null;
 };
