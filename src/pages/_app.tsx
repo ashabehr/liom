@@ -18,7 +18,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   // گرفتن کوکی
 // گرفتن کوکی و برگرداندن اولین آیتم از JSON
-function getCookie = (name: string): any => {
+function getCookie(name: string): any {
   const cookies = document.cookie.split("; ");
   for (let cookie of cookies) {
     const [key, value] = cookie.split("=");
@@ -32,7 +32,8 @@ function getCookie = (name: string): any => {
     }
   }
   return "";
-};
+}
+
     
 function sendTokenToServer(token, retryCount = 0) {
   const savedToken = window.localStorage.getItem("fcmToken");
