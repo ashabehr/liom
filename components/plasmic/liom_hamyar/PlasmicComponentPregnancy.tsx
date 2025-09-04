@@ -26032,9 +26032,12 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                           return (() => {
                             try {
                               console.log("saveInfo");
+                              console.log($state.getUserInfo?.data?.[0]);
                               localStorage.setItem(
                                 "userinfo",
-                                JSON.stringify($state.getUserInfo?.[0].result)
+                                JSON.stringify(
+                                  $state.getUserInfo?.data?.[0].result
+                                )
                               );
                               return console.log("saveInfo:ok");
                             } catch {
