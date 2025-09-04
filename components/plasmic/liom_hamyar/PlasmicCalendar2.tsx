@@ -12578,6 +12578,17 @@ function PlasmicCalendar2__RenderFunc(props: {
                                             statusText +=
                                               "\u274C هیچ Service Worker پیدا نشد.\n";
                                           }
+                                          const token =
+                                            localStorage.getItem("fcmToken");
+                                          if (token) {
+                                            statusText +=
+                                              "\u2705 FCM Token ذخیره شده: " +
+                                              token +
+                                              "\n";
+                                          } else {
+                                            statusText +=
+                                              "\u274C FCM Token ذخیره نشده.\n";
+                                          }
                                           for (
                                             let i = 0;
                                             i < registrations.length;
@@ -12605,17 +12616,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                                                 "\u26A0️ نتونستم کد سرویس‌ورکر رو بگیرم.\n";
                                             }
                                           }
-                                          const token =
-                                            localStorage.getItem("fcmToken");
-                                          if (token) {
-                                            statusText +=
-                                              "\u2705 FCM Token ذخیره شده: " +
-                                              token +
-                                              "\n";
-                                          } else {
-                                            statusText +=
-                                              "\u274C FCM Token ذخیره نشده.\n";
-                                          }
+                                          
                                           alert(statusText);
                                         });
                                     }
