@@ -18,9 +18,30 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
 
-     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/firebase-messaging-swV2.js").catch(console.error);
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.getRegistrations().then((registrations) => {
+    let hasV2 = false;
+
+    registrations.forEach((registration) => {
+      if (registration.active && registration.active.scriptURL.includes("firebase-messaging-swV2.js")) {
+        // اگر همین ورکر رجیستر شده بود
+        hasV2 = true;
+      } else {
+        // هر ورکر دیگه‌ای پاک بشه
+        registration.unregister();
+      }
+    });
+
+    if (!hasV2) {
+      // فقط اگر ورکر V2 وجود نداشت رجیستر می‌کنیم
+      navigator.serviceWorker
+        .register("/firebase-messaging-swV2.js")
+        .then(() => console.log("Service Worker V2 registered"))
+        .catch(console.error);
     }
+  });
+}
+
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("newView");
       if (saved === "true") {
