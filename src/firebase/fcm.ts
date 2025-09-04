@@ -10,22 +10,26 @@ const firebaseConfig = {
   storageBucket: "liom-31952.firebasestorage.app",
   messagingSenderId: "518322220404",
   appId: "1:518322220404:web:09527c8a42f2f017d89021",
-  measurementId: "G-TVWYWYEH1D"
+  measurementId: "G-TVWYWYEH1D",
 };
 
 const VAPID_KEY =
   "BDroVn6KRs9iN1laogFt-J47xc9WsWIfblgIBCi2QllonFT-PAu9up26gRlL-9uL7R1FSllN7I13eTR6IZiH72g";
 
-// مقدار messaging رو فقط در مرورگر ست می‌کنیم
-let messaging: Messaging | null = null;
+// Promise برای آماده شدن Messaging
+let messagingReady: Promise<Messaging>;
+
 if (typeof window !== "undefined" && "serviceWorker" in navigator) {
   console.log("[FCM] Initializing Firebase app...");
   const app = initializeApp(firebaseConfig);
-  // dynamic import → باعث میشه SSR کرش نکنه
-  import("firebase/messaging").then(({ getMessaging }) => {
-    messaging = getMessaging(app);
-    console.log("[FCM] Messaging initialized:", messaging);
+
+  messagingReady = import("firebase/messaging").then(({ getMessaging }) => {
+    const msg = getMessaging(app);
+    console.log("[FCM] Messaging initialized:", msg);
+    return msg;
   });
+} else {
+  messagingReady = Promise.reject("Not running in browser");
 }
 
 // گرفتن کوکی
@@ -91,12 +95,10 @@ const sendTokenToServer = async (token: string) => {
 
 // درخواست مجوز و دریافت توکن
 export const requestPermission = async (): Promise<string | null> => {
-  if (!messaging) {
-    console.warn("[FCM] Messaging not initialized.");
-    return null;
-  }
-
   try {
+    const messaging = await messagingReady;
+    console.log("[FCM] Messaging ready:", messaging);
+
     console.log("[FCM] Requesting notification permission...");
     const permission = await Notification.requestPermission();
     console.log("[FCM] Notification permission result:", permission);
@@ -118,24 +120,26 @@ export const requestPermission = async (): Promise<string | null> => {
     if (currentToken) await sendTokenToServer(currentToken);
     return currentToken;
   } catch (err) {
-    console.error("[FCM] Error requesting permission:", err);
+    console.error("[FCM] Error in requestPermission:", err);
     return null;
   }
 };
 
 // Foreground messaging listener
-export const onMessageListener = (callback: (payload: any) => void) => {
-  if (!messaging) {
-    console.warn("[FCM] Messaging not initialized for onMessage.");
-    return;
-  }
-  console.log("[FCM] Setting up onMessage listener...");
-  import("firebase/messaging").then(({ onMessage }) => {
-    onMessage(messaging!, (payload) => {
+export const onMessageListener = async (
+  callback: (payload: any) => void
+) => {
+  try {
+    const messaging = await messagingReady;
+    console.log("[FCM] Setting up onMessage listener...");
+    const { onMessage } = await import("firebase/messaging");
+    onMessage(messaging, (payload) => {
       console.log("[FCM] Foreground message received:", payload);
       callback(payload);
     });
-  });
+  } catch (err) {
+    console.error("[FCM] Error setting onMessage listener:", err);
+  }
 };
 
 // تابع کلیک روی Notification
