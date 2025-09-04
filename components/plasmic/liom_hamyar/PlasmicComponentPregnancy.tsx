@@ -6662,7 +6662,10 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                     <InformationBox
                       backColor={(() => {
                         try {
-                          return "";
+                          return (localStorage.getItem("newView") || "false") ==
+                            "true"
+                            ? "#FDFEE3"
+                            : "";
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -6793,6 +6796,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                             ? "#hamyarInfo"
                                             : "#healthSubscription";
                                         console.log(a);
+                                        console.log(allowance);
                                         return a;
                                       })();
                                     } catch (e) {
@@ -7063,7 +7067,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                   })(),
                                   (() => {
                                     try {
-                                      return $ctx.query.inApp;
+                                      return $state.paramsObject.inApp;
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -7077,7 +7081,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                   })(),
                                   (() => {
                                     try {
-                                      return $ctx.query.theme;
+                                      return $state.paramsObject.theme;
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
