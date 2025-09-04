@@ -229,6 +229,11 @@ function PlasmicSwitchbest__RenderFunc(props: {
           data-plasmic-name={"labelContainer"}
           data-plasmic-override={overrides.labelContainer}
           className={classNames(projectcss.all, sty.labelContainer, {
+            [sty.labelContainerisChecked]: hasVariant(
+              $state,
+              "isChecked",
+              "isChecked"
+            ),
             [sty.labelContainernoLabel]: hasVariant(
               $state,
               "noLabel",
@@ -246,6 +251,9 @@ function PlasmicSwitchbest__RenderFunc(props: {
                 "isChecked",
                 "isChecked"
               ),
+              [sty.slotTargetChildrenisChecked_global_newView_newView]:
+                hasVariant($state, "isChecked", "isChecked") &&
+                hasVariant(globalVariants, "newView", "newView"),
               [sty.slotTargetChildrenisDisabled]: hasVariant(
                 $state,
                 "isDisabled",
@@ -273,6 +281,9 @@ function PlasmicSwitchbest__RenderFunc(props: {
           data-plasmic-override={overrides.track}
           className={classNames(projectcss.all, sty.track, {
             [sty.trackisChecked]: hasVariant($state, "isChecked", "isChecked"),
+            [sty.trackisChecked_global_newView_newView]:
+              hasVariant($state, "isChecked", "isChecked") &&
+              hasVariant(globalVariants, "newView", "newView"),
             [sty.trackisDisabled]: hasVariant(
               $state,
               "isDisabled",

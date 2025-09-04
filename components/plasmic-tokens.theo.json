@@ -2971,6 +2971,76 @@
       }
     },
     {
+      "name": "gradient-3",
+      "type": "color",
+      "value": "#F7DC8B",
+      "category": "color",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "DfljP9wlRXN0"
+      }
+    },
+    {
+      "name": "gradient-4",
+      "type": "color",
+      "value": "#F4A261",
+      "category": "color",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "B4BpXURM66z6"
+      }
+    },
+    {
+      "name": "gradient-5",
+      "type": "color",
+      "value": "#E76D67",
+      "category": "color",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "F1eLFoy3cKfL"
+      }
+    },
+    {
+      "name": "gradient-6",
+      "type": "color",
+      "value": "#DD5A91",
+      "category": "color",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "QhYm7a9pRl-F"
+      }
+    },
+    {
+      "name": "gradient-7",
+      "type": "color",
+      "value": "#AA4A89",
+      "category": "color",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "4yyaCJT6oTu5"
+      }
+    },
+    {
+      "name": "gradient-8",
+      "type": "color",
+      "value": "#893570",
+      "category": "color",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "IbfjnB1m9DUX"
+      }
+    },
+    {
+      "name": "gradient-9",
+      "type": "color",
+      "value": "#6A1B4D",
+      "category": "color",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "sCjC_4Q-DzZo"
+      }
+    },
+    {
       "name": "gray-light",
       "type": "color",
       "value": "#EDEDEC",

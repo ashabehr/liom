@@ -1982,12 +1982,20 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         )}
                         style={(() => {
                           try {
-                            return {
-                              "background-color":
-                                $state.typeInterDate == "manually"
-                                  ? "rgb(130, 84, 198 , 0.1)"
-                                  : "rgb(130, 84, 198 , 0)"
-                            };
+                            return (localStorage.getItem("newView") ||
+                              "false") == "true"
+                              ? {
+                                  "background-color":
+                                    $state.typeInterDate == "manually"
+                                      ? "rgb(18, 100, 209 , 0.1)"
+                                      : "rgb(130, 84, 198 , 0)"
+                                }
+                              : {
+                                  "background-color":
+                                    $state.typeInterDate == "manually"
+                                      ? "rgb(130, 84, 198 , 0.1)"
+                                      : "rgb(130, 84, 198 , 0)"
+                                };
                           } catch (e) {
                             if (
                               e instanceof TypeError ||

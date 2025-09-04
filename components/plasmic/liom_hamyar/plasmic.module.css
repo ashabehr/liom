@@ -261,6 +261,20 @@
   --plasmic-token-select: var(--token-dcSKjrUoFVAy);
   --token-_ZJXI4jrgWEl: #7444bc;
   --plasmic-token-primary-text: var(--token-_ZJXI4jrgWEl);
+  --token-DfljP9wlRXN0: #f7dc8b;
+  --plasmic-token-gradient-3: var(--token-DfljP9wlRXN0);
+  --token-B4BpXURM66z6: #f4a261;
+  --plasmic-token-gradient-4: var(--token-B4BpXURM66z6);
+  --token-F1eLFoy3cKfL: #e76d67;
+  --plasmic-token-gradient-5: var(--token-F1eLFoy3cKfL);
+  --token-QhYm7a9pRl-F: #dd5a91;
+  --plasmic-token-gradient-6: var(--token-QhYm7a9pRl-F);
+  --token-4yyaCJT6oTu5: #aa4a89;
+  --plasmic-token-gradient-7: var(--token-4yyaCJT6oTu5);
+  --token-IbfjnB1m9DUX: #893570;
+  --plasmic-token-gradient-8: var(--token-IbfjnB1m9DUX);
+  --token-sCjC_4Q-DzZo: #6a1b4d;
+  --plasmic-token-gradient-9: var(--token-sCjC_4Q-DzZo);
 }
 
 @media (max-width: 640px) {
@@ -275,6 +289,8 @@
   --plasmic-token-app-bg: var(--token-yL32ChWVky0P);
   --token-_Tqr-iwbEpLO: #4595ff;
   --plasmic-token-light-purple: var(--token-_Tqr-iwbEpLO);
+  --token-sN1yASr7oAvM: #f1f4f8;
+  --plasmic-token-surface: var(--token-sN1yASr7oAvM);
   --token-SX03PBUzWAqr: #1264d1;
   --plasmic-token-primary: var(--token-SX03PBUzWAqr);
   --token-RfhqiwT2YAVo: #d1e5ff;
@@ -299,6 +315,20 @@
   --plasmic-token-select: var(--token-dcSKjrUoFVAy);
   --token-_ZJXI4jrgWEl: #1264d1;
   --plasmic-token-primary-text: var(--token-_ZJXI4jrgWEl);
+  --token-DfljP9wlRXN0: #1976d2;
+  --plasmic-token-gradient-3: var(--token-DfljP9wlRXN0);
+  --token-B4BpXURM66z6: #1e88e5;
+  --plasmic-token-gradient-4: var(--token-B4BpXURM66z6);
+  --token-F1eLFoy3cKfL: #2196f3;
+  --plasmic-token-gradient-5: var(--token-F1eLFoy3cKfL);
+  --token-QhYm7a9pRl-F: #42a5f5;
+  --plasmic-token-gradient-6: var(--token-QhYm7a9pRl-F);
+  --token-4yyaCJT6oTu5: #64b5f6;
+  --plasmic-token-gradient-7: var(--token-4yyaCJT6oTu5);
+  --token-IbfjnB1m9DUX: #90caf9;
+  --plasmic-token-gradient-8: var(--token-IbfjnB1m9DUX);
+  --token-sCjC_4Q-DzZo: #bbdefb;
+  --plasmic-token-gradient-9: var(--token-sCjC_4Q-DzZo);
 }
 
 .plasmic_tokens {

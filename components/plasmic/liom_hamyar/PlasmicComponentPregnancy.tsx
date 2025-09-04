@@ -1295,7 +1295,12 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         data-plasmic-name={"section"}
         data-plasmic-override={overrides.section}
         className={classNames(projectcss.all, sty.section, {
-          [sty.sectiondarkMod]: hasVariant($state, "darkMod", "darkMod")
+          [sty.sectiondarkMod]: hasVariant($state, "darkMod", "darkMod"),
+          [sty.sectionglobal_newView_newView]: hasVariant(
+            globalVariants,
+            "newView",
+            "newView"
+          )
         })}
       >
         <div
@@ -3040,7 +3045,11 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                       }}
                       className={classNames(
                         "__wab_instance",
-                        sty.informationBox__iK6Iu
+                        sty.informationBox__iK6Iu,
+                        {
+                          [sty.informationBoxglobal_newView_newView__iK6Iu0DHva]:
+                            hasVariant(globalVariants, "newView", "newView")
+                        }
                       )}
                       onClickClose={async event => {
                         const $steps = {};
@@ -4793,7 +4802,9 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                 $state,
                                 "darkMod",
                                 "darkMod"
-                              )
+                              ),
+                              [sty.textglobal_newView_newView__cj34W0DHva]:
+                                hasVariant(globalVariants, "newView", "newView")
                             }
                           )}
                         >
@@ -6723,7 +6734,11 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                       })()}
                       className={classNames(
                         "__wab_instance",
-                        sty.informationBox___5H6Oq
+                        sty.informationBox___5H6Oq,
+                        {
+                          [sty.informationBoxglobal_newView_newView___5H6Oq0DHva]:
+                            hasVariant(globalVariants, "newView", "newView")
+                        }
                       )}
                       onClickBtn1={async event => {
                         const $steps = {};
@@ -9970,7 +9985,15 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                         <div
                                           className={classNames(
                                             projectcss.all,
-                                            sty.freeBox__iuhSg
+                                            sty.freeBox__iuhSg,
+                                            {
+                                              [sty.freeBoxglobal_newView_newView__iuhSg0DHva]:
+                                                hasVariant(
+                                                  globalVariants,
+                                                  "newView",
+                                                  "newView"
+                                                )
+                                            }
                                           )}
                                           onClick={async event => {
                                             const $steps = {};

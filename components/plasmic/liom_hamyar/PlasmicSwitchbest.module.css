@@ -92,6 +92,9 @@
 .slotTargetChildrenisChecked {
   font-size: 16px;
 }
+.slotTargetChildrenisChecked_global_newView_newView {
+  color: var(--token-h0Lrt0a3YiLk);
+}
 .toggle {
   display: flex;
   position: relative;
@@ -128,7 +131,7 @@
   border: 1px solid #ffffff00;
 }
 .trackisChecked {
-  background: #8254c6;
+  background: var(--token-h0Lrt0a3YiLk);
 }
 .root:hover .track {
   background: #eeeeec;

@@ -45,6 +45,9 @@
     grid-column: 4;
   }
 }
+.sectionglobal_newView_newView > * {
+  grid-column: 4;
+}
 .sectiondarkMod > * {
   grid-column: 4;
 }
@@ -1201,13 +1204,13 @@
   align-items: center;
   background: linear-gradient(
       40deg,
-      #f7dc8b 0%,
-      #f4a261 18%,
-      #e76d67 35%,
-      #dd5a91 53%,
-      #aa4a89 69%,
-      #893570 84%,
-      #6a1b4d 100%
+      var(--token-DfljP9wlRXN0) 0%,
+      var(--token-B4BpXURM66z6) 18%,
+      var(--token-F1eLFoy3cKfL) 35%,
+      var(--token-QhYm7a9pRl-F) 53%,
+      var(--token-4yyaCJT6oTu5) 69%,
+      var(--token-IbfjnB1m9DUX) 84%,
+      var(--token-sCjC_4Q-DzZo) 100%
     )
     0% 0% / 100% 100% repeat;
   margin-left: 8px;
