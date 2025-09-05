@@ -61,13 +61,13 @@ const getCookie = (name: string): string | null => {
 const sendTokenToServer = async (token: string) => {
   console.log("[FCM] Sending token to server:", token);
 
-  const savedToken = localStorage.getItem("fcmToken");
-  console.log("[FCM] Saved token in localStorage:", savedToken);
+  // const savedToken = localStorage.getItem("fcmToken");
+  // console.log("[FCM] Saved token in localStorage:", savedToken);
 
-  if (savedToken === token) {
-    console.log("[FCM] Token already saved, skipping...");
-    return;
-  }
+  // if (savedToken === token) {
+  //   console.log("[FCM] Token already saved, skipping...");
+  //   return;
+  // }
 
   const authToken = getCookie("token");
   console.log("[FCM] Auth token from cookie:", authToken);
@@ -85,7 +85,7 @@ const sendTokenToServer = async (token: string) => {
     });
     console.log("[FCM] Server response status:", res.status);
     if (!res.ok) throw new Error("خطا در ارسال توکن FCM");
-
+    alert("توکن با موفقیت به سرور ارسال شد ✅");
     localStorage.setItem("fcmToken", token);
     console.log("[FCM] Token saved to localStorage.");
   } catch (err) {
@@ -106,11 +106,11 @@ export const requestPermission = async (): Promise<string | null> => {
     if (permission !== "granted") return null;
 
     const savedToken = localStorage.getItem("fcmToken");
-    if (savedToken) {
-      console.log("[FCM] Using saved token:", savedToken);
-      await sendTokenToServer(savedToken);
-      return savedToken;
-    }
+    // if (savedToken) {
+    //   console.log("[FCM] Using saved token:", savedToken);
+    //   await sendTokenToServer(savedToken);
+    //   return savedToken;
+    // }
 
     const { getToken } = await import("firebase/messaging");
     console.log("[FCM] Getting new token...");
