@@ -1,6 +1,5 @@
 // components/NotificationToast.tsx
 import { useEffect } from "react";
-import { handleNotificationClick } from "../src/firebase/fcm";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface NotificationToastProps {
@@ -34,7 +33,7 @@ const NotificationToast: React.FC<NotificationToastProps> = ({
         transition={{ duration: 0.4 }}
         className="fixed top-5 left-1/2 -translate-x-1/2 w-full max-w-md px-4 z-[9999]"
         onClick={() => {
-          handleNotificationClick(action || null);
+          
           onClose();
         }}
       >
