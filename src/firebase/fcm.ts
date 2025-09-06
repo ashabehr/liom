@@ -1,4 +1,6 @@
 // firebase/fcm.ts
+import toast from "react-hot-toast";
+
 import { initializeApp } from "firebase/app";
 import type { Messaging } from "firebase/messaging";
 
@@ -85,7 +87,7 @@ const sendTokenToServer = async (token: string) => {
     });
     console.log("[FCM] Server response status:", res.status);
     if (!res.ok) throw new Error("خطا در ارسال توکن FCM");
-    alert("توکن با موفقیت به سرور ارسال شد ✅");
+    toast.success("توکن با موفقیت به سرور ارسال شد ✅");
     localStorage.setItem("fcmToken", token);
     console.log("[FCM] Token saved to localStorage.");
   } catch (err) {
