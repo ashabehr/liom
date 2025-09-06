@@ -62,6 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import ComponentPregnancy from "../../ComponentPregnancy"; // plasmic-import: 8wHhlRtqpYtU/component
 import MainPregnancyHeader from "../../MainPregnancyHeader"; // plasmic-import: 9xsQ86WEmeJv/component
 import FooterPregnancyMain from "../../FooterPregnancyMain"; // plasmic-import: -kbj-rjG1hPY/component
@@ -70,7 +71,6 @@ import SettingCycle4 from "../../SettingCycle4"; // plasmic-import: C5hqeG28n8GP
 import SubItemsComponnet from "../../SubItemsComponnet"; // plasmic-import: b9qrgB2b1TrW/component
 import EditProfile2 from "../../EditProfile2"; // plasmic-import: BZ95kklWU6Jb/component
 import { BackHandler } from "@/components/BackHandler"; // plasmic-import: wpIQCsQJqUoV/codeComponent
-import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -108,6 +108,7 @@ export const PlasmicMainPregnancy__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicMainPregnancy__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   main?: Flex__<"div">;
   componentPregnancy?: Flex__<typeof ComponentPregnancy>;
   mainHeader?: Flex__<typeof MainPregnancyHeader>;
@@ -119,7 +120,6 @@ export type PlasmicMainPregnancy__OverridesType = {
   subItemsComponnet?: Flex__<typeof SubItemsComponnet>;
   editProfile2?: Flex__<typeof EditProfile2>;
   backHandler?: Flex__<typeof BackHandler>;
-  sideEffect?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultMainPregnancyProps {}
@@ -254,6 +254,27 @@ function PlasmicMainPregnancy__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "userInfo",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                return JSON.parse(localStorage.getItem("userinfo") || "{}");
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return {};
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -308,6 +329,64 @@ function PlasmicMainPregnancy__RenderFunc(props: {
             }
           )}
         >
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return window.history.back();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+
+              $steps["updateLoadBack"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["loadBack"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateLoadBack"] != null &&
+                typeof $steps["updateLoadBack"] === "object" &&
+                typeof $steps["updateLoadBack"].then === "function"
+              ) {
+                $steps["updateLoadBack"] = await $steps["updateLoadBack"];
+              }
+            }}
+          />
+
           <div
             data-plasmic-name={"main"}
             data-plasmic-override={overrides.main}
@@ -857,64 +936,6 @@ function PlasmicMainPregnancy__RenderFunc(props: {
               }
             }}
           />
-
-          <SideEffect
-            data-plasmic-name={"sideEffect"}
-            data-plasmic-override={overrides.sideEffect}
-            className={classNames("__wab_instance", sty.sideEffect)}
-            onMount={async () => {
-              const $steps = {};
-
-              $steps["runCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return window.history.back();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
-              }
-
-              $steps["updateLoadBack"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["loadBack"]
-                      },
-                      operation: 0,
-                      value: false
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateLoadBack"] != null &&
-                typeof $steps["updateLoadBack"] === "object" &&
-                typeof $steps["updateLoadBack"].then === "function"
-              ) {
-                $steps["updateLoadBack"] = await $steps["updateLoadBack"];
-              }
-            }}
-          />
         </div>
       </div>
     </React.Fragment>
@@ -924,6 +945,7 @@ function PlasmicMainPregnancy__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "sideEffect",
     "main",
     "componentPregnancy",
     "mainHeader",
@@ -934,9 +956,9 @@ const PlasmicDescendants = {
     "settingCycle4",
     "subItemsComponnet",
     "editProfile2",
-    "backHandler",
-    "sideEffect"
+    "backHandler"
   ],
+  sideEffect: ["sideEffect"],
   main: [
     "main",
     "componentPregnancy",
@@ -955,14 +977,14 @@ const PlasmicDescendants = {
   settingCycle4: ["settingCycle4"],
   subItemsComponnet: ["subItemsComponnet"],
   editProfile2: ["editProfile2"],
-  backHandler: ["backHandler"],
-  sideEffect: ["sideEffect"]
+  backHandler: ["backHandler"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
   main: "div";
   componentPregnancy: typeof ComponentPregnancy;
   mainHeader: typeof MainPregnancyHeader;
@@ -974,7 +996,6 @@ type NodeDefaultElementType = {
   subItemsComponnet: typeof SubItemsComponnet;
   editProfile2: typeof EditProfile2;
   backHandler: typeof BackHandler;
-  sideEffect: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1062,6 +1083,7 @@ export const PlasmicMainPregnancy = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
     main: makeNodeComponent("main"),
     componentPregnancy: makeNodeComponent("componentPregnancy"),
     mainHeader: makeNodeComponent("mainHeader"),
@@ -1073,7 +1095,6 @@ export const PlasmicMainPregnancy = Object.assign(
     subItemsComponnet: makeNodeComponent("subItemsComponnet"),
     editProfile2: makeNodeComponent("editProfile2"),
     backHandler: makeNodeComponent("backHandler"),
-    sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicMainPregnancy
     internalVariantProps: PlasmicMainPregnancy__VariantProps,
