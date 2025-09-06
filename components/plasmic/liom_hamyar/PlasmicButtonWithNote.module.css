@@ -60,14 +60,14 @@
 }
 .butBoxselect_shaoe_circle {
   background: linear-gradient(
-      var(--token-5OZEb1MGGCI4),
-      var(--token-5OZEb1MGGCI4)
+      var(--token-dqshVX6SoHxS),
+      var(--token-dqshVX6SoHxS)
     ),
     var(--token-R_Rsn0nP9oIv);
   border-width: 0px;
 }
 .butBoxselect_shaoe_rectangle {
-  background: #552f96;
+  background: var(--token-dqshVX6SoHxS);
   border-width: 0px;
 }
 .butBoxselect_shaoe_rectangle_shaoe_circle {

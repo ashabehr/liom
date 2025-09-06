@@ -2931,6 +2931,16 @@
       }
     },
     {
+      "name": "dark primary",
+      "type": "color",
+      "value": "#552F96",
+      "category": "color",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "dqshVX6SoHxS"
+      }
+    },
+    {
       "name": "dark yellow",
       "type": "color",
       "value": "#DD911E",
