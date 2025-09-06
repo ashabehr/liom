@@ -26040,17 +26040,17 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                         customFunction: async () => {
                           return (() => {
                             try {
-                              console.log("saveInfo");
-                              console.log($state.getUserInfo?.data?.[0]);
                               localStorage.setItem(
                                 "userinfo",
                                 JSON.stringify(
                                   $state.getUserInfo?.data?.[0].result
                                 )
                               );
-                              return console.log("saveInfo:ok");
+                              console.log("saveInfo:ok");
+                              localStorage.setItem("token", $state.token);
+                              return console.log("token:ok");
                             } catch {
-                              return console.log("saveInfo:errore");
+                              return console.log("saveInfo-token:errore");
                             }
                           })();
                         }
