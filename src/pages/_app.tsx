@@ -6,6 +6,8 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import NotificationToast from "../../components/NotificationToast";
+import { initFcm } from "../firebase/fcm";
+
 
 import { NewViewContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__NewView";
 export default function MyApp({ Component, pageProps }: AppProps) {
@@ -17,30 +19,33 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   } | null>(null);
 
   useEffect(() => {
-
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.getRegistrations().then((registrations) => {
-        let hasV3 = false;
+    // if ("serviceWorker" in navigator) {
+    //   navigator.serviceWorker.register("/firebase-messaging-sw.js").catch(console.error);
+    // }
+    initFcm();
+    // if ("serviceWorker" in navigator) {
+    //   navigator.serviceWorker.getRegistrations().then((registrations) => {
+    //     let hasV3 = false;
     
-        registrations.forEach((registration) => {
-          if (registration.active && registration.active.scriptURL.includes("firebase-messaging-sw.js?v=2")) {
-            // اگر همین ورکر رجیستر شده بود
-            hasV3 = true;
-          } else {
-            // هر ورکر دیگه‌ای پاک بشه
-            registration.unregister();
-          }
-        });
+    //     registrations.forEach((registration) => {
+    //       if (registration.active && registration.active.scriptURL.includes("firebase-messaging-sw.js?v=2")) {
+    //         // اگر همین ورکر رجیستر شده بود
+    //         hasV3 = true;
+    //       } else {
+    //         // هر ورکر دیگه‌ای پاک بشه
+    //         registration.unregister();
+    //       }
+    //     });
     
-        if (!hasV3) {
-          // فقط اگر ورکر V3 وجود نداشت رجیستر می‌کنیم
-          navigator.serviceWorker
-            .register("/firebase-messaging-sw.js?v=2")
-            .then(() => console.log("Service Worker V3 registered"))
-            .catch(console.error);
-        }
-      });
-    }
+    //     if (!hasV3) {
+    //       // فقط اگر ورکر V3 وجود نداشت رجیستر می‌کنیم
+    //       navigator.serviceWorker
+    //         .register("/firebase-messaging-sw.js?v=2")
+    //         .then(() => console.log("Service Worker V3 registered"))
+    //         .catch(console.error);
+    //     }
+    //   });
+    // }
 
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("newView");
@@ -50,31 +55,31 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         setNewView(undefined);
       }
     }
-    if (typeof window !== "undefined" && "serviceWorker" in navigator) {
+    // if (typeof window !== "undefined" && "serviceWorker" in navigator) {
 
-      import("../firebase/fcm").then(
-        ({ requestPermission, onMessageListener }) => {
-            console.log("درخواست به FCM");
-           requestPermission().then((token) => {
-              if (token) {
-                console.log("✅ FCM Token:", token);
-              }
-            });
+    //   import("../firebase/fcm").then(
+    //     ({ requestPermission, onMessageListener }) => {
+    //         console.log("درخواست به FCM");
+    //        requestPermission().then((token) => {
+    //           if (token) {
+    //             console.log("✅ FCM Token:", token);
+    //           }
+    //         });
 
-          onMessageListener((payload) => {
-            console.log("📩 پیام Foreground -app:", payload);
+    //       onMessageListener((payload) => {
+    //         console.log("📩 پیام Foreground -app:", payload);
 
-            if (payload.notification?.title) {
-              setModalData({
-                title: payload.notification.title,
-                body: payload.notification.body || "",
-                action: payload.data?.action || null,
-              });
-            }
-          });
-        }
-      );
-    }
+    //         if (payload.notification?.title) {
+    //           setModalData({
+    //             title: payload.notification.title,
+    //             body: payload.notification.body || "",
+    //             action: payload.data?.action || null,
+    //           });
+    //         }
+    //       });
+    //     }
+    //   );
+    // }
   }, []);
 
   return (
