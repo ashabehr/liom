@@ -23,7 +23,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         let hasV3 = false;
     
         registrations.forEach((registration) => {
-          if (registration.active && registration.active.scriptURL.includes("firebase-messaging-swV3.js")) {
+          if (registration.active && registration.active.scriptURL.includes("firebase-messaging-sw.js?v=2")) {
             // اگر همین ورکر رجیستر شده بود
             hasV3 = true;
           } else {
@@ -35,7 +35,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         if (!hasV3) {
           // فقط اگر ورکر V3 وجود نداشت رجیستر می‌کنیم
           navigator.serviceWorker
-            .register("/firebase-messaging-swV3.js")
+            .register("/firebase-messaging-sw.js?v=2")
             .then(() => console.log("Service Worker V3 registered"))
             .catch(console.error);
         }
