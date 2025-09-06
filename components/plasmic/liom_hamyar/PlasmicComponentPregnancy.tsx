@@ -184,6 +184,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const globalVariants = _useGlobalVariants();
+
   const $globalActions = useGlobalActions?.();
 
   const currentUser = useCurrentUser?.() || {};
@@ -1256,7 +1258,6 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
     $refs
   });
 
-  const globalVariants = _useGlobalVariants();
   const styleTokensClassNames = _useStyleTokens();
   const styleTokensClassNames_antd_5_hostless =
     useStyleTokens_antd_5_hostless();
@@ -1998,20 +1999,24 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                     const actionArgs = {
                       customFunction: async () => {
                         return (() => {
-                          const list =
-                            document.getElementById("my-scroll-list");
-                          const list2 = list.children[0];
-                          const fourthItem =
-                            list2.children[$state.selectedWeek];
-                          if (fourthItem) {
-                            const itemPosition =
-                              fourthItem.offsetLeft -
-                              list.offsetWidth * 0.35 +
-                              fourthItem.offsetWidth / 2;
-                            return list.scrollTo({
-                              left: itemPosition,
-                              behavior: "smooth"
-                            });
+                          try {
+                            const list =
+                              document.getElementById("my-scroll-list");
+                            const list2 = list.children[0];
+                            const fourthItem =
+                              list2.children[$state.selectedWeek];
+                            if (fourthItem) {
+                              const itemPosition =
+                                fourthItem.offsetLeft -
+                                list.offsetWidth * 0.35 +
+                                fourthItem.offsetWidth / 2;
+                              return list.scrollTo({
+                                left: itemPosition,
+                                behavior: "smooth"
+                              });
+                            }
+                          } catch {
+                            return console.log("eroor scroll");
                           }
                         })();
                       }
@@ -2628,20 +2633,24 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                     const actionArgs = {
                       customFunction: async () => {
                         return (() => {
-                          const list =
-                            document.getElementById("my-scroll-list");
-                          const list2 = list.children[0];
-                          const fourthItem =
-                            list2.children[$state.selectedWeek];
-                          if (fourthItem) {
-                            const itemPosition =
-                              fourthItem.offsetLeft -
-                              list.offsetWidth * 0.35 +
-                              fourthItem.offsetWidth / 2;
-                            return list.scrollTo({
-                              left: itemPosition,
-                              behavior: "smooth"
-                            });
+                          try {
+                            const list =
+                              document.getElementById("my-scroll-list");
+                            const list2 = list.children[0];
+                            const fourthItem =
+                              list2.children[$state.selectedWeek];
+                            if (fourthItem) {
+                              const itemPosition =
+                                fourthItem.offsetLeft -
+                                list.offsetWidth * 0.35 +
+                                fourthItem.offsetWidth / 2;
+                              return list.scrollTo({
+                                left: itemPosition,
+                                behavior: "smooth"
+                              });
+                            }
+                          } catch {
+                            return console.log("error scroll");
                           }
                         })();
                       }
