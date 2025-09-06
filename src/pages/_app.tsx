@@ -20,23 +20,23 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.getRegistrations().then((registrations) => {
-        let hasV2 = false;
+        let hasV3 = false;
     
         registrations.forEach((registration) => {
-          if (registration.active && registration.active.scriptURL.includes("firebase-messaging-swV2.js")) {
+          if (registration.active && registration.active.scriptURL.includes("firebase-messaging-swV3.js")) {
             // اگر همین ورکر رجیستر شده بود
-            hasV2 = true;
+            hasV3 = true;
           } else {
             // هر ورکر دیگه‌ای پاک بشه
             registration.unregister();
           }
         });
     
-        if (!hasV2) {
-          // فقط اگر ورکر V2 وجود نداشت رجیستر می‌کنیم
+        if (!hasV3) {
+          // فقط اگر ورکر V3 وجود نداشت رجیستر می‌کنیم
           navigator.serviceWorker
-            .register("/firebase-messaging-swV2.js")
-            .then(() => console.log("Service Worker V2 registered"))
+            .register("/firebase-messaging-swV3.js")
+            .then(() => console.log("Service Worker V3 registered"))
             .catch(console.error);
         }
       });
