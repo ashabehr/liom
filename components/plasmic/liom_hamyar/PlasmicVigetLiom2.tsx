@@ -153,7 +153,14 @@ function PlasmicVigetLiom2__RenderFunc(props: {
         styleTokensClassNames,
         styleTokensClassNames_antd_5_hostless,
         styleTokensClassNames_plasmic_rich_components,
-        sty.root
+        sty.root,
+        {
+          [sty.rootglobal_newView_newView]: hasVariant(
+            globalVariants,
+            "newView",
+            "newView"
+          )
+        }
       )}
     >
       {renderPlasmicSlot({

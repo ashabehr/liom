@@ -2747,7 +2747,14 @@ function PlasmicStatusDay__RenderFunc(props: {
             styleTokensClassNames,
             styleTokensClassNames_antd_5_hostless,
             styleTokensClassNames_plasmic_rich_components,
-            sty.root
+            sty.root,
+            {
+              [sty.rootglobal_newView_newView]: hasVariant(
+                globalVariants,
+                "newView",
+                "newView"
+              )
+            }
           )}
         >
           <SideEffect
@@ -4980,7 +4987,13 @@ function PlasmicStatusDay__RenderFunc(props: {
               }
             })() ? (
               <div
-                className={classNames(projectcss.all, sty.freeBox__akQn)}
+                className={classNames(projectcss.all, sty.freeBox__akQn, {
+                  [sty.freeBoxglobal_newView_newView__akQn0DHva]: hasVariant(
+                    globalVariants,
+                    "newView",
+                    "newView"
+                  )
+                })}
                 style={(() => {
                   try {
                     return {
@@ -5168,14 +5181,22 @@ function PlasmicStatusDay__RenderFunc(props: {
                     <VigetLiom2
                       className={classNames(
                         "__wab_instance",
-                        sty.vigetLiom2__hdc4R
+                        sty.vigetLiom2__hdc4R,
+                        {
+                          [sty.vigetLiom2global_newView_newView__hdc4R0DHva]:
+                            hasVariant(globalVariants, "newView", "newView")
+                        }
                       )}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__lwyBd
+                          sty.text__lwyBd,
+                          {
+                            [sty.textglobal_newView_newView__lwyBd0DHva]:
+                              hasVariant(globalVariants, "newView", "newView")
+                          }
                         )}
                       >
                         {
@@ -5228,7 +5249,13 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         })()}
                         circl={true}
-                        className={classNames("__wab_instance", sty.bleeding)}
+                        className={classNames("__wab_instance", sty.bleeding, {
+                          [sty.bleedingglobal_newView_newView]: hasVariant(
+                            globalVariants,
+                            "newView",
+                            "newView"
+                          )
+                        })}
                         html={(() => {
                           try {
                             return undefined;

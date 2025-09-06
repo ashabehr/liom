@@ -118,7 +118,7 @@ export type PlasmicMain__OverridesType = {
   freeBox?: Flex__<"div">;
   svg?: Flex__<"svg">;
   button?: Flex__<typeof Button>;
-  lottie?: Flex__<typeof LottieWrapper>;
+  button2?: Flex__<typeof Button>;
   footerMain?: Flex__<typeof FooterMain>;
   settingCycle4?: Flex__<typeof SettingCycle4>;
   subItemsComponnet?: Flex__<typeof SubItemsComponnet>;
@@ -347,6 +347,24 @@ function PlasmicMain__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "button2.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "line"
+      },
+      {
+        path: "button2.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button2.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -553,31 +571,886 @@ function PlasmicMain__RenderFunc(props: {
                   }
                 }}
                 slot={
-                  (() => {
-                    try {
-                      return !$state.notif;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return true;
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return !$state.notif;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
                       }
-                      throw e;
-                    }
-                  })() ? (
+                    })() ? (
+                      <Button
+                        data-plasmic-name={"button"}
+                        data-plasmic-override={overrides.button}
+                        className={classNames("__wab_instance", sty.button)}
+                        color={generateStateValueProp($state, [
+                          "button",
+                          "color"
+                        ])}
+                        endIcon={
+                          <LottieWrapper
+                            animationData={{
+                              v: "5.7.4",
+                              fr: 60,
+                              ip: 0,
+                              op: 190,
+                              w: 200,
+                              h: 200,
+                              nm: "Notification_Updated",
+                              ddd: 0,
+                              assets: [],
+                              layers: [
+                                {
+                                  ddd: 0,
+                                  ind: 1,
+                                  ty: 4,
+                                  nm: "Bell 2",
+                                  sr: 1,
+                                  ks: {
+                                    o: { a: 0, k: 100, ix: 11 },
+                                    r: {
+                                      a: 1,
+                                      k: [
+                                        {
+                                          i: { x: [0.667], y: [1] },
+                                          o: { x: [0.333], y: [0] },
+                                          t: 95,
+                                          s: [0]
+                                        },
+                                        {
+                                          i: { x: [0.667], y: [1] },
+                                          o: { x: [0.333], y: [0] },
+                                          t: 110,
+                                          s: [22]
+                                        },
+                                        {
+                                          i: { x: [0.667], y: [1] },
+                                          o: { x: [0.333], y: [0] },
+                                          t: 125,
+                                          s: [-22]
+                                        },
+                                        {
+                                          i: { x: [0.667], y: [1] },
+                                          o: { x: [0.333], y: [0] },
+                                          t: 140,
+                                          s: [15]
+                                        },
+                                        {
+                                          i: { x: [0.667], y: [1] },
+                                          o: { x: [0.333], y: [0] },
+                                          t: 155,
+                                          s: [-10]
+                                        },
+                                        { t: 170, s: [0] }
+                                      ],
+                                      ix: 10
+                                    },
+                                    p: { a: 0, k: [100, 39.5, 0], ix: 2, l: 2 },
+                                    a: {
+                                      a: 0,
+                                      k: [-14.219, -40.102, 0],
+                                      ix: 1,
+                                      l: 2
+                                    },
+                                    s: { a: 0, k: [100, 100, 100], ix: 6, l: 2 }
+                                  },
+                                  ao: 0,
+                                  hasMask: true,
+                                  masksProperties: [
+                                    {
+                                      inv: false,
+                                      mode: "f",
+                                      pt: {
+                                        a: 0,
+                                        k: {
+                                          i: [
+                                            [0, -1.934],
+                                            [4.932, 0],
+                                            [0, 0],
+                                            [0.032, 4.223],
+                                            [-1.547, 1.676],
+                                            [0, 26.361],
+                                            [-18.949, 3.932],
+                                            [0, 0],
+                                            [-4.544, 0],
+                                            [0, -4.544],
+                                            [0, 0],
+                                            [0, -20.045],
+                                            [-4.963, -5.35]
+                                          ],
+                                          o: [
+                                            [-0.033, 4.223],
+                                            [0, 0],
+                                            [-4.931, 0],
+                                            [0, -1.934],
+                                            [4.963, -5.35],
+                                            [0, -20.045],
+                                            [0, 0],
+                                            [0, -4.544],
+                                            [4.544, 0],
+                                            [0, 0],
+                                            [18.949, 3.932],
+                                            [0, 26.361],
+                                            [1.547, 1.676]
+                                          ],
+                                          v: [
+                                            [43.75, 49.5],
+                                            [35.467, 57.75],
+                                            [-63.468, 57.75],
+                                            [-71.75, 49.5],
+                                            [-69.527, 43.892],
+                                            [-55.218, 4.125],
+                                            [-22.25, -35.868],
+                                            [-22.25, -41.25],
+                                            [-14, -49.5],
+                                            [-5.75, -41.25],
+                                            [-5.75, -35.868],
+                                            [27.217, 4.125],
+                                            [41.526, 43.892]
+                                          ],
+                                          c: true
+                                        },
+                                        ix: 1
+                                      },
+                                      o: { a: 0, k: 100, ix: 3 },
+                                      x: { a: 0, k: 0, ix: 4 },
+                                      nm: "Bell"
+                                    }
+                                  ],
+                                  shapes: [
+                                    {
+                                      ty: "gr",
+                                      it: [
+                                        {
+                                          ty: "rc",
+                                          d: 1,
+                                          s: { a: 0, k: [200, 200], ix: 2 },
+                                          p: { a: 0, k: [0, 0], ix: 3 },
+                                          r: { a: 0, k: 0, ix: 4 },
+                                          nm: "Rectangle Path 1",
+                                          mn: "ADBE Vector Shape - Rect",
+                                          hd: false
+                                        },
+                                        {
+                                          ty: "fl",
+                                          c: {
+                                            a: 0,
+                                            k: [0.447, 0.329, 0.776, 1],
+                                            ix: 4
+                                          },
+                                          o: { a: 0, k: 100, ix: 5 },
+                                          r: 1,
+                                          bm: 0,
+                                          nm: "Fill 1",
+                                          mn: "ADBE Vector Graphic - Fill",
+                                          hd: false
+                                        },
+                                        {
+                                          ty: "tr",
+                                          p: {
+                                            a: 0,
+                                            k: [-14.219, 20.398],
+                                            ix: 2
+                                          },
+                                          a: { a: 0, k: [0, 0], ix: 1 },
+                                          s: { a: 0, k: [100, 100], ix: 3 },
+                                          r: { a: 0, k: 0, ix: 6 },
+                                          o: { a: 0, k: 100, ix: 7 },
+                                          sk: { a: 0, k: 0, ix: 4 },
+                                          sa: { a: 0, k: 0, ix: 5 },
+                                          nm: "Transform"
+                                        }
+                                      ],
+                                      nm: "Rectangle 1",
+                                      np: 3,
+                                      cix: 2,
+                                      bm: 0,
+                                      ix: 1,
+                                      mn: "ADBE Vector Group",
+                                      hd: false
+                                    }
+                                  ],
+                                  ip: 95,
+                                  op: 190,
+                                  st: 95,
+                                  bm: 0
+                                },
+                                {
+                                  ddd: 0,
+                                  ind: 2,
+                                  ty: 4,
+                                  nm: "Spindle 2",
+                                  sr: 1,
+                                  ks: {
+                                    o: { a: 0, k: 100, ix: 11 },
+                                    r: {
+                                      a: 1,
+                                      k: [
+                                        {
+                                          i: { x: [0.667], y: [1] },
+                                          o: { x: [0.333], y: [0] },
+                                          t: 95,
+                                          s: [0]
+                                        },
+                                        {
+                                          i: { x: [0.667], y: [1] },
+                                          o: { x: [0.333], y: [0] },
+                                          t: 110,
+                                          s: [35]
+                                        },
+                                        {
+                                          i: { x: [0.667], y: [1] },
+                                          o: { x: [0.333], y: [0] },
+                                          t: 125,
+                                          s: [-35]
+                                        },
+                                        {
+                                          i: { x: [0.667], y: [1] },
+                                          o: { x: [0.333], y: [0] },
+                                          t: 140,
+                                          s: [25]
+                                        },
+                                        {
+                                          i: { x: [0.667], y: [1] },
+                                          o: { x: [0.333], y: [0] },
+                                          t: 155,
+                                          s: [-22]
+                                        },
+                                        { t: 170, s: [0] }
+                                      ],
+                                      ix: 10
+                                    },
+                                    p: { a: 0, k: [100, 39.5, 0], ix: 2, l: 2 },
+                                    a: {
+                                      a: 0,
+                                      k: [-14.219, -40.102, 0],
+                                      ix: 1,
+                                      l: 2
+                                    },
+                                    s: { a: 0, k: [100, 100, 100], ix: 6, l: 2 }
+                                  },
+                                  ao: 0,
+                                  hasMask: true,
+                                  masksProperties: [
+                                    {
+                                      inv: false,
+                                      mode: "f",
+                                      pt: {
+                                        a: 0,
+                                        k: {
+                                          i: [
+                                            [0, 9.121],
+                                            [0, 0],
+                                            [9.12, 0]
+                                          ],
+                                          o: [
+                                            [0, 0],
+                                            [0, 9.121],
+                                            [-9.12, 0]
+                                          ],
+                                          v: [
+                                            [-30.5, 66],
+                                            [2.5, 66],
+                                            [-14, 82.5]
+                                          ],
+                                          c: true
+                                        },
+                                        ix: 1
+                                      },
+                                      o: { a: 0, k: 100, ix: 3 },
+                                      x: { a: 0, k: 0, ix: 4 },
+                                      nm: "Spindle"
+                                    }
+                                  ],
+                                  shapes: [
+                                    {
+                                      ty: "gr",
+                                      it: [
+                                        {
+                                          ty: "rc",
+                                          d: 1,
+                                          s: { a: 0, k: [200, 200], ix: 2 },
+                                          p: { a: 0, k: [0, 0], ix: 3 },
+                                          r: { a: 0, k: 0, ix: 4 },
+                                          nm: "Rectangle Path 1",
+                                          mn: "ADBE Vector Shape - Rect",
+                                          hd: false
+                                        },
+                                        {
+                                          ty: "fl",
+                                          c: {
+                                            a: 0,
+                                            k: [0.447, 0.329, 0.776, 1],
+                                            ix: 4
+                                          },
+                                          o: { a: 0, k: 100, ix: 5 },
+                                          r: 1,
+                                          bm: 0,
+                                          nm: "Fill 1",
+                                          mn: "ADBE Vector Graphic - Fill",
+                                          hd: false
+                                        },
+                                        {
+                                          ty: "tr",
+                                          p: {
+                                            a: 0,
+                                            k: [-14.219, 20.398],
+                                            ix: 2
+                                          },
+                                          a: { a: 0, k: [0, 0], ix: 1 },
+                                          s: { a: 0, k: [100, 100], ix: 3 },
+                                          r: { a: 0, k: 0, ix: 6 },
+                                          o: { a: 0, k: 100, ix: 7 },
+                                          sk: { a: 0, k: 0, ix: 4 },
+                                          sa: { a: 0, k: 0, ix: 5 },
+                                          nm: "Transform"
+                                        }
+                                      ],
+                                      nm: "Rectangle 1",
+                                      np: 3,
+                                      cix: 2,
+                                      bm: 0,
+                                      ix: 1,
+                                      mn: "ADBE Vector Group",
+                                      hd: false
+                                    }
+                                  ],
+                                  ip: 95,
+                                  op: 190,
+                                  st: 95,
+                                  bm: 0
+                                },
+                                {
+                                  ddd: 0,
+                                  ind: 3,
+                                  ty: 4,
+                                  nm: "Bell",
+                                  sr: 1,
+                                  ks: {
+                                    o: { a: 0, k: 100, ix: 11 },
+                                    r: {
+                                      a: 1,
+                                      k: [
+                                        {
+                                          i: { x: [0.667], y: [1] },
+                                          o: { x: [0.333], y: [0] },
+                                          t: 0,
+                                          s: [0]
+                                        },
+                                        {
+                                          i: { x: [0.667], y: [1] },
+                                          o: { x: [0.333], y: [0] },
+                                          t: 15,
+                                          s: [22]
+                                        },
+                                        {
+                                          i: { x: [0.667], y: [1] },
+                                          o: { x: [0.333], y: [0] },
+                                          t: 30,
+                                          s: [-22]
+                                        },
+                                        {
+                                          i: { x: [0.667], y: [1] },
+                                          o: { x: [0.333], y: [0] },
+                                          t: 45,
+                                          s: [15]
+                                        },
+                                        {
+                                          i: { x: [0.667], y: [1] },
+                                          o: { x: [0.333], y: [0] },
+                                          t: 60,
+                                          s: [-10]
+                                        },
+                                        { t: 75, s: [0] }
+                                      ],
+                                      ix: 10
+                                    },
+                                    p: { a: 0, k: [100, 39.5, 0], ix: 2, l: 2 },
+                                    a: {
+                                      a: 0,
+                                      k: [-14.219, -40.102, 0],
+                                      ix: 1,
+                                      l: 2
+                                    },
+                                    s: { a: 0, k: [100, 100, 100], ix: 6, l: 2 }
+                                  },
+                                  ao: 0,
+                                  hasMask: true,
+                                  masksProperties: [
+                                    {
+                                      inv: false,
+                                      mode: "f",
+                                      pt: {
+                                        a: 0,
+                                        k: {
+                                          i: [
+                                            [0, -1.934],
+                                            [4.932, 0],
+                                            [0, 0],
+                                            [0.032, 4.223],
+                                            [-1.547, 1.676],
+                                            [0, 26.361],
+                                            [-18.949, 3.932],
+                                            [0, 0],
+                                            [-4.544, 0],
+                                            [0, -4.544],
+                                            [0, 0],
+                                            [0, -20.045],
+                                            [-4.963, -5.35]
+                                          ],
+                                          o: [
+                                            [-0.033, 4.223],
+                                            [0, 0],
+                                            [-4.931, 0],
+                                            [0, -1.934],
+                                            [4.963, -5.35],
+                                            [0, -20.045],
+                                            [0, 0],
+                                            [0, -4.544],
+                                            [4.544, 0],
+                                            [0, 0],
+                                            [18.949, 3.932],
+                                            [0, 26.361],
+                                            [1.547, 1.676]
+                                          ],
+                                          v: [
+                                            [43.75, 49.5],
+                                            [35.467, 57.75],
+                                            [-63.468, 57.75],
+                                            [-71.75, 49.5],
+                                            [-69.527, 43.892],
+                                            [-55.218, 4.125],
+                                            [-22.25, -35.868],
+                                            [-22.25, -41.25],
+                                            [-14, -49.5],
+                                            [-5.75, -41.25],
+                                            [-5.75, -35.868],
+                                            [27.217, 4.125],
+                                            [41.526, 43.892]
+                                          ],
+                                          c: true
+                                        },
+                                        ix: 1
+                                      },
+                                      o: { a: 0, k: 100, ix: 3 },
+                                      x: { a: 0, k: 0, ix: 4 },
+                                      nm: "Bell"
+                                    }
+                                  ],
+                                  shapes: [
+                                    {
+                                      ty: "gr",
+                                      it: [
+                                        {
+                                          ty: "rc",
+                                          d: 1,
+                                          s: { a: 0, k: [200, 200], ix: 2 },
+                                          p: { a: 0, k: [0, 0], ix: 3 },
+                                          r: { a: 0, k: 0, ix: 4 },
+                                          nm: "Rectangle Path 1",
+                                          mn: "ADBE Vector Shape - Rect",
+                                          hd: false
+                                        },
+                                        {
+                                          ty: "fl",
+                                          c: {
+                                            a: 0,
+                                            k: [0.447, 0.329, 0.776, 1],
+                                            ix: 4
+                                          },
+                                          o: { a: 0, k: 100, ix: 5 },
+                                          r: 1,
+                                          bm: 0,
+                                          nm: "Fill 1",
+                                          mn: "ADBE Vector Graphic - Fill",
+                                          hd: false
+                                        },
+                                        {
+                                          ty: "tr",
+                                          p: {
+                                            a: 0,
+                                            k: [-14.219, 20.398],
+                                            ix: 2
+                                          },
+                                          a: { a: 0, k: [0, 0], ix: 1 },
+                                          s: { a: 0, k: [100, 100], ix: 3 },
+                                          r: { a: 0, k: 0, ix: 6 },
+                                          o: { a: 0, k: 100, ix: 7 },
+                                          sk: { a: 0, k: 0, ix: 4 },
+                                          sa: { a: 0, k: 0, ix: 5 },
+                                          nm: "Transform"
+                                        }
+                                      ],
+                                      nm: "Rectangle 1",
+                                      np: 3,
+                                      cix: 2,
+                                      bm: 0,
+                                      ix: 1,
+                                      mn: "ADBE Vector Group",
+                                      hd: false
+                                    }
+                                  ],
+                                  ip: 0,
+                                  op: 95,
+                                  st: 0,
+                                  bm: 0
+                                },
+                                {
+                                  ddd: 0,
+                                  ind: 4,
+                                  ty: 4,
+                                  nm: "Spindle",
+                                  sr: 1,
+                                  ks: {
+                                    o: { a: 0, k: 100, ix: 11 },
+                                    r: {
+                                      a: 1,
+                                      k: [
+                                        {
+                                          i: { x: [0.667], y: [1] },
+                                          o: { x: [0.333], y: [0] },
+                                          t: 0,
+                                          s: [0]
+                                        },
+                                        {
+                                          i: { x: [0.667], y: [1] },
+                                          o: { x: [0.333], y: [0] },
+                                          t: 15,
+                                          s: [35]
+                                        },
+                                        {
+                                          i: { x: [0.667], y: [1] },
+                                          o: { x: [0.333], y: [0] },
+                                          t: 30,
+                                          s: [-35]
+                                        },
+                                        {
+                                          i: { x: [0.667], y: [1] },
+                                          o: { x: [0.333], y: [0] },
+                                          t: 45,
+                                          s: [25]
+                                        },
+                                        {
+                                          i: { x: [0.667], y: [1] },
+                                          o: { x: [0.333], y: [0] },
+                                          t: 60,
+                                          s: [-22]
+                                        },
+                                        { t: 75, s: [0] }
+                                      ],
+                                      ix: 10
+                                    },
+                                    p: { a: 0, k: [100, 39.5, 0], ix: 2, l: 2 },
+                                    a: {
+                                      a: 0,
+                                      k: [-14.219, -40.102, 0],
+                                      ix: 1,
+                                      l: 2
+                                    },
+                                    s: { a: 0, k: [100, 100, 100], ix: 6, l: 2 }
+                                  },
+                                  ao: 0,
+                                  hasMask: true,
+                                  masksProperties: [
+                                    {
+                                      inv: false,
+                                      mode: "f",
+                                      pt: {
+                                        a: 0,
+                                        k: {
+                                          i: [
+                                            [0, 9.121],
+                                            [0, 0],
+                                            [9.12, 0]
+                                          ],
+                                          o: [
+                                            [0, 0],
+                                            [0, 9.121],
+                                            [-9.12, 0]
+                                          ],
+                                          v: [
+                                            [-30.5, 66],
+                                            [2.5, 66],
+                                            [-14, 82.5]
+                                          ],
+                                          c: true
+                                        },
+                                        ix: 1
+                                      },
+                                      o: { a: 0, k: 100, ix: 3 },
+                                      x: { a: 0, k: 0, ix: 4 },
+                                      nm: "Spindle"
+                                    }
+                                  ],
+                                  shapes: [
+                                    {
+                                      ty: "gr",
+                                      it: [
+                                        {
+                                          ty: "rc",
+                                          d: 1,
+                                          s: { a: 0, k: [200, 200], ix: 2 },
+                                          p: { a: 0, k: [0, 0], ix: 3 },
+                                          r: { a: 0, k: 0, ix: 4 },
+                                          nm: "Rectangle Path 1",
+                                          mn: "ADBE Vector Shape - Rect",
+                                          hd: false
+                                        },
+                                        {
+                                          ty: "fl",
+                                          c: {
+                                            a: 0,
+                                            k: [0.447, 0.329, 0.776, 1],
+                                            ix: 4
+                                          },
+                                          o: { a: 0, k: 100, ix: 5 },
+                                          r: 1,
+                                          bm: 0,
+                                          nm: "Fill 1",
+                                          mn: "ADBE Vector Graphic - Fill",
+                                          hd: false
+                                        },
+                                        {
+                                          ty: "tr",
+                                          p: {
+                                            a: 0,
+                                            k: [-14.219, 20.398],
+                                            ix: 2
+                                          },
+                                          a: { a: 0, k: [0, 0], ix: 1 },
+                                          s: { a: 0, k: [100, 100], ix: 3 },
+                                          r: { a: 0, k: 0, ix: 6 },
+                                          o: { a: 0, k: 100, ix: 7 },
+                                          sk: { a: 0, k: 0, ix: 4 },
+                                          sa: { a: 0, k: 0, ix: 5 },
+                                          nm: "Transform"
+                                        }
+                                      ],
+                                      nm: "Rectangle 1",
+                                      np: 3,
+                                      cix: 2,
+                                      bm: 0,
+                                      ix: 1,
+                                      mn: "ADBE Vector Group",
+                                      hd: false
+                                    }
+                                  ],
+                                  ip: 0,
+                                  op: 95,
+                                  st: 0,
+                                  bm: 0
+                                }
+                              ],
+                              markers: []
+                            }}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.lottie__a1HZe
+                            )}
+                          />
+                        }
+                        load={generateStateValueProp($state, [
+                          "button",
+                          "load"
+                        ])}
+                        loading={generateStateValueProp($state, [
+                          "button",
+                          "loading"
+                        ])}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["runCode"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return requestPermission().then(result => {
+                                      $state.promise = result;
+                                    });
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+
+                          $steps["invokeGlobalAction"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    (() => {
+                                      try {
+                                        return $state.promise.ok == true
+                                          ? "success"
+                                          : "error";
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })(),
+                                    (() => {
+                                      try {
+                                        return $state.promise.message;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })(),
+                                    "top-left"
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.showToast"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction"] = await $steps[
+                              "invokeGlobalAction"
+                            ];
+                          }
+
+                          $steps["updateNotif"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["notif"]
+                                  },
+                                  operation: 0,
+                                  value: $state.promise.ok == true
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateNotif"] != null &&
+                            typeof $steps["updateNotif"] === "object" &&
+                            typeof $steps["updateNotif"].then === "function"
+                          ) {
+                            $steps["updateNotif"] = await $steps["updateNotif"];
+                          }
+                        }}
+                        onColorChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button",
+                              "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onLoadChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button",
+                              "load"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onLoadingChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button",
+                              "loading"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        shape={"rounded"}
+                        showEndIcon={true}
+                        size={"compact"}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___7Hh8B
+                          )}
+                        >
+                          {
+                            "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u0634\u0646"
+                          }
+                        </div>
+                      </Button>
+                    ) : null}
                     <Button
-                      data-plasmic-name={"button"}
-                      data-plasmic-override={overrides.button}
-                      className={classNames("__wab_instance", sty.button)}
+                      data-plasmic-name={"button2"}
+                      data-plasmic-override={overrides.button2}
+                      children={null}
+                      className={classNames("__wab_instance", sty.button2)}
                       color={generateStateValueProp($state, [
-                        "button",
+                        "button2",
                         "color"
                       ])}
                       endIcon={
                         <LottieWrapper
-                          data-plasmic-name={"lottie"}
-                          data-plasmic-override={overrides.lottie}
                           animationData={{
                             v: "5.7.4",
                             fr: 60,
@@ -1232,12 +2105,15 @@ function PlasmicMain__RenderFunc(props: {
                             ],
                             markers: []
                           }}
-                          className={classNames("__wab_instance", sty.lottie)}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.lottie__p9ZxS
+                          )}
                         />
                       }
-                      load={generateStateValueProp($state, ["button", "load"])}
+                      load={generateStateValueProp($state, ["button2", "load"])}
                       loading={generateStateValueProp($state, [
-                        "button",
+                        "button2",
                         "loading"
                       ])}
                       onClick={async event => {
@@ -1355,7 +2231,7 @@ function PlasmicMain__RenderFunc(props: {
                       onColorChange={async (...eventArgs: any) => {
                         ((...eventArgs) => {
                           generateStateOnChangeProp($state, [
-                            "button",
+                            "button2",
                             "color"
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
@@ -1370,9 +2246,10 @@ function PlasmicMain__RenderFunc(props: {
                       }}
                       onLoadChange={async (...eventArgs: any) => {
                         ((...eventArgs) => {
-                          generateStateOnChangeProp($state, ["button", "load"])(
-                            eventArgs[0]
-                          );
+                          generateStateOnChangeProp($state, [
+                            "button2",
+                            "load"
+                          ])(eventArgs[0]);
                         }).apply(null, eventArgs);
 
                         if (
@@ -1386,7 +2263,7 @@ function PlasmicMain__RenderFunc(props: {
                       onLoadingChange={async (...eventArgs: any) => {
                         ((...eventArgs) => {
                           generateStateOnChangeProp($state, [
-                            "button",
+                            "button2",
                             "loading"
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
@@ -1402,20 +2279,8 @@ function PlasmicMain__RenderFunc(props: {
                       shape={"rounded"}
                       showEndIcon={true}
                       size={"compact"}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text___7Hh8B
-                        )}
-                      >
-                        {
-                          "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u0634\u0646"
-                        }
-                      </div>
-                    </Button>
-                  ) : null
+                    />
+                  </React.Fragment>
                 }
                 token={(() => {
                   try {
@@ -2104,7 +2969,7 @@ function PlasmicMain__RenderFunc(props: {
             data-plasmic-override={overrides.serviceWorker}
             className={classNames("__wab_instance", sty.serviceWorker)}
             code={
-              '<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>\r\n<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging-compat.js"></script>\r\n\r\n<script>\r\n  // \u062a\u0646\u0638\u06cc\u0645\u0627\u062a Firebase\r\n  var firebaseConfig = {\r\n    apiKey: "AIzaSyBVtKyIzcD0xVEMOjeMYjDdNRozFVVrmRo",\r\n    authDomain: "liom-31952.firebaseapp.com",\r\n    databaseURL: "https://liom-31952.firebaseio.com",\r\n    projectId: "liom-31952",\r\n    storageBucket: "liom-31952.appspot.com",\r\n    messagingSenderId: "518322220404",\r\n    appId: "1:518322220404:web:09527c8a42f2f017d89021",\r\n    measurementId: "G-TVWYWYEH1D"\r\n  };\r\n\r\n  // \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u0627\u0632 initialize \u062f\u0648\u0628\u0627\u0631\u0647\r\n  if (!firebase.apps.length) {\r\n    firebase.initializeApp(firebaseConfig);\r\n  }\r\n\r\n  // \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u0627\u0632 \u062a\u0639\u0631\u06cc\u0641 \u062f\u0648\u0628\u0627\u0631\u0647 messaging\r\n  var messaging = window.messaging || firebase.messaging();\r\n  window.messaging = messaging;\r\n\r\n  // \u06af\u0631\u0641\u062a\u0646 \u06a9\u0648\u06a9\u06cc\r\n  function getCookie(name) {\r\n    var cookies = document.cookie.split("; ");\r\n    for (let cookie of cookies) {\r\n      var [key, value] = cookie.split("=");\r\n      if (key === name) {\r\n        try {\r\n          return JSON.parse(value)[0];\r\n        } catch (e) {\r\n          return value;\r\n        }\r\n      }\r\n    }\r\n    return "";\r\n  }\r\n\r\n  // \u0627\u0631\u0633\u0627\u0644 \u062a\u0648\u06a9\u0646 \u0628\u0647 \u0633\u0631\u0648\u0631 \u0641\u0642\u0637 \u0648\u0642\u062a\u06cc \u062a\u063a\u06cc\u06cc\u0631 \u06a9\u0631\u062f\u0647\r\n  function sendTokenToServer(token) {\r\n    var savedToken = window.localStorage.getItem("fcmToken");\r\n    if (savedToken === token) {\r\n      console.log("\u062a\u0648\u06a9\u0646 \u0642\u0628\u0644\u06cc \u0647\u0646\u0648\u0632 \u0645\u0639\u062a\u0628\u0631 \u0627\u0633\u062a\u060c \u0627\u0631\u0633\u0627\u0644 \u0628\u0647 \u0633\u0631\u0648\u0631 \u0644\u0627\u0632\u0645 \u0646\u06cc\u0633\u062a.");\r\n      return;\r\n    }\r\n\r\n    var authToken = getCookie("token");\r\n    if (!authToken) {\r\n      console.warn("\u274c \u062a\u0648\u06a9\u0646 \u06a9\u0627\u0631\u0628\u0631 \u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a\u060c \u0627\u0631\u0633\u0627\u0644 FCM \u0644\u063a\u0648 \u0634\u062f.");\r\n      return;\r\n    }\r\n\r\n    window.localStorage.setItem("fcmToken", token);\r\n    console.log("\ud83d\udce1 \u0627\u0631\u0633\u0627\u0644 \u062a\u0648\u06a9\u0646 FCM \u0628\u0647 \u0633\u0631\u0648\u0631...", token);\r\n\r\n    fetch("https://n8n.staas.ir/webhook/rest/user/setFcm", {\r\n      method: "POST",\r\n      headers: {\r\n        "Content-Type": "application/json"\r\n      },\r\n      body: JSON.stringify({\r\n        fcm: token,\r\n        Authorization: authToken\r\n      })\r\n    })\r\n      .then(res => {\r\n        if (!res.ok) throw new Error("\u062e\u0637\u0627 \u062f\u0631 \u0627\u0631\u0633\u0627\u0644 \u062a\u0648\u06a9\u0646");\r\n        return res.json();\r\n      })\r\n      .then(data => console.log("\u2705 \u062a\u0648\u06a9\u0646 FCM \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0628\u0647 \u0633\u0631\u0648\u0631 \u0627\u0631\u0633\u0627\u0644 \u0634\u062f:", data))\r\n      .catch(err => console.error("\u274c \u062e\u0637\u0627 \u062f\u0631 \u0627\u0631\u0633\u0627\u0644 \u062a\u0648\u06a9\u0646 FCM:", err));\r\n  }\r\n\r\n  // \u062f\u0631\u062e\u0648\u0627\u0633\u062a \u062f\u0633\u062a\u0631\u0633\u06cc \u0628\u0647 Notification\r\n  function requestPermission() {\r\n    return new Promise((resolve) => {\r\n      if (!("Notification" in window)) {\r\n        return resolve({ ok: false, message: "\u0645\u0631\u0648\u0631\u06af\u0631 \u0634\u0645\u0627 Notification \u0631\u0627 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc \u0646\u0645\u06cc\u200c\u06a9\u0646\u062f." });\r\n      }\r\n\r\n      Notification.requestPermission().then(permission => {\r\n        if (permission === "granted") {\r\n          var savedToken = window.localStorage.getItem("fcmToken");\r\n          if (savedToken) {\r\n            sendTokenToServer(savedToken);\r\n            return resolve({ ok: true, message: " Notification \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0641\u0639\u0627\u0644 \u0634\u062f." });\r\n          }\r\n\r\n          messaging.getToken({\r\n            vapidKey: "BDroVn6KRs9iN1laogFt-J47xc9WsWIfblgIBCi2QllonFT-PAu9up26gRlL-9uL7R1FSllN7I13eTR6IZiH72g"\r\n          })\r\n          .then(currentToken => {\r\n            if (currentToken) {\r\n              sendTokenToServer(currentToken);\r\n              return resolve({ ok: true, message: " Notification \u0641\u0639\u0627\u0644 \u0634\u062f \u0648 \u062a\u0648\u06a9\u0646 \u062f\u0631\u06cc\u0627\u0641\u062a \u0634\u062f." });\r\n            } else {\r\n              return resolve({ ok: false, message: " \u062f\u0633\u062a\u0631\u0633\u06cc \u0641\u0639\u0627\u0644 \u0646\u0634\u062f\u060c \u0645\u062c\u062f\u062f\u0627\u064b \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f." });\r\n            }\r\n          })\r\n          .catch(err => {\r\n            console.error("\u274c \u062e\u0637\u0627 \u062f\u0631 \u06af\u0631\u0641\u062a\u0646 \u062a\u0648\u06a9\u0646:", err);\r\n            return resolve({ ok: false, message: "\u062e\u0637\u0627 \u062f\u0631 \u0641\u0639\u0627\u0644\u200c\u0633\u0627\u0632\u06cc Notification." });\r\n          });\r\n\r\n        } else if (permission === "denied") {\r\n          return resolve({ ok: false, message: " \u062f\u0633\u062a\u0631\u0633\u06cc Notification \u0631\u062f \u0634\u062f." });\r\n        } else {\r\n          return resolve({ ok: false, message: "\u062f\u0633\u062a\u0631\u0633\u06cc Notification \u0647\u0646\u0648\u0632 \u062f\u0627\u062f\u0647 \u0646\u0634\u062f\u0647." });\r\n        }\r\n      });\r\n    });\r\n  }\r\n</script>\r\n'
+              '<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>\r\n<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging-compat.js"></script>\r\n\r\n<script>\r\n  // \u062a\u0646\u0638\u06cc\u0645\u0627\u062a Firebase\r\n  var firebaseConfig = {\r\n    apiKey: "AIzaSyBVtKyIzcD0xVEMOjeMYjDdNRozFVVrmRo",\r\n    authDomain: "liom-31952.firebaseapp.com",\r\n    databaseURL: "https://liom-31952.firebaseio.com",\r\n    projectId: "liom-31952",\r\n    storageBucket: "liom-31952.appspot.com",\r\n    messagingSenderId: "518322220404",\r\n    appId: "1:518322220404:web:09527c8a42f2f017d89021",\r\n    measurementId: "G-TVWYWYEH1D"\r\n  };\r\n\r\n  // \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u0627\u0632 initialize \u062f\u0648\u0628\u0627\u0631\u0647\r\n  if (!firebase.apps.length) {\r\n    firebase.initializeApp(firebaseConfig);\r\n  }\r\n\r\n  // \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u0627\u0632 \u062a\u0639\u0631\u06cc\u0641 \u062f\u0648\u0628\u0627\u0631\u0647 messaging\r\n  var messaging = window.messaging || firebase.messaging();\r\n  window.messaging = messaging;\r\n\r\n  // \u06af\u0631\u0641\u062a\u0646 \u06a9\u0648\u06a9\u06cc\r\n  function getCookie(name) {\r\n    var cookies = document.cookie.split("; ");\r\n    for (let cookie of cookies) {\r\n      var [key, value] = cookie.split("=");\r\n      if (key === name) {\r\n        try {\r\n          return JSON.parse(value)[0];\r\n        } catch (e) {\r\n          return value;\r\n        }\r\n      }\r\n    }\r\n    return "";\r\n  }\r\n\r\n  // \u0627\u0631\u0633\u0627\u0644 \u062a\u0648\u06a9\u0646 \u0628\u0647 \u0633\u0631\u0648\u0631 \u0641\u0642\u0637 \u0648\u0642\u062a\u06cc \u062a\u063a\u06cc\u06cc\u0631 \u06a9\u0631\u062f\u0647\r\n  function sendTokenToServer(token) {\r\n    var savedToken = window.localStorage.getItem("fcmToken");\r\n    if (savedToken === token) {\r\n      console.log("\u062a\u0648\u06a9\u0646 \u0642\u0628\u0644\u06cc \u0647\u0646\u0648\u0632 \u0645\u0639\u062a\u0628\u0631 \u0627\u0633\u062a\u060c \u0627\u0631\u0633\u0627\u0644 \u0628\u0647 \u0633\u0631\u0648\u0631 \u0644\u0627\u0632\u0645 \u0646\u06cc\u0633\u062a.");\r\n      // return;\r\n    }\r\n\r\n    var authToken = getCookie("token");\r\n    if (!authToken) {\r\n      console.warn("\u274c \u062a\u0648\u06a9\u0646 \u06a9\u0627\u0631\u0628\u0631 \u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a\u060c \u0627\u0631\u0633\u0627\u0644 FCM \u0644\u063a\u0648 \u0634\u062f.");\r\n      return;\r\n    }\r\n\r\n    window.localStorage.setItem("fcmToken", token);\r\n    console.log("\ud83d\udce1 \u0627\u0631\u0633\u0627\u0644 \u062a\u0648\u06a9\u0646 FCM \u0628\u0647 \u0633\u0631\u0648\u0631...", token);\r\n\r\n    fetch("https://n8n.staas.ir/webhook/rest/user/setFcm", {\r\n      method: "POST",\r\n      headers: {\r\n        "Content-Type": "application/json"\r\n      },\r\n      body: JSON.stringify({\r\n        fcm: token,\r\n        Authorization: authToken\r\n      })\r\n    })\r\n      .then(res => {\r\n        if (!res.ok) throw new Error("\u062e\u0637\u0627 \u062f\u0631 \u0627\u0631\u0633\u0627\u0644 \u062a\u0648\u06a9\u0646");\r\n        return res.json();\r\n      })\r\n      .then(data => console.log("\u2705 \u062a\u0648\u06a9\u0646 FCM \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0628\u0647 \u0633\u0631\u0648\u0631 \u0627\u0631\u0633\u0627\u0644 \u0634\u062f:", data))\r\n      .catch(err => console.error("\u274c \u062e\u0637\u0627 \u062f\u0631 \u0627\u0631\u0633\u0627\u0644 \u062a\u0648\u06a9\u0646 FCM:", err));\r\n  }\r\n\r\n  // \u062f\u0631\u062e\u0648\u0627\u0633\u062a \u062f\u0633\u062a\u0631\u0633\u06cc \u0628\u0647 Notification\r\n  function requestPermission() {\r\n    return new Promise((resolve) => {\r\n      if (!("Notification" in window)) {\r\n        return resolve({ ok: false, message: "\u0645\u0631\u0648\u0631\u06af\u0631 \u0634\u0645\u0627 Notification \u0631\u0627 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc \u0646\u0645\u06cc\u200c\u06a9\u0646\u062f." });\r\n      }\r\n\r\n      Notification.requestPermission().then(permission => {\r\n        if (permission === "granted") {\r\n          var savedToken = window.localStorage.getItem("fcmToken");\r\n          if (savedToken) {\r\n            sendTokenToServer(savedToken);\r\n            return resolve({ ok: true, message: " Notification \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0641\u0639\u0627\u0644 \u0634\u062f." });\r\n          }\r\n\r\n          messaging.getToken({\r\n            vapidKey: "BDroVn6KRs9iN1laogFt-J47xc9WsWIfblgIBCi2QllonFT-PAu9up26gRlL-9uL7R1FSllN7I13eTR6IZiH72g"\r\n          })\r\n          .then(currentToken => {\r\n            if (currentToken) {\r\n              sendTokenToServer(currentToken);\r\n              return resolve({ ok: true, message: " Notification \u0641\u0639\u0627\u0644 \u0634\u062f \u0648 \u062a\u0648\u06a9\u0646 \u062f\u0631\u06cc\u0627\u0641\u062a \u0634\u062f." });\r\n            } else {\r\n              return resolve({ ok: false, message: " \u062f\u0633\u062a\u0631\u0633\u06cc \u0641\u0639\u0627\u0644 \u0646\u0634\u062f\u060c \u0645\u062c\u062f\u062f\u0627\u064b \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f." });\r\n            }\r\n          })\r\n          .catch(err => {\r\n            console.error("\u274c \u062e\u0637\u0627 \u062f\u0631 \u06af\u0631\u0641\u062a\u0646 \u062a\u0648\u06a9\u0646:", err);\r\n            return resolve({ ok: false, message: "\u062e\u0637\u0627 \u062f\u0631 \u0641\u0639\u0627\u0644\u200c\u0633\u0627\u0632\u06cc Notification." });\r\n          });\r\n\r\n        } else if (permission === "denied") {\r\n          return resolve({ ok: false, message: " \u062f\u0633\u062a\u0631\u0633\u06cc Notification \u0631\u062f \u0634\u062f." });\r\n        } else {\r\n          return resolve({ ok: false, message: "\u062f\u0633\u062a\u0631\u0633\u06cc Notification \u0647\u0646\u0648\u0632 \u062f\u0627\u062f\u0647 \u0646\u0634\u062f\u0647." });\r\n        }\r\n      });\r\n    });\r\n  }\r\n</script>\r\n'
             }
           />
         </div>
@@ -2122,7 +2987,7 @@ const PlasmicDescendants = {
     "freeBox",
     "svg",
     "button",
-    "lottie",
+    "button2",
     "footerMain",
     "settingCycle4",
     "subItemsComponnet",
@@ -2137,15 +3002,15 @@ const PlasmicDescendants = {
     "freeBox",
     "svg",
     "button",
-    "lottie",
+    "button2",
     "footerMain"
   ],
   mainPage: ["mainPage"],
-  mainHeader: ["mainHeader", "freeBox", "svg", "button", "lottie"],
+  mainHeader: ["mainHeader", "freeBox", "svg", "button", "button2"],
   freeBox: ["freeBox", "svg"],
   svg: ["svg"],
-  button: ["button", "lottie"],
-  lottie: ["lottie"],
+  button: ["button"],
+  button2: ["button2"],
   footerMain: ["footerMain"],
   settingCycle4: ["settingCycle4"],
   subItemsComponnet: ["subItemsComponnet"],
@@ -2164,7 +3029,7 @@ type NodeDefaultElementType = {
   freeBox: "div";
   svg: "svg";
   button: typeof Button;
-  lottie: typeof LottieWrapper;
+  button2: typeof Button;
   footerMain: typeof FooterMain;
   settingCycle4: typeof SettingCycle4;
   subItemsComponnet: typeof SubItemsComponnet;
@@ -2264,7 +3129,7 @@ export const PlasmicMain = Object.assign(
     freeBox: makeNodeComponent("freeBox"),
     svg: makeNodeComponent("svg"),
     button: makeNodeComponent("button"),
-    lottie: makeNodeComponent("lottie"),
+    button2: makeNodeComponent("button2"),
     footerMain: makeNodeComponent("footerMain"),
     settingCycle4: makeNodeComponent("settingCycle4"),
     subItemsComponnet: makeNodeComponent("subItemsComponnet"),

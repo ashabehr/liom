@@ -293,6 +293,11 @@ function PlasmicChoices__RenderFunc(props: {
         sty.choices,
         {
           [sty.choicescircl]: hasVariant($state, "circl", "circl"),
+          [sty.choicesglobal_newView_newView]: hasVariant(
+            globalVariants,
+            "newView",
+            "newView"
+          ),
           [sty.choicesrectangle]: hasVariant($state, "rectangle", "rectangle"),
           [sty.choicesrectangle_circl]:
             hasVariant($state, "rectangle", "rectangle") &&
