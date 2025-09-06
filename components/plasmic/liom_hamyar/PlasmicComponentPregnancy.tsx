@@ -1994,7 +1994,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 $steps["goToPageSetting"] = await $steps["goToPageSetting"];
               }
 
-              $steps["scroll"] = !$state.isNoData
+              $steps["scroll"] = false
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
