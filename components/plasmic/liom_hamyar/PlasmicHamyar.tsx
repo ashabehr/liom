@@ -25630,7 +25630,14 @@ function PlasmicHamyar__RenderFunc(props: {
                 "page",
                 "reminder"
               ),
-              [sty.rememberreminder]: hasVariant($state, "reminder", "reminder")
+              [sty.rememberreminder]: hasVariant(
+                $state,
+                "reminder",
+                "reminder"
+              ),
+              [sty.rememberreminder_page_reminder]:
+                hasVariant($state, "page", "reminder") &&
+                hasVariant($state, "reminder", "reminder")
             })}
             config={(() => {
               try {
@@ -25654,13 +25661,7 @@ function PlasmicHamyar__RenderFunc(props: {
             })()}
             errorDisplay={null}
             loadingDisplay={null}
-            method={
-              hasVariant($state, "page", "reminder")
-                ? "GET"
-                : hasVariant($state, "reminder", "reminder")
-                ? "GET"
-                : "POST"
-            }
+            method={"POST"}
             onError={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["remember", "error"]).apply(
                 null,
