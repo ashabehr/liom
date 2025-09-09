@@ -25756,7 +25756,7 @@ function PlasmicHamyar__RenderFunc(props: {
             })}
             data={(() => {
               try {
-                return $state.remember?.data || [];
+                return $state.remember?.data?.result || [];
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -26128,7 +26128,7 @@ function PlasmicHamyar__RenderFunc(props: {
             })}
             data={(() => {
               try {
-                return $state.remember?.data || [];
+                return $state.remember?.data?.result || [];
               } catch (e) {
                 if (
                   e instanceof TypeError ||
