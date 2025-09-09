@@ -94,6 +94,7 @@ import { Iframe } from "@plasmicpkgs/plasmic-basic-components";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import MobileDialog from "../../MobileDialog"; // plasmic-import: h7ceF9lBthFF/component
 import Reminder from "../../Reminder"; // plasmic-import: 3v9tn6uUJCPM/component
+import ReminderSetting from "../../ReminderSetting"; // plasmic-import: VZcPBQBUFNbT/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -122,7 +123,10 @@ import Icon142Icon from "./icons/PlasmicIcon__Icon142"; // plasmic-import: SJsM-
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
 import Icon144Icon from "./icons/PlasmicIcon__Icon144"; // plasmic-import: 1DQk0pCQHybZ/icon
+import Icon287Icon from "./icons/PlasmicIcon__Icon287"; // plasmic-import: N_EGyCHRyzWI/icon
+import Icon289Icon from "./icons/PlasmicIcon__Icon289"; // plasmic-import: 5yKqzc2ISZPP/icon
 import Icon7Icon from "./icons/PlasmicIcon__Icon7"; // plasmic-import: UbRafB34Z-K-/icon
+import Icon288Icon from "./icons/PlasmicIcon__Icon288"; // plasmic-import: Qcsj4FrA-OA0/icon
 import Icon72Icon from "./icons/PlasmicIcon__Icon72"; // plasmic-import: QcYt9c3IQDGk/icon
 import Icon234Icon from "./icons/PlasmicIcon__Icon234"; // plasmic-import: 2zsMoQ1kWX5p/icon
 import Icon213Icon from "./icons/PlasmicIcon__Icon213"; // plasmic-import: mG0VeezaR1mF/icon
@@ -138,17 +142,20 @@ export type PlasmicHamyar__VariantMembers = {
   lackOfCourseInformation: "lackOfCourseInformation";
   noPartner: "noPartner";
   reminder: "reminder";
+  page: "reminder";
 };
 export type PlasmicHamyar__VariantsArgs = {
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
   noPartner?: SingleBooleanChoiceArg<"noPartner">;
   reminder?: SingleBooleanChoiceArg<"reminder">;
+  page?: SingleChoiceArg<"reminder">;
 };
 type VariantPropType = keyof PlasmicHamyar__VariantsArgs;
 export const PlasmicHamyar__VariantProps = new Array<VariantPropType>(
   "lackOfCourseInformation",
   "noPartner",
-  "reminder"
+  "reminder",
+  "page"
 );
 
 export type PlasmicHamyar__ArgsType = {};
@@ -226,6 +233,7 @@ export type PlasmicHamyar__OverridesType = {
   button18?: Flex__<typeof Button>;
   remember?: Flex__<typeof ApiRequest>;
   reminder2?: Flex__<typeof Reminder>;
+  reminderSetting?: Flex__<typeof ReminderSetting>;
 };
 
 export interface DefaultHamyarProps {}
@@ -2041,6 +2049,18 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "page",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.page
+      },
+      {
+        path: "reminderSetting.refresh",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -2105,6 +2125,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 "lackOfCourseInformation"
               ),
               [sty.rootnoPartner]: hasVariant($state, "noPartner", "noPartner"),
+              [sty.rootpage_reminder]: hasVariant($state, "page", "reminder"),
               [sty.rootreminder]: hasVariant($state, "reminder", "reminder")
             }
           )}
@@ -3086,7 +3107,9 @@ function PlasmicHamyar__RenderFunc(props: {
           />
 
           {(
-            hasVariant($state, "reminder", "reminder")
+            hasVariant($state, "page", "reminder")
+              ? true
+              : hasVariant($state, "reminder", "reminder")
               ? true
               : hasVariant($state, "noPartner", "noPartner")
               ? true
@@ -3121,6 +3144,7 @@ function PlasmicHamyar__RenderFunc(props: {
                   "noPartner",
                   "noPartner"
                 ),
+                [sty.mainpage_reminder]: hasVariant($state, "page", "reminder"),
                 [sty.mainreminder]: hasVariant($state, "reminder", "reminder")
               })}
             >
@@ -8299,6 +8323,11 @@ function PlasmicHamyar__RenderFunc(props: {
                             "noPartner",
                             "noPartner"
                           ),
+                          [sty.freeBoxpage_reminder__d04NJslU1R]: hasVariant(
+                            $state,
+                            "page",
+                            "reminder"
+                          ),
                           [sty.freeBoxreminder__d04NJuHqpO]: hasVariant(
                             $state,
                             "reminder",
@@ -8316,6 +8345,11 @@ function PlasmicHamyar__RenderFunc(props: {
                               $state,
                               "noPartner",
                               "noPartner"
+                            ),
+                            [sty.freeBoxpage_reminder__aErc9SlU1R]: hasVariant(
+                              $state,
+                              "page",
+                              "reminder"
                             ),
                             [sty.freeBoxreminder__aErc9UHqpO]: hasVariant(
                               $state,
@@ -8394,6 +8428,11 @@ function PlasmicHamyar__RenderFunc(props: {
                               $state,
                               "noPartner",
                               "noPartner"
+                            ),
+                            [sty.freeBoxpage_reminder__rYpc3SlU1R]: hasVariant(
+                              $state,
+                              "page",
+                              "reminder"
                             ),
                             [sty.freeBoxreminder__rYpc3UHqpO]: hasVariant(
                               $state,
@@ -8834,7 +8873,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                           try {
                                             return (() => {
                                               let future1 = new Date(
-                                                currentItem.date_greg
+                                                currentItem.date
                                               );
                                               let current_date1 = new Date();
                                               let delta1 =
@@ -12079,6 +12118,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                   "lackOfCourseInformation",
                                   "lackOfCourseInformation"
                                 ),
+                              [sty.textpage_reminder__z49PwslU1R]: hasVariant(
+                                $state,
+                                "page",
+                                "reminder"
+                              ),
                               [sty.textreminder__z49PwUHqpO]: hasVariant(
                                 $state,
                                 "reminder",
@@ -20914,7 +20958,9 @@ function PlasmicHamyar__RenderFunc(props: {
             </div>
           ) : null}
           {(
-            hasVariant($state, "reminder", "reminder")
+            hasVariant($state, "page", "reminder")
+              ? true
+              : hasVariant($state, "reminder", "reminder")
               ? true
               : (() => {
                   try {
@@ -20938,6 +20984,11 @@ function PlasmicHamyar__RenderFunc(props: {
                   $state,
                   "noPartner",
                   "noPartner"
+                ),
+                [sty.loadingpage_reminder]: hasVariant(
+                  $state,
+                  "page",
+                  "reminder"
                 ),
                 [sty.loadingreminder]: hasVariant(
                   $state,
@@ -21047,6 +21098,11 @@ function PlasmicHamyar__RenderFunc(props: {
                         sty.freeBox__z35I0,
                         "shimmer",
                         {
+                          [sty.freeBoxpage_reminder__z35I0SlU1R]: hasVariant(
+                            $state,
+                            "page",
+                            "reminder"
+                          ),
                           [sty.freeBoxreminder__z35I0UHqpO]: hasVariant(
                             $state,
                             "reminder",
@@ -21127,6 +21183,11 @@ function PlasmicHamyar__RenderFunc(props: {
                   $state,
                   "noPartner",
                   "noPartner"
+                ),
+                [sty.freeBoxpage_reminder__sVmd2SlU1R]: hasVariant(
+                  $state,
+                  "page",
+                  "reminder"
                 )
               })}
             >
@@ -21252,7 +21313,9 @@ function PlasmicHamyar__RenderFunc(props: {
             </div>
           ) : null}
           {(
-            hasVariant($state, "reminder", "reminder")
+            hasVariant($state, "page", "reminder")
+              ? true
+              : hasVariant($state, "reminder", "reminder")
               ? true
               : (() => {
                   try {
@@ -21280,6 +21343,11 @@ function PlasmicHamyar__RenderFunc(props: {
                   "noPartner",
                   "noPartner"
                 ),
+                [sty.sectionpage_reminder]: hasVariant(
+                  $state,
+                  "page",
+                  "reminder"
+                ),
                 [sty.sectionreminder]: hasVariant(
                   $state,
                   "reminder",
@@ -21294,11 +21362,121 @@ function PlasmicHamyar__RenderFunc(props: {
                       $state,
                       "noPartner",
                       "noPartner"
+                    ),
+                    [sty.freeBoxpage_reminder__maG1SlU1R]: hasVariant(
+                      $state,
+                      "page",
+                      "reminder"
                     )
                   })}
                 >
+                  {(() => {
+                    try {
+                      return $ctx.query.r == "8z1hf8";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <div
+                      aria-pressed={undefined}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__j5Sw8,
+                        {
+                          [sty.freeBoxnoPartner__j5Sw8C7PeD]: hasVariant(
+                            $state,
+                            "noPartner",
+                            "noPartner"
+                          ),
+                          [sty.freeBoxpage_reminder__j5Sw8SlU1R]: hasVariant(
+                            $state,
+                            "page",
+                            "reminder"
+                          )
+                        }
+                      )}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updatePage"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                vgroup: "page",
+                                operation: 0,
+                                value: "reminder"
+                              };
+                              return (({ vgroup, value }) => {
+                                if (typeof value === "string") {
+                                  value = [value];
+                                }
+
+                                $stateSet($state, vgroup, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updatePage"] != null &&
+                          typeof $steps["updatePage"] === "object" &&
+                          typeof $steps["updatePage"].then === "function"
+                        ) {
+                          $steps["updatePage"] = await $steps["updatePage"];
+                        }
+                      }}
+                    >
+                      <PlasmicIcon__
+                        PlasmicIconType={
+                          hasVariant($state, "page", "reminder")
+                            ? Icon289Icon
+                            : Icon287Icon
+                        }
+                        className={classNames(projectcss.all, sty.svg__jzbyo, {
+                          [sty.svgnoPartner__jzbyOc7PeD]: hasVariant(
+                            $state,
+                            "noPartner",
+                            "noPartner"
+                          ),
+                          [sty.svgpage_reminder__jzbyOslU1R]: hasVariant(
+                            $state,
+                            "page",
+                            "reminder"
+                          )
+                        })}
+                        role={"img"}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__lvaGt,
+                          {
+                            [sty.textpage_reminder__lvaGtslU1R]: hasVariant(
+                              $state,
+                              "page",
+                              "reminder"
+                            )
+                          }
+                        )}
+                      >
+                        {"\u06cc\u0627\u062f \u0622\u0648\u0631\u06cc"}
+                      </div>
+                    </div>
+                  ) : null}
                   <div
-                    className={classNames(projectcss.all, sty.freeBox___5YvYk)}
+                    className={classNames(projectcss.all, sty.freeBox___5YvYk, {
+                      [sty.freeBoxpage_reminder___5YvYKslU1R]: hasVariant(
+                        $state,
+                        "page",
+                        "reminder"
+                      )
+                    })}
                     onClick={async event => {
                       const $steps = {};
 
@@ -21332,10 +21510,46 @@ function PlasmicHamyar__RenderFunc(props: {
                       ) {
                         $steps["runCode"] = await $steps["runCode"];
                       }
+
+                      $steps["updatePage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              vgroup: "page",
+                              operation: 1,
+                              value: "reminder"
+                            };
+                            return (({ vgroup, value }) => {
+                              if (typeof value === "string") {
+                                value = [value];
+                              }
+
+                              $stateSet($state, vgroup, undefined);
+                              return undefined;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updatePage"] != null &&
+                        typeof $steps["updatePage"] === "object" &&
+                        typeof $steps["updatePage"].then === "function"
+                      ) {
+                        $steps["updatePage"] = await $steps["updatePage"];
+                      }
                     }}
                   >
-                    <Icon7Icon
-                      className={classNames(projectcss.all, sty.svg__nzzVb)}
+                    <PlasmicIcon__
+                      PlasmicIconType={
+                        hasVariant($state, "page", "reminder")
+                          ? Icon288Icon
+                          : Icon7Icon
+                      }
+                      className={classNames(projectcss.all, sty.svg__nzzVb, {
+                        [sty.svgpage_reminder__nzzVbslU1R]: hasVariant(
+                          $state,
+                          "page",
+                          "reminder"
+                        )
+                      })}
                       role={"img"}
                     />
 
@@ -21343,7 +21557,14 @@ function PlasmicHamyar__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text___0Tc1Z
+                        sty.text___0Tc1Z,
+                        {
+                          [sty.textpage_reminder___0Tc1ZslU1R]: hasVariant(
+                            $state,
+                            "page",
+                            "reminder"
+                          )
+                        }
                       )}
                     >
                       {"\u0647\u0645\u06cc\u0627\u0631"}
@@ -21412,6 +21633,11 @@ function PlasmicHamyar__RenderFunc(props: {
                         $state,
                         "noPartner",
                         "noPartner"
+                      ),
+                      [sty.freeBoxpage_reminder__vuPfBslU1R]: hasVariant(
+                        $state,
+                        "page",
+                        "reminder"
                       )
                     })}
                     onClick={async event => {
@@ -21470,6 +21696,11 @@ function PlasmicHamyar__RenderFunc(props: {
                           $state,
                           "noPartner",
                           "noPartner"
+                        ),
+                        [sty.svgpage_reminder__w9En1SlU1R]: hasVariant(
+                          $state,
+                          "page",
+                          "reminder"
                         )
                       })}
                       role={"img"}
@@ -21479,7 +21710,14 @@ function PlasmicHamyar__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__qjgF8
+                        sty.text__qjgF8,
+                        {
+                          [sty.textpage_reminder__qjgF8SlU1R]: hasVariant(
+                            $state,
+                            "page",
+                            "reminder"
+                          )
+                        }
                       )}
                     >
                       {
@@ -25363,11 +25601,42 @@ function PlasmicHamyar__RenderFunc(props: {
             data-plasmic-name={"remember"}
             data-plasmic-override={overrides.remember}
             className={classNames("__wab_instance", sty.remember, {
+              [sty.rememberpage_reminder]: hasVariant(
+                $state,
+                "page",
+                "reminder"
+              ),
               [sty.rememberreminder]: hasVariant($state, "reminder", "reminder")
             })}
+            config={(() => {
+              try {
+                return {
+                  headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    Authorization: $state.tokenUser,
+                    "X-Requested-With": "XMLHttpRequest"
+                  }
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
             errorDisplay={null}
             loadingDisplay={null}
-            method={hasVariant($state, "reminder", "reminder") ? "GET" : "GET"}
+            method={
+              hasVariant($state, "page", "reminder")
+                ? "GET"
+                : hasVariant($state, "reminder", "reminder")
+                ? "GET"
+                : "POST"
+            }
             onError={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["remember", "error"]).apply(
                 null,
@@ -25386,22 +25655,6 @@ function PlasmicHamyar__RenderFunc(props: {
                 eventArgs
               );
             }}
-            params={(() => {
-              try {
-                return {
-                  man_id: $state.userdata.result.man.id,
-                  r: $state.reminder2.refresh
-                };
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
             shouldFetch={(() => {
               try {
                 return $state.userdata?.result?.man?.id ? true : false;
@@ -25415,12 +25668,27 @@ function PlasmicHamyar__RenderFunc(props: {
                 throw e;
               }
             })()}
-            url={"https://n8n.staas.ir/webhook/hamyar/reminder"}
+            url={"https://n8n.staas.ir/webhook/user/task/day"}
           />
 
           <Reminder
             data-plasmic-name={"reminder2"}
             data-plasmic-override={overrides.reminder2}
+            activeSmsNotif={(() => {
+              try {
+                return $state.userdata?.result?.man?.activeSmsNotif
+                  ? true
+                  : false;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()}
             back={async () => {
               const $steps = {};
 
@@ -25447,6 +25715,11 @@ function PlasmicHamyar__RenderFunc(props: {
               }
             }}
             className={classNames("__wab_instance", sty.reminder2, {
+              [sty.reminder2page_reminder]: hasVariant(
+                $state,
+                "page",
+                "reminder"
+              ),
               [sty.reminder2reminder]: hasVariant(
                 $state,
                 "reminder",
@@ -25455,7 +25728,7 @@ function PlasmicHamyar__RenderFunc(props: {
             })}
             data={(() => {
               try {
-                return $state.remember.data;
+                return $state.remember?.data || [];
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -25631,6 +25904,31 @@ function PlasmicHamyar__RenderFunc(props: {
               }
             }}
             refresh={generateStateValueProp($state, ["reminder2", "refresh"])}
+            setting={async () => {
+              const $steps = {};
+
+              $steps["updateReminder"] = true
+                ? (() => {
+                    const actionArgs = { vgroup: "reminder", operation: 2 };
+                    return (({ vgroup, value }) => {
+                      if (typeof value === "string") {
+                        value = [value];
+                      }
+
+                      const oldValue = $stateGet($state, vgroup);
+                      $stateSet($state, vgroup, !oldValue);
+                      return !oldValue;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateReminder"] != null &&
+                typeof $steps["updateReminder"] === "object" &&
+                typeof $steps["updateReminder"].then === "function"
+              ) {
+                $steps["updateReminder"] = await $steps["updateReminder"];
+              }
+            }}
             shop={async () => {
               const $steps = {};
 
@@ -25676,6 +25974,221 @@ function PlasmicHamyar__RenderFunc(props: {
                   e?.plasmicType === "PlasmicUndefinedDataError"
                 ) {
                   return true;
+                }
+                throw e;
+              }
+            })()}
+            telegram={(() => {
+              try {
+                return $state.userdata?.result?.man?.telegramId ? true : false;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()}
+          />
+
+          <ReminderSetting
+            data-plasmic-name={"reminderSetting"}
+            data-plasmic-override={overrides.reminderSetting}
+            activeNotifTel={(() => {
+              try {
+                return $state.userdata?.result?.man?.activeNotifTel
+                  ? true
+                  : false;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()}
+            activeSmsNotif={(() => {
+              try {
+                return $state.userdata?.result?.man?.activeSmsNotif
+                  ? true
+                  : false;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()}
+            back={async () => {
+              const $steps = {};
+
+              $steps["updateReminder"] = true
+                ? (() => {
+                    const actionArgs = { vgroup: "reminder", operation: 6 };
+                    return (({ vgroup, value }) => {
+                      if (typeof value === "string") {
+                        value = [value];
+                      }
+
+                      $stateSet($state, vgroup, false);
+                      return false;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateReminder"] != null &&
+                typeof $steps["updateReminder"] === "object" &&
+                typeof $steps["updateReminder"].then === "function"
+              ) {
+                $steps["updateReminder"] = await $steps["updateReminder"];
+              }
+            }}
+            className={classNames("__wab_instance", sty.reminderSetting, {
+              [sty.reminderSettingreminder]: hasVariant(
+                $state,
+                "reminder",
+                "reminder"
+              )
+            })}
+            data={(() => {
+              try {
+                return $state.remember?.data || [];
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return [];
+                }
+                throw e;
+              }
+            })()}
+            manId={
+              hasVariant($state, "reminder", "reminder") &&
+              hasVariant(globalVariants, "screen", "mobile")
+                ? (() => {
+                    try {
+                      return $state.userdata?.result?.man?.id;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+                : (() => {
+                    try {
+                      return $state.userdata?.result?.man?.id || "";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+            }
+            onRefreshChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "reminderSetting",
+                "refresh"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            refresh={generateStateValueProp($state, [
+              "reminderSetting",
+              "refresh"
+            ])}
+            shop={async () => {
+              const $steps = {};
+
+              $steps["updateDialogOpendialog"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["dialog", "opendialog"]
+                      },
+                      operation: 4
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      const oldValue = $stateGet(objRoot, variablePath);
+                      $stateSet(objRoot, variablePath, !oldValue);
+                      return !oldValue;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateDialogOpendialog"] != null &&
+                typeof $steps["updateDialogOpendialog"] === "object" &&
+                typeof $steps["updateDialogOpendialog"].then === "function"
+              ) {
+                $steps["updateDialogOpendialog"] = await $steps[
+                  "updateDialogOpendialog"
+                ];
+              }
+            }}
+            subscription={(() => {
+              try {
+                return $state?.userdata?.result?.man?.hamyarStatus
+                  ? true
+                  : false;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()}
+            telegramOn={(() => {
+              try {
+                return $state.userdata?.result?.man?.telegramId ? true : false;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()}
+            token={(() => {
+              try {
+                return $state.tokenUser;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
                 }
                 throw e;
               }
@@ -25758,7 +26271,8 @@ const PlasmicDescendants = {
     "telegram",
     "button18",
     "remember",
-    "reminder2"
+    "reminder2",
+    "reminderSetting"
   ],
   sideEffect: ["sideEffect"],
   main: [
@@ -25892,7 +26406,8 @@ const PlasmicDescendants = {
   telegram: ["telegram", "button18"],
   button18: ["button18"],
   remember: ["remember"],
-  reminder2: ["reminder2"]
+  reminder2: ["reminder2"],
+  reminderSetting: ["reminderSetting"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -25968,6 +26483,7 @@ type NodeDefaultElementType = {
   button18: typeof Button;
   remember: typeof ApiRequest;
   reminder2: typeof Reminder;
+  reminderSetting: typeof ReminderSetting;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -26124,6 +26640,7 @@ export const PlasmicHamyar = Object.assign(
     button18: makeNodeComponent("button18"),
     remember: makeNodeComponent("remember"),
     reminder2: makeNodeComponent("reminder2"),
+    reminderSetting: makeNodeComponent("reminderSetting"),
 
     // Metadata about props expected for PlasmicHamyar
     internalVariantProps: PlasmicHamyar__VariantProps,

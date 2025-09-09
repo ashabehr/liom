@@ -277,6 +277,8 @@
   --plasmic-token-gradient-9: var(--token-sCjC_4Q-DzZo);
   --token-dqshVX6SoHxS: #552f96;
   --plasmic-token-dark-primary: var(--token-dqshVX6SoHxS);
+  --token--ndO3flt15Mn: 3ch;
+  --plasmic-token-unnamed-style-token-2: var(--token--ndO3flt15Mn);
 }
 
 @media (max-width: 640px) {

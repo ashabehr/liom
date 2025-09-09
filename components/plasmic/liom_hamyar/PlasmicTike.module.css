@@ -1,0 +1,36 @@
+.root {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  max-width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--token-R_Rsn0nP9oIv);
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
+  position: relative;
+  border-radius: 100%;
+  padding: 0px;
+}
+.roottike {
+  background: var(--token-qvl81LxkOSoe);
+  box-shadow: 0px 0px 0px 5px #542c991a;
+}
+.svg {
+  object-fit: cover;
+  max-width: 100%;
+  position: relative;
+  left: auto;
+  top: auto;
+  color: var(--token-y50Rafqey4Ec);
+  align-self: center;
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+.svgtike {
+  color: var(--token-R_Rsn0nP9oIv);
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
