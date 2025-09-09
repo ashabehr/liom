@@ -25609,6 +25609,21 @@ function PlasmicHamyar__RenderFunc(props: {
           <ApiRequest
             data-plasmic-name={"remember"}
             data-plasmic-override={overrides.remember}
+            body={(() => {
+              try {
+                return {
+                  r: $state.reminderSetting.refresh
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
             className={classNames("__wab_instance", sty.remember, {
               [sty.rememberpage_reminder]: hasVariant(
                 $state,
@@ -25914,6 +25929,47 @@ function PlasmicHamyar__RenderFunc(props: {
               ) {
                 return;
               }
+
+              (async val => {
+                const $steps = {};
+
+                $steps["updateReminderSettingRefresh"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["reminderSetting", "refresh"]
+                        },
+                        operation: 0,
+                        value: $state.reminderSetting.refresh + 1
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateReminderSettingRefresh"] != null &&
+                  typeof $steps["updateReminderSettingRefresh"] === "object" &&
+                  typeof $steps["updateReminderSettingRefresh"].then ===
+                    "function"
+                ) {
+                  $steps["updateReminderSettingRefresh"] = await $steps[
+                    "updateReminderSettingRefresh"
+                  ];
+                }
+              }).apply(null, eventArgs);
             }}
             refresh={generateStateValueProp($state, ["reminder2", "refresh"])}
             setting={async () => {

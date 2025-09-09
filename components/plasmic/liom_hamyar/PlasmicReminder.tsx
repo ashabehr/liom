@@ -477,7 +477,7 @@ function PlasmicReminder__RenderFunc(props: {
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return false;
+                return true;
               }
               throw e;
             }
@@ -2687,6 +2687,46 @@ function PlasmicReminder__RenderFunc(props: {
                       ) {
                         return;
                       }
+
+                      (async val => {
+                        const $steps = {};
+
+                        $steps["updateRefresh"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["refresh"]
+                                },
+                                operation: 0,
+                                value: $state.refresh + 1
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateRefresh"] != null &&
+                          typeof $steps["updateRefresh"] === "object" &&
+                          typeof $steps["updateRefresh"].then === "function"
+                        ) {
+                          $steps["updateRefresh"] = await $steps[
+                            "updateRefresh"
+                          ];
+                        }
+                      }).apply(null, eventArgs);
                     }}
                     refresh={generateStateValueProp($state, [
                       "reminderSetting",
@@ -2970,6 +3010,44 @@ function PlasmicReminder__RenderFunc(props: {
                   ) {
                     return;
                   }
+
+                  (async val => {
+                    const $steps = {};
+
+                    $steps["updateRefresh"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["refresh"]
+                            },
+                            operation: 0,
+                            value: $state.refresh + 1
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateRefresh"] != null &&
+                      typeof $steps["updateRefresh"] === "object" &&
+                      typeof $steps["updateRefresh"].then === "function"
+                    ) {
+                      $steps["updateRefresh"] = await $steps["updateRefresh"];
+                    }
+                  }).apply(null, eventArgs);
                 }}
                 refresh={generateStateValueProp($state, [
                   "reminderSetting3",
