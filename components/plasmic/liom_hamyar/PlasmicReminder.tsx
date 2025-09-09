@@ -133,11 +133,11 @@ export type PlasmicReminder__OverridesType = {
   datePickers?: Flex__<typeof DatePickers>;
   button4?: Flex__<typeof Button>;
   todayMeeting2?: Flex__<"div">;
-  frame12?: Flex__<"div">;
-  frame13?: Flex__<"div">;
-  frame14?: Flex__<"div">;
-  frame15?: Flex__<"div">;
-  frame16?: Flex__<"div">;
+  frame22?: Flex__<"div">;
+  frame23?: Flex__<"div">;
+  frame24?: Flex__<"div">;
+  frame25?: Flex__<"div">;
+  frame26?: Flex__<"div">;
   todayMeeting3?: Flex__<"div">;
   frame17?: Flex__<"div">;
   frame18?: Flex__<"div">;
@@ -1561,61 +1561,67 @@ function PlasmicReminder__RenderFunc(props: {
                 const currentIndex = __plasmic_idx_0;
                 return (
                   <div
-                    data-plasmic-name={"frame12"}
-                    data-plasmic-override={overrides.frame12}
-                    className={classNames(projectcss.all, sty.frame12)}
+                    data-plasmic-name={"frame22"}
+                    data-plasmic-override={overrides.frame22}
+                    className={classNames(projectcss.all, sty.frame22)}
                     key={currentIndex}
                   >
                     <div
-                      data-plasmic-name={"frame13"}
-                      data-plasmic-override={overrides.frame13}
-                      className={classNames(projectcss.all, sty.frame13)}
+                      data-plasmic-name={"frame23"}
+                      data-plasmic-override={overrides.frame23}
+                      className={classNames(projectcss.all, sty.frame23)}
                     >
                       <div
-                        data-plasmic-name={"frame14"}
-                        data-plasmic-override={overrides.frame14}
-                        className={classNames(projectcss.all, sty.frame14)}
+                        data-plasmic-name={"frame24"}
+                        data-plasmic-override={overrides.frame24}
+                        className={classNames(projectcss.all, sty.frame24)}
                       >
                         <div
-                          data-plasmic-name={"frame15"}
-                          data-plasmic-override={overrides.frame15}
-                          className={classNames(projectcss.all, sty.frame15)}
+                          data-plasmic-name={"frame25"}
+                          data-plasmic-override={overrides.frame25}
+                          className={classNames(projectcss.all, sty.frame25)}
                         >
                           <div
-                            data-plasmic-name={"frame16"}
-                            data-plasmic-override={overrides.frame16}
-                            className={classNames(projectcss.all, sty.frame16)}
+                            data-plasmic-name={"frame26"}
+                            data-plasmic-override={overrides.frame26}
+                            className={classNames(projectcss.all, sty.frame26)}
                           >
                             <div
                               className={classNames(
                                 projectcss.all,
-                                sty.freeBox__c1I0O
+                                sty.freeBox__xyX1M
                               )}
                             >
                               <div
                                 className={classNames(
                                   projectcss.all,
-                                  sty.freeBox__zqSyr
+                                  sty.freeBox___3Gkze
                                 )}
                               >
                                 <div
                                   className={classNames(
                                     projectcss.all,
                                     projectcss.__wab_text,
-                                    sty.text__u5Wa
+                                    sty.text___6Fi2N
                                   )}
                                 >
                                   <React.Fragment>
                                     {(() => {
                                       try {
                                         return (() => {
-                                          if (currentday[0].date)
-                                            return new Date(
-                                              currentday[0].date
-                                            ).toLocaleDateString("fa-IR", {
-                                              day: "numeric"
-                                            });
-                                          else return "?";
+                                          const dateString =
+                                            currentday?.[0]?.date;
+                                          let formattedDate = "?";
+                                          if (dateString) {
+                                            const d = new Date(dateString);
+                                            if (d.getTime()) {
+                                              formattedDate =
+                                                d.toLocaleDateString("fa-IR", {
+                                                  day: "numeric"
+                                                });
+                                            }
+                                          }
+                                          return formattedDate;
                                         })();
                                       } catch (e) {
                                         if (
@@ -1634,20 +1640,26 @@ function PlasmicReminder__RenderFunc(props: {
                                   className={classNames(
                                     projectcss.all,
                                     projectcss.__wab_text,
-                                    sty.text__dwrrT
+                                    sty.text__kf8Ml
                                   )}
                                 >
                                   <React.Fragment>
                                     {(() => {
                                       try {
                                         return (() => {
-                                          if (currentday[0].date)
-                                            return new Date(
-                                              currentday[0].date
-                                            ).toLocaleDateString("fa-IR", {
-                                              month: "long"
-                                            });
-                                          else return "";
+                                          const dateString =
+                                            currentday?.[0]?.date;
+                                          let formattedDate = "--";
+                                          if (dateString) {
+                                            const d = new Date(dateString);
+                                            if (d.getTime()) {
+                                              formattedDate =
+                                                d.toLocaleDateString("fa-IR", {
+                                                  month: "long"
+                                                });
+                                            }
+                                          }
+                                          return formattedDate;
                                         })();
                                       } catch (e) {
                                         if (
@@ -1667,7 +1679,7 @@ function PlasmicReminder__RenderFunc(props: {
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.ul,
-                                  sty.ul___85KKy
+                                  sty.ul__tvehx
                                 )}
                               >
                                 {(_par =>
@@ -1698,21 +1710,21 @@ function PlasmicReminder__RenderFunc(props: {
                                       className={classNames(
                                         projectcss.all,
                                         projectcss.li,
-                                        sty.li__kr53H
+                                        sty.li__aJccB
                                       )}
                                       key={currentIndex}
                                     >
                                       <div
                                         className={classNames(
                                           projectcss.all,
-                                          sty.freeBox__e3A92
+                                          sty.freeBox__qyMbC
                                         )}
                                       >
                                         <div
                                           className={classNames(
                                             projectcss.all,
                                             projectcss.__wab_text,
-                                            sty.text__lZQp
+                                            sty.text___3JjUn
                                           )}
                                         >
                                           <React.Fragment>
@@ -3121,11 +3133,11 @@ const PlasmicDescendants = {
     "datePickers",
     "button4",
     "todayMeeting2",
-    "frame12",
-    "frame13",
-    "frame14",
-    "frame15",
-    "frame16",
+    "frame22",
+    "frame23",
+    "frame24",
+    "frame25",
+    "frame26",
     "todayMeeting3",
     "frame17",
     "frame18",
@@ -3163,17 +3175,17 @@ const PlasmicDescendants = {
   button4: ["button4"],
   todayMeeting2: [
     "todayMeeting2",
-    "frame12",
-    "frame13",
-    "frame14",
-    "frame15",
-    "frame16"
+    "frame22",
+    "frame23",
+    "frame24",
+    "frame25",
+    "frame26"
   ],
-  frame12: ["frame12", "frame13", "frame14", "frame15", "frame16"],
-  frame13: ["frame13", "frame14", "frame15", "frame16"],
-  frame14: ["frame14", "frame15", "frame16"],
-  frame15: ["frame15", "frame16"],
-  frame16: ["frame16"],
+  frame22: ["frame22", "frame23", "frame24", "frame25", "frame26"],
+  frame23: ["frame23", "frame24", "frame25", "frame26"],
+  frame24: ["frame24", "frame25", "frame26"],
+  frame25: ["frame25", "frame26"],
+  frame26: ["frame26"],
   todayMeeting3: [
     "todayMeeting3",
     "frame17",
@@ -3219,11 +3231,11 @@ type NodeDefaultElementType = {
   datePickers: typeof DatePickers;
   button4: typeof Button;
   todayMeeting2: "div";
-  frame12: "div";
-  frame13: "div";
-  frame14: "div";
-  frame15: "div";
-  frame16: "div";
+  frame22: "div";
+  frame23: "div";
+  frame24: "div";
+  frame25: "div";
+  frame26: "div";
   todayMeeting3: "div";
   frame17: "div";
   frame18: "div";
@@ -3311,11 +3323,11 @@ export const PlasmicReminder = Object.assign(
     datePickers: makeNodeComponent("datePickers"),
     button4: makeNodeComponent("button4"),
     todayMeeting2: makeNodeComponent("todayMeeting2"),
-    frame12: makeNodeComponent("frame12"),
-    frame13: makeNodeComponent("frame13"),
-    frame14: makeNodeComponent("frame14"),
-    frame15: makeNodeComponent("frame15"),
-    frame16: makeNodeComponent("frame16"),
+    frame22: makeNodeComponent("frame22"),
+    frame23: makeNodeComponent("frame23"),
+    frame24: makeNodeComponent("frame24"),
+    frame25: makeNodeComponent("frame25"),
+    frame26: makeNodeComponent("frame26"),
     todayMeeting3: makeNodeComponent("todayMeeting3"),
     frame17: makeNodeComponent("frame17"),
     frame18: makeNodeComponent("frame18"),

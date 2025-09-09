@@ -21316,7 +21316,10 @@ function PlasmicHamyar__RenderFunc(props: {
             </div>
           ) : null}
           {(
-            hasVariant($state, "page", "reminder")
+            hasVariant($state, "page", "reminder") &&
+            hasVariant($state, "reminder", "reminder")
+              ? true
+              : hasVariant($state, "page", "reminder")
               ? true
               : hasVariant($state, "reminder", "reminder")
               ? true
@@ -21355,7 +21358,10 @@ function PlasmicHamyar__RenderFunc(props: {
                   $state,
                   "reminder",
                   "reminder"
-                )
+                ),
+                [sty.sectionreminder_page_reminder]:
+                  hasVariant($state, "page", "reminder") &&
+                  hasVariant($state, "reminder", "reminder")
               })}
             >
               <div className={classNames(projectcss.all, sty.freeBox__s6DdH)}>

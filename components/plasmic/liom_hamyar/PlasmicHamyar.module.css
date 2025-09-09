@@ -5432,6 +5432,12 @@
 .sectionpage_reminder > * {
   grid-column: 4;
 }
+.sectionreminder_page_reminder {
+  display: none;
+}
+.sectionreminder_page_reminder > * {
+  grid-column: 4;
+}
 .freeBox__s6DdH {
   display: flex;
   flex-direction: column;
