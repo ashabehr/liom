@@ -8744,7 +8744,10 @@ function PlasmicHamyar__RenderFunc(props: {
                               !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                               (() => {
                                 try {
-                                  return $state.remember.data.slice(0, 2);
+                                  return $state.remember.data?.result?.slice(
+                                    0,
+                                    2
+                                  );
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
