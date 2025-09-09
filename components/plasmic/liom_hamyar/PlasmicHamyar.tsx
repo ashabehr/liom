@@ -20960,75 +20960,119 @@ function PlasmicHamyar__RenderFunc(props: {
               </AntdTooltip>
             </div>
           ) : null}
-          <div
-            data-plasmic-name={"loading"}
-            data-plasmic-override={overrides.loading}
-            className={classNames(projectcss.all, sty.loading, {
-              [sty.loadingnoPartner]: hasVariant(
-                $state,
-                "noPartner",
-                "noPartner"
-              ),
-              [sty.loadingpage_reminder]: hasVariant(
-                $state,
-                "page",
-                "reminder"
-              ),
-              [sty.loadingreminder]: hasVariant($state, "reminder", "reminder")
-            })}
-          >
+          {(
+            hasVariant($state, "page", "reminder")
+              ? true
+              : hasVariant($state, "reminder", "reminder")
+              ? true
+              : (() => {
+                  try {
+                    return $state.loadingPage;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()
+          ) ? (
             <div
-              className={classNames(projectcss.all, sty.freeBox__u5GW, {
-                [sty.freeBoxnoPartner__u5GWc7PeD]: hasVariant(
+              data-plasmic-name={"loading"}
+              data-plasmic-override={overrides.loading}
+              className={classNames(projectcss.all, sty.loading, {
+                [sty.loadingnoPartner]: hasVariant(
                   $state,
                   "noPartner",
                   "noPartner"
+                ),
+                [sty.loadingpage_reminder]: hasVariant(
+                  $state,
+                  "page",
+                  "reminder"
+                ),
+                [sty.loadingreminder]: hasVariant(
+                  $state,
+                  "reminder",
+                  "reminder"
                 )
               })}
             >
               <div
-                className={classNames(projectcss.all, sty.freeBox___2U0Lk, {
-                  [sty.freeBoxnoPartner___2U0Lkc7PeD]: hasVariant(
+                className={classNames(projectcss.all, sty.freeBox__u5GW, {
+                  [sty.freeBoxnoPartner__u5GWc7PeD]: hasVariant(
                     $state,
                     "noPartner",
                     "noPartner"
                   )
                 })}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__iHtHu)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___2U0Lk, {
+                    [sty.freeBoxnoPartner___2U0Lkc7PeD]: hasVariant(
+                      $state,
+                      "noPartner",
+                      "noPartner"
+                    )
+                  })}
+                >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox___1II5,
-                      "shimmer",
-                      {
-                        [sty.freeBoxnoPartner___1II5C7PeD]: hasVariant(
-                          $state,
-                          "noPartner",
-                          "noPartner"
-                        )
-                      }
-                    )}
-                  />
-
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__a8Eua)}
+                    className={classNames(projectcss.all, sty.freeBox__iHtHu)}
                   >
                     <div
                       className={classNames(
                         projectcss.all,
-                        sty.freeBox__z6Vt3,
-                        "shimmer"
+                        sty.freeBox___1II5,
+                        "shimmer",
+                        {
+                          [sty.freeBoxnoPartner___1II5C7PeD]: hasVariant(
+                            $state,
+                            "noPartner",
+                            "noPartner"
+                          )
+                        }
                       )}
                     />
 
                     <div
+                      className={classNames(projectcss.all, sty.freeBox__a8Eua)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__z6Vt3,
+                          "shimmer"
+                        )}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__ibnI7,
+                          "shimmer",
+                          {
+                            [sty.freeBoxnoPartner__ibnI7C7PeD]: hasVariant(
+                              $state,
+                              "noPartner",
+                              "noPartner"
+                            )
+                          }
+                        )}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___02NW)}
+                  >
+                    <div
                       className={classNames(
                         projectcss.all,
-                        sty.freeBox__ibnI7,
+                        sty.freeBox__kXwIg,
                         "shimmer",
                         {
-                          [sty.freeBoxnoPartner__ibnI7C7PeD]: hasVariant(
+                          [sty.freeBoxnoPartner__kXwIgc7PeD]: hasVariant(
                             $state,
                             "noPartner",
                             "noPartner"
@@ -21037,58 +21081,44 @@ function PlasmicHamyar__RenderFunc(props: {
                       )}
                     />
                   </div>
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox___02NW)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__kXwIg,
-                      "shimmer",
-                      {
-                        [sty.freeBoxnoPartner__kXwIgc7PeD]: hasVariant(
-                          $state,
-                          "noPartner",
-                          "noPartner"
-                        )
-                      }
-                    )}
-                  />
-                </div>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___1LZfu)}
-                >
+                    className={classNames(projectcss.all, sty.freeBox___1LZfu)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__dRBuT,
+                        "shimmer"
+                      )}
+                    />
+                  </div>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__dRBuT,
-                      "shimmer"
-                    )}
-                  />
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__iCDfM)}>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__z35I0,
-                      "shimmer",
-                      {
-                        [sty.freeBoxpage_reminder__z35I0SlU1R]: hasVariant(
-                          $state,
-                          "page",
-                          "reminder"
-                        ),
-                        [sty.freeBoxreminder__z35I0UHqpO]: hasVariant(
-                          $state,
-                          "reminder",
-                          "reminder"
-                        )
-                      }
-                    )}
-                  />
+                    className={classNames(projectcss.all, sty.freeBox__iCDfM)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__z35I0,
+                        "shimmer",
+                        {
+                          [sty.freeBoxpage_reminder__z35I0SlU1R]: hasVariant(
+                            $state,
+                            "page",
+                            "reminder"
+                          ),
+                          [sty.freeBoxreminder__z35I0UHqpO]: hasVariant(
+                            $state,
+                            "reminder",
+                            "reminder"
+                          )
+                        }
+                      )}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          ) : null}
           <Embed
             data-plasmic-name={"favicon"}
             data-plasmic-override={overrides.favicon}
@@ -25697,7 +25727,10 @@ function PlasmicHamyar__RenderFunc(props: {
                 $state,
                 "reminder",
                 "reminder"
-              )
+              ),
+              [sty.reminder2reminder_page_reminder]:
+                hasVariant($state, "page", "reminder") &&
+                hasVariant($state, "reminder", "reminder")
             })}
             data={(() => {
               try {
