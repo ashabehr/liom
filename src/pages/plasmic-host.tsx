@@ -23,6 +23,8 @@ import {Pickers,PickersMeta} from "@/components/Pickers";
 import {PullToRefresh,PullToRefreshMeta} from "@/components/PullToRefresh";
 import {SwiperSlider,SwiperSliderMeta} from "@/components/SwiperSlider";
 import {BackHandler,BackHandlerMeta} from "@/components/BackHandler";
+import {TimePicker,TimePickerMeta} from "@/components/TimePicker";
+
 
 
 
@@ -49,3 +51,4 @@ registerComponent(Pickers, PickersMeta);
 registerComponent(PullToRefresh, PullToRefreshMeta);
 registerComponent(SwiperSlider,SwiperSliderMeta );
 registerComponent(BackHandler,BackHandlerMeta );
+registerComponent(TimePicker,TimePickerMeta );
