@@ -9,7 +9,7 @@ type TimePickerProps = {
   className?: string;
 };
 
-export const TimePicker = (props: TimePickerProps) => {
+export const TimePickerCustom = (props: TimePickerProps) => {
   const {
     onChange,
     SelectedHour = 9,
@@ -59,9 +59,9 @@ export const TimePicker = (props: TimePickerProps) => {
   );
 };
 
-export const TimePickerMeta: CodeComponentMeta<TimePickerProps> = {
-  name: "TimePicker",
-  importPath: "@/components/TimePicker",
+export const TimePickerCustomMeta: CodeComponentMeta<TimePickerProps> = {
+  name: "TimePickerCustom",
+  importPath: "@/components/TimePickerCustom",
   props: {
     onChange: {
       type: "eventHandler",
