@@ -3,25 +3,25 @@ import TimeKeeper from "react-timekeeper";
 import { CodeComponentMeta } from "@plasmicapp/host";
 
 type TimePickerProps = {
-  selectedValues?: { hour: number; minute: number; date: Date }; // اضافه شد
+  selectedValues?: { hour: number; minute: number; date: Date }; // ✅ now actually supported
   onChange?: (values: { hour: number; minute: number; date: Date }) => void;
   SelectedHour?: number;
   SelectedMinute?: number;
   className?: string;
 };
 
-
-export const TimePickerCustom = (props: TimePickerProps) => {
-  const {
-    onChange,
-    SelectedHour = 9,
-    SelectedMinute = 30,
-    className,
-  } = props;
-
-  const initialTime = `${SelectedHour}:${SelectedMinute
-    .toString()
-    .padStart(2, "0")}`;
+export const TimePickerCustom = ({
+  selectedValues,
+  onChange,
+  SelectedHour = 9,
+  SelectedMinute = 30,
+  className,
+}: TimePickerProps) => {
+  // If selectedValues exists, use it as initial; otherwise use SelectedHour/Minute
+  const initialTime =
+    selectedValues?.hour !== undefined && selectedValues?.minute !== undefined
+      ? `${selectedValues.hour}:${selectedValues.minute.toString().padStart(2, "0")}`
+      : `${SelectedHour}:${SelectedMinute.toString().padStart(2, "0")}`;
 
   const [time, setTime] = useState(initialTime);
   const onChangeRef = useRef(onChange);
@@ -33,20 +33,11 @@ export const TimePickerCustom = (props: TimePickerProps) => {
   useEffect(() => {
     const [h, m] = time.split(":").map(Number);
     const now = new Date();
-    const date = new Date(
-      now.getFullYear(),
-      now.getMonth(),
-      now.getDate(),
-      h,
-      m
-    );
+    const date = new Date(now.getFullYear(), now.getMonth(), now.getDate(), h, m);
 
+    // Notify parent of changes
     if (onChangeRef.current) {
-      onChangeRef.current({
-        hour: h,
-        minute: m,
-        date,
-      });
+      onChangeRef.current({ hour: h, minute: m, date });
     }
   }, [time]);
 
@@ -67,14 +58,12 @@ export const TimePickerCustomMeta: CodeComponentMeta<TimePickerProps> = {
   props: {
     onChange: {
       type: "eventHandler",
-      argTypes: [
-        {
-          name: "selectedValues",
-          type: "object",
-        },
-      ],
-      description:
-        "Callback function to handle changes in selected hour and minute.",
+      argTypes: [{ name: "selectedValues", type: "object" }],
+      description: "Callback when selected time changes.",
+    },
+    selectedValues: { // ✅ Register it here
+      type: "object",
+      description: "Current selected time values.",
     },
     SelectedHour: {
       type: "number",
