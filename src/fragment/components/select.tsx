@@ -117,9 +117,10 @@ export const selectMeta: CodeComponentMeta<SelectType> = {
             advanced: true,
           },
         },
-  description:
-    'آرایه‌ای از مقادیر، مانند ["Option1","Option2"] یا آرایه‌ای از آبجکت‌ها مثل [{value:"usa",label:"United States"}]',
+
       },
+        description:
+    'آرایه‌ای از مقادیر، مانند ["Option1","Option2"] یا آرایه‌ای از آبجکت‌ها مثل [{value:"usa",label:"United States"}]',
     },
     disabled: "boolean",
     name: {
