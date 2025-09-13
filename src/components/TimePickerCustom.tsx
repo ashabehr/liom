@@ -47,6 +47,7 @@ export const TimePickerCustom = ({
         time={time}
         onChange={(newTime) => setTime(newTime.formatted24)}
         switchToMinuteOnHourSelect
+        hour24Mode 
       />
     </div>
   );
