@@ -271,7 +271,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant(globalVariants, "screen", "mobile") ? false : true
+          hasVariant(globalVariants, "screen", "mobile") ? false : false
       },
       {
         path: "input.value",
@@ -303,36 +303,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         path: "datePickers.value",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (() => {
-                const today = new Date();
-                const isoYear = today.getFullYear();
-                const isoMonth = today.getMonth() + 1;
-                const isoDay = today.getDate();
-                const faDate = new Intl.DateTimeFormat("fa-IR", {
-                  year: "numeric",
-                  month: "numeric",
-                  day: "numeric"
-                }).format(today);
-                const [faYear, faMonth, faDay] = faDate.split("/").map(Number);
-                return {
-                  year: faYear,
-                  month: faMonth,
-                  day: faDay
-                };
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return {};
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       },
       {
         path: "button4.color",
@@ -367,10 +338,26 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   month: "long",
                   day: "numeric"
                 }).format(today);
+                function toEnglishNumber(faNum) {
+                  return faNum.replace(/[۰-۹]/g, d =>
+                    String(d.charCodeAt(0) - 1776)
+                  );
+                }
+                const faDate = new Intl.DateTimeFormat("fa-IR", {
+                  year: "numeric",
+                  month: "numeric",
+                  day: "numeric"
+                }).format(today);
+                const [faYear, faMonth, faDay] = faDate
+                  .split("/")
+                  .map(x => Number(toEnglishNumber(x)));
                 const obj = {
                   start: {
                     f,
-                    g
+                    g,
+                    year: faYear,
+                    month: faMonth,
+                    day: faDay
                   }
                 };
                 return obj;
@@ -1829,85 +1816,62 @@ function PlasmicReminderSetting__RenderFunc(props: {
           ])}
         >
           <div className={classNames(projectcss.all, sty.freeBox__eatO7)}>
-            {(() => {
-              const child$Props = {
-                SelectedDay: 10,
-                SelectedMonth: 10,
-                SelectedYear: 1377,
-                className: classNames("__wab_instance", sty.datePickers),
-                customYears: [],
-                onChange: async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "datePickers",
-                    "value"
-                  ]).apply(null, eventArgs);
-                },
-                selectedValues: generateStateValueProp($state, [
+            <DatePickers
+              data-plasmic-name={"datePickers"}
+              data-plasmic-override={overrides.datePickers}
+              SelectedDay={(() => {
+                try {
+                  return $state.date[$state.dateType].day;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return 10;
+                  }
+                  throw e;
+                }
+              })()}
+              SelectedMonth={(() => {
+                try {
+                  return $state.date[$state.dateType].month;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return 10;
+                  }
+                  throw e;
+                }
+              })()}
+              SelectedYear={(() => {
+                try {
+                  return $state.date[$state.dateType].year;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return 1377;
+                  }
+                  throw e;
+                }
+              })()}
+              className={classNames("__wab_instance", sty.datePickers)}
+              customYears={[]}
+              onChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
                   "datePickers",
                   "value"
-                ])
-              };
-              initializeCodeComponentStates(
-                $state,
-                [
-                  {
-                    name: "value",
-                    plasmicStateName: "datePickers.value"
-                  }
-                ],
-                [],
-                undefined ?? {},
-                child$Props
-              );
-              initializePlasmicStates(
-                $state,
-                [
-                  {
-                    name: "datePickers.value",
-                    initFunc: ({ $props, $state, $queries }) =>
-                      (() => {
-                        try {
-                          return (() => {
-                            const today = new Date();
-                            const isoYear = today.getFullYear();
-                            const isoMonth = today.getMonth() + 1;
-                            const isoDay = today.getDate();
-                            const faDate = new Intl.DateTimeFormat("fa-IR", {
-                              year: "numeric",
-                              month: "numeric",
-                              day: "numeric"
-                            }).format(today);
-                            const [faYear, faMonth, faDay] = faDate
-                              .split("/")
-                              .map(Number);
-                            return {
-                              year: faYear,
-                              month: faMonth,
-                              day: faDay
-                            };
-                          })();
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return {};
-                          }
-                          throw e;
-                        }
-                      })()
-                  }
-                ],
-                []
-              );
-              return (
-                <DatePickers
-                  data-plasmic-name={"datePickers"}
-                  data-plasmic-override={overrides.datePickers}
-                  {...child$Props}
-                />
-              );
-            })()}
+                ]).apply(null, eventArgs);
+              }}
+              selectedValues={generateStateValueProp($state, [
+                "datePickers",
+                "value"
+              ])}
+            />
+
             <Button
               data-plasmic-name={"button4"}
               data-plasmic-override={overrides.button4}
@@ -1935,7 +1899,10 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             }).format(today);
                             return ($state.date[$state.dateType] = {
                               f,
-                              g
+                              g,
+                              year: $state.datePickers.value.year,
+                              month: $state.datePickers.value.month,
+                              day: $state.datePickers.value.day
                             });
                           })();
                         }

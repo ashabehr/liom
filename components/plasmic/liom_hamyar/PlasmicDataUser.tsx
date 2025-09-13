@@ -59,9 +59,6 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import TextInput from "../../TextInput"; // plasmic-import: cOSV4CnhD7mN/component
-import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
-import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -71,9 +68,6 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 
 import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicDataUser.module.css"; // plasmic-import: FUDO69vr4clr/css
-
-import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
-import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 
 createPlasmicElementProxy;
 
@@ -88,8 +82,6 @@ export const PlasmicDataUser__ArgProps = new Array<ArgPropType>("header");
 
 export type PlasmicDataUser__OverridesType = {
   frame41?: Flex__<"div">;
-  textInput?: Flex__<typeof TextInput>;
-  antdInput?: Flex__<typeof Input>;
 };
 
 export interface DefaultDataUserProps {
@@ -181,156 +173,85 @@ function PlasmicDataUser__RenderFunc(props: {
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: "textInput.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
-        path: "antdInput.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-
-        onMutate: generateOnMutateForSpec("value", Input_Helpers)
-      },
-      {
         path: "name",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => [
           {
-            key: "countBuyBreastCancer",
-            label:
-              "\u062a\u0639\u062f\u0627\u062f \u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9 \u067e\u06cc\u0627\u0645\u06a9 \u0633\u0631\u0637\u0627\u0646 \u0633\u06cc\u0646\u0647",
-            value: 3
-          },
-          {
-            key: "countBuyHamyarStatus",
-            label:
-              "\u062a\u0639\u062f\u0627\u062f \u062e\u0631\u06cc\u062f \u0648\u0636\u0639\u06cc\u062a \u0647\u0645\u06cc\u0627\u0631",
-            value: 1
-          },
-          {
-            key: "countBuyHusbandSms",
-            label:
-              "\u062a\u0639\u062f\u0627\u062f \u062e\u0631\u06cc\u062f \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0645\u0633\u0631",
-            value: 3
-          },
-          {
-            key: "countBuyPregnancySubStatus",
-            label:
-              "\u062a\u0639\u062f\u0627\u062f \u062e\u0631\u06cc\u062f \u0648\u0636\u0639\u06cc\u062a \u0627\u0634\u062a\u0631\u0627\u06a9 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
-            value: 5
-          },
-          {
-            key: "countBuySelfSms",
-            label:
-              "\u062a\u0639\u062f\u0627\u062f \u062e\u0631\u06cc\u062f \u067e\u06cc\u0627\u0645\u06a9 \u062e\u0648\u062f",
-            value: 1
-          },
-          {
-            key: "countBuySpecialAdvice",
-            label:
-              "\u062a\u0639\u062f\u0627\u062f \u062e\u0631\u06cc\u062f \u0645\u0634\u0627\u0648\u0631\u0647 \u0648\u06cc\u0698\u0647",
-            value: 1
-          },
-          {
-            key: "activeTel",
-            label: "\u062a\u0644\u0641\u0646 \u0641\u0639\u0627\u0644",
-            value: true
-          },
-          {
             key: "breastCancerSmsSubTime",
             label:
               "\u0632\u0645\u0627\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9 \u067e\u06cc\u0627\u0645\u06a9 \u0633\u0631\u0637\u0627\u0646 \u0633\u06cc\u0646\u0647",
-            value: "2026-02-03T04:03:11.141000"
+            value: "2026-02-03T04:03:11.141000",
+            days_left: 143
           },
           {
             key: "pregnancySubTime",
             label:
               "\u0632\u0645\u0627\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
-            value: "2027-11-27T00:36:38.358000"
+            value: "2027-11-27T00:36:38.358000",
+            days_left: 805
           },
           {
             key: "hamyarTime",
             label: "\u0632\u0645\u0627\u0646 \u0647\u0645\u06cc\u0627\u0631",
-            value: "2025-05-21T22:22:35.336000"
+            value: "2025-05-21T22:22:35.336000",
+            days_left: 0
           },
           {
             key: "husbandSmsSubTime",
             label:
               "\u0632\u0645\u0627\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0645\u0633\u0631",
-            value: "2025-10-07T08:39:22.886000"
+            value: "2025-10-07T08:39:22.886000",
+            days_left: 24
           },
           {
             key: "pregnancyBabyGrowthTime",
             label:
               "\u0632\u0645\u0627\u0646 \u0631\u0634\u062f \u0646\u0648\u0632\u0627\u062f \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
-            value: "2027-11-27T00:36:38.463000"
+            value: "2027-11-27T00:36:38.463000",
+            days_left: 805
           },
           {
             key: "pregnancyBecomeFatherTime",
             label:
               "\u0632\u0645\u0627\u0646 \u067e\u062f\u0631 \u0634\u062f\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
-            value: "2027-11-27T00:36:38.463000"
+            value: "2027-11-27T00:36:38.463000",
+            days_left: 805
           },
           {
             key: "pregnancyBetterRelationTime",
             label:
               "\u0632\u0645\u0627\u0646 \u0631\u0648\u0627\u0628\u0637 \u0628\u0647\u062a\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
-            value: "2027-11-27T00:36:38.463000"
+            value: "2027-11-27T00:36:38.463000",
+            days_left: 805
           },
           {
             key: "pregnancyDangerTime",
             label:
               "\u0632\u0645\u0627\u0646 \u062e\u0637\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
-            value: "2027-11-27T00:36:38.463000"
+            value: "2027-11-27T00:36:38.463000",
+            days_left: 805
           },
           {
             key: "pregnancySelfSmsTime",
             label:
               "\u0632\u0645\u0627\u0646 \u067e\u06cc\u0627\u0645\u06a9 \u062e\u0648\u062f \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
-            value: "2027-11-27T00:36:38.463000"
+            value: "2027-11-27T00:36:38.463000",
+            days_left: 805
           },
           {
             key: "selfHamyarSmsSubTime",
             label:
               "\u0632\u0645\u0627\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0645\u06cc\u0627\u0631 \u062e\u0648\u062f",
-            value: "2025-12-06T10:33:20.363000"
+            value: "2025-12-06T10:33:20.363000",
+            days_left: 84
           },
           {
             key: "specialAdviceSubTim",
             label:
               "\u0632\u0645\u0627\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0645\u0634\u0627\u0648\u0631\u0647 \u0648\u06cc\u0698\u0647",
-            value: "2025-03-09T16:11:12.839000"
-          },
-          {
-            key: "mobile",
-            label:
-              "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644",
-            value: ""
-          },
-          {
-            key: "id",
-            label: "\u0634\u0646\u0627\u0633\u0647",
-            value: "265149"
-          },
-          {
-            key: "lastActivity",
-            label:
-              "\u0622\u062e\u0631\u06cc\u0646 \u0641\u0639\u0627\u0644\u06cc\u062a",
-            value: "2025-09-12T18:23:34.707000"
-          },
-          {
-            key: "username",
-            label: "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc",
-            value: "melika"
-          },
-          {
-            key: "refcode",
-            label: "\u06a9\u062f \u0627\u0631\u062c\u0627\u0639",
-            value: "3d8fb3"
+            value: "2025-03-09T16:11:12.839000",
+            days_left: 0
           }
         ]
       }
@@ -367,134 +288,36 @@ function PlasmicDataUser__RenderFunc(props: {
         sty.frame41
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__lv8Jc)}>
-        {(() => {
-          try {
-            return $state.textInput.value.trim() !== "";
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return true;
-            }
-            throw e;
-          }
-        })() ? (
-          <div className={classNames(projectcss.all, sty.freeBox__ofZhp)}>
-            {(() => {
+      <div className={classNames(projectcss.all, sty.freeBox__tyNY)}>
+        <div className={classNames(projectcss.all, sty.freeBox__iflw9)}>
+          {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+            (() => {
               try {
-                return $state.textInput.value.trim() !== "";
+                return $state.name;
               } catch (e) {
                 if (
                   e instanceof TypeError ||
                   e?.plasmicType === "PlasmicUndefinedDataError"
                 ) {
-                  return true;
+                  return [];
                 }
                 throw e;
               }
-            })() ? (
-              <div className={classNames(projectcss.all, sty.freeBox__eTiEg)}>
-                <TextInput
-                  data-plasmic-name={"textInput"}
-                  data-plasmic-override={overrides.textInput}
-                  antdInput2={(() => {
-                    const child$Props = {
-                      "aria-label": ``,
-                      bordered: false,
-                      className: classNames("__wab_instance", sty.antdInput),
-                      onChange: async (...eventArgs: any) => {
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "value",
-                          ["antdInput", "value"],
-                          Input_Helpers
-                        ).apply(null, eventArgs);
-
-                        (async event => {
-                          const $steps = {};
-                        }).apply(null, eventArgs);
-                      },
-                      size: "large",
-                      value: generateStateValueProp($state, [
-                        "antdInput",
-                        "value"
-                      ])
-                    };
-                    initializeCodeComponentStates(
-                      $state,
-                      [
-                        {
-                          name: "value",
-                          plasmicStateName: "antdInput.value"
-                        }
-                      ],
-                      [],
-                      Input_Helpers ?? {},
-                      child$Props
-                    );
-
-                    return (
-                      <Input
-                        data-plasmic-name={"antdInput"}
-                        data-plasmic-override={overrides.antdInput}
-                        {...child$Props}
-                      />
-                    );
-                  })()}
-                  className={classNames("__wab_instance", sty.textInput)}
-                  onChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["textInput", "value"])(
-                        (e => e.target?.value).apply(null, eventArgs)
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  placeholder={"\u06cc\u0627\u062f\u062f\u0627\u0634\u062a"}
-                  value={
-                    generateStateValueProp($state, ["textInput", "value"]) ?? ""
-                  }
-                />
-              </div>
-            ) : null}
-          </div>
-        ) : null}
-        <div className={classNames(projectcss.all, sty.freeBox__csHyN)}>
-          <div className={classNames(projectcss.all, sty.freeBox___2K2Ta)}>
-            {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-              (() => {
-                try {
-                  return $state.name;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return [];
-                  }
-                  throw e;
-                }
-              })()
-            ).map((__plasmic_item_0, __plasmic_idx_0) => {
-              const currentItem = __plasmic_item_0;
-              const currentIndex = __plasmic_idx_0;
-              return (
+            })()
+          ).map((__plasmic_item_0, __plasmic_idx_0) => {
+            const currentItem = __plasmic_item_0;
+            const currentIndex = __plasmic_idx_0;
+            return (
+              <div
+                className={classNames(projectcss.all, sty.freeBox__i1DpB)}
+                key={currentIndex}
+              >
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text___8CpHn
+                    sty.text__jBhv0
                   )}
-                  key={currentIndex}
                 >
                   <React.Fragment>
                     {(() => {
@@ -512,35 +335,12 @@ function PlasmicDataUser__RenderFunc(props: {
                     })()}
                   </React.Fragment>
                 </div>
-              );
-            })}
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox__fnOLi)}>
-            {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-              (() => {
-                try {
-                  return $state.name;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return [];
-                  }
-                  throw e;
-                }
-              })()
-            ).map((__plasmic_item_0, __plasmic_idx_0) => {
-              const currentItem = __plasmic_item_0;
-              const currentIndex = __plasmic_idx_0;
-              return (
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text___1NtCo
+                    sty.text__ipE5B
                   )}
-                  key={currentIndex}
                 >
                   <React.Fragment>
                     {(() => {
@@ -558,9 +358,82 @@ function PlasmicDataUser__RenderFunc(props: {
                     })()}
                   </React.Fragment>
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
+        </div>
+        <div className={classNames(projectcss.all, sty.freeBox__csHyN)}>
+          {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+            (() => {
+              try {
+                return $state.name;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return [];
+                }
+                throw e;
+              }
+            })()
+          ).map((__plasmic_item_0, __plasmic_idx_0) => {
+            const currentItem = __plasmic_item_0;
+            const currentIndex = __plasmic_idx_0;
+            return (
+              <div
+                className={classNames(projectcss.all, sty.freeBox___2K2Ta)}
+                key={currentIndex}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___8CpHn
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return currentItem.label;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___1NtCo
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return currentItem.value;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
@@ -568,17 +441,13 @@ function PlasmicDataUser__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  frame41: ["frame41", "textInput", "antdInput"],
-  textInput: ["textInput", "antdInput"],
-  antdInput: ["antdInput"]
+  frame41: ["frame41"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   frame41: "div";
-  textInput: typeof TextInput;
-  antdInput: typeof Input;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -641,8 +510,6 @@ export const PlasmicDataUser = Object.assign(
   makeNodeComponent("frame41"),
   {
     // Helper components rendering sub-elements
-    textInput: makeNodeComponent("textInput"),
-    antdInput: makeNodeComponent("antdInput"),
 
     // Metadata about props expected for PlasmicDataUser
     internalVariantProps: PlasmicDataUser__VariantProps,

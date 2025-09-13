@@ -13,71 +13,61 @@
   min-width: 0;
   border-radius: 12px;
 }
-.freeBox__lv8Jc {
-  display: grid;
-  position: relative;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-  padding: 8px;
-}
-.freeBox__ofZhp {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  justify-content: center;
-  align-items: center;
-  min-width: 0;
-  padding: 8px;
-}
-.freeBox__eTiEg {
+.freeBox__tyNY {
   display: flex;
   flex-direction: row;
   position: relative;
   align-items: stretch;
   justify-content: flex-start;
   width: 100%;
-  height: 150px;
+  height: auto;
   max-width: 100%;
   min-width: 0;
-  flex-shrink: 0;
   padding: 8px;
 }
-.textInput:global(.__wab_instance) {
-  max-width: 100%;
+.freeBox__iflw9 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
   width: 100%;
-  margin-bottom: 0px;
-  height: 111px;
-  min-width: 0;
-}
-.svg__gcjVk {
-  position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
-}
-.antdInput:global(.__wab_instance) {
+  height: auto;
   max-width: 100%;
-  object-fit: cover;
-  height: 255px;
-  color: #000000;
-  margin-bottom: 2px;
-  overflow: auto;
+  min-width: 0;
+  padding: 8px;
 }
-.svg___5On8 {
+.freeBox__i1DpB {
+  display: flex;
+  flex-direction: row;
   position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 8px;
+}
+.text__jBhv0 {
+  width: 216px;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  position: relative;
+  flex-shrink: 0;
+}
+.text__ipE5B {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  min-width: 0;
 }
 .freeBox__csHyN {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   position: relative;
   align-items: stretch;
   justify-content: flex-start;
@@ -89,7 +79,7 @@
 }
 .freeBox___2K2Ta {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   position: relative;
   width: 100%;
   height: auto;
@@ -105,18 +95,7 @@
   max-width: 100%;
   text-align: right;
   position: relative;
-}
-.freeBox__fnOLi {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  align-items: stretch;
-  justify-content: flex-start;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-  padding: 8px;
+  flex-shrink: 0;
 }
 .text___1NtCo {
   position: relative;
