@@ -19,6 +19,12 @@
   opacity: 0.5;
   pointer-events: none;
 }
+.ariaRadiocustom:global(.__wab_instance) {
+  justify-content: space-between;
+}
+.ariaRadiocustom[data-selected] .slotTargetLabelcustom {
+  color: var(--token-SX03PBUzWAqr);
+}
 .freeBox__he5At {
   display: flex;
   position: relative;
@@ -40,6 +46,15 @@
   outline-color: var(--token-0xHMxyAHbOos);
   outline-width: 2px;
 }
+.freeBoxcustom__he5AtPrpqq {
+  background: var(--token-Y4frplZPI0IJ);
+  border-width: 2px;
+}
+.ariaRadiocustom[data-selected] .freeBoxcustom__he5AtPrpqq {
+  align-self: center;
+  background: var(--token-SX03PBUzWAqr);
+  border-color: var(--token-h0Lrt0a3YiLk);
+}
 .freeBox__yXu6 {
   position: relative;
   background: #ffffff;
@@ -50,5 +65,20 @@
   width: var(--token-3VFsPoJwdkXP);
   height: var(--token-3VFsPoJwdkXP);
   flex-shrink: 0;
+  display: block;
+}
+.ariaRadiocustom[data-selected] .freeBoxcustom__yXu6Prpqq {
+  display: none;
+}
+.svg {
+  object-fit: cover;
+  max-width: 100%;
+  width: 10px;
+  height: 10px;
+  color: var(--token-R_Rsn0nP9oIv);
+  flex-shrink: 0;
+  display: none;
+}
+.ariaRadiocustom[data-selected] .svgcustom {
   display: block;
 }

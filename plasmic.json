@@ -4357,6 +4357,58 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicLine.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "bTRB9n2MQ7IL",
+          "name": "Repead",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicRepead.tsx",
+          "importSpec": {
+            "modulePath": "Repead.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicRepead.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "qduDT_igMPpA",
+          "name": "Checkbox2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicCheckbox2.tsx",
+          "importSpec": {
+            "modulePath": "Checkbox2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicCheckbox2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "AhgoIztCTzjf",
+          "name": "CheckboxGroup",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicCheckboxGroup.tsx",
+          "importSpec": {
+            "modulePath": "CheckboxGroup.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicCheckboxGroup.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "FUDO69vr4clr",
+          "name": "DataUser",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicDataUser.tsx",
+          "importSpec": {
+            "modulePath": "DataUser.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicDataUser.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -6259,6 +6311,26 @@
           "id": "5yKqzc2ISZPP",
           "name": "Icon289Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon289.tsx"
+        },
+        {
+          "id": "j3tD4WxGsabN",
+          "name": "CheckIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Check.tsx"
+        },
+        {
+          "id": "0fVkSSa96F1Z",
+          "name": "MinusIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Minus.tsx"
+        },
+        {
+          "id": "jLdE-DKzPlst",
+          "name": "Icon290Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon290.tsx"
+        },
+        {
+          "id": "U9F0Jow4owN9",
+          "name": "Icon291Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon291.tsx"
         }
       ],
       "images": [

@@ -60,6 +60,7 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
+import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -86,6 +87,8 @@ export type PlasmicUserPage__ArgsType = {
   data?: any;
   onBack?: (event: any) => void;
   loading?: boolean;
+  onClick?: (event: any) => void;
+  onUserdataChange?: (val: string) => void;
   children?: React.ReactNode;
   slot?: React.ReactNode;
 };
@@ -95,6 +98,8 @@ export const PlasmicUserPage__ArgProps = new Array<ArgPropType>(
   "data",
   "onBack",
   "loading",
+  "onClick",
+  "onUserdataChange",
   "children",
   "slot"
 );
@@ -110,6 +115,7 @@ export type PlasmicUserPage__OverridesType = {
   frame42?: Flex__<"div">;
   frame43?: Flex__<"div">;
   lineClomp?: Flex__<typeof LineClomp>;
+  checkbox?: Flex__<typeof Checkbox>;
   switchbest?: Flex__<typeof Switchbest>;
 };
 
@@ -118,6 +124,8 @@ export interface DefaultUserPageProps {
   data?: any;
   onBack?: (event: any) => void;
   loading?: boolean;
+  onClick?: (event: any) => void;
+  onUserdataChange?: (val: string) => void;
   children?: React.ReactNode;
   slot?: React.ReactNode;
   className?: string;
@@ -157,7 +165,7 @@ function PlasmicUserPage__RenderFunc(props: {
               field: "mobile",
               label_fa:
                 "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644",
-              width: 130,
+              width: 170,
               type: "text"
             },
             {
@@ -217,1047 +225,177 @@ function PlasmicUserPage__RenderFunc(props: {
             }
           ],
           data: {
-            result: [
-              {
-                user: {
-                  countBuyHusbandSms: 1,
-                  countBuySelfSms: 1,
-                  activeTel: false,
-                  husbandSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 7,
-                    minute: 47,
-                    second: 37,
-                    nanosecond: 199000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  selfHamyarSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 7,
-                    minute: 45,
-                    second: 26,
-                    nanosecond: 126000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  mobile: "09228371639",
-                  id: "43241",
-                  lastActivity: {
-                    year: 2025,
-                    month: 8,
-                    day: 25,
-                    hour: 4,
-                    minute: 42,
-                    second: 17,
-                    nanosecond: 527000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  username: "guest_20iSiPN4lgvU",
-                  refcode: "123b99"
-                },
-                hamyarData: [
-                  {
-                    statusSms: true,
-                    relation: "husband",
-                    active: true,
-                    man: {
-                      activeTel: false,
-                      mobile: "09050429221",
-                      id: "c5f2176d-11df-4903-8599-9e9b25127ade",
-                      username: "guest_Qma1OlNwLJ",
-                      refcode: "NpcFUHWfE"
-                    }
+            success: true,
+            result: {
+              total: 881,
+              list: [
+                {
+                  user: {
+                    countBuyBreastCancer: 3,
+                    countBuyHamyarStatus: 1,
+                    countBuyHusbandSms: 3,
+                    countBuyPregnancySubStatus: 5,
+                    countBuySelfSms: 1,
+                    countBuySpecialAdvice: 1,
+                    activeTel: true,
+                    breastCancerSmsSubTime: {
+                      year: 2026,
+                      month: 2,
+                      day: 3,
+                      hour: 4,
+                      minute: 3,
+                      second: 11,
+                      nanosecond: 141000000,
+                      timeZoneOffsetSeconds: 0
+                    },
+                    pregnancySubTime: {
+                      year: 2027,
+                      month: 11,
+                      day: 27,
+                      hour: 0,
+                      minute: 36,
+                      second: 38,
+                      nanosecond: 358000000,
+                      timeZoneOffsetSeconds: 0
+                    },
+                    hamyarTime: {
+                      year: 2025,
+                      month: 5,
+                      day: 21,
+                      hour: 22,
+                      minute: 22,
+                      second: 35,
+                      nanosecond: 336000000,
+                      timeZoneOffsetSeconds: 0
+                    },
+                    husbandSmsSubTime: {
+                      year: 2025,
+                      month: 10,
+                      day: 7,
+                      hour: 8,
+                      minute: 39,
+                      second: 22,
+                      nanosecond: 886000000,
+                      timeZoneOffsetSeconds: 0
+                    },
+                    pregnancyBabyGrowthTime: {
+                      year: 2027,
+                      month: 11,
+                      day: 27,
+                      hour: 0,
+                      minute: 36,
+                      second: 38,
+                      nanosecond: 463000000,
+                      timeZoneOffsetSeconds: 0
+                    },
+                    pregnancyBecomeFatherTime: {
+                      year: 2027,
+                      month: 11,
+                      day: 27,
+                      hour: 0,
+                      minute: 36,
+                      second: 38,
+                      nanosecond: 463000000,
+                      timeZoneOffsetSeconds: 0
+                    },
+                    pregnancyBetterRelationTime: {
+                      year: 2027,
+                      month: 11,
+                      day: 27,
+                      hour: 0,
+                      minute: 36,
+                      second: 38,
+                      nanosecond: 463000000,
+                      timeZoneOffsetSeconds: 0
+                    },
+                    pregnancyDangerTime: {
+                      year: 2027,
+                      month: 11,
+                      day: 27,
+                      hour: 0,
+                      minute: 36,
+                      second: 38,
+                      nanosecond: 463000000,
+                      timeZoneOffsetSeconds: 0
+                    },
+                    pregnancySelfSmsTime: {
+                      year: 2027,
+                      month: 11,
+                      day: 27,
+                      hour: 0,
+                      minute: 36,
+                      second: 38,
+                      nanosecond: 463000000,
+                      timeZoneOffsetSeconds: 0
+                    },
+                    selfHamyarSmsSubTime: {
+                      year: 2025,
+                      month: 12,
+                      day: 6,
+                      hour: 10,
+                      minute: 33,
+                      second: 20,
+                      nanosecond: 363000000,
+                      timeZoneOffsetSeconds: 0
+                    },
+                    specialAdviceSubTim: {
+                      year: 2025,
+                      month: 3,
+                      day: 9,
+                      hour: 16,
+                      minute: 11,
+                      second: 12,
+                      nanosecond: 839000000,
+                      timeZoneOffsetSeconds: 0
+                    },
+                    mobile: "",
+                    id: "265149",
+                    lastActivity: {
+                      year: 2025,
+                      month: 9,
+                      day: 12,
+                      hour: 18,
+                      minute: 23,
+                      second: 34,
+                      nanosecond: 707000000,
+                      timeZoneOffsetSeconds: 0
+                    },
+                    username: "melika",
+                    refcode: "3d8fb3"
                   }
-                ]
-              },
-              {
-                user: {
-                  countBuyHusbandSms: 1,
-                  activeTel: false,
-                  husbandSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 8,
-                    minute: 51,
-                    second: 42,
-                    nanosecond: 771000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  mobile: "09054480677",
-                  id: "1068329",
-                  lastActivity: {
-                    year: 2025,
-                    month: 8,
-                    day: 19,
-                    hour: 6,
-                    minute: 34,
-                    second: 11,
-                    nanosecond: 991000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  username: "83_Inazanin",
-                  refcode: "90880b"
                 },
-                hamyarData: [
-                  {
-                    statusSms: false,
-                    relation: "husband",
-                    active: true,
-                    man: {
-                      activeTel: false,
-                      mobile: "09336634207",
-                      id: "fcb7024f-5f6d-48d1-8db4-022dc6c346ac",
-                      lastActivity: {
-                        year: 2025,
-                        month: 8,
-                        day: 18,
-                        hour: 6,
-                        minute: 5,
-                        second: 24,
-                        nanosecond: 535000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      username: "guest_95ARdzWbyr",
-                      refcode: "YGkmUolJ4"
-                    }
+                {
+                  user: {
+                    countBuyHusbandSms: 1,
+                    activeTel: false,
+                    husbandSmsSubTime: {
+                      year: 2025,
+                      month: 9,
+                      day: 13,
+                      hour: 5,
+                      minute: 49,
+                      second: 2,
+                      nanosecond: 612000000,
+                      timeZoneOffsetSeconds: 0
+                    },
+                    mobile: "09139140864",
+                    id: "f0afd250-6395-4253-b257-e167262cdd3d",
+                    lastActivity: {
+                      year: 2025,
+                      month: 9,
+                      day: 7,
+                      hour: 3,
+                      minute: 48,
+                      second: 36,
+                      nanosecond: 74000000,
+                      timeZoneOffsetSeconds: 0
+                    },
+                    username: "guest_M8KxaugoDA",
+                    refcode: "fGC3sVlYv"
                   }
-                ]
-              },
-              {
-                user: {
-                  countBuyHamyarStatus: 1,
-                  activeTel: false,
-                  breastCancerSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 6,
-                    minute: 5,
-                    second: 7,
-                    nanosecond: 133000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  hamyarTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 6,
-                    minute: 5,
-                    second: 7,
-                    nanosecond: 84000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  husbandSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 6,
-                    minute: 5,
-                    second: 7,
-                    nanosecond: 133000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  motherSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 6,
-                    minute: 5,
-                    second: 7,
-                    nanosecond: 133000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  selfHamyarSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 6,
-                    minute: 5,
-                    second: 7,
-                    nanosecond: 133000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  specialAdviceSubTim: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 6,
-                    minute: 5,
-                    second: 7,
-                    nanosecond: 133000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  mobile: "09210796191",
-                  id: "1c88ae11-1f21-42ac-af76-70cd3df00c1a",
-                  lastActivity: {
-                    year: 2025,
-                    month: 6,
-                    day: 26,
-                    hour: 19,
-                    minute: 34,
-                    second: 53,
-                    nanosecond: 845000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  username: "hanadzl",
-                  refcode: "1m1hy4"
-                },
-                hamyarData: [
-                  {
-                    statusSms: true,
-                    relation: "husband",
-                    active: true,
-                    man: {
-                      activeTel: false,
-                      mobile: "09302245412",
-                      id: "9f7e6b3b-58fa-4dab-8a8d-7563e3910ba9",
-                      username: "guest_hgggexYi5X",
-                      refcode: "fwCqC7p3B"
-                    }
-                  }
-                ]
-              },
-              {
-                user: {
-                  countBuyHamyarStatus: 1,
-                  countBuyHusbandSms: 1,
-                  activeTel: false,
-                  hamyarTime: {
-                    year: 2024,
-                    month: 11,
-                    day: 27,
-                    hour: 7,
-                    minute: 6,
-                    second: 57,
-                    nanosecond: 310000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  husbandSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 12,
-                    minute: 53,
-                    second: 0,
-                    nanosecond: 275000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  mobile: "09160989976",
-                  id: "4fe0c83d-8edb-4355-97d9-910b12dc033c",
-                  lastActivity: {
-                    year: 2025,
-                    month: 7,
-                    day: 9,
-                    hour: 20,
-                    minute: 58,
-                    second: 39,
-                    nanosecond: 829000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  username: "ramezaaninasab",
-                  refcode: "4o7nn1"
-                },
-                hamyarData: [
-                  {
-                    statusSms: true,
-                    relation: "husband",
-                    active: false,
-                    man: {
-                      activeTel: false,
-                      mobile: "09130790089",
-                      id: "5ab098d9-f0da-4f42-a39e-1c19ae8a3736",
-                      username: "guest_waQZOT4TFH",
-                      refcode: "VxRqvSTQr"
-                    }
-                  },
-                  {
-                    statusSms: true,
-                    relation: "husband",
-                    active: true,
-                    man: {
-                      countBuyHamyarSubMan: 1,
-                      activeTel: false,
-                      hamyarTime: {
-                        year: 2025,
-                        month: 10,
-                        day: 4,
-                        hour: 13,
-                        minute: 39,
-                        second: 22,
-                        nanosecond: 197000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      mobile: "09133900964",
-                      id: "334cdb4e-c48d-4573-a935-cdcb325755a5",
-                      username: "guest_MRj9ieXumD",
-                      refcode: "AkUqKzfg5"
-                    }
-                  },
-                  {
-                    statusSms: false,
-                    relation: "husband",
-                    active: false,
-                    man: {
-                      activeTel: false,
-                      mobile: "09910891544",
-                      id: "3e2d4cab-0dcf-4aba-826e-e430fad64d41",
-                      username: "guest_gPwQd0nadw",
-                      refcode: "97v0kGa9v"
-                    }
-                  }
-                ]
-              },
-              {
-                user: {
-                  countBuyHamyarStatus: 1,
-                  activeTel: false,
-                  breastCancerSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 10,
-                    minute: 49,
-                    second: 5,
-                    nanosecond: 593000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  hamyarTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 10,
-                    minute: 49,
-                    second: 5,
-                    nanosecond: 513000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  husbandSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 10,
-                    minute: 49,
-                    second: 5,
-                    nanosecond: 593000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  motherSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 10,
-                    minute: 49,
-                    second: 5,
-                    nanosecond: 593000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  selfHamyarSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 10,
-                    minute: 49,
-                    second: 5,
-                    nanosecond: 593000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  specialAdviceSubTim: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 10,
-                    minute: 49,
-                    second: 5,
-                    nanosecond: 593000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  mobile: "09336386063",
-                  id: "1f5cf24f-acda-4d41-b92c-207ab84a4d46",
-                  lastActivity: {
-                    year: 2025,
-                    month: 8,
-                    day: 10,
-                    hour: 2,
-                    minute: 43,
-                    second: 40,
-                    nanosecond: 66000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  username: "Zahrafrj",
-                  refcode: "eilksl"
-                },
-                hamyarData: []
-              },
-              {
-                user: {
-                  countBuyHusbandSms: 1,
-                  activeTel: false,
-                  husbandSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 7,
-                    minute: 28,
-                    second: 4,
-                    nanosecond: 160000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  mobile: "09196989370",
-                  id: "404e1402-1852-494d-b5ec-5a6436adc1b9",
-                  lastActivity: {
-                    year: 2025,
-                    month: 8,
-                    day: 11,
-                    hour: 11,
-                    minute: 2,
-                    second: 42,
-                    nanosecond: 529000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  username: "guest_qhb4re8p36",
-                  refcode: "v88e8p"
-                },
-                hamyarData: [
-                  {
-                    statusSms: true,
-                    relation: "husband",
-                    active: true,
-                    man: {
-                      activeTel: false,
-                      mobile: "09198473955",
-                      id: "352b7ab4-3368-4773-a2d9-ed5f17ef4600",
-                      lastActivity: {
-                        year: 2024,
-                        month: 9,
-                        day: 26,
-                        hour: 18,
-                        minute: 11,
-                        second: 25,
-                        nanosecond: 696000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      username: "guest_fuDHnWINgo",
-                      refcode: "znsb6vQkW"
-                    }
-                  }
-                ]
-              },
-              {
-                user: {
-                  countBuyHamyarStatus: 2,
-                  activeTel: false,
-                  breastCancerSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 5,
-                    minute: 54,
-                    second: 55,
-                    nanosecond: 33000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  hamyarTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 5,
-                    minute: 54,
-                    second: 54,
-                    nanosecond: 918000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  husbandSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 5,
-                    minute: 54,
-                    second: 55,
-                    nanosecond: 33000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  motherSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 5,
-                    minute: 54,
-                    second: 55,
-                    nanosecond: 33000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  selfHamyarSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 5,
-                    minute: 54,
-                    second: 55,
-                    nanosecond: 33000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  specialAdviceSubTim: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 5,
-                    minute: 54,
-                    second: 55,
-                    nanosecond: 33000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  mobile: "09158645459",
-                  id: "5c0a1980-0323-4968-8692-11f4319826df",
-                  lastActivity: {
-                    year: 2025,
-                    month: 8,
-                    day: 16,
-                    hour: 22,
-                    minute: 4,
-                    second: 14,
-                    nanosecond: 852000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  username: "guest_m7g2Hgnztu",
-                  refcode: "sSn4JFgYa"
-                },
-                hamyarData: [
-                  {
-                    statusSms: true,
-                    relation: "husband",
-                    active: true,
-                    man: {
-                      activeTel: false,
-                      mobile: "09150261900",
-                      id: "38b92407-e7d3-4449-998e-91e557419454",
-                      username: "guest_AJtHShkXKp",
-                      refcode: "NEjJKFm3J"
-                    }
-                  }
-                ]
-              },
-              {
-                user: {
-                  countBuyHamyarStatus: 1,
-                  activeTel: false,
-                  breastCancerSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 6,
-                    minute: 36,
-                    second: 40,
-                    nanosecond: 700000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  hamyarTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 6,
-                    minute: 36,
-                    second: 40,
-                    nanosecond: 596000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  husbandSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 6,
-                    minute: 36,
-                    second: 40,
-                    nanosecond: 700000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  motherSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 6,
-                    minute: 36,
-                    second: 40,
-                    nanosecond: 700000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  selfHamyarSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 6,
-                    minute: 36,
-                    second: 40,
-                    nanosecond: 700000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  specialAdviceSubTim: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 6,
-                    minute: 36,
-                    second: 40,
-                    nanosecond: 700000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  mobile: "09903519389",
-                  id: "57d8f464-8b51-440e-b1e8-dd715bc5fece",
-                  lastActivity: {
-                    year: 2025,
-                    month: 8,
-                    day: 24,
-                    hour: 14,
-                    minute: 48,
-                    second: 40,
-                    nanosecond: 916000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  username: "fazix",
-                  refcode: "KGcVx8qQY"
-                },
-                hamyarData: [
-                  {
-                    statusSms: true,
-                    relation: "husband",
-                    active: true,
-                    man: {
-                      activeTel: false,
-                      mobile: "09058348794",
-                      id: "f52d52a4-5896-4095-a2a2-bf49bee8c2fb",
-                      username: "guest_g2iRatoEYq",
-                      refcode: "gxJAb7RfL"
-                    }
-                  }
-                ]
-              },
-              {
-                user: {
-                  countBuyHusbandSms: 1,
-                  activeTel: false,
-                  husbandSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 18,
-                    minute: 7,
-                    second: 14,
-                    nanosecond: 178000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  mobile: "09147043904",
-                  id: "4c9ea867-287b-41fd-b858-6bb94ed1ed6d",
-                  lastActivity: {
-                    year: 2025,
-                    month: 8,
-                    day: 11,
-                    hour: 13,
-                    minute: 29,
-                    second: 21,
-                    nanosecond: 775000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  username: "guest_18wgPkiVTK",
-                  refcode: "LnqO0p1IU"
-                },
-                hamyarData: [
-                  {
-                    statusSms: true,
-                    relation: "husband",
-                    active: true,
-                    man: {
-                      activeTel: false,
-                      mobile: "09381288449",
-                      id: "965e8db4-36a5-4cac-9a91-ba3343a46c35",
-                      username: "guest_hIaKhWZnzI",
-                      refcode: "a1TZhO9mk"
-                    }
-                  },
-                  {
-                    statusSms: true,
-                    relation: "husband",
-                    active: true,
-                    man: {
-                      activeTel: false,
-                      mobile: "09147037543",
-                      id: "537329",
-                      lastActivity: {
-                        year: 2025,
-                        month: 8,
-                        day: 22,
-                        hour: 19,
-                        minute: 11,
-                        second: 18,
-                        nanosecond: 255000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      username: "kHASTEH",
-                      refcode: "c429a0"
-                    }
-                  }
-                ]
-              },
-              {
-                user: {
-                  countBuyHusbandSms: 1,
-                  activeTel: false,
-                  husbandSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 18,
-                    minute: 12,
-                    second: 59,
-                    nanosecond: 968000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  mobile: "09368377700",
-                  id: "d0f454f5-3fb9-4e03-86ff-a5ae338a88ef",
-                  lastActivity: {
-                    year: 2025,
-                    month: 8,
-                    day: 25,
-                    hour: 4,
-                    minute: 19,
-                    second: 46,
-                    nanosecond: 800000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  username: "guest_rmGlLVQYH7",
-                  refcode: "Y0PEBdqV9"
-                },
-                hamyarData: [
-                  {
-                    statusSms: true,
-                    relation: "husband",
-                    active: true,
-                    man: {
-                      activeTel: false,
-                      mobile: "09100154413",
-                      id: "62305360-1ce9-4d67-b01c-7d22cef2d472",
-                      lastActivity: {
-                        year: 2025,
-                        month: 8,
-                        day: 21,
-                        hour: 7,
-                        minute: 42,
-                        second: 10,
-                        nanosecond: 981000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      username: "guest_C8twcg24qg",
-                      refcode: "1tRFV5Nx6"
-                    }
-                  }
-                ]
-              },
-              {
-                user: {
-                  countBuyHusbandSms: 1,
-                  activeTel: false,
-                  husbandSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 11,
-                    minute: 49,
-                    second: 58,
-                    nanosecond: 577000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  mobile: "09960590720",
-                  id: "a971f7a7-0a96-4de6-af52-82363b2f6d36",
-                  lastActivity: {
-                    year: 2025,
-                    month: 8,
-                    day: 24,
-                    hour: 16,
-                    minute: 42,
-                    second: 52,
-                    nanosecond: 201000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  username: "guest_L45w4E6O3F",
-                  refcode: "WnucIJgwh"
-                },
-                hamyarData: [
-                  {
-                    statusSms: true,
-                    relation: "husband",
-                    active: true,
-                    man: {
-                      activeTel: false,
-                      mobile: "09154940971",
-                      id: "bcc0b33e-a80c-4438-a0f1-401be47e054b",
-                      lastActivity: {
-                        year: 2025,
-                        month: 7,
-                        day: 26,
-                        hour: 17,
-                        minute: 55,
-                        second: 59,
-                        nanosecond: 909000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      username: "guest_1dTlYgSpXo",
-                      refcode: "cLwFDFKki"
-                    }
-                  }
-                ]
-              },
-              {
-                user: {
-                  countBuyHusbandSms: 1,
-                  activeTel: false,
-                  husbandSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 18,
-                    minute: 32,
-                    second: 26,
-                    nanosecond: 777000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  mobile: "09919428101",
-                  id: "339c1eb9-b6e0-47fd-9325-1a45db81a329",
-                  lastActivity: {
-                    year: 2025,
-                    month: 8,
-                    day: 24,
-                    hour: 16,
-                    minute: 1,
-                    second: 2,
-                    nanosecond: 979000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  username: "guest_PPAUHZoGof",
-                  refcode: "eoxEW9dOU"
-                },
-                hamyarData: [
-                  {
-                    statusSms: true,
-                    relation: "husband",
-                    active: true,
-                    man: {
-                      activeTel: false,
-                      mobile: "09101157086",
-                      id: "3a1ac4f3-47d3-4864-8d2d-bdd075423442",
-                      username: "guest_8XsZ7tGTeM",
-                      refcode: "eF9guJW2p"
-                    }
-                  }
-                ]
-              },
-              {
-                user: {
-                  countBuyHusbandSms: 1,
-                  activeTel: false,
-                  husbandSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 5,
-                    minute: 37,
-                    second: 50,
-                    nanosecond: 923000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  mobile: "09180609078",
-                  id: "78ccd866-bb0d-45f3-a001-ba550592e7e9",
-                  lastActivity: {
-                    year: 2025,
-                    month: 8,
-                    day: 25,
-                    hour: 6,
-                    minute: 2,
-                    second: 29,
-                    nanosecond: 875000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  username: "guest_OIWQnyr0bt",
-                  refcode: "Em9K3pa8c"
-                },
-                hamyarData: [
-                  {
-                    statusSms: true,
-                    relation: "mother",
-                    active: true,
-                    man: {
-                      activeTel: false,
-                      mobile: "09306985876",
-                      id: "f56214be-e6a9-4c51-b4d0-8a042dd1a761",
-                      username: "guest_BwArZXdFBH",
-                      refcode: "16592OUvf"
-                    }
-                  },
-                  {
-                    statusSms: true,
-                    relation: "husband",
-                    active: true,
-                    man: {
-                      activeTel: false,
-                      mobile: "09012849707",
-                      id: "3a815c4b-1809-4b46-a541-30ba61a8fc0d",
-                      username: "guest_kwuauLeCiO",
-                      refcode: "2MjfDKfJN"
-                    }
-                  }
-                ]
-              },
-              {
-                user: {
-                  countBuyHusbandSms: 1,
-                  countBuySelfSms: 1,
-                  activeTel: false,
-                  husbandSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 11,
-                    minute: 47,
-                    second: 56,
-                    nanosecond: 426000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  selfHamyarSmsSubTime: {
-                    year: 2025,
-                    month: 12,
-                    day: 10,
-                    hour: 22,
-                    minute: 0,
-                    second: 23,
-                    nanosecond: 171000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  mobile: "09162072105",
-                  id: "b193bfcc-096f-47cd-b2bb-e99831592a88",
-                  lastActivity: {
-                    year: 2025,
-                    month: 8,
-                    day: 25,
-                    hour: 9,
-                    minute: 22,
-                    second: 6,
-                    nanosecond: 716000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  username: "guest_e4dz0yEiQU",
-                  refcode: "i5Zi94It7"
-                },
-                hamyarData: [
-                  {
-                    statusSms: true,
-                    relation: "husband",
-                    active: true,
-                    man: {
-                      activeTel: false,
-                      mobile: "09168445038",
-                      id: "fa0c3057-d741-4553-a565-906711b32e40",
-                      username: "guest_OFbp7c9EAz",
-                      refcode: "FRikep8xO"
-                    }
-                  }
-                ]
-              },
-              {
-                user: {
-                  countBuyHamyarStatus: 1,
-                  activeTel: false,
-                  breastCancerSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 20,
-                    minute: 25,
-                    second: 38,
-                    nanosecond: 737000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  hamyarTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 20,
-                    minute: 25,
-                    second: 38,
-                    nanosecond: 34000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  husbandSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 20,
-                    minute: 25,
-                    second: 38,
-                    nanosecond: 737000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  motherSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 20,
-                    minute: 25,
-                    second: 38,
-                    nanosecond: 737000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  selfHamyarSmsSubTime: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 20,
-                    minute: 25,
-                    second: 38,
-                    nanosecond: 737000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  specialAdviceSubTim: {
-                    year: 2025,
-                    month: 9,
-                    day: 4,
-                    hour: 20,
-                    minute: 25,
-                    second: 38,
-                    nanosecond: 737000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  mobile: "09184956451",
-                  id: "b0f37f7e-7da5-45e1-b243-16c687dfb7bf",
-                  lastActivity: {
-                    year: 2025,
-                    month: 8,
-                    day: 7,
-                    hour: 8,
-                    minute: 39,
-                    second: 39,
-                    nanosecond: 95000000,
-                    timeZoneOffsetSeconds: 0
-                  },
-                  username: "guest_da7XFVuuQu",
-                  refcode: "81el1o39z"
-                },
-                hamyarData: [
-                  {
-                    statusSms: true,
-                    relation: "husband",
-                    active: true,
-                    man: {
-                      activeTel: false,
-                      mobile: "09036228414",
-                      id: "45a31598-cd61-4752-86b4-a69a94f9e30c",
-                      username: "guest_bQKcrlaZo3",
-                      refcode: "OXiYeCYFH"
-                    }
-                  }
-                ]
-              }
-            ]
+                }
+              ]
+            }
           },
           loading: false
         },
@@ -1294,6 +432,25 @@ function PlasmicUserPage__RenderFunc(props: {
         path: "switchbest[][].isChecked",
         type: "private",
         variableType: "boolean"
+      },
+      {
+        path: "checkbox[][].isChecked",
+        type: "private",
+        variableType: "boolean"
+      },
+      {
+        path: "userdata",
+        type: "readonly",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({}),
+
+        onChangeProp: "onUserdataChange"
+      },
+      {
+        path: "variable",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -1542,6 +699,64 @@ function PlasmicUserPage__RenderFunc(props: {
                       data-plasmic-override={overrides.frame42}
                       className={classNames(projectcss.all, sty.frame42)}
                       key={currentIndex}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["runOnClick"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                eventRef: $props["onClick"]
+                              };
+                              return (({ eventRef, args }) => {
+                                return eventRef?.(...(args ?? []));
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runOnClick"] != null &&
+                          typeof $steps["runOnClick"] === "object" &&
+                          typeof $steps["runOnClick"].then === "function"
+                        ) {
+                          $steps["runOnClick"] = await $steps["runOnClick"];
+                        }
+
+                        $steps["updateSwitchbestIsChecked"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["switchbest[][]", "isChecked"]
+                                },
+                                operation: 0
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateSwitchbestIsChecked"] != null &&
+                          typeof $steps["updateSwitchbestIsChecked"] ===
+                            "object" &&
+                          typeof $steps["updateSwitchbestIsChecked"].then ===
+                            "function"
+                        ) {
+                          $steps["updateSwitchbestIsChecked"] = await $steps[
+                            "updateSwitchbestIsChecked"
+                          ];
+                        }
+                      }}
                     >
                       {(_par =>
                         !_par ? [] : Array.isArray(_par) ? _par : [_par])(
@@ -1624,49 +839,137 @@ function PlasmicUserPage__RenderFunc(props: {
                                 <div
                                   className={classNames(
                                     projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__eQp1V
+                                    sty.freeBox___77Wiu
                                   )}
                                 >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return (() => {
-                                          if (textItem.type === "text") {
-                                            return item.user[textItem.field];
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__eQp1V
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return (() => {
+                                            if (textItem.type === "text") {
+                                              return item.user[textItem.field];
+                                            }
+                                            if (textItem.type === "datetime") {
+                                              var t = item.user[textItem.field];
+                                              if (t) {
+                                                var d = new Date(
+                                                  t.year,
+                                                  t.month - 1,
+                                                  t.day,
+                                                  t.hour,
+                                                  t.minute,
+                                                  t.second,
+                                                  Math.floor(
+                                                    t.nanosecond / 1000000
+                                                  )
+                                                );
+                                                var formatted =
+                                                  d.toLocaleDateString("fa-IR");
+                                                return formatted;
+                                              }
+                                            }
+                                          })();
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "27 Nov";
                                           }
-                                          if (textItem.type === "datetime") {
-                                            var t = item.user[textItem.field];
-                                            if (t) {
-                                              var d = new Date(
-                                                t.year,
-                                                t.month - 1,
-                                                t.day,
-                                                t.hour,
-                                                t.minute,
-                                                t.second,
-                                                Math.floor(
-                                                  t.nanosecond / 1000000
-                                                )
-                                              );
-                                              var formatted =
-                                                d.toLocaleDateString("fa-IR");
-                                              return formatted;
+                                          throw e;
+                                        }
+                                      })()}
+                                    </React.Fragment>
+                                  </div>
+                                  {(() => {
+                                    try {
+                                      return (
+                                        textItem.field === "mobile" &&
+                                        item.user.mobile.trim() !== ""
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return true;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                    ? (() => {
+                                        const child$Props = {
+                                          children: null,
+                                          className: classNames(
+                                            "__wab_instance",
+                                            sty.checkbox
+                                          ),
+                                          isChecked:
+                                            generateStateValueProp($state, [
+                                              "checkbox",
+                                              __plasmic_idx_0,
+                                              __plasmic_idx_1,
+                                              "isChecked"
+                                            ]) ?? false,
+                                          onChange: async (
+                                            ...eventArgs: any
+                                          ) => {
+                                            ((...eventArgs) => {
+                                              generateStateOnChangeProp(
+                                                $state,
+                                                [
+                                                  "checkbox",
+                                                  __plasmic_idx_0,
+                                                  __plasmic_idx_1,
+                                                  "isChecked"
+                                                ]
+                                              )(eventArgs[0]);
+                                            }).apply(null, eventArgs);
+
+                                            if (
+                                              eventArgs.length > 1 &&
+                                              eventArgs[1] &&
+                                              eventArgs[1]._plasmic_state_init_
+                                            ) {
+                                              return;
                                             }
                                           }
-                                        })();
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "27 Nov";
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
+                                        };
+
+                                        initializePlasmicStates(
+                                          $state,
+                                          [
+                                            {
+                                              name: "checkbox[][].isChecked",
+                                              initFunc: ({
+                                                $props,
+                                                $state,
+                                                $queries
+                                              }) => undefined
+                                            }
+                                          ],
+                                          [__plasmic_idx_0, __plasmic_idx_1]
+                                        );
+                                        return (
+                                          <Checkbox
+                                            data-plasmic-name={"checkbox"}
+                                            data-plasmic-override={
+                                              overrides.checkbox
+                                            }
+                                            {...child$Props}
+                                          />
+                                        );
+                                      })()
+                                    : null}
                                 </div>
                               </LineClomp>
                             ) : null}
@@ -1789,6 +1092,7 @@ const PlasmicDescendants = {
     "frame42",
     "frame43",
     "lineClomp",
+    "checkbox",
     "switchbest"
   ],
   frame25: ["frame25"],
@@ -1801,6 +1105,7 @@ const PlasmicDescendants = {
     "frame42",
     "frame43",
     "lineClomp",
+    "checkbox",
     "switchbest"
   ],
   frame47: [
@@ -1811,14 +1116,23 @@ const PlasmicDescendants = {
     "frame42",
     "frame43",
     "lineClomp",
+    "checkbox",
     "switchbest"
   ],
   frame41: ["frame41", "frame35"],
   frame35: ["frame35"],
-  frame46: ["frame46", "frame42", "frame43", "lineClomp", "switchbest"],
-  frame42: ["frame42", "frame43", "lineClomp", "switchbest"],
-  frame43: ["frame43", "lineClomp", "switchbest"],
-  lineClomp: ["lineClomp"],
+  frame46: [
+    "frame46",
+    "frame42",
+    "frame43",
+    "lineClomp",
+    "checkbox",
+    "switchbest"
+  ],
+  frame42: ["frame42", "frame43", "lineClomp", "checkbox", "switchbest"],
+  frame43: ["frame43", "lineClomp", "checkbox", "switchbest"],
+  lineClomp: ["lineClomp", "checkbox"],
+  checkbox: ["checkbox"],
   switchbest: ["switchbest"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -1835,6 +1149,7 @@ type NodeDefaultElementType = {
   frame42: "div";
   frame43: "div";
   lineClomp: typeof LineClomp;
+  checkbox: typeof Checkbox;
   switchbest: typeof Switchbest;
 };
 
@@ -1907,6 +1222,7 @@ export const PlasmicUserPage = Object.assign(
     frame42: makeNodeComponent("frame42"),
     frame43: makeNodeComponent("frame43"),
     lineClomp: makeNodeComponent("lineClomp"),
+    checkbox: makeNodeComponent("checkbox"),
     switchbest: makeNodeComponent("switchbest"),
 
     // Metadata about props expected for PlasmicUserPage

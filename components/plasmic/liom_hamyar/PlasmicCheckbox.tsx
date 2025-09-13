@@ -86,6 +86,7 @@ export type PlasmicCheckbox__VariantMembers = {
   isIndeterminate: "isIndeterminate";
   circle: "circle";
   filter: "filter";
+  custom: "custom";
 };
 export type PlasmicCheckbox__VariantsArgs = {
   noLabel?: SingleBooleanChoiceArg<"noLabel">;
@@ -94,6 +95,7 @@ export type PlasmicCheckbox__VariantsArgs = {
   isIndeterminate?: SingleBooleanChoiceArg<"isIndeterminate">;
   circle?: SingleBooleanChoiceArg<"circle">;
   filter?: SingleBooleanChoiceArg<"filter">;
+  custom?: SingleBooleanChoiceArg<"custom">;
 };
 type VariantPropType = keyof PlasmicCheckbox__VariantsArgs;
 export const PlasmicCheckbox__VariantProps = new Array<VariantPropType>(
@@ -102,7 +104,8 @@ export const PlasmicCheckbox__VariantProps = new Array<VariantPropType>(
   "isChecked",
   "isIndeterminate",
   "circle",
-  "filter"
+  "filter",
+  "custom"
 );
 
 export type PlasmicCheckbox__ArgsType = {
@@ -136,6 +139,7 @@ export interface DefaultCheckboxProps extends pp.CheckboxProps {
   onChange?: (isChecked: boolean) => void;
   circle?: SingleBooleanChoiceArg<"circle">;
   filter?: SingleBooleanChoiceArg<"filter">;
+  custom?: SingleBooleanChoiceArg<"custom">;
 }
 
 const $$ = {};
@@ -220,6 +224,12 @@ function PlasmicCheckbox__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.filter
+      },
+      {
+        path: "custom",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.custom
       }
     ],
     [$props, $ctx, $refs]
@@ -266,9 +276,13 @@ function PlasmicCheckbox__RenderFunc(props: {
             hasVariant($state, "circle", "circle") &&
             triggers.focusVisibleWithin_root,
           [sty.rootcircle]: hasVariant($state, "circle", "circle"),
+          [sty.rootcircle_custom]:
+            hasVariant($state, "circle", "circle") &&
+            hasVariant($state, "custom", "custom"),
           [sty.rootcircle_isChecked]:
             hasVariant($state, "circle", "circle") &&
             hasVariant($state, "isChecked", "isChecked"),
+          [sty.rootcustom]: hasVariant($state, "custom", "custom"),
           [sty.rootfilter_isChecked]:
             hasVariant($state, "filter", "filter") &&
             hasVariant($state, "isChecked", "isChecked"),
@@ -297,6 +311,14 @@ function PlasmicCheckbox__RenderFunc(props: {
             hasVariant($state, "isChecked", "isChecked") &&
             triggers.focusVisibleWithin_root,
           [sty.freeBoxcircle]: hasVariant($state, "circle", "circle"),
+          [sty.freeBoxcircle_custom]:
+            hasVariant($state, "custom", "custom") &&
+            hasVariant($state, "circle", "circle"),
+          [sty.freeBoxcircle_custom_isChecked]:
+            hasVariant($state, "custom", "custom") &&
+            hasVariant($state, "circle", "circle") &&
+            hasVariant($state, "isChecked", "isChecked"),
+          [sty.freeBoxcustom]: hasVariant($state, "custom", "custom"),
           [sty.freeBoxisChecked]: hasVariant($state, "isChecked", "isChecked"),
           [sty.freeBoxisDisabled]: hasVariant(
             $state,
@@ -336,6 +358,9 @@ function PlasmicCheckbox__RenderFunc(props: {
               hasVariant($state, "isChecked", "isChecked") &&
               triggers.focusVisibleWithin_root,
             [sty.svgcircle]: hasVariant($state, "circle", "circle"),
+            [sty.svgcircle_custom]:
+              hasVariant($state, "circle", "circle") &&
+              hasVariant($state, "custom", "custom"),
             [sty.svgcircle_isChecked]:
               hasVariant($state, "circle", "circle") &&
               hasVariant($state, "isChecked", "isChecked"),
@@ -362,6 +387,7 @@ function PlasmicCheckbox__RenderFunc(props: {
           className={classNames(projectcss.all, sty.labelContainer, {
             [sty.labelContainer___focusVisibleWithin]:
               triggers.focusVisibleWithin_root,
+            [sty.labelContainercustom]: hasVariant($state, "custom", "custom"),
             [sty.labelContainerisDisabled]: hasVariant(
               $state,
               "isDisabled",
@@ -385,6 +411,13 @@ function PlasmicCheckbox__RenderFunc(props: {
                 "circle",
                 "circle"
               ),
+              [sty.slotTargetChildrencircle_custom]:
+                hasVariant($state, "circle", "circle") &&
+                hasVariant($state, "custom", "custom"),
+              [sty.slotTargetChildrencircle_custom_isChecked]:
+                hasVariant($state, "circle", "circle") &&
+                hasVariant($state, "isChecked", "isChecked") &&
+                hasVariant($state, "custom", "custom"),
               [sty.slotTargetChildrencircle_isChecked]:
                 hasVariant($state, "circle", "circle") &&
                 hasVariant($state, "isChecked", "isChecked"),

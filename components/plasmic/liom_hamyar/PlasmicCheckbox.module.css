@@ -16,6 +16,10 @@
   justify-content: center;
   align-items: center;
 }
+.rootcircle_custom {
+  justify-content: flex-start;
+  align-items: center;
+}
 .root___focusVisibleWithin {
   outline: none;
 }
@@ -41,6 +45,22 @@
   height: 100%;
   min-width: 0;
   min-height: 0;
+}
+.freeBoxcustom {
+  align-self: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height: auto;
+}
+.freeBoxcircle_custom {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: auto;
+  height: auto;
+  width: auto;
 }
 .root .freeBox___focusVisibleWithin {
   box-shadow: 0px 0px 0px 1px #7444bc33;
@@ -281,6 +301,57 @@
   > :global(.__wab_slot)
   > :global(.__wab_slot-string-wrapper) {
   text-decoration-line: line-through;
+}
+.slotTargetChildrencircle_custom {
+  text-align: right;
+  color: #535353;
+  font-weight: 300;
+}
+.slotTargetChildrencircle_custom_isChecked {
+  font-weight: 700;
+  color: var(--token-SX03PBUzWAqr);
+}
+.slotTargetChildrencircle_custom_isChecked > :global(.__wab_text),
+.slotTargetChildrencircle_custom_isChecked > :global(.__wab_expr_html_text),
+.slotTargetChildrencircle_custom_isChecked
+  > :global(.__wab_slot-string-wrapper),
+.slotTargetChildrencircle_custom_isChecked
+  > :global(.__wab_slot)
+  > :global(.__wab_text),
+.slotTargetChildrencircle_custom_isChecked
+  > :global(.__wab_slot)
+  > :global(.__wab_expr_html_text),
+.slotTargetChildrencircle_custom_isChecked
+  > :global(.__wab_slot)
+  > :global(.__wab_slot-string-wrapper),
+.slotTargetChildrencircle_custom_isChecked
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_text),
+.slotTargetChildrencircle_custom_isChecked
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_expr_html_text),
+.slotTargetChildrencircle_custom_isChecked
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot-string-wrapper),
+.slotTargetChildrencircle_custom_isChecked
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_text),
+.slotTargetChildrencircle_custom_isChecked
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_expr_html_text),
+.slotTargetChildrencircle_custom_isChecked
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot-string-wrapper) {
+  text-decoration-line: none;
 }
 .root .slotTargetChildren___focusVisibleWithin > *,
 .root .slotTargetChildren___focusVisibleWithin > :global(.__wab_slot) > *,

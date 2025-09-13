@@ -64,6 +64,7 @@ import UserPage from "../../UserPage"; // plasmic-import: Y_O8FNCBMxb-/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import Reports from "../../Reports"; // plasmic-import: pmKDqHBtiLCT/component
 import TabPage from "../../TabPage"; // plasmic-import: YjjiCvkREMP5/component
+import DataUser from "../../DataUser"; // plasmic-import: FUDO69vr4clr/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -106,11 +107,11 @@ export type PlasmicMain2__OverridesType = {
   root?: Flex__<"div">;
   sideEffect?: Flex__<typeof SideEffect>;
   userPage?: Flex__<typeof UserPage>;
-  freeBox?: Flex__<"div">;
   blockquote?: Flex__<"blockquote">;
   apiRequest?: Flex__<typeof ApiRequest>;
   reports?: Flex__<typeof Reports>;
   tabPage?: Flex__<typeof TabPage>;
+  dataUser?: Flex__<typeof DataUser>;
 };
 
 export interface DefaultMain2Props {
@@ -402,6 +403,18 @@ function PlasmicMain2__RenderFunc(props: {
 
         valueProp: "page2",
         onChangeProp: "onPage2Change"
+      },
+      {
+        path: "userPage.userdata",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "notes",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       }
     ],
     [$props, $ctx, $refs]
@@ -553,6 +566,20 @@ function PlasmicMain2__RenderFunc(props: {
             $steps["updatePage2"] = await $steps["updatePage2"];
           }
         }}
+        onUserdataChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["userPage", "userdata"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
         slot={
           (
             hasVariant($state, "user", "user")
@@ -572,20 +599,22 @@ function PlasmicMain2__RenderFunc(props: {
               : true
           ) ? (
             <div
-              data-plasmic-name={"freeBox"}
-              data-plasmic-override={overrides.freeBox}
-              className={classNames(projectcss.all, sty.freeBox, {
-                [sty.freeBoxpage_reports]: hasVariant(
+              className={classNames(projectcss.all, sty.freeBox__qKfUn, {
+                [sty.freeBoxpage_reports__qKfUnZqhv0]: hasVariant(
                   $state,
                   "page",
                   "reports"
                 ),
-                [sty.freeBoxpage_tabPage]: hasVariant(
+                [sty.freeBoxpage_tabPage__qKfUNyauNq]: hasVariant(
                   $state,
                   "page",
                   "tabPage"
                 ),
-                [sty.freeBoxuser]: hasVariant($state, "user", "user")
+                [sty.freeBoxuser__qKfUnbGqPs]: hasVariant(
+                  $state,
+                  "user",
+                  "user"
+                )
               })}
             >
               {(() => {
@@ -979,6 +1008,15 @@ function PlasmicMain2__RenderFunc(props: {
         selectedTab={generateStateValueProp($state, ["tabPage", "selectedTab"])}
         tabList={generateStateValueProp($state, ["tabPage", "tabList"])}
       />
+
+      <div className={classNames(projectcss.all, sty.freeBox__gCx1I)}>
+        <DataUser
+          data-plasmic-name={"dataUser"}
+          data-plasmic-override={overrides.dataUser}
+          className={classNames("__wab_instance", sty.dataUser)}
+          header={args.header}
+        />
+      </div>
     </div>
   ) as React.ReactElement | null;
 }
@@ -988,19 +1026,19 @@ const PlasmicDescendants = {
     "root",
     "sideEffect",
     "userPage",
-    "freeBox",
     "blockquote",
     "apiRequest",
     "reports",
-    "tabPage"
+    "tabPage",
+    "dataUser"
   ],
   sideEffect: ["sideEffect"],
-  userPage: ["userPage", "freeBox", "blockquote"],
-  freeBox: ["freeBox", "blockquote"],
+  userPage: ["userPage", "blockquote"],
   blockquote: ["blockquote"],
   apiRequest: ["apiRequest"],
   reports: ["reports"],
-  tabPage: ["tabPage"]
+  tabPage: ["tabPage"],
+  dataUser: ["dataUser"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1009,11 +1047,11 @@ type NodeDefaultElementType = {
   root: "div";
   sideEffect: typeof SideEffect;
   userPage: typeof UserPage;
-  freeBox: "div";
   blockquote: "blockquote";
   apiRequest: typeof ApiRequest;
   reports: typeof Reports;
   tabPage: typeof TabPage;
+  dataUser: typeof DataUser;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1078,11 +1116,11 @@ export const PlasmicMain2 = Object.assign(
     // Helper components rendering sub-elements
     sideEffect: makeNodeComponent("sideEffect"),
     userPage: makeNodeComponent("userPage"),
-    freeBox: makeNodeComponent("freeBox"),
     blockquote: makeNodeComponent("blockquote"),
     apiRequest: makeNodeComponent("apiRequest"),
     reports: makeNodeComponent("reports"),
     tabPage: makeNodeComponent("tabPage"),
+    dataUser: makeNodeComponent("dataUser"),
 
     // Metadata about props expected for PlasmicMain2
     internalVariantProps: PlasmicMain2__VariantProps,

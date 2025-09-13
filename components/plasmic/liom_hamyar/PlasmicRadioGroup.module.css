@@ -16,9 +16,13 @@
 }
 .radio___0Xv8I:global(.__wab_instance):global(.__wab_instance) {
   position: relative;
+  width: 100%;
+  min-width: 0;
 }
 .radio__uWhUs:global(.__wab_instance):global(.__wab_instance) {
   position: relative;
+  width: 100%;
+  min-width: 0;
 }
 .radio__eqwh5:global(.__wab_instance):global(.__wab_instance) {
   position: relative;

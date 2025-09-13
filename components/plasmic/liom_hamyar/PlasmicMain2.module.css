@@ -46,7 +46,7 @@
   flex-shrink: 0;
   display: flex;
 }
-.freeBox {
+.freeBox__qKfUn {
   flex-direction: row;
   position: relative;
   align-items: stretch;
@@ -58,7 +58,7 @@
   display: none;
   padding: 8px;
 }
-.freeBoxuser {
+.freeBoxuser__qKfUnbGqPs {
   display: flex;
 }
 .text__yW1U {
@@ -115,4 +115,19 @@
 }
 .tabPageuser_page_tabPage:global(.__wab_instance) {
   flex-shrink: 0;
+}
+.freeBox__gCx1I {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.dataUser:global(.__wab_instance) {
+  position: relative;
 }
