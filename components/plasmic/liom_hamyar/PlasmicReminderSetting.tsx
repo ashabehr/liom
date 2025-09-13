@@ -62,7 +62,6 @@ import {
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { Input } from "@/fragment/components/input"; // plasmic-import: zZH7vV9pXyf8/codeComponent
-import { Select } from "@/fragment/components/select"; // plasmic-import: 5Mch6ak-Pshg/codeComponent
 import Repead from "../../Repead"; // plasmic-import: bTRB9n2MQ7IL/component
 import RadioGrop from "../../RadioGrop"; // plasmic-import: mcNKMbL_6N75/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
@@ -136,7 +135,6 @@ export type PlasmicReminderSetting__OverridesType = {
   headerLiom?: Flex__<typeof HeaderLiom>;
   dialog?: Flex__<typeof Dialog>;
   input?: Flex__<typeof Input>;
-  select?: Flex__<typeof Select>;
   repead?: Flex__<typeof Repead>;
   radioGrop?: Flex__<typeof RadioGrop>;
   button5?: Flex__<typeof Button>;
@@ -273,7 +271,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant(globalVariants, "screen", "mobile") ? false : false
+          hasVariant(globalVariants, "screen", "mobile") ? false : true
       },
       {
         path: "input.value",
@@ -295,18 +293,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
           })()
       },
       {
-        path: "select.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "select.open",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
         path: "dateDiolog.opendialog",
         type: "private",
         variableType: "boolean",
@@ -317,7 +303,36 @@ function PlasmicReminderSetting__RenderFunc(props: {
         path: "datePickers.value",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                const today = new Date();
+                const isoYear = today.getFullYear();
+                const isoMonth = today.getMonth() + 1;
+                const isoDay = today.getDate();
+                const faDate = new Intl.DateTimeFormat("fa-IR", {
+                  year: "numeric",
+                  month: "numeric",
+                  day: "numeric"
+                }).format(today);
+                const [faYear, faMonth, faDay] = faDate.split("/").map(Number);
+                return {
+                  year: faYear,
+                  month: faMonth,
+                  day: faDay
+                };
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return {};
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "button4.color",
@@ -921,65 +936,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 >
                   {"\u0646\u0648\u0639 "}
                 </div>
-                <Select
-                  data-plasmic-name={"select"}
-                  data-plasmic-override={overrides.select}
-                  disabled={(() => {
-                    try {
-                      return $state.select2.type;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                  onChange={async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
-                      "select",
-                      "value"
-                    ]).apply(null, eventArgs);
-                  }}
-                  onOpenChange={async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, ["select", "open"]).apply(
-                      null,
-                      eventArgs
-                    );
-                  }}
-                  open={generateStateValueProp($state, ["select", "open"])}
-                  options={(() => {
-                    try {
-                      return Object.keys($state.select2).length == 0
-                        ? $state.type.filter(i => {
-                            if (i.value === "ChildBirthday") {
-                              const count = $props.data.filter(
-                                a => a.type === i.value
-                              ).length;
-                              return count < 4;
-                            } else {
-                              return !$props.data.some(a => a.type === i.value);
-                            }
-                          })
-                        : $state.type;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                  placeholder={
-                    "\u0628\u0631\u0627\u06cc \u0645\u062b\u0627\u0644 \u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c"
-                  }
-                  triggerClassName={classNames("__wab_instance", sty.select)}
-                  value={generateStateValueProp($state, ["select", "value"])}
-                />
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__kls3Y)}>
                 <div className={classNames(projectcss.all, sty.freeBox__tdBtA)}>
@@ -1050,7 +1006,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       }}
                       data={[
                         {
-                          label: "\u06cc\u06a9 \u0628\u0627\u0631",
+                          label: "\u0633\u0627\u0644\u0627\u0646\u0647",
                           value: "once"
                         },
                         {
@@ -1299,6 +1255,42 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           "updateDialog2Opendialog"
                         ];
                       }
+
+                      $steps["updateDateType"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["dateType"]
+                              },
+                              operation: 0,
+                              value: "start"
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateDateType"] != null &&
+                        typeof $steps["updateDateType"] === "object" &&
+                        typeof $steps["updateDateType"].then === "function"
+                      ) {
+                        $steps["updateDateType"] = await $steps[
+                          "updateDateType"
+                        ];
+                      }
                     }}
                   >
                     <Icon290Icon
@@ -1363,6 +1355,42 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
+                        $steps["updateDateType"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["dateType"]
+                                },
+                                operation: 0,
+                                value: "end"
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateDateType"] != null &&
+                          typeof $steps["updateDateType"] === "object" &&
+                          typeof $steps["updateDateType"].then === "function"
+                        ) {
+                          $steps["updateDateType"] = await $steps[
+                            "updateDateType"
+                          ];
+                        }
+
                         $steps["updateDialog2Opendialog"] = true
                           ? (() => {
                               const actionArgs = {
@@ -1417,7 +1445,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         <React.Fragment>
                           {(() => {
                             try {
-                              return $state.date.end.f;
+                              return $state.date.end.g;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -1801,26 +1829,85 @@ function PlasmicReminderSetting__RenderFunc(props: {
           ])}
         >
           <div className={classNames(projectcss.all, sty.freeBox__eatO7)}>
-            <DatePickers
-              data-plasmic-name={"datePickers"}
-              data-plasmic-override={overrides.datePickers}
-              SelectedDay={10}
-              SelectedMonth={10}
-              SelectedYear={1377}
-              className={classNames("__wab_instance", sty.datePickers)}
-              customYears={[]}
-              onChange={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
+            {(() => {
+              const child$Props = {
+                SelectedDay: 10,
+                SelectedMonth: 10,
+                SelectedYear: 1377,
+                className: classNames("__wab_instance", sty.datePickers),
+                customYears: [],
+                onChange: async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "datePickers",
+                    "value"
+                  ]).apply(null, eventArgs);
+                },
+                selectedValues: generateStateValueProp($state, [
                   "datePickers",
                   "value"
-                ]).apply(null, eventArgs);
-              }}
-              selectedValues={generateStateValueProp($state, [
-                "datePickers",
-                "value"
-              ])}
-            />
-
+                ])
+              };
+              initializeCodeComponentStates(
+                $state,
+                [
+                  {
+                    name: "value",
+                    plasmicStateName: "datePickers.value"
+                  }
+                ],
+                [],
+                undefined ?? {},
+                child$Props
+              );
+              initializePlasmicStates(
+                $state,
+                [
+                  {
+                    name: "datePickers.value",
+                    initFunc: ({ $props, $state, $queries }) =>
+                      (() => {
+                        try {
+                          return (() => {
+                            const today = new Date();
+                            const isoYear = today.getFullYear();
+                            const isoMonth = today.getMonth() + 1;
+                            const isoDay = today.getDate();
+                            const faDate = new Intl.DateTimeFormat("fa-IR", {
+                              year: "numeric",
+                              month: "numeric",
+                              day: "numeric"
+                            }).format(today);
+                            const [faYear, faMonth, faDay] = faDate
+                              .split("/")
+                              .map(Number);
+                            return {
+                              year: faYear,
+                              month: faMonth,
+                              day: faDay
+                            };
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return {};
+                          }
+                          throw e;
+                        }
+                      })()
+                  }
+                ],
+                []
+              );
+              return (
+                <DatePickers
+                  data-plasmic-name={"datePickers"}
+                  data-plasmic-override={overrides.datePickers}
+                  {...child$Props}
+                />
+              );
+            })()}
             <Button
               data-plasmic-name={"button4"}
               data-plasmic-override={overrides.button4}
@@ -2117,14 +2204,14 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   ];
                 }
 
-                $steps["updateType"] = true
+                $steps["updateTimeOpendialog"] = true
                   ? (() => {
                       const actionArgs = {
                         variable: {
                           objRoot: $state,
-                          variablePath: ["type"]
+                          variablePath: ["time", "opendialog"]
                         },
-                        operation: 0
+                        operation: 4
                       };
                       return (({
                         variable,
@@ -2137,17 +2224,20 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         }
                         const { objRoot, variablePath } = variable;
 
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
+                        const oldValue = $stateGet(objRoot, variablePath);
+                        $stateSet(objRoot, variablePath, !oldValue);
+                        return !oldValue;
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["updateType"] != null &&
-                  typeof $steps["updateType"] === "object" &&
-                  typeof $steps["updateType"].then === "function"
+                  $steps["updateTimeOpendialog"] != null &&
+                  typeof $steps["updateTimeOpendialog"] === "object" &&
+                  typeof $steps["updateTimeOpendialog"].then === "function"
                 ) {
-                  $steps["updateType"] = await $steps["updateType"];
+                  $steps["updateTimeOpendialog"] = await $steps[
+                    "updateTimeOpendialog"
+                  ];
                 }
               }}
               onColorChange={async (...eventArgs: any) => {
@@ -3956,7 +4046,6 @@ const PlasmicDescendants = {
     "headerLiom",
     "dialog",
     "input",
-    "select",
     "repead",
     "radioGrop",
     "button5",
@@ -3991,7 +4080,6 @@ const PlasmicDescendants = {
     "headerLiom",
     "dialog",
     "input",
-    "select",
     "repead",
     "radioGrop",
     "button5",
@@ -4007,9 +4095,8 @@ const PlasmicDescendants = {
     "checkbox"
   ],
   headerLiom: ["headerLiom"],
-  dialog: ["dialog", "input", "select", "repead", "radioGrop", "button5"],
+  dialog: ["dialog", "input", "repead", "radioGrop", "button5"],
   input: ["input"],
-  select: ["select"],
   repead: ["repead"],
   radioGrop: ["radioGrop"],
   button5: ["button5"],
@@ -4072,7 +4159,6 @@ type NodeDefaultElementType = {
   headerLiom: typeof HeaderLiom;
   dialog: typeof Dialog;
   input: typeof Input;
-  select: typeof Select;
   repead: typeof Repead;
   radioGrop: typeof RadioGrop;
   button5: typeof Button;
@@ -4167,7 +4253,6 @@ export const PlasmicReminderSetting = Object.assign(
     headerLiom: makeNodeComponent("headerLiom"),
     dialog: makeNodeComponent("dialog"),
     input: makeNodeComponent("input"),
-    select: makeNodeComponent("select"),
     repead: makeNodeComponent("repead"),
     radioGrop: makeNodeComponent("radioGrop"),
     button5: makeNodeComponent("button5"),
