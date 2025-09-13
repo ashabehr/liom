@@ -3,11 +3,13 @@ import TimeKeeper from "react-timekeeper";
 import { CodeComponentMeta } from "@plasmicapp/host";
 
 type TimePickerProps = {
+  selectedValues?: { hour: number; minute: number; date: Date }; // اضافه شد
   onChange?: (values: { hour: number; minute: number; date: Date }) => void;
   SelectedHour?: number;
   SelectedMinute?: number;
   className?: string;
 };
+
 
 export const TimePickerCustom = (props: TimePickerProps) => {
   const {
