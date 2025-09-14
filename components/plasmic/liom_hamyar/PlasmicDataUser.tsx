@@ -62,6 +62,7 @@ import {
 import TextInput from "../../TextInput"; // plasmic-import: cOSV4CnhD7mN/component
 import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
 import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -82,9 +83,12 @@ export type PlasmicDataUser__VariantsArgs = {};
 type VariantPropType = keyof PlasmicDataUser__VariantsArgs;
 export const PlasmicDataUser__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicDataUser__ArgsType = { header?: any };
+export type PlasmicDataUser__ArgsType = { header?: any; data?: any };
 type ArgPropType = keyof PlasmicDataUser__ArgsType;
-export const PlasmicDataUser__ArgProps = new Array<ArgPropType>("header");
+export const PlasmicDataUser__ArgProps = new Array<ArgPropType>(
+  "header",
+  "data"
+);
 
 export type PlasmicDataUser__OverridesType = {
   frame41?: Flex__<"div">;
@@ -93,6 +97,7 @@ export type PlasmicDataUser__OverridesType = {
 
 export interface DefaultDataUserProps {
   header?: any;
+  data?: any;
   className?: string;
 }
 
@@ -153,7 +158,142 @@ function PlasmicDataUser__RenderFunc(props: {
               width: 160,
               type: "datetime"
             }
-          ]
+          ],
+          data: {
+            user: {
+              countBuyBreastCancer: 3,
+              countBuyHamyarStatus: 1,
+              countBuyHusbandSms: 3,
+              countBuyPregnancySubStatus: 5,
+              countBuySelfSms: 1,
+              countBuySpecialAdvice: 1,
+              activeTel: true,
+              breastCancerSmsSubTime: {
+                year: 2026,
+                month: 2,
+                day: 3,
+                hour: 4,
+                minute: 3,
+                second: 11,
+                nanosecond: 141000000,
+                timeZoneOffsetSeconds: 0
+              },
+              pregnancySubTime: {
+                year: 2027,
+                month: 11,
+                day: 27,
+                hour: 0,
+                minute: 36,
+                second: 38,
+                nanosecond: 358000000,
+                timeZoneOffsetSeconds: 0
+              },
+              hamyarTime: {
+                year: 2025,
+                month: 5,
+                day: 21,
+                hour: 22,
+                minute: 22,
+                second: 35,
+                nanosecond: 336000000,
+                timeZoneOffsetSeconds: 0
+              },
+              husbandSmsSubTime: {
+                year: 2025,
+                month: 10,
+                day: 7,
+                hour: 8,
+                minute: 39,
+                second: 22,
+                nanosecond: 886000000,
+                timeZoneOffsetSeconds: 0
+              },
+              pregnancyBabyGrowthTime: {
+                year: 2027,
+                month: 11,
+                day: 27,
+                hour: 0,
+                minute: 36,
+                second: 38,
+                nanosecond: 463000000,
+                timeZoneOffsetSeconds: 0
+              },
+              pregnancyBecomeFatherTime: {
+                year: 2027,
+                month: 11,
+                day: 27,
+                hour: 0,
+                minute: 36,
+                second: 38,
+                nanosecond: 463000000,
+                timeZoneOffsetSeconds: 0
+              },
+              pregnancyBetterRelationTime: {
+                year: 2027,
+                month: 11,
+                day: 27,
+                hour: 0,
+                minute: 36,
+                second: 38,
+                nanosecond: 463000000,
+                timeZoneOffsetSeconds: 0
+              },
+              pregnancyDangerTime: {
+                year: 2027,
+                month: 11,
+                day: 27,
+                hour: 0,
+                minute: 36,
+                second: 38,
+                nanosecond: 463000000,
+                timeZoneOffsetSeconds: 0
+              },
+              pregnancySelfSmsTime: {
+                year: 2027,
+                month: 11,
+                day: 27,
+                hour: 0,
+                minute: 36,
+                second: 38,
+                nanosecond: 463000000,
+                timeZoneOffsetSeconds: 0
+              },
+              selfHamyarSmsSubTime: {
+                year: 2025,
+                month: 12,
+                day: 6,
+                hour: 10,
+                minute: 33,
+                second: 20,
+                nanosecond: 363000000,
+                timeZoneOffsetSeconds: 0
+              },
+              specialAdviceSubTim: {
+                year: 2025,
+                month: 3,
+                day: 9,
+                hour: 16,
+                minute: 11,
+                second: 12,
+                nanosecond: 839000000,
+                timeZoneOffsetSeconds: 0
+              },
+              mobile: "",
+              id: "265149",
+              lastActivity: {
+                year: 2025,
+                month: 9,
+                day: 12,
+                hour: 18,
+                minute: 23,
+                second: 34,
+                nanosecond: 707000000,
+                timeZoneOffsetSeconds: 0
+              },
+              username: "sara",
+              refcode: "3d8fb3"
+            }
+          }
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -483,26 +623,43 @@ function PlasmicDataUser__RenderFunc(props: {
                     {(() => {
                       try {
                         return (() => {
-                          const value = (() => {
-                            if (typeof currentItem.value === "boolean") {
-                              return currentItem.value ? "فعال" : "غیرفعال";
+                          return (() => {
+                            const dataValue = $props.data.user[currentItem.key];
+                            let formattedValue = "";
+                            if (typeof dataValue === "boolean") {
+                              formattedValue = dataValue ? "فعال" : "غیرفعال";
+                            } else if (typeof dataValue === "object") {
+                              const gregorianDate = new Date(
+                                dataValue.year,
+                                dataValue.month - 1,
+                                dataValue.day,
+                                dataValue.hour,
+                                dataValue.minute,
+                                dataValue.second,
+                                dataValue.nanosecond / 1000000
+                              );
+                              const timeFormat = new Intl.DateTimeFormat(
+                                "fa-IR",
+                                {
+                                  hour: "2-digit",
+                                  minute: "2-digit",
+                                  hour12: false
+                                }
+                              ).format(gregorianDate);
+                              const dateFormat = new Intl.DateTimeFormat(
+                                "fa-IR",
+                                {
+                                  year: "numeric",
+                                  month: "2-digit",
+                                  day: "2-digit"
+                                }
+                              ).format(gregorianDate);
+                              formattedValue = `${timeFormat} - ${dateFormat}`;
+                            } else {
+                              formattedValue = dataValue;
                             }
-                            if (typeof currentItem.value === "string") {
-                              const dateRegex =
-                                /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{6}$/;
-                              if (dateRegex.test(currentItem.value)) {
-                                const gregorianDate = new Date(
-                                  currentItem.value
-                                );
-                                return new Intl.DateTimeFormat("fa-IR").format(
-                                  gregorianDate
-                                );
-                              }
-                              return currentItem.value;
-                            }
-                            return currentItem.value;
+                            return formattedValue;
                           })();
-                          return value;
                         })();
                       } catch (e) {
                         if (
@@ -590,11 +747,43 @@ function PlasmicDataUser__RenderFunc(props: {
                     {(() => {
                       try {
                         return (() => {
-                          const gregorianDate = new Date(currentItem.value);
-                          const persianDate = new Intl.DateTimeFormat(
-                            "fa-IR"
-                          ).format(gregorianDate);
-                          return persianDate;
+                          return (() => {
+                            const dataValue = $props.data.user[currentItem.key];
+                            let formattedValue = "";
+                            if (typeof dataValue === "boolean") {
+                              formattedValue = dataValue ? "فعال" : "غیرفعال";
+                            } else if (typeof dataValue === "object") {
+                              const gregorianDate = new Date(
+                                dataValue.year,
+                                dataValue.month - 1,
+                                dataValue.day,
+                                dataValue.hour,
+                                dataValue.minute,
+                                dataValue.second,
+                                dataValue.nanosecond / 1000000
+                              );
+                              const timeFormat = new Intl.DateTimeFormat(
+                                "fa-IR",
+                                {
+                                  hour: "2-digit",
+                                  minute: "2-digit",
+                                  hour12: false
+                                }
+                              ).format(gregorianDate);
+                              const dateFormat = new Intl.DateTimeFormat(
+                                "fa-IR",
+                                {
+                                  year: "numeric",
+                                  month: "2-digit",
+                                  day: "2-digit"
+                                }
+                              ).format(gregorianDate);
+                              formattedValue = `${timeFormat} - ${dateFormat}`;
+                            } else {
+                              formattedValue = dataValue;
+                            }
+                            return formattedValue;
+                          })();
                         })();
                       } catch (e) {
                         if (

@@ -84,6 +84,7 @@ import Icon273Icon from "./icons/PlasmicIcon__Icon273"; // plasmic-import: 15Q2P
 import Icon274Icon from "./icons/PlasmicIcon__Icon274"; // plasmic-import: s-mb3EBJTqB8/icon
 import Icon275Icon from "./icons/PlasmicIcon__Icon275"; // plasmic-import: JX2J1clropJv/icon
 import Icon277Icon from "./icons/PlasmicIcon__Icon277"; // plasmic-import: rQHnbmXyT27Z/icon
+import BellIcon from "../fragment_icons/icons/PlasmicIcon__Bell"; // plasmic-import: rDjUqSUK3eUM/icon
 
 createPlasmicElementProxy;
 
@@ -104,7 +105,10 @@ export type PlasmicMenuIcon__VariantMembers = {
     | "occasion"
     | "birthday"
     | "love"
-    | "alert";
+    | "alert"
+    | "notification";
+  unnamedVariant: "unnamedVariant";
+  unnamedVariant2: "unnamedVariant2";
 };
 export type PlasmicMenuIcon__VariantsArgs = {
   select?: SingleBooleanChoiceArg<"select">;
@@ -124,12 +128,17 @@ export type PlasmicMenuIcon__VariantsArgs = {
     | "birthday"
     | "love"
     | "alert"
+    | "notification"
   >;
+  unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
+  unnamedVariant2?: SingleBooleanChoiceArg<"unnamedVariant2">;
 };
 type VariantPropType = keyof PlasmicMenuIcon__VariantsArgs;
 export const PlasmicMenuIcon__VariantProps = new Array<VariantPropType>(
   "select",
-  "icons"
+  "icons",
+  "unnamedVariant",
+  "unnamedVariant2"
 );
 
 export type PlasmicMenuIcon__ArgsType = {};
@@ -158,7 +167,10 @@ export interface DefaultMenuIconProps {
     | "birthday"
     | "love"
     | "alert"
+    | "notification"
   >;
+  unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
+  unnamedVariant2?: SingleBooleanChoiceArg<"unnamedVariant2">;
   className?: string;
 }
 
@@ -218,6 +230,18 @@ function PlasmicMenuIcon__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.icons
+      },
+      {
+        path: "unnamedVariant",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.unnamedVariant
+      },
+      {
+        path: "unnamedVariant2",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.unnamedVariant2
       }
     ],
     [$props, $ctx, $refs]
@@ -242,7 +266,12 @@ function PlasmicMenuIcon__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       PlasmicIconType={
-        hasVariant($state, "icons", "alert")
+        hasVariant($state, "icons", "notification") &&
+        hasVariant(globalVariants, "screen", "mobile")
+          ? BellIcon
+          : hasVariant($state, "icons", "notification")
+          ? BellIcon
+          : hasVariant($state, "icons", "alert")
           ? Icon277Icon
           : hasVariant($state, "icons", "love")
           ? Icon275Icon
@@ -291,6 +320,11 @@ function PlasmicMenuIcon__RenderFunc(props: {
           [sty.rooticons_love]: hasVariant($state, "icons", "love"),
           [sty.rooticons_message]: hasVariant($state, "icons", "message"),
           [sty.rooticons_notebook]: hasVariant($state, "icons", "notebook"),
+          [sty.rooticons_notification]: hasVariant(
+            $state,
+            "icons",
+            "notification"
+          ),
           [sty.rooticons_occasion]: hasVariant($state, "icons", "occasion"),
           [sty.rooticons_questioncircle]: hasVariant(
             $state,

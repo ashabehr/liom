@@ -25615,7 +25615,8 @@ function PlasmicHamyar__RenderFunc(props: {
             body={(() => {
               try {
                 return {
-                  r: $state.reminderSetting.refresh
+                  r: $state.reminderSetting.refresh,
+                  liomId: $state.userdata?.result?.man?.id
                 };
               } catch (e) {
                 if (

@@ -215,176 +215,138 @@ function PlasmicUserPage2__RenderFunc(props: {
             }
           ],
           data: {
-            success: true,
-            result: {
-              total: 881,
-              list: [
-                {
-                  user: {
-                    countBuyBreastCancer: 3,
-                    countBuyHamyarStatus: 1,
-                    countBuyHusbandSms: 3,
-                    countBuyPregnancySubStatus: 5,
-                    countBuySelfSms: 1,
-                    countBuySpecialAdvice: 1,
-                    activeTel: true,
-                    breastCancerSmsSubTime: {
-                      year: 2026,
-                      month: 2,
-                      day: 3,
-                      hour: 4,
-                      minute: 3,
-                      second: 11,
-                      nanosecond: 141000000,
-                      timeZoneOffsetSeconds: 0
-                    },
-                    pregnancySubTime: {
-                      year: 2027,
-                      month: 11,
-                      day: 27,
-                      hour: 0,
-                      minute: 36,
-                      second: 38,
-                      nanosecond: 358000000,
-                      timeZoneOffsetSeconds: 0
-                    },
-                    hamyarTime: {
-                      year: 2025,
-                      month: 5,
-                      day: 21,
-                      hour: 22,
-                      minute: 22,
-                      second: 35,
-                      nanosecond: 336000000,
-                      timeZoneOffsetSeconds: 0
-                    },
-                    husbandSmsSubTime: {
-                      year: 2025,
-                      month: 10,
-                      day: 7,
-                      hour: 8,
-                      minute: 39,
-                      second: 22,
-                      nanosecond: 886000000,
-                      timeZoneOffsetSeconds: 0
-                    },
-                    pregnancyBabyGrowthTime: {
-                      year: 2027,
-                      month: 11,
-                      day: 27,
-                      hour: 0,
-                      minute: 36,
-                      second: 38,
-                      nanosecond: 463000000,
-                      timeZoneOffsetSeconds: 0
-                    },
-                    pregnancyBecomeFatherTime: {
-                      year: 2027,
-                      month: 11,
-                      day: 27,
-                      hour: 0,
-                      minute: 36,
-                      second: 38,
-                      nanosecond: 463000000,
-                      timeZoneOffsetSeconds: 0
-                    },
-                    pregnancyBetterRelationTime: {
-                      year: 2027,
-                      month: 11,
-                      day: 27,
-                      hour: 0,
-                      minute: 36,
-                      second: 38,
-                      nanosecond: 463000000,
-                      timeZoneOffsetSeconds: 0
-                    },
-                    pregnancyDangerTime: {
-                      year: 2027,
-                      month: 11,
-                      day: 27,
-                      hour: 0,
-                      minute: 36,
-                      second: 38,
-                      nanosecond: 463000000,
-                      timeZoneOffsetSeconds: 0
-                    },
-                    pregnancySelfSmsTime: {
-                      year: 2027,
-                      month: 11,
-                      day: 27,
-                      hour: 0,
-                      minute: 36,
-                      second: 38,
-                      nanosecond: 463000000,
-                      timeZoneOffsetSeconds: 0
-                    },
-                    selfHamyarSmsSubTime: {
-                      year: 2025,
-                      month: 12,
-                      day: 6,
-                      hour: 10,
-                      minute: 33,
-                      second: 20,
-                      nanosecond: 363000000,
-                      timeZoneOffsetSeconds: 0
-                    },
-                    specialAdviceSubTim: {
-                      year: 2025,
-                      month: 3,
-                      day: 9,
-                      hour: 16,
-                      minute: 11,
-                      second: 12,
-                      nanosecond: 839000000,
-                      timeZoneOffsetSeconds: 0
-                    },
-                    mobile: "",
-                    id: "265149",
-                    lastActivity: {
-                      year: 2025,
-                      month: 9,
-                      day: 12,
-                      hour: 18,
-                      minute: 23,
-                      second: 34,
-                      nanosecond: 707000000,
-                      timeZoneOffsetSeconds: 0
-                    },
-                    username: "melika",
-                    refcode: "3d8fb3"
-                  }
-                },
-                {
-                  user: {
-                    countBuyHusbandSms: 1,
-                    activeTel: false,
-                    husbandSmsSubTime: {
-                      year: 2025,
-                      month: 9,
-                      day: 13,
-                      hour: 5,
-                      minute: 49,
-                      second: 2,
-                      nanosecond: 612000000,
-                      timeZoneOffsetSeconds: 0
-                    },
-                    mobile: "09139140864",
-                    id: "f0afd250-6395-4253-b257-e167262cdd3d",
-                    lastActivity: {
-                      year: 2025,
-                      month: 9,
-                      day: 7,
-                      hour: 3,
-                      minute: 48,
-                      second: 36,
-                      nanosecond: 74000000,
-                      timeZoneOffsetSeconds: 0
-                    },
-                    username: "guest_M8KxaugoDA",
-                    refcode: "fGC3sVlYv"
-                  }
-                }
-              ]
+            user: {
+              countBuyBreastCancer: 3,
+              countBuyHamyarStatus: 1,
+              countBuyHusbandSms: 3,
+              countBuyPregnancySubStatus: 5,
+              countBuySelfSms: 1,
+              countBuySpecialAdvice: 1,
+              activeTel: true,
+              breastCancerSmsSubTime: {
+                year: 2026,
+                month: 2,
+                day: 3,
+                hour: 4,
+                minute: 3,
+                second: 11,
+                nanosecond: 141000000,
+                timeZoneOffsetSeconds: 0
+              },
+              pregnancySubTime: {
+                year: 2027,
+                month: 11,
+                day: 27,
+                hour: 0,
+                minute: 36,
+                second: 38,
+                nanosecond: 358000000,
+                timeZoneOffsetSeconds: 0
+              },
+              hamyarTime: {
+                year: 2025,
+                month: 5,
+                day: 21,
+                hour: 22,
+                minute: 22,
+                second: 35,
+                nanosecond: 336000000,
+                timeZoneOffsetSeconds: 0
+              },
+              husbandSmsSubTime: {
+                year: 2025,
+                month: 10,
+                day: 7,
+                hour: 8,
+                minute: 39,
+                second: 22,
+                nanosecond: 886000000,
+                timeZoneOffsetSeconds: 0
+              },
+              pregnancyBabyGrowthTime: {
+                year: 2027,
+                month: 11,
+                day: 27,
+                hour: 0,
+                minute: 36,
+                second: 38,
+                nanosecond: 463000000,
+                timeZoneOffsetSeconds: 0
+              },
+              pregnancyBecomeFatherTime: {
+                year: 2027,
+                month: 11,
+                day: 27,
+                hour: 0,
+                minute: 36,
+                second: 38,
+                nanosecond: 463000000,
+                timeZoneOffsetSeconds: 0
+              },
+              pregnancyBetterRelationTime: {
+                year: 2027,
+                month: 11,
+                day: 27,
+                hour: 0,
+                minute: 36,
+                second: 38,
+                nanosecond: 463000000,
+                timeZoneOffsetSeconds: 0
+              },
+              pregnancyDangerTime: {
+                year: 2027,
+                month: 11,
+                day: 27,
+                hour: 0,
+                minute: 36,
+                second: 38,
+                nanosecond: 463000000,
+                timeZoneOffsetSeconds: 0
+              },
+              pregnancySelfSmsTime: {
+                year: 2027,
+                month: 11,
+                day: 27,
+                hour: 0,
+                minute: 36,
+                second: 38,
+                nanosecond: 463000000,
+                timeZoneOffsetSeconds: 0
+              },
+              selfHamyarSmsSubTime: {
+                year: 2025,
+                month: 12,
+                day: 6,
+                hour: 10,
+                minute: 33,
+                second: 20,
+                nanosecond: 363000000,
+                timeZoneOffsetSeconds: 0
+              },
+              specialAdviceSubTim: {
+                year: 2025,
+                month: 3,
+                day: 9,
+                hour: 16,
+                minute: 11,
+                second: 12,
+                nanosecond: 839000000,
+                timeZoneOffsetSeconds: 0
+              },
+              mobile: "",
+              id: "265149",
+              lastActivity: {
+                year: 2025,
+                month: 9,
+                day: 12,
+                hour: 18,
+                minute: 23,
+                second: 34,
+                nanosecond: 707000000,
+                timeZoneOffsetSeconds: 0
+              },
+              username: "melika",
+              refcode: "3d8fb3"
             }
           },
           loading: false
@@ -511,6 +473,19 @@ function PlasmicUserPage2__RenderFunc(props: {
         data-plasmic-name={"dataUser"}
         data-plasmic-override={overrides.dataUser}
         className={classNames("__wab_instance", sty.dataUser)}
+        data={(() => {
+          try {
+            return $props.data;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
       />
     </div>
   ) as React.ReactElement | null;

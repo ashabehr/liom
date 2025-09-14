@@ -721,43 +721,6 @@ function PlasmicUserPage__RenderFunc(props: {
                           $steps["runOnClick"] = await $steps["runOnClick"];
                         }
 
-                        $steps["updateSwitchbestIsChecked"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["switchbest[][]", "isChecked"]
-                                },
-                                operation: 0
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateSwitchbestIsChecked"] != null &&
-                          typeof $steps["updateSwitchbestIsChecked"] ===
-                            "object" &&
-                          typeof $steps["updateSwitchbestIsChecked"].then ===
-                            "function"
-                        ) {
-                          $steps["updateSwitchbestIsChecked"] = await $steps[
-                            "updateSwitchbestIsChecked"
-                          ];
-                        }
-
                         $steps["dataUser"] = true
                           ? (() => {
                               const actionArgs = {
@@ -766,7 +729,7 @@ function PlasmicUserPage__RenderFunc(props: {
                                   variablePath: ["userdata"]
                                 },
                                 operation: 0,
-                                value: $state.userdata
+                                value: item
                               };
                               return (({
                                 variable,

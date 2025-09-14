@@ -29,6 +29,7 @@
   width: 30px;
   height: 30px;
   align-self: flex-start;
+  color: #6b6a6a;
   flex-shrink: 0;
 }
 .freeBox___29EE {
@@ -40,7 +41,7 @@
 }
 .slotTargetChildren {
   font-family: "Ubuntu", sans-serif;
-  font-size: var(--token-UXPBeNJ4rrVx);
+  font-size: var(--token-EBGyLHrpfttb);
   font-weight: 500;
   color: rgba(0, 0, 0, 1);
   line-height: 100%;
@@ -64,6 +65,7 @@
   max-width: 100%;
   width: 25px;
   height: 25px;
+  color: #000000;
   flex-shrink: 0;
   margin: 8px;
 }
@@ -72,6 +74,7 @@
   max-width: 100%;
   width: 25px;
   height: 25px;
+  color: #000000;
   flex-shrink: 0;
   margin: 8px 0px 8px 8px;
 }
@@ -80,6 +83,7 @@
   max-width: 100%;
   width: 25px;
   height: 25px;
+  color: #000000;
   flex-shrink: 0;
   margin: 0px 0px 0px 15px;
 }

@@ -71,6 +71,7 @@ import { TimePickerCustom } from "@/components/TimePickerCustom"; // plasmic-imp
 import CheckboxGroup from "../../CheckboxGroup"; // plasmic-import: AhgoIztCTzjf/component
 import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -114,6 +115,8 @@ export type PlasmicReminderSetting__ArgsType = {
   telegramOn?: boolean;
   activeSmsNotif?: boolean;
   activeNotifTel?: boolean;
+  phoneNumber?: string;
+  telegramId?: string;
 };
 type ArgPropType = keyof PlasmicReminderSetting__ArgsType;
 export const PlasmicReminderSetting__ArgProps = new Array<ArgPropType>(
@@ -127,7 +130,9 @@ export const PlasmicReminderSetting__ArgProps = new Array<ArgPropType>(
   "token",
   "telegramOn",
   "activeSmsNotif",
-  "activeNotifTel"
+  "activeNotifTel",
+  "phoneNumber",
+  "telegramId"
 );
 
 export type PlasmicReminderSetting__OverridesType = {
@@ -165,6 +170,7 @@ export type PlasmicReminderSetting__OverridesType = {
   frame30?: Flex__<"div">;
   switchSetting?: Flex__<typeof Switchbest>;
   button2?: Flex__<typeof Button>;
+  sideEffect?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultReminderSettingProps {
@@ -179,6 +185,8 @@ export interface DefaultReminderSettingProps {
   telegramOn?: boolean;
   activeSmsNotif?: boolean;
   activeNotifTel?: boolean;
+  phoneNumber?: string;
+  telegramId?: string;
   slide?: SingleChoiceArg<"_1" | "_2">;
   className?: string;
 }
@@ -210,7 +218,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
           telegramOn: false,
           activeSmsNotif: false,
-          activeNotifTel: false
+          activeNotifTel: false,
+          phoneNumber: "null",
+          telegramId: "5384384618"
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -507,181 +517,144 @@ function PlasmicReminderSetting__RenderFunc(props: {
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => [
           {
-            task: {
-              name: "\u0631\u0648\u0632 \u0632\u0646 \u0648 \u0645\u0627\u062f\u0631",
-              text: "\u0648\u0644\u0627\u062f\u062a \u062d\u0636\u0631\u062a \u0641\u0627\u0637\u0645\u0647 \u0632\u0647\u0631\u0627 (\u0633)",
-              type: "occasion",
-              category: "notification",
-              category_fa:
-                "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-              status: "waiting",
-              done: false,
-              exclude: [],
-              order: 1,
-              priority: 10
-            },
-            startDate: "2025-12-11",
-            endDate: "2025-12-11"
+            liomId: null,
+            telegramId: null,
+            phoneNumber: null,
+            schedule_type: "everyYear",
+            name: "\u0631\u0648\u0632 \u0632\u0646 \u0648 \u0645\u0627\u062f\u0631",
+            text: "occasion",
+            token1: null,
+            dates: '["2025-12-11"]',
+            weekdays: null,
+            times: null,
+            finishTime: null,
+            active: 0
           },
           {
-            task: {
-              name: "\u0631\u0648\u0632 \u062f\u062e\u062a\u0631",
-              text: "\u0648\u0644\u0627\u062f\u062a \u062d\u0636\u0631\u062a \u0645\u0639\u0635\u0648\u0645\u0647 (\u0633)",
-              type: "occasion",
-              category: "notification",
-              category_fa:
-                "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-              status: "waiting",
-              done: false,
-              exclude: [],
-              order: 2,
-              priority: 10
-            },
-            startDate: "2026-04-19",
-            endDate: "2026-04-19"
+            liomId: null,
+            telegramId: null,
+            phoneNumber: null,
+            schedule_type: "everyYear",
+            name: "\u0631\u0648\u0632 \u062f\u062e\u062a\u0631",
+            text: "occasion",
+            token1: null,
+            dates: '["2026-04-19"]',
+            weekdays: null,
+            times: null,
+            finishTime: null,
+            active: 0
           },
           {
-            task: {
-              name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
-              text: "International Women's Day",
-              type: "occasion",
-              category: "notification",
-              category_fa:
-                "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-              status: "waiting",
-              done: false,
-              exclude: [],
-              order: 3,
-              priority: 10
-            },
-            startDate: "2026-03-08",
-            endDate: "2026-03-08"
+            liomId: null,
+            telegramId: null,
+            phoneNumber: null,
+            schedule_type: "everyYear",
+            name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
+            text: "occasion",
+            token1: null,
+            dates: '["2026-03-08"]',
+            weekdays: null,
+            times: null,
+            finishTime: null,
+            active: 0
           },
           {
-            task: {
-              name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
-              text: "\u0631\u0648\u0632 \u0639\u0634\u0642 \u062c\u0647\u0627\u0646\u06cc",
-              type: "occasion",
-              category: "notification",
-              category_fa:
-                "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-              status: "waiting",
-              done: false,
-              exclude: [],
-              order: 4,
-              priority: 10
-            },
-            startDate: "2026-02-14",
-            endDate: "2026-02-14"
+            liomId: null,
+            telegramId: null,
+            phoneNumber: null,
+            schedule_type: "everyYear",
+            name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
+            text: "occasion",
+            token1: null,
+            dates: '["2026-02-14"]',
+            weekdays: null,
+            times: null,
+            finishTime: null,
+            active: 0
           },
           {
-            task: {
-              name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
-              text: "\u0631\u0648\u0632 \u0632\u0646 \u0648 \u0639\u0634\u0642 \u062f\u0631 \u0627\u06cc\u0631\u0627\u0646 \u0628\u0627\u0633\u062a\u0627\u0646",
-              type: "occasion",
-              category: "notification",
-              category_fa:
-                "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-              status: "waiting",
-              done: false,
-              exclude: [],
-              order: 5,
-              priority: 10
-            },
-            startDate: "2026-02-18",
-            endDate: "2026-02-18"
+            liomId: null,
+            telegramId: null,
+            phoneNumber: null,
+            schedule_type: "everyYear",
+            name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
+            text: "occasion",
+            token1: null,
+            dates: '["2026-02-18"]',
+            weekdays: null,
+            times: null,
+            finishTime: null,
+            active: 0
           },
           {
-            task: {
-              name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
-              text: "International Day of the Girl Child",
-              type: "occasion",
-              category: "notification",
-              category_fa:
-                "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-              status: "waiting",
-              done: false,
-              exclude: [],
-              order: 6,
-              priority: 10
-            },
-            startDate: "2026-10-11",
-            endDate: "2026-10-11"
+            liomId: null,
+            telegramId: null,
+            phoneNumber: null,
+            schedule_type: "everyYear",
+            name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
+            text: "occasion",
+            token1: null,
+            dates: '["2026-10-11"]',
+            weekdays: null,
+            times: null,
+            finishTime: null,
+            active: 0
           },
           {
-            task: {
-              name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
-              text: "",
-              type: "SpouseBirthday",
-              category: "notification",
-              category_fa:
-                "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-              status: "waiting",
-              done: false,
-              exclude: [],
-              order: 7,
-              priority: 10
-            }
+            liomId: null,
+            telegramId: null,
+            phoneNumber: null,
+            schedule_type: "everyYear",
+            name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
+            text: "birthday",
+            token1: null,
+            dates: "[]",
+            weekdays: null,
+            times: null,
+            finishTime: null,
+            active: 0
           },
           {
-            task: {
-              name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc",
-              text: "",
-              type: "MeetingAnniversary",
-              category: "notification",
-              category_fa:
-                "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-              status: "waiting",
-              done: false,
-              exclude: [],
-              order: 8,
-              priority: 10
-            }
+            liomId: null,
+            telegramId: null,
+            phoneNumber: null,
+            schedule_type: "everyYear",
+            name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc",
+            text: "anniversary",
+            token1: null,
+            dates: "[]",
+            weekdays: null,
+            times: null,
+            finishTime: null,
+            active: 0
           },
           {
-            task: {
-              name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c",
-              text: "",
-              type: "WeddingAnniversary",
-              category: "notification",
-              category_fa:
-                "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-              status: "waiting",
-              done: false,
-              exclude: [],
-              order: 9,
-              priority: 10
-            }
+            liomId: null,
+            telegramId: null,
+            phoneNumber: null,
+            schedule_type: "everyYear",
+            name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c",
+            text: "anniversary",
+            token1: null,
+            dates: "[]",
+            weekdays: null,
+            times: null,
+            finishTime: null,
+            active: 0
           },
           {
-            task: {
-              name: "\u062a\u0648\u0644\u062f \u0641\u0631\u0632\u0646\u062f",
-              text: "",
-              type: "ChildBirthday",
-              category: "notification",
-              category_fa:
-                "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-              status: "waiting",
-              done: false,
-              exclude: [],
-              order: 10,
-              priority: 10
-            }
-          },
-          {
-            task: {
-              name: "\u0631\u0648\u06cc\u062f\u0627\u062f \u0634\u062e\u0635\u06cc",
-              text: "",
-              type: "notificationEvent",
-              category: "notification",
-              category_fa:
-                "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-              status: "waiting",
-              done: false,
-              exclude: [],
-              order: 11,
-              priority: 10
-            }
+            liomId: null,
+            telegramId: null,
+            phoneNumber: null,
+            schedule_type: "everyYear",
+            name: "\u062a\u0648\u0644\u062f \u0641\u0631\u0632\u0646\u062f",
+            text: "birthday",
+            token1: null,
+            dates: "[]",
+            weekdays: null,
+            times: null,
+            finishTime: null,
+            active: 0
           }
         ]
       },
@@ -778,6 +751,12 @@ function PlasmicReminderSetting__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "list",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       }
     ],
     [$props, $ctx, $refs]
@@ -3212,42 +3191,15 @@ function PlasmicReminderSetting__RenderFunc(props: {
             (() => {
               try {
                 return (() => {
-                  $props.data.forEach(r => {
-                    const reqDate = r.date ? r.date.split("T")[0] : undefined;
-                    const existing = $state.offlineList.find(t => {
-                      if (r.type === "occasion") {
-                        return t.task.name === r.name;
-                      } else {
-                        return t.task.type === r.type;
-                      }
-                    });
-                    if (existing) {
-                      (existing.id = r.id), (existing.task.done = true);
-                      existing.startDate = reqDate;
-                      existing.endDate = reqDate;
-                    } else {
-                      $state.offlineList.push({
-                        id: r.id,
-                        task: {
-                          name: r.name,
-                          text: "",
-                          type: r.type,
-                          category: "notification",
-                          category_fa: "نوتیفیکیشن",
-                          status: "waiting",
-                          done: true,
-                          exclude: [],
-                          order: $state.offlineList.length + 1,
-                          priority: 10
-                        },
-                        startDate: reqDate,
-                        endDate: reqDate
-                      });
-                    }
-                  });
                   const groupsMap = new Map();
                   $state.offlineList.forEach(t => {
-                    const key = t.startDate || "__noDate__";
+                    let parsedDates;
+                    try {
+                      parsedDates = t.dates ? JSON.parse(t.dates) : [];
+                    } catch (e) {
+                      parsedDates = [];
+                    }
+                    const key = parsedDates[0] || "__noDate__";
                     if (!groupsMap.has(key)) groupsMap.set(key, []);
                     groupsMap.get(key).push(t);
                   });
@@ -3255,7 +3207,13 @@ function PlasmicReminderSetting__RenderFunc(props: {
                     .sort((a, b) => {
                       if (a[0] === "__noDate__") return 1;
                       if (b[0] === "__noDate__") return -1;
-                      return new Date(a[0]) - new Date(b[0]);
+                      const dateA = new Date(a[0]);
+                      const dateB = new Date(b[0]);
+                      const timeA = dateA.getTime();
+                      const timeB = dateB.getTime();
+                      if (Number.isNaN(timeA)) return 1;
+                      if (Number.isNaN(timeB)) return -1;
+                      return timeA - timeB;
                     })
                     .map(entry => entry[1]);
                   return groups;
@@ -3298,10 +3256,12 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       {(() => {
                         try {
                           return (() => {
-                            if (currentday[0].startDate)
-                              return new Date(
-                                currentday[0].startDate
-                              ).toLocaleDateString("fa-IR", { day: "numeric" });
+                            var date = JSON.parse(currentday[0].dates)[0];
+                            if (date)
+                              return new Date(date).toLocaleDateString(
+                                "fa-IR",
+                                { day: "numeric" }
+                              );
                             else return "?";
                           })();
                         } catch (e) {
@@ -3327,10 +3287,12 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       {(() => {
                         try {
                           return (() => {
-                            if (currentday[0].startDate)
-                              return new Date(
-                                currentday[0].startDate
-                              ).toLocaleDateString("fa-IR", { month: "long" });
+                            var date = JSON.parse(currentday[0].dates)[0];
+                            if (date)
+                              return new Date(date).toLocaleDateString(
+                                "fa-IR",
+                                { month: "long" }
+                              );
                             else return "";
                           })();
                         } catch (e) {
@@ -3436,7 +3398,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     <React.Fragment>
                                       {(() => {
                                         try {
-                                          return currentItem.task.name;
+                                          return currentItem.name;
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
@@ -3461,7 +3423,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             >
                               {(() => {
                                 try {
-                                  return currentItem.startDate;
+                                  return (() => {
+                                    const datesStr = currentItem.dates || "[]";
+                                    const parsed = JSON.parse(datesStr || "[]");
+                                    return parsed.length > 0;
+                                  })();
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -3554,8 +3520,17 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                       (() => {
                                                         try {
                                                           return (() => {
-                                                            currentItem.task.userId =
+                                                            currentItem.liomId =
                                                               $props.manId;
+                                                            currentItem.active = 1;
+                                                            currentItem.telegramId =
+                                                              $props.telegramId;
+                                                            currentItem.phoneNumber =
+                                                              $props.phoneNumber;
+                                                            currentItem.token1 =
+                                                              $props.token;
+                                                            currentItem.times =
+                                                              ["09:00"];
                                                             return currentItem;
                                                           })();
                                                         } catch (e) {
@@ -3570,32 +3545,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                           throw e;
                                                         }
                                                       })(),
-                                                      (() => {
-                                                        try {
-                                                          return {
-                                                            headers: {
-                                                              "Content-Type":
-                                                                "application/json",
-                                                              Accept:
-                                                                "application/json",
-                                                              Authorization:
-                                                                $props.token,
-                                                              "X-Requested-With":
-                                                                "XMLHttpRequest"
-                                                            }
-                                                          };
-                                                        } catch (e) {
-                                                          if (
-                                                            e instanceof
-                                                              TypeError ||
-                                                            e?.plasmicType ===
-                                                              "PlasmicUndefinedDataError"
-                                                          ) {
-                                                            return undefined;
-                                                          }
-                                                          throw e;
-                                                        }
-                                                      })()
+                                                      undefined
                                                     ]
                                                   };
                                                   return $globalActions[
@@ -3614,72 +3564,47 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                             $steps["add"] = await $steps["add"];
                                           }
 
-                                          $steps["remove"] =
-                                            ($state.switchSetting[dayIndex][
-                                              currentIndex
-                                            ].isChecked == null ||
-                                              $state.switchSetting[dayIndex][
-                                                currentIndex
-                                              ].isChecked == false) &&
-                                            currentItem.id
-                                              ? (() => {
-                                                  const actionArgs = {
-                                                    args: [
-                                                      "POST",
-                                                      "https://n8n.staas.ir/webhook/user/task/delete",
-                                                      undefined,
-                                                      (() => {
-                                                        try {
-                                                          return {
-                                                            id: currentItem.id
-                                                          };
-                                                        } catch (e) {
-                                                          if (
-                                                            e instanceof
-                                                              TypeError ||
-                                                            e?.plasmicType ===
-                                                              "PlasmicUndefinedDataError"
-                                                          ) {
-                                                            return undefined;
-                                                          }
-                                                          throw e;
+                                          $steps["remove"] = currentItem.id
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  args: [
+                                                    "POST",
+                                                    "https://n8n.staas.ir/webhook/user/task/edit",
+                                                    undefined,
+                                                    (() => {
+                                                      try {
+                                                        return {
+                                                          id: currentItem.id,
+                                                          active: $state
+                                                            .switchSetting[
+                                                            dayIndex
+                                                          ][currentIndex]
+                                                            .isChecked
+                                                            ? true
+                                                            : false
+                                                        };
+                                                      } catch (e) {
+                                                        if (
+                                                          e instanceof
+                                                            TypeError ||
+                                                          e?.plasmicType ===
+                                                            "PlasmicUndefinedDataError"
+                                                        ) {
+                                                          return undefined;
                                                         }
-                                                      })(),
-                                                      (() => {
-                                                        try {
-                                                          return {
-                                                            headers: {
-                                                              "Content-Type":
-                                                                "application/json",
-                                                              Accept:
-                                                                "application/json",
-                                                              Authorization:
-                                                                $props.token,
-                                                              "X-Requested-With":
-                                                                "XMLHttpRequest"
-                                                            }
-                                                          };
-                                                        } catch (e) {
-                                                          if (
-                                                            e instanceof
-                                                              TypeError ||
-                                                            e?.plasmicType ===
-                                                              "PlasmicUndefinedDataError"
-                                                          ) {
-                                                            return undefined;
-                                                          }
-                                                          throw e;
-                                                        }
-                                                      })()
-                                                    ]
-                                                  };
-                                                  return $globalActions[
-                                                    "Fragment.apiRequest"
-                                                  ]?.apply(null, [
-                                                    ...actionArgs.args
-                                                  ]);
-                                                })()
-                                              : undefined;
+                                                        throw e;
+                                                      }
+                                                    })(),
+                                                    undefined
+                                                  ]
+                                                };
+                                                return $globalActions[
+                                                  "Fragment.apiRequest"
+                                                ]?.apply(null, [
+                                                  ...actionArgs.args
+                                                ]);
+                                              })()
+                                            : undefined;
                                           if (
                                             $steps["remove"] != null &&
                                             typeof $steps["remove"] ===
@@ -3700,7 +3625,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                       async () => {
                                                         return (() => {
                                                           currentItem.id =
-                                                            $steps.add.data.result[0];
+                                                            $steps.add.data.result;
                                                           return ($state.refresh += 1);
                                                         })();
                                                       }
@@ -3739,7 +3664,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           }) =>
                                             (() => {
                                               try {
-                                                return currentItem.task.done;
+                                                return currentItem.active;
                                               } catch (e) {
                                                 if (
                                                   e instanceof TypeError ||
@@ -3768,7 +3693,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                 : null}
                               {(() => {
                                 try {
-                                  return !currentItem.startDate;
+                                  return (() => {
+                                    const datesStr = currentItem.dates || "[]";
+                                    const parsed = JSON.parse(datesStr || "[]");
+                                    return parsed.length == 0;
+                                  })();
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -4031,6 +3960,82 @@ function PlasmicReminderSetting__RenderFunc(props: {
           })}
         </div>
       </div>
+      <SideEffect
+        data-plasmic-name={"sideEffect"}
+        data-plasmic-override={overrides.sideEffect}
+        className={classNames("__wab_instance", sty.sideEffect)}
+        onMount={async () => {
+          const $steps = {};
+
+          $steps["runCode"] = true
+            ? (() => {
+                const actionArgs = {
+                  customFunction: async () => {
+                    return (() => {
+                      $state.offlineList = $state.offlineList || [];
+                      const updatedList = [];
+                      return $props.data.forEach(r => {
+                        const existing = $state.offlineList.find(t => {
+                          if (r.text === "occasion") {
+                            return t.name === r.name;
+                          } else {
+                            return t.type === r.text;
+                          }
+                        });
+                        if (existing) {
+                          existing.id = r.id;
+                          existing.liomId = r.liomId || existing.liomId;
+                          existing.telegramId =
+                            r.telegramId || existing.telegramId;
+                          existing.phoneNumber =
+                            r.phoneNumber || existing.phoneNumber;
+                          existing.schedule_type =
+                            r.schedule_type || existing.schedule_type;
+                          existing.name = r.name || existing.name;
+                          existing.text = r.text || existing.text;
+                          existing.token1 = r.token1 || existing.token1;
+                          existing.dates = r.dates || existing.dates;
+                          existing.weekdays = r.weekdays || existing.weekdays;
+                          existing.times = r.times || existing.times;
+                          existing.finishTime =
+                            r.finishTime || existing.finishTime;
+                          existing.active = r.active ?? existing.active;
+                        } else {
+                          const newEvent = {
+                            id: r.id,
+                            liomId: r.liomId || null,
+                            telegramId: r.telegramId || null,
+                            phoneNumber: r.phoneNumber || null,
+                            schedule_type: r.schedule_type || null,
+                            name: r.name,
+                            text: r.text,
+                            token1: r.token1 || null,
+                            dates: r.dates,
+                            weekdays: r.weekdays || null,
+                            times: r.times || null,
+                            finishTime: r.finishTime || null,
+                            active: r.active ?? 0
+                          };
+                          $state.offlineList.push(newEvent);
+                        }
+                      });
+                    })();
+                  }
+                };
+                return (({ customFunction }) => {
+                  return customFunction();
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["runCode"] != null &&
+            typeof $steps["runCode"] === "object" &&
+            typeof $steps["runCode"].then === "function"
+          ) {
+            $steps["runCode"] = await $steps["runCode"];
+          }
+        }}
+      />
     </div>
   ) as React.ReactElement | null;
 }
@@ -4070,7 +4075,8 @@ const PlasmicDescendants = {
     "frame29",
     "frame30",
     "switchSetting",
-    "button2"
+    "button2",
+    "sideEffect"
   ],
   section: [
     "section",
@@ -4147,7 +4153,8 @@ const PlasmicDescendants = {
   frame29: ["frame29", "frame30"],
   frame30: ["frame30"],
   switchSetting: ["switchSetting"],
-  button2: ["button2"]
+  button2: ["button2"],
+  sideEffect: ["sideEffect"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -4187,6 +4194,7 @@ type NodeDefaultElementType = {
   frame30: "div";
   switchSetting: typeof Switchbest;
   button2: typeof Button;
+  sideEffect: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -4282,6 +4290,7 @@ export const PlasmicReminderSetting = Object.assign(
     frame30: makeNodeComponent("frame30"),
     switchSetting: makeNodeComponent("switchSetting"),
     button2: makeNodeComponent("button2"),
+    sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicReminderSetting
     internalVariantProps: PlasmicReminderSetting__VariantProps,

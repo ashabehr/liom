@@ -211,6 +211,12 @@ function PlasmicMenuItem2__RenderFunc(props: {
             data-plasmic-name={"menuIcon"}
             data-plasmic-override={overrides.menuIcon}
             className={classNames("__wab_instance", sty.menuIcon, {
+              [sty.menuIconglobal_unnamedGlobalGroupOfVariants4_unnamedVariant]:
+                hasVariant(
+                  globalVariants,
+                  "unnamedGlobalGroupOfVariants4",
+                  "unnamedVariant"
+                ),
               [sty.menuIconselect]: hasVariant($state, "select", "select")
             })}
             icons={(() => {
