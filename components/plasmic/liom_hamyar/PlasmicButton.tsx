@@ -105,6 +105,7 @@ export type PlasmicButton__VariantMembers = {
   loading: "loading";
   filter: "filter";
   unnamedVariant2: "unnamedVariant2";
+  buttonDataaa: "buttonDataaa";
 };
 export type PlasmicButton__VariantsArgs = {
   showStartIcon?: SingleBooleanChoiceArg<"showStartIcon">;
@@ -136,6 +137,7 @@ export type PlasmicButton__VariantsArgs = {
   loading?: SingleBooleanChoiceArg<"loading">;
   filter?: SingleBooleanChoiceArg<"filter">;
   unnamedVariant2?: SingleBooleanChoiceArg<"unnamedVariant2">;
+  buttonDataaa?: SingleBooleanChoiceArg<"buttonDataaa">;
 };
 type VariantPropType = keyof PlasmicButton__VariantsArgs;
 export const PlasmicButton__VariantProps = new Array<VariantPropType>(
@@ -148,7 +150,8 @@ export const PlasmicButton__VariantProps = new Array<VariantPropType>(
   "filterX",
   "loading",
   "filter",
-  "unnamedVariant2"
+  "unnamedVariant2",
+  "buttonDataaa"
 );
 
 export type PlasmicButton__ArgsType = {
@@ -221,6 +224,7 @@ export interface DefaultButtonProps extends pp.BaseButtonProps {
   loading?: SingleBooleanChoiceArg<"loading">;
   filter?: SingleBooleanChoiceArg<"filter">;
   unnamedVariant2?: SingleBooleanChoiceArg<"unnamedVariant2">;
+  buttonDataaa?: SingleBooleanChoiceArg<"buttonDataaa">;
 }
 
 const $$ = {};
@@ -339,6 +343,12 @@ function PlasmicButton__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.unnamedVariant2
+      },
+      {
+        path: "buttonDataaa",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.buttonDataaa
       }
     ],
     [$props, $ctx, $refs]
@@ -382,6 +392,11 @@ function PlasmicButton__RenderFunc(props: {
         sty.root,
         {
           [sty.root___focusVisibleWithin]: triggers.focusVisibleWithin_root,
+          [sty.rootbuttonDataaa]: hasVariant(
+            $state,
+            "buttonDataaa",
+            "buttonDataaa"
+          ),
           [sty.rootcolor_blue]: hasVariant($state, "color", "blue"),
           [sty.rootcolor_clear]: hasVariant($state, "color", "clear"),
           [sty.rootcolor_green]: hasVariant($state, "color", "green"),
@@ -607,6 +622,11 @@ function PlasmicButton__RenderFunc(props: {
               className: classNames(sty.slotTargetChildren, {
                 [sty.slotTargetChildren___focusVisibleWithin]:
                   triggers.focusVisibleWithin_root,
+                [sty.slotTargetChildrenbuttonDataaa]: hasVariant(
+                  $state,
+                  "buttonDataaa",
+                  "buttonDataaa"
+                ),
                 [sty.slotTargetChildrencolor_blue]: hasVariant(
                   $state,
                   "color",

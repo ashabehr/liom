@@ -123,6 +123,7 @@ export type PlasmicFilter__OverridesType = {
   sliderThumb?: Flex__<typeof SliderThumb>;
   button2?: Flex__<typeof Button>;
   button?: Flex__<typeof Button>;
+  nameUsername?: Flex__<"div">;
   modal?: Flex__<typeof AntdModal>;
   diseareVer?: Flex__<"div">;
   checkbox?: Flex__<typeof Checkbox>;
@@ -2453,7 +2454,9 @@ function PlasmicFilter__RenderFunc(props: {
                       </div>
                     </div>
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__mcHwi)}
+                      data-plasmic-name={"nameUsername"}
+                      data-plasmic-override={overrides.nameUsername}
+                      className={classNames(projectcss.all, sty.nameUsername)}
                     >
                       <div
                         className={classNames(
@@ -2501,6 +2504,17 @@ function PlasmicFilter__RenderFunc(props: {
                           })()}
                         </React.Fragment>
                       </div>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__suXlF
+                      )}
+                    >
+                      {
+                        "\u0628\u0631\u0627\u06cc \u0645\u0634\u0627\u0647\u062f\u0647 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0645\u0631\u0627\u062c\u0639 \u06a9\u0646\u0646\u062f\u0647 \u0631\u0648\u06cc \u06a9\u0627\u062f\u0631 \u0636\u0631\u0628\u0647  \u0628\u0632\u0646\u06cc\u062f"
+                      }
                     </div>
                   </div>
                   <div
@@ -4067,6 +4081,7 @@ const PlasmicDescendants = {
     "sliderThumb",
     "button2",
     "button",
+    "nameUsername",
     "modal",
     "diseareVer",
     "checkbox",
@@ -4109,6 +4124,7 @@ const PlasmicDescendants = {
   sliderThumb: ["sliderThumb"],
   button2: ["button2"],
   button: ["button"],
+  nameUsername: ["nameUsername"],
   modal: ["modal", "diseareVer", "checkbox", "input"],
   diseareVer: ["diseareVer", "checkbox"],
   checkbox: ["checkbox"],
@@ -4142,6 +4158,7 @@ type NodeDefaultElementType = {
   sliderThumb: typeof SliderThumb;
   button2: typeof Button;
   button: typeof Button;
+  nameUsername: "div";
   modal: typeof AntdModal;
   diseareVer: "div";
   checkbox: typeof Checkbox;
@@ -4256,6 +4273,7 @@ export const PlasmicFilter = Object.assign(
     sliderThumb: makeNodeComponent("sliderThumb"),
     button2: makeNodeComponent("button2"),
     button: makeNodeComponent("button"),
+    nameUsername: makeNodeComponent("nameUsername"),
     modal: makeNodeComponent("modal"),
     diseareVer: makeNodeComponent("diseareVer"),
     checkbox: makeNodeComponent("checkbox"),

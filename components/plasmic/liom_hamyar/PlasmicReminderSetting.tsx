@@ -67,6 +67,7 @@ import RadioGrop from "../../RadioGrop"; // plasmic-import: mcNKMbL_6N75/compone
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
 import { Pickers } from "@/components/Pickers"; // plasmic-import: htE-oGSeNx82/codeComponent
+import { TimePickerCustom } from "@/components/TimePickerCustom"; // plasmic-import: GRoigtq491XH/codeComponent
 import CheckboxGroup from "../../CheckboxGroup"; // plasmic-import: AhgoIztCTzjf/component
 import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
@@ -144,6 +145,7 @@ export type PlasmicReminderSetting__OverridesType = {
   time?: Flex__<typeof Dialog>;
   pickers?: Flex__<typeof Pickers>;
   pickers2?: Flex__<typeof Pickers>;
+  timePickerCustom?: Flex__<typeof TimePickerCustom>;
   button6?: Flex__<typeof Button>;
   weekDays?: Flex__<typeof Dialog>;
   checkboxGroup?: Flex__<typeof CheckboxGroup>;
@@ -770,6 +772,12 @@ function PlasmicReminderSetting__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "start"
+      },
+      {
+        path: "timePickerCustom.value",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -1518,7 +1526,10 @@ function PlasmicReminderSetting__RenderFunc(props: {
                     <React.Fragment>
                       {(() => {
                         try {
-                          return `${$state.time2.minute} : ${$state.time2.hour}`;
+                          return `${String($state.time2.minute).padStart(
+                            2,
+                            "0"
+                          )} : ${String($state.time2.hour).padStart(2, "0")}`;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -2122,6 +2133,24 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 }}
               />
             </div>
+            <TimePickerCustom
+              data-plasmic-name={"timePickerCustom"}
+              data-plasmic-override={overrides.timePickerCustom}
+              SelectedHour={9}
+              SelectedMinute={30}
+              className={classNames("__wab_instance", sty.timePickerCustom)}
+              onChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "timePickerCustom",
+                  "value"
+                ]).apply(null, eventArgs);
+              }}
+              selectedValues={generateStateValueProp($state, [
+                "timePickerCustom",
+                "value"
+              ])}
+            />
+
             <Button
               data-plasmic-name={"button6"}
               data-plasmic-override={overrides.button6}
@@ -4022,6 +4051,7 @@ const PlasmicDescendants = {
     "time",
     "pickers",
     "pickers2",
+    "timePickerCustom",
     "button6",
     "weekDays",
     "checkboxGroup",
@@ -4056,6 +4086,7 @@ const PlasmicDescendants = {
     "time",
     "pickers",
     "pickers2",
+    "timePickerCustom",
     "button6",
     "weekDays",
     "checkboxGroup",
@@ -4070,9 +4101,10 @@ const PlasmicDescendants = {
   dateDiolog: ["dateDiolog", "datePickers", "button4"],
   datePickers: ["datePickers"],
   button4: ["button4"],
-  time: ["time", "pickers", "pickers2", "button6"],
+  time: ["time", "pickers", "pickers2", "timePickerCustom", "button6"],
   pickers: ["pickers"],
   pickers2: ["pickers2"],
+  timePickerCustom: ["timePickerCustom"],
   button6: ["button6"],
   weekDays: ["weekDays", "checkboxGroup", "checkbox"],
   checkboxGroup: ["checkboxGroup", "checkbox"],
@@ -4135,6 +4167,7 @@ type NodeDefaultElementType = {
   time: typeof Dialog;
   pickers: typeof Pickers;
   pickers2: typeof Pickers;
+  timePickerCustom: typeof TimePickerCustom;
   button6: typeof Button;
   weekDays: typeof Dialog;
   checkboxGroup: typeof CheckboxGroup;
@@ -4229,6 +4262,7 @@ export const PlasmicReminderSetting = Object.assign(
     time: makeNodeComponent("time"),
     pickers: makeNodeComponent("pickers"),
     pickers2: makeNodeComponent("pickers2"),
+    timePickerCustom: makeNodeComponent("timePickerCustom"),
     button6: makeNodeComponent("button6"),
     weekDays: makeNodeComponent("weekDays"),
     checkboxGroup: makeNodeComponent("checkboxGroup"),

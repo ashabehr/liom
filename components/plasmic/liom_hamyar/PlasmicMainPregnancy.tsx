@@ -462,7 +462,10 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                 })()}
                 userinfo={(() => {
                   try {
-                    return JSON.parse(localStorage.getItem("userinfo")).user;
+                    return (
+                      //(JSON.parse(localStorage.getItem("userinfo")).user) ?? {}
+                      {}
+                    );
                   } catch (e) {
                     if (
                       e instanceof TypeError ||

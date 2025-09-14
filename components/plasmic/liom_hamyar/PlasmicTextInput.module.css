@@ -41,6 +41,9 @@
   border-style: solid;
   border-color: var(--token-4RAe7M2gInqR);
 }
+.freeBoxdiscriptionData {
+  background: #f7f7f7;
+}
 .root:hover .freeBox {
   border-color: #c8c7c1;
 }

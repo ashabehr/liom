@@ -59,6 +59,9 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import TextInput from "../../TextInput"; // plasmic-import: cOSV4CnhD7mN/component
+import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
+import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -68,6 +71,9 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 
 import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicDataUser.module.css"; // plasmic-import: FUDO69vr4clr/css
+
+import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 
 createPlasmicElementProxy;
 
@@ -82,6 +88,7 @@ export const PlasmicDataUser__ArgProps = new Array<ArgPropType>("header");
 
 export type PlasmicDataUser__OverridesType = {
   frame41?: Flex__<"div">;
+  textInput?: Flex__<typeof TextInput>;
 };
 
 export interface DefaultDataUserProps {
@@ -173,7 +180,7 @@ function PlasmicDataUser__RenderFunc(props: {
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: "name",
+        path: "date",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => [
@@ -254,6 +261,95 @@ function PlasmicDataUser__RenderFunc(props: {
             days_left: 0
           }
         ]
+      },
+      {
+        path: "name",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          {
+            key: "countBuyBreastCancer",
+            label:
+              "\u062a\u0639\u062f\u0627\u062f \u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9 \u067e\u06cc\u0627\u0645\u06a9 \u0633\u0631\u0637\u0627\u0646 \u0633\u06cc\u0646\u0647",
+            value: 3
+          },
+          {
+            key: "countBuyHamyarStatus",
+            label:
+              "\u062a\u0639\u062f\u0627\u062f \u062e\u0631\u06cc\u062f \u0648\u0636\u0639\u06cc\u062a \u0647\u0645\u06cc\u0627\u0631",
+            value: 1
+          },
+          {
+            key: "countBuyHusbandSms",
+            label:
+              "\u062a\u0639\u062f\u0627\u062f \u062e\u0631\u06cc\u062f \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0645\u0633\u0631",
+            value: 3
+          },
+          {
+            key: "countBuyPregnancySubStatus",
+            label:
+              "\u062a\u0639\u062f\u0627\u062f \u062e\u0631\u06cc\u062f \u0648\u0636\u0639\u06cc\u062a \u0627\u0634\u062a\u0631\u0627\u06a9 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
+            value: 5
+          },
+          {
+            key: "countBuySelfSms",
+            label:
+              "\u062a\u0639\u062f\u0627\u062f \u062e\u0631\u06cc\u062f \u067e\u06cc\u0627\u0645\u06a9 \u062e\u0648\u062f",
+            value: 1
+          },
+          {
+            key: "countBuySpecialAdvice",
+            label:
+              "\u062a\u0639\u062f\u0627\u062f \u062e\u0631\u06cc\u062f \u0645\u0634\u0627\u0648\u0631\u0647 \u0648\u06cc\u0698\u0647",
+            value: 1
+          },
+          {
+            key: "activeTel",
+            label: "\u062a\u0644\u0641\u0646 \u0641\u0639\u0627\u0644",
+            value: true
+          },
+          {
+            key: "mobile",
+            label:
+              "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644",
+            value: ""
+          },
+          {
+            key: "id",
+            label: "\u0634\u0646\u0627\u0633\u0647",
+            value: "265149"
+          },
+          {
+            key: "lastActivity",
+            label:
+              "\u0622\u062e\u0631\u06cc\u0646 \u0641\u0639\u0627\u0644\u06cc\u062a",
+            value: "2025-09-12T18:23:34.707000"
+          },
+          {
+            key: "username",
+            label: "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc",
+            value: "melika"
+          },
+          {
+            key: "refcode",
+            label: "\u06a9\u062f \u0627\u0631\u062c\u0627\u0639",
+            value: "3d8fb3"
+          }
+        ]
+      },
+      {
+        path: "textInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "antdInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", Input_Helpers)
       }
     ],
     [$props, $ctx, $refs]
@@ -289,80 +385,20 @@ function PlasmicDataUser__RenderFunc(props: {
       )}
     >
       <div className={classNames(projectcss.all, sty.freeBox__tyNY)}>
-        <div className={classNames(projectcss.all, sty.freeBox__iflw9)}>
-          {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-            (() => {
-              try {
-                return $state.name;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return [];
-                }
-                throw e;
-              }
-            })()
-          ).map((__plasmic_item_0, __plasmic_idx_0) => {
-            const currentItem = __plasmic_item_0;
-            const currentIndex = __plasmic_idx_0;
-            return (
-              <div
-                className={classNames(projectcss.all, sty.freeBox__i1DpB)}
-                key={currentIndex}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__jBhv0
-                  )}
-                >
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return currentItem.label;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "";
-                        }
-                        throw e;
-                      }
-                    })()}
-                  </React.Fragment>
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__ipE5B
-                  )}
-                >
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return currentItem.value;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "";
-                        }
-                        throw e;
-                      }
-                    })()}
-                  </React.Fragment>
-                </div>
-              </div>
-            );
-          })}
-        </div>
         <div className={classNames(projectcss.all, sty.freeBox__csHyN)}>
+          <div className={classNames(projectcss.all, sty.freeBox__ialIu)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__aI5K7
+              )}
+            >
+              {
+                "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u06a9\u0627\u0631\u0628\u0631"
+              }
+            </div>
+          </div>
           {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
             (() => {
               try {
@@ -414,11 +450,152 @@ function PlasmicDataUser__RenderFunc(props: {
                     projectcss.__wab_text,
                     sty.text___1NtCo
                   )}
+                  style={(() => {
+                    try {
+                      return (() => {
+                        if (typeof currentItem.value === "boolean")
+                          return {
+                            background: currentItem.value
+                              ? "#00ff0011"
+                              : "#ff000011",
+                            border: currentItem.value
+                              ? "solid 1px #00ff00"
+                              : "solid 1px #ff0000",
+                            width: "100px",
+                            display: "flex",
+                            justifyContent: "center",
+                            borderRadius: "10px",
+                            color: currentItem.value ? "#20ad4e" : "#ff0000"
+                          };
+                      })();
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
                 >
                   <React.Fragment>
                     {(() => {
                       try {
-                        return currentItem.value;
+                        return (() => {
+                          const value = (() => {
+                            if (typeof currentItem.value === "boolean") {
+                              return currentItem.value ? "فعال" : "غیرفعال";
+                            }
+                            if (typeof currentItem.value === "string") {
+                              const dateRegex =
+                                /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{6}$/;
+                              if (dateRegex.test(currentItem.value)) {
+                                const gregorianDate = new Date(
+                                  currentItem.value
+                                );
+                                return new Intl.DateTimeFormat("fa-IR").format(
+                                  gregorianDate
+                                );
+                              }
+                              return currentItem.value;
+                            }
+                            return currentItem.value;
+                          })();
+                          return value;
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <div className={classNames(projectcss.all, sty.freeBox__iflw9)}>
+          <div className={classNames(projectcss.all, sty.freeBox__vzN8)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__av87Z
+              )}
+            >
+              {
+                "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0647\u0645\u06cc\u0627\u0631"
+              }
+            </div>
+          </div>
+          {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+            (() => {
+              try {
+                return $state.date;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return [];
+                }
+                throw e;
+              }
+            })()
+          ).map((__plasmic_item_0, __plasmic_idx_0) => {
+            const currentItem = __plasmic_item_0;
+            const currentIndex = __plasmic_idx_0;
+            return (
+              <div
+                className={classNames(projectcss.all, sty.freeBox__i1DpB)}
+                key={currentIndex}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__jBhv0
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return currentItem.label;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__ipE5B
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return (() => {
+                          const gregorianDate = new Date(currentItem.value);
+                          const persianDate = new Intl.DateTimeFormat(
+                            "fa-IR"
+                          ).format(gregorianDate);
+                          return persianDate;
+                        })();
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -436,18 +613,53 @@ function PlasmicDataUser__RenderFunc(props: {
           })}
         </div>
       </div>
+      <div className={classNames(projectcss.all, sty.freeBox__coLmv)}>
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__mdnC
+          )}
+        >
+          {"\u06cc\u0627\u062f\u062f\u0627\u0634\u062a:"}
+        </div>
+        <TextInput
+          data-plasmic-name={"textInput"}
+          data-plasmic-override={overrides.textInput}
+          className={classNames("__wab_instance", sty.textInput)}
+          discriptionData={true}
+          onChange={async (...eventArgs: any) => {
+            ((...eventArgs) => {
+              generateStateOnChangeProp($state, ["textInput", "value"])(
+                (e => e.target?.value).apply(null, eventArgs)
+              );
+            }).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          value={generateStateValueProp($state, ["textInput", "value"]) ?? ""}
+        />
+      </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  frame41: ["frame41"]
+  frame41: ["frame41", "textInput"],
+  textInput: ["textInput"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   frame41: "div";
+  textInput: typeof TextInput;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -510,6 +722,7 @@ export const PlasmicDataUser = Object.assign(
   makeNodeComponent("frame41"),
   {
     // Helper components rendering sub-elements
+    textInput: makeNodeComponent("textInput"),
 
     // Metadata about props expected for PlasmicDataUser
     internalVariantProps: PlasmicDataUser__VariantProps,

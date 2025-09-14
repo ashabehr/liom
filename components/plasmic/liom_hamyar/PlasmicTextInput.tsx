@@ -84,6 +84,7 @@ export type PlasmicTextInput__VariantMembers = {
   isDisabled: "isDisabled";
   color: "dark";
   error: "error";
+  discriptionData: "discriptionData";
 };
 export type PlasmicTextInput__VariantsArgs = {
   showStartIcon?: SingleBooleanChoiceArg<"showStartIcon">;
@@ -91,6 +92,7 @@ export type PlasmicTextInput__VariantsArgs = {
   isDisabled?: SingleBooleanChoiceArg<"isDisabled">;
   color?: SingleChoiceArg<"dark">;
   error?: SingleBooleanChoiceArg<"error">;
+  discriptionData?: SingleBooleanChoiceArg<"discriptionData">;
 };
 type VariantPropType = keyof PlasmicTextInput__VariantsArgs;
 export const PlasmicTextInput__VariantProps = new Array<VariantPropType>(
@@ -98,7 +100,8 @@ export const PlasmicTextInput__VariantProps = new Array<VariantPropType>(
   "showEndIcon",
   "isDisabled",
   "color",
-  "error"
+  "error",
+  "discriptionData"
 );
 
 export type PlasmicTextInput__ArgsType = {
@@ -179,6 +182,7 @@ export interface DefaultTextInputProps extends pp.BaseTextInputProps {
   antdInput2?: React.ReactNode;
   color?: SingleChoiceArg<"dark">;
   error?: SingleBooleanChoiceArg<"error">;
+  discriptionData?: SingleBooleanChoiceArg<"discriptionData">;
 }
 
 const $$ = {};
@@ -265,6 +269,12 @@ function PlasmicTextInput__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.error
+      },
+      {
+        path: "discriptionData",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.discriptionData
       }
     ],
     [$props, $ctx, $refs]
@@ -308,6 +318,11 @@ function PlasmicTextInput__RenderFunc(props: {
         {
           [sty.root___focusVisibleWithin]: triggers.focusVisibleWithin_root,
           [sty.rootcolor_dark]: hasVariant($state, "color", "dark"),
+          [sty.rootdiscriptionData]: hasVariant(
+            $state,
+            "discriptionData",
+            "discriptionData"
+          ),
           [sty.rooterror]: hasVariant($state, "error", "error"),
           [sty.rootisDisabled]: hasVariant($state, "isDisabled", "isDisabled"),
           [sty.rootshowEndIcon]: hasVariant(
@@ -334,6 +349,11 @@ function PlasmicTextInput__RenderFunc(props: {
         className={classNames(projectcss.all, sty.freeBox, {
           [sty.freeBox___focusVisibleWithin]: triggers.focusVisibleWithin_root,
           [sty.freeBoxcolor_dark]: hasVariant($state, "color", "dark"),
+          [sty.freeBoxdiscriptionData]: hasVariant(
+            $state,
+            "discriptionData",
+            "discriptionData"
+          ),
           [sty.freeBoxerror]: hasVariant($state, "error", "error"),
           [sty.freeBoxisDisabled]: hasVariant(
             $state,

@@ -175,6 +175,7 @@
   max-width: 100%;
   object-fit: cover;
   background: none;
+  font-size: var(--token-Wa5tmrNKVUYF);
   min-width: 0;
 }
 .freeBox__p8KA1 {
@@ -560,6 +561,7 @@
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
+  row-gap: var(--token-1KusGK5GePTh);
   min-width: 0;
   padding: 0px;
 }
@@ -583,6 +585,12 @@
 .pickers2:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
+}
+.timePickerCustom:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  background: none;
+  display: none;
 }
 .button6:global(.__wab_instance) {
   max-width: 100%;

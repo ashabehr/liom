@@ -38,6 +38,9 @@
   flex-shrink: 0;
   display: flex;
 }
+.userPagedataUser:global(.__wab_instance) {
+  flex-shrink: 0;
+}
 .userPageuser_page_reports:global(.__wab_instance) {
   flex-shrink: 0;
   display: flex;
@@ -46,7 +49,11 @@
   flex-shrink: 0;
   display: flex;
 }
-.freeBox__qKfUn {
+.userPageuser_dataUser:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: none;
+}
+.freeBox {
   flex-direction: row;
   position: relative;
   align-items: stretch;
@@ -58,7 +65,7 @@
   display: none;
   padding: 8px;
 }
-.freeBoxuser__qKfUnbGqPs {
+.freeBoxuser {
   display: flex;
 }
 .text__yW1U {
@@ -98,6 +105,10 @@
   flex-shrink: 0;
   display: none;
 }
+.reportsdataUser:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: none;
+}
 .reportsuser_page_reports:global(.__wab_instance) {
   flex-shrink: 0;
 }
@@ -116,18 +127,12 @@
 .tabPageuser_page_tabPage:global(.__wab_instance) {
   flex-shrink: 0;
 }
-.freeBox__gCx1I {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  align-items: stretch;
-  justify-content: flex-start;
-  width: 100%;
-  height: auto;
+.userPage2:global(.__wab_instance) {
   max-width: 100%;
-  min-width: 0;
-  padding: 8px;
+  flex-shrink: 0;
+  display: none;
 }
-.dataUser:global(.__wab_instance) {
-  position: relative;
+.userPage2dataUser:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: flex;
 }

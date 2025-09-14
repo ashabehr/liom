@@ -869,8 +869,7 @@
   text-align: center;
   min-width: 0;
 }
-.freeBox__mcHwi {
-  display: flex;
+.nameUsername {
   flex-direction: column;
   position: relative;
   width: 40%;
@@ -879,6 +878,7 @@
   justify-content: center;
   align-items: flex-end;
   align-self: flex-end;
+  display: none;
   padding: 0px 20px 8px 8px;
 }
 .text__rrvTz {
@@ -898,6 +898,15 @@
   height: auto;
   max-width: 100%;
   text-align: right;
+  min-width: 0;
+}
+.text__suXlF {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  align-self: center;
   min-width: 0;
 }
 .freeBox___9Xbbu {
