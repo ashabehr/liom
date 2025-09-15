@@ -320,8 +320,8 @@
   row-gap: var(--token-1KusGK5GePTh);
   width: auto;
   background: var(--token-R_Rsn0nP9oIv);
-  min-width: 150px;
-  max-width: 250px;
+  min-width: 250px;
+  max-width: 300px;
   opacity: 1;
   min-height: 180px;
   border-radius: 12px;

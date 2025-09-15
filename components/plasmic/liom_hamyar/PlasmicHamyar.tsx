@@ -2061,6 +2061,12 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "remind",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       }
     ],
     [$props, $ctx, $refs]
@@ -25683,6 +25689,44 @@ function PlasmicHamyar__RenderFunc(props: {
                 null,
                 eventArgs
               );
+
+              (async data => {
+                const $steps = {};
+
+                $steps["updateRemind"] = ($state.remember?.data ? true : false)
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["remind"]
+                        },
+                        operation: 0,
+                        value: $state.remember?.data
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateRemind"] != null &&
+                  typeof $steps["updateRemind"] === "object" &&
+                  typeof $steps["updateRemind"].then === "function"
+                ) {
+                  $steps["updateRemind"] = await $steps["updateRemind"];
+                }
+              }).apply(null, eventArgs);
             }}
             shouldFetch={(() => {
               try {
@@ -25775,7 +25819,7 @@ function PlasmicHamyar__RenderFunc(props: {
             })}
             data={(() => {
               try {
-                return $state.remember?.data || [];
+                return $state.remind;
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -26206,7 +26250,7 @@ function PlasmicHamyar__RenderFunc(props: {
             })}
             data={(() => {
               try {
-                return $state.remember?.data || [];
+                return $state.remind;
               } catch (e) {
                 if (
                   e instanceof TypeError ||
