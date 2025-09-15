@@ -3889,9 +3889,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                     customFunction:
                                                       async () => {
                                                         return (() => {
-                                                          currentItem.id =
-                                                            $steps.add.data.result;
-                                                          return ($state.refresh += 1);
+                                                          return (currentItem.id =
+                                                            $steps.add.data.result);
                                                         })();
                                                       }
                                                   };

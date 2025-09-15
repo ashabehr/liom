@@ -1344,9 +1344,9 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                             const actionArgs = {
                               customFunction: async () => {
                                 return (() => {
-                                  console.log(window.Android);
+                                  console.log("and" + window.Android);
                                   return console.log(
-                                    window.Android.onButtonClicked
+                                    "and" + window.Android.onButtonClicked
                                   );
                                 })();
                               }

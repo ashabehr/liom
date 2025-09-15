@@ -63,6 +63,7 @@ import TextInput from "../../TextInput"; // plasmic-import: cOSV4CnhD7mN/compone
 import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
 import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -120,6 +121,7 @@ export type PlasmicNitif__OverridesType = {
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
   img?: Flex__<typeof PlasmicImg__>;
+  checkbox?: Flex__<typeof Checkbox>;
 };
 
 export interface DefaultNitifProps {
@@ -315,6 +317,12 @@ function PlasmicNitif__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("value", Input_Helpers)
+      },
+      {
+        path: "checkbox.isChecked",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -383,241 +391,138 @@ function PlasmicNitif__RenderFunc(props: {
         data-plasmic-override={overrides.frame50}
         className={classNames(projectcss.all, sty.frame50)}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__wNvsi)}>
-          <div className={classNames(projectcss.all, sty.freeBox__sqTSf)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___45GcK
-              )}
-            >
-              {"\u0645\u0648\u0636\u0648\u0639 \u0645\u062a\u0646"}
-            </div>
-            <TextInput
-              data-plasmic-name={"textInput2"}
-              data-plasmic-override={overrides.textInput2}
-              className={classNames("__wab_instance", sty.textInput2)}
-              color={"soft"}
-              onChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["textInput2", "value"])(
-                    (e => e.target?.value).apply(null, eventArgs)
-                  );
-                }).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              placeholder={"\u0645\u0648\u0636\u0648\u0639 \u0645\u062a\u0646"}
-              value={
-                generateStateValueProp($state, ["textInput2", "value"]) ?? ""
-              }
-            />
-
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__bQ0WL
-              )}
-            >
-              {"\u0645\u062a\u0646"}
-            </div>
-            <TextInput
-              data-plasmic-name={"textInput"}
-              data-plasmic-override={overrides.textInput}
-              antdInput2={(() => {
-                const child$Props = {
-                  "aria-label": ``,
-                  bordered: false,
-                  className: classNames("__wab_instance", sty.antdInput),
-                  onChange: async (...eventArgs: any) => {
-                    generateStateOnChangePropForCodeComponents(
-                      $state,
-                      "value",
-                      ["antdInput", "value"],
-                      Input_Helpers
-                    ).apply(null, eventArgs);
-
-                    (async event => {
-                      const $steps = {};
-                    }).apply(null, eventArgs);
-                  },
-                  size: "large",
-                  value: generateStateValueProp($state, ["antdInput", "value"])
-                };
-                initializeCodeComponentStates(
-                  $state,
-                  [
-                    {
-                      name: "value",
-                      plasmicStateName: "antdInput.value"
-                    }
-                  ],
-                  [],
-                  Input_Helpers ?? {},
-                  child$Props
-                );
-
-                return (
-                  <Input
-                    data-plasmic-name={"antdInput"}
-                    data-plasmic-override={overrides.antdInput}
-                    {...child$Props}
-                  />
-                );
-              })()}
-              className={classNames("__wab_instance", sty.textInput)}
-              color={"soft"}
-              onChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["textInput", "value"])(
-                    (e => e.target?.value).apply(null, eventArgs)
-                  );
-                }).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              placeholder={
-                "\u067e\u06cc\u0627\u0645 \u062e\u0648\u062f \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f"
-              }
-              value={
-                generateStateValueProp($state, ["textInput", "value"]) ?? ""
-              }
-            />
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox__l6Ikl)}>
-            <Button
-              data-plasmic-name={"button"}
-              data-plasmic-override={overrides.button}
-              className={classNames("__wab_instance", sty.button)}
-              color={generateStateValueProp($state, ["button", "color"])}
-              load={generateStateValueProp($state, ["button", "load"])}
-              loading={generateStateValueProp($state, ["button", "loading"])}
-              onColorChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button", "color"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              onLoadChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button", "load"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              onLoadingChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button", "loading"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-            >
+        <div className={classNames(projectcss.all, sty.freeBox__tErMr)}>
+          <div className={classNames(projectcss.all, sty.freeBox__wNvsi)}>
+            <div className={classNames(projectcss.all, sty.freeBox__sqTSf)}>
               <div
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__dgmyy
+                  sty.text___45GcK
                 )}
               >
-                {"\u0627\u0631\u0633\u0627\u0644 \u0645\u062a\u0646"}
+                {"\u0645\u0648\u0636\u0648\u0639 \u0645\u062a\u0646"}
               </div>
-            </Button>
-            {(() => {
-              try {
-                return $state.imageload == "";
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
-                }
-                throw e;
-              }
-            })() ? (
-              <Button
-                data-plasmic-name={"button2"}
-                data-plasmic-override={overrides.button2}
-                className={classNames("__wab_instance", sty.button2)}
-                color={generateStateValueProp($state, ["button2", "color"])}
-                endIcon={
-                  <Icon115Icon
-                    className={classNames(projectcss.all, sty.svg__s2H5M)}
-                    role={"img"}
-                  />
-                }
-                load={generateStateValueProp($state, ["button2", "load"])}
-                loading={generateStateValueProp($state, ["button2", "loading"])}
-                onClick={async event => {
-                  const $steps = {};
+              <TextInput
+                data-plasmic-name={"textInput2"}
+                data-plasmic-override={overrides.textInput2}
+                className={classNames("__wab_instance", sty.textInput2)}
+                color={"soft"}
+                onChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["textInput2", "value"])(
+                      (e => e.target?.value).apply(null, eventArgs)
+                    );
+                  }).apply(null, eventArgs);
 
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              return window.document
-                                .getElementById("fileInput")
-                                .click();
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
                   if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
                   ) {
-                    $steps["runCode"] = await $steps["runCode"];
+                    return;
                   }
                 }}
+                placeholder={
+                  "\u0645\u0648\u0636\u0648\u0639 \u0645\u062a\u0646"
+                }
+                value={
+                  generateStateValueProp($state, ["textInput2", "value"]) ?? ""
+                }
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__bQ0WL
+                )}
+              >
+                {"\u0645\u062a\u0646"}
+              </div>
+              <TextInput
+                data-plasmic-name={"textInput"}
+                data-plasmic-override={overrides.textInput}
+                antdInput2={(() => {
+                  const child$Props = {
+                    "aria-label": ``,
+                    bordered: false,
+                    className: classNames("__wab_instance", sty.antdInput),
+                    onChange: async (...eventArgs: any) => {
+                      generateStateOnChangePropForCodeComponents(
+                        $state,
+                        "value",
+                        ["antdInput", "value"],
+                        Input_Helpers
+                      ).apply(null, eventArgs);
+
+                      (async event => {
+                        const $steps = {};
+                      }).apply(null, eventArgs);
+                    },
+                    size: "large",
+                    value: generateStateValueProp($state, [
+                      "antdInput",
+                      "value"
+                    ])
+                  };
+                  initializeCodeComponentStates(
+                    $state,
+                    [
+                      {
+                        name: "value",
+                        plasmicStateName: "antdInput.value"
+                      }
+                    ],
+                    [],
+                    Input_Helpers ?? {},
+                    child$Props
+                  );
+
+                  return (
+                    <Input
+                      data-plasmic-name={"antdInput"}
+                      data-plasmic-override={overrides.antdInput}
+                      {...child$Props}
+                    />
+                  );
+                })()}
+                className={classNames("__wab_instance", sty.textInput)}
+                color={"soft"}
+                onChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["textInput", "value"])(
+                      (e => e.target?.value).apply(null, eventArgs)
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                placeholder={
+                  "\u067e\u06cc\u0627\u0645 \u062e\u0648\u062f \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f"
+                }
+                value={
+                  generateStateValueProp($state, ["textInput", "value"]) ?? ""
+                }
+              />
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__l6Ikl)}>
+              <Button
+                data-plasmic-name={"button"}
+                data-plasmic-override={overrides.button}
+                className={classNames("__wab_instance", sty.button)}
+                color={generateStateValueProp($state, ["button", "color"])}
+                load={generateStateValueProp($state, ["button", "load"])}
+                loading={generateStateValueProp($state, ["button", "loading"])}
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button2", "color"])(
+                    generateStateOnChangeProp($state, ["button", "color"])(
                       eventArgs[0]
                     );
                   }).apply(null, eventArgs);
@@ -632,7 +537,7 @@ function PlasmicNitif__RenderFunc(props: {
                 }}
                 onLoadChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button2", "load"])(
+                    generateStateOnChangeProp($state, ["button", "load"])(
                       eventArgs[0]
                     );
                   }).apply(null, eventArgs);
@@ -647,7 +552,7 @@ function PlasmicNitif__RenderFunc(props: {
                 }}
                 onLoadingChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button2", "loading"])(
+                    generateStateOnChangeProp($state, ["button", "loading"])(
                       eventArgs[0]
                     );
                   }).apply(null, eventArgs);
@@ -665,13 +570,148 @@ function PlasmicNitif__RenderFunc(props: {
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__imSyh
+                    sty.text__dgmyy
                   )}
                 >
-                  {"\u0627\u0646\u062a\u062e\u0627\u0628 \u0639\u06a9\u0633"}
+                  {"\u0627\u0631\u0633\u0627\u0644 \u0645\u062a\u0646"}
                 </div>
               </Button>
-            ) : null}
+              {(() => {
+                try {
+                  return $state.imageload == "";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <Button
+                  data-plasmic-name={"button2"}
+                  data-plasmic-override={overrides.button2}
+                  className={classNames("__wab_instance", sty.button2)}
+                  color={generateStateValueProp($state, ["button2", "color"])}
+                  endIcon={
+                    <Icon115Icon
+                      className={classNames(projectcss.all, sty.svg__s2H5M)}
+                      role={"img"}
+                    />
+                  }
+                  load={generateStateValueProp($state, ["button2", "load"])}
+                  loading={generateStateValueProp($state, [
+                    "button2",
+                    "loading"
+                  ])}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                return window.document
+                                  .getElementById("fileInput")
+                                  .click();
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button2", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button2", "load"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadingChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button2", "loading"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__imSyh
+                    )}
+                  >
+                    {"\u0627\u0646\u062a\u062e\u0627\u0628 \u0639\u06a9\u0633"}
+                  </div>
+                </Button>
+              ) : null}
+            </div>
+          </div>
+          <div className={classNames(projectcss.all, sty.freeBox__wifYz)}>
+            <div className={classNames(projectcss.all, sty.freeBox__hrBlc)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__xo0F
+                )}
+              >
+                {"Enter some text"}
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__awLjF
+                )}
+              >
+                {"Enter some text"}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -817,6 +857,29 @@ function PlasmicNitif__RenderFunc(props: {
           </div>
         </div>
       ) : null}
+      <Checkbox
+        data-plasmic-name={"checkbox"}
+        data-plasmic-override={overrides.checkbox}
+        className={classNames("__wab_instance", sty.checkbox)}
+        isChecked={
+          generateStateValueProp($state, ["checkbox", "isChecked"]) ?? false
+        }
+        onChange={async (...eventArgs: any) => {
+          ((...eventArgs) => {
+            generateStateOnChangeProp($state, ["checkbox", "isChecked"])(
+              eventArgs[0]
+            );
+          }).apply(null, eventArgs);
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+      />
     </div>
   ) as React.ReactElement | null;
 }
@@ -832,7 +895,8 @@ const PlasmicDescendants = {
     "antdInput",
     "button",
     "button2",
-    "img"
+    "img",
+    "checkbox"
   ],
   frame25: ["frame25"],
   frame48: ["frame48"],
@@ -849,7 +913,8 @@ const PlasmicDescendants = {
   antdInput: ["antdInput"],
   button: ["button"],
   button2: ["button2"],
-  img: ["img"]
+  img: ["img"],
+  checkbox: ["checkbox"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -865,6 +930,7 @@ type NodeDefaultElementType = {
   button: typeof Button;
   button2: typeof Button;
   img: typeof PlasmicImg__;
+  checkbox: typeof Checkbox;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -936,6 +1002,7 @@ export const PlasmicNitif = Object.assign(
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
     img: makeNodeComponent("img"),
+    checkbox: makeNodeComponent("checkbox"),
 
     // Metadata about props expected for PlasmicNitif
     internalVariantProps: PlasmicNitif__VariantProps,
