@@ -82,7 +82,7 @@ export type PlasmicTextInput__VariantMembers = {
   showStartIcon: "showStartIcon";
   showEndIcon: "showEndIcon";
   isDisabled: "isDisabled";
-  color: "dark";
+  color: "dark" | "soft";
   error: "error";
   discriptionData: "discriptionData";
 };
@@ -90,7 +90,7 @@ export type PlasmicTextInput__VariantsArgs = {
   showStartIcon?: SingleBooleanChoiceArg<"showStartIcon">;
   showEndIcon?: SingleBooleanChoiceArg<"showEndIcon">;
   isDisabled?: SingleBooleanChoiceArg<"isDisabled">;
-  color?: SingleChoiceArg<"dark">;
+  color?: SingleChoiceArg<"dark" | "soft">;
   error?: SingleBooleanChoiceArg<"error">;
   discriptionData?: SingleBooleanChoiceArg<"discriptionData">;
 };
@@ -180,7 +180,7 @@ export interface DefaultTextInputProps extends pp.BaseTextInputProps {
   onClick?: (event: any) => void;
   lable?: string;
   antdInput2?: React.ReactNode;
-  color?: SingleChoiceArg<"dark">;
+  color?: SingleChoiceArg<"dark" | "soft">;
   error?: SingleBooleanChoiceArg<"error">;
   discriptionData?: SingleBooleanChoiceArg<"discriptionData">;
 }
@@ -318,6 +318,7 @@ function PlasmicTextInput__RenderFunc(props: {
         {
           [sty.root___focusVisibleWithin]: triggers.focusVisibleWithin_root,
           [sty.rootcolor_dark]: hasVariant($state, "color", "dark"),
+          [sty.rootcolor_soft]: hasVariant($state, "color", "soft"),
           [sty.rootdiscriptionData]: hasVariant(
             $state,
             "discriptionData",
@@ -349,6 +350,7 @@ function PlasmicTextInput__RenderFunc(props: {
         className={classNames(projectcss.all, sty.freeBox, {
           [sty.freeBox___focusVisibleWithin]: triggers.focusVisibleWithin_root,
           [sty.freeBoxcolor_dark]: hasVariant($state, "color", "dark"),
+          [sty.freeBoxcolor_soft]: hasVariant($state, "color", "soft"),
           [sty.freeBoxdiscriptionData]: hasVariant(
             $state,
             "discriptionData",

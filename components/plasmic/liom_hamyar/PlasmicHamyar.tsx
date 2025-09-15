@@ -8729,7 +8729,7 @@ function PlasmicHamyar__RenderFunc(props: {
                         ) : null}
                         {(() => {
                           try {
-                            return $ctx.query.r == "8z1hf8";
+                            return $state.userdata?.result?.man?.id == "1";
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -8744,10 +8744,7 @@ function PlasmicHamyar__RenderFunc(props: {
                               !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                               (() => {
                                 try {
-                                  return $state.remember.data?.result?.slice(
-                                    0,
-                                    2
-                                  );
+                                  return $state.remember.data?.slice(0, 2);
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -8878,9 +8875,12 @@ function PlasmicHamyar__RenderFunc(props: {
                                         {(() => {
                                           try {
                                             return (() => {
-                                              let future1 = new Date(
-                                                currentItem.date
-                                              );
+                                              var d = currentItem.dates
+                                                ? JSON.parse(
+                                                    currentItem.dates
+                                                  )[0]
+                                                : null;
+                                              let future1 = new Date(d);
                                               let current_date1 = new Date();
                                               let delta1 =
                                                 future1 - current_date1;

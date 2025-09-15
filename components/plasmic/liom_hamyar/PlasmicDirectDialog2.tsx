@@ -1338,6 +1338,33 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                           "updateLoading2"
                         ];
                       }
+
+                      $steps["updateLoading4"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  console.log(window.Android);
+                                  return console.log(
+                                    window.Android.onButtonClicked
+                                  );
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoading4"] != null &&
+                        typeof $steps["updateLoading4"] === "object" &&
+                        typeof $steps["updateLoading4"].then === "function"
+                      ) {
+                        $steps["updateLoading4"] = await $steps[
+                          "updateLoading4"
+                        ];
+                      }
                     }}
                     onColorChange={async (...eventArgs: any) => {
                       ((...eventArgs) => {

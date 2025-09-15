@@ -37,6 +37,9 @@
   background: #232320;
   border-color: #717069;
 }
+.freeBoxcolor_soft {
+  background: var(--token-Y4frplZPI0IJ);
+}
 .freeBoxerror {
   border-style: solid;
   border-color: var(--token-4RAe7M2gInqR);
