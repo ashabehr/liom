@@ -328,6 +328,12 @@ function PlasmicNitif__RenderFunc(props: {
           { label: "\u06af\u06cc\u0631\u0646\u062f\u0647", value: "target" },
           { label: "\u062a\u0627\u0631\u06cc\u062e", value: "date" }
         ]
+      },
+      {
+        path: "selectstep",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "notification"
       }
     ],
     [$props, $ctx, $refs]
@@ -751,18 +757,15 @@ function PlasmicNitif__RenderFunc(props: {
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["updateStep"] = (() => {
-                        if ($state.textInput.value && $state.textInput2.value) {
-                          currentIndex.background = "purple";
-                        }
-                      })()
+                      $steps["updateSelectstep"] = true
                         ? (() => {
                             const actionArgs = {
                               variable: {
                                 objRoot: $state,
-                                variablePath: ["step"]
+                                variablePath: ["selectstep"]
                               },
-                              operation: 0
+                              operation: 0,
+                              value: currentItem.value
                             };
                             return (({
                               variable,
@@ -781,13 +784,28 @@ function PlasmicNitif__RenderFunc(props: {
                           })()
                         : undefined;
                       if (
-                        $steps["updateStep"] != null &&
-                        typeof $steps["updateStep"] === "object" &&
-                        typeof $steps["updateStep"].then === "function"
+                        $steps["updateSelectstep"] != null &&
+                        typeof $steps["updateSelectstep"] === "object" &&
+                        typeof $steps["updateSelectstep"].then === "function"
                       ) {
-                        $steps["updateStep"] = await $steps["updateStep"];
+                        $steps["updateSelectstep"] = await $steps[
+                          "updateSelectstep"
+                        ];
                       }
                     }}
+                    style={(() => {
+                      try {
+                        return undefined;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
                   >
                     <React.Fragment>
                       {(() => {

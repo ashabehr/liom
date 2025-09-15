@@ -26156,6 +26156,26 @@ function PlasmicHamyar__RenderFunc(props: {
             back={async () => {
               const $steps = {};
 
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return ($state.reminderSetting.refresh += "1");
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+
               $steps["updateReminder"] = true
                 ? (() => {
                     const actionArgs = { vgroup: "reminder", operation: 6 };
