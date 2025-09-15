@@ -217,22 +217,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
               telegramId: "5384384618",
               phoneNumber: "null",
               schedule_type: "everyYear",
-              name: "\u062a\u0648\u0644\u062f \u0645\u0627\u0645\u0627\u0646\u06cc",
-              text: "b",
-              token1:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
-              dates: '["2026-02-14"]',
-              weekdays: null,
-              times: "09:00",
-              finishTime: "2025-09-14 14:33:52",
-              active: 1
-            },
-            {
-              id: 107,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "null",
-              schedule_type: "everyYear",
               name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
               text: "occasion",
               token1:
@@ -241,7 +225,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
               weekdays: null,
               times: "09:00",
               finishTime: "2025-09-14 14:33:52",
-              active: 1
+              active: 0
             },
             {
               id: 108,
@@ -257,6 +241,102 @@ function PlasmicReminderSetting__RenderFunc(props: {
               weekdays: null,
               times: "09:00",
               finishTime: "2025-09-14 14:36:55",
+              active: 0
+            },
+            {
+              id: 121,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
+              text: "birthday_spouse",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
+              dates: '["2025-09-15"]',
+              weekdays: null,
+              times: '["09:30"]',
+              finishTime: "2025-09-15 09:50:29",
+              active: 0
+            },
+            {
+              id: 122,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0631\u0648\u0632 \u062f\u062e\u062a\u0631",
+              text: "occasion",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
+              dates: '["2026-04-19"]',
+              weekdays: null,
+              times: "09:00",
+              finishTime: "2025-09-15 09:50:54",
+              active: 0
+            },
+            {
+              id: 123,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
+              text: "occasion",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzkyNjUyMn0.Kt_Ty27OsjOZQtNNPYwpXLfnKYfXLqfrHZmzRjWR7Aw",
+              dates: '["2026-02-18"]',
+              weekdays: null,
+              times: "09:00",
+              finishTime: "2025-09-15 12:26:05",
+              active: 0
+            },
+            {
+              id: 124,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
+              text: "occasion",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzkyNjUyMn0.Kt_Ty27OsjOZQtNNPYwpXLfnKYfXLqfrHZmzRjWR7Aw",
+              dates: '["2026-10-11"]',
+              weekdays: null,
+              times: "09:00",
+              finishTime: "2025-09-15 12:26:30",
+              active: 0
+            },
+            {
+              id: 125,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc",
+              text: "anniversary",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzkyNjUyMn0.Kt_Ty27OsjOZQtNNPYwpXLfnKYfXLqfrHZmzRjWR7Aw",
+              dates: '["2025-09-15"]',
+              weekdays: null,
+              times: '["09:30"]',
+              finishTime: "2025-09-15 12:26:53",
+              active: 0
+            },
+            {
+              id: 125,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc",
+              text: "anniversakllkjlkjry",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzkyNjUyMn0.Kt_Ty27OsjOZQtNNPYwpXLfnKYfXLqfrHZmzRjWR7Aw",
+              dates: '["2025-09-15"]',
+              weekdays: null,
+              times: '["09:30"]',
+              finishTime: "2025-09-15 12:26:53",
               active: 0
             }
           ],
@@ -653,7 +733,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
             phoneNumber: null,
             schedule_type: "everyYear",
             name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
-            text: "birthday",
+            text: "birthday_spouse",
             token1: null,
             dates: "[]",
             weekdays: null,
@@ -667,7 +747,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
             phoneNumber: null,
             schedule_type: "everyYear",
             name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc",
-            text: "anniversary",
+            text: "anniversary_relationship",
             token1: null,
             dates: "[]",
             weekdays: null,
@@ -681,7 +761,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
             phoneNumber: null,
             schedule_type: "everyYear",
             name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c",
-            text: "anniversary",
+            text: "anniversary_wedding",
             token1: null,
             dates: "[]",
             weekdays: null,
@@ -695,7 +775,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
             phoneNumber: null,
             schedule_type: "everyYear",
             name: "\u062a\u0648\u0644\u062f \u0641\u0631\u0632\u0646\u062f",
-            text: "birthday",
+            text: "birthday_child",
             token1: null,
             dates: "[]",
             weekdays: null,
@@ -812,7 +892,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   const key =
                     t.text === "occasion"
                       ? `occasion:${t.name}`
-                      : `type:${t.type}`;
+                      : `text:${t.text}`;
                   offlineMap.set(key, t);
                 });
                 const updatedList = [...$state.offlineList];
@@ -820,7 +900,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   const key =
                     r.text === "occasion"
                       ? `occasion:${r.name}`
-                      : `type:${r.text}`;
+                      : `text:${r.text}`;
                   const existing = offlineMap.get(key);
                   if (existing) {
                     const updated = {

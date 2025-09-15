@@ -63,6 +63,7 @@ import TextInput from "../../TextInput"; // plasmic-import: cOSV4CnhD7mN/compone
 import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
 import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -77,7 +78,7 @@ import Line3Icon from "./icons/PlasmicIcon__Line3"; // plasmic-import: cDBsZfQFO
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
-import Icon26Icon from "./icons/PlasmicIcon__Icon26"; // plasmic-import: MKSedampsAFw/icon
+import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
 
 createPlasmicElementProxy;
 
@@ -117,6 +118,7 @@ export type PlasmicNitif__OverridesType = {
   antdInput?: Flex__<typeof Input>;
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
+  img?: Flex__<typeof PlasmicImg__>;
   antdInput2?: Flex__<typeof Input>;
 };
 
@@ -353,7 +355,9 @@ function PlasmicNitif__RenderFunc(props: {
             sty.text__kcCUf
           )}
         >
-          {"\u0627\u0631\u0633\u0627\u0644 \u0627\u0639\u0644\u0627\u0646"}
+          {
+            "\u0627\u0631\u0633\u0627\u0644 \u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646"
+          }
         </div>
       </div>
       <div
@@ -382,7 +386,7 @@ function PlasmicNitif__RenderFunc(props: {
                 sty.text__bQ0WL
               )}
             >
-              {"\u0627\u0639\u0644\u0627\u0646 \u0647\u0627"}
+              {"\u0645\u062a\u0646"}
             </div>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__sqTSf)}>
@@ -509,126 +513,263 @@ function PlasmicNitif__RenderFunc(props: {
                 }
               }}
             >
-              {"\u0627\u0631\u0633\u0627\u0644 \u0627\u0639\u0644\u0627\u0646"}
+              {"\u0627\u0631\u0633\u0627\u0644 \u0645\u062a\u0646"}
             </Button>
-            <Button
-              data-plasmic-name={"button2"}
-              data-plasmic-override={overrides.button2}
-              className={classNames("__wab_instance", sty.button2)}
-              color={generateStateValueProp($state, ["button2", "color"])}
-              endIcon={
-                <Icon115Icon
-                  className={classNames(projectcss.all, sty.svg__s2H5M)}
-                  role={"img"}
-                />
+            {(() => {
+              try {
+                return $state.imageload == "";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
               }
-              load={generateStateValueProp($state, ["button2", "load"])}
-              loading={generateStateValueProp($state, ["button2", "loading"])}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["runCode"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            return window.document
-                              .getElementById("fileInput")
-                              .click();
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
-                ) {
-                  $steps["runCode"] = await $steps["runCode"];
+            })() ? (
+              <Button
+                data-plasmic-name={"button2"}
+                data-plasmic-override={overrides.button2}
+                className={classNames("__wab_instance", sty.button2)}
+                color={generateStateValueProp($state, ["button2", "color"])}
+                endIcon={
+                  <Icon115Icon
+                    className={classNames(projectcss.all, sty.svg__s2H5M)}
+                    role={"img"}
+                  />
                 }
-              }}
-              onColorChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button2", "color"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
+                load={generateStateValueProp($state, ["button2", "load"])}
+                loading={generateStateValueProp($state, ["button2", "loading"])}
+                onClick={async event => {
+                  const $steps = {};
 
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              onLoadChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button2", "load"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              return window.document
+                                .getElementById("fileInput")
+                                .click();
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button2", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
 
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              onLoadingChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button2", "loading"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button2", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
 
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__imSyh
-                )}
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button2", "loading"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
               >
-                {"\u0627\u0646\u062a\u062e\u0627\u0628 \u0639\u06a9\u0633"}
-              </div>
-            </Button>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__imSyh
+                  )}
+                >
+                  {"\u0627\u0646\u062a\u062e\u0627\u0628 \u0639\u06a9\u0633"}
+                </div>
+              </Button>
+            ) : null}
           </div>
         </div>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__i05P)}>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__eeoxs
-          )}
-        >
-          {
-            "\u0639\u06a9\u0633 \u0645\u0648\u0631\u062f \u0646\u0638\u0631 \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f"
+      {(() => {
+        try {
+          return $state.imageload != "";
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
           }
-        </div>
-        <Icon26Icon
-          className={classNames(projectcss.all, sty.svg___1Etxf)}
-          role={"img"}
-        />
-      </div>
-      <div className={classNames(projectcss.all, sty.freeBox__unNoa)} />
+          throw e;
+        }
+      })() ? (
+        <div className={classNames(projectcss.all, sty.freeBox__unNoa)}>
+          <div className={classNames(projectcss.all, sty.freeBox__eJj1R)}>
+            {(() => {
+              try {
+                return $state.imageload != null;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })()
+              ? (_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return $state.imageload;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <PlasmicImg__
+                      data-plasmic-name={"img"}
+                      data-plasmic-override={overrides.img}
+                      alt={""}
+                      className={classNames(sty.img)}
+                      displayHeight={"87px"}
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"100%"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={"105px"}
+                      key={currentIndex}
+                      loading={"lazy"}
+                      src={(() => {
+                        try {
+                          return $state.imageload;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                    />
+                  );
+                })
+              : null}
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__muHj
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $state.imageload.split(".").pop();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            </div>
+          </div>
+          <div
+            className={classNames(projectcss.all, sty.freeBox__exQh)}
+            onClick={async event => {
+              const $steps = {};
 
+              $steps["updateImageload"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["imageload"]
+                      },
+                      operation: 0,
+                      value: $state.imageload == ""
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateImageload"] != null &&
+                typeof $steps["updateImageload"] === "object" &&
+                typeof $steps["updateImageload"].then === "function"
+              ) {
+                $steps["updateImageload"] = await $steps["updateImageload"];
+              }
+            }}
+          >
+            <Icon22Icon
+              className={classNames(projectcss.all, sty.svg__fzM5)}
+              role={"img"}
+            />
+          </div>
+        </div>
+      ) : null}
       <div className={classNames(projectcss.all, sty.freeBox__nTXxO)}>
         {(() => {
           const child$Props = {
@@ -719,6 +860,7 @@ const PlasmicDescendants = {
     "antdInput",
     "button",
     "button2",
+    "img",
     "antdInput2"
   ],
   frame25: ["frame25"],
@@ -728,6 +870,7 @@ const PlasmicDescendants = {
   antdInput: ["antdInput"],
   button: ["button"],
   button2: ["button2"],
+  img: ["img"],
   antdInput2: ["antdInput2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -742,6 +885,7 @@ type NodeDefaultElementType = {
   antdInput: typeof Input;
   button: typeof Button;
   button2: typeof Button;
+  img: typeof PlasmicImg__;
   antdInput2: typeof Input;
 };
 
@@ -812,6 +956,7 @@ export const PlasmicNitif = Object.assign(
     antdInput: makeNodeComponent("antdInput"),
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
+    img: makeNodeComponent("img"),
     antdInput2: makeNodeComponent("antdInput2"),
 
     // Metadata about props expected for PlasmicNitif

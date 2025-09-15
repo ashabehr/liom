@@ -755,7 +755,7 @@
 }
 .slide2 {
   box-shadow: 0px 4px 16px 0px #c0bcbc14;
-  background: var(--token-R_Rsn0nP9oIv);
+  background: var(--token-olZbNvsx1COf);
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -1063,6 +1063,7 @@
   justify-content: center;
   row-gap: 12px;
   width: 100%;
+  margin-bottom: 0px;
   min-width: 0;
   min-height: 0;
   border-radius: 12px;

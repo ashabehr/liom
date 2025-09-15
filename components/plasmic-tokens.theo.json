@@ -83,7 +83,7 @@
     {
       "name": "Basic/Container-Background",
       "type": "color",
-      "value": "#FFFFFF",
+      "value": "#ffffff",
       "category": "color",
       "meta": {
         "projectId": "suVPi77vb6vv9K5rYJwyxC",
@@ -93,7 +93,7 @@
     {
       "name": "Basic/Container-Background-Dark",
       "type": "color",
-      "value": "#171717",
+      "value": "#FFFFFF",
       "category": "color",
       "meta": {
         "projectId": "suVPi77vb6vv9K5rYJwyxC",
