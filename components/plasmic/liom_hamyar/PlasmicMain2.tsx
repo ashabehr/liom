@@ -63,8 +63,8 @@ import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import UserPage from "../../UserPage"; // plasmic-import: Y_O8FNCBMxb-/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import Reports from "../../Reports"; // plasmic-import: pmKDqHBtiLCT/component
-import Notif from "../../Notif"; // plasmic-import: IXmGfNM_xVW3/component
 import UserPage2 from "../../UserPage2"; // plasmic-import: 3UGIP49FNSVo/component
+import Nitif from "../../Nitif"; // plasmic-import: 1f3SHQQwHGQn/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -114,8 +114,8 @@ export type PlasmicMain2__OverridesType = {
   blockquote?: Flex__<"blockquote">;
   apiRequest?: Flex__<typeof ApiRequest>;
   reports?: Flex__<typeof Reports>;
-  notif?: Flex__<typeof Notif>;
   userPage2?: Flex__<typeof UserPage2>;
+  nitif?: Flex__<typeof Nitif>;
 };
 
 export interface DefaultMain2Props {
@@ -383,6 +383,55 @@ function PlasmicMain2__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.dataUser
+      },
+      {
+        path: "nitif.reportsSelect",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "nitif.tabList",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          {
+            title:
+              "\u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u0647\u0645\u0633\u0631",
+            type: "husband-sms"
+          },
+          {
+            title:
+              "\u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u062e\u0648\u062f",
+            type: "self-sms"
+          },
+          {
+            title:
+              "\u067e\u06cc\u0627\u0645\u06a9 \u0633\u0631\u0637\u0627\u0646 \u0633\u06cc\u0646\u0647",
+            type: "breast-canser-sms"
+          },
+          {
+            title:
+              "\u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u0645\u0627\u062f\u0631",
+            type: "mather-sms"
+          },
+          {
+            title:
+              "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0622\u0642\u0627\u06cc\u0627\u0646",
+            type: "husband-sub"
+          },
+          {
+            title:
+              "\u0627\u0634\u062a\u0631\u0627\u06a9 \u062a\u0648\u0635\u06cc\u0647 \u0647\u0627",
+            type: "special-advice"
+          }
+        ]
+      },
+      {
+        path: "nitif.selectedTab",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       }
     ],
     [$props, $ctx, $refs]
@@ -820,7 +869,9 @@ function PlasmicMain2__RenderFunc(props: {
             throw e;
           }
         })()}
-        className={classNames("__wab_instance", sty.apiRequest)}
+        className={classNames("__wab_instance", sty.apiRequest, {
+          [sty.apiRequestpage_notifs]: hasVariant($state, "page", "notifs")
+        })}
         errorDisplay={null}
         loadingDisplay={null}
         method={"POST"}
@@ -948,33 +999,13 @@ function PlasmicMain2__RenderFunc(props: {
         tabSelected={generateStateValueProp($state, ["reports", "tabSelected"])}
       />
 
-      <Notif
-        data-plasmic-name={"notif"}
-        data-plasmic-override={overrides.notif}
-        className={classNames("__wab_instance", sty.notif, {
-          [sty.notifpage_notifs]: hasVariant($state, "page", "notifs"),
-          [sty.notifpage_tabPage]: hasVariant($state, "page", "tabPage"),
-          [sty.notifuser]: hasVariant($state, "user", "user"),
-          [sty.notifuser_page_tabPage]:
-            hasVariant($state, "user", "user") &&
-            hasVariant($state, "page", "tabPage")
-        })}
-        page={
-          hasVariant($state, "user", "user") &&
-          hasVariant($state, "page", "tabPage")
-            ? "tabPage"
-            : hasVariant($state, "page", "tabPage")
-            ? "tabPage"
-            : undefined
-        }
-      />
-
       <UserPage2
         data-plasmic-name={"userPage2"}
         data-plasmic-override={overrides.userPage2}
         className={classNames("__wab_instance", sty.userPage2, {
           [sty.userPage2dataUser]: hasVariant($state, "dataUser", "dataUser"),
-          [sty.userPage2page_notifs]: hasVariant($state, "page", "notifs")
+          [sty.userPage2page_notifs]: hasVariant($state, "page", "notifs"),
+          [sty.userPage2page_tabPage]: hasVariant($state, "page", "tabPage")
         })}
         data={(() => {
           try {
@@ -1201,6 +1232,62 @@ function PlasmicMain2__RenderFunc(props: {
           }
         }}
       />
+
+      <Nitif
+        data-plasmic-name={"nitif"}
+        data-plasmic-override={overrides.nitif}
+        className={classNames("__wab_instance", sty.nitif, {
+          [sty.nitifpage_notifs]: hasVariant($state, "page", "notifs")
+        })}
+        onReportsSelectChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["nitif", "reportsSelect"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        onSelectedTabChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["nitif", "selectedTab"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        onTabListChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["nitif", "tabList"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        reportsSelect={generateStateValueProp($state, [
+          "nitif",
+          "reportsSelect"
+        ])}
+        selectedTab={generateStateValueProp($state, ["nitif", "selectedTab"])}
+        tabList={generateStateValueProp($state, ["nitif", "tabList"])}
+      />
     </div>
   ) as React.ReactElement | null;
 }
@@ -1214,8 +1301,8 @@ const PlasmicDescendants = {
     "blockquote",
     "apiRequest",
     "reports",
-    "notif",
-    "userPage2"
+    "userPage2",
+    "nitif"
   ],
   sideEffect: ["sideEffect"],
   userPage: ["userPage", "freeBox", "blockquote"],
@@ -1223,8 +1310,8 @@ const PlasmicDescendants = {
   blockquote: ["blockquote"],
   apiRequest: ["apiRequest"],
   reports: ["reports"],
-  notif: ["notif"],
-  userPage2: ["userPage2"]
+  userPage2: ["userPage2"],
+  nitif: ["nitif"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1237,8 +1324,8 @@ type NodeDefaultElementType = {
   blockquote: "blockquote";
   apiRequest: typeof ApiRequest;
   reports: typeof Reports;
-  notif: typeof Notif;
   userPage2: typeof UserPage2;
+  nitif: typeof Nitif;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1307,8 +1394,8 @@ export const PlasmicMain2 = Object.assign(
     blockquote: makeNodeComponent("blockquote"),
     apiRequest: makeNodeComponent("apiRequest"),
     reports: makeNodeComponent("reports"),
-    notif: makeNodeComponent("notif"),
     userPage2: makeNodeComponent("userPage2"),
+    nitif: makeNodeComponent("nitif"),
 
     // Metadata about props expected for PlasmicMain2
     internalVariantProps: PlasmicMain2__VariantProps,

@@ -217,6 +217,7 @@ function PlasmicNotif__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames("__wab_instance", sty.tabPage, {
+        [sty.tabPagepage_notifs]: hasVariant($state, "page", "notifs"),
         [sty.tabPagepage_tabPage]: hasVariant($state, "page", "tabPage")
       })}
       onReportsSelectChange={async (...eventArgs: any) => {

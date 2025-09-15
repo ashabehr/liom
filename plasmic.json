@@ -4435,6 +4435,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicNotif.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "1f3SHQQwHGQn",
+          "name": "Nitif",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicNitif.tsx",
+          "importSpec": {
+            "modulePath": "Nitif.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicNitif.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

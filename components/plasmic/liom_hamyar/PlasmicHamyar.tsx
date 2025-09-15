@@ -21384,7 +21384,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 >
                   {(() => {
                     try {
-                      return $ctx.query.r == "8z1hf8";
+                      return $state.userdata?.result?.man?.id == "1";
                     } catch (e) {
                       if (
                         e instanceof TypeError ||

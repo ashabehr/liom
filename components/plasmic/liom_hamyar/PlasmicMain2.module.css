@@ -88,6 +88,7 @@
 .reports:global(.__wab_instance) {
   position: relative;
   flex-shrink: 0;
+  display: none;
 }
 @media (max-width: 640px) {
   .reports:global(.__wab_instance) {
@@ -96,6 +97,7 @@
 }
 .reportspage_reports:global(.__wab_instance) {
   flex-shrink: 0;
+  display: flex;
 }
 .reportspage_tabPage:global(.__wab_instance) {
   flex-shrink: 0;
@@ -115,30 +117,27 @@
 .reportsuser_page_reports:global(.__wab_instance) {
   flex-shrink: 0;
 }
-.notif:global(.__wab_instance):global(.__wab_instance) {
-  flex-shrink: 0;
-}
-.notifpage_tabPage:global(.__wab_instance):global(.__wab_instance) {
-  flex-shrink: 0;
-}
-.notifpage_notifs:global(.__wab_instance):global(.__wab_instance) {
-  flex-shrink: 0;
-}
-.notifuser:global(.__wab_instance):global(.__wab_instance) {
-  flex-shrink: 0;
-}
-.notifuser_page_tabPage:global(.__wab_instance):global(.__wab_instance) {
-  flex-shrink: 0;
-}
 .userPage2:global(.__wab_instance) {
   max-width: 100%;
   flex-shrink: 0;
   display: none;
 }
+.userPage2page_tabPage:global(.__wab_instance) {
+  flex-shrink: 0;
+}
 .userPage2page_notifs:global(.__wab_instance) {
   flex-shrink: 0;
 }
 .userPage2dataUser:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: flex;
+}
+.nitif:global(.__wab_instance) {
+  max-width: 100%;
+  flex-shrink: 0;
+  display: none;
+}
+.nitifpage_notifs:global(.__wab_instance) {
   flex-shrink: 0;
   display: flex;
 }
