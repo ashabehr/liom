@@ -532,35 +532,6 @@
 .time:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;
 }
-.freeBox__jjkBj {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  align-items: stretch;
-  justify-content: flex-start;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-  padding: 8px;
-}
-.text__hxTq {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  text-align: center;
-  font-size: var(--token-OuIr9F3wieyv);
-  min-width: 0;
-}
-.text__sHaV5 {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  text-align: center;
-  font-size: var(--token-OuIr9F3wieyv);
-  min-width: 0;
-}
 .freeBox___8MDPm {
   display: flex;
   flex-direction: column;
@@ -570,20 +541,20 @@
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
-  row-gap: var(--token-1KusGK5GePTh);
+  row-gap: var(--token-38wfsm-OP2Vm);
   min-width: 0;
   padding: 0px;
 }
 .freeBox__fmOzt {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
-  column-gap: var(--token-O5TjkXII_aat);
+  row-gap: var(--token-O5TjkXII_aat);
   min-width: 0;
   padding: 0px;
 }
@@ -595,11 +566,11 @@
   max-width: 100%;
   object-fit: cover;
 }
-.timePickerCustom:global(.__wab_instance) {
+.timePickerCustom2:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
-  background: none;
-  display: none;
+  color: #d2c2ff;
+  margin: 0px 0px 0px 19px;
 }
 .button6:global(.__wab_instance) {
   max-width: 100%;

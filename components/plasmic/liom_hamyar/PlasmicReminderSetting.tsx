@@ -149,7 +149,7 @@ export type PlasmicReminderSetting__OverridesType = {
   time?: Flex__<typeof Dialog>;
   pickers?: Flex__<typeof Pickers>;
   pickers2?: Flex__<typeof Pickers>;
-  timePickerCustom?: Flex__<typeof TimePickerCustom>;
+  timePickerCustom2?: Flex__<typeof TimePickerCustom>;
   button6?: Flex__<typeof Button>;
   weekDays?: Flex__<typeof Dialog>;
   checkboxGroup?: Flex__<typeof CheckboxGroup>;
@@ -874,12 +874,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => "start"
       },
       {
-        path: "timePickerCustom.value",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
         path: "list",
         type: "private",
         variableType: "array",
@@ -954,6 +948,12 @@ function PlasmicReminderSetting__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "timePickerCustom2.value",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -2133,7 +2133,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             const y = $state.datePickers.value.gregorian.year;
                             const m = $state.datePickers.value.gregorian.month;
                             const d = $state.datePickers.value.gregorian.day;
-                            const today = new Date(y, m - 1, d);
+                            let today = new Date(y, m - 1, d);
+                            const now = new Date();
+                            if (today < now) {
+                              today.setFullYear(today.getFullYear() + 1);
+                            }
                             const f = today.toISOString().split("T")[0];
                             const g = new Intl.DateTimeFormat("fa-IR", {
                               year: "numeric",
@@ -2143,9 +2147,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             return ($state.date[$state.dateType] = {
                               f,
                               g,
-                              year: $state.datePickers.value.year,
-                              month: $state.datePickers.value.month,
-                              day: $state.datePickers.value.day
+                              year: today.getFullYear(),
+                              month: today.getMonth() + 1,
+                              day: today.getDate()
                             });
                           })();
                         }
@@ -2277,26 +2281,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
           }}
           opendialog={generateStateValueProp($state, ["time", "opendialog"])}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__jjkBj)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__hxTq
-              )}
-            >
-              {"\u062f\u0642\u06cc\u0642\u0647"}
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__sHaV5
-              )}
-            >
-              {"\u0633\u0627\u0639\u062a"}
-            </div>
-          </div>
           <div className={classNames(projectcss.all, sty.freeBox___8MDPm)}>
             <div className={classNames(projectcss.all, sty.freeBox__fmOzt)}>
               <Pickers
@@ -2364,25 +2348,25 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   ]).apply(null, eventArgs);
                 }}
               />
-            </div>
-            <TimePickerCustom
-              data-plasmic-name={"timePickerCustom"}
-              data-plasmic-override={overrides.timePickerCustom}
-              SelectedHour={9}
-              SelectedMinute={30}
-              className={classNames("__wab_instance", sty.timePickerCustom)}
-              onChange={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "timePickerCustom",
-                  "value"
-                ]).apply(null, eventArgs);
-              }}
-              selectedValues={generateStateValueProp($state, [
-                "timePickerCustom",
-                "value"
-              ])}
-            />
 
+              <TimePickerCustom
+                data-plasmic-name={"timePickerCustom2"}
+                data-plasmic-override={overrides.timePickerCustom2}
+                SelectedHour={9}
+                SelectedMinute={30}
+                className={classNames("__wab_instance", sty.timePickerCustom2)}
+                onChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "timePickerCustom2",
+                    "value"
+                  ]).apply(null, eventArgs);
+                }}
+                selectedValues={generateStateValueProp($state, [
+                  "timePickerCustom2",
+                  "value"
+                ])}
+              />
+            </div>
             <Button
               data-plasmic-name={"button6"}
               data-plasmic-override={overrides.button6}
@@ -2402,8 +2386,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         },
                         operation: 0,
                         value: {
-                          hour: $state.pickers2.value,
-                          minute: $state.pickers.value
+                          hour: $state.timePickerCustom2.value.hour,
+                          minute: $state.timePickerCustom2.value.minute
                         }
                       };
                       return (({
@@ -4274,7 +4258,7 @@ const PlasmicDescendants = {
     "time",
     "pickers",
     "pickers2",
-    "timePickerCustom",
+    "timePickerCustom2",
     "button6",
     "weekDays",
     "checkboxGroup",
@@ -4309,7 +4293,7 @@ const PlasmicDescendants = {
     "time",
     "pickers",
     "pickers2",
-    "timePickerCustom",
+    "timePickerCustom2",
     "button6",
     "weekDays",
     "checkboxGroup",
@@ -4324,10 +4308,10 @@ const PlasmicDescendants = {
   dateDiolog: ["dateDiolog", "datePickers", "button4"],
   datePickers: ["datePickers"],
   button4: ["button4"],
-  time: ["time", "pickers", "pickers2", "timePickerCustom", "button6"],
+  time: ["time", "pickers", "pickers2", "timePickerCustom2", "button6"],
   pickers: ["pickers"],
   pickers2: ["pickers2"],
-  timePickerCustom: ["timePickerCustom"],
+  timePickerCustom2: ["timePickerCustom2"],
   button6: ["button6"],
   weekDays: ["weekDays", "checkboxGroup", "checkbox"],
   checkboxGroup: ["checkboxGroup", "checkbox"],
@@ -4390,7 +4374,7 @@ type NodeDefaultElementType = {
   time: typeof Dialog;
   pickers: typeof Pickers;
   pickers2: typeof Pickers;
-  timePickerCustom: typeof TimePickerCustom;
+  timePickerCustom2: typeof TimePickerCustom;
   button6: typeof Button;
   weekDays: typeof Dialog;
   checkboxGroup: typeof CheckboxGroup;
@@ -4485,7 +4469,7 @@ export const PlasmicReminderSetting = Object.assign(
     time: makeNodeComponent("time"),
     pickers: makeNodeComponent("pickers"),
     pickers2: makeNodeComponent("pickers2"),
-    timePickerCustom: makeNodeComponent("timePickerCustom"),
+    timePickerCustom2: makeNodeComponent("timePickerCustom2"),
     button6: makeNodeComponent("button6"),
     weekDays: makeNodeComponent("weekDays"),
     checkboxGroup: makeNodeComponent("checkboxGroup"),
