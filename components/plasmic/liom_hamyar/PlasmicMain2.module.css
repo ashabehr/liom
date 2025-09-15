@@ -132,12 +132,16 @@
   flex-shrink: 0;
   display: flex;
 }
-.nitif:global(.__wab_instance) {
+.sendMessage:global(.__wab_instance) {
   max-width: 100%;
   flex-shrink: 0;
   display: none;
 }
-.nitifpage_notifs:global(.__wab_instance) {
+.sendMessagepage_notifs:global(.__wab_instance) {
   flex-shrink: 0;
-  display: flex;
+  display: none;
+}
+.nitif:global(.__wab_instance) {
+  max-width: 100%;
+  flex-shrink: 0;
 }

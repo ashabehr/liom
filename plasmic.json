@@ -4448,6 +4448,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicNitif.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "MCAKqEbtK9Qy",
+          "name": "Nitif2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicNitif2.tsx",
+          "importSpec": {
+            "modulePath": "Nitif2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicNitif2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

@@ -71,7 +71,6 @@ import { TimePickerCustom } from "@/components/TimePickerCustom"; // plasmic-imp
 import CheckboxGroup from "../../CheckboxGroup"; // plasmic-import: AhgoIztCTzjf/component
 import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
-import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -170,7 +169,6 @@ export type PlasmicReminderSetting__OverridesType = {
   frame30?: Flex__<"div">;
   switchSetting?: Flex__<typeof Switchbest>;
   button2?: Flex__<typeof Button>;
-  sideEffect?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultReminderSettingProps {
@@ -805,7 +803,77 @@ function PlasmicReminderSetting__RenderFunc(props: {
         path: "list",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                const offlineMap = new Map();
+                $state.offlineList.forEach(t => {
+                  const key =
+                    t.text === "occasion"
+                      ? `occasion:${t.name}`
+                      : `type:${t.type}`;
+                  offlineMap.set(key, t);
+                });
+                const updatedList = [...$state.offlineList];
+                $props.data.forEach(r => {
+                  const key =
+                    r.text === "occasion"
+                      ? `occasion:${r.name}`
+                      : `type:${r.text}`;
+                  const existing = offlineMap.get(key);
+                  if (existing) {
+                    const updated = {
+                      ...existing,
+                      id: r.id,
+                      liomId: r.liomId || existing.liomId,
+                      telegramId: r.telegramId || existing.telegramId,
+                      phoneNumber: r.phoneNumber || existing.phoneNumber,
+                      schedule_type: r.schedule_type || existing.schedule_type,
+                      name: r.name || existing.name,
+                      text: r.text || existing.text,
+                      token1: r.token1 || existing.token1,
+                      dates: r.dates || existing.dates,
+                      weekdays: r.weekdays || existing.weekdays,
+                      times: r.times || existing.times,
+                      finishTime: r.finishTime || existing.finishTime,
+                      active: r.active ?? existing.active
+                    };
+                    offlineMap.set(key, updated);
+                    const index = updatedList.indexOf(existing);
+                    updatedList[index] = updated;
+                  } else {
+                    const newEvent = {
+                      id: r.id,
+                      liomId: r.liomId || null,
+                      telegramId: r.telegramId || null,
+                      phoneNumber: r.phoneNumber || null,
+                      schedule_type: r.schedule_type || null,
+                      name: r.name,
+                      text: r.text,
+                      token1: r.token1 || null,
+                      dates: r.dates,
+                      weekdays: r.weekdays || null,
+                      times: r.times || null,
+                      finishTime: r.finishTime || null,
+                      active: r.active ?? 0
+                    };
+                    updatedList.push(newEvent);
+                    offlineMap.set(key, newEvent);
+                  }
+                });
+                return updatedList;
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -3298,7 +3366,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
               try {
                 return (() => {
                   const groupsMap = new Map();
-                  $state.offlineList.forEach(t => {
+                  $state.list.forEach(t => {
                     let parsedDates;
                     try {
                       parsedDates = t.dates ? JSON.parse(t.dates) : [];
@@ -4065,82 +4133,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
           })}
         </div>
       </div>
-      <SideEffect
-        data-plasmic-name={"sideEffect"}
-        data-plasmic-override={overrides.sideEffect}
-        className={classNames("__wab_instance", sty.sideEffect)}
-        onMount={async () => {
-          const $steps = {};
-
-          $steps["runCode"] = true
-            ? (() => {
-                const actionArgs = {
-                  customFunction: async () => {
-                    return (() => {
-                      $state.offlineList = $state.offlineList || [];
-                      const updatedList = [];
-                      return $props.data.forEach(r => {
-                        const existing = $state.offlineList.find(t => {
-                          if (r.text === "occasion") {
-                            return t.name === r.name;
-                          } else {
-                            return t.type === r.text;
-                          }
-                        });
-                        if (existing) {
-                          existing.id = r.id;
-                          existing.liomId = r.liomId || existing.liomId;
-                          existing.telegramId =
-                            r.telegramId || existing.telegramId;
-                          existing.phoneNumber =
-                            r.phoneNumber || existing.phoneNumber;
-                          existing.schedule_type =
-                            r.schedule_type || existing.schedule_type;
-                          existing.name = r.name || existing.name;
-                          existing.text = r.text || existing.text;
-                          existing.token1 = r.token1 || existing.token1;
-                          existing.dates = r.dates || existing.dates;
-                          existing.weekdays = r.weekdays || existing.weekdays;
-                          existing.times = r.times || existing.times;
-                          existing.finishTime =
-                            r.finishTime || existing.finishTime;
-                          existing.active = r.active ?? existing.active;
-                        } else {
-                          const newEvent = {
-                            id: r.id,
-                            liomId: r.liomId || null,
-                            telegramId: r.telegramId || null,
-                            phoneNumber: r.phoneNumber || null,
-                            schedule_type: r.schedule_type || null,
-                            name: r.name,
-                            text: r.text,
-                            token1: r.token1 || null,
-                            dates: r.dates,
-                            weekdays: r.weekdays || null,
-                            times: r.times || null,
-                            finishTime: r.finishTime || null,
-                            active: r.active ?? 0
-                          };
-                          $state.offlineList.push(newEvent);
-                        }
-                      });
-                    })();
-                  }
-                };
-                return (({ customFunction }) => {
-                  return customFunction();
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["runCode"] != null &&
-            typeof $steps["runCode"] === "object" &&
-            typeof $steps["runCode"].then === "function"
-          ) {
-            $steps["runCode"] = await $steps["runCode"];
-          }
-        }}
-      />
     </div>
   ) as React.ReactElement | null;
 }
@@ -4180,8 +4172,7 @@ const PlasmicDescendants = {
     "frame29",
     "frame30",
     "switchSetting",
-    "button2",
-    "sideEffect"
+    "button2"
   ],
   section: [
     "section",
@@ -4258,8 +4249,7 @@ const PlasmicDescendants = {
   frame29: ["frame29", "frame30"],
   frame30: ["frame30"],
   switchSetting: ["switchSetting"],
-  button2: ["button2"],
-  sideEffect: ["sideEffect"]
+  button2: ["button2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -4299,7 +4289,6 @@ type NodeDefaultElementType = {
   frame30: "div";
   switchSetting: typeof Switchbest;
   button2: typeof Button;
-  sideEffect: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -4395,7 +4384,6 @@ export const PlasmicReminderSetting = Object.assign(
     frame30: makeNodeComponent("frame30"),
     switchSetting: makeNodeComponent("switchSetting"),
     button2: makeNodeComponent("button2"),
-    sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicReminderSetting
     internalVariantProps: PlasmicReminderSetting__VariantProps,

@@ -65,6 +65,7 @@ import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-impor
 import Reports from "../../Reports"; // plasmic-import: pmKDqHBtiLCT/component
 import UserPage2 from "../../UserPage2"; // plasmic-import: 3UGIP49FNSVo/component
 import Nitif from "../../Nitif"; // plasmic-import: 1f3SHQQwHGQn/component
+import Nitif2 from "../../Nitif2"; // plasmic-import: MCAKqEbtK9Qy/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -115,7 +116,8 @@ export type PlasmicMain2__OverridesType = {
   apiRequest?: Flex__<typeof ApiRequest>;
   reports?: Flex__<typeof Reports>;
   userPage2?: Flex__<typeof UserPage2>;
-  nitif?: Flex__<typeof Nitif>;
+  sendMessage?: Flex__<typeof Nitif>;
+  nitif?: Flex__<typeof Nitif2>;
 };
 
 export interface DefaultMain2Props {
@@ -385,6 +387,61 @@ function PlasmicMain2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.dataUser
       },
       {
+        path: "sendMessage.reportsSelect",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "sendMessage.tabList",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          {
+            title:
+              "\u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u0647\u0645\u0633\u0631",
+            type: "husband-sms"
+          },
+          {
+            title:
+              "\u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u062e\u0648\u062f",
+            type: "self-sms"
+          },
+          {
+            title:
+              "\u067e\u06cc\u0627\u0645\u06a9 \u0633\u0631\u0637\u0627\u0646 \u0633\u06cc\u0646\u0647",
+            type: "breast-canser-sms"
+          },
+          {
+            title:
+              "\u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u0645\u0627\u062f\u0631",
+            type: "mather-sms"
+          },
+          {
+            title:
+              "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0622\u0642\u0627\u06cc\u0627\u0646",
+            type: "husband-sub"
+          },
+          {
+            title:
+              "\u0627\u0634\u062a\u0631\u0627\u06a9 \u062a\u0648\u0635\u06cc\u0647 \u0647\u0627",
+            type: "special-advice"
+          }
+        ]
+      },
+      {
+        path: "sendMessage.selectedTab",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "sendMessage.filess",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
         path: "nitif.reportsSelect",
         type: "private",
         variableType: "object",
@@ -432,6 +489,12 @@ function PlasmicMain2__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "nitif.filess",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -1234,11 +1297,96 @@ function PlasmicMain2__RenderFunc(props: {
       />
 
       <Nitif
+        data-plasmic-name={"sendMessage"}
+        data-plasmic-override={overrides.sendMessage}
+        className={classNames("__wab_instance", sty.sendMessage, {
+          [sty.sendMessagepage_notifs]: hasVariant($state, "page", "notifs")
+        })}
+        onFilessChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["sendMessage", "filess"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        onReportsSelectChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, [
+            "sendMessage",
+            "reportsSelect"
+          ]).apply(null, eventArgs);
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        onSelectedTabChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, [
+            "sendMessage",
+            "selectedTab"
+          ]).apply(null, eventArgs);
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        onTabListChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["sendMessage", "tabList"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        reportsSelect={generateStateValueProp($state, [
+          "sendMessage",
+          "reportsSelect"
+        ])}
+        selectedTab={generateStateValueProp($state, [
+          "sendMessage",
+          "selectedTab"
+        ])}
+        tabList={generateStateValueProp($state, ["sendMessage", "tabList"])}
+      />
+
+      <Nitif2
         data-plasmic-name={"nitif"}
         data-plasmic-override={overrides.nitif}
-        className={classNames("__wab_instance", sty.nitif, {
-          [sty.nitifpage_notifs]: hasVariant($state, "page", "notifs")
-        })}
+        className={classNames("__wab_instance", sty.nitif)}
+        onFilessChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["nitif", "filess"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
         onReportsSelectChange={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, ["nitif", "reportsSelect"]).apply(
             null,
@@ -1302,6 +1450,7 @@ const PlasmicDescendants = {
     "apiRequest",
     "reports",
     "userPage2",
+    "sendMessage",
     "nitif"
   ],
   sideEffect: ["sideEffect"],
@@ -1311,6 +1460,7 @@ const PlasmicDescendants = {
   apiRequest: ["apiRequest"],
   reports: ["reports"],
   userPage2: ["userPage2"],
+  sendMessage: ["sendMessage"],
   nitif: ["nitif"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -1325,7 +1475,8 @@ type NodeDefaultElementType = {
   apiRequest: typeof ApiRequest;
   reports: typeof Reports;
   userPage2: typeof UserPage2;
-  nitif: typeof Nitif;
+  sendMessage: typeof Nitif;
+  nitif: typeof Nitif2;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1395,6 +1546,7 @@ export const PlasmicMain2 = Object.assign(
     apiRequest: makeNodeComponent("apiRequest"),
     reports: makeNodeComponent("reports"),
     userPage2: makeNodeComponent("userPage2"),
+    sendMessage: makeNodeComponent("sendMessage"),
     nitif: makeNodeComponent("nitif"),
 
     // Metadata about props expected for PlasmicMain2
