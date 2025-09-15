@@ -2114,6 +2114,26 @@ function PlasmicReminder__RenderFunc(props: {
               ) {
                 $steps["runSetting"] = await $steps["runSetting"];
               }
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return ($state.refresh = +"1");
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
             }}
             onColorChange={async (...eventArgs: any) => {
               ((...eventArgs) => {
@@ -3241,10 +3261,11 @@ function PlasmicReminder__RenderFunc(props: {
                             return ($state.swiperSlider.activeSlideIndex += 1);
                           else {
                             $state.slide = true;
-                            return window.localStorage.setItem(
+                            window.localStorage.setItem(
                               "reminder_slide",
                               "true"
                             );
+                            return ($state.refresh = +"1");
                           }
                         })();
                       }

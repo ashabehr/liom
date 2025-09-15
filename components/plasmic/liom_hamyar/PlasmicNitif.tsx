@@ -63,7 +63,6 @@ import TextInput from "../../TextInput"; // plasmic-import: cOSV4CnhD7mN/compone
 import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
 import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
-import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -121,7 +120,6 @@ export type PlasmicNitif__OverridesType = {
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
   img?: Flex__<typeof PlasmicImg__>;
-  checkbox?: Flex__<typeof Checkbox>;
 };
 
 export interface DefaultNitifProps {
@@ -319,16 +317,17 @@ function PlasmicNitif__RenderFunc(props: {
         onMutate: generateOnMutateForSpec("value", Input_Helpers)
       },
       {
-        path: "checkbox.isChecked",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
         path: "step",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          {
+            label: "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u0634\u0646",
+            value: "notification"
+          },
+          { label: "\u06af\u06cc\u0631\u0646\u062f\u0647", value: "target" },
+          { label: "\u062a\u0627\u0631\u06cc\u062e", value: "date" }
+        ]
       }
     ],
     [$props, $ctx, $refs]
@@ -698,26 +697,117 @@ function PlasmicNitif__RenderFunc(props: {
             </div>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__wifYz)}>
-            <div className={classNames(projectcss.all, sty.freeBox__hrBlc)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__xo0F
-                )}
-              >
-                {"Enter some text"}
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__awLjF
-                )}
-              >
-                {"Enter some text"}
-              </div>
-            </div>
+            {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+              (() => {
+                try {
+                  return $state.step;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [];
+                  }
+                  throw e;
+                }
+              })()
+            ).map((__plasmic_item_0, __plasmic_idx_0) => {
+              const currentItem = __plasmic_item_0;
+              const currentIndex = __plasmic_idx_0;
+              return (
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__hrBlc)}
+                  key={currentIndex}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__xo0F
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return currentItem.label;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__awLjF
+                    )}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateStep"] = (() => {
+                        if ($state.textInput.value && $state.textInput2.value) {
+                          currentIndex.background = "purple";
+                        }
+                      })()
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["step"]
+                              },
+                              operation: 0
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateStep"] != null &&
+                        typeof $steps["updateStep"] === "object" &&
+                        typeof $steps["updateStep"].then === "function"
+                      ) {
+                        $steps["updateStep"] = await $steps["updateStep"];
+                      }
+                    }}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return currentIndex + 1;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -863,29 +953,6 @@ function PlasmicNitif__RenderFunc(props: {
           </div>
         </div>
       ) : null}
-      <Checkbox
-        data-plasmic-name={"checkbox"}
-        data-plasmic-override={overrides.checkbox}
-        className={classNames("__wab_instance", sty.checkbox)}
-        isChecked={
-          generateStateValueProp($state, ["checkbox", "isChecked"]) ?? false
-        }
-        onChange={async (...eventArgs: any) => {
-          ((...eventArgs) => {
-            generateStateOnChangeProp($state, ["checkbox", "isChecked"])(
-              eventArgs[0]
-            );
-          }).apply(null, eventArgs);
-
-          if (
-            eventArgs.length > 1 &&
-            eventArgs[1] &&
-            eventArgs[1]._plasmic_state_init_
-          ) {
-            return;
-          }
-        }}
-      />
     </div>
   ) as React.ReactElement | null;
 }
@@ -901,8 +968,7 @@ const PlasmicDescendants = {
     "antdInput",
     "button",
     "button2",
-    "img",
-    "checkbox"
+    "img"
   ],
   frame25: ["frame25"],
   frame48: ["frame48"],
@@ -919,8 +985,7 @@ const PlasmicDescendants = {
   antdInput: ["antdInput"],
   button: ["button"],
   button2: ["button2"],
-  img: ["img"],
-  checkbox: ["checkbox"]
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -936,7 +1001,6 @@ type NodeDefaultElementType = {
   button: typeof Button;
   button2: typeof Button;
   img: typeof PlasmicImg__;
-  checkbox: typeof Checkbox;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1008,7 +1072,6 @@ export const PlasmicNitif = Object.assign(
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
     img: makeNodeComponent("img"),
-    checkbox: makeNodeComponent("checkbox"),
 
     // Metadata about props expected for PlasmicNitif
     internalVariantProps: PlasmicNitif__VariantProps,
