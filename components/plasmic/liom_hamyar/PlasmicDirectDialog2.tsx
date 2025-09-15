@@ -1285,9 +1285,11 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                           ? (() => {
                               const actionArgs = {
                                 customFunction: async () => {
-                                  return window.Android.onButtonClicked(
-                                    "#shopDialog"
-                                  );
+                                  return (() => {
+                                    return window.Android.onButtonClicked(
+                                      `#shopDialog${$state.topShop.sku}`
+                                    );
+                                  })();
                                 }
                               };
                               return (({ customFunction }) => {
@@ -1336,33 +1338,6 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                       ) {
                         $steps["updateLoading2"] = await $steps[
                           "updateLoading2"
-                        ];
-                      }
-
-                      $steps["updateLoading4"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return (() => {
-                                  console.log("and" + window.Android);
-                                  return console.log(
-                                    "and" + window.Android.onButtonClicked
-                                  );
-                                })();
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoading4"] != null &&
-                        typeof $steps["updateLoading4"] === "object" &&
-                        typeof $steps["updateLoading4"].then === "function"
-                      ) {
-                        $steps["updateLoading4"] = await $steps[
-                          "updateLoading4"
                         ];
                       }
                     }}

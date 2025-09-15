@@ -198,56 +198,7 @@ function PlasmicReminder__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          data: [
-            {
-              id: 107,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "null",
-              schedule_type: "everyYear",
-              name: "\u062a\u0648\u0644\u062f \u0645\u0627\u0645\u0627\u0646\u06cc",
-              text: "b",
-              token1:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
-              dates: '["2026-02-14"]',
-              weekdays: null,
-              times: "09:00",
-              finishTime: "2025-09-14 14:33:52",
-              active: 1
-            },
-            {
-              id: 107,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "null",
-              schedule_type: "everyYear",
-              name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
-              text: "occasion",
-              token1:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
-              dates: '["2026-02-14"]',
-              weekdays: null,
-              times: "09:00",
-              finishTime: "2025-09-14 14:33:52",
-              active: 1
-            },
-            {
-              id: 108,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "null",
-              schedule_type: "everyYear",
-              name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
-              text: "occasion",
-              token1:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
-              dates: '["2026-03-08"]',
-              weekdays: null,
-              times: "09:00",
-              finishTime: "2025-09-14 14:36:55",
-              active: 0
-            }
-          ],
+          data: [],
           subscription: false,
           telegram: false,
           activeSmsNotif: false,
@@ -2321,44 +2272,6 @@ function PlasmicReminder__RenderFunc(props: {
                 );
               })}
             </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__fFAnK
-              )}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["runCode"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            $state.slide = true;
-                            return window.localStorage.setItem(
-                              "reminder_slide",
-                              "true"
-                            );
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
-                ) {
-                  $steps["runCode"] = await $steps["runCode"];
-                }
-              }}
-            >
-              {"\u0631\u062f \u0634\u062f\u0646"}
-            </div>
           </div>
           <SwiperSlider
             data-plasmic-name={"swiperSlider"}
@@ -2403,6 +2316,21 @@ function PlasmicReminder__RenderFunc(props: {
               data-plasmic-name={"slide1"}
               data-plasmic-override={overrides.slide1}
               className={classNames(projectcss.all, sty.slide1)}
+              style={(() => {
+                try {
+                  return {
+                    height: "75dvh"
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
             >
               <div className={classNames(projectcss.all, sty.freeBox__yJoEg)}>
                 <div className={classNames(projectcss.all, sty.freeBox__gpjvc)}>
@@ -2568,7 +2496,7 @@ function PlasmicReminder__RenderFunc(props: {
                     )}
                   >
                     {
-                      "\u062a\u0648\u0644\u062f\u060c \u0633\u0627\u0644\u06af\u0631\u062f\u060c \u062c\u0644\u0633\u0647 \u06a9\u0627\u0631\u06cc... \u0647\u0631\u0686\u06cc \u0628\u0631\u0627\u062a \u0645\u0647\u0645\u0647 \u0631\u0648 \u0631\u0627\u062d\u062a \u062b\u0628\u062a \u06a9\u0646."
+                      "\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u062a\u0627\u0631\u06cc\u062e \u0647\u0627\u06cc \u0645\u0647\u0645 \u0631\u0648 \u0631\u0648\u0634\u0646 \u06a9\u0646 \u062a\u0627 \u0647\u06cc\u0686 \u0648\u0642\u062a \u0641\u0631\u0627\u0645\u0648\u0634 \u0646\u06a9\u0646\u06cc"
                     }
                   </div>
                 </div>
@@ -2900,6 +2828,21 @@ function PlasmicReminder__RenderFunc(props: {
               data-plasmic-name={"slide2"}
               data-plasmic-override={overrides.slide2}
               className={classNames(projectcss.all, sty.slide2)}
+              style={(() => {
+                try {
+                  return {
+                    height: "75dvh"
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
             >
               <div className={classNames(projectcss.all, sty.freeBox___6Ix2C)}>
                 <div

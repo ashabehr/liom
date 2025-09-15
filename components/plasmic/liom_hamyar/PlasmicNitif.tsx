@@ -749,79 +749,93 @@ function PlasmicNitif__RenderFunc(props: {
                     </React.Fragment>
                   </div>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__awLjF
-                    )}
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["updateSelectstep"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["selectstep"]
-                              },
-                              operation: 0,
-                              value: currentItem.value
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateSelectstep"] != null &&
-                        typeof $steps["updateSelectstep"] === "object" &&
-                        typeof $steps["updateSelectstep"].then === "function"
-                      ) {
-                        $steps["updateSelectstep"] = await $steps[
-                          "updateSelectstep"
-                        ];
-                      }
-                    }}
-                    style={(() => {
-                      try {
-                        return undefined;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
+                    className={classNames(projectcss.all, sty.freeBox__addyD)}
                   >
-                    <React.Fragment>
-                      {(() => {
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__awLjF
+                      )}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateSelectstep"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["selectstep"]
+                                },
+                                operation: 0,
+                                value: currentItem.value
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateSelectstep"] != null &&
+                          typeof $steps["updateSelectstep"] === "object" &&
+                          typeof $steps["updateSelectstep"].then === "function"
+                        ) {
+                          $steps["updateSelectstep"] = await $steps[
+                            "updateSelectstep"
+                          ];
+                        }
+                      }}
+                      style={(() => {
                         try {
-                          return currentIndex + 1;
+                          return (() => {
+                            var a = $state.step.findIndex(
+                              i => i.value == $state.selectstep
+                            );
+                            if (currentIndex <= a) {
+                              return { background: "#7254c6a1" };
+                            }
+                          })();
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return "";
+                            return undefined;
                           }
                           throw e;
                         }
                       })()}
-                    </React.Fragment>
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return currentIndex + 1;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__iAp7X)}
+                    />
                   </div>
                 </div>
               );

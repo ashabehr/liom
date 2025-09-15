@@ -3464,8 +3464,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                     });
                     const groups = Array.from(groupsMap.entries())
                       .sort((a, b) => {
-                        if (a[0] === "__noDate__") return 1;
-                        if (b[0] === "__noDate__") return -1;
+                        if (a[0] === "__noDate__") return -1;
+                        if (b[0] === "__noDate__") return 1;
                         const dateA = new Date(a[0]);
                         const dateB = new Date(b[0]);
                         const timeA = dateA.getTime();
@@ -3664,6 +3664,32 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                       projectcss.__wab_text,
                                       sty.text__yZzHx
                                     )}
+                                    onClick={async event => {
+                                      const $steps = {};
+
+                                      $steps["runCode"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              customFunction: async () => {
+                                                return undefined;
+                                              }
+                                            };
+                                            return (({ customFunction }) => {
+                                              return customFunction();
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["runCode"] != null &&
+                                        typeof $steps["runCode"] === "object" &&
+                                        typeof $steps["runCode"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["runCode"] = await $steps[
+                                          "runCode"
+                                        ];
+                                      }
+                                    }}
                                   >
                                     <React.Fragment>
                                       {(() => {
