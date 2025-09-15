@@ -3446,35 +3446,39 @@ function PlasmicReminderSetting__RenderFunc(props: {
               try {
                 return (() => {
                   const groupsMap = new Map();
-                  $state.list.forEach(t => {
-                    let parsedDates;
-                    try {
-                      parsedDates = t.dates ? JSON.parse(t.dates) : [];
-                    } catch (e) {
-                      parsedDates = [];
-                    }
-                    t.telegramId = $props.telegramId;
-                    t.phoneNumber = $props.phoneNumber;
-                    t.token1 = $props.token;
-                    t.liomId = $props.manId;
-                    const key = parsedDates[0] || "__noDate__";
-                    if (!groupsMap.has(key)) groupsMap.set(key, []);
-                    groupsMap.get(key).push(t);
-                  });
-                  const groups = Array.from(groupsMap.entries())
-                    .sort((a, b) => {
-                      if (a[0] === "__noDate__") return 1;
-                      if (b[0] === "__noDate__") return -1;
-                      const dateA = new Date(a[0]);
-                      const dateB = new Date(b[0]);
-                      const timeA = dateA.getTime();
-                      const timeB = dateB.getTime();
-                      if (Number.isNaN(timeA)) return 1;
-                      if (Number.isNaN(timeB)) return -1;
-                      return timeA - timeB;
-                    })
-                    .map(entry => entry[1]);
-                  return groups;
+                  try {
+                    $state.list.forEach(t => {
+                      let parsedDates;
+                      try {
+                        parsedDates = t.dates ? JSON.parse(t.dates) : [];
+                      } catch (e) {
+                        parsedDates = [];
+                      }
+                      t.telegramId = $props.telegramId;
+                      t.phoneNumber = $props.phoneNumber;
+                      t.token1 = $props.token;
+                      t.liomId = $props.manId;
+                      const key = parsedDates[0] || "__noDate__";
+                      if (!groupsMap.has(key)) groupsMap.set(key, []);
+                      groupsMap.get(key).push(t);
+                    });
+                    const groups = Array.from(groupsMap.entries())
+                      .sort((a, b) => {
+                        if (a[0] === "__noDate__") return 1;
+                        if (b[0] === "__noDate__") return -1;
+                        const dateA = new Date(a[0]);
+                        const dateB = new Date(b[0]);
+                        const timeA = dateA.getTime();
+                        const timeB = dateB.getTime();
+                        if (Number.isNaN(timeA)) return 1;
+                        if (Number.isNaN(timeB)) return -1;
+                        return timeA - timeB;
+                      })
+                      .map(entry => entry[1]);
+                    return groups;
+                  } catch {
+                    return [];
+                  }
                 })();
               } catch (e) {
                 if (
@@ -3514,13 +3518,17 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       {(() => {
                         try {
                           return (() => {
-                            var date = JSON.parse(currentday[0].dates)[0];
-                            if (date)
-                              return new Date(date).toLocaleDateString(
-                                "fa-IR",
-                                { day: "numeric" }
-                              );
-                            else return "?";
+                            try {
+                              var date = JSON.parse(currentday[0].dates)[0];
+                              if (date)
+                                return new Date(date).toLocaleDateString(
+                                  "fa-IR",
+                                  { day: "numeric" }
+                                );
+                              else return "?";
+                            } catch {
+                              return "?";
+                            }
                           })();
                         } catch (e) {
                           if (
@@ -3545,13 +3553,17 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       {(() => {
                         try {
                           return (() => {
-                            var date = JSON.parse(currentday[0].dates)[0];
-                            if (date)
-                              return new Date(date).toLocaleDateString(
-                                "fa-IR",
-                                { month: "long" }
-                              );
-                            else return "";
+                            try {
+                              var date = JSON.parse(currentday[0].dates)[0];
+                              if (date)
+                                return new Date(date).toLocaleDateString(
+                                  "fa-IR",
+                                  { month: "long" }
+                                );
+                              else return "";
+                            } catch {
+                              return "?";
+                            }
                           })();
                         } catch (e) {
                           if (

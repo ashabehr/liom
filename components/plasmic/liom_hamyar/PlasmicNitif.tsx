@@ -114,12 +114,12 @@ export type PlasmicNitif__OverridesType = {
   frame25?: Flex__<"div">;
   frame48?: Flex__<"div">;
   frame50?: Flex__<"div">;
+  textInput2?: Flex__<typeof TextInput>;
   textInput?: Flex__<typeof TextInput>;
   antdInput?: Flex__<typeof Input>;
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
   img?: Flex__<typeof PlasmicImg__>;
-  antdInput2?: Flex__<typeof Input>;
 };
 
 export interface DefaultNitifProps {
@@ -289,14 +289,6 @@ function PlasmicNitif__RenderFunc(props: {
         onMutate: generateOnMutateForSpec("value", Input_Helpers)
       },
       {
-        path: "antdInput2.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-
-        onMutate: generateOnMutateForSpec("value", Input_Helpers)
-      },
-      {
         path: "filess",
         type: "readonly",
         variableType: "object",
@@ -309,6 +301,20 @@ function PlasmicNitif__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "textInput2.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "antdInput3.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", Input_Helpers)
       }
     ],
     [$props, $ctx, $refs]
@@ -378,7 +384,42 @@ function PlasmicNitif__RenderFunc(props: {
         className={classNames(projectcss.all, sty.frame50)}
       >
         <div className={classNames(projectcss.all, sty.freeBox__wNvsi)}>
-          <div className={classNames(projectcss.all, sty.freeBox__vol1Z)}>
+          <div className={classNames(projectcss.all, sty.freeBox__sqTSf)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___45GcK
+              )}
+            >
+              {"\u0645\u0648\u0636\u0648\u0639 \u0645\u062a\u0646"}
+            </div>
+            <TextInput
+              data-plasmic-name={"textInput2"}
+              data-plasmic-override={overrides.textInput2}
+              className={classNames("__wab_instance", sty.textInput2)}
+              color={"soft"}
+              onChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["textInput2", "value"])(
+                    (e => e.target?.value).apply(null, eventArgs)
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              placeholder={"\u0645\u0648\u0636\u0648\u0639 \u0645\u062a\u0646"}
+              value={
+                generateStateValueProp($state, ["textInput2", "value"]) ?? ""
+              }
+            />
+
             <div
               className={classNames(
                 projectcss.all,
@@ -388,8 +429,6 @@ function PlasmicNitif__RenderFunc(props: {
             >
               {"\u0645\u062a\u0646"}
             </div>
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox__sqTSf)}>
             <TextInput
               data-plasmic-name={"textInput"}
               data-plasmic-override={overrides.textInput}
@@ -513,7 +552,15 @@ function PlasmicNitif__RenderFunc(props: {
                 }
               }}
             >
-              {"\u0627\u0631\u0633\u0627\u0644 \u0645\u062a\u0646"}
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__dgmyy
+                )}
+              >
+                {"\u0627\u0631\u0633\u0627\u0644 \u0645\u062a\u0646"}
+              </div>
             </Button>
             {(() => {
               try {
@@ -770,82 +817,6 @@ function PlasmicNitif__RenderFunc(props: {
           </div>
         </div>
       ) : null}
-      <div className={classNames(projectcss.all, sty.freeBox__nTXxO)}>
-        {(() => {
-          const child$Props = {
-            className: classNames("__wab_instance", sty.antdInput2),
-            id: "fileInput",
-            onChange: async (...eventArgs: any) => {
-              generateStateOnChangePropForCodeComponents(
-                $state,
-                "value",
-                ["antdInput2", "value"],
-                Input_Helpers
-              ).apply(null, eventArgs);
-
-              (async event => {
-                const $steps = {};
-
-                $steps["runCode"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            function isAccepted(type) {
-                              return ["image/jpeg", "image/png"].includes(type);
-                            }
-                            function addFiles(newFiles) {
-                              for (var f of newFiles) {
-                                if (!isAccepted(f.type)) continue;
-                                window.filess = f;
-                                $state.imageload = URL.createObjectURL(f);
-                                console.log($state.files);
-                                console.log($state.imageload);
-                              }
-                            }
-                            return addFiles(event.currentTarget.files);
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
-                ) {
-                  $steps["runCode"] = await $steps["runCode"];
-                }
-              }).apply(null, eventArgs);
-            },
-            type: "file",
-            value: generateStateValueProp($state, ["antdInput2", "value"])
-          };
-          initializeCodeComponentStates(
-            $state,
-            [
-              {
-                name: "value",
-                plasmicStateName: "antdInput2.value"
-              }
-            ],
-            [],
-            Input_Helpers ?? {},
-            child$Props
-          );
-
-          return (
-            <Input
-              data-plasmic-name={"antdInput2"}
-              data-plasmic-override={overrides.antdInput2}
-              {...child$Props}
-            />
-          );
-        })()}
-      </div>
     </div>
   ) as React.ReactElement | null;
 }
@@ -856,22 +827,29 @@ const PlasmicDescendants = {
     "frame25",
     "frame48",
     "frame50",
+    "textInput2",
     "textInput",
     "antdInput",
     "button",
     "button2",
-    "img",
-    "antdInput2"
+    "img"
   ],
   frame25: ["frame25"],
   frame48: ["frame48"],
-  frame50: ["frame50", "textInput", "antdInput", "button", "button2"],
+  frame50: [
+    "frame50",
+    "textInput2",
+    "textInput",
+    "antdInput",
+    "button",
+    "button2"
+  ],
+  textInput2: ["textInput2"],
   textInput: ["textInput", "antdInput"],
   antdInput: ["antdInput"],
   button: ["button"],
   button2: ["button2"],
-  img: ["img"],
-  antdInput2: ["antdInput2"]
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -881,12 +859,12 @@ type NodeDefaultElementType = {
   frame25: "div";
   frame48: "div";
   frame50: "div";
+  textInput2: typeof TextInput;
   textInput: typeof TextInput;
   antdInput: typeof Input;
   button: typeof Button;
   button2: typeof Button;
   img: typeof PlasmicImg__;
-  antdInput2: typeof Input;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -952,12 +930,12 @@ export const PlasmicNitif = Object.assign(
     frame25: makeNodeComponent("frame25"),
     frame48: makeNodeComponent("frame48"),
     frame50: makeNodeComponent("frame50"),
+    textInput2: makeNodeComponent("textInput2"),
     textInput: makeNodeComponent("textInput"),
     antdInput: makeNodeComponent("antdInput"),
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
     img: makeNodeComponent("img"),
-    antdInput2: makeNodeComponent("antdInput2"),
 
     // Metadata about props expected for PlasmicNitif
     internalVariantProps: PlasmicNitif__VariantProps,
