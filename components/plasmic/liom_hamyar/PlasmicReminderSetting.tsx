@@ -2282,7 +2282,29 @@ function PlasmicReminderSetting__RenderFunc(props: {
           opendialog={generateStateValueProp($state, ["time", "opendialog"])}
         >
           <div className={classNames(projectcss.all, sty.freeBox___8MDPm)}>
-            <div className={classNames(projectcss.all, sty.freeBox__fmOzt)}>
+            <div className={classNames(projectcss.all, sty.freeBox___0OmFq)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__pyuK
+                )}
+              >
+                {"\u062f\u0642\u06cc\u0642\u0647"}
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__iIqSt
+                )}
+              >
+                {"\u0633\u0627\u0639\u062a"}
+              </div>
+            </div>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__fmOzt, "time")}
+            >
               <Pickers
                 data-plasmic-name={"pickers"}
                 data-plasmic-override={overrides.pickers}
