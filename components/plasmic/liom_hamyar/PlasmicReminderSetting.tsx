@@ -212,7 +212,56 @@ function PlasmicReminderSetting__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          data: [],
+          data: [
+            {
+              id: 107,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u062a\u0648\u0644\u062f \u0645\u0627\u0645\u0627\u0646\u06cc",
+              text: "b",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
+              dates: '["2026-02-14"]',
+              weekdays: null,
+              times: "09:00",
+              finishTime: "2025-09-14 14:33:52",
+              active: 1
+            },
+            {
+              id: 107,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
+              text: "occasion",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
+              dates: '["2026-02-14"]',
+              weekdays: null,
+              times: "09:00",
+              finishTime: "2025-09-14 14:33:52",
+              active: 1
+            },
+            {
+              id: 108,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
+              text: "occasion",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
+              dates: '["2026-03-08"]',
+              weekdays: null,
+              times: "09:00",
+              finishTime: "2025-09-14 14:36:55",
+              active: 0
+            }
+          ],
           subscription: false,
           token:
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
@@ -292,7 +341,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.select2.task.name;
+              return $state.select2.name;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1571,7 +1620,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   ];
                 }
 
-                $steps["insert"] = true
+                $steps["insert"] = !$state.select2.id
                   ? (() => {
                       const actionArgs = {
                         args: [
@@ -1581,9 +1630,26 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           (() => {
                             try {
                               return (() => {
-                                $state.select2.task.userId = $props.manId;
-                                $state.select2.startDate = $state.date.g;
-                                $state.select2.endDate = $state.date.g;
+                                $state.select2.active = 1;
+                                if ($state.week.length > 0)
+                                  $state.select2.weekdays = $state.week;
+                                let dates = [$state.date.start.f];
+                                if ($state.date.end) {
+                                  $state.select2.finishTime = $state.date.end.f;
+                                } else {
+                                  $state.select2.finishTime = undefined;
+                                }
+                                $state.select2.dates = JSON.stringify(dates);
+                                $state.select2.times = JSON.stringify([
+                                  `${String($state.time2.hour).padStart(
+                                    2,
+                                    "0"
+                                  )}:${String($state.time2.minute).padStart(
+                                    2,
+                                    "0"
+                                  )}`
+                                ]);
+                                $state.select2.name = $state.input.value;
                                 return $state.select2;
                               })();
                             } catch (e) {
@@ -1596,16 +1662,54 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               throw e;
                             }
                           })(),
+                          undefined
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+                if (
+                  $steps["insert"] != null &&
+                  typeof $steps["insert"] === "object" &&
+                  typeof $steps["insert"].then === "function"
+                ) {
+                  $steps["insert"] = await $steps["insert"];
+                }
+
+                $steps["edit"] = $state.select2.id
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://n8n.staas.ir/webhook/user/task/edit",
+                          undefined,
                           (() => {
                             try {
-                              return {
-                                headers: {
-                                  "Content-Type": "application/json",
-                                  Accept: "application/json",
-                                  Authorization: $props.token,
-                                  "X-Requested-With": "XMLHttpRequest"
+                              return (() => {
+                                $state.select2.active = 1;
+                                $state.select2.weekdays = $state.week;
+                                let dates = [$state.date.start.f];
+                                if ($state.date.end) {
+                                  $state.select2.finishTime = $state.date.end.f;
+                                } else {
+                                  $state.select2.finishTime = undefined;
                                 }
-                              };
+                                $state.select2.dates = JSON.stringify(dates);
+                                $state.select2.times = JSON.stringify([
+                                  `${String($state.time2.hour).padStart(
+                                    2,
+                                    "0"
+                                  )}:${String($state.time2.minute).padStart(
+                                    2,
+                                    "0"
+                                  )}`
+                                ]);
+                                $state.select2.name = $state.input.value;
+                                return $state.select2;
+                              })();
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -1625,11 +1729,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
                     })()
                   : undefined;
                 if (
-                  $steps["insert"] != null &&
-                  typeof $steps["insert"] === "object" &&
-                  typeof $steps["insert"].then === "function"
+                  $steps["edit"] != null &&
+                  typeof $steps["edit"] === "object" &&
+                  typeof $steps["edit"].then === "function"
                 ) {
-                  $steps["insert"] = await $steps["insert"];
+                  $steps["edit"] = await $steps["edit"];
                 }
 
                 $steps["invokeGlobalAction2"] =
@@ -1668,8 +1772,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             return (() => {
                               $state.refresh += "1";
                               $state.dialog.opendialog = false;
-                              $state.select2.id = $steps.insert.data.result[0];
-                              return ($state.select2.task.done = true);
+                              $state.select2.id = $steps.insert.data.result;
+                              $state.select2.active = 1;
+                              return ($state.select2 = {});
                             })();
                           }
                         };
@@ -2426,6 +2531,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               __plasmic_idx_0,
                               "isChecked"
                             ]) ?? false,
+                          isIndeterminate: true,
                           key: currentIndex,
                           onChange: async (...eventArgs: any) => {
                             ((...eventArgs) => {
@@ -3199,6 +3305,10 @@ function PlasmicReminderSetting__RenderFunc(props: {
                     } catch (e) {
                       parsedDates = [];
                     }
+                    t.telegramId = $props.telegramId;
+                    t.phoneNumber = $props.phoneNumber;
+                    t.token1 = $props.token;
+                    t.liomId = $props.manId;
                     const key = parsedDates[0] || "__noDate__";
                     if (!groupsMap.has(key)) groupsMap.set(key, []);
                     groupsMap.get(key).push(t);
@@ -3504,57 +3614,52 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                             ];
                                           }
 
-                                          $steps["add"] =
-                                            $state.switchSetting[dayIndex][
-                                              currentIndex
-                                            ].isChecked == "isChecked" ||
-                                            $state.switchSetting[dayIndex][
-                                              currentIndex
-                                            ].isChecked == true
-                                              ? (() => {
-                                                  const actionArgs = {
-                                                    args: [
-                                                      "POST",
-                                                      "https://n8n.staas.ir/webhook/user/task/add",
-                                                      undefined,
-                                                      (() => {
-                                                        try {
-                                                          return (() => {
-                                                            currentItem.liomId =
-                                                              $props.manId;
-                                                            currentItem.active = 1;
-                                                            currentItem.telegramId =
-                                                              $props.telegramId;
-                                                            currentItem.phoneNumber =
-                                                              $props.phoneNumber;
-                                                            currentItem.token1 =
-                                                              $props.token;
-                                                            currentItem.times =
-                                                              ["09:00"];
-                                                            return currentItem;
-                                                          })();
-                                                        } catch (e) {
-                                                          if (
-                                                            e instanceof
-                                                              TypeError ||
-                                                            e?.plasmicType ===
-                                                              "PlasmicUndefinedDataError"
-                                                          ) {
-                                                            return undefined;
-                                                          }
-                                                          throw e;
+                                          $steps["add"] = !currentItem.id
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  args: [
+                                                    "POST",
+                                                    "https://n8n.staas.ir/webhook/user/task/add",
+                                                    undefined,
+                                                    (() => {
+                                                      try {
+                                                        return (() => {
+                                                          currentItem.liomId =
+                                                            $props.manId;
+                                                          currentItem.active = 1;
+                                                          currentItem.telegramId =
+                                                            $props.telegramId;
+                                                          currentItem.phoneNumber =
+                                                            $props.phoneNumber;
+                                                          currentItem.token1 =
+                                                            $props.token;
+                                                          currentItem.times = [
+                                                            "09:00"
+                                                          ];
+                                                          return currentItem;
+                                                        })();
+                                                      } catch (e) {
+                                                        if (
+                                                          e instanceof
+                                                            TypeError ||
+                                                          e?.plasmicType ===
+                                                            "PlasmicUndefinedDataError"
+                                                        ) {
+                                                          return undefined;
                                                         }
-                                                      })(),
-                                                      undefined
-                                                    ]
-                                                  };
-                                                  return $globalActions[
-                                                    "Fragment.apiRequest"
-                                                  ]?.apply(null, [
-                                                    ...actionArgs.args
-                                                  ]);
-                                                })()
-                                              : undefined;
+                                                        throw e;
+                                                      }
+                                                    })(),
+                                                    undefined
+                                                  ]
+                                                };
+                                                return $globalActions[
+                                                  "Fragment.apiRequest"
+                                                ]?.apply(null, [
+                                                  ...actionArgs.args
+                                                ]);
+                                              })()
+                                            : undefined;
                                           if (
                                             $steps["add"] != null &&
                                             typeof $steps["add"] === "object" &&

@@ -25703,6 +25703,21 @@ function PlasmicHamyar__RenderFunc(props: {
           <Reminder
             data-plasmic-name={"reminder2"}
             data-plasmic-override={overrides.reminder2}
+            activeNotifTel={(() => {
+              try {
+                return $state.userdata?.result?.man?.activeNotifTel
+                  ? true
+                  : false;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()}
             activeSmsNotif={(() => {
               try {
                 return $state.userdata?.result?.man?.activeSmsNotif
@@ -25760,7 +25775,7 @@ function PlasmicHamyar__RenderFunc(props: {
             })}
             data={(() => {
               try {
-                return $state.remember?.data?.result || [];
+                return $state.remember?.data || [];
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -25976,6 +25991,19 @@ function PlasmicHamyar__RenderFunc(props: {
                 }
               }).apply(null, eventArgs);
             }}
+            phone={(() => {
+              try {
+                return $state.userdata?.result?.man?.phone;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
             refresh={generateStateValueProp($state, ["reminder2", "refresh"])}
             setting={async () => {
               const $steps = {};
@@ -26064,6 +26092,32 @@ function PlasmicHamyar__RenderFunc(props: {
                 throw e;
               }
             })()}
+            telegramId={(() => {
+              try {
+                return $state.userdata?.result?.man?.telegramId;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            token={(() => {
+              try {
+                return $state.tokenUser;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
           />
 
           <ReminderSetting
@@ -26132,7 +26186,7 @@ function PlasmicHamyar__RenderFunc(props: {
             })}
             data={(() => {
               try {
-                return $state.remember?.data?.result || [];
+                return $state.remember?.data || [];
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -26187,6 +26241,19 @@ function PlasmicHamyar__RenderFunc(props: {
                 return;
               }
             }}
+            phoneNumber={(() => {
+              try {
+                return $state.userdata?.result?.man?.phone;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
             refresh={generateStateValueProp($state, [
               "reminderSetting",
               "refresh"
@@ -26236,6 +26303,19 @@ function PlasmicHamyar__RenderFunc(props: {
                   e?.plasmicType === "PlasmicUndefinedDataError"
                 ) {
                   return false;
+                }
+                throw e;
+              }
+            })()}
+            telegramId={(() => {
+              try {
+                return $state.userdata?.result?.man?.telegramId;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
                 }
                 throw e;
               }

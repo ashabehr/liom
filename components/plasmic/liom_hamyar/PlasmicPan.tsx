@@ -173,11 +173,20 @@ function PlasmicPan__RenderFunc(props: {
             route: "/messages"
           },
           {
-            id: "settings",
-            label_fa: "\u062a\u0646\u0638\u06cc\u0645\u0627\u062a",
-            label_en: "Settings",
-            icon: "settings",
-            route: "/settings"
+            id: "notifications",
+            label_fa:
+              "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646\u200c\u0647\u0627",
+            label_en: "Notifications",
+            icon: "notification",
+            route: "/notifications"
+          },
+          {
+            id: "sms",
+            label_fa:
+              "\u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9",
+            label_en: "Send SMS",
+            icon: "message",
+            route: "/sms"
           }
         ]
       },

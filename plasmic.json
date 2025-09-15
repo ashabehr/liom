@@ -4422,6 +4422,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicUserPage2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "IXmGfNM_xVW3",
+          "name": "Notif",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicNotif.tsx",
+          "importSpec": {
+            "modulePath": "Notif.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicNotif.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

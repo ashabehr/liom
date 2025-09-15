@@ -104,6 +104,8 @@ export type PlasmicReminder__ArgsType = {
   activeSmsNotif?: boolean;
   token?: string;
   activeNotifTel?: boolean;
+  telegramId?: string;
+  phone?: string;
 };
 type ArgPropType = keyof PlasmicReminder__ArgsType;
 export const PlasmicReminder__ArgProps = new Array<ArgPropType>(
@@ -118,7 +120,9 @@ export const PlasmicReminder__ArgProps = new Array<ArgPropType>(
   "telegram",
   "activeSmsNotif",
   "token",
-  "activeNotifTel"
+  "activeNotifTel",
+  "telegramId",
+  "phone"
 );
 
 export type PlasmicReminder__OverridesType = {
@@ -168,6 +172,8 @@ export interface DefaultReminderProps {
   activeSmsNotif?: boolean;
   token?: string;
   activeNotifTel?: boolean;
+  telegramId?: string;
+  phone?: string;
   className?: string;
 }
 
@@ -192,6 +198,56 @@ function PlasmicReminder__RenderFunc(props: {
     () =>
       Object.assign(
         {
+          data: [
+            {
+              id: 107,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u062a\u0648\u0644\u062f \u0645\u0627\u0645\u0627\u0646\u06cc",
+              text: "b",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
+              dates: '["2026-02-14"]',
+              weekdays: null,
+              times: "09:00",
+              finishTime: "2025-09-14 14:33:52",
+              active: 1
+            },
+            {
+              id: 107,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
+              text: "occasion",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
+              dates: '["2026-02-14"]',
+              weekdays: null,
+              times: "09:00",
+              finishTime: "2025-09-14 14:33:52",
+              active: 1
+            },
+            {
+              id: 108,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
+              text: "occasion",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
+              dates: '["2026-03-08"]',
+              weekdays: null,
+              times: "09:00",
+              finishTime: "2025-09-14 14:36:55",
+              active: 0
+            }
+          ],
           subscription: false,
           telegram: false,
           activeSmsNotif: false,
@@ -1533,7 +1589,17 @@ function PlasmicReminder__RenderFunc(props: {
                     return (() => {
                       const groupsMap = new Map();
                       $props.data.forEach(t => {
-                        const key = t.date || "__noDate__";
+                        let parsedDates;
+                        try {
+                          parsedDates = t.dates ? JSON.parse(t.dates) : [];
+                        } catch (e) {
+                          parsedDates = [];
+                        }
+                        t.telegramId = $props.telegramId;
+                        t.phoneNumber = $props.phoneNumber;
+                        t.token1 = $props.token;
+                        t.liomId = $props.manId;
+                        const key = parsedDates[0] || "__noDate__";
                         if (!groupsMap.has(key)) groupsMap.set(key, []);
                         groupsMap.get(key).push(t);
                       });
@@ -1541,7 +1607,13 @@ function PlasmicReminder__RenderFunc(props: {
                         .sort((a, b) => {
                           if (a[0] === "__noDate__") return 1;
                           if (b[0] === "__noDate__") return -1;
-                          return new Date(a[0]) - new Date(b[0]);
+                          const dateA = new Date(a[0]);
+                          const dateB = new Date(b[0]);
+                          const timeA = dateA.getTime();
+                          const timeB = dateB.getTime();
+                          if (Number.isNaN(timeA)) return 1;
+                          if (Number.isNaN(timeB)) return -1;
+                          return timeA - timeB;
                         })
                         .map(entry => entry[1]);
                       return groups;
@@ -1609,19 +1681,16 @@ function PlasmicReminder__RenderFunc(props: {
                                     {(() => {
                                       try {
                                         return (() => {
-                                          const dateString =
-                                            currentday?.[0]?.date;
-                                          let formattedDate = "?";
-                                          if (dateString) {
-                                            const d = new Date(dateString);
-                                            if (d.getTime()) {
-                                              formattedDate =
-                                                d.toLocaleDateString("fa-IR", {
-                                                  day: "numeric"
-                                                });
-                                            }
-                                          }
-                                          return formattedDate;
+                                          var date = JSON.parse(
+                                            currentday[0].dates
+                                          )[0];
+                                          if (date)
+                                            return new Date(
+                                              date
+                                            ).toLocaleDateString("fa-IR", {
+                                              day: "numeric"
+                                            });
+                                          else return "?";
                                         })();
                                       } catch (e) {
                                         if (
@@ -1647,19 +1716,16 @@ function PlasmicReminder__RenderFunc(props: {
                                     {(() => {
                                       try {
                                         return (() => {
-                                          const dateString =
-                                            currentday?.[0]?.date;
-                                          let formattedDate = "--";
-                                          if (dateString) {
-                                            const d = new Date(dateString);
-                                            if (d.getTime()) {
-                                              formattedDate =
-                                                d.toLocaleDateString("fa-IR", {
-                                                  month: "long"
-                                                });
-                                            }
-                                          }
-                                          return formattedDate;
+                                          var date = JSON.parse(
+                                            currentday[0].dates
+                                          )[0];
+                                          if (date)
+                                            return new Date(
+                                              date
+                                            ).toLocaleDateString("fa-IR", {
+                                              month: "long"
+                                            });
+                                          else return "";
                                         })();
                                       } catch (e) {
                                         if (
@@ -2728,6 +2794,19 @@ function PlasmicReminder__RenderFunc(props: {
                         }
                       }).apply(null, eventArgs);
                     }}
+                    phoneNumber={(() => {
+                      try {
+                        return $props.phone;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
                     refresh={generateStateValueProp($state, [
                       "reminderSetting",
                       "refresh"
@@ -2742,6 +2821,19 @@ function PlasmicReminder__RenderFunc(props: {
                           e?.plasmicType === "PlasmicUndefinedDataError"
                         ) {
                           return false;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    telegramId={(() => {
+                      try {
+                        return $props.telegramId;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
                         }
                         throw e;
                       }
@@ -3049,6 +3141,19 @@ function PlasmicReminder__RenderFunc(props: {
                     }
                   }).apply(null, eventArgs);
                 }}
+                phoneNumber={(() => {
+                  try {
+                    return $props.phone;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
                 refresh={generateStateValueProp($state, [
                   "reminderSetting3",
                   "refresh"
@@ -3063,6 +3168,19 @@ function PlasmicReminder__RenderFunc(props: {
                       e?.plasmicType === "PlasmicUndefinedDataError"
                     ) {
                       return false;
+                    }
+                    throw e;
+                  }
+                })()}
+                telegramId={(() => {
+                  try {
+                    return $props.telegramId;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
                     }
                     throw e;
                   }
