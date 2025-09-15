@@ -80,6 +80,7 @@ import sty from "./PlasmicReminder.module.css"; // plasmic-import: 3v9tn6uUJCPM/
 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+import Oval3Icon from "./icons/PlasmicIcon__Oval3"; // plasmic-import: lOJpmSR7qOUd/icon
 import Icon270Icon from "./icons/PlasmicIcon__Icon270"; // plasmic-import: Y171g_Z8ZZ84/icon
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
 import Icon283Icon from "./icons/PlasmicIcon__Icon283"; // plasmic-import: d6oFXeX9yzDi/icon
@@ -148,6 +149,8 @@ export type PlasmicReminder__OverridesType = {
   frame19?: Flex__<"div">;
   frame20?: Flex__<"div">;
   frame21?: Flex__<"div">;
+  ul?: Flex__<"ul">;
+  li?: Flex__<"li">;
   button2?: Flex__<typeof Button>;
   line?: Flex__<typeof Line>;
   swiperSlider?: Flex__<typeof SwiperSlider>;
@@ -198,7 +201,136 @@ function PlasmicReminder__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          data: [],
+          data: [
+            {
+              id: 107,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
+              text: "occasion",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
+              dates: '["2026-02-14"]',
+              weekdays: null,
+              times: "09:00",
+              finishTime: "2025-09-14 14:33:52",
+              active: 0
+            },
+            {
+              id: 108,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
+              text: "occasion",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
+              dates: '["2026-03-08"]',
+              weekdays: null,
+              times: "09:00",
+              finishTime: "2025-09-14 14:36:55",
+              active: 0
+            },
+            {
+              id: 121,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
+              text: "birthday_spouse",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
+              dates: '["2025-09-15"]',
+              weekdays: null,
+              times: '["09:30"]',
+              finishTime: "2025-09-15 09:50:29",
+              active: 0
+            },
+            {
+              id: 122,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0631\u0648\u0632 \u062f\u062e\u062a\u0631",
+              text: "occasion",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
+              dates: '["2026-04-19"]',
+              weekdays: null,
+              times: "09:00",
+              finishTime: "2025-09-15 09:50:54",
+              active: 0
+            },
+            {
+              id: 123,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
+              text: "occasion",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzkyNjUyMn0.Kt_Ty27OsjOZQtNNPYwpXLfnKYfXLqfrHZmzRjWR7Aw",
+              dates: '["2026-02-18"]',
+              weekdays: null,
+              times: "09:00",
+              finishTime: "2025-09-15 12:26:05",
+              active: 0
+            },
+            {
+              id: 124,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
+              text: "occasion",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzkyNjUyMn0.Kt_Ty27OsjOZQtNNPYwpXLfnKYfXLqfrHZmzRjWR7Aw",
+              dates: '["2026-10-11"]',
+              weekdays: null,
+              times: "09:00",
+              finishTime: "2025-09-15 12:26:30",
+              active: 0
+            },
+            {
+              id: 125,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc",
+              text: "anniversary",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzkyNjUyMn0.Kt_Ty27OsjOZQtNNPYwpXLfnKYfXLqfrHZmzRjWR7Aw",
+              dates: '["2025-09-15"]',
+              weekdays: null,
+              times: '["09:30"]',
+              finishTime: "2025-09-15 12:26:53",
+              active: 0
+            },
+            {
+              id: 125,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc",
+              text: "anniversakllkjlkjry",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzkyNjUyMn0.Kt_Ty27OsjOZQtNNPYwpXLfnKYfXLqfrHZmzRjWR7Aw",
+              dates: '["2025-09-15"]',
+              weekdays: null,
+              times: '["09:30"]',
+              finishTime: "2025-09-15 12:26:53",
+              active: 0
+            }
+          ],
           subscription: false,
           telegram: false,
           activeSmsNotif: false,
@@ -1700,11 +1832,10 @@ function PlasmicReminder__RenderFunc(props: {
                                   </React.Fragment>
                                 </div>
                               </div>
-                              <ul
+                              <div
                                 className={classNames(
                                   projectcss.all,
-                                  projectcss.ul,
-                                  sty.ul__tvehx
+                                  sty.freeBox___03FqS
                                 )}
                               >
                                 {(_par =>
@@ -1731,49 +1862,49 @@ function PlasmicReminder__RenderFunc(props: {
                                   const currentItem = __plasmic_item_1;
                                   const currentIndex = __plasmic_idx_1;
                                   return (
-                                    <li
+                                    <div
                                       className={classNames(
                                         projectcss.all,
-                                        projectcss.li,
-                                        sty.li__aJccB
+                                        sty.freeBox__s65D5
                                       )}
                                       key={currentIndex}
                                     >
+                                      <Oval3Icon
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.svg__c0H1J
+                                        )}
+                                        role={"img"}
+                                      />
+
                                       <div
                                         className={classNames(
                                           projectcss.all,
-                                          sty.freeBox__qyMbC
+                                          projectcss.__wab_text,
+                                          sty.text___3JjUn
                                         )}
                                       >
-                                        <div
-                                          className={classNames(
-                                            projectcss.all,
-                                            projectcss.__wab_text,
-                                            sty.text___3JjUn
-                                          )}
-                                        >
-                                          <React.Fragment>
-                                            {(() => {
-                                              try {
-                                                return currentItem.name;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return "";
-                                                }
-                                                throw e;
+                                        <React.Fragment>
+                                          {(() => {
+                                            try {
+                                              return currentItem.name;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return "";
                                               }
-                                            })()}
-                                          </React.Fragment>
-                                        </div>
+                                              throw e;
+                                            }
+                                          })()}
+                                        </React.Fragment>
                                       </div>
-                                    </li>
+                                    </div>
                                   );
                                 })}
-                              </ul>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -1951,10 +2082,12 @@ function PlasmicReminder__RenderFunc(props: {
                                 </div>
                               </div>
                               <ul
+                                data-plasmic-name={"ul"}
+                                data-plasmic-override={overrides.ul}
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.ul,
-                                  sty.ul__iVmnp
+                                  sty.ul
                                 )}
                               >
                                 {(_par =>
@@ -1982,10 +2115,12 @@ function PlasmicReminder__RenderFunc(props: {
                                   const currentIndex = __plasmic_idx_1;
                                   return (
                                     <li
+                                      data-plasmic-name={"li"}
+                                      data-plasmic-override={overrides.li}
                                       className={classNames(
                                         projectcss.all,
                                         projectcss.li,
-                                        sty.li__vlk1T
+                                        sty.li
                                       )}
                                       key={currentIndex}
                                     >
@@ -3312,6 +3447,8 @@ const PlasmicDescendants = {
     "frame19",
     "frame20",
     "frame21",
+    "ul",
+    "li",
     "button2",
     "line",
     "swiperSlider",
@@ -3360,13 +3497,17 @@ const PlasmicDescendants = {
     "frame18",
     "frame19",
     "frame20",
-    "frame21"
+    "frame21",
+    "ul",
+    "li"
   ],
-  frame17: ["frame17", "frame18", "frame19", "frame20", "frame21"],
-  frame18: ["frame18", "frame19", "frame20", "frame21"],
-  frame19: ["frame19", "frame20", "frame21"],
-  frame20: ["frame20", "frame21"],
-  frame21: ["frame21"],
+  frame17: ["frame17", "frame18", "frame19", "frame20", "frame21", "ul", "li"],
+  frame18: ["frame18", "frame19", "frame20", "frame21", "ul", "li"],
+  frame19: ["frame19", "frame20", "frame21", "ul", "li"],
+  frame20: ["frame20", "frame21", "ul", "li"],
+  frame21: ["frame21", "ul", "li"],
+  ul: ["ul", "li"],
+  li: ["li"],
   button2: ["button2"],
   line: ["line"],
   swiperSlider: [
@@ -3410,6 +3551,8 @@ type NodeDefaultElementType = {
   frame19: "div";
   frame20: "div";
   frame21: "div";
+  ul: "ul";
+  li: "li";
   button2: typeof Button;
   line: typeof Line;
   swiperSlider: typeof SwiperSlider;
@@ -3502,6 +3645,8 @@ export const PlasmicReminder = Object.assign(
     frame19: makeNodeComponent("frame19"),
     frame20: makeNodeComponent("frame20"),
     frame21: makeNodeComponent("frame21"),
+    ul: makeNodeComponent("ul"),
+    li: makeNodeComponent("li"),
     button2: makeNodeComponent("button2"),
     line: makeNodeComponent("line"),
     swiperSlider: makeNodeComponent("swiperSlider"),

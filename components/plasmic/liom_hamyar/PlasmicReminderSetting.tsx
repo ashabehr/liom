@@ -3623,7 +3623,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       <div
                         data-plasmic-name={"frame26"}
                         data-plasmic-override={overrides.frame26}
-                        className={classNames(projectcss.all, sty.frame26)}
+                        className={classNames(
+                          projectcss.all,
+                          sty.frame26,
+                          "item"
+                        )}
                         key={currentIndex}
                       >
                         <div
