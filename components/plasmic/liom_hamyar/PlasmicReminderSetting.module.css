@@ -980,7 +980,7 @@
 }
 .todayMeetingslide__1 {
   box-shadow: none;
-  padding: 0px;
+  padding: 0px 0px 30px;
 }
 .todayMeetingslide__2 {
   box-shadow: none;
@@ -1161,7 +1161,7 @@
 .button2:global(.__wab_instance) {
   max-width: 100%;
 }
-.svg___03My2 {
+.svg__hv89L {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -1170,7 +1170,7 @@
 .text__lyni {
   padding: var(--token-38wfsm-OP2Vm) var(--token-O5TjkXII_aat);
 }
-.svg__cyeFo {
+.svg__gVevv {
   object-fit: cover;
   max-width: 100%;
   width: 40px;
@@ -1183,4 +1183,32 @@
   right: auto;
   bottom: auto;
   display: none;
+}
+.freeBox__s8QQw {
+  flex-direction: column;
+  position: fixed;
+  width: auto;
+  height: 40px;
+  max-width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  left: 0;
+  top: auto;
+  background: linear-gradient(
+    0deg,
+    #00000033 0%,
+    #00000018 21%,
+    transparent 71%
+  );
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  opacity: 0.6;
+  flex-shrink: 0;
+  display: none;
+  border-radius: var(--token-B5WvIYiqPJW-);
+  padding: 8px;
+}
+.freeBoxslide__1__s8QQwedcqc {
+  display: flex;
 }

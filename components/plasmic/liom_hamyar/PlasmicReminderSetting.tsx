@@ -3442,10 +3442,58 @@ function PlasmicReminderSetting__RenderFunc(props: {
         <div
           data-plasmic-name={"todayMeeting"}
           data-plasmic-override={overrides.todayMeeting}
-          className={classNames(projectcss.all, sty.todayMeeting, {
+          className={classNames(projectcss.all, sty.todayMeeting, ``, {
             [sty.todayMeetingslide__1]: hasVariant($state, "slide", "_1"),
             [sty.todayMeetingslide__2]: hasVariant($state, "slide", "_2")
           })}
+          id={"scrollBox"}
+          onScroll={async event => {
+            const $steps = {};
+
+            $steps["runCode"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        var shadowBottom =
+                          window.document.getElementById("shadowBottom");
+                        console.log(
+                          "scrollTop:",
+                          event.currentTarget.scrollTop
+                        );
+                        console.log(
+                          "clientHeight:",
+                          event.currentTarget.clientHeight
+                        );
+                        console.log(
+                          "scrollHeight:",
+                          event.currentTarget.scrollHeight - 1
+                        );
+                        var atBottom =
+                          event.currentTarget.scrollTop +
+                            event.currentTarget.clientHeight >=
+                          event.currentTarget.scrollHeight - 1;
+                        if (atBottom) {
+                          return (shadowBottom.style.display = "none");
+                        } else {
+                          return (shadowBottom.style.display = "block");
+                        }
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
+            }
+          }}
         >
           {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
             (() => {
@@ -4258,6 +4306,16 @@ function PlasmicReminderSetting__RenderFunc(props: {
               </div>
             );
           })}
+          <div
+            className={classNames(projectcss.all, sty.freeBox__s8QQw, {
+              [sty.freeBoxslide__1__s8QQwedcqc]: hasVariant(
+                $state,
+                "slide",
+                "_1"
+              )
+            })}
+            id={"shadowBottom"}
+          />
         </div>
       </div>
     </div>

@@ -660,9 +660,10 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: auto;
+  height: 41px;
   max-width: 100%;
   min-width: 0;
+  flex-shrink: 0;
   padding: 8px;
 }
 .svg__n7O1P {
