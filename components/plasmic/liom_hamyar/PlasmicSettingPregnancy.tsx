@@ -2832,7 +2832,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["goToPage"] = (() => {
+                      $steps["runCode"] = (() => {
                         if (
                           $state.duDate == "" ||
                           $state.dateOfBirth == null ||
@@ -2884,54 +2884,23 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       })()
                         ? (() => {
                             const actionArgs = {
-                              destination: (() => {
-                                try {
-                                  return (() => {
-                                    var token = $state.token;
-                                    return (
-                                      "https://apps.liom.app/pregnancy/?token=" +
-                                      token +
-                                      "&userId=" +
-                                      $state.userId +
-                                      "&theme=" +
-                                      $ctx.query.theme +
-                                      "&inApp=false" +
-                                      "&version=" +
-                                      $ctx.query.version
-                                    );
-                                  })();
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            };
-                            return (({ destination }) => {
-                              if (
-                                typeof destination === "string" &&
-                                destination.startsWith("#")
-                              ) {
-                                document
-                                  .getElementById(destination.substr(1))
-                                  .scrollIntoView({ behavior: "smooth" });
-                              } else {
-                                __nextRouter?.push(destination);
+                              customFunction: async () => {
+                                return (() => {
+                                  return window.history.back();
+                                })();
                               }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
                             })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
                       if (
-                        $steps["goToPage"] != null &&
-                        typeof $steps["goToPage"] === "object" &&
-                        typeof $steps["goToPage"].then === "function"
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
                       ) {
-                        $steps["goToPage"] = await $steps["goToPage"];
+                        $steps["runCode"] = await $steps["runCode"];
                       }
 
                       $steps["invokeGlobalAction4"] = (() => {

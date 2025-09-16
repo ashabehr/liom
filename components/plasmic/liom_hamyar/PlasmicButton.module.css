@@ -103,6 +103,9 @@
 .rootcolor_softBlack {
   background: var(--token-Hk2bXGFNiuQX);
 }
+.rootcolor_softPurple {
+  background: var(--token-RfhqiwT2YAVo);
+}
 .rootfilterX {
   background: #8254c600;
 }
@@ -117,6 +120,10 @@
 }
 .rootbuttonDataaa {
   background: linear-gradient(#682c2c00, #682c2c00), var(--token-SX03PBUzWAqr);
+}
+.rootserface {
+  background: var(--token-RfhqiwT2YAVo);
+  border: 1px solid var(--token-qvl81LxkOSoe);
 }
 .rootshowStartIcon_shape_rounded {
   padding-left: 16px;

@@ -62,6 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -73,6 +74,8 @@ import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K
 import sty from "./PlasmicDetailsmonth.module.css"; // plasmic-import: zIxrUaJyE_Qc/css
 
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
 createPlasmicElementProxy;
 
@@ -88,6 +91,8 @@ export const PlasmicDetailsmonth__ArgProps = new Array<ArgPropType>();
 export type PlasmicDetailsmonth__OverridesType = {
   root?: Flex__<"div">;
   svg?: Flex__<"svg">;
+  button?: Flex__<typeof Button>;
+  button2?: Flex__<typeof Button>;
 };
 
 export interface DefaultDetailsmonthProps {}
@@ -134,6 +139,54 @@ function PlasmicDetailsmonth__RenderFunc(props: {
   const globalVariants = _useGlobalVariants();
 
   const currentUser = useCurrentUser?.() || {};
+
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "button2.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button2.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button2.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
 
   const styleTokensClassNames = _useStyleTokens();
   const styleTokensClassNames_antd_5_hostless =
@@ -184,12 +237,23 @@ function PlasmicDetailsmonth__RenderFunc(props: {
                 sty.text__eOfiP
               )}
             >
-              {
-                "\u062c\u0632\u0626\u06cc\u0627\u062a \u062f\u0648\u0631\u0647 \u0647\u0627"
-              }
+              {"\u062c\u0632\u0626\u06cc\u0627\u062a \u062f\u0648\u0631\u0647"}
             </div>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__s0X0Q)}>
+            <div className={classNames(projectcss.all, sty.freeBox__lr9Jl)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__wlhF0
+                )}
+              >
+                {
+                  "\u0627\u0632 27 \u062a\u06cc\u0631 1404 \u062a\u0627 16 \u0645\u0631\u062f\u0627\u062f 1404"
+                }
+              </div>
+            </div>
             <div className={classNames(projectcss.all, sty.freeBox__zmmyG)}>
               <div
                 className={classNames(
@@ -203,6 +267,144 @@ function PlasmicDetailsmonth__RenderFunc(props: {
                 }
               </div>
             </div>
+            <div className={classNames(projectcss.all, sty.freeBox__v899Y)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__vOkxG
+                )}
+              >
+                {
+                  "\u0647\u0631 \u0631\u0648\u0632 \n\u0628\u0647 \u06a9\u0645\u06a9 \u0627\u0628\u0632\u0627\u0631  >> \u0628\u0631\u0646\u0627\u0645\u0647 \u0627\u0645\u0631\u0648\u0632 << \u0639\u0644\u0627\u0626\u0645\u062a\u0648\u0646 \u0631\u0648 \u062b\u0628\u062a \u06a9\u0646\u06cc\u062f \u062a\u0627 \u062f\u0627\u062f\u0647 \u0628\u06cc\u0634\u062a\u0631\u06cc \u0627\u0632 \u0627\u062a\u0641\u0627\u0642\u0627\u062a\u06cc \u06a9\u0647 \u062f\u0631 \u06cc\u06a9 \u062f\u0648\u0631\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u0634\u0645\u0627 \u0631\u062e \u062f\u0627\u062f\u0647 \u0627\u0633\u062a \u0628\u062f\u0633\u062a \u0622\u0648\u0631\u06cc\u062f "
+                }
+              </div>
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__stJmD)}>
+              <Button
+                data-plasmic-name={"button"}
+                data-plasmic-override={overrides.button}
+                className={classNames("__wab_instance", sty.button)}
+                color={generateStateValueProp($state, ["button", "color"])}
+                load={generateStateValueProp($state, ["button", "load"])}
+                loading={generateStateValueProp($state, ["button", "loading"])}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "loading"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+              >
+                {
+                  "\u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u0627\u0645\u0631\u0648\u0632"
+                }
+              </Button>
+              <Button
+                data-plasmic-name={"button2"}
+                data-plasmic-override={overrides.button2}
+                className={classNames("__wab_instance", sty.button2)}
+                color={generateStateValueProp($state, ["button2", "color"])}
+                load={generateStateValueProp($state, ["button2", "load"])}
+                loading={generateStateValueProp($state, ["button2", "loading"])}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button2", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button2", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button2", "loading"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                serface={true}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__w6Nm
+                  )}
+                >
+                  {
+                    "\u062f\u0631\u06cc\u0627\u0641\u062a \u06af\u0632\u0627\u0631\u0634 \u062f\u0648\u0631\u0647"
+                  }
+                </div>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
@@ -211,8 +413,10 @@ function PlasmicDetailsmonth__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "svg"],
-  svg: ["svg"]
+  root: ["root", "svg", "button", "button2"],
+  svg: ["svg"],
+  button: ["button"],
+  button2: ["button2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -220,6 +424,8 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   svg: "svg";
+  button: typeof Button;
+  button2: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -308,6 +514,8 @@ export const PlasmicDetailsmonth = Object.assign(
   {
     // Helper components rendering sub-elements
     svg: makeNodeComponent("svg"),
+    button: makeNodeComponent("button"),
+    button2: makeNodeComponent("button2"),
 
     // Metadata about props expected for PlasmicDetailsmonth
     internalVariantProps: PlasmicDetailsmonth__VariantProps,

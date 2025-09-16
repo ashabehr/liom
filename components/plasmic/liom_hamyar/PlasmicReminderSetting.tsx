@@ -1918,7 +1918,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         const actionArgs = {
                           customFunction: async () => {
                             return (() => {
-                              $state.refresh += "1";
                               $state.dialog.opendialog = false;
                               $state.select2.id = $steps.insert.data.result;
                               $state.select2.active = 1;
@@ -2868,6 +2867,17 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   projectcss.all,
                   projectcss.__wab_text,
                   sty.text___9HquP
+                )}
+              >
+                {
+                  "\u06cc\u0627\u062f \u0622\u0648\u0631\u06cc \u0628\u0627 \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9"
+                }
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__s2Cc7
                 )}
               >
                 {
