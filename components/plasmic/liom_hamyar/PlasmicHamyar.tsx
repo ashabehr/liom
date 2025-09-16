@@ -6702,7 +6702,7 @@ function PlasmicHamyar__RenderFunc(props: {
                             showInfo={false}
                             size={"default"}
                             status={"normal"}
-                            strokeColor={true ? "#7254C6" : undefined}
+                            strokeColor={true ? "#BFA9FF85" : undefined}
                             strokeLinecap={"round"}
                             strokeWidth={5}
                             trailColor={
@@ -26037,7 +26037,7 @@ function PlasmicHamyar__RenderFunc(props: {
             }}
             phone={(() => {
               try {
-                return $state.userdata?.result?.man?.phone;
+                return $state.mobile;
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -26149,19 +26149,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 throw e;
               }
             })()}
-            token={(() => {
-              try {
-                return $state.tokenUser;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
+            token={``}
           />
 
           <ReminderSetting
@@ -26307,7 +26295,7 @@ function PlasmicHamyar__RenderFunc(props: {
             }}
             phoneNumber={(() => {
               try {
-                return $state.userdata?.result?.man?.phone;
+                return $state.mobile;
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -26397,19 +26385,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 throw e;
               }
             })()}
-            token={(() => {
-              try {
-                return $state.tokenUser;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
+            token={``}
           />
         </div>
       </div>

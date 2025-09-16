@@ -2317,7 +2317,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                             showInfo={false}
                             size={"default"}
                             status={"normal"}
-                            strokeColor={true ? "#7254C6" : undefined}
+                            strokeColor={true ? "#BFA9FF85" : undefined}
                             strokeLinecap={"round"}
                             strokeWidth={5}
                             trailColor={

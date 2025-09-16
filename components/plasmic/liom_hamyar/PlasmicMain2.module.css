@@ -134,11 +134,9 @@
 }
 .sendMessage:global(.__wab_instance) {
   max-width: 100%;
-  flex-shrink: 0;
   display: none;
 }
 .sendMessagepage_notifs:global(.__wab_instance) {
-  flex-shrink: 0;
   display: none;
 }
 .nitif:global(.__wab_instance) {

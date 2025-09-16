@@ -535,8 +535,10 @@ function PlasmicNotification__RenderFunc(props: {
             shouldFetch={(() => {
               try {
                 return (
-                  $state.paramsObject?.userId != "" &&
-                  $state.paramsObject?.userId != null
+                  ($state.paramsObject?.userId != "" &&
+                    $state.paramsObject?.userId != null) ||
+                  ($state.paramsObject?.app != "" &&
+                    $state.paramsObject?.app != null)
                 );
               } catch (e) {
                 if (

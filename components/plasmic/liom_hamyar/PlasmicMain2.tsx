@@ -64,8 +64,8 @@ import UserPage from "../../UserPage"; // plasmic-import: Y_O8FNCBMxb-/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import Reports from "../../Reports"; // plasmic-import: pmKDqHBtiLCT/component
 import UserPage2 from "../../UserPage2"; // plasmic-import: 3UGIP49FNSVo/component
-import Nitif from "../../Nitif"; // plasmic-import: 1f3SHQQwHGQn/component
-import Nitif2 from "../../Nitif2"; // plasmic-import: MCAKqEbtK9Qy/component
+import Sendnotif from "../../Sendnotif"; // plasmic-import: 1f3SHQQwHGQn/component
+import Sendmessage from "../../Sendmessage"; // plasmic-import: MCAKqEbtK9Qy/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -116,8 +116,8 @@ export type PlasmicMain2__OverridesType = {
   apiRequest?: Flex__<typeof ApiRequest>;
   reports?: Flex__<typeof Reports>;
   userPage2?: Flex__<typeof UserPage2>;
-  sendMessage?: Flex__<typeof Nitif>;
-  nitif?: Flex__<typeof Nitif2>;
+  sendMessage?: Flex__<typeof Sendnotif>;
+  nitif?: Flex__<typeof Sendmessage>;
 };
 
 export interface DefaultMain2Props {
@@ -1296,7 +1296,7 @@ function PlasmicMain2__RenderFunc(props: {
         }}
       />
 
-      <Nitif
+      <Sendnotif
         data-plasmic-name={"sendMessage"}
         data-plasmic-override={overrides.sendMessage}
         className={classNames("__wab_instance", sty.sendMessage, {
@@ -1369,7 +1369,7 @@ function PlasmicMain2__RenderFunc(props: {
         tabList={generateStateValueProp($state, ["sendMessage", "tabList"])}
       />
 
-      <Nitif2
+      <Sendmessage
         data-plasmic-name={"nitif"}
         data-plasmic-override={overrides.nitif}
         className={classNames("__wab_instance", sty.nitif)}
@@ -1475,8 +1475,8 @@ type NodeDefaultElementType = {
   apiRequest: typeof ApiRequest;
   reports: typeof Reports;
   userPage2: typeof UserPage2;
-  sendMessage: typeof Nitif;
-  nitif: typeof Nitif2;
+  sendMessage: typeof Sendnotif;
+  nitif: typeof Sendmessage;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";

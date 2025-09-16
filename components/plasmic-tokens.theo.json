@@ -73,7 +73,7 @@
     {
       "name": "Basic/Border",
       "type": "color",
-      "value": "#7254C6",
+      "value": "#8254C6",
       "category": "color",
       "meta": {
         "projectId": "suVPi77vb6vv9K5rYJwyxC",
@@ -3121,6 +3121,16 @@
       }
     },
     {
+      "name": "icon color gray",
+      "type": "color",
+      "value": "#B1B1B1",
+      "category": "color",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "AwpLXbw5AmtS"
+      }
+    },
+    {
       "name": "input placeholder",
       "type": "color",
       "value": "#8254C61A",
@@ -3153,7 +3163,7 @@
     {
       "name": "light purple",
       "type": "color",
-      "value": "#7254C6",
+      "value": "#BFA9FF85",
       "category": "color",
       "meta": {
         "projectId": "suVPi77vb6vv9K5rYJwyxC",
@@ -3283,7 +3293,7 @@
     {
       "name": "purple",
       "type": "color",
-      "value": "#7254C6",
+      "value": "#BFA9FF85",
       "category": "color",
       "meta": {
         "projectId": "suVPi77vb6vv9K5rYJwyxC",
