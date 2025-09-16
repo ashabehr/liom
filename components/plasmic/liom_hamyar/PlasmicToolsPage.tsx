@@ -65,6 +65,7 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import TabWidget from "../../TabWidget"; // plasmic-import: 5oNm4PTVAr6q/component
+import ToolsComponent from "../../ToolsComponent"; // plasmic-import: TGSOhksfnMdG/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -92,6 +93,7 @@ export type PlasmicToolsPage__OverridesType = {
   getUserInfo?: Flex__<typeof ApiRequest>;
   tabWidget?: Flex__<typeof TabWidget>;
   img?: Flex__<typeof PlasmicImg__>;
+  toolsComponent?: Flex__<typeof ToolsComponent>;
 };
 
 export interface DefaultToolsPageProps {}
@@ -163,7 +165,8 @@ function PlasmicToolsPage__RenderFunc(props: {
                       category: "مادر",
                       items: [
                         {
-                          title: "ابزارهای بارداری",
+                          // "title": "ابزارهای بارداری",
+                          title: "",
                           items: [
                             {
                               text: "یادآوری غربالگری و آزمایش های مهم",
@@ -192,101 +195,95 @@ function PlasmicToolsPage__RenderFunc(props: {
                               action: "#weight",
                               shopType: "",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/bmiOutlined.png"
-                            }
-                          ]
-                        },
+                              // }
+                              //   ]
+                            },
 
-                        {
-                          title: "خود درمانی",
-                          items: [
-                            {
-                              text: "روتین مو",
-                              description:
-                                "برنامه مراقبت و نگهداری از موها در دوران بارداری.",
-                              action: "#hair_care",
-                              shopType: "hair_car",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/hairCareOutlined.png"
-                            },
-                            {
-                              text: "روتین پوست",
-                              description:
-                                "راهنمای مراقبت از پوست در دوران بارداری برای حفظ زیبایی و سلامت.",
-                              action: "#skinCare",
-                              shopType: "skinCare",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/skinCareOutlined.png"
-                            },
-                            {
-                              text: "پیشگیری از ترک پوستی",
-                              description:
-                                "روش‌های جلوگیری از ایجاد ترک‌های پوستی در بارداری.",
-                              action: "#stretch_marks",
-                              shopType: "stretch_marks_sub",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/stretchMarkOutlined.png"
-                            },
-                            {
-                              text: "درمان  ADHD ",
-                              action: "#adhd_treatment_sub",
-                              shopType: "adhd_treatment_sub",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/adhdOutlined.png"
-                            }
-                          ]
-                        },
-                        {
-                          title: "خود آزمایی",
-                          items: [
-                            {
-                              text: "تست نیاز به تراپی دارم",
-                              description:
-                                "ارزیابی نیاز به خدمات تراپی روانشناسی و درمانی.",
-                              action: "#need_therapy",
-                              shopType: "need_therapy_sub",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/therapyOutlined.png"
-                            },
-                            {
-                              text: "تست افسردگی",
-                              description:
-                                "ارزیابی سلامت روان و تشخیص علائم افسردگی.",
-                              action: "#depression",
-                              shopType: "",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/depressionNew.png"
-                            },
-                            {
-                              text: "تست ADHD",
-                              description:
-                                "آزمون و ارزیابی اختلال نقص توجه و بیش‌فعالی.",
-                              action: "#adhd",
-                              shopType: "adhd_sub",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/adhdOutlined.png"
-                            },
-                            {
-                              text: "تست دیابت بارداری (GD)",
-                              action: "#pregnancyDiabetes",
-                              shopType: "pregnancy_diabetes",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/diabetOutlined.png"
-                            },
-                            {
-                              text: "تست مسمومیت بارداری",
-                              action: "#preeclampsia",
-                              shopType: "preeclampsia",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/preeclampsiaOutlined.png"
-                            },
-                            {
-                              text: "تست اختلال تیروئید",
-                              action: "#thyroid",
-                              shopType: "thyroid",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/therapyOutlined.png"
-                            }
-                          ]
-                        },
-                        {
-                          title: "دیگر ابزارها",
-                          items: [
-                            {
-                              text: "یادآوری خودآزمایی سرطان سینه",
-                              action: "#breastCancer",
-                              shopType: "",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/breastCancerOutlined.png"
-                            },
+                            // {
+                            //   "title": "خود درمانی",
+                            //   "items": [
+                            //     {
+                            //       "text": "روتین مو",
+                            //       "description": "برنامه مراقبت و نگهداری از موها در دوران بارداری.",
+                            //       "action": "#hair_care",
+                            //       "shopType" : "hair_car" ,
+                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/hairCareOutlined.png"
+                            //     },
+                            //     {
+                            //       "text": "روتین پوست",
+                            //       "description": "راهنمای مراقبت از پوست در دوران بارداری برای حفظ زیبایی و سلامت.",
+                            //       "action": "#skinCare",
+                            //       "shopType" : "skinCare" ,
+                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/skinCareOutlined.png"
+                            //     },
+                            //     {
+                            //       "text": "پیشگیری از ترک پوستی",
+                            //       "description": "روش‌های جلوگیری از ایجاد ترک‌های پوستی در بارداری.",
+                            //       "action": "#stretch_marks",
+                            //       "shopType" : "stretch_marks_sub" ,
+                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/stretchMarkOutlined.png"
+                            //     },
+                            //     {
+                            //       "text": "درمان  ADHD ",
+                            //       "action": "#adhd_treatment_sub",
+                            //       "shopType" : "adhd_treatment_sub" ,
+                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/adhdOutlined.png"
+                            //     }
+                            //   ]
+                            // },
+                            // {
+                            //   "title": "خود آزمایی",
+                            //   "items": [
+                            //     {
+                            //       "text": "تست نیاز به تراپی دارم",
+                            //       "description": "ارزیابی نیاز به خدمات تراپی روانشناسی و درمانی.",
+                            //       "action": "#need_therapy",
+                            //       "shopType" : "need_therapy_sub" ,
+                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/therapyOutlined.png"
+                            //     },
+                            //     {
+                            //       "text": "تست افسردگی",
+                            //       "description": "ارزیابی سلامت روان و تشخیص علائم افسردگی.",
+                            //       "action": "#depression",
+                            //       "shopType" : "" ,
+                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/depressionNew.png"
+                            //     },
+                            //     {
+                            //       "text": "تست ADHD",
+                            //       "description": "آزمون و ارزیابی اختلال نقص توجه و بیش‌فعالی.",
+                            //       "action": "#adhd",
+                            //       "shopType" : "adhd_sub" ,
+                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/adhdOutlined.png"
+                            //     },
+                            //     {
+                            //       "text": "تست دیابت بارداری (GD)",
+                            //       "action": "#pregnancyDiabetes",
+                            //       "shopType" : "pregnancy_diabetes" ,
+                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/diabetOutlined.png"
+                            //     },
+                            //     {
+                            //       "text": "تست مسمومیت بارداری",
+                            //       "action": "#preeclampsia",
+                            //       "shopType" : "preeclampsia" ,
+                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/preeclampsiaOutlined.png"
+                            //     },
+                            //     {
+                            //       "text": "تست اختلال تیروئید",
+                            //       "action": "#thyroid",
+                            //       "shopType" : "thyroid" ,
+                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/therapyOutlined.png"
+                            //     }
+                            //   ]
+                            // },
+                            //  {
+                            //     "title": "دیگر ابزارها",
+                            //     "items": [
+                            // {
+                            //   "text": "یادآوری خودآزمایی سرطان سینه",
+                            //   "action": "#breastCancer",
+                            //   "shopType" : "" ,
+                            //   "icon": "https://liom.storage.c2.liara.space/config/self_care/breastCancerOutlined.png"
+                            // },
                             {
                               text: "همیار بارداری",
                               shopType: "",
@@ -1178,6 +1175,11 @@ function PlasmicToolsPage__RenderFunc(props: {
               </div>
             </div>
           </ApiRequest>
+          <ToolsComponent
+            data-plasmic-name={"toolsComponent"}
+            data-plasmic-override={overrides.toolsComponent}
+            className={classNames("__wab_instance", sty.toolsComponent)}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -1185,11 +1187,19 @@ function PlasmicToolsPage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "sideEffect", "getUserInfo", "tabWidget", "img"],
+  root: [
+    "root",
+    "sideEffect",
+    "getUserInfo",
+    "tabWidget",
+    "img",
+    "toolsComponent"
+  ],
   sideEffect: ["sideEffect"],
   getUserInfo: ["getUserInfo", "tabWidget", "img"],
   tabWidget: ["tabWidget"],
-  img: ["img"]
+  img: ["img"],
+  toolsComponent: ["toolsComponent"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1200,6 +1210,7 @@ type NodeDefaultElementType = {
   getUserInfo: typeof ApiRequest;
   tabWidget: typeof TabWidget;
   img: typeof PlasmicImg__;
+  toolsComponent: typeof ToolsComponent;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1291,6 +1302,7 @@ export const PlasmicToolsPage = Object.assign(
     getUserInfo: makeNodeComponent("getUserInfo"),
     tabWidget: makeNodeComponent("tabWidget"),
     img: makeNodeComponent("img"),
+    toolsComponent: makeNodeComponent("toolsComponent"),
 
     // Metadata about props expected for PlasmicToolsPage
     internalVariantProps: PlasmicToolsPage__VariantProps,

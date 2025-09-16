@@ -4475,6 +4475,46 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/monthlist"
+        },
+        {
+          "id": "TGSOhksfnMdG",
+          "name": "ToolsComponent",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicToolsComponent.tsx",
+          "importSpec": {
+            "modulePath": "ToolsComponent.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicToolsComponent.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "R1I9CE3VIFc0",
+          "name": "MainPagePregnancy",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMainPagePregnancy.tsx",
+          "importSpec": {
+            "modulePath": "MainPagePregnancy.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicMainPagePregnancy.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "zIxrUaJyE_Qc",
+          "name": "Detailsmonth",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicDetailsmonth.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/detailsmonth.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicDetailsmonth.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/detailsmonth"
         }
       ],
       "icons": [

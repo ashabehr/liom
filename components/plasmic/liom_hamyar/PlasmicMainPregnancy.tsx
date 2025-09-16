@@ -63,7 +63,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
-import ComponentPregnancy from "../../ComponentPregnancy"; // plasmic-import: 8wHhlRtqpYtU/component
+import MainPagePregnancy from "../../MainPagePregnancy"; // plasmic-import: R1I9CE3VIFc0/component
 import MainPregnancyHeader from "../../MainPregnancyHeader"; // plasmic-import: 9xsQ86WEmeJv/component
 import FooterPregnancyMain from "../../FooterPregnancyMain"; // plasmic-import: -kbj-rjG1hPY/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
@@ -82,6 +82,7 @@ import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K
 import sty from "./PlasmicMainPregnancy.module.css"; // plasmic-import: x3lX8YdIXcEA/css
 
 import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: 3QmHdQOUm1zK/icon
+import Icon37Icon from "./icons/PlasmicIcon__Icon37"; // plasmic-import: LIjpTvvD6DcR/icon
 
 createPlasmicElementProxy;
 
@@ -110,11 +111,8 @@ export type PlasmicMainPregnancy__OverridesType = {
   root?: Flex__<"div">;
   sideEffect?: Flex__<typeof SideEffect>;
   main?: Flex__<"div">;
-  componentPregnancy?: Flex__<typeof ComponentPregnancy>;
+  mainPagePregnancy?: Flex__<typeof MainPagePregnancy>;
   mainHeader?: Flex__<typeof MainPregnancyHeader>;
-  freeBox?: Flex__<"div">;
-  svg?: Flex__<"svg">;
-  text?: Flex__<"div">;
   footerMain?: Flex__<typeof FooterPregnancyMain>;
   settingCycle4?: Flex__<typeof SettingCycle4>;
   subItemsComponnet?: Flex__<typeof SubItemsComponnet>;
@@ -275,6 +273,24 @@ function PlasmicMainPregnancy__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "mainPagePregnancy.editTime",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "mainPagePregnancy.userInfo",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "mainPagePregnancy.token",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -396,10 +412,77 @@ function PlasmicMainPregnancy__RenderFunc(props: {
               [sty.mainsubItem]: hasVariant($state, "subItem", "subItem")
             })}
           >
-            <ComponentPregnancy
-              data-plasmic-name={"componentPregnancy"}
-              data-plasmic-override={overrides.componentPregnancy}
-              className={classNames("__wab_instance", sty.componentPregnancy)}
+            <MainPagePregnancy
+              data-plasmic-name={"mainPagePregnancy"}
+              data-plasmic-override={overrides.mainPagePregnancy}
+              className={classNames("__wab_instance", sty.mainPagePregnancy)}
+              editTime={generateStateValueProp($state, [
+                "mainPagePregnancy",
+                "editTime"
+              ])}
+              onEditTimeChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "mainPagePregnancy",
+                  "editTime"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onTokenChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "mainPagePregnancy",
+                  "token"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onUserInfoChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "mainPagePregnancy",
+                  "userInfo"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              page={(() => {
+                try {
+                  return $state.footerMain.type;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "calendar";
+                  }
+                  throw e;
+                }
+              })()}
+              token={generateStateValueProp($state, [
+                "mainPagePregnancy",
+                "token"
+              ])}
+              userInfo={generateStateValueProp($state, [
+                "mainPagePregnancy",
+                "userInfo"
+              ])}
             />
 
             <section className={classNames(projectcss.all, sty.section__jlfOv)}>
@@ -477,84 +560,154 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                   }
                 })()}
               >
-                <div
-                  data-plasmic-name={"freeBox"}
-                  data-plasmic-override={overrides.freeBox}
-                  className={classNames(projectcss.all, sty.freeBox)}
-                >
-                  <Icon185Icon
-                    data-plasmic-name={"svg"}
-                    data-plasmic-override={overrides.svg}
-                    className={classNames(projectcss.all, sty.svg)}
+                <div className={classNames(projectcss.all, sty.freeBox__fjnux)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__ms9Sv)}
+                  >
+                    <Icon185Icon
+                      className={classNames(projectcss.all, sty.svg__scrJg)}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateMainHeaderDopen"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["mainHeader", "dopen"]
+                                },
+                                operation: 0,
+                                value: true
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateMainHeaderDopen"] != null &&
+                          typeof $steps["updateMainHeaderDopen"] === "object" &&
+                          typeof $steps["updateMainHeaderDopen"].then ===
+                            "function"
+                        ) {
+                          $steps["updateMainHeaderDopen"] = await $steps[
+                            "updateMainHeaderDopen"
+                          ];
+                        }
+                      }}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__jLk9U
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.page.find(
+                              item => item.name == $state.footerMain.type
+                            ).namefa;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u0627\u0645\u06a9\u0627\u0646\u0627\u062a \u0648\u06cc\u0698\u0647";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__fTwpz)}
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["updateMainHeaderDopen"] = true
+                      $steps["goToPage"] = true
                         ? (() => {
                             const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["mainHeader", "dopen"]
-                              },
-                              operation: 0,
-                              value: true
+                              destination: (() => {
+                                try {
+                                  return `https://apps.liom.app/notification?app=pregnancy&userId=${$state.userInfo.user.id}`;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return `/notification`;
+                                  }
+                                  throw e;
+                                }
+                              })()
                             };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
                               }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
                             })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
                       if (
-                        $steps["updateMainHeaderDopen"] != null &&
-                        typeof $steps["updateMainHeaderDopen"] === "object" &&
-                        typeof $steps["updateMainHeaderDopen"].then ===
-                          "function"
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
                       ) {
-                        $steps["updateMainHeaderDopen"] = await $steps[
-                          "updateMainHeaderDopen"
-                        ];
+                        $steps["goToPage"] = await $steps["goToPage"];
                       }
                     }}
-                    role={"img"}
-                  />
-
-                  <div
-                    data-plasmic-name={"text"}
-                    data-plasmic-override={overrides.text}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text
-                    )}
                   >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return $state.page.find(
-                            item => item.name == $state.footerMain.type
-                          ).namefa;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u0627\u0645\u06a9\u0627\u0646\u0627\u062a \u0648\u06cc\u0698\u0647";
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__g7Glx
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return "اعلانات";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
                           }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
+                        })()}
+                      </React.Fragment>
+                    </div>
+                    <Icon37Icon
+                      className={classNames(projectcss.all, sty.svg__eZlFs)}
+                      role={"img"}
+                    />
                   </div>
                 </div>
               </MainPregnancyHeader>
@@ -950,11 +1103,8 @@ const PlasmicDescendants = {
     "root",
     "sideEffect",
     "main",
-    "componentPregnancy",
+    "mainPagePregnancy",
     "mainHeader",
-    "freeBox",
-    "svg",
-    "text",
     "footerMain",
     "settingCycle4",
     "subItemsComponnet",
@@ -962,20 +1112,9 @@ const PlasmicDescendants = {
     "backHandler"
   ],
   sideEffect: ["sideEffect"],
-  main: [
-    "main",
-    "componentPregnancy",
-    "mainHeader",
-    "freeBox",
-    "svg",
-    "text",
-    "footerMain"
-  ],
-  componentPregnancy: ["componentPregnancy"],
-  mainHeader: ["mainHeader", "freeBox", "svg", "text"],
-  freeBox: ["freeBox", "svg", "text"],
-  svg: ["svg"],
-  text: ["text"],
+  main: ["main", "mainPagePregnancy", "mainHeader", "footerMain"],
+  mainPagePregnancy: ["mainPagePregnancy"],
+  mainHeader: ["mainHeader"],
   footerMain: ["footerMain"],
   settingCycle4: ["settingCycle4"],
   subItemsComponnet: ["subItemsComponnet"],
@@ -989,11 +1128,8 @@ type NodeDefaultElementType = {
   root: "div";
   sideEffect: typeof SideEffect;
   main: "div";
-  componentPregnancy: typeof ComponentPregnancy;
+  mainPagePregnancy: typeof MainPagePregnancy;
   mainHeader: typeof MainPregnancyHeader;
-  freeBox: "div";
-  svg: "svg";
-  text: "div";
   footerMain: typeof FooterPregnancyMain;
   settingCycle4: typeof SettingCycle4;
   subItemsComponnet: typeof SubItemsComponnet;
@@ -1088,11 +1224,8 @@ export const PlasmicMainPregnancy = Object.assign(
     // Helper components rendering sub-elements
     sideEffect: makeNodeComponent("sideEffect"),
     main: makeNodeComponent("main"),
-    componentPregnancy: makeNodeComponent("componentPregnancy"),
+    mainPagePregnancy: makeNodeComponent("mainPagePregnancy"),
     mainHeader: makeNodeComponent("mainHeader"),
-    freeBox: makeNodeComponent("freeBox"),
-    svg: makeNodeComponent("svg"),
-    text: makeNodeComponent("text"),
     footerMain: makeNodeComponent("footerMain"),
     settingCycle4: makeNodeComponent("settingCycle4"),
     subItemsComponnet: makeNodeComponent("subItemsComponnet"),
