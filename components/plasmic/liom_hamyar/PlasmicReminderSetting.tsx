@@ -116,6 +116,7 @@ export type PlasmicReminderSetting__ArgsType = {
   activeNotifTel?: boolean;
   phoneNumber?: string;
   telegramId?: string;
+  userdata?: any;
 };
 type ArgPropType = keyof PlasmicReminderSetting__ArgsType;
 export const PlasmicReminderSetting__ArgProps = new Array<ArgPropType>(
@@ -131,7 +132,8 @@ export const PlasmicReminderSetting__ArgProps = new Array<ArgPropType>(
   "activeSmsNotif",
   "activeNotifTel",
   "phoneNumber",
-  "telegramId"
+  "telegramId",
+  "userdata"
 );
 
 export type PlasmicReminderSetting__OverridesType = {
@@ -185,6 +187,7 @@ export interface DefaultReminderSettingProps {
   activeNotifTel?: boolean;
   phoneNumber?: string;
   telegramId?: string;
+  userdata?: any;
   slide?: SingleChoiceArg<"_1" | "_2">;
   className?: string;
 }
@@ -721,7 +724,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
             name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
             text: "occasion",
             token1: null,
-            dates: '["2026-10-11"]',
+            dates: '["2025-10-11"]',
             weekdays: null,
             times: null,
             finishTime: null,
@@ -2089,7 +2092,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
               })()}
               SelectedYear={(() => {
                 try {
-                  return $state.date[$state.dateType].year;
+                  return 1404;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -2129,13 +2132,13 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       const actionArgs = {
                         customFunction: async () => {
                           return (() => {
-                            const y = $state.datePickers.value.gregorian.year;
                             const m = $state.datePickers.value.gregorian.month;
                             const d = $state.datePickers.value.gregorian.day;
-                            let today = new Date(y, m - 1, d);
                             const now = new Date();
+                            const currentYear = now.getFullYear();
+                            let today = new Date(currentYear, m - 1, d);
                             if (today < now) {
-                              today.setFullYear(today.getFullYear() + 1);
+                              today.setFullYear(currentYear + 1);
                             }
                             const f = today.toISOString().split("T")[0];
                             const g = new Intl.DateTimeFormat("fa-IR", {
