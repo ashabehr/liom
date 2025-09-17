@@ -105,7 +105,6 @@ export type PlasmicReminder__ArgsType = {
   telegram?: boolean;
   activeSmsNotif?: boolean;
   token?: string;
-  activeNotifTel?: boolean;
   telegramId?: string;
   phone?: string;
   sms?: boolean;
@@ -126,7 +125,6 @@ export const PlasmicReminder__ArgProps = new Array<ArgPropType>(
   "telegram",
   "activeSmsNotif",
   "token",
-  "activeNotifTel",
   "telegramId",
   "phone",
   "sms",
@@ -152,16 +150,8 @@ export type PlasmicReminder__OverridesType = {
   frame24?: Flex__<"div">;
   frame25?: Flex__<"div">;
   frame26?: Flex__<"div">;
-  todayMeeting3?: Flex__<"div">;
-  frame17?: Flex__<"div">;
-  frame18?: Flex__<"div">;
-  frame19?: Flex__<"div">;
-  frame20?: Flex__<"div">;
-  frame21?: Flex__<"div">;
-  ul?: Flex__<"ul">;
-  li?: Flex__<"li">;
-  button3?: Flex__<typeof Button>;
   lottie?: Flex__<typeof LottieWrapper>;
+  button3?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
   line?: Flex__<typeof Line>;
   swiperSlider?: Flex__<typeof SwiperSlider>;
@@ -185,7 +175,6 @@ export interface DefaultReminderProps {
   telegram?: boolean;
   activeSmsNotif?: boolean;
   token?: string;
-  activeNotifTel?: boolean;
   telegramId?: string;
   phone?: string;
   sms?: boolean;
@@ -216,11 +205,139 @@ function PlasmicReminder__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          data: [{}],
+          data: [
+            {
+              id: 107,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
+              text: "occasion",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
+              dates: '["2026-02-14"]',
+              weekdays: null,
+              times: "09:00",
+              finishTime: "2025-09-14 14:33:52",
+              active: 0
+            },
+            {
+              id: 108,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
+              text: "occasion",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
+              dates: '["2026-03-08"]',
+              weekdays: null,
+              times: "09:00",
+              finishTime: "2025-09-14 14:36:55",
+              active: 0
+            },
+            {
+              id: 121,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
+              text: "birthday_spouse",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
+              dates: '["2025-09-15"]',
+              weekdays: null,
+              times: '["09:30"]',
+              finishTime: "2025-09-15 09:50:29",
+              active: 0
+            },
+            {
+              id: 122,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0631\u0648\u0632 \u062f\u062e\u062a\u0631",
+              text: "occasion",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
+              dates: '["2026-04-19"]',
+              weekdays: null,
+              times: "09:00",
+              finishTime: "2025-09-15 09:50:54",
+              active: 0
+            },
+            {
+              id: 123,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
+              text: "occasion",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzkyNjUyMn0.Kt_Ty27OsjOZQtNNPYwpXLfnKYfXLqfrHZmzRjWR7Aw",
+              dates: '["2026-02-18"]',
+              weekdays: null,
+              times: "09:00",
+              finishTime: "2025-09-15 12:26:05",
+              active: 0
+            },
+            {
+              id: 124,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
+              text: "occasion",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzkyNjUyMn0.Kt_Ty27OsjOZQtNNPYwpXLfnKYfXLqfrHZmzRjWR7Aw",
+              dates: '["2026-10-11"]',
+              weekdays: null,
+              times: "09:00",
+              finishTime: "2025-09-15 12:26:30",
+              active: 0
+            },
+            {
+              id: 125,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc",
+              text: "anniversary",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzkyNjUyMn0.Kt_Ty27OsjOZQtNNPYwpXLfnKYfXLqfrHZmzRjWR7Aw",
+              dates: '["2025-09-15"]',
+              weekdays: null,
+              times: '["09:30"]',
+              finishTime: "2025-09-15 12:26:53",
+              active: 0
+            },
+            {
+              id: 125,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc",
+              text: "anniversakllkjlkjry",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzkyNjUyMn0.Kt_Ty27OsjOZQtNNPYwpXLfnKYfXLqfrHZmzRjWR7Aw",
+              dates: '["2025-09-15"]',
+              weekdays: null,
+              times: '["09:30"]',
+              finishTime: "2025-09-15 12:26:53",
+              active: 0
+            }
+          ],
           subscription: false,
           telegram: false,
-          activeSmsNotif: false,
-          activeNotifTel: false
+          activeSmsNotif: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -421,7 +538,7 @@ function PlasmicReminder__RenderFunc(props: {
         path: "swiperSlider.activeSlideIndex",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) => 1
       },
       {
         path: "swiperSlider.lockSlides",
@@ -509,228 +626,6 @@ function PlasmicReminder__RenderFunc(props: {
           })()
       },
       {
-        path: "shimmerData",
-        type: "private",
-        variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
-          {
-            id: "04d77165-ab7d-4537-86ba-1099e4f66091-1",
-            progressGroupId: null,
-            userId: "1",
-            doctorId: "21353",
-            name: "\u0631\u0648\u0632 \u0632\u0646 \u0648 \u0645\u0627\u062f\u0631",
-            text: "\u0648\u0644\u0627\u062f\u062a \u062d\u0636\u0631\u062a \u0641\u0627\u0637\u0645\u0647 \u0632\u0647\u0631\u0627 (\u0633)",
-            actionText: null,
-            canSkip: null,
-            actionIcon: null,
-            actionType: null,
-            action: null,
-            type: "occasion",
-            category: "notification",
-            category_fa:
-              "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-            status: "waiting",
-            done: false,
-            date: "2025-12-11T00:00:00.000Z",
-            dependId: null,
-            dependAt: null,
-            exclude: [],
-            order: 1,
-            priority: 10,
-            createdAt: "2025-09-08T07:45:09.172Z",
-            updatedAt: "2025-09-08T07:45:09.172Z"
-          },
-          {
-            id: "04d77165-ab7d-4537-86ba-1099e4f66091-2",
-            progressGroupId: null,
-            userId: "1",
-            doctorId: "21353",
-            name: "\u0631\u0648\u0632 \u062f\u062e\u062a\u0631",
-            text: "\u0648\u0644\u0627\u062f\u062a \u062d\u0636\u0631\u062a \u0645\u0639\u0635\u0648\u0645\u0647 (\u0633)",
-            actionText: null,
-            canSkip: null,
-            actionIcon: null,
-            actionType: null,
-            action: null,
-            type: "occasion",
-            category: "notification",
-            category_fa:
-              "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-            status: "waiting",
-            done: false,
-            date: "2026-04-19T00:00:00.000Z",
-            dependId: null,
-            dependAt: null,
-            exclude: [],
-            order: 2,
-            priority: 10,
-            createdAt: "2025-09-08T07:45:09.172Z",
-            updatedAt: "2025-09-08T07:45:09.172Z"
-          },
-          {
-            id: "04d77165-ab7d-4537-86ba-1099e4f66091-3",
-            progressGroupId: null,
-            userId: "1",
-            doctorId: "21353",
-            name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
-            text: "International Women's Day",
-            actionText: null,
-            canSkip: null,
-            actionIcon: null,
-            actionType: null,
-            action: null,
-            type: "occasion",
-            category: "notification",
-            category_fa:
-              "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-            status: "waiting",
-            done: false,
-            date: "2026-03-08T00:00:00.000Z",
-            dependId: null,
-            dependAt: null,
-            exclude: [],
-            order: 3,
-            priority: 10,
-            createdAt: "2025-09-08T07:45:09.172Z",
-            updatedAt: "2025-09-08T07:45:09.172Z"
-          },
-          {
-            id: "04d77165-ab7d-4537-86ba-1099e4f66091-4",
-            progressGroupId: null,
-            userId: "1",
-            doctorId: "21353",
-            name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
-            text: "\u0631\u0648\u0632 \u0639\u0634\u0642 \u062c\u0647\u0627\u0646\u06cc",
-            actionText: null,
-            canSkip: null,
-            actionIcon: null,
-            actionType: null,
-            action: null,
-            type: "occasion",
-            category: "notification",
-            category_fa:
-              "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-            status: "waiting",
-            done: false,
-            date: "2026-02-14T00:00:00.000Z",
-            dependId: null,
-            dependAt: null,
-            exclude: [],
-            order: 4,
-            priority: 10,
-            createdAt: "2025-09-08T07:45:09.172Z",
-            updatedAt: "2025-09-08T07:45:09.172Z"
-          },
-          {
-            id: "04d77165-ab7d-4537-86ba-1099e4f66091-5",
-            progressGroupId: null,
-            userId: "1",
-            doctorId: "21353",
-            name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
-            text: "\u0631\u0648\u0632 \u0632\u0646 \u0648 \u0639\u0634\u0642 \u062f\u0631 \u0627\u06cc\u0631\u0627\u0646 \u0628\u0627\u0633\u062a\u0627\u0646",
-            actionText: null,
-            canSkip: null,
-            actionIcon: null,
-            actionType: null,
-            action: null,
-            type: "occasion",
-            category: "notification",
-            category_fa:
-              "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-            status: "waiting",
-            done: false,
-            date: "2026-02-18T00:00:00.000Z",
-            dependId: null,
-            dependAt: null,
-            exclude: [],
-            order: 5,
-            priority: 10,
-            createdAt: "2025-09-08T07:45:09.172Z",
-            updatedAt: "2025-09-08T07:45:09.172Z"
-          },
-          {
-            id: "04d77165-ab7d-4537-86ba-1099e4f66091-6",
-            progressGroupId: null,
-            userId: "1",
-            doctorId: "21353",
-            name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
-            text: "International Day of the Girl Child",
-            actionText: null,
-            canSkip: null,
-            actionIcon: null,
-            actionType: null,
-            action: null,
-            type: "occasion",
-            category: "notification",
-            category_fa:
-              "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-            status: "waiting",
-            done: false,
-            date: "2026-10-11T00:00:00.000Z",
-            dependId: null,
-            dependAt: null,
-            exclude: [],
-            order: 6,
-            priority: 10,
-            createdAt: "2025-09-08T07:45:09.172Z",
-            updatedAt: "2025-09-08T07:45:09.172Z"
-          },
-          {
-            id: "04d77165-ab7d-4537-86ba-1099e4f66091-7",
-            progressGroupId: null,
-            userId: "1",
-            doctorId: "21353",
-            name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
-            text: "",
-            actionText: null,
-            canSkip: null,
-            actionIcon: null,
-            actionType: null,
-            action: null,
-            type: "SpouseBirthday",
-            category: "personal",
-            category_fa: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
-            status: "waiting",
-            done: false,
-            date: "0000-00-00T00:00:00.000Z",
-            dependId: null,
-            dependAt: null,
-            exclude: [],
-            order: 7,
-            priority: 10,
-            createdAt: "2025-09-08T07:45:09.172Z",
-            updatedAt: "2025-09-08T07:45:09.172Z"
-          },
-          {
-            id: "04d77165-ab7d-4537-86ba-1099e4f66091-8",
-            progressGroupId: null,
-            userId: "1",
-            doctorId: "21353",
-            name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc",
-            text: "",
-            actionText: null,
-            canSkip: null,
-            actionIcon: null,
-            actionType: null,
-            action: null,
-            type: "MeetingAnniversary",
-            category: "personal",
-            category_fa:
-              "\u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc",
-            status: "waiting",
-            done: false,
-            date: "0000-00-00T00:00:00.000Z",
-            dependId: null,
-            dependAt: null,
-            exclude: [],
-            order: 8,
-            priority: 10,
-            createdAt: "2025-09-08T07:45:09.172Z",
-            updatedAt: "2025-09-08T07:45:09.172Z"
-          }
-        ]
-      },
-      {
         path: "button3.color",
         type: "private",
         variableType: "text",
@@ -752,26 +647,13 @@ function PlasmicReminder__RenderFunc(props: {
         path: "reminderSetting.tel",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $props.activeNotifTel;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "reminderSetting.sms",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "reminderSetting2.refresh",
@@ -786,7 +668,7 @@ function PlasmicReminder__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.activeNotifTel;
+              return $state.tel;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -802,7 +684,20 @@ function PlasmicReminder__RenderFunc(props: {
         path: "reminderSetting2.sms",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.sms;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "sms",
@@ -1777,13 +1672,12 @@ function PlasmicReminder__RenderFunc(props: {
                                                     day: "numeric"
                                                   }
                                                 );
-                                              return (result =
-                                                formatter.format(d));
+                                              return formatter.format(d);
                                             } else {
-                                              return (result = "?");
+                                              return "?";
                                             }
                                           } catch {
-                                            return (result = "?");
+                                            return "?";
                                           }
                                         })();
                                       } catch (e) {
@@ -1924,265 +1818,7 @@ function PlasmicReminder__RenderFunc(props: {
           ) : null}
           {(() => {
             try {
-              return !$props.data || $props.data.length === 0;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })() ? (
-            <div
-              data-plasmic-name={"todayMeeting3"}
-              data-plasmic-override={overrides.todayMeeting3}
-              className={classNames(projectcss.all, sty.todayMeeting3)}
-            >
-              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                (() => {
-                  try {
-                    return (() => {
-                      const groupsMap = new Map();
-                      $state.shimmerData.forEach(t => {
-                        const key = t.date || "__noDate__";
-                        if (!groupsMap.has(key)) groupsMap.set(key, []);
-                        groupsMap.get(key).push(t);
-                      });
-                      const groups = Array.from(groupsMap.entries())
-                        .sort((a, b) => {
-                          if (a[0] === "__noDate__") return 1;
-                          if (b[0] === "__noDate__") return -1;
-                          return new Date(a[0]) - new Date(b[0]);
-                        })
-                        .map(entry => entry[1]);
-                      return groups;
-                    })();
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return [];
-                    }
-                    throw e;
-                  }
-                })()
-              ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                const currentday = __plasmic_item_0;
-                const currentIndex = __plasmic_idx_0;
-                return (
-                  <div
-                    data-plasmic-name={"frame17"}
-                    data-plasmic-override={overrides.frame17}
-                    className={classNames(projectcss.all, sty.frame17)}
-                    key={currentIndex}
-                  >
-                    <div
-                      data-plasmic-name={"frame18"}
-                      data-plasmic-override={overrides.frame18}
-                      className={classNames(projectcss.all, sty.frame18)}
-                    >
-                      <div
-                        data-plasmic-name={"frame19"}
-                        data-plasmic-override={overrides.frame19}
-                        className={classNames(projectcss.all, sty.frame19)}
-                      >
-                        <div
-                          data-plasmic-name={"frame20"}
-                          data-plasmic-override={overrides.frame20}
-                          className={classNames(projectcss.all, sty.frame20)}
-                        >
-                          <div
-                            data-plasmic-name={"frame21"}
-                            data-plasmic-override={overrides.frame21}
-                            className={classNames(projectcss.all, sty.frame21)}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__jlOu
-                              )}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__vdCp5
-                                )}
-                              >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__tahWh
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return (() => {
-                                          const dateString =
-                                            currentday?.[0]?.date;
-                                          let formattedDate = "?";
-                                          if (dateString) {
-                                            const d = new Date(dateString);
-                                            if (d.getTime()) {
-                                              formattedDate =
-                                                d.toLocaleDateString("fa-IR", {
-                                                  day: "numeric"
-                                                });
-                                            }
-                                          }
-                                          return formattedDate;
-                                        })();
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "Townhall Meeting";
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
-                                </div>
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__iIIx9
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return (() => {
-                                          const dateString =
-                                            currentday?.[0]?.date;
-                                          let formattedDate = "--";
-                                          if (dateString) {
-                                            const d = new Date(dateString);
-                                            if (d.getTime()) {
-                                              formattedDate =
-                                                d.toLocaleDateString("fa-IR", {
-                                                  month: "long"
-                                                });
-                                            }
-                                          }
-                                          return formattedDate;
-                                        })();
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "Townhall Meeting";
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
-                                </div>
-                              </div>
-                              <ul
-                                data-plasmic-name={"ul"}
-                                data-plasmic-override={overrides.ul}
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.ul,
-                                  sty.ul
-                                )}
-                              >
-                                {(_par =>
-                                  !_par
-                                    ? []
-                                    : Array.isArray(_par)
-                                    ? _par
-                                    : [_par])(
-                                  (() => {
-                                    try {
-                                      return currentday;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return [];
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                ).map((__plasmic_item_1, __plasmic_idx_1) => {
-                                  const currentItem = __plasmic_item_1;
-                                  const currentIndex = __plasmic_idx_1;
-                                  return (
-                                    <li
-                                      data-plasmic-name={"li"}
-                                      data-plasmic-override={overrides.li}
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.li,
-                                        sty.li
-                                      )}
-                                      key={currentIndex}
-                                    >
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          sty.freeBox__bL7
-                                        )}
-                                      >
-                                        <div
-                                          className={classNames(
-                                            projectcss.all,
-                                            projectcss.__wab_text,
-                                            sty.text__sBLnT
-                                          )}
-                                        >
-                                          <React.Fragment>
-                                            {(() => {
-                                              try {
-                                                return currentItem.name;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return "";
-                                                }
-                                                throw e;
-                                              }
-                                            })()}
-                                          </React.Fragment>
-                                        </div>
-                                      </div>
-                                    </li>
-                                  );
-                                })}
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          ) : null}
-          {(() => {
-            try {
-              return (
-                !$props.activeNotifTel &&
-                !$props.activeSmsNotif &&
-                !$props.subscription
-              );
+              return undefined;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -2215,88 +1851,6 @@ function PlasmicReminder__RenderFunc(props: {
                 }
               }}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__cGom)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__vFcq
-                  )}
-                >
-                  {
-                    "\u0628\u0631\u0627\u06cc \u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627\u06cc \u0645\u0647\u0645 \u0627\u0632 \u0637\u0631\u06cc\u0642 \u067e\u06cc\u0627\u0645\u06a9 \u06cc\u0627 \u062a\u0644\u06af\u0631\u0627\u0645 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u0631\u0627 \u062a\u0647\u06cc\u0647 \u06a9\u0646\u06cc\u062f."
-                  }
-                </div>
-                <Button
-                  data-plasmic-name={"button3"}
-                  data-plasmic-override={overrides.button3}
-                  className={classNames("__wab_instance", sty.button3)}
-                  color={generateStateValueProp($state, ["button3", "color"])}
-                  load={generateStateValueProp($state, ["button3", "load"])}
-                  loading={generateStateValueProp($state, [
-                    "button3",
-                    "loading"
-                  ])}
-                  onColorChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button3", "color"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  onLoadChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button3", "load"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  onLoadingChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button3", "loading"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  size={"compact"}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__cGkq
-                    )}
-                  >
-                    {
-                      "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9"
-                    }
-                  </div>
-                </Button>
-              </div>
               <LottieWrapper
                 data-plasmic-name={"lottie"}
                 data-plasmic-override={overrides.lottie}
@@ -2932,6 +2486,86 @@ function PlasmicReminder__RenderFunc(props: {
                 }}
                 className={classNames("__wab_instance", sty.lottie)}
               />
+
+              <div className={classNames(projectcss.all, sty.freeBox__cGom)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__vFcq
+                  )}
+                >
+                  {
+                    "\u0628\u0631\u0627\u06cc \u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627\u06cc \u0645\u0647\u0645 \u0627\u0632 \u0637\u0631\u06cc\u0642 \u067e\u06cc\u0627\u0645\u06a9 \u06cc\u0627 \u062a\u0644\u06af\u0631\u0627\u0645 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u0631\u0627 \u062a\u0647\u06cc\u0647 \u06a9\u0646\u06cc\u062f."
+                  }
+                </div>
+              </div>
+              <Button
+                data-plasmic-name={"button3"}
+                data-plasmic-override={overrides.button3}
+                className={classNames("__wab_instance", sty.button3)}
+                color={generateStateValueProp($state, ["button3", "color"])}
+                load={generateStateValueProp($state, ["button3", "load"])}
+                loading={generateStateValueProp($state, ["button3", "loading"])}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button3", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button3", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button3", "loading"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                size={"minimal"}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__cGkq
+                  )}
+                >
+                  {
+                    "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9"
+                  }
+                </div>
+              </Button>
             </div>
           ) : null}
           <Button
@@ -3032,6 +2666,7 @@ function PlasmicReminder__RenderFunc(props: {
               }
             }}
             showEndIcon={true}
+            size={"compact"}
           >
             <div
               className={classNames(
@@ -3404,32 +3039,6 @@ function PlasmicReminder__RenderFunc(props: {
                   <ReminderSetting
                     data-plasmic-name={"reminderSetting"}
                     data-plasmic-override={overrides.reminderSetting}
-                    activeNotifTel={(() => {
-                      try {
-                        return $state.tel;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return false;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    activeSmsNotif={(() => {
-                      try {
-                        return $state.sms;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return false;
-                        }
-                        throw e;
-                      }
-                    })()}
                     className={classNames(
                       "__wab_instance",
                       sty.reminderSetting
@@ -3765,6 +3374,10 @@ function PlasmicReminder__RenderFunc(props: {
                       }
                     }}
                     slide={"_1"}
+                    sms={generateStateValueProp($state, [
+                      "reminderSetting",
+                      "sms"
+                    ])}
                     subscription={(() => {
                       try {
                         return $props.subscription;
@@ -3872,32 +3485,6 @@ function PlasmicReminder__RenderFunc(props: {
               <ReminderSetting
                 data-plasmic-name={"reminderSetting2"}
                 data-plasmic-override={overrides.reminderSetting2}
-                activeNotifTel={(() => {
-                  try {
-                    return $state.tel;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return false;
-                    }
-                    throw e;
-                  }
-                })()}
-                activeSmsNotif={(() => {
-                  try {
-                    return $state.sms;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return false;
-                    }
-                    throw e;
-                  }
-                })()}
                 className={classNames("__wab_instance", sty.reminderSetting2)}
                 data={(() => {
                   try {
@@ -4134,7 +3721,10 @@ function PlasmicReminder__RenderFunc(props: {
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
-                              return ($state.tel = $state.reminderSetting2.tel);
+                              return (() => {
+                                $state.sms = $state.reminderSetting2.sms;
+                                return console.log("sms", $state.sms);
+                              })();
                             }
                           };
                           return (({ customFunction }) => {
@@ -4172,8 +3762,7 @@ function PlasmicReminder__RenderFunc(props: {
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
-                              return ($props.activeNotifTel =
-                                $state.reminderSetting2.tel);
+                              return undefined;
                             }
                           };
                           return (({ customFunction }) => {
@@ -4227,6 +3816,10 @@ function PlasmicReminder__RenderFunc(props: {
                   }
                 }}
                 slide={"_2"}
+                sms={generateStateValueProp($state, [
+                  "reminderSetting2",
+                  "sms"
+                ])}
                 subscription={(() => {
                   try {
                     return $props.subscription;
@@ -4409,16 +4002,8 @@ const PlasmicDescendants = {
     "frame24",
     "frame25",
     "frame26",
-    "todayMeeting3",
-    "frame17",
-    "frame18",
-    "frame19",
-    "frame20",
-    "frame21",
-    "ul",
-    "li",
-    "button3",
     "lottie",
+    "button3",
     "button2",
     "line",
     "swiperSlider",
@@ -4461,25 +4046,8 @@ const PlasmicDescendants = {
   frame24: ["frame24", "frame25", "frame26"],
   frame25: ["frame25", "frame26"],
   frame26: ["frame26"],
-  todayMeeting3: [
-    "todayMeeting3",
-    "frame17",
-    "frame18",
-    "frame19",
-    "frame20",
-    "frame21",
-    "ul",
-    "li"
-  ],
-  frame17: ["frame17", "frame18", "frame19", "frame20", "frame21", "ul", "li"],
-  frame18: ["frame18", "frame19", "frame20", "frame21", "ul", "li"],
-  frame19: ["frame19", "frame20", "frame21", "ul", "li"],
-  frame20: ["frame20", "frame21", "ul", "li"],
-  frame21: ["frame21", "ul", "li"],
-  ul: ["ul", "li"],
-  li: ["li"],
-  button3: ["button3"],
   lottie: ["lottie"],
+  button3: ["button3"],
   button2: ["button2"],
   line: ["line"],
   swiperSlider: [
@@ -4517,16 +4085,8 @@ type NodeDefaultElementType = {
   frame24: "div";
   frame25: "div";
   frame26: "div";
-  todayMeeting3: "div";
-  frame17: "div";
-  frame18: "div";
-  frame19: "div";
-  frame20: "div";
-  frame21: "div";
-  ul: "ul";
-  li: "li";
-  button3: typeof Button;
   lottie: typeof LottieWrapper;
+  button3: typeof Button;
   button2: typeof Button;
   line: typeof Line;
   swiperSlider: typeof SwiperSlider;
@@ -4613,16 +4173,8 @@ export const PlasmicReminder = Object.assign(
     frame24: makeNodeComponent("frame24"),
     frame25: makeNodeComponent("frame25"),
     frame26: makeNodeComponent("frame26"),
-    todayMeeting3: makeNodeComponent("todayMeeting3"),
-    frame17: makeNodeComponent("frame17"),
-    frame18: makeNodeComponent("frame18"),
-    frame19: makeNodeComponent("frame19"),
-    frame20: makeNodeComponent("frame20"),
-    frame21: makeNodeComponent("frame21"),
-    ul: makeNodeComponent("ul"),
-    li: makeNodeComponent("li"),
-    button3: makeNodeComponent("button3"),
     lottie: makeNodeComponent("lottie"),
+    button3: makeNodeComponent("button3"),
     button2: makeNodeComponent("button2"),
     line: makeNodeComponent("line"),
     swiperSlider: makeNodeComponent("swiperSlider"),

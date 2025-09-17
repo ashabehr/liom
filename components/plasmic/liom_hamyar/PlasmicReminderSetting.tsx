@@ -113,13 +113,12 @@ export type PlasmicReminderSetting__ArgsType = {
   back?: () => void;
   token?: string;
   telegramOn?: boolean;
-  activeSmsNotif?: boolean;
-  activeNotifTel?: boolean;
   phoneNumber?: string;
   telegramId?: string;
   userdata?: any;
   tel?: boolean;
   onTelChange?: (val: string) => void;
+  sms?: boolean;
   onSmsChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicReminderSetting__ArgsType;
@@ -133,13 +132,12 @@ export const PlasmicReminderSetting__ArgProps = new Array<ArgPropType>(
   "back",
   "token",
   "telegramOn",
-  "activeSmsNotif",
-  "activeNotifTel",
   "phoneNumber",
   "telegramId",
   "userdata",
   "tel",
   "onTelChange",
+  "sms",
   "onSmsChange"
 );
 
@@ -191,13 +189,12 @@ export interface DefaultReminderSettingProps {
   back?: () => void;
   token?: string;
   telegramOn?: boolean;
-  activeSmsNotif?: boolean;
-  activeNotifTel?: boolean;
   phoneNumber?: string;
   telegramId?: string;
   userdata?: any;
   tel?: boolean;
   onTelChange?: (val: string) => void;
+  sms?: boolean;
   onSmsChange?: (val: string) => void;
   slide?: SingleChoiceArg<"_1" | "_2">;
   className?: string;
@@ -358,8 +355,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
           token:
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
           telegramOn: false,
-          activeSmsNotif: false,
-          activeNotifTel: false,
           phoneNumber: "null",
           telegramId: "5384384618"
         },
@@ -994,23 +989,10 @@ function PlasmicReminderSetting__RenderFunc(props: {
       },
       {
         path: "sms",
-        type: "readonly",
+        type: "writable",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $props.activeSmsNotif;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })(),
 
+        valueProp: "sms",
         onChangeProp: "onSmsChange"
       }
     ],
@@ -1789,7 +1771,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["runCode2"] = ($state.switchSms.isChecked ? false : true)
+                $steps["runCode2"] = (
+                  $state.switchSms.isChecked
+                    ? false
+                    : true && $props.subscription
+                )
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
@@ -1865,7 +1851,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           (() => {
                             try {
                               return (() => {
-                                $state.select2.active = 1;
+                                $state.select2.active = $props.subscription
+                                  ? 1
+                                  : 0;
                                 if ($state.week.length > 0)
                                   $state.select2.weekdays = $state.week;
                                 let dates = [$state.date.start.f];
@@ -1924,7 +1912,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           (() => {
                             try {
                               return (() => {
-                                $state.select2.active = 1;
+                                $state.select2.active = $props.subscription
+                                  ? 1
+                                  : 0;
                                 $state.select2.weekdays = $state.week;
                                 let dates = [$state.date.start.f];
                                 if ($state.date.end) {
@@ -3034,9 +3024,10 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         const actionArgs = {
                           customFunction: async () => {
                             return (() => {
-                              $state.switchbest2[currentIndex].isChecked =
-                                false;
-                              return ($props.activeSmsNotif = false);
+                              $state.switchSms.isChecked = false;
+                              return ($state.sms = $state.switchSms.isChecked
+                                ? true
+                                : false);
                             })();
                           }
                         };
@@ -3197,7 +3188,49 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       $steps["runCode"] = await $steps["runCode"];
                     }
 
-                    $steps["update"] = true
+                    $steps["runCode2"] = !$props.subscription
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                $state.switchTelegram.isChecked = false;
+                                return ($state.tel = $state.switchTelegram
+                                  .isChecked
+                                  ? true
+                                  : false);
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode2"] != null &&
+                      typeof $steps["runCode2"] === "object" &&
+                      typeof $steps["runCode2"].then === "function"
+                    ) {
+                      $steps["runCode2"] = await $steps["runCode2"];
+                    }
+
+                    $steps["runShop"] = !$props.subscription
+                      ? (() => {
+                          const actionArgs = { eventRef: $props["shop"] };
+                          return (({ eventRef, args }) => {
+                            return eventRef?.(...(args ?? []));
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runShop"] != null &&
+                      typeof $steps["runShop"] === "object" &&
+                      typeof $steps["runShop"].then === "function"
+                    ) {
+                      $steps["runShop"] = await $steps["runShop"];
+                    }
+
+                    $steps["update"] = $props.subscription
                       ? (() => {
                           const actionArgs = {
                             args: [
@@ -3258,25 +3291,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       typeof $steps["update"].then === "function"
                     ) {
                       $steps["update"] = await $steps["update"];
-                    }
-
-                    $steps["invokeGlobalAction"] = false
-                      ? (() => {
-                          const actionArgs = { args: ["success", ``] };
-                          return $globalActions["Fragment.showToast"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction"] != null &&
-                      typeof $steps["invokeGlobalAction"] === "object" &&
-                      typeof $steps["invokeGlobalAction"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
                     }
                   }).apply(null, eventArgs);
                 }}
@@ -3606,50 +3620,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
           id={"scrollBox"}
           onScroll={async event => {
             const $steps = {};
-
-            $steps["runCode"] = true
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return (() => {
-                        var shadowBottom =
-                          window.document.getElementById("shadowBottom");
-                        console.log(
-                          "scrollTop:",
-                          event.currentTarget.scrollTop
-                        );
-                        console.log(
-                          "clientHeight:",
-                          event.currentTarget.clientHeight
-                        );
-                        console.log(
-                          "scrollHeight:",
-                          event.currentTarget.scrollHeight - 1
-                        );
-                        var atBottom =
-                          event.currentTarget.scrollTop +
-                            event.currentTarget.clientHeight >=
-                          event.currentTarget.scrollHeight - 1;
-                        if (atBottom) {
-                          return (shadowBottom.style.display = "none");
-                        } else {
-                          return (shadowBottom.style.display = "block");
-                        }
-                      })();
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["runCode"] != null &&
-              typeof $steps["runCode"] === "object" &&
-              typeof $steps["runCode"].then === "function"
-            ) {
-              $steps["runCode"] = await $steps["runCode"];
-            }
           }}
         >
           {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
@@ -3667,7 +3637,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       }
                       t.telegramId = $props.telegramId;
                       t.phoneNumber = $props.phoneNumber;
-                      t.token1 = $props.token;
                       t.liomId = $props.manId;
                       const key = parsedDates[0] || "__noDate__";
                       if (!groupsMap.has(key)) groupsMap.set(key, []);
@@ -3746,12 +3715,12 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     day: "numeric"
                                   }
                                 );
-                                return (result = formatter.format(d));
+                                return formatter.format(d);
                               } else {
-                                return (result = "?");
+                                return "?";
                               }
                             } catch {
-                              return (result = "?");
+                              return "?";
                             }
                           })();
                         } catch (e) {
@@ -4415,52 +4384,53 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           ];
                                         }
 
-                                        $steps["add"] = !currentItem.id
-                                          ? (() => {
-                                              const actionArgs = {
-                                                args: [
-                                                  "POST",
-                                                  "https://n8n.staas.ir/webhook/user/task/add",
-                                                  undefined,
-                                                  (() => {
-                                                    try {
-                                                      return (() => {
-                                                        currentItem.liomId =
-                                                          $props.manId;
-                                                        currentItem.active = 1;
-                                                        currentItem.telegramId =
-                                                          $props.telegramId;
-                                                        currentItem.phoneNumber =
-                                                          $props.phoneNumber;
-                                                        currentItem.token1 =
-                                                          $props.token;
-                                                        currentItem.times = [
-                                                          "09:00"
-                                                        ];
-                                                        return currentItem;
-                                                      })();
-                                                    } catch (e) {
-                                                      if (
-                                                        e instanceof
-                                                          TypeError ||
-                                                        e?.plasmicType ===
-                                                          "PlasmicUndefinedDataError"
-                                                      ) {
-                                                        return undefined;
+                                        $steps["add"] =
+                                          !currentItem.id && $props.subscription
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  args: [
+                                                    "POST",
+                                                    "https://n8n.staas.ir/webhook/user/task/add",
+                                                    undefined,
+                                                    (() => {
+                                                      try {
+                                                        return (() => {
+                                                          currentItem.liomId =
+                                                            $props.manId;
+                                                          currentItem.active = 1;
+                                                          currentItem.telegramId =
+                                                            $props.telegramId;
+                                                          currentItem.phoneNumber =
+                                                            $props.phoneNumber;
+                                                          currentItem.token1 =
+                                                            $props.token;
+                                                          currentItem.times = [
+                                                            "09:00"
+                                                          ];
+                                                          return currentItem;
+                                                        })();
+                                                      } catch (e) {
+                                                        if (
+                                                          e instanceof
+                                                            TypeError ||
+                                                          e?.plasmicType ===
+                                                            "PlasmicUndefinedDataError"
+                                                        ) {
+                                                          return undefined;
+                                                        }
+                                                        throw e;
                                                       }
-                                                      throw e;
-                                                    }
-                                                  })(),
-                                                  undefined
-                                                ]
-                                              };
-                                              return $globalActions[
-                                                "Fragment.apiRequest"
-                                              ]?.apply(null, [
-                                                ...actionArgs.args
-                                              ]);
-                                            })()
-                                          : undefined;
+                                                    })(),
+                                                    undefined
+                                                  ]
+                                                };
+                                                return $globalActions[
+                                                  "Fragment.apiRequest"
+                                                ]?.apply(null, [
+                                                  ...actionArgs.args
+                                                ]);
+                                              })()
+                                            : undefined;
                                         if (
                                           $steps["add"] != null &&
                                           typeof $steps["add"] === "object" &&
@@ -4470,47 +4440,48 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           $steps["add"] = await $steps["add"];
                                         }
 
-                                        $steps["remove"] = currentItem.id
-                                          ? (() => {
-                                              const actionArgs = {
-                                                args: [
-                                                  "POST",
-                                                  "https://n8n.staas.ir/webhook/user/task/edit",
-                                                  undefined,
-                                                  (() => {
-                                                    try {
-                                                      return {
-                                                        id: currentItem.id,
-                                                        active: $state
-                                                          .switchSetting[
-                                                          dayIndex
-                                                        ][currentIndex]
-                                                          .isChecked
-                                                          ? true
-                                                          : false
-                                                      };
-                                                    } catch (e) {
-                                                      if (
-                                                        e instanceof
-                                                          TypeError ||
-                                                        e?.plasmicType ===
-                                                          "PlasmicUndefinedDataError"
-                                                      ) {
-                                                        return undefined;
+                                        $steps["remove"] =
+                                          currentItem.id && $props.subscription
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  args: [
+                                                    "POST",
+                                                    "https://n8n.staas.ir/webhook/user/task/edit",
+                                                    undefined,
+                                                    (() => {
+                                                      try {
+                                                        return {
+                                                          id: currentItem.id,
+                                                          active: $state
+                                                            .switchSetting[
+                                                            dayIndex
+                                                          ][currentIndex]
+                                                            .isChecked
+                                                            ? true
+                                                            : false
+                                                        };
+                                                      } catch (e) {
+                                                        if (
+                                                          e instanceof
+                                                            TypeError ||
+                                                          e?.plasmicType ===
+                                                            "PlasmicUndefinedDataError"
+                                                        ) {
+                                                          return undefined;
+                                                        }
+                                                        throw e;
                                                       }
-                                                      throw e;
-                                                    }
-                                                  })(),
-                                                  undefined
-                                                ]
-                                              };
-                                              return $globalActions[
-                                                "Fragment.apiRequest"
-                                              ]?.apply(null, [
-                                                ...actionArgs.args
-                                              ]);
-                                            })()
-                                          : undefined;
+                                                    })(),
+                                                    undefined
+                                                  ]
+                                                };
+                                                return $globalActions[
+                                                  "Fragment.apiRequest"
+                                                ]?.apply(null, [
+                                                  ...actionArgs.args
+                                                ]);
+                                              })()
+                                            : undefined;
                                         if (
                                           $steps["remove"] != null &&
                                           typeof $steps["remove"] ===

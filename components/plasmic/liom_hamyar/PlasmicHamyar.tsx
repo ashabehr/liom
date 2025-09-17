@@ -2075,7 +2075,7 @@ function PlasmicHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.activeNotifTel;
+              return $state.reminder2.tel;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -2091,7 +2091,20 @@ function PlasmicHamyar__RenderFunc(props: {
         path: "reminderSetting.sms",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.reminder2.sms;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "reminder2.sms",
@@ -2116,20 +2129,7 @@ function PlasmicHamyar__RenderFunc(props: {
         path: "reminder2.tel",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $props.activeNotifTel;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -8857,7 +8857,7 @@ function PlasmicHamyar__RenderFunc(props: {
                               !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                               (() => {
                                 try {
-                                  return $state.remember.data?.slice(0, 2);
+                                  return $state.remind?.slice(0, 2);
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -25826,7 +25826,92 @@ function PlasmicHamyar__RenderFunc(props: {
                           variablePath: ["remind"]
                         },
                         operation: 0,
-                        value: $state.remember?.data
+                        value: $state.remember?.data || [
+                          {
+                            liomId: null,
+                            telegramId: null,
+                            phoneNumber: null,
+                            schedule_type: "everyYear",
+                            name: "روز  زن و مادر",
+                            text: "occasion",
+                            token1: null,
+                            dates: '["2025-12-11"]',
+                            weekdays: null,
+                            times: null,
+                            finishTime: null,
+                            active: 0
+                          },
+                          {
+                            liomId: null,
+                            telegramId: null,
+                            phoneNumber: null,
+                            schedule_type: "everyYear",
+                            name: "روز دختر",
+                            text: "occasion",
+                            token1: null,
+                            dates: '["2026-04-19"]',
+                            weekdays: null,
+                            times: null,
+                            finishTime: null,
+                            active: 0
+                          },
+                          {
+                            liomId: null,
+                            telegramId: null,
+                            phoneNumber: null,
+                            schedule_type: "everyYear",
+                            name: "روز  جهانی زن",
+                            text: "occasion",
+                            token1: null,
+                            dates: '["2026-03-08"]',
+                            weekdays: null,
+                            times: null,
+                            finishTime: null,
+                            active: 0
+                          },
+                          {
+                            liomId: null,
+                            telegramId: null,
+                            phoneNumber: null,
+                            schedule_type: "everyYear",
+                            name: "ولنتاین (روز عشق)",
+                            text: "occasion",
+                            token1: null,
+                            dates: '["2026-02-14"]',
+                            weekdays: null,
+                            times: null,
+                            finishTime: null,
+                            active: 0
+                          },
+                          {
+                            liomId: null,
+                            telegramId: null,
+                            phoneNumber: null,
+                            schedule_type: "everyYear",
+                            name: "سپندارمذگان (روز عشق ایرانی)",
+                            text: "occasion",
+                            token1: null,
+                            dates: '["2026-02-18"]',
+                            weekdays: null,
+                            times: null,
+                            finishTime: null,
+                            active: 0
+                          },
+                          {
+                            liomId: null,
+                            telegramId: null,
+                            phoneNumber: null,
+                            schedule_type: "everyYear",
+                            name: "روز  جهانی دختران",
+                            text: "occasion",
+                            token1: null,
+                            dates: '["2025-10-11"]',
+                            weekdays: null,
+                            times: null,
+                            finishTime: null,
+                            active: 0
+                          }
+                        ]
                       };
                       return (({
                         variable,
@@ -25872,21 +25957,6 @@ function PlasmicHamyar__RenderFunc(props: {
           <Reminder
             data-plasmic-name={"reminder2"}
             data-plasmic-override={overrides.reminder2}
-            activeNotifTel={(() => {
-              try {
-                return $state.userdata?.result?.man?.activeNotifTel
-                  ? true
-                  : false;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return false;
-                }
-                throw e;
-              }
-            })()}
             activeSmsNotif={(() => {
               try {
                 return $state.userdata?.result?.man?.activeSmsNotif
@@ -26347,32 +26417,6 @@ function PlasmicHamyar__RenderFunc(props: {
           <ReminderSetting
             data-plasmic-name={"reminderSetting"}
             data-plasmic-override={overrides.reminderSetting}
-            activeNotifTel={(() => {
-              try {
-                return $state.reminder2.tel;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return false;
-                }
-                throw e;
-              }
-            })()}
-            activeSmsNotif={(() => {
-              try {
-                return $state.reminder2.sms;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return false;
-                }
-                throw e;
-              }
-            })()}
             back={async () => {
               const $steps = {};
 
@@ -26585,6 +26629,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 $steps["runCode"] = await $steps["runCode"];
               }
             }}
+            sms={generateStateValueProp($state, ["reminderSetting", "sms"])}
             subscription={(() => {
               try {
                 return $state?.userdata?.result?.man?.hamyarStatus
