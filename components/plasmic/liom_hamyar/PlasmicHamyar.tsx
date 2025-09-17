@@ -3137,6 +3137,34 @@ function PlasmicHamyar__RenderFunc(props: {
               ) {
                 $steps["updateShapData"] = await $steps["updateShapData"];
               }
+
+              $steps["updateInputValue"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["input", "value"]
+                      },
+                      operation: 0
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateInputValue"] != null &&
+                typeof $steps["updateInputValue"] === "object" &&
+                typeof $steps["updateInputValue"].then === "function"
+              ) {
+                $steps["updateInputValue"] = await $steps["updateInputValue"];
+              }
             }}
           />
 
@@ -26146,6 +26174,31 @@ function PlasmicHamyar__RenderFunc(props: {
                   "updateDialogOpendialog"
                 ];
               }
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          return window.sessionStorage.setItem(
+                            "page",
+                            "settingReminder"
+                          );
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
             }}
             subscription={(() => {
               try {
@@ -26409,6 +26462,31 @@ function PlasmicHamyar__RenderFunc(props: {
                 $steps["updateDialogOpendialog"] = await $steps[
                   "updateDialogOpendialog"
                 ];
+              }
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          return window.sessionStorage.setItem(
+                            "page",
+                            "settingReminder"
+                          );
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
               }
             }}
             subscription={(() => {

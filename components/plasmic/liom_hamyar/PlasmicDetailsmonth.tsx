@@ -78,6 +78,8 @@ import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKs
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
+import __lib_copyToClipboard from "copy-to-clipboard";
+
 createPlasmicElementProxy;
 
 export type PlasmicDetailsmonth__VariantMembers = {};
@@ -99,7 +101,9 @@ export type PlasmicDetailsmonth__OverridesType = {
 
 export interface DefaultDetailsmonthProps {}
 
-const $$ = {};
+const $$ = {
+  copyToClipboard: __lib_copyToClipboard
+};
 
 function useNextRouter() {
   try {
@@ -139,6 +143,8 @@ function PlasmicDetailsmonth__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
 
   const currentUser = useCurrentUser?.() || {};
 
@@ -493,39 +499,69 @@ function PlasmicDetailsmonth__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["updateButton2Color"] = true
+                  $steps["runCode"] = true
                     ? (() => {
                         const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["button2", "color"]
-                          },
-                          operation: 0,
-                          value: `تاریخ شروع دوره : ${$state.apiRequest.data.result.period.start}\nتاریخ پایان دوره : ${$state.apiRequest.data.result.period.end}\   \nداروهای مصرفی : ()\nمیانگین آب مصرفی : روزانه 0 لیوان\nوضعیت رابطه جنسی: : رابطه نداشتم`
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
+                          customFunction: async () => {
+                            return (() => {
+                              function a(date) {
+                                const now = new Date(
+                                  date.year,
+                                  date.month - 1,
+                                  date.day
+                                );
+                                return new Intl.DateTimeFormat("fa-IR", {
+                                  year: "numeric",
+                                  month: "long",
+                                  day: "numeric"
+                                }).format(now);
+                              }
+                              const text = `
+تاریخ شروع دوره : ${a($state.apiRequest.data.result.period.start)}
+تاریخ پایان دوره : ${a($state.apiRequest.data.result.period.end)}
+داروهای مصرفی : ()
+میانگین آب مصرفی : روزانه 0 لیوان
+وضعیت رابطه جنسی : رابطه نداشتم
+`;
+                              return $$.copyToClipboard(text);
+                            })();
                           }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
                         })?.apply(null, [actionArgs]);
                       })()
                     : undefined;
                   if (
-                    $steps["updateButton2Color"] != null &&
-                    typeof $steps["updateButton2Color"] === "object" &&
-                    typeof $steps["updateButton2Color"].then === "function"
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
                   ) {
-                    $steps["updateButton2Color"] = await $steps[
-                      "updateButton2Color"
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+
+                  $steps["updateButton2Color2"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            undefined,
+                            "\u06af\u0632\u0627\u0631\u0634 \u062f\u0648\u0631\u0647 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u06a9\u067e\u06cc \u0634\u062f!",
+                            "bottom-center"
+                          ]
+                        };
+                        return $globalActions["Fragment.showToast"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateButton2Color2"] != null &&
+                    typeof $steps["updateButton2Color2"] === "object" &&
+                    typeof $steps["updateButton2Color2"].then === "function"
+                  ) {
+                    $steps["updateButton2Color2"] = await $steps[
+                      "updateButton2Color2"
                     ];
                   }
                 }}
