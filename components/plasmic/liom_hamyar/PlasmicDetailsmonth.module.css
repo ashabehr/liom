@@ -202,19 +202,25 @@
 .freeBox__stJmD {
   display: flex;
   flex-direction: row;
-  position: relative;
+  position: fixed;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
   column-gap: var(--token-1KusGK5GePTh);
-  background: #ffffff;
-  min-width: 0;
-  padding: 16px;
+  background: none;
+  left: 0;
+  top: auto;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  padding: var(--token-B5WvIYiqPJW-);
 }
 .button:global(.__wab_instance) {
   max-width: 100%;
+  width: 100%;
+  min-width: 0;
 }
 .svg__rJqj6 {
   position: relative;
@@ -241,6 +247,8 @@
 }
 .button2:global(.__wab_instance) {
   max-width: 100%;
+  width: 100%;
+  min-width: 0;
 }
 .svg__gud1A {
   position: relative;
@@ -265,6 +273,98 @@
   right: auto;
   bottom: auto;
   display: none;
+}
+.freeBox__nCkua {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 0px;
+}
+.freeBox__sxRkz {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.text__r0Hx6 {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-size: var(--token-Wa5tmrNKVUYF);
+  font-weight: 700;
+  text-align: right;
+  min-width: 0;
+}
+.text__jrLg5 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  min-width: 0;
+}
+.fragmentChart:global(.__wab_instance) {
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  height: 100%;
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+}
+.freeBox__zXdrI {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 0px;
+}
+.freeBox___2KHeg {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.text__p5Ma8 {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-size: var(--token-Wa5tmrNKVUYF);
+  font-weight: 700;
+  text-align: right;
+  min-width: 0;
+}
+.text__w6IbP {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
 }
 .apiRequest:global(.__wab_instance) {
   max-width: 100%;

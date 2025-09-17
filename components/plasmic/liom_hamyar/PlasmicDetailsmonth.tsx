@@ -63,6 +63,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import { Chart } from "@/fragment/components/chart"; // plasmic-import: 2Vi4mc7aEpf-/codeComponent
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -96,6 +97,7 @@ export type PlasmicDetailsmonth__OverridesType = {
   svg?: Flex__<"svg">;
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
+  fragmentChart?: Flex__<typeof Chart>;
   apiRequest?: Flex__<typeof ApiRequest>;
 };
 
@@ -154,7 +156,7 @@ function PlasmicDetailsmonth__RenderFunc(props: {
         path: "button2.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => "line"
       },
       {
         path: "button2.loading",
@@ -210,6 +212,67 @@ function PlasmicDetailsmonth__RenderFunc(props: {
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwNThlZDgzLTEwYTctNDlmMS05MTY3LTIwYzk3MjU1OTliMiIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzU3ODQyNjE3fQ.3rutUx2idb9XaNsvl3CFojPoUh9OciNK_RCJdabFIoc"
+      },
+      {
+        path: "avgWater",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                const events = $state.apiRequest.data.result.events;
+                const period = $state.apiRequest.data.result.period;
+                const t = events.reduce((s, e) => s + e.value, 0);
+                const start = new Date(
+                  period.start.year,
+                  period.start.month - 1,
+                  period.start.day
+                );
+                const end = new Date(
+                  period.end.year,
+                  period.end.month - 1,
+                  period.end.day
+                );
+                const total =
+                  Math.floor((end - start) / (1000 * 60 * 60 * 24)) + 1;
+                const avg = total > 0 ? Math.round(t / total) : 0;
+                return avg;
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "drugNames",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                const events = $state.apiRequest.data.result.events;
+                const allDrugs = events.flatMap(e => e.drug || []);
+                const drugNames = [...new Set(allDrugs.map(d => d))];
+                return drugNames;
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -633,6 +696,190 @@ function PlasmicDetailsmonth__RenderFunc(props: {
                 </div>
               </Button>
             </div>
+            <div className={classNames(projectcss.all, sty.freeBox__nCkua)}>
+              <div className={classNames(projectcss.all, sty.freeBox__sxRkz)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__r0Hx6
+                  )}
+                >
+                  {"\u0622\u0628 \u0645\u0635\u0631\u0641\u06cc"}
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__jrLg5
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return `میانگین:روزی ${$state.avgWater} لیوان`;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "\u0622\u0628 \u0645\u0635\u0631\u0641\u06cc";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+              </div>
+              <Chart
+                data-plasmic-name={"fragmentChart"}
+                data-plasmic-override={overrides.fragmentChart}
+                cartesianGrid={[]}
+                chartConfig={(() => {
+                  const __composite = [
+                    {
+                      color: null,
+                      type: "natural",
+                      dot: false,
+                      key: null,
+                      label: null
+                    }
+                  ];
+                  __composite["0"]["color"] = "var(--token-0xHMxyAHbOos)";
+                  __composite["0"]["key"] = "water";
+                  __composite["0"]["label"] =
+                    "\u0644\u06cc\u0648\u0627\u0646 \u0622\u0628";
+                  return __composite;
+                })()}
+                className={classNames("__wab_instance", sty.fragmentChart)}
+                data={(() => {
+                  try {
+                    return (() => {
+                      const events = $state.apiRequest.data.result.events;
+                      const periodStart =
+                        $state.apiRequest.data.result.period.start;
+                      const periodEnd =
+                        $state.apiRequest.data.result.period.end;
+                      const eventsMap = new Map(
+                        events.map(e => {
+                          const { year, month, day } = e.date;
+                          const dateStr = `${year}-${String(month).padStart(
+                            2,
+                            "0"
+                          )}-${String(day).padStart(2, "0")}`;
+                          return [dateStr, e.value];
+                        })
+                      );
+                      const startDate = new Date(
+                        periodStart.year,
+                        periodStart.month - 1,
+                        periodStart.day
+                      );
+                      const endDate = new Date(
+                        periodEnd.year,
+                        periodEnd.month - 1,
+                        periodEnd.day
+                      );
+                      const fmt = new Intl.DateTimeFormat("fa-IR-u-nu-latn", {
+                        timeZone: "Asia/Tehran",
+                        day: "2-digit"
+                      });
+                      const waterList = [];
+                      for (
+                        let d = new Date(startDate);
+                        d <= endDate;
+                        d.setDate(d.getDate() + 1)
+                      ) {
+                        const gregorianStr = d.toLocaleDateString("en-CA", {
+                          timeZone: "Asia/Tehran"
+                        });
+                        const persianStr = fmt.format(d);
+                        waterList.push({
+                          date: persianStr,
+                          water: eventsMap.get(gregorianStr) ?? 0
+                        });
+                      }
+                      waterList.reverse();
+                      return waterList;
+                    })();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                label={true}
+                layout={"horizontal"}
+                legend={false}
+                stack={false}
+                tooltip={(() => {
+                  const __composite = { enabled: null };
+                  __composite["enabled"] = true;
+                  return __composite;
+                })()}
+                type={"bar"}
+                xAxis={(() => {
+                  const __composite = {
+                    key: null,
+                    type: null,
+                    tickLine: null,
+                    enabled: null,
+                    axisLine: null
+                  };
+                  __composite["key"] = "date";
+                  __composite["type"] = "category";
+                  __composite["tickLine"] = false;
+                  __composite["enabled"] = true;
+                  __composite["axisLine"] = true;
+                  return __composite;
+                })()}
+                yAxis={(() => {
+                  const __composite = {
+                    type: null,
+                    key: null,
+                    enabled: null,
+                    tickLine: null,
+                    axisLine: null,
+                    tickMargin: null
+                  };
+                  __composite["type"] = "number";
+                  __composite["key"] = "water";
+                  __composite["enabled"] = false;
+                  __composite["tickLine"] = false;
+                  __composite["axisLine"] = false;
+                  __composite["tickMargin"] = 0;
+                  return __composite;
+                })()}
+              />
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__zXdrI)}>
+              <div className={classNames(projectcss.all, sty.freeBox___2KHeg)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__p5Ma8
+                  )}
+                >
+                  {
+                    "\u0648\u0636\u0639\u06cc\u062a \u0631\u0627\u0628\u0637\u0647 \u062c\u0646\u0633\u06cc"
+                  }
+                </div>
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__w6IbP
+                )}
+              >
+                {"Enter some text"}
+              </div>
+            </div>
           </div>
           <ApiRequest
             data-plasmic-name={"apiRequest"}
@@ -707,10 +954,11 @@ function PlasmicDetailsmonth__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "svg", "button", "button2", "apiRequest"],
+  root: ["root", "svg", "button", "button2", "fragmentChart", "apiRequest"],
   svg: ["svg"],
   button: ["button"],
   button2: ["button2"],
+  fragmentChart: ["fragmentChart"],
   apiRequest: ["apiRequest"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -721,6 +969,7 @@ type NodeDefaultElementType = {
   svg: "svg";
   button: typeof Button;
   button2: typeof Button;
+  fragmentChart: typeof Chart;
   apiRequest: typeof ApiRequest;
 };
 
@@ -812,6 +1061,7 @@ export const PlasmicDetailsmonth = Object.assign(
     svg: makeNodeComponent("svg"),
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
+    fragmentChart: makeNodeComponent("fragmentChart"),
     apiRequest: makeNodeComponent("apiRequest"),
 
     // Metadata about props expected for PlasmicDetailsmonth

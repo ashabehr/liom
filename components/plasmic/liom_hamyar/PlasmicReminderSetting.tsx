@@ -4362,7 +4362,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           ? (() => {
                                               const actionArgs = {
                                                 customFunction: async () => {
-                                                  return ($state.switchbest5[
+                                                  return ($state.switchSetting[
                                                     currentIndex
                                                   ].isChecked = false);
                                                 }
