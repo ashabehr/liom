@@ -63,6 +63,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -93,6 +94,7 @@ export type PlasmicDetailsmonth__OverridesType = {
   svg?: Flex__<"svg">;
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
+  apiRequest?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultDetailsmonthProps {}
@@ -177,6 +179,31 @@ function PlasmicDetailsmonth__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "apiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "details",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwNThlZDgzLTEwYTctNDlmMS05MTY3LTIwYzk3MjU1OTliMiIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzU3ODQyNjE3fQ.3rutUx2idb9XaNsvl3CFojPoUh9OciNK_RCJdabFIoc"
       }
     ],
     [$props, $ctx, $refs]
@@ -249,23 +276,127 @@ function PlasmicDetailsmonth__RenderFunc(props: {
                   sty.text__wlhF0
                 )}
               >
-                {
-                  "\u0627\u0632 27 \u062a\u06cc\u0631 1404 \u062a\u0627 16 \u0645\u0631\u062f\u0627\u062f 1404"
-                }
+                {"\u0627\u0632"}
               </div>
-            </div>
-            <div className={classNames(projectcss.all, sty.freeBox__zmmyG)}>
               <div
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__blMu
+                  sty.text___2L7YF
                 )}
               >
-                {
-                  "\u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0646\u0631\u0645\u0627\u0644 \u0628\u0648\u062f"
-                }
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return (() => {
+                        const now = new Date(
+                          $state.apiRequest.data.result.period.start.year,
+                          $state.apiRequest.data.result.period.start.month,
+                          $state.apiRequest.data.result.period.start.day
+                        );
+                        const g = new Intl.DateTimeFormat("fa-IR", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric"
+                        }).format(now);
+                        return g;
+                      })();
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "27 \u062a\u06cc\u0631 1404";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
               </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__aIfHt
+                )}
+              >
+                {"\u062a\u0627"}
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___1U1Ad
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return undefined;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "16 \u0645\u0631\u062f\u0627\u062f 1404";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__zmmyG)}>
+              {(() => {
+                try {
+                  return $state.apiRequest.data.result.period.isNormal;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__blMu
+                  )}
+                >
+                  {
+                    "\u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0646\u0631\u0645\u0627\u0644 \u0628\u0648\u062f"
+                  }
+                </div>
+              ) : null}
+              {(() => {
+                try {
+                  return !$state.apiRequest.data.result.period.isNormal;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__bEvcp
+                  )}
+                >
+                  {
+                    "\u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0646\u0631\u0645\u0627\u0644 \u0646\u0628\u0648\u062f"
+                  }
+                </div>
+              ) : null}
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__v899Y)}>
               <div
@@ -334,9 +465,17 @@ function PlasmicDetailsmonth__RenderFunc(props: {
                   }
                 }}
               >
-                {
-                  "\u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u0627\u0645\u0631\u0648\u0632"
-                }
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__bIlE0
+                  )}
+                >
+                  {
+                    "\u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u0627\u0645\u0631\u0648\u0632"
+                  }
+                </div>
               </Button>
               <Button
                 data-plasmic-name={"button2"}
@@ -406,6 +545,72 @@ function PlasmicDetailsmonth__RenderFunc(props: {
               </Button>
             </div>
           </div>
+          <ApiRequest
+            data-plasmic-name={"apiRequest"}
+            data-plasmic-override={overrides.apiRequest}
+            body={{ id: "c10a4be3-c16c-4876-901b-c5df89ec7dae" }}
+            className={classNames("__wab_instance", sty.apiRequest)}
+            config={(() => {
+              try {
+                return {
+                  headers: {
+                    authorization: $state.details
+                  }
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            errorDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__yoPYk
+                )}
+              >
+                {"Error fetching data"}
+              </div>
+            }
+            loadingDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__oUgFg
+                )}
+              >
+                {"Loading..."}
+              </div>
+            }
+            method={"POST"}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "apiRequest",
+                "loading"
+              ]).apply(null, eventArgs);
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            shouldFetch={true}
+            url={"https://n8n.staas.ir/webhook/calendar/getDetails"}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -413,10 +618,11 @@ function PlasmicDetailsmonth__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "svg", "button", "button2"],
+  root: ["root", "svg", "button", "button2", "apiRequest"],
   svg: ["svg"],
   button: ["button"],
-  button2: ["button2"]
+  button2: ["button2"],
+  apiRequest: ["apiRequest"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -426,6 +632,7 @@ type NodeDefaultElementType = {
   svg: "svg";
   button: typeof Button;
   button2: typeof Button;
+  apiRequest: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -516,6 +723,7 @@ export const PlasmicDetailsmonth = Object.assign(
     svg: makeNodeComponent("svg"),
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
+    apiRequest: makeNodeComponent("apiRequest"),
 
     // Metadata about props expected for PlasmicDetailsmonth
     internalVariantProps: PlasmicDetailsmonth__VariantProps,

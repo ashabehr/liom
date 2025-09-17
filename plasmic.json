@@ -6447,6 +6447,21 @@
           "id": "4w-kUacOfPfE",
           "name": "TriangleLeftSvgrepoComSvgIcon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__TriangleLeftSvgrepoComSvg.tsx"
+        },
+        {
+          "id": "-j8K84k_I6qS",
+          "name": "Icon292Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon292.tsx"
+        },
+        {
+          "id": "-KghWlsxIquH",
+          "name": "Icon293Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon293.tsx"
+        },
+        {
+          "id": "xW6pYJfWqycL",
+          "name": "Icon294Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon294.tsx"
         }
       ],
       "images": [

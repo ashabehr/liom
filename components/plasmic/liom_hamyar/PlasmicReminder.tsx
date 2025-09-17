@@ -65,6 +65,7 @@ import { Select } from "@/fragment/components/select"; // plasmic-import: 5Mch6a
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
+import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import Line from "../../Line"; // plasmic-import: tYgE5kAlYGXB/component
 import { SwiperSlider } from "@/components/SwiperSlider"; // plasmic-import: hd-bzFw1zcpE/codeComponent
 import ReminderSetting from "../../ReminderSetting"; // plasmic-import: VZcPBQBUFNbT/component
@@ -151,6 +152,8 @@ export type PlasmicReminder__OverridesType = {
   frame21?: Flex__<"div">;
   ul?: Flex__<"ul">;
   li?: Flex__<"li">;
+  button3?: Flex__<typeof Button>;
+  lottie?: Flex__<typeof LottieWrapper>;
   button2?: Flex__<typeof Button>;
   line?: Flex__<typeof Line>;
   swiperSlider?: Flex__<typeof SwiperSlider>;
@@ -158,7 +161,7 @@ export type PlasmicReminder__OverridesType = {
   button6?: Flex__<typeof Button>;
   reminderSetting?: Flex__<typeof ReminderSetting>;
   slide2?: Flex__<"div">;
-  reminderSetting3?: Flex__<typeof ReminderSetting>;
+  reminderSetting2?: Flex__<typeof ReminderSetting>;
   button?: Flex__<typeof Button>;
 };
 
@@ -201,7 +204,194 @@ function PlasmicReminder__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          data: [],
+          data: [
+            {
+              id: 178,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "",
+              schedule_type: "everyYear",
+              name: "\u062a\u0648\u0644\u062f  \u0628\u06cc\u0628\u0647\u0647\u0647\u0647\u0647 \u0686\u06cc\u067e\u0633\u06cc",
+              text: "birthday_spouse",
+              token1: "",
+              dates: '["2025-09-17"]',
+              weekdays: null,
+              times: '["09:30"]',
+              finishTime: "2025-09-17 09:48:12",
+              active: 0
+            },
+            {
+              id: 185,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u062a\u0648\u0644\u062f  \u0641\u0631\u0632\u0646\u062f",
+              text: "birthday_child",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
+              dates: '["2025-09-17"]',
+              weekdays: null,
+              times: '["09:30"]',
+              finishTime: "2025-09-17 10:28:23",
+              active: 1
+            },
+            {
+              id: 181,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "",
+              schedule_type: "everyYear",
+              name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc",
+              text: "anniversary_relationship",
+              token1: "",
+              dates: '["2025-10-10"]',
+              weekdays: null,
+              times: '["09:30"]',
+              finishTime: "2025-09-17 10:01:35",
+              active: 1
+            },
+            {
+              id: 182,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "",
+              schedule_type: "everyYear",
+              name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc",
+              text: "anniversary_relationship",
+              token1: "",
+              dates: '["2025-10-10"]',
+              weekdays: null,
+              times: '["09:30"]',
+              finishTime: "2025-09-17 10:01:36",
+              active: 0
+            },
+            {
+              id: 183,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "",
+              schedule_type: "everyYear",
+              name: "\u0633\u0627\u0644\u06af\u0631\u062f  \u0627\u0632\u062f\u0648\u0627\u062c",
+              text: "anniversary_wedding",
+              token1: "",
+              dates: '["2025-10-10"]',
+              weekdays: null,
+              times: '["09:30"]',
+              finishTime: "2025-09-17 10:03:16",
+              active: 0
+            },
+            {
+              id: 180,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "",
+              schedule_type: "everyYear",
+              name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
+              text: "occasion",
+              token1: "",
+              dates: '["2025-10-11"]',
+              weekdays: null,
+              times: "09:00",
+              finishTime: "2025-09-17 09:50:43",
+              active: 0
+            },
+            {
+              id: 184,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u062a\u0648\u0644\u062f  \u0641\u0631\u0632\u0646\u062f",
+              text: "birthday_child",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
+              dates: '["2025-10-11"]',
+              weekdays: null,
+              times: '["09:30"]',
+              finishTime: "2025-09-17 10:20:16",
+              active: 1
+            },
+            {
+              id: 187,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
+              text: "occasion",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
+              dates: '["2025-10-11"]',
+              weekdays: null,
+              times: "09:00",
+              finishTime: "2025-09-17 10:57:18",
+              active: 1
+            },
+            {
+              id: 188,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
+              text: "occasion",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
+              dates: '["2025-10-11"]',
+              weekdays: null,
+              times: "09:00",
+              finishTime: "2025-09-17 10:57:48",
+              active: 1
+            },
+            {
+              id: 189,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
+              text: "occasion",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
+              dates: '["2025-10-11"]',
+              weekdays: null,
+              times: "09:00",
+              finishTime: "2025-09-17 10:57:48",
+              active: 0
+            },
+            {
+              id: 186,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u0631\u0648\u0632  \u0632\u0646 \u0648 \u0645\u0627\u062f\u0631",
+              text: "occasion",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
+              dates: '["2025-12-11"]',
+              weekdays: null,
+              times: "09:00",
+              finishTime: "2025-09-17 10:56:10",
+              active: 1
+            },
+            {
+              id: 179,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "",
+              schedule_type: "everyYear",
+              name: "\u062a\u0648\u0644\u062f  \u0641\u0631\u0632\u0646\u062f",
+              text: "birthday_child",
+              token1: "",
+              dates: '["2026-04-07"]',
+              weekdays: null,
+              times: '["09:30"]',
+              finishTime: "2025-09-17 09:49:19",
+              active: 0
+            }
+          ],
           subscription: false,
           telegram: false,
           activeSmsNotif: false,
@@ -716,10 +906,78 @@ function PlasmicReminder__RenderFunc(props: {
         ]
       },
       {
-        path: "reminderSetting3.refresh",
+        path: "button3.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "blue"
+      },
+      {
+        path: "button3.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button3.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "reminderSetting.tel",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.activeNotifTel;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "reminderSetting.sms",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "reminderSetting2.refresh",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "reminderSetting2.tel",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.activeNotifTel;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "reminderSetting2.sms",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -1519,6 +1777,17 @@ function PlasmicReminder__RenderFunc(props: {
         }
       })() ? (
         <div className={classNames(projectcss.all, sty.freeBox__xMddU)}>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__kxln7
+            )}
+          >
+            {
+              "\u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627\u06cc \u067e\u06cc\u0634 \u0631\u0648"
+            }
+          </div>
           {(() => {
             try {
               return $props.data && $props.data?.length !== 0;
@@ -1639,16 +1908,23 @@ function PlasmicReminder__RenderFunc(props: {
                                     {(() => {
                                       try {
                                         return (() => {
-                                          var date = JSON.parse(
-                                            currentday[0].dates
-                                          )[0];
-                                          if (date)
-                                            return new Date(
-                                              date
-                                            ).toLocaleDateString("fa-IR", {
-                                              day: "numeric"
-                                            });
-                                          else return "?";
+                                          try {
+                                            var date = JSON.parse(
+                                              currentday[0].dates
+                                            )[0];
+                                            function parseISOToLocal(dateStr) {
+                                              let [y, m, d] =
+                                                dateStr.split("-");
+                                              return new Date(y, m - 1, d);
+                                            }
+                                            let d = parseISOToLocal(date);
+                                            return d.toLocaleDateString(
+                                              "fa-IR",
+                                              { day: "numeric" }
+                                            );
+                                          } catch {
+                                            return "";
+                                          }
                                         })();
                                       } catch (e) {
                                         if (
@@ -2040,6 +2316,764 @@ function PlasmicReminder__RenderFunc(props: {
               })}
             </div>
           ) : null}
+          {(() => {
+            try {
+              return (
+                !$props.activeNotifTel &&
+                !$props.activeSmsNotif &&
+                !$props.subscription
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <div
+              className={classNames(projectcss.all, sty.freeBox___1Go7U)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["runShop"] = true
+                  ? (() => {
+                      const actionArgs = { eventRef: $props["shop"] };
+                      return (({ eventRef, args }) => {
+                        return eventRef?.(...(args ?? []));
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runShop"] != null &&
+                  typeof $steps["runShop"] === "object" &&
+                  typeof $steps["runShop"].then === "function"
+                ) {
+                  $steps["runShop"] = await $steps["runShop"];
+                }
+              }}
+            >
+              <div className={classNames(projectcss.all, sty.freeBox__cGom)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__vFcq
+                  )}
+                >
+                  {
+                    "\u0628\u0631\u0627\u06cc \u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627\u06cc \u0645\u0647\u0645 \u0627\u0632 \u0637\u0631\u06cc\u0642 \u067e\u06cc\u0627\u0645\u06a9 \u06cc\u0627 \u062a\u0644\u06af\u0631\u0627\u0645 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u0631\u0627 \u062a\u0647\u06cc\u0647 \u06a9\u0646\u06cc\u062f."
+                  }
+                </div>
+                <Button
+                  data-plasmic-name={"button3"}
+                  data-plasmic-override={overrides.button3}
+                  className={classNames("__wab_instance", sty.button3)}
+                  color={generateStateValueProp($state, ["button3", "color"])}
+                  load={generateStateValueProp($state, ["button3", "load"])}
+                  loading={generateStateValueProp($state, [
+                    "button3",
+                    "loading"
+                  ])}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button3", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button3", "load"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadingChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button3", "loading"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  size={"compact"}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__cGkq
+                    )}
+                  >
+                    {
+                      "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9"
+                    }
+                  </div>
+                </Button>
+              </div>
+              <LottieWrapper
+                data-plasmic-name={"lottie"}
+                data-plasmic-override={overrides.lottie}
+                animationData={{
+                  v: "5.7.4",
+                  fr: 60,
+                  ip: 0,
+                  op: 190,
+                  w: 200,
+                  h: 200,
+                  nm: "Notification_Updated",
+                  ddd: 0,
+                  assets: [],
+                  layers: [
+                    {
+                      ddd: 0,
+                      ind: 1,
+                      ty: 4,
+                      nm: "Bell 2",
+                      sr: 1,
+                      ks: {
+                        o: { a: 0, k: 100, ix: 11 },
+                        r: {
+                          a: 1,
+                          k: [
+                            {
+                              i: { x: [0.667], y: [1] },
+                              o: { x: [0.333], y: [0] },
+                              t: 95,
+                              s: [0]
+                            },
+                            {
+                              i: { x: [0.667], y: [1] },
+                              o: { x: [0.333], y: [0] },
+                              t: 110,
+                              s: [22]
+                            },
+                            {
+                              i: { x: [0.667], y: [1] },
+                              o: { x: [0.333], y: [0] },
+                              t: 125,
+                              s: [-22]
+                            },
+                            {
+                              i: { x: [0.667], y: [1] },
+                              o: { x: [0.333], y: [0] },
+                              t: 140,
+                              s: [15]
+                            },
+                            {
+                              i: { x: [0.667], y: [1] },
+                              o: { x: [0.333], y: [0] },
+                              t: 155,
+                              s: [-10]
+                            },
+                            { t: 170, s: [0] }
+                          ],
+                          ix: 10
+                        },
+                        p: { a: 0, k: [100, 39.5, 0], ix: 2, l: 2 },
+                        a: { a: 0, k: [-14.219, -40.102, 0], ix: 1, l: 2 },
+                        s: { a: 0, k: [100, 100, 100], ix: 6, l: 2 }
+                      },
+                      ao: 0,
+                      hasMask: true,
+                      masksProperties: [
+                        {
+                          inv: false,
+                          mode: "f",
+                          pt: {
+                            a: 0,
+                            k: {
+                              i: [
+                                [0, -1.934],
+                                [4.932, 0],
+                                [0, 0],
+                                [0.032, 4.223],
+                                [-1.547, 1.676],
+                                [0, 26.361],
+                                [-18.949, 3.932],
+                                [0, 0],
+                                [-4.544, 0],
+                                [0, -4.544],
+                                [0, 0],
+                                [0, -20.045],
+                                [-4.963, -5.35]
+                              ],
+                              o: [
+                                [-0.033, 4.223],
+                                [0, 0],
+                                [-4.931, 0],
+                                [0, -1.934],
+                                [4.963, -5.35],
+                                [0, -20.045],
+                                [0, 0],
+                                [0, -4.544],
+                                [4.544, 0],
+                                [0, 0],
+                                [18.949, 3.932],
+                                [0, 26.361],
+                                [1.547, 1.676]
+                              ],
+                              v: [
+                                [43.75, 49.5],
+                                [35.467, 57.75],
+                                [-63.468, 57.75],
+                                [-71.75, 49.5],
+                                [-69.527, 43.892],
+                                [-55.218, 4.125],
+                                [-22.25, -35.868],
+                                [-22.25, -41.25],
+                                [-14, -49.5],
+                                [-5.75, -41.25],
+                                [-5.75, -35.868],
+                                [27.217, 4.125],
+                                [41.526, 43.892]
+                              ],
+                              c: true
+                            },
+                            ix: 1
+                          },
+                          o: { a: 0, k: 100, ix: 3 },
+                          x: { a: 0, k: 0, ix: 4 },
+                          nm: "Bell"
+                        }
+                      ],
+                      shapes: [
+                        {
+                          ty: "gr",
+                          it: [
+                            {
+                              ty: "rc",
+                              d: 1,
+                              s: { a: 0, k: [200, 200], ix: 2 },
+                              p: { a: 0, k: [0, 0], ix: 3 },
+                              r: { a: 0, k: 0, ix: 4 },
+                              nm: "Rectangle Path 1",
+                              mn: "ADBE Vector Shape - Rect",
+                              hd: false
+                            },
+                            {
+                              ty: "fl",
+                              c: {
+                                a: 0,
+                                k: [
+                                  0.078431372549, 0.494117647059,
+                                  0.898039215686, 1
+                                ],
+                                ix: 4
+                              },
+                              o: { a: 0, k: 100, ix: 5 },
+                              r: 1,
+                              bm: 0,
+                              nm: "Fill 1",
+                              mn: "ADBE Vector Graphic - Fill",
+                              hd: false
+                            },
+                            {
+                              ty: "tr",
+                              p: { a: 0, k: [-14.219, 20.398], ix: 2 },
+                              a: { a: 0, k: [0, 0], ix: 1 },
+                              s: { a: 0, k: [100, 100], ix: 3 },
+                              r: { a: 0, k: 0, ix: 6 },
+                              o: { a: 0, k: 100, ix: 7 },
+                              sk: { a: 0, k: 0, ix: 4 },
+                              sa: { a: 0, k: 0, ix: 5 },
+                              nm: "Transform"
+                            }
+                          ],
+                          nm: "Rectangle 1",
+                          np: 3,
+                          cix: 2,
+                          bm: 0,
+                          ix: 1,
+                          mn: "ADBE Vector Group",
+                          hd: false
+                        }
+                      ],
+                      ip: 95,
+                      op: 190,
+                      st: 95,
+                      bm: 0
+                    },
+                    {
+                      ddd: 0,
+                      ind: 2,
+                      ty: 4,
+                      nm: "Spindle 2",
+                      sr: 1,
+                      ks: {
+                        o: { a: 0, k: 100, ix: 11 },
+                        r: {
+                          a: 1,
+                          k: [
+                            {
+                              i: { x: [0.667], y: [1] },
+                              o: { x: [0.333], y: [0] },
+                              t: 95,
+                              s: [0]
+                            },
+                            {
+                              i: { x: [0.667], y: [1] },
+                              o: { x: [0.333], y: [0] },
+                              t: 110,
+                              s: [35]
+                            },
+                            {
+                              i: { x: [0.667], y: [1] },
+                              o: { x: [0.333], y: [0] },
+                              t: 125,
+                              s: [-35]
+                            },
+                            {
+                              i: { x: [0.667], y: [1] },
+                              o: { x: [0.333], y: [0] },
+                              t: 140,
+                              s: [25]
+                            },
+                            {
+                              i: { x: [0.667], y: [1] },
+                              o: { x: [0.333], y: [0] },
+                              t: 155,
+                              s: [-22]
+                            },
+                            { t: 170, s: [0] }
+                          ],
+                          ix: 10
+                        },
+                        p: { a: 0, k: [100, 39.5, 0], ix: 2, l: 2 },
+                        a: { a: 0, k: [-14.219, -40.102, 0], ix: 1, l: 2 },
+                        s: { a: 0, k: [100, 100, 100], ix: 6, l: 2 }
+                      },
+                      ao: 0,
+                      hasMask: true,
+                      masksProperties: [
+                        {
+                          inv: false,
+                          mode: "f",
+                          pt: {
+                            a: 0,
+                            k: {
+                              i: [
+                                [0, 9.121],
+                                [0, 0],
+                                [9.12, 0]
+                              ],
+                              o: [
+                                [0, 0],
+                                [0, 9.121],
+                                [-9.12, 0]
+                              ],
+                              v: [
+                                [-30.5, 66],
+                                [2.5, 66],
+                                [-14, 82.5]
+                              ],
+                              c: true
+                            },
+                            ix: 1
+                          },
+                          o: { a: 0, k: 100, ix: 3 },
+                          x: { a: 0, k: 0, ix: 4 },
+                          nm: "Spindle"
+                        }
+                      ],
+                      shapes: [
+                        {
+                          ty: "gr",
+                          it: [
+                            {
+                              ty: "rc",
+                              d: 1,
+                              s: { a: 0, k: [200, 200], ix: 2 },
+                              p: { a: 0, k: [0, 0], ix: 3 },
+                              r: { a: 0, k: 0, ix: 4 },
+                              nm: "Rectangle Path 1",
+                              mn: "ADBE Vector Shape - Rect",
+                              hd: false
+                            },
+                            {
+                              ty: "fl",
+                              c: {
+                                a: 0,
+                                k: [
+                                  0.078431372549, 0.494117647059,
+                                  0.898039215686, 1
+                                ],
+                                ix: 4
+                              },
+                              o: { a: 0, k: 100, ix: 5 },
+                              r: 1,
+                              bm: 0,
+                              nm: "Fill 1",
+                              mn: "ADBE Vector Graphic - Fill",
+                              hd: false
+                            },
+                            {
+                              ty: "tr",
+                              p: { a: 0, k: [-14.219, 20.398], ix: 2 },
+                              a: { a: 0, k: [0, 0], ix: 1 },
+                              s: { a: 0, k: [100, 100], ix: 3 },
+                              r: { a: 0, k: 0, ix: 6 },
+                              o: { a: 0, k: 100, ix: 7 },
+                              sk: { a: 0, k: 0, ix: 4 },
+                              sa: { a: 0, k: 0, ix: 5 },
+                              nm: "Transform"
+                            }
+                          ],
+                          nm: "Rectangle 1",
+                          np: 3,
+                          cix: 2,
+                          bm: 0,
+                          ix: 1,
+                          mn: "ADBE Vector Group",
+                          hd: false
+                        }
+                      ],
+                      ip: 95,
+                      op: 190,
+                      st: 95,
+                      bm: 0
+                    },
+                    {
+                      ddd: 0,
+                      ind: 3,
+                      ty: 4,
+                      nm: "Bell",
+                      sr: 1,
+                      ks: {
+                        o: { a: 0, k: 100, ix: 11 },
+                        r: {
+                          a: 1,
+                          k: [
+                            {
+                              i: { x: [0.667], y: [1] },
+                              o: { x: [0.333], y: [0] },
+                              t: 0,
+                              s: [0]
+                            },
+                            {
+                              i: { x: [0.667], y: [1] },
+                              o: { x: [0.333], y: [0] },
+                              t: 15,
+                              s: [22]
+                            },
+                            {
+                              i: { x: [0.667], y: [1] },
+                              o: { x: [0.333], y: [0] },
+                              t: 30,
+                              s: [-22]
+                            },
+                            {
+                              i: { x: [0.667], y: [1] },
+                              o: { x: [0.333], y: [0] },
+                              t: 45,
+                              s: [15]
+                            },
+                            {
+                              i: { x: [0.667], y: [1] },
+                              o: { x: [0.333], y: [0] },
+                              t: 60,
+                              s: [-10]
+                            },
+                            { t: 75, s: [0] }
+                          ],
+                          ix: 10
+                        },
+                        p: { a: 0, k: [100, 39.5, 0], ix: 2, l: 2 },
+                        a: { a: 0, k: [-14.219, -40.102, 0], ix: 1, l: 2 },
+                        s: { a: 0, k: [100, 100, 100], ix: 6, l: 2 }
+                      },
+                      ao: 0,
+                      hasMask: true,
+                      masksProperties: [
+                        {
+                          inv: false,
+                          mode: "f",
+                          pt: {
+                            a: 0,
+                            k: {
+                              i: [
+                                [0, -1.934],
+                                [4.932, 0],
+                                [0, 0],
+                                [0.032, 4.223],
+                                [-1.547, 1.676],
+                                [0, 26.361],
+                                [-18.949, 3.932],
+                                [0, 0],
+                                [-4.544, 0],
+                                [0, -4.544],
+                                [0, 0],
+                                [0, -20.045],
+                                [-4.963, -5.35]
+                              ],
+                              o: [
+                                [-0.033, 4.223],
+                                [0, 0],
+                                [-4.931, 0],
+                                [0, -1.934],
+                                [4.963, -5.35],
+                                [0, -20.045],
+                                [0, 0],
+                                [0, -4.544],
+                                [4.544, 0],
+                                [0, 0],
+                                [18.949, 3.932],
+                                [0, 26.361],
+                                [1.547, 1.676]
+                              ],
+                              v: [
+                                [43.75, 49.5],
+                                [35.467, 57.75],
+                                [-63.468, 57.75],
+                                [-71.75, 49.5],
+                                [-69.527, 43.892],
+                                [-55.218, 4.125],
+                                [-22.25, -35.868],
+                                [-22.25, -41.25],
+                                [-14, -49.5],
+                                [-5.75, -41.25],
+                                [-5.75, -35.868],
+                                [27.217, 4.125],
+                                [41.526, 43.892]
+                              ],
+                              c: true
+                            },
+                            ix: 1
+                          },
+                          o: { a: 0, k: 100, ix: 3 },
+                          x: { a: 0, k: 0, ix: 4 },
+                          nm: "Bell"
+                        }
+                      ],
+                      shapes: [
+                        {
+                          ty: "gr",
+                          it: [
+                            {
+                              ty: "rc",
+                              d: 1,
+                              s: { a: 0, k: [200, 200], ix: 2 },
+                              p: { a: 0, k: [0, 0], ix: 3 },
+                              r: { a: 0, k: 0, ix: 4 },
+                              nm: "Rectangle Path 1",
+                              mn: "ADBE Vector Shape - Rect",
+                              hd: false
+                            },
+                            {
+                              ty: "fl",
+                              c: {
+                                a: 0,
+                                k: [
+                                  0.078431372549, 0.494117647059,
+                                  0.898039215686, 1
+                                ],
+                                ix: 4
+                              },
+                              o: { a: 0, k: 100, ix: 5 },
+                              r: 1,
+                              bm: 0,
+                              nm: "Fill 1",
+                              mn: "ADBE Vector Graphic - Fill",
+                              hd: false
+                            },
+                            {
+                              ty: "tr",
+                              p: { a: 0, k: [-14.219, 20.398], ix: 2 },
+                              a: { a: 0, k: [0, 0], ix: 1 },
+                              s: { a: 0, k: [100, 100], ix: 3 },
+                              r: { a: 0, k: 0, ix: 6 },
+                              o: { a: 0, k: 100, ix: 7 },
+                              sk: { a: 0, k: 0, ix: 4 },
+                              sa: { a: 0, k: 0, ix: 5 },
+                              nm: "Transform"
+                            }
+                          ],
+                          nm: "Rectangle 1",
+                          np: 3,
+                          cix: 2,
+                          bm: 0,
+                          ix: 1,
+                          mn: "ADBE Vector Group",
+                          hd: false
+                        }
+                      ],
+                      ip: 0,
+                      op: 95,
+                      st: 0,
+                      bm: 0
+                    },
+                    {
+                      ddd: 0,
+                      ind: 4,
+                      ty: 4,
+                      nm: "Spindle",
+                      sr: 1,
+                      ks: {
+                        o: { a: 0, k: 100, ix: 11 },
+                        r: {
+                          a: 1,
+                          k: [
+                            {
+                              i: { x: [0.667], y: [1] },
+                              o: { x: [0.333], y: [0] },
+                              t: 0,
+                              s: [0]
+                            },
+                            {
+                              i: { x: [0.667], y: [1] },
+                              o: { x: [0.333], y: [0] },
+                              t: 15,
+                              s: [35]
+                            },
+                            {
+                              i: { x: [0.667], y: [1] },
+                              o: { x: [0.333], y: [0] },
+                              t: 30,
+                              s: [-35]
+                            },
+                            {
+                              i: { x: [0.667], y: [1] },
+                              o: { x: [0.333], y: [0] },
+                              t: 45,
+                              s: [25]
+                            },
+                            {
+                              i: { x: [0.667], y: [1] },
+                              o: { x: [0.333], y: [0] },
+                              t: 60,
+                              s: [-22]
+                            },
+                            { t: 75, s: [0] }
+                          ],
+                          ix: 10
+                        },
+                        p: { a: 0, k: [100, 39.5, 0], ix: 2, l: 2 },
+                        a: { a: 0, k: [-14.219, -40.102, 0], ix: 1, l: 2 },
+                        s: { a: 0, k: [100, 100, 100], ix: 6, l: 2 }
+                      },
+                      ao: 0,
+                      hasMask: true,
+                      masksProperties: [
+                        {
+                          inv: false,
+                          mode: "f",
+                          pt: {
+                            a: 0,
+                            k: {
+                              i: [
+                                [0, 9.121],
+                                [0, 0],
+                                [9.12, 0]
+                              ],
+                              o: [
+                                [0, 0],
+                                [0, 9.121],
+                                [-9.12, 0]
+                              ],
+                              v: [
+                                [-30.5, 66],
+                                [2.5, 66],
+                                [-14, 82.5]
+                              ],
+                              c: true
+                            },
+                            ix: 1
+                          },
+                          o: { a: 0, k: 100, ix: 3 },
+                          x: { a: 0, k: 0, ix: 4 },
+                          nm: "Spindle"
+                        }
+                      ],
+                      shapes: [
+                        {
+                          ty: "gr",
+                          it: [
+                            {
+                              ty: "rc",
+                              d: 1,
+                              s: { a: 0, k: [200, 200], ix: 2 },
+                              p: { a: 0, k: [0, 0], ix: 3 },
+                              r: { a: 0, k: 0, ix: 4 },
+                              nm: "Rectangle Path 1",
+                              mn: "ADBE Vector Shape - Rect",
+                              hd: false
+                            },
+                            {
+                              ty: "fl",
+                              c: {
+                                a: 0,
+                                k: [
+                                  0.078431372549, 0.494117647059,
+                                  0.898039215686, 1
+                                ],
+                                ix: 4
+                              },
+                              o: { a: 0, k: 100, ix: 5 },
+                              r: 1,
+                              bm: 0,
+                              nm: "Fill 1",
+                              mn: "ADBE Vector Graphic - Fill",
+                              hd: false
+                            },
+                            {
+                              ty: "tr",
+                              p: { a: 0, k: [-14.219, 20.398], ix: 2 },
+                              a: { a: 0, k: [0, 0], ix: 1 },
+                              s: { a: 0, k: [100, 100], ix: 3 },
+                              r: { a: 0, k: 0, ix: 6 },
+                              o: { a: 0, k: 100, ix: 7 },
+                              sk: { a: 0, k: 0, ix: 4 },
+                              sa: { a: 0, k: 0, ix: 5 },
+                              nm: "Transform"
+                            }
+                          ],
+                          nm: "Rectangle 1",
+                          np: 3,
+                          cix: 2,
+                          bm: 0,
+                          ix: 1,
+                          mn: "ADBE Vector Group",
+                          hd: false
+                        }
+                      ],
+                      ip: 0,
+                      op: 95,
+                      st: 0,
+                      bm: 0
+                    }
+                  ],
+                  markers: []
+                }}
+                className={classNames("__wab_instance", sty.lottie)}
+              />
+            </div>
+          ) : null}
           <Button
             data-plasmic-name={"button2"}
             data-plasmic-override={overrides.button2}
@@ -2147,7 +3181,7 @@ function PlasmicReminder__RenderFunc(props: {
               )}
             >
               {
-                "\u062a\u0646\u0638\u06cc\u0645\u0627\u062a \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc"
+                "\u062a\u0646\u0638\u06cc\u0645\u0627\u062a \u0627\u0631\u0633\u0627\u0644 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc"
               }
             </div>
           </Button>
@@ -2756,6 +3790,84 @@ function PlasmicReminder__RenderFunc(props: {
                         }
                       }).apply(null, eventArgs);
                     }}
+                    onSmsChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "reminderSetting",
+                        "sms"
+                      ]).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+
+                      (async val => {
+                        const $steps = {};
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return ($props.activeSmsNotif =
+                                    $state.reminderSetting.sms);
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      }).apply(null, eventArgs);
+                    }}
+                    onTelChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "reminderSetting",
+                        "tel"
+                      ]).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+
+                      (async val => {
+                        const $steps = {};
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return ($props.activeNotifTel =
+                                    $state.reminderSetting.tel);
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      }).apply(null, eventArgs);
+                    }}
                     phoneNumber={(() => {
                       try {
                         return $props.phone;
@@ -2773,6 +3885,25 @@ function PlasmicReminder__RenderFunc(props: {
                       "reminderSetting",
                       "refresh"
                     ])}
+                    shop={async () => {
+                      const $steps = {};
+
+                      $steps["runShop"] = true
+                        ? (() => {
+                            const actionArgs = { eventRef: $props["shop"] };
+                            return (({ eventRef, args }) => {
+                              return eventRef?.(...(args ?? []));
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runShop"] != null &&
+                        typeof $steps["runShop"] === "object" &&
+                        typeof $steps["runShop"].then === "function"
+                      ) {
+                        $steps["runShop"] = await $steps["runShop"];
+                      }
+                    }}
                     slide={"_1"}
                     subscription={(() => {
                       try {
@@ -2787,6 +3918,10 @@ function PlasmicReminder__RenderFunc(props: {
                         throw e;
                       }
                     })()}
+                    tel={generateStateValueProp($state, [
+                      "reminderSetting",
+                      "tel"
+                    ])}
                     telegramId={(() => {
                       try {
                         return $props.telegramId;
@@ -2875,8 +4010,8 @@ function PlasmicReminder__RenderFunc(props: {
                 </div>
               </div>
               <ReminderSetting
-                data-plasmic-name={"reminderSetting3"}
-                data-plasmic-override={overrides.reminderSetting3}
+                data-plasmic-name={"reminderSetting2"}
+                data-plasmic-override={overrides.reminderSetting2}
                 activeNotifTel={(() => {
                   try {
                     return $props.activeNotifTel;
@@ -2903,7 +4038,7 @@ function PlasmicReminder__RenderFunc(props: {
                     throw e;
                   }
                 })()}
-                className={classNames("__wab_instance", sty.reminderSetting3)}
+                className={classNames("__wab_instance", sty.reminderSetting2)}
                 data={(() => {
                   try {
                     return $props.data || [];
@@ -3068,7 +4203,7 @@ function PlasmicReminder__RenderFunc(props: {
                 })()}
                 onRefreshChange={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, [
-                    "reminderSetting3",
+                    "reminderSetting2",
                     "refresh"
                   ]).apply(null, eventArgs);
 
@@ -3118,6 +4253,84 @@ function PlasmicReminder__RenderFunc(props: {
                     }
                   }).apply(null, eventArgs);
                 }}
+                onSmsChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "reminderSetting2",
+                    "sms"
+                  ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+
+                  (async val => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return ($props.activeSmsNotif =
+                                $state.reminderSetting2.sms);
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }).apply(null, eventArgs);
+                }}
+                onTelChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "reminderSetting2",
+                    "tel"
+                  ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+
+                  (async val => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return ($props.activeNotifTel =
+                                $state.reminderSetting2.tel);
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }).apply(null, eventArgs);
+                }}
                 phoneNumber={(() => {
                   try {
                     return $props.phone;
@@ -3132,9 +4345,28 @@ function PlasmicReminder__RenderFunc(props: {
                   }
                 })()}
                 refresh={generateStateValueProp($state, [
-                  "reminderSetting3",
+                  "reminderSetting2",
                   "refresh"
                 ])}
+                shop={async () => {
+                  const $steps = {};
+
+                  $steps["runShop"] = true
+                    ? (() => {
+                        const actionArgs = { eventRef: $props["shop"] };
+                        return (({ eventRef, args }) => {
+                          return eventRef?.(...(args ?? []));
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runShop"] != null &&
+                    typeof $steps["runShop"] === "object" &&
+                    typeof $steps["runShop"].then === "function"
+                  ) {
+                    $steps["runShop"] = await $steps["runShop"];
+                  }
+                }}
                 slide={"_2"}
                 subscription={(() => {
                   try {
@@ -3149,6 +4381,10 @@ function PlasmicReminder__RenderFunc(props: {
                     throw e;
                   }
                 })()}
+                tel={generateStateValueProp($state, [
+                  "reminderSetting2",
+                  "tel"
+                ])}
                 telegramId={(() => {
                   try {
                     return $props.telegramId;
@@ -3322,6 +4558,8 @@ const PlasmicDescendants = {
     "frame21",
     "ul",
     "li",
+    "button3",
+    "lottie",
     "button2",
     "line",
     "swiperSlider",
@@ -3329,7 +4567,7 @@ const PlasmicDescendants = {
     "button6",
     "reminderSetting",
     "slide2",
-    "reminderSetting3",
+    "reminderSetting2",
     "button"
   ],
   section: [
@@ -3381,6 +4619,8 @@ const PlasmicDescendants = {
   frame21: ["frame21", "ul", "li"],
   ul: ["ul", "li"],
   li: ["li"],
+  button3: ["button3"],
+  lottie: ["lottie"],
   button2: ["button2"],
   line: ["line"],
   swiperSlider: [
@@ -3389,13 +4629,13 @@ const PlasmicDescendants = {
     "button6",
     "reminderSetting",
     "slide2",
-    "reminderSetting3"
+    "reminderSetting2"
   ],
   slide1: ["slide1", "button6", "reminderSetting"],
   button6: ["button6"],
   reminderSetting: ["reminderSetting"],
-  slide2: ["slide2", "reminderSetting3"],
-  reminderSetting3: ["reminderSetting3"],
+  slide2: ["slide2", "reminderSetting2"],
+  reminderSetting2: ["reminderSetting2"],
   button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -3426,6 +4666,8 @@ type NodeDefaultElementType = {
   frame21: "div";
   ul: "ul";
   li: "li";
+  button3: typeof Button;
+  lottie: typeof LottieWrapper;
   button2: typeof Button;
   line: typeof Line;
   swiperSlider: typeof SwiperSlider;
@@ -3433,7 +4675,7 @@ type NodeDefaultElementType = {
   button6: typeof Button;
   reminderSetting: typeof ReminderSetting;
   slide2: "div";
-  reminderSetting3: typeof ReminderSetting;
+  reminderSetting2: typeof ReminderSetting;
   button: typeof Button;
 };
 
@@ -3520,6 +4762,8 @@ export const PlasmicReminder = Object.assign(
     frame21: makeNodeComponent("frame21"),
     ul: makeNodeComponent("ul"),
     li: makeNodeComponent("li"),
+    button3: makeNodeComponent("button3"),
+    lottie: makeNodeComponent("lottie"),
     button2: makeNodeComponent("button2"),
     line: makeNodeComponent("line"),
     swiperSlider: makeNodeComponent("swiperSlider"),
@@ -3527,7 +4771,7 @@ export const PlasmicReminder = Object.assign(
     button6: makeNodeComponent("button6"),
     reminderSetting: makeNodeComponent("reminderSetting"),
     slide2: makeNodeComponent("slide2"),
-    reminderSetting3: makeNodeComponent("reminderSetting3"),
+    reminderSetting2: makeNodeComponent("reminderSetting2"),
     button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicReminder
