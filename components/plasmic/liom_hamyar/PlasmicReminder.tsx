@@ -216,7 +216,7 @@ function PlasmicReminder__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          data: [],
+          data: [{}],
           subscription: false,
           telegram: false,
           activeSmsNotif: false,
@@ -1759,18 +1759,31 @@ function PlasmicReminder__RenderFunc(props: {
                                             var date = JSON.parse(
                                               currentday[0].dates
                                             )[0];
-                                            function parseISOToLocal(dateStr) {
-                                              let [y, m, d] =
-                                                dateStr.split("-");
-                                              return new Date(y, m - 1, d);
+                                            if (date) {
+                                              function parseISOToUTC(dateStr) {
+                                                let [y, m, d] = dateStr
+                                                  .split("-")
+                                                  .map(Number);
+                                                return new Date(
+                                                  Date.UTC(y, m - 1, d)
+                                                );
+                                              }
+                                              let d = parseISOToUTC(date);
+                                              let formatter =
+                                                new Intl.DateTimeFormat(
+                                                  "fa-IR",
+                                                  {
+                                                    timeZone: "Asia/Tehran",
+                                                    day: "numeric"
+                                                  }
+                                                );
+                                              return (result =
+                                                formatter.format(d));
+                                            } else {
+                                              return (result = "?");
                                             }
-                                            let d = parseISOToLocal(date);
-                                            return d.toLocaleDateString(
-                                              "fa-IR",
-                                              { day: "numeric" }
-                                            );
                                           } catch {
-                                            return "";
+                                            return (result = "?");
                                           }
                                         })();
                                       } catch (e) {

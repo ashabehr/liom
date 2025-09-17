@@ -3732,17 +3732,26 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             try {
                               var date = JSON.parse(currentday[0].dates)[0];
                               if (date) {
-                                function parseISOToLocal(dateStr) {
-                                  let [y, m, d] = dateStr.split("-");
-                                  return new Date(y, m - 1, d);
+                                function parseISOToUTC(dateStr) {
+                                  let [y, m, d] = dateStr
+                                    .split("-")
+                                    .map(Number);
+                                  return new Date(Date.UTC(y, m - 1, d));
                                 }
-                                let d = parseISOToLocal(date);
-                                return d.toLocaleDateString("fa-IR", {
-                                  day: "numeric"
-                                });
-                              } else return "?";
+                                let d = parseISOToUTC(date);
+                                let formatter = new Intl.DateTimeFormat(
+                                  "fa-IR",
+                                  {
+                                    timeZone: "Asia/Tehran",
+                                    day: "numeric"
+                                  }
+                                );
+                                return (result = formatter.format(d));
+                              } else {
+                                return (result = "?");
+                              }
                             } catch {
-                              return "?";
+                              return (result = "?");
                             }
                           })();
                         } catch (e) {

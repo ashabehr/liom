@@ -539,7 +539,8 @@ function PlasmicToolsComponent__RenderFunc(props: {
                         }
                         return "";
                       };
-                      return ($state.token = getCookie("token"));
+                      $state.token = getCookie("token");
+                      return console.log("toolspage-token:" + $state.token);
                     })();
                   }
                 };
@@ -692,6 +693,33 @@ function PlasmicToolsComponent__RenderFunc(props: {
             null,
             eventArgs
           );
+
+          (async data => {
+            const $steps = {};
+
+            $steps["runCode"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        console.log("user info data:");
+                        return console.log($state.getUserInfo.data);
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
+            }
+          }).apply(null, eventArgs);
         }}
         params={(() => {
           try {
