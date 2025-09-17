@@ -21511,7 +21511,11 @@ function PlasmicHamyar__RenderFunc(props: {
                 >
                   {(() => {
                     try {
-                      return $state.userdata?.result?.man?.id == "1";
+                      return (
+                        $state.userdata?.result?.man?.id == "1" ||
+                        $state.userdata?.result?.man?.id ==
+                          "b60ec8fa-455a-4c93-9b25-54b6981d90cd"
+                      );
                     } catch (e) {
                       if (
                         e instanceof TypeError ||

@@ -1158,6 +1158,9 @@
 }
 .button3:global(.__wab_instance) {
   max-width: 100%;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
 }
 .svg__icWJ {
   position: relative;

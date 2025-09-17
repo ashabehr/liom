@@ -4200,7 +4200,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                         return;
                                       }
                                     },
-                                    size: "minimal"
+                                    size: "compact"
                                   };
 
                                   initializePlasmicStates(
