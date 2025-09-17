@@ -516,10 +516,11 @@ function PlasmicDetailsmonth__RenderFunc(props: {
                                   day: "numeric"
                                 }).format(now);
                               }
+                              $state.apiRequest.data.result.events.values;
                               const text = `
 تاریخ شروع دوره : ${a($state.apiRequest.data.result.period.start)}
 تاریخ پایان دوره : ${a($state.apiRequest.data.result.period.end)}
-داروهای مصرفی : ()
+داروهای مصرفی :     
 میانگین آب مصرفی : روزانه 0 لیوان
 وضعیت رابطه جنسی : رابطه نداشتم
 `;

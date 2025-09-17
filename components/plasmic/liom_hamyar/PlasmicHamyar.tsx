@@ -2915,6 +2915,50 @@ function PlasmicHamyar__RenderFunc(props: {
                 $steps["updateToDos"] = await $steps["updateToDos"];
               }
 
+              $steps["updateReminder"] =
+                window.sessionStorage.getItem("page") == "settingReminder" &&
+                window.document.referrer.includes("shop-result")
+                  ? (() => {
+                      const actionArgs = { vgroup: "reminder", operation: 2 };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        const oldValue = $stateGet($state, vgroup);
+                        $stateSet($state, vgroup, !oldValue);
+                        return !oldValue;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["updateReminder"] != null &&
+                typeof $steps["updateReminder"] === "object" &&
+                typeof $steps["updateReminder"].then === "function"
+              ) {
+                $steps["updateReminder"] = await $steps["updateReminder"];
+              }
+
+              $steps["runCode5"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return window.sessionStorage.removeItem("page");
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode5"] != null &&
+                typeof $steps["runCode5"] === "object" &&
+                typeof $steps["runCode5"].then === "function"
+              ) {
+                $steps["runCode5"] = await $steps["runCode5"];
+              }
+
               $steps["updateLoadingPage"] = true
                 ? (() => {
                     const actionArgs = {
@@ -3136,34 +3180,6 @@ function PlasmicHamyar__RenderFunc(props: {
                 typeof $steps["updateShapData"].then === "function"
               ) {
                 $steps["updateShapData"] = await $steps["updateShapData"];
-              }
-
-              $steps["updateInputValue"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["input", "value"]
-                      },
-                      operation: 0
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateInputValue"] != null &&
-                typeof $steps["updateInputValue"] === "object" &&
-                typeof $steps["updateInputValue"].then === "function"
-              ) {
-                $steps["updateInputValue"] = await $steps["updateInputValue"];
               }
             }}
           />
