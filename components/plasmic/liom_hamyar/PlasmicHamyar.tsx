@@ -2066,7 +2066,92 @@ function PlasmicHamyar__RenderFunc(props: {
         path: "remind",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          {
+            liomId: null,
+            telegramId: null,
+            phoneNumber: null,
+            schedule_type: "everyYear",
+            name: "\u0631\u0648\u0632  \u0632\u0646 \u0648 \u0645\u0627\u062f\u0631",
+            text: "occasion",
+            token1: null,
+            dates: '["2025-12-11"]',
+            weekdays: null,
+            times: null,
+            finishTime: null,
+            active: 0
+          },
+          {
+            liomId: null,
+            telegramId: null,
+            phoneNumber: null,
+            schedule_type: "everyYear",
+            name: "\u0631\u0648\u0632 \u062f\u062e\u062a\u0631",
+            text: "occasion",
+            token1: null,
+            dates: '["2026-04-19"]',
+            weekdays: null,
+            times: null,
+            finishTime: null,
+            active: 0
+          },
+          {
+            liomId: null,
+            telegramId: null,
+            phoneNumber: null,
+            schedule_type: "everyYear",
+            name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
+            text: "occasion",
+            token1: null,
+            dates: '["2026-03-08"]',
+            weekdays: null,
+            times: null,
+            finishTime: null,
+            active: 0
+          },
+          {
+            liomId: null,
+            telegramId: null,
+            phoneNumber: null,
+            schedule_type: "everyYear",
+            name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
+            text: "occasion",
+            token1: null,
+            dates: '["2026-02-14"]',
+            weekdays: null,
+            times: null,
+            finishTime: null,
+            active: 0
+          },
+          {
+            liomId: null,
+            telegramId: null,
+            phoneNumber: null,
+            schedule_type: "everyYear",
+            name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
+            text: "occasion",
+            token1: null,
+            dates: '["2026-02-18"]',
+            weekdays: null,
+            times: null,
+            finishTime: null,
+            active: 0
+          },
+          {
+            liomId: null,
+            telegramId: null,
+            phoneNumber: null,
+            schedule_type: "everyYear",
+            name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
+            text: "occasion",
+            token1: null,
+            dates: '["2025-10-11"]',
+            weekdays: null,
+            times: null,
+            finishTime: null,
+            active: 0
+          }
+        ]
       },
       {
         path: "reminderSetting.tel",
@@ -25826,92 +25911,7 @@ function PlasmicHamyar__RenderFunc(props: {
                           variablePath: ["remind"]
                         },
                         operation: 0,
-                        value: $state.remember?.data || [
-                          {
-                            liomId: null,
-                            telegramId: null,
-                            phoneNumber: null,
-                            schedule_type: "everyYear",
-                            name: "روز  زن و مادر",
-                            text: "occasion",
-                            token1: null,
-                            dates: '["2025-12-11"]',
-                            weekdays: null,
-                            times: null,
-                            finishTime: null,
-                            active: 0
-                          },
-                          {
-                            liomId: null,
-                            telegramId: null,
-                            phoneNumber: null,
-                            schedule_type: "everyYear",
-                            name: "روز دختر",
-                            text: "occasion",
-                            token1: null,
-                            dates: '["2026-04-19"]',
-                            weekdays: null,
-                            times: null,
-                            finishTime: null,
-                            active: 0
-                          },
-                          {
-                            liomId: null,
-                            telegramId: null,
-                            phoneNumber: null,
-                            schedule_type: "everyYear",
-                            name: "روز  جهانی زن",
-                            text: "occasion",
-                            token1: null,
-                            dates: '["2026-03-08"]',
-                            weekdays: null,
-                            times: null,
-                            finishTime: null,
-                            active: 0
-                          },
-                          {
-                            liomId: null,
-                            telegramId: null,
-                            phoneNumber: null,
-                            schedule_type: "everyYear",
-                            name: "ولنتاین (روز عشق)",
-                            text: "occasion",
-                            token1: null,
-                            dates: '["2026-02-14"]',
-                            weekdays: null,
-                            times: null,
-                            finishTime: null,
-                            active: 0
-                          },
-                          {
-                            liomId: null,
-                            telegramId: null,
-                            phoneNumber: null,
-                            schedule_type: "everyYear",
-                            name: "سپندارمذگان (روز عشق ایرانی)",
-                            text: "occasion",
-                            token1: null,
-                            dates: '["2026-02-18"]',
-                            weekdays: null,
-                            times: null,
-                            finishTime: null,
-                            active: 0
-                          },
-                          {
-                            liomId: null,
-                            telegramId: null,
-                            phoneNumber: null,
-                            schedule_type: "everyYear",
-                            name: "روز  جهانی دختران",
-                            text: "occasion",
-                            token1: null,
-                            dates: '["2025-10-11"]',
-                            weekdays: null,
-                            times: null,
-                            finishTime: null,
-                            active: 0
-                          }
-                        ]
+                        value: $state.remember?.data
                       };
                       return (({
                         variable,

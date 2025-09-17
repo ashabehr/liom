@@ -160,14 +160,6 @@ function PlasmicErrortest__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
       },
       {
-        path: "antdInput.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-
-        onMutate: generateOnMutateForSpec("value", Input_Helpers)
-      },
-      {
         path: "button.load",
         type: "private",
         variableType: "text",
@@ -178,6 +170,14 @@ function PlasmicErrortest__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "antdInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", Input_Helpers)
       }
     ],
     [$props, $ctx, $refs]

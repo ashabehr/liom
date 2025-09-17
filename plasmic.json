@@ -6462,6 +6462,11 @@
           "id": "xW6pYJfWqycL",
           "name": "Icon294Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon294.tsx"
+        },
+        {
+          "id": "SfM64OkCrE9j",
+          "name": "Icon295Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon295.tsx"
         }
       ],
       "images": [

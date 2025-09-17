@@ -308,14 +308,6 @@ function PlasmicSendnotif__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
       },
       {
-        path: "antdInput3.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-
-        onMutate: generateOnMutateForSpec("value", Input_Helpers)
-      },
-      {
         path: "step",
         type: "private",
         variableType: "array",
@@ -333,6 +325,14 @@ function PlasmicSendnotif__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "notification"
+      },
+      {
+        path: "antdInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", Input_Helpers)
       }
     ],
     [$props, $ctx, $refs]

@@ -361,7 +361,7 @@ function PlasmicDetailsmonth__RenderFunc(props: {
             <div className={classNames(projectcss.all, sty.freeBox__zmmyG)}>
               {(() => {
                 try {
-                  return $state.apiRequest.data.result.period.isNormal;
+                  return $state.apiRequest.data?.result?.period?.isNormal;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -386,7 +386,7 @@ function PlasmicDetailsmonth__RenderFunc(props: {
               ) : null}
               {(() => {
                 try {
-                  return !$state.apiRequest.data.result.period.isNormal;
+                  return !$state.apiRequest.data?.result?.period?.isNormal;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||

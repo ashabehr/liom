@@ -82,6 +82,7 @@ import sty from "./PlasmicReminder.module.css"; // plasmic-import: 3v9tn6uUJCPM/
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Oval3Icon from "./icons/PlasmicIcon__Oval3"; // plasmic-import: lOJpmSR7qOUd/icon
+import Icon295Icon from "./icons/PlasmicIcon__Icon295"; // plasmic-import: SfM64OkCrE9j/icon
 import Icon270Icon from "./icons/PlasmicIcon__Icon270"; // plasmic-import: Y171g_Z8ZZ84/icon
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
 import Icon283Icon from "./icons/PlasmicIcon__Icon283"; // plasmic-import: d6oFXeX9yzDi/icon
@@ -1770,38 +1771,74 @@ function PlasmicReminder__RenderFunc(props: {
                                       )}
                                       key={currentIndex}
                                     >
-                                      <Oval3Icon
-                                        className={classNames(
-                                          projectcss.all,
-                                          sty.svg__c0H1J
-                                        )}
-                                        role={"img"}
-                                      />
-
                                       <div
                                         className={classNames(
                                           projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text___3JjUn
+                                          sty.freeBox__iOGk
                                         )}
                                       >
-                                        <React.Fragment>
-                                          {(() => {
-                                            try {
-                                              return currentItem.name;
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return "";
+                                        <Oval3Icon
+                                          className={classNames(
+                                            projectcss.all,
+                                            sty.svg__c0H1J
+                                          )}
+                                          role={"img"}
+                                        />
+
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text___3JjUn
+                                          )}
+                                        >
+                                          <React.Fragment>
+                                            {(() => {
+                                              try {
+                                                return currentItem.name;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return "";
+                                                }
+                                                throw e;
                                               }
-                                              throw e;
-                                            }
-                                          })()}
-                                        </React.Fragment>
+                                            })()}
+                                          </React.Fragment>
+                                        </div>
                                       </div>
+                                      {(() => {
+                                        try {
+                                          return !currentItem.active;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return true;
+                                          }
+                                          throw e;
+                                        }
+                                      })() ? (
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            sty.freeBox__qeK7
+                                          )}
+                                        >
+                                          <Icon295Icon
+                                            className={classNames(
+                                              projectcss.all,
+                                              sty.svg__dlIv8
+                                            )}
+                                            role={"img"}
+                                          />
+                                        </div>
+                                      ) : null}
                                     </div>
                                   );
                                 })}
@@ -1818,7 +1855,7 @@ function PlasmicReminder__RenderFunc(props: {
           ) : null}
           {(() => {
             try {
-              return undefined;
+              return !$state.sms && $props.subscription;
             } catch (e) {
               if (
                 e instanceof TypeError ||
