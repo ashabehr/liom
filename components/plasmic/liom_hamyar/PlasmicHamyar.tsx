@@ -26345,9 +26345,7 @@ function PlasmicHamyar__RenderFunc(props: {
             data-plasmic-override={overrides.reminderSetting}
             activeNotifTel={(() => {
               try {
-                return $state.userdata?.result?.man?.activeNotifTel
-                  ? true
-                  : false;
+                return $state.reminder2.tel;
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -26360,9 +26358,7 @@ function PlasmicHamyar__RenderFunc(props: {
             })()}
             activeSmsNotif={(() => {
               try {
-                return $state.userdata?.result?.man?.activeSmsNotif
-                  ? true
-                  : false;
+                return $state.reminder2.sms;
               } catch (e) {
                 if (
                   e instanceof TypeError ||

@@ -1796,12 +1796,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           return (() => {
                             var firstChild =
                               window.document.getElementById("sms-tag");
-                            var toggleDiv = firstChild.querySelector(
-                              'div[class*="Switchbest__toggle"]'
+                            var checkbox = firstChild.querySelector(
+                              'input[type="checkbox"]'
                             );
-                            console.log(toggleDiv);
-                            if (toggleDiv) {
-                              return toggleDiv.click();
+                            if (checkbox) {
+                              return checkbox.click();
                             }
                           })();
                         }
@@ -3896,13 +3895,13 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                               return firstButton.click();
                                             }
                                           } else {
-                                            var toggleDiv =
+                                            var checkbox =
                                               targetChild.querySelector(
-                                                'div[class*="Switchbest__toggle"]'
+                                                'input[type="checkbox"]'
                                               );
-                                            console.log(toggleDiv);
-                                            if (toggleDiv) {
-                                              return toggleDiv.click();
+                                            console.log(checkbox);
+                                            if (checkbox) {
+                                              return checkbox.click();
                                             }
                                           }
                                         })();
@@ -4354,13 +4353,12 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                       window.document.getElementById(
                                                         "sms-tag"
                                                       );
-                                                    var toggleDiv =
+                                                    var checkbox =
                                                       firstChild.querySelector(
-                                                        'div[class*="Switchbest__toggle"]'
+                                                        'input[type="checkbox"]'
                                                       );
-                                                    console.log(toggleDiv);
-                                                    if (toggleDiv) {
-                                                      return toggleDiv.click();
+                                                    if (checkbox) {
+                                                      return checkbox.click();
                                                     }
                                                   })();
                                                 }
