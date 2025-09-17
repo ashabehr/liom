@@ -8906,25 +8906,39 @@ function PlasmicHamyar__RenderFunc(props: {
                                         {(() => {
                                           try {
                                             return (() => {
-                                              var d = currentItem.dates
-                                                ? JSON.parse(
-                                                    currentItem.dates
-                                                  )[0]
-                                                : null;
-                                              let future1 = new Date(d);
-                                              let current_date1 = new Date();
-                                              let delta1 =
-                                                future1 - current_date1;
-                                              let days_remaining1 = Math.floor(
-                                                delta1 / (1000 * 60 * 60 * 24)
-                                              );
-                                              if (days_remaining1 == 0)
-                                                return "تا پایان امروز";
-                                              return (
-                                                days_remaining1 +
-                                                " روز " +
-                                                "دیگر"
-                                              );
+                                              try {
+                                                var d = currentItem.dates
+                                                  ? JSON.parse(
+                                                      currentItem.dates
+                                                    )[0]
+                                                  : null;
+                                                if (!d) return "";
+                                                let future1 = new Date(d);
+                                                let current_date1 = new Date();
+                                                future1.setHours(0, 0, 0, 0);
+                                                current_date1.setHours(
+                                                  0,
+                                                  0,
+                                                  0,
+                                                  0
+                                                );
+                                                let delta1 =
+                                                  future1 - current_date1;
+                                                let days_remaining1 =
+                                                  Math.floor(
+                                                    delta1 /
+                                                      (1000 * 60 * 60 * 24)
+                                                  );
+                                                if (days_remaining1 == 0)
+                                                  return "تا پایان امروز";
+                                                return (
+                                                  days_remaining1 +
+                                                  " روز " +
+                                                  "دیگر"
+                                                );
+                                              } catch {
+                                                return "";
+                                              }
                                             })();
                                           } catch (e) {
                                             if (

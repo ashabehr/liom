@@ -289,11 +289,8 @@ function PlasmicDetailsmonth__RenderFunc(props: {
                   {(() => {
                     try {
                       return (() => {
-                        const now = new Date(
-                          $state.apiRequest.data.result.period.start.year,
-                          $state.apiRequest.data.result.period.start.month,
-                          $state.apiRequest.data.result.period.start.day
-                        );
+                        var a = $state.apiRequest.data.result.period.start;
+                        const now = new Date(a.year, a.month, a.day);
                         const g = new Intl.DateTimeFormat("fa-IR", {
                           year: "numeric",
                           month: "long",
@@ -332,7 +329,16 @@ function PlasmicDetailsmonth__RenderFunc(props: {
                 <React.Fragment>
                   {(() => {
                     try {
-                      return undefined;
+                      return (() => {
+                        var a = $state.apiRequest.data.result.period.end;
+                        const now = new Date(a.year, a.month, a.day);
+                        const g = new Intl.DateTimeFormat("fa-IR", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric"
+                        }).format(now);
+                        return g;
+                      })();
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -484,6 +490,45 @@ function PlasmicDetailsmonth__RenderFunc(props: {
                 color={generateStateValueProp($state, ["button2", "color"])}
                 load={generateStateValueProp($state, ["button2", "load"])}
                 loading={generateStateValueProp($state, ["button2", "loading"])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateButton2Color"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["button2", "color"]
+                          },
+                          operation: 0,
+                          value: `تاریخ شروع دوره : ${$state.apiRequest.data.result.period.start}\nتاریخ پایان دوره : ${$state.apiRequest.data.result.period.end}\   \nداروهای مصرفی : ()\nمیانگین آب مصرفی : روزانه 0 لیوان\nوضعیت رابطه جنسی: : رابطه نداشتم`
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateButton2Color"] != null &&
+                    typeof $steps["updateButton2Color"] === "object" &&
+                    typeof $steps["updateButton2Color"].then === "function"
+                  ) {
+                    $steps["updateButton2Color"] = await $steps[
+                      "updateButton2Color"
+                    ];
+                  }
+                }}
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
                     generateStateOnChangeProp($state, ["button2", "color"])(
