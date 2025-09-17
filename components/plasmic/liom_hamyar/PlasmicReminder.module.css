@@ -885,12 +885,24 @@
 .reminderSetting3:global(.__wab_instance) {
   max-width: 100%;
 }
+.freeBox___1Ccif {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-top: var(--token-1KusGK5GePTh);
+  min-width: 0;
+  padding: 0px var(--token-uOLZE7OyOW-J);
+}
 .button:global(.__wab_instance) {
   max-width: 100%;
   width: 98%;
-  margin-top: var(--token-1KusGK5GePTh);
 }
-.svg__kEfXg {
+.svg__i0Rb {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -900,7 +912,7 @@
   color: var(--token-R_Rsn0nP9oIv);
   font-size: var(--token-Wa5tmrNKVUYF);
 }
-.svg__lvuvC {
+.svg___7Ipsu {
   object-fit: cover;
   max-width: 100%;
   width: 40px;
