@@ -4849,54 +4849,35 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                         onClick={async event => {
                           const $steps = {};
 
-                          $steps["goToPage"] =
+                          $steps["runCode2"] =
                             $ctx.query?.inApp != "true"
                               ? (() => {
                                   const actionArgs = {
-                                    destination: (() => {
-                                      try {
-                                        return (
-                                          "https://apps.liom.app/setting-pregnancy/?token=" +
+                                    customFunction: async () => {
+                                      return window.open(
+                                        "https://apps.liom.app/setting-pregnancy/?token=" +
                                           $state.token +
                                           "&userId=" +
                                           $state.userId +
                                           "&theme=" +
                                           $ctx.query.theme +
                                           "&version=" +
-                                          $ctx.query.version
-                                        );
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                  };
-                                  return (({ destination }) => {
-                                    if (
-                                      typeof destination === "string" &&
-                                      destination.startsWith("#")
-                                    ) {
-                                      document
-                                        .getElementById(destination.substr(1))
-                                        .scrollIntoView({ behavior: "smooth" });
-                                    } else {
-                                      __nextRouter?.push(destination);
+                                          $ctx.query.version,
+                                        "_self"
+                                      );
                                     }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
                                   })?.apply(null, [actionArgs]);
                                 })()
                               : undefined;
                           if (
-                            $steps["goToPage"] != null &&
-                            typeof $steps["goToPage"] === "object" &&
-                            typeof $steps["goToPage"].then === "function"
+                            $steps["runCode2"] != null &&
+                            typeof $steps["runCode2"] === "object" &&
+                            typeof $steps["runCode2"].then === "function"
                           ) {
-                            $steps["goToPage"] = await $steps["goToPage"];
+                            $steps["runCode2"] = await $steps["runCode2"];
                           }
 
                           $steps["runCode"] =
@@ -4904,11 +4885,9 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                               ? (() => {
                                   const actionArgs = {
                                     customFunction: async () => {
-                                      return (() => {
-                                        return window.FlutterChannel.postMessage(
-                                          "#healthSettingPage"
-                                        );
-                                      })();
+                                      return window.FlutterChannel.postMessage(
+                                        "#healthSettingPage"
+                                      );
                                     }
                                   };
                                   return (({ customFunction }) => {

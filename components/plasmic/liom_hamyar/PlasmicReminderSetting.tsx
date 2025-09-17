@@ -2876,17 +2876,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   "\u06cc\u0627\u062f \u0622\u0648\u0631\u06cc \u0628\u0627 \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9"
                 }
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__s2Cc7
-                )}
-              >
-                {
-                  "\u06cc\u0627\u062f \u0622\u0648\u0631\u06cc \u0628\u0627 \u0627\u0631\u0633\u0627\u0644 \u067e\u0628\u0627\u0645\u06a9"
-                }
-              </div>
             </div>
             <Switchbest
               data-plasmic-name={"switchSms"}
