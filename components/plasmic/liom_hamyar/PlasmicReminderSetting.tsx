@@ -570,7 +570,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.activeSmsNotif;
+              return $state.sms;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -589,7 +589,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.activeNotifTel;
+              return $state.tel;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -2996,8 +2996,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return ($props.activeSmsNotif =
-                              !$props.activeSmsNotif);
+                            return ($state.sms = $state.switchSms.isChecked
+                              ? true
+                              : false);
                           }
                         };
                         return (({ customFunction }) => {
@@ -3173,6 +3174,29 @@ function PlasmicReminderSetting__RenderFunc(props: {
 
                   (async isChecked => {
                     const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return ($state.tel = $state.switchTelegram
+                                .isChecked
+                                ? true
+                                : false);
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
 
                     $steps["update"] = true
                       ? (() => {

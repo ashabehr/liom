@@ -2092,6 +2092,44 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "reminder2.sms",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.activeSmsNotif;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "reminder2.tel",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.activeNotifTel;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -26118,6 +26156,34 @@ function PlasmicHamyar__RenderFunc(props: {
                 }
               }).apply(null, eventArgs);
             }}
+            onSmsChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["reminder2", "sms"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onTelChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["reminder2", "tel"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
             phone={(() => {
               try {
                 return $state.mobile;
@@ -26216,6 +26282,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 $steps["runCode"] = await $steps["runCode"];
               }
             }}
+            sms={generateStateValueProp($state, ["reminder2", "sms"])}
             subscription={(() => {
               try {
                 return $state?.userdata?.result?.man?.hamyarStatus
@@ -26231,6 +26298,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 throw e;
               }
             })()}
+            tel={generateStateValueProp($state, ["reminder2", "tel"])}
             telegram={(() => {
               try {
                 return $state.userdata?.result?.man?.telegramId ? true : false;
@@ -26257,7 +26325,19 @@ function PlasmicHamyar__RenderFunc(props: {
                 throw e;
               }
             })()}
-            token={``}
+            token={(() => {
+              try {
+                return $state.tokenUser;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
           />
 
           <ReminderSetting
@@ -26547,7 +26627,19 @@ function PlasmicHamyar__RenderFunc(props: {
                 throw e;
               }
             })()}
-            token={``}
+            token={(() => {
+              try {
+                return $state.tokenUser;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
           />
         </div>
       </div>

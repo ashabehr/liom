@@ -108,6 +108,10 @@ export type PlasmicReminder__ArgsType = {
   activeNotifTel?: boolean;
   telegramId?: string;
   phone?: string;
+  sms?: boolean;
+  onSmsChange?: (val: string) => void;
+  tel?: boolean;
+  onTelChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicReminder__ArgsType;
 export const PlasmicReminder__ArgProps = new Array<ArgPropType>(
@@ -124,7 +128,11 @@ export const PlasmicReminder__ArgProps = new Array<ArgPropType>(
   "token",
   "activeNotifTel",
   "telegramId",
-  "phone"
+  "phone",
+  "sms",
+  "onSmsChange",
+  "tel",
+  "onTelChange"
 );
 
 export type PlasmicReminder__OverridesType = {
@@ -180,6 +188,10 @@ export interface DefaultReminderProps {
   activeNotifTel?: boolean;
   telegramId?: string;
   phone?: string;
+  sms?: boolean;
+  onSmsChange?: (val: string) => void;
+  tel?: boolean;
+  onTelChange?: (val: string) => void;
   className?: string;
 }
 
@@ -204,194 +216,7 @@ function PlasmicReminder__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          data: [
-            {
-              id: 178,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              name: "\u062a\u0648\u0644\u062f  \u0628\u06cc\u0628\u0647\u0647\u0647\u0647\u0647 \u0686\u06cc\u067e\u0633\u06cc",
-              text: "birthday_spouse",
-              token1: "",
-              dates: '["2025-09-17"]',
-              weekdays: null,
-              times: '["09:30"]',
-              finishTime: "2025-09-17 09:48:12",
-              active: 0
-            },
-            {
-              id: 185,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "null",
-              schedule_type: "everyYear",
-              name: "\u062a\u0648\u0644\u062f  \u0641\u0631\u0632\u0646\u062f",
-              text: "birthday_child",
-              token1:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
-              dates: '["2025-09-17"]',
-              weekdays: null,
-              times: '["09:30"]',
-              finishTime: "2025-09-17 10:28:23",
-              active: 1
-            },
-            {
-              id: 181,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc",
-              text: "anniversary_relationship",
-              token1: "",
-              dates: '["2025-10-10"]',
-              weekdays: null,
-              times: '["09:30"]',
-              finishTime: "2025-09-17 10:01:35",
-              active: 1
-            },
-            {
-              id: 182,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc",
-              text: "anniversary_relationship",
-              token1: "",
-              dates: '["2025-10-10"]',
-              weekdays: null,
-              times: '["09:30"]',
-              finishTime: "2025-09-17 10:01:36",
-              active: 0
-            },
-            {
-              id: 183,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              name: "\u0633\u0627\u0644\u06af\u0631\u062f  \u0627\u0632\u062f\u0648\u0627\u062c",
-              text: "anniversary_wedding",
-              token1: "",
-              dates: '["2025-10-10"]',
-              weekdays: null,
-              times: '["09:30"]',
-              finishTime: "2025-09-17 10:03:16",
-              active: 0
-            },
-            {
-              id: 180,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
-              text: "occasion",
-              token1: "",
-              dates: '["2025-10-11"]',
-              weekdays: null,
-              times: "09:00",
-              finishTime: "2025-09-17 09:50:43",
-              active: 0
-            },
-            {
-              id: 184,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "null",
-              schedule_type: "everyYear",
-              name: "\u062a\u0648\u0644\u062f  \u0641\u0631\u0632\u0646\u062f",
-              text: "birthday_child",
-              token1:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
-              dates: '["2025-10-11"]',
-              weekdays: null,
-              times: '["09:30"]',
-              finishTime: "2025-09-17 10:20:16",
-              active: 1
-            },
-            {
-              id: 187,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "null",
-              schedule_type: "everyYear",
-              name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
-              text: "occasion",
-              token1:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
-              dates: '["2025-10-11"]',
-              weekdays: null,
-              times: "09:00",
-              finishTime: "2025-09-17 10:57:18",
-              active: 1
-            },
-            {
-              id: 188,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "null",
-              schedule_type: "everyYear",
-              name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
-              text: "occasion",
-              token1:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
-              dates: '["2025-10-11"]',
-              weekdays: null,
-              times: "09:00",
-              finishTime: "2025-09-17 10:57:48",
-              active: 1
-            },
-            {
-              id: 189,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "null",
-              schedule_type: "everyYear",
-              name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
-              text: "occasion",
-              token1:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
-              dates: '["2025-10-11"]',
-              weekdays: null,
-              times: "09:00",
-              finishTime: "2025-09-17 10:57:48",
-              active: 0
-            },
-            {
-              id: 186,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "null",
-              schedule_type: "everyYear",
-              name: "\u0631\u0648\u0632  \u0632\u0646 \u0648 \u0645\u0627\u062f\u0631",
-              text: "occasion",
-              token1:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
-              dates: '["2025-12-11"]',
-              weekdays: null,
-              times: "09:00",
-              finishTime: "2025-09-17 10:56:10",
-              active: 1
-            },
-            {
-              id: 179,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              name: "\u062a\u0648\u0644\u062f  \u0641\u0631\u0632\u0646\u062f",
-              text: "birthday_child",
-              token1: "",
-              dates: '["2026-04-07"]',
-              weekdays: null,
-              times: '["09:30"]',
-              finishTime: "2025-09-17 09:49:19",
-              active: 0
-            }
-          ],
+          data: [],
           subscription: false,
           telegram: false,
           activeSmsNotif: false,
@@ -978,6 +803,28 @@ function PlasmicReminder__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "sms",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "sms",
+        onChangeProp: "onSmsChange"
+      },
+      {
+        path: "variable",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "tel",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "tel",
+        onChangeProp: "onTelChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -3546,7 +3393,7 @@ function PlasmicReminder__RenderFunc(props: {
                     data-plasmic-override={overrides.reminderSetting}
                     activeNotifTel={(() => {
                       try {
-                        return $props.activeNotifTel;
+                        return $state.tel;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -3559,7 +3406,7 @@ function PlasmicReminder__RenderFunc(props: {
                     })()}
                     activeSmsNotif={(() => {
                       try {
-                        return $props.activeSmsNotif;
+                        return $state.sms;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -3811,7 +3658,7 @@ function PlasmicReminder__RenderFunc(props: {
                           ? (() => {
                               const actionArgs = {
                                 customFunction: async () => {
-                                  return ($props.activeSmsNotif =
+                                  return ($state.sms =
                                     $state.reminderSetting.sms);
                                 }
                               };
@@ -3850,7 +3697,7 @@ function PlasmicReminder__RenderFunc(props: {
                           ? (() => {
                               const actionArgs = {
                                 customFunction: async () => {
-                                  return ($props.activeNotifTel =
+                                  return ($state.tel =
                                     $state.reminderSetting.tel);
                                 }
                               };
@@ -4014,7 +3861,7 @@ function PlasmicReminder__RenderFunc(props: {
                 data-plasmic-override={overrides.reminderSetting2}
                 activeNotifTel={(() => {
                   try {
-                    return $props.activeNotifTel;
+                    return $state.tel;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -4027,7 +3874,7 @@ function PlasmicReminder__RenderFunc(props: {
                 })()}
                 activeSmsNotif={(() => {
                   try {
-                    return $props.activeSmsNotif;
+                    return $state.sms;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -4274,8 +4121,7 @@ function PlasmicReminder__RenderFunc(props: {
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
-                              return ($props.activeSmsNotif =
-                                $state.reminderSetting2.sms);
+                              return ($state.tel = $state.reminderSetting2.tel);
                             }
                           };
                           return (({ customFunction }) => {

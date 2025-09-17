@@ -296,7 +296,7 @@ function PlasmicDetailsmonth__RenderFunc(props: {
                     try {
                       return (() => {
                         var a = $state.apiRequest.data.result.period.start;
-                        const now = new Date(a.year, a.month, a.day);
+                        const now = new Date(a.year, a.month - 1, a.day);
                         const g = new Intl.DateTimeFormat("fa-IR", {
                           year: "numeric",
                           month: "long",
@@ -337,7 +337,7 @@ function PlasmicDetailsmonth__RenderFunc(props: {
                     try {
                       return (() => {
                         var a = $state.apiRequest.data.result.period.end;
-                        const now = new Date(a.year, a.month, a.day);
+                        const now = new Date(a.year, a.month - 1, a.day);
                         const g = new Intl.DateTimeFormat("fa-IR", {
                           year: "numeric",
                           month: "long",
@@ -516,13 +516,20 @@ function PlasmicDetailsmonth__RenderFunc(props: {
                                   day: "numeric"
                                 }).format(now);
                               }
-                              $state.apiRequest.data.result.events.values;
                               const text = `
 تاریخ شروع دوره : ${a($state.apiRequest.data.result.period.start)}
 تاریخ پایان دوره : ${a($state.apiRequest.data.result.period.end)}
-داروهای مصرفی :     
-میانگین آب مصرفی : روزانه 0 لیوان
-وضعیت رابطه جنسی : رابطه نداشتم
+داروهای مصرفی :    ${$state.apiRequest.data.result.events.map(
+                                event => `(${event.drug.join(",")})`
+                              )}
+میانگین آب مصرفی : روزانه ${
+                                $state.apiRequest.data.result.events[0].value
+                              } لیوان 
+وضعیت رابطه جنسی :  ${
+                                $state.apiRequest.data.result.events[0].sex
+                                  ? "رابطه داشتم"
+                                  : "رابطه نداشتم"
+                              }
 `;
                               return $$.copyToClipboard(text);
                             })();
