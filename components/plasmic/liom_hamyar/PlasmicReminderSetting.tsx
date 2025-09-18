@@ -4385,53 +4385,52 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           ];
                                         }
 
-                                        $steps["add"] =
-                                          !currentItem.id && $props.subscription
-                                            ? (() => {
-                                                const actionArgs = {
-                                                  args: [
-                                                    "POST",
-                                                    "https://n8n.staas.ir/webhook/user/task/add",
-                                                    undefined,
-                                                    (() => {
-                                                      try {
-                                                        return (() => {
-                                                          currentItem.liomId =
-                                                            $props.manId;
-                                                          currentItem.active = 1;
-                                                          currentItem.telegramId =
-                                                            $props.telegramId;
-                                                          currentItem.phoneNumber =
-                                                            $props.phoneNumber;
-                                                          currentItem.token1 =
-                                                            $props.token;
-                                                          currentItem.times = [
-                                                            "09:00"
-                                                          ];
-                                                          return currentItem;
-                                                        })();
-                                                      } catch (e) {
-                                                        if (
-                                                          e instanceof
-                                                            TypeError ||
-                                                          e?.plasmicType ===
-                                                            "PlasmicUndefinedDataError"
-                                                        ) {
-                                                          return undefined;
-                                                        }
-                                                        throw e;
+                                        $steps["add"] = false
+                                          ? (() => {
+                                              const actionArgs = {
+                                                args: [
+                                                  "POST",
+                                                  "https://n8n.staas.ir/webhook/user/task/add",
+                                                  undefined,
+                                                  (() => {
+                                                    try {
+                                                      return (() => {
+                                                        currentItem.liomId =
+                                                          $props.manId;
+                                                        currentItem.active = 1;
+                                                        currentItem.telegramId =
+                                                          $props.telegramId;
+                                                        currentItem.phoneNumber =
+                                                          $props.phoneNumber;
+                                                        currentItem.token1 =
+                                                          $props.token;
+                                                        currentItem.times = [
+                                                          "09:00"
+                                                        ];
+                                                        return currentItem;
+                                                      })();
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
                                                       }
-                                                    })(),
-                                                    undefined
-                                                  ]
-                                                };
-                                                return $globalActions[
-                                                  "Fragment.apiRequest"
-                                                ]?.apply(null, [
-                                                  ...actionArgs.args
-                                                ]);
-                                              })()
-                                            : undefined;
+                                                      throw e;
+                                                    }
+                                                  })(),
+                                                  undefined
+                                                ]
+                                              };
+                                              return $globalActions[
+                                                "Fragment.apiRequest"
+                                              ]?.apply(null, [
+                                                ...actionArgs.args
+                                              ]);
+                                            })()
+                                          : undefined;
                                         if (
                                           $steps["add"] != null &&
                                           typeof $steps["add"] === "object" &&

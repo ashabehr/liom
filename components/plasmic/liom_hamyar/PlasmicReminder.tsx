@@ -507,7 +507,7 @@ function PlasmicReminder__RenderFunc(props: {
         path: "button3.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "blue"
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       },
       {
         path: "button3.loading",
@@ -2322,10 +2322,7 @@ function PlasmicReminder__RenderFunc(props: {
                               ty: "fl",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.078431372549, 0.494117647059,
-                                  0.898039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 4
                               },
                               o: { a: 0, k: 100, ix: 5 },
@@ -2630,10 +2627,7 @@ function PlasmicReminder__RenderFunc(props: {
                               ty: "fl",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.078431372549, 0.494117647059,
-                                  0.898039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 4
                               },
                               o: { a: 0, k: 100, ix: 5 },
@@ -2769,10 +2763,7 @@ function PlasmicReminder__RenderFunc(props: {
                               ty: "fl",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.078431372549, 0.494117647059,
-                                  0.898039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 4
                               },
                               o: { a: 0, k: 100, ix: 5 },
