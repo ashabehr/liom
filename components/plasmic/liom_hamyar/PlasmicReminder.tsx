@@ -1855,7 +1855,7 @@ function PlasmicReminder__RenderFunc(props: {
           ) : null}
           {(() => {
             try {
-              return !$state.sms && $props.subscription;
+              return !$state.sms && !$props.subscription;
             } catch (e) {
               if (
                 e instanceof TypeError ||

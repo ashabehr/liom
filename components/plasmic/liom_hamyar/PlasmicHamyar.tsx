@@ -2682,6 +2682,30 @@ function PlasmicHamyar__RenderFunc(props: {
                 $steps["runCode"] = await $steps["runCode"];
               }
 
+              $steps["updateReminder"] =
+                window.sessionStorage.getItem("page") == "settingReminder" &&
+                window.document.referrer.includes("shop-result")
+                  ? (() => {
+                      const actionArgs = { vgroup: "reminder", operation: 2 };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        const oldValue = $stateGet($state, vgroup);
+                        $stateSet($state, vgroup, !oldValue);
+                        return !oldValue;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["updateReminder"] != null &&
+                typeof $steps["updateReminder"] === "object" &&
+                typeof $steps["updateReminder"].then === "function"
+              ) {
+                $steps["updateReminder"] = await $steps["updateReminder"];
+              }
+
               $steps["updateDeleteDate"] = (
                 $steps.userdata?.data?.result?.userStatus?.periodStatus
                   ? true
@@ -3036,30 +3060,6 @@ function PlasmicHamyar__RenderFunc(props: {
                 typeof $steps["updateToDos"].then === "function"
               ) {
                 $steps["updateToDos"] = await $steps["updateToDos"];
-              }
-
-              $steps["updateReminder"] =
-                window.sessionStorage.getItem("page") == "settingReminder" &&
-                window.document.referrer.includes("shop-result")
-                  ? (() => {
-                      const actionArgs = { vgroup: "reminder", operation: 2 };
-                      return (({ vgroup, value }) => {
-                        if (typeof value === "string") {
-                          value = [value];
-                        }
-
-                        const oldValue = $stateGet($state, vgroup);
-                        $stateSet($state, vgroup, !oldValue);
-                        return !oldValue;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["updateReminder"] != null &&
-                typeof $steps["updateReminder"] === "object" &&
-                typeof $steps["updateReminder"].then === "function"
-              ) {
-                $steps["updateReminder"] = await $steps["updateReminder"];
               }
 
               $steps["runCode5"] = true

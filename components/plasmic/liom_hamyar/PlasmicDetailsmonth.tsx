@@ -78,6 +78,7 @@ import sty from "./PlasmicDetailsmonth.module.css"; // plasmic-import: zIxrUaJyE
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+import Icon296Icon from "./icons/PlasmicIcon__Icon296"; // plasmic-import: DM5rYs7H7hxF/icon
 
 import __lib_copyToClipboard from "copy-to-clipboard";
 
@@ -877,21 +878,105 @@ function PlasmicDetailsmonth__RenderFunc(props: {
                 >
                   {"\u0648\u0636\u0639\u06cc\u062a"}
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__t0Bvx)}>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__vpq6P
-                    )}
-                  >
-                    {"Enter some text"}
-                  </div>
-                  <svg
-                    className={classNames(projectcss.all, sty.svg__a9AyP)}
-                    role={"img"}
-                  />
-                </div>
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return (() => {
+                        const events = $state.apiRequest.data.result.events;
+                        const periodStart =
+                          $state.apiRequest.data.result.period.start;
+                        const periodEnd =
+                          $state.apiRequest.data.result.period.end;
+                        const eventsMap = new Map(
+                          events.map(e => {
+                            const { year, month, day } = e.date;
+                            const dateStr = `${year}-${String(month).padStart(
+                              2,
+                              "0"
+                            )}-${String(day).padStart(2, "0")}`;
+                            return [dateStr, e.sex];
+                          })
+                        );
+                        const startDate = new Date(
+                          periodStart.year,
+                          periodStart.month - 1,
+                          periodStart.day
+                        );
+                        const endDate = new Date(
+                          periodEnd.year,
+                          periodEnd.month - 1,
+                          periodEnd.day
+                        );
+                        const fmt = new Intl.DateTimeFormat("fa-IR-u-nu-latn", {
+                          timeZone: "Asia/Tehran",
+                          day: "2-digit"
+                        });
+                        const waterList = [];
+                        for (
+                          let d = new Date(startDate);
+                          d <= endDate;
+                          d.setDate(d.getDate() + 1)
+                        ) {
+                          const gregorianStr = d.toLocaleDateString("en-CA", {
+                            timeZone: "Asia/Tehran"
+                          });
+                          const persianStr = fmt.format(d);
+                          waterList.push({
+                            date: persianStr,
+                            sex: eventsMap.get(gregorianStr) ?? 0
+                          });
+                        }
+                        return waterList;
+                      })();
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__t0Bvx)}
+                      key={currentIndex}
+                    >
+                      <Icon296Icon
+                        className={classNames(projectcss.all, sty.svg__a9AyP)}
+                        role={"img"}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__vpq6P
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return currentItem.date;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>

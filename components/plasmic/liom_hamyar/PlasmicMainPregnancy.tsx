@@ -567,13 +567,7 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                   }
                 })()}
               >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__fjnux,
-                    "icon-sign"
-                  )}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__fjnux)}>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__ms9Sv)}
                   >
