@@ -368,6 +368,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  column-gap: var(--token-O5TjkXII_aat);
   min-width: 0;
   padding: 0px;
 }
@@ -376,6 +377,7 @@
   height: auto;
   max-width: 100%;
   text-align: right;
+  align-self: center;
 }
 .freeBox__t0Bvx {
   display: flex;
@@ -395,12 +397,20 @@
   height: 15px;
   flex-shrink: 0;
 }
+.svg__auPtm {
+  object-fit: cover;
+  max-width: 100%;
+  width: 15px;
+  height: 15px;
+  color: var(--token-IdKt2w2aRFZS);
+  flex-shrink: 0;
+}
 .text__vpq6P {
   position: relative;
   width: auto;
   height: auto;
   max-width: 100%;
-  font-size: 12px;
+  font-size: 14px;
   text-align: center;
 }
 .apiRequest:global(.__wab_instance) {

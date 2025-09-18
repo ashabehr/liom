@@ -6472,6 +6472,21 @@
           "id": "DM5rYs7H7hxF",
           "name": "Icon296Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon296.tsx"
+        },
+        {
+          "id": "eujGSYKPsqXn",
+          "name": "Icon297Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon297.tsx"
+        },
+        {
+          "id": "8xj6BHtABX4C",
+          "name": "Icon298Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon298.tsx"
+        },
+        {
+          "id": "bMTPZcxBEEb7",
+          "name": "Icon299Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon299.tsx"
         }
       ],
       "images": [

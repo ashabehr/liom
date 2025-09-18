@@ -78,7 +78,8 @@ import sty from "./PlasmicDetailsmonth.module.css"; // plasmic-import: zIxrUaJyE
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
-import Icon296Icon from "./icons/PlasmicIcon__Icon296"; // plasmic-import: DM5rYs7H7hxF/icon
+import Icon298Icon from "./icons/PlasmicIcon__Icon298"; // plasmic-import: 8xj6BHtABX4C/icon
+import Icon299Icon from "./icons/PlasmicIcon__Icon299"; // plasmic-import: bMTPZcxBEEb7/icon
 
 import __lib_copyToClipboard from "copy-to-clipboard";
 
@@ -946,11 +947,49 @@ function PlasmicDetailsmonth__RenderFunc(props: {
                       className={classNames(projectcss.all, sty.freeBox__t0Bvx)}
                       key={currentIndex}
                     >
-                      <Icon296Icon
-                        className={classNames(projectcss.all, sty.svg__a9AyP)}
-                        role={"img"}
-                      />
-
+                      {(() => {
+                        try {
+                          return (
+                            currentItem.sex == 0 ||
+                            currentItem.sex == "noProtected"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <Icon298Icon
+                          className={classNames(projectcss.all, sty.svg__a9AyP)}
+                          role={"img"}
+                        />
+                      ) : null}
+                      {(() => {
+                        try {
+                          return (
+                            currentItem.sex != 0 &&
+                            currentItem.sex != "noProtected" &&
+                            currentItem.sex != "any"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <Icon299Icon
+                          className={classNames(projectcss.all, sty.svg__auPtm)}
+                          role={"img"}
+                        />
+                      ) : null}
                       <div
                         className={classNames(
                           projectcss.all,
