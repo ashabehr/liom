@@ -416,7 +416,7 @@ function PlasmicReminder__RenderFunc(props: {
         path: "swiperSlider.activeSlideIndex",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 1
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       },
       {
         path: "swiperSlider.lockSlides",
@@ -4089,7 +4089,10 @@ function PlasmicReminder__RenderFunc(props: {
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
-                              return undefined;
+                              return (() => {
+                                $state.tel = $state.reminderSetting2.tel;
+                                return console.log("tel", $state.tel);
+                              })();
                             }
                           };
                           return (({ customFunction }) => {
@@ -4222,15 +4225,33 @@ function PlasmicReminder__RenderFunc(props: {
                       const actionArgs = {
                         customFunction: async () => {
                           return (() => {
-                            if ($state.swiperSlider.activeSlideIndex < 1)
+                            if ($state.swiperSlider.activeSlideIndex < 1) {
                               return ($state.swiperSlider.activeSlideIndex += 1);
-                            else {
+                            } else {
                               $state.slide = true;
                               window.localStorage.setItem(
                                 "reminder_slide",
                                 "true"
                               );
-                              return ($state.refresh = +"1");
+                              return fetch(
+                                "https://n8n.staas.ir/webhook/user/task/start",
+                                {
+                                  method: "POST",
+                                  headers: {
+                                    "Content-Type": "application/json"
+                                  },
+                                  body: JSON.stringify({ liomId: $props.manId })
+                                }
+                              )
+                                .then(res => res.json())
+                                .then(data => {
+                                  console.log("Response:", data);
+                                  $state.refresh = 1;
+                                })
+                                .catch(err => {
+                                  console.error("Error:", err);
+                                  $state.refresh = 1;
+                                });
                             }
                           })();
                         }

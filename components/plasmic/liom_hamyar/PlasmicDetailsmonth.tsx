@@ -64,6 +64,7 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Chart } from "@/fragment/components/chart"; // plasmic-import: 2Vi4mc7aEpf-/codeComponent
+import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -75,11 +76,11 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicDetailsmonth.module.css"; // plasmic-import: zIxrUaJyE_Qc/css
 
-import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon298Icon from "./icons/PlasmicIcon__Icon298"; // plasmic-import: 8xj6BHtABX4C/icon
 import Icon299Icon from "./icons/PlasmicIcon__Icon299"; // plasmic-import: bMTPZcxBEEb7/icon
+import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 
 import __lib_copyToClipboard from "copy-to-clipboard";
 
@@ -99,6 +100,8 @@ export type PlasmicDetailsmonth__OverridesType = {
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
   fragmentChart?: Flex__<typeof Chart>;
+  section?: Flex__<"section">;
+  headerLiom?: Flex__<typeof HeaderLiom>;
   apiRequest?: Flex__<typeof ApiRequest>;
 };
 
@@ -318,411 +321,85 @@ function PlasmicDetailsmonth__RenderFunc(props: {
             sty.root
           )}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__yl0T)}>
-            <div className={classNames(projectcss.all, sty.freeBox__b2Dqs)}>
-              <Icon22Icon
-                className={classNames(projectcss.all, sty.svg__fGWD)}
-                role={"img"}
-              />
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__eOfiP
-              )}
-            >
-              {"\u062c\u0632\u0626\u06cc\u0627\u062a \u062f\u0648\u0631\u0647"}
-            </div>
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox__s0X0Q)}>
-            <div className={classNames(projectcss.all, sty.freeBox__lr9Jl)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__wlhF0
-                )}
-              >
-                {"\u0627\u0632"}
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___2L7YF
-                )}
-              >
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return (() => {
-                        var a = $state.apiRequest.data.result.period.start;
-                        const now = new Date(a.year, a.month - 1, a.day);
-                        const g = new Intl.DateTimeFormat("fa-IR", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric"
-                        }).format(now);
-                        return g;
-                      })();
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "27 \u062a\u06cc\u0631 1404";
-                      }
-                      throw e;
-                    }
-                  })()}
-                </React.Fragment>
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__aIfHt
-                )}
-              >
-                {"\u062a\u0627"}
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___1U1Ad
-                )}
-              >
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return (() => {
-                        var a = $state.apiRequest.data.result.period.end;
-                        const now = new Date(a.year, a.month - 1, a.day);
-                        const g = new Intl.DateTimeFormat("fa-IR", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric"
-                        }).format(now);
-                        return g;
-                      })();
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "16 \u0645\u0631\u062f\u0627\u062f 1404";
-                      }
-                      throw e;
-                    }
-                  })()}
-                </React.Fragment>
-              </div>
-            </div>
-            <div className={classNames(projectcss.all, sty.freeBox__zmmyG)}>
-              {(() => {
-                try {
-                  return $state.apiRequest.data?.result?.period?.isNormal;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
+          <div className={classNames(projectcss.all, sty.freeBox__k9Z1)}>
+            <div className={classNames(projectcss.all, sty.freeBox__s0X0Q)}>
+              <div className={classNames(projectcss.all, sty.freeBox__lr9Jl)}>
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__blMu
+                    sty.text__wlhF0
                   )}
                 >
-                  {
-                    "\u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0646\u0631\u0645\u0627\u0644 \u0628\u0648\u062f"
-                  }
-                </div>
-              ) : null}
-              {(() => {
-                try {
-                  return !$state.apiRequest.data?.result?.period?.isNormal;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__bEvcp
-                  )}
-                >
-                  {
-                    "\u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0646\u0631\u0645\u0627\u0644 \u0646\u0628\u0648\u062f"
-                  }
-                </div>
-              ) : null}
-            </div>
-            <div className={classNames(projectcss.all, sty.freeBox__v899Y)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__vOkxG
-                )}
-              >
-                {
-                  "\u0647\u0631 \u0631\u0648\u0632 \n\u0628\u0647 \u06a9\u0645\u06a9 \u0627\u0628\u0632\u0627\u0631  >> \u0628\u0631\u0646\u0627\u0645\u0647 \u0627\u0645\u0631\u0648\u0632 << \u0639\u0644\u0627\u0626\u0645\u062a\u0648\u0646 \u0631\u0648 \u062b\u0628\u062a \u06a9\u0646\u06cc\u062f \u062a\u0627 \u062f\u0627\u062f\u0647 \u0628\u06cc\u0634\u062a\u0631\u06cc \u0627\u0632 \u0627\u062a\u0641\u0627\u0642\u0627\u062a\u06cc \u06a9\u0647 \u062f\u0631 \u06cc\u06a9 \u062f\u0648\u0631\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u0634\u0645\u0627 \u0631\u062e \u062f\u0627\u062f\u0647 \u0627\u0633\u062a \u0628\u062f\u0633\u062a \u0622\u0648\u0631\u06cc\u062f "
-                }
-              </div>
-            </div>
-            <div className={classNames(projectcss.all, sty.freeBox__stJmD)}>
-              <Button
-                data-plasmic-name={"button"}
-                data-plasmic-override={overrides.button}
-                className={classNames("__wab_instance", sty.button)}
-                color={generateStateValueProp($state, ["button", "color"])}
-                load={generateStateValueProp($state, ["button", "load"])}
-                loading={generateStateValueProp($state, ["button", "loading"])}
-                onColorChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button", "color"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onLoadChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button", "load"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onLoadingChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button", "loading"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__bIlE0
-                  )}
-                >
-                  {
-                    "\u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u0627\u0645\u0631\u0648\u0632"
-                  }
-                </div>
-              </Button>
-              <Button
-                data-plasmic-name={"button2"}
-                data-plasmic-override={overrides.button2}
-                className={classNames("__wab_instance", sty.button2)}
-                color={generateStateValueProp($state, ["button2", "color"])}
-                load={generateStateValueProp($state, ["button2", "load"])}
-                loading={generateStateValueProp($state, ["button2", "loading"])}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              function a(date) {
-                                const now = new Date(
-                                  date.year,
-                                  date.month - 1,
-                                  date.day
-                                );
-                                return new Intl.DateTimeFormat("fa-IR", {
-                                  year: "numeric",
-                                  month: "long",
-                                  day: "numeric"
-                                }).format(now);
-                              }
-                              const text = `
-تاریخ شروع دوره : ${a($state.apiRequest.data.result.period.start)}
-تاریخ پایان دوره : ${a($state.apiRequest.data.result.period.end)}
-داروهای مصرفی :    ${$state.apiRequest.data.result.events.map(
-                                event => `(${event.drug.join(",")})`
-                              )}
-میانگین آب مصرفی : روزانه ${
-                                $state.apiRequest.data.result.events[0].value
-                              } لیوان 
-وضعیت رابطه جنسی :  ${
-                                $state.apiRequest.data.result.events[0].sex
-                                  ? "رابطه داشتم"
-                                  : "رابطه نداشتم"
-                              }
-`;
-                              return $$.copyToClipboard(text);
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
-
-                  $steps["updateButton2Color2"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          args: [
-                            undefined,
-                            "\u06af\u0632\u0627\u0631\u0634 \u062f\u0648\u0631\u0647 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u06a9\u067e\u06cc \u0634\u062f!",
-                            "bottom-center"
-                          ]
-                        };
-                        return $globalActions["Fragment.showToast"]?.apply(
-                          null,
-                          [...actionArgs.args]
-                        );
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateButton2Color2"] != null &&
-                    typeof $steps["updateButton2Color2"] === "object" &&
-                    typeof $steps["updateButton2Color2"].then === "function"
-                  ) {
-                    $steps["updateButton2Color2"] = await $steps[
-                      "updateButton2Color2"
-                    ];
-                  }
-                }}
-                onColorChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button2", "color"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onLoadChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button2", "load"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onLoadingChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button2", "loading"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                serface={true}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__w6Nm
-                  )}
-                >
-                  {
-                    "\u062f\u0631\u06cc\u0627\u0641\u062a \u06af\u0632\u0627\u0631\u0634 \u062f\u0648\u0631\u0647"
-                  }
-                </div>
-              </Button>
-            </div>
-            <div className={classNames(projectcss.all, sty.freeBox__nCkua)}>
-              <div className={classNames(projectcss.all, sty.freeBox__sxRkz)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__r0Hx6
-                  )}
-                >
-                  {"\u0622\u0628 \u0645\u0635\u0631\u0641\u06cc"}
+                  {"\u0627\u0632"}
                 </div>
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__jrLg5
+                    sty.text___2L7YF
                   )}
                 >
                   <React.Fragment>
                     {(() => {
                       try {
-                        return `میانگین:روزی ${$state.avgWater} لیوان`;
+                        return (() => {
+                          var a = $state.apiRequest.data.result.period.start;
+                          const now = new Date(a.year, a.month - 1, a.day);
+                          const g = new Intl.DateTimeFormat("fa-IR", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric"
+                          }).format(now);
+                          return g;
+                        })();
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
                           e?.plasmicType === "PlasmicUndefinedDataError"
                         ) {
-                          return "\u0622\u0628 \u0645\u0635\u0631\u0641\u06cc";
+                          return "27 \u062a\u06cc\u0631 1404";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__aIfHt
+                  )}
+                >
+                  {"\u062a\u0627"}
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___1U1Ad
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return (() => {
+                          var a = $state.apiRequest.data.result.period.end;
+                          const now = new Date(a.year, a.month - 1, a.day);
+                          const g = new Intl.DateTimeFormat("fa-IR", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric"
+                          }).format(now);
+                          return g;
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "16 \u0645\u0631\u062f\u0627\u062f 1404";
                         }
                         throw e;
                       }
@@ -730,158 +407,387 @@ function PlasmicDetailsmonth__RenderFunc(props: {
                   </React.Fragment>
                 </div>
               </div>
-              <Chart
-                data-plasmic-name={"fragmentChart"}
-                data-plasmic-override={overrides.fragmentChart}
-                cartesianGrid={[]}
-                chartConfig={(() => {
-                  const __composite = [
-                    {
-                      color: null,
-                      type: "natural",
-                      dot: false,
-                      key: null,
-                      label: null
-                    }
-                  ];
-                  __composite["0"]["color"] = "var(--token-0xHMxyAHbOos)";
-                  __composite["0"]["key"] = "water";
-                  __composite["0"]["label"] =
-                    "\u0644\u06cc\u0648\u0627\u0646 \u0622\u0628";
-                  return __composite;
-                })()}
-                className={classNames("__wab_instance", sty.fragmentChart)}
-                data={(() => {
+              <div className={classNames(projectcss.all, sty.freeBox__zmmyG)}>
+                {(() => {
                   try {
-                    return (() => {
-                      const events = $state.apiRequest.data.result.events;
-                      const periodStart =
-                        $state.apiRequest.data.result.period.start;
-                      const periodEnd =
-                        $state.apiRequest.data.result.period.end;
-                      const eventsMap = new Map(
-                        events.map(e => {
-                          const { year, month, day } = e.date;
-                          const dateStr = `${year}-${String(month).padStart(
-                            2,
-                            "0"
-                          )}-${String(day).padStart(2, "0")}`;
-                          return [dateStr, e.value];
-                        })
-                      );
-                      const startDate = new Date(
-                        periodStart.year,
-                        periodStart.month - 1,
-                        periodStart.day
-                      );
-                      const endDate = new Date(
-                        periodEnd.year,
-                        periodEnd.month - 1,
-                        periodEnd.day
-                      );
-                      const fmt = new Intl.DateTimeFormat("fa-IR-u-nu-latn", {
-                        timeZone: "Asia/Tehran",
-                        day: "2-digit"
-                      });
-                      const waterList = [];
-                      for (
-                        let d = new Date(startDate);
-                        d <= endDate;
-                        d.setDate(d.getDate() + 1)
-                      ) {
-                        const gregorianStr = d.toLocaleDateString("en-CA", {
-                          timeZone: "Asia/Tehran"
-                        });
-                        const persianStr = fmt.format(d);
-                        waterList.push({
-                          date: persianStr,
-                          water: eventsMap.get(gregorianStr) ?? 0
-                        });
-                      }
-                      waterList.reverse();
-                      return waterList;
-                    })();
+                    return $state.apiRequest.data?.result?.period?.isNormal;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
                       e?.plasmicType === "PlasmicUndefinedDataError"
                     ) {
-                      return undefined;
+                      return true;
                     }
                     throw e;
                   }
-                })()}
-                label={true}
-                layout={"horizontal"}
-                legend={false}
-                stack={false}
-                tooltip={(() => {
-                  const __composite = { enabled: null };
-                  __composite["enabled"] = true;
-                  return __composite;
-                })()}
-                type={"bar"}
-                xAxis={(() => {
-                  const __composite = {
-                    key: null,
-                    type: null,
-                    tickLine: null,
-                    enabled: null,
-                    axisLine: null
-                  };
-                  __composite["key"] = "date";
-                  __composite["type"] = "category";
-                  __composite["tickLine"] = false;
-                  __composite["enabled"] = true;
-                  __composite["axisLine"] = true;
-                  return __composite;
-                })()}
-                yAxis={(() => {
-                  const __composite = {
-                    type: null,
-                    key: null,
-                    enabled: null,
-                    tickLine: null,
-                    axisLine: null,
-                    tickMargin: null
-                  };
-                  __composite["type"] = "number";
-                  __composite["key"] = "water";
-                  __composite["enabled"] = false;
-                  __composite["tickLine"] = false;
-                  __composite["axisLine"] = false;
-                  __composite["tickMargin"] = 0;
-                  return __composite;
-                })()}
-              />
-            </div>
-            <div className={classNames(projectcss.all, sty.freeBox__zXdrI)}>
-              <div className={classNames(projectcss.all, sty.freeBox___2KHeg)}>
+                })() ? (
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__blMu
+                    )}
+                  >
+                    {
+                      "\u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0646\u0631\u0645\u0627\u0644 \u0628\u0648\u062f"
+                    }
+                  </div>
+                ) : null}
+                {(() => {
+                  try {
+                    return !$state.apiRequest.data?.result?.period?.isNormal;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__bEvcp
+                    )}
+                  >
+                    {
+                      "\u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0646\u0631\u0645\u0627\u0644 \u0646\u0628\u0648\u062f"
+                    }
+                  </div>
+                ) : null}
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__v899Y)}>
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__p5Ma8
+                    sty.text__vOkxG
                   )}
                 >
                   {
-                    "\u0648\u0636\u0639\u06cc\u062a \u0631\u0627\u0628\u0637\u0647 \u062c\u0646\u0633\u06cc"
+                    "\u0647\u0631 \u0631\u0648\u0632 \n\u0628\u0647 \u06a9\u0645\u06a9 \u0627\u0628\u0632\u0627\u0631  >> \u0628\u0631\u0646\u0627\u0645\u0647 \u0627\u0645\u0631\u0648\u0632 << \u0639\u0644\u0627\u0626\u0645\u062a\u0648\u0646 \u0631\u0648 \u062b\u0628\u062a \u06a9\u0646\u06cc\u062f \u062a\u0627 \u062f\u0627\u062f\u0647 \u0628\u06cc\u0634\u062a\u0631\u06cc \u0627\u0632 \u0627\u062a\u0641\u0627\u0642\u0627\u062a\u06cc \u06a9\u0647 \u062f\u0631 \u06cc\u06a9 \u062f\u0648\u0631\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u0634\u0645\u0627 \u0631\u062e \u062f\u0627\u062f\u0647 \u0627\u0633\u062a \u0628\u062f\u0633\u062a \u0622\u0648\u0631\u06cc\u062f "
                   }
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__lp2P2)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__w6IbP
-                  )}
+              <div className={classNames(projectcss.all, sty.freeBox__stJmD)}>
+                <Button
+                  data-plasmic-name={"button"}
+                  data-plasmic-override={overrides.button}
+                  className={classNames("__wab_instance", sty.button)}
+                  color={generateStateValueProp($state, ["button", "color"])}
+                  load={generateStateValueProp($state, ["button", "load"])}
+                  loading={generateStateValueProp($state, [
+                    "button",
+                    "loading"
+                  ])}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button", "load"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadingChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button", "loading"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
                 >
-                  {"\u0648\u0636\u0639\u06cc\u062a"}
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__bIlE0
+                    )}
+                  >
+                    {
+                      "\u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u0627\u0645\u0631\u0648\u0632"
+                    }
+                  </div>
+                </Button>
+                <Button
+                  data-plasmic-name={"button2"}
+                  data-plasmic-override={overrides.button2}
+                  className={classNames("__wab_instance", sty.button2)}
+                  color={generateStateValueProp($state, ["button2", "color"])}
+                  load={generateStateValueProp($state, ["button2", "load"])}
+                  loading={generateStateValueProp($state, [
+                    "button2",
+                    "loading"
+                  ])}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                function a(date) {
+                                  const now = new Date(
+                                    date.year,
+                                    date.month - 1,
+                                    date.day
+                                  );
+                                  return new Intl.DateTimeFormat("fa-IR", {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric"
+                                  }).format(now);
+                                }
+                                const text = `
+تاریخ شروع دوره : ${a($state.apiRequest.data.result.period.start)}
+تاریخ پایان دوره : ${a($state.apiRequest.data.result.period.end)}
+داروهای مصرفی :    ${$state.apiRequest.data.result.events.map(
+                                  event => `(${event.drug.join(",")})`
+                                )}
+میانگین آب مصرفی : روزانه ${
+                                  $state.apiRequest.data.result.events[0].value
+                                } لیوان 
+وضعیت رابطه جنسی :  ${
+                                  $state.apiRequest.data.result.events[0].sex
+                                    ? "رابطه داشتم"
+                                    : "رابطه نداشتم"
+                                }
+`;
+                                return $$.copyToClipboard(text);
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+
+                    $steps["updateButton2Color2"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              undefined,
+                              "\u06af\u0632\u0627\u0631\u0634 \u062f\u0648\u0631\u0647 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u06a9\u067e\u06cc \u0634\u062f!",
+                              "bottom-center"
+                            ]
+                          };
+                          return $globalActions["Fragment.showToast"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateButton2Color2"] != null &&
+                      typeof $steps["updateButton2Color2"] === "object" &&
+                      typeof $steps["updateButton2Color2"].then === "function"
+                    ) {
+                      $steps["updateButton2Color2"] = await $steps[
+                        "updateButton2Color2"
+                      ];
+                    }
+                  }}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button2", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button2", "load"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadingChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button2", "loading"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  serface={true}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__w6Nm
+                    )}
+                  >
+                    {
+                      "\u062f\u0631\u06cc\u0627\u0641\u062a \u06af\u0632\u0627\u0631\u0634 \u062f\u0648\u0631\u0647"
+                    }
+                  </div>
+                </Button>
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__wjEkt)}>
+                <div className={classNames(projectcss.all, sty.freeBox__pN03)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__dlo4D)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__e4EUb
+                      )}
+                    >
+                      {
+                        "\u062f\u0627\u0631\u0648 \u0647\u0627\u06cc \u0645\u0635\u0631\u0641\u06cc"
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__g5Fmr
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return `میانگین:روزی ${$state.avgWater} لیوان`;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u0622\u0628 \u0645\u0635\u0631\u0641\u06cc";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__yllzJ)}>
-                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                    (() => {
+                <div className={classNames(projectcss.all, sty.freeBox__nCkua)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__sxRkz)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__r0Hx6
+                      )}
+                    >
+                      {"\u0622\u0628 \u0645\u0635\u0631\u0641\u06cc"}
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__jrLg5
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return `میانگین:روزی ${$state.avgWater} لیوان`;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u0622\u0628 \u0645\u0635\u0631\u0641\u06cc";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </div>
+                  <Chart
+                    data-plasmic-name={"fragmentChart"}
+                    data-plasmic-override={overrides.fragmentChart}
+                    cartesianGrid={[]}
+                    chartConfig={(() => {
+                      const __composite = [
+                        {
+                          color: null,
+                          type: "natural",
+                          dot: false,
+                          key: null,
+                          label: null
+                        }
+                      ];
+                      __composite["0"]["color"] = "var(--token-0xHMxyAHbOos)";
+                      __composite["0"]["key"] = "water";
+                      __composite["0"]["label"] =
+                        "\u0644\u06cc\u0648\u0627\u0646 \u0622\u0628";
+                      return __composite;
+                    })()}
+                    className={classNames("__wab_instance", sty.fragmentChart)}
+                    data={(() => {
                       try {
                         return (() => {
                           const events = $state.apiRequest.data.result.events;
@@ -896,7 +802,7 @@ function PlasmicDetailsmonth__RenderFunc(props: {
                                 2,
                                 "0"
                               )}-${String(day).padStart(2, "0")}`;
-                              return [dateStr, e.sex];
+                              return [dateStr, e.value];
                             })
                           );
                           const startDate = new Date(
@@ -928,9 +834,10 @@ function PlasmicDetailsmonth__RenderFunc(props: {
                             const persianStr = fmt.format(d);
                             waterList.push({
                               date: persianStr,
-                              sex: eventsMap.get(gregorianStr) ?? 0
+                              water: eventsMap.get(gregorianStr) ?? 0
                             });
                           }
+                          waterList.reverse();
                           return waterList;
                         })();
                       } catch (e) {
@@ -938,132 +845,291 @@ function PlasmicDetailsmonth__RenderFunc(props: {
                           e instanceof TypeError ||
                           e?.plasmicType === "PlasmicUndefinedDataError"
                         ) {
-                          return [];
+                          return undefined;
                         }
                         throw e;
                       }
-                    })()
-                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                    const currentItem = __plasmic_item_0;
-                    const currentIndex = __plasmic_idx_0;
-                    return (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__t0Bvx
-                        )}
-                        key={currentIndex}
-                      >
-                        {(() => {
+                    })()}
+                    label={true}
+                    layout={"horizontal"}
+                    legend={false}
+                    stack={false}
+                    tooltip={(() => {
+                      const __composite = { enabled: null };
+                      __composite["enabled"] = true;
+                      return __composite;
+                    })()}
+                    type={"bar"}
+                    xAxis={(() => {
+                      const __composite = {
+                        key: null,
+                        type: null,
+                        tickLine: null,
+                        enabled: null,
+                        axisLine: null
+                      };
+                      __composite["key"] = "date";
+                      __composite["type"] = "category";
+                      __composite["tickLine"] = false;
+                      __composite["enabled"] = true;
+                      __composite["axisLine"] = true;
+                      return __composite;
+                    })()}
+                    yAxis={(() => {
+                      const __composite = {
+                        type: null,
+                        key: null,
+                        enabled: null,
+                        tickLine: null,
+                        axisLine: null,
+                        tickMargin: null
+                      };
+                      __composite["type"] = "number";
+                      __composite["key"] = "water";
+                      __composite["enabled"] = false;
+                      __composite["tickLine"] = false;
+                      __composite["axisLine"] = false;
+                      __composite["tickMargin"] = 0;
+                      return __composite;
+                    })()}
+                  />
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__zXdrI)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___2KHeg)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__p5Ma8
+                      )}
+                    >
+                      {
+                        "\u0648\u0636\u0639\u06cc\u062a \u0631\u0627\u0628\u0637\u0647 \u062c\u0646\u0633\u06cc"
+                      }
+                    </div>
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__lp2P2)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__w6IbP
+                      )}
+                    >
+                      {"\u0648\u0636\u0639\u06cc\u062a"}
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__yllzJ)}
+                    >
+                      {(_par =>
+                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                        (() => {
                           try {
-                            return (
-                              currentItem.sex == 0 ||
-                              currentItem.sex == "noProtected"
-                            );
+                            return (() => {
+                              const events =
+                                $state.apiRequest.data.result.events;
+                              const periodStart =
+                                $state.apiRequest.data.result.period.start;
+                              const periodEnd =
+                                $state.apiRequest.data.result.period.end;
+                              const eventsMap = new Map(
+                                events.map(e => {
+                                  const { year, month, day } = e.date;
+                                  const dateStr = `${year}-${String(
+                                    month
+                                  ).padStart(2, "0")}-${String(day).padStart(
+                                    2,
+                                    "0"
+                                  )}`;
+                                  return [dateStr, e.sex];
+                                })
+                              );
+                              const startDate = new Date(
+                                periodStart.year,
+                                periodStart.month - 1,
+                                periodStart.day
+                              );
+                              const endDate = new Date(
+                                periodEnd.year,
+                                periodEnd.month - 1,
+                                periodEnd.day
+                              );
+                              const fmt = new Intl.DateTimeFormat(
+                                "fa-IR-u-nu-latn",
+                                {
+                                  timeZone: "Asia/Tehran",
+                                  day: "2-digit"
+                                }
+                              );
+                              const waterList = [];
+                              for (
+                                let d = new Date(startDate);
+                                d <= endDate;
+                                d.setDate(d.getDate() + 1)
+                              ) {
+                                const gregorianStr = d.toLocaleDateString(
+                                  "en-CA",
+                                  { timeZone: "Asia/Tehran" }
+                                );
+                                const persianStr = fmt.format(d);
+                                waterList.push({
+                                  date: persianStr,
+                                  sex: eventsMap.get(gregorianStr) ?? 0
+                                });
+                              }
+                              return waterList;
+                            })();
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
                               e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              return true;
+                              return [];
                             }
                             throw e;
                           }
-                        })() ? (
-                          <Icon298Icon
+                        })()
+                      ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                        const currentItem = __plasmic_item_0;
+                        const currentIndex = __plasmic_idx_0;
+                        return (
+                          <div
                             className={classNames(
                               projectcss.all,
-                              sty.svg__a9AyP
+                              sty.freeBox__t0Bvx
                             )}
-                            role={"img"}
-                          />
-                        ) : null}
-                        {(() => {
-                          try {
-                            return (
-                              currentItem.sex != 0 &&
-                              currentItem.sex != "noProtected"
-                            );
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
-                            }
-                            throw e;
-                          }
-                        })() ? (
-                          <Icon299Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__auPtm
-                            )}
-                            role={"img"}
-                          />
-                        ) : null}
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__vpq6P
-                          )}
-                        >
-                          <React.Fragment>
+                            key={currentIndex}
+                          >
                             {(() => {
                               try {
-                                return currentItem.date;
+                                return (
+                                  currentItem.sex == 0 ||
+                                  currentItem.sex == "noProtected"
+                                );
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
                                   e?.plasmicType === "PlasmicUndefinedDataError"
                                 ) {
-                                  return "";
+                                  return true;
                                 }
                                 throw e;
                               }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                      </div>
-                    );
-                  })}
+                            })() ? (
+                              <Icon298Icon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg__a9AyP
+                                )}
+                                role={"img"}
+                              />
+                            ) : null}
+                            {(() => {
+                              try {
+                                return (
+                                  currentItem.sex != 0 &&
+                                  currentItem.sex != "noProtected"
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return true;
+                                }
+                                throw e;
+                              }
+                            })() ? (
+                              <Icon299Icon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg__auPtm
+                                )}
+                                role={"img"}
+                              />
+                            ) : null}
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__vpq6P
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return currentItem.date;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__kcuE4)}
+                  >
+                    <Icon299Icon
+                      className={classNames(projectcss.all, sty.svg__pgx3N)}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___0DKvI
+                      )}
+                    >
+                      {
+                        "\u0631\u0627\u0628\u0637\u0647 \u0645\u062d\u0627\u0641\u0638\u062a \u0646\u0634\u062f\u0647 \u062f\u0627\u0634\u062a\u0645 "
+                      }
+                    </div>
+                    <Icon299Icon
+                      className={classNames(projectcss.all, sty.svg__i9OxQ)}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__rLKk7
+                      )}
+                    >
+                      {
+                        "\u0631\u0627\u0628\u0637\u0647 \u0645\u062d\u0627\u0641\u0638\u062a \u0634\u062f\u0647 \u062f\u0627\u0634\u062a\u0645"
+                      }
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__kcuE4)}>
-                <Icon299Icon
-                  className={classNames(projectcss.all, sty.svg__i9OxQ)}
-                  role={"img"}
+              <section
+                data-plasmic-name={"section"}
+                data-plasmic-override={overrides.section}
+                className={classNames(projectcss.all, sty.section)}
+              >
+                <HeaderLiom
+                  data-plasmic-name={"headerLiom"}
+                  data-plasmic-override={overrides.headerLiom}
+                  className={classNames("__wab_instance", sty.headerLiom)}
                 />
-
-                <Icon299Icon
-                  className={classNames(projectcss.all, sty.svg__pgx3N)}
-                  role={"img"}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___0DKvI
-                  )}
-                >
-                  {
-                    "\u0631\u0627\u0628\u0637\u0647 \u0645\u062d\u0627\u0641\u0638\u062a \u0646\u0634\u062f\u0647 \u062f\u0627\u0634\u062a\u0645 "
-                  }
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__rLKk7
-                  )}
-                >
-                  {
-                    "\u0631\u0627\u0628\u0637\u0647 \u0645\u062d\u0627\u0641\u0638\u062a \u0634\u062f\u0647 \u062f\u0627\u0634\u062a\u0645"
-                  }
-                </div>
-              </div>
+              </section>
             </div>
           </div>
           <ApiRequest
@@ -1139,10 +1205,20 @@ function PlasmicDetailsmonth__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "button", "button2", "fragmentChart", "apiRequest"],
+  root: [
+    "root",
+    "button",
+    "button2",
+    "fragmentChart",
+    "section",
+    "headerLiom",
+    "apiRequest"
+  ],
   button: ["button"],
   button2: ["button2"],
   fragmentChart: ["fragmentChart"],
+  section: ["section", "headerLiom"],
+  headerLiom: ["headerLiom"],
   apiRequest: ["apiRequest"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -1153,6 +1229,8 @@ type NodeDefaultElementType = {
   button: typeof Button;
   button2: typeof Button;
   fragmentChart: typeof Chart;
+  section: "section";
+  headerLiom: typeof HeaderLiom;
   apiRequest: typeof ApiRequest;
 };
 
@@ -1244,6 +1322,8 @@ export const PlasmicDetailsmonth = Object.assign(
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
     fragmentChart: makeNodeComponent("fragmentChart"),
+    section: makeNodeComponent("section"),
+    headerLiom: makeNodeComponent("headerLiom"),
     apiRequest: makeNodeComponent("apiRequest"),
 
     // Metadata about props expected for PlasmicDetailsmonth

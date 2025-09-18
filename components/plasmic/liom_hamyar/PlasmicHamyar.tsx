@@ -2113,7 +2113,9 @@ function PlasmicHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.activeSmsNotif;
+              return $state.userdata?.result?.man?.activeSmsNotif
+                ? true
+                : false;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -2129,7 +2131,22 @@ function PlasmicHamyar__RenderFunc(props: {
         path: "reminder2.tel",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.userdata?.result?.man?.activeNotifTel
+                ? true
+                : false;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
