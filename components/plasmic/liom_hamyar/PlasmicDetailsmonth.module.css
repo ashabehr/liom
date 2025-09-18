@@ -63,6 +63,7 @@
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
+  overflow: hidden;
   min-width: 0;
   padding: 0px;
 }
