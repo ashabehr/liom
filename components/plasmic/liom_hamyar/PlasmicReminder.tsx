@@ -151,6 +151,12 @@ export type PlasmicReminder__OverridesType = {
   frame24?: Flex__<"div">;
   frame25?: Flex__<"div">;
   frame26?: Flex__<"div">;
+  todayMeeting3?: Flex__<"div">;
+  frame27?: Flex__<"div">;
+  frame28?: Flex__<"div">;
+  frame29?: Flex__<"div">;
+  frame30?: Flex__<"div">;
+  frame31?: Flex__<"div">;
   lottie?: Flex__<typeof LottieWrapper>;
   button3?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
@@ -206,136 +212,7 @@ function PlasmicReminder__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          data: [
-            {
-              id: 107,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "null",
-              schedule_type: "everyYear",
-              name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
-              text: "occasion",
-              token1:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
-              dates: '["2026-02-14"]',
-              weekdays: null,
-              times: "09:00",
-              finishTime: "2025-09-14 14:33:52",
-              active: 0
-            },
-            {
-              id: 108,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "null",
-              schedule_type: "everyYear",
-              name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
-              text: "occasion",
-              token1:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
-              dates: '["2026-03-08"]',
-              weekdays: null,
-              times: "09:00",
-              finishTime: "2025-09-14 14:36:55",
-              active: 0
-            },
-            {
-              id: 121,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "null",
-              schedule_type: "everyYear",
-              name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
-              text: "birthday_spouse",
-              token1:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
-              dates: '["2025-09-15"]',
-              weekdays: null,
-              times: '["09:30"]',
-              finishTime: "2025-09-15 09:50:29",
-              active: 0
-            },
-            {
-              id: 122,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "null",
-              schedule_type: "everyYear",
-              name: "\u0631\u0648\u0632 \u062f\u062e\u062a\u0631",
-              text: "occasion",
-              token1:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
-              dates: '["2026-04-19"]',
-              weekdays: null,
-              times: "09:00",
-              finishTime: "2025-09-15 09:50:54",
-              active: 0
-            },
-            {
-              id: 123,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "null",
-              schedule_type: "everyYear",
-              name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
-              text: "occasion",
-              token1:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzkyNjUyMn0.Kt_Ty27OsjOZQtNNPYwpXLfnKYfXLqfrHZmzRjWR7Aw",
-              dates: '["2026-02-18"]',
-              weekdays: null,
-              times: "09:00",
-              finishTime: "2025-09-15 12:26:05",
-              active: 0
-            },
-            {
-              id: 124,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "null",
-              schedule_type: "everyYear",
-              name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
-              text: "occasion",
-              token1:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzkyNjUyMn0.Kt_Ty27OsjOZQtNNPYwpXLfnKYfXLqfrHZmzRjWR7Aw",
-              dates: '["2026-10-11"]',
-              weekdays: null,
-              times: "09:00",
-              finishTime: "2025-09-15 12:26:30",
-              active: 0
-            },
-            {
-              id: 125,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "null",
-              schedule_type: "everyYear",
-              name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc",
-              text: "anniversary",
-              token1:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzkyNjUyMn0.Kt_Ty27OsjOZQtNNPYwpXLfnKYfXLqfrHZmzRjWR7Aw",
-              dates: '["2025-09-15"]',
-              weekdays: null,
-              times: '["09:30"]',
-              finishTime: "2025-09-15 12:26:53",
-              active: 0
-            },
-            {
-              id: 125,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "null",
-              schedule_type: "everyYear",
-              name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc",
-              text: "anniversakllkjlkjry",
-              token1:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzkyNjUyMn0.Kt_Ty27OsjOZQtNNPYwpXLfnKYfXLqfrHZmzRjWR7Aw",
-              dates: '["2025-09-15"]',
-              weekdays: null,
-              times: '["09:30"]',
-              finishTime: "2025-09-15 12:26:53",
-              active: 0
-            }
-          ],
+          data: [],
           subscription: false,
           telegram: false,
           activeSmsNotif: false
@@ -721,6 +598,97 @@ function PlasmicReminder__RenderFunc(props: {
 
         valueProp: "tel",
         onChangeProp: "onTelChange"
+      },
+      {
+        path: "ofline",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          {
+            liomId: null,
+            telegramId: null,
+            phoneNumber: null,
+            schedule_type: "everyYear",
+            name: "\u0631\u0648\u0632  \u0632\u0646 \u0648 \u0645\u0627\u062f\u0631",
+            text: "occasion",
+            token1: null,
+            dates: '["2025-12-11"]',
+            weekdays: null,
+            times: null,
+            finishTime: null,
+            active: 0
+          },
+          {
+            liomId: null,
+            telegramId: null,
+            phoneNumber: null,
+            schedule_type: "everyYear",
+            name: "\u0631\u0648\u0632 \u062f\u062e\u062a\u0631",
+            text: "occasion",
+            token1: null,
+            dates: '["2026-04-19"]',
+            weekdays: null,
+            times: null,
+            finishTime: null,
+            active: 0
+          },
+          {
+            liomId: null,
+            telegramId: null,
+            phoneNumber: null,
+            schedule_type: "everyYear",
+            name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
+            text: "occasion",
+            token1: null,
+            dates: '["2026-03-08"]',
+            weekdays: null,
+            times: null,
+            finishTime: null,
+            active: 0
+          },
+          {
+            liomId: null,
+            telegramId: null,
+            phoneNumber: null,
+            schedule_type: "everyYear",
+            name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
+            text: "occasion",
+            token1: null,
+            dates: '["2026-02-14"]',
+            weekdays: null,
+            times: null,
+            finishTime: null,
+            active: 0
+          },
+          {
+            liomId: null,
+            telegramId: null,
+            phoneNumber: null,
+            schedule_type: "everyYear",
+            name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
+            text: "occasion",
+            token1: null,
+            dates: '["2026-02-18"]',
+            weekdays: null,
+            times: null,
+            finishTime: null,
+            active: 0
+          },
+          {
+            liomId: null,
+            telegramId: null,
+            phoneNumber: null,
+            schedule_type: "everyYear",
+            name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
+            text: "occasion",
+            token1: null,
+            dates: '["2025-10-11"]',
+            weekdays: null,
+            times: null,
+            finishTime: null,
+            active: 0
+          }
+        ]
       }
     ],
     [$props, $ctx, $refs]
@@ -1834,6 +1802,328 @@ function PlasmicReminder__RenderFunc(props: {
                                             className={classNames(
                                               projectcss.all,
                                               sty.svg__dlIv8
+                                            )}
+                                            role={"img"}
+                                          />
+                                        </div>
+                                      ) : null}
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : null}
+          {(() => {
+            try {
+              return $props.data?.length == 0;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <div
+              data-plasmic-name={"todayMeeting3"}
+              data-plasmic-override={overrides.todayMeeting3}
+              className={classNames(projectcss.all, sty.todayMeeting3)}
+            >
+              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                (() => {
+                  try {
+                    return (() => {
+                      try {
+                        const groupsMap = new Map();
+                        $state.ofline.forEach(t => {
+                          let parsedDates;
+                          try {
+                            parsedDates = t.dates ? JSON.parse(t.dates) : [];
+                          } catch (e) {
+                            parsedDates = [];
+                          }
+                          t.telegramId = $props.telegramId;
+                          t.phoneNumber = $props.phoneNumber;
+                          t.token1 = $props.token;
+                          t.liomId = $props.manId;
+                          const key = parsedDates[0] || "__noDate__";
+                          if (!groupsMap.has(key)) groupsMap.set(key, []);
+                          groupsMap.get(key).push(t);
+                        });
+                        const groups = Array.from(groupsMap.entries())
+                          .sort((a, b) => {
+                            if (a[0] === "__noDate__") return 1;
+                            if (b[0] === "__noDate__") return -1;
+                            const dateA = new Date(a[0]);
+                            const dateB = new Date(b[0]);
+                            const timeA = dateA.getTime();
+                            const timeB = dateB.getTime();
+                            if (Number.isNaN(timeA)) return 1;
+                            if (Number.isNaN(timeB)) return -1;
+                            return timeA - timeB;
+                          })
+                          .map(entry => entry[1]);
+                        return groups;
+                      } catch {
+                        return "?";
+                      }
+                    })();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()
+              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                const currentday = __plasmic_item_0;
+                const currentIndex = __plasmic_idx_0;
+                return (
+                  <div
+                    data-plasmic-name={"frame27"}
+                    data-plasmic-override={overrides.frame27}
+                    className={classNames(projectcss.all, sty.frame27)}
+                    key={currentIndex}
+                  >
+                    <div
+                      data-plasmic-name={"frame28"}
+                      data-plasmic-override={overrides.frame28}
+                      className={classNames(projectcss.all, sty.frame28)}
+                    >
+                      <div
+                        data-plasmic-name={"frame29"}
+                        data-plasmic-override={overrides.frame29}
+                        className={classNames(projectcss.all, sty.frame29)}
+                      >
+                        <div
+                          data-plasmic-name={"frame30"}
+                          data-plasmic-override={overrides.frame30}
+                          className={classNames(projectcss.all, sty.frame30)}
+                        >
+                          <div
+                            data-plasmic-name={"frame31"}
+                            data-plasmic-override={overrides.frame31}
+                            className={classNames(projectcss.all, sty.frame31)}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__mKdU
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox___1AStH
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__pUess
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return (() => {
+                                          try {
+                                            var date = JSON.parse(
+                                              currentday[0].dates
+                                            )[0];
+                                            if (date) {
+                                              function parseISOToUTC(dateStr) {
+                                                let [y, m, d] = dateStr
+                                                  .split("-")
+                                                  .map(Number);
+                                                return new Date(
+                                                  Date.UTC(y, m - 1, d)
+                                                );
+                                              }
+                                              let d = parseISOToUTC(date);
+                                              let formatter =
+                                                new Intl.DateTimeFormat(
+                                                  "fa-IR",
+                                                  {
+                                                    timeZone: "Asia/Tehran",
+                                                    day: "numeric"
+                                                  }
+                                                );
+                                              return formatter.format(d);
+                                            } else {
+                                              return "?";
+                                            }
+                                          } catch {
+                                            return "?";
+                                          }
+                                        })();
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "Townhall Meeting";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                </div>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__jmrXf
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return (() => {
+                                          try {
+                                            var date = JSON.parse(
+                                              currentday[0].dates
+                                            )[0];
+                                            if (date)
+                                              return new Date(
+                                                date
+                                              ).toLocaleDateString("fa-IR", {
+                                                month: "long"
+                                              });
+                                            else return "";
+                                          } catch {
+                                            return "";
+                                          }
+                                        })();
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "Townhall Meeting";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                </div>
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__iVXt
+                                )}
+                              >
+                                {(_par =>
+                                  !_par
+                                    ? []
+                                    : Array.isArray(_par)
+                                    ? _par
+                                    : [_par])(
+                                  (() => {
+                                    try {
+                                      return currentday;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return [];
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ).map((__plasmic_item_1, __plasmic_idx_1) => {
+                                  const currentItem = __plasmic_item_1;
+                                  const currentIndex = __plasmic_idx_1;
+                                  return (
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox__dx4Lv
+                                      )}
+                                      key={currentIndex}
+                                    >
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.freeBox__ikPhK
+                                        )}
+                                      >
+                                        <Oval3Icon
+                                          className={classNames(
+                                            projectcss.all,
+                                            sty.svg__ujEqz
+                                          )}
+                                          role={"img"}
+                                        />
+
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__c6Rm
+                                          )}
+                                        >
+                                          <React.Fragment>
+                                            {(() => {
+                                              try {
+                                                return currentItem.name;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return "";
+                                                }
+                                                throw e;
+                                              }
+                                            })()}
+                                          </React.Fragment>
+                                        </div>
+                                      </div>
+                                      {(() => {
+                                        try {
+                                          return !currentItem.active;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return true;
+                                          }
+                                          throw e;
+                                        }
+                                      })() ? (
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            sty.freeBox__ejcmi
+                                          )}
+                                        >
+                                          <Icon295Icon
+                                            className={classNames(
+                                              projectcss.all,
+                                              sty.svg__jE1J
                                             )}
                                             role={"img"}
                                           />
@@ -4039,6 +4329,12 @@ const PlasmicDescendants = {
     "frame24",
     "frame25",
     "frame26",
+    "todayMeeting3",
+    "frame27",
+    "frame28",
+    "frame29",
+    "frame30",
+    "frame31",
     "lottie",
     "button3",
     "button2",
@@ -4083,6 +4379,19 @@ const PlasmicDescendants = {
   frame24: ["frame24", "frame25", "frame26"],
   frame25: ["frame25", "frame26"],
   frame26: ["frame26"],
+  todayMeeting3: [
+    "todayMeeting3",
+    "frame27",
+    "frame28",
+    "frame29",
+    "frame30",
+    "frame31"
+  ],
+  frame27: ["frame27", "frame28", "frame29", "frame30", "frame31"],
+  frame28: ["frame28", "frame29", "frame30", "frame31"],
+  frame29: ["frame29", "frame30", "frame31"],
+  frame30: ["frame30", "frame31"],
+  frame31: ["frame31"],
   lottie: ["lottie"],
   button3: ["button3"],
   button2: ["button2"],
@@ -4122,6 +4431,12 @@ type NodeDefaultElementType = {
   frame24: "div";
   frame25: "div";
   frame26: "div";
+  todayMeeting3: "div";
+  frame27: "div";
+  frame28: "div";
+  frame29: "div";
+  frame30: "div";
+  frame31: "div";
   lottie: typeof LottieWrapper;
   button3: typeof Button;
   button2: typeof Button;
@@ -4210,6 +4525,12 @@ export const PlasmicReminder = Object.assign(
     frame24: makeNodeComponent("frame24"),
     frame25: makeNodeComponent("frame25"),
     frame26: makeNodeComponent("frame26"),
+    todayMeeting3: makeNodeComponent("todayMeeting3"),
+    frame27: makeNodeComponent("frame27"),
+    frame28: makeNodeComponent("frame28"),
+    frame29: makeNodeComponent("frame29"),
+    frame30: makeNodeComponent("frame30"),
+    frame31: makeNodeComponent("frame31"),
     lottie: makeNodeComponent("lottie"),
     button3: makeNodeComponent("button3"),
     button2: makeNodeComponent("button2"),

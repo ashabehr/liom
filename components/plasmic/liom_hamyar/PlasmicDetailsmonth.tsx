@@ -972,8 +972,7 @@ function PlasmicDetailsmonth__RenderFunc(props: {
                         try {
                           return (
                             currentItem.sex != 0 &&
-                            currentItem.sex != "noProtected" &&
-                            currentItem.sex != "any"
+                            currentItem.sex != "noProtected"
                           );
                         } catch (e) {
                           if (
