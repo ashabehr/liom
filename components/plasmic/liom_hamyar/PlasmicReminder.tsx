@@ -4240,7 +4240,11 @@ function PlasmicReminder__RenderFunc(props: {
                                   headers: {
                                     "Content-Type": "application/json"
                                   },
-                                  body: JSON.stringify({ liomId: $props.manId })
+                                  body: JSON.stringify({
+                                    liomId: $props.manId,
+                                    telegramId: $props.telegramId,
+                                    phoneNumber: $props.phone
+                                  })
                                 }
                               )
                                 .then(res => res.json())
