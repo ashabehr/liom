@@ -539,6 +539,11 @@ function PlasmicChoices__RenderFunc(props: {
                             $state,
                             "circl",
                             "circl"
+                          ),
+                          [sty.embedHtmlglobal_newView_newView]: hasVariant(
+                            globalVariants,
+                            "newView",
+                            "newView"
                           )
                         })}
                         code={(() => {

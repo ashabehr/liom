@@ -1076,7 +1076,14 @@ function PlasmicSignsPage__RenderFunc(props: {
             styleTokensClassNames,
             styleTokensClassNames_antd_5_hostless,
             styleTokensClassNames_plasmic_rich_components,
-            sty.root
+            sty.root,
+            {
+              [sty.rootglobal_newView_newView]: hasVariant(
+                globalVariants,
+                "newView",
+                "newView"
+              )
+            }
           )}
         >
           <SideEffect
@@ -3452,7 +3459,13 @@ function PlasmicSignsPage__RenderFunc(props: {
           <ApiRequest
             data-plasmic-name={"getSign"}
             data-plasmic-override={overrides.getSign}
-            className={classNames("__wab_instance", sty.getSign)}
+            className={classNames("__wab_instance", sty.getSign, {
+              [sty.getSignglobal_newView_newView]: hasVariant(
+                globalVariants,
+                "newView",
+                "newView"
+              )
+            })}
             errorDisplay={null}
             loadingDisplay={
               <div className={classNames(projectcss.all, sty.freeBox__uepml)}>
@@ -3667,8 +3680,24 @@ function PlasmicSignsPage__RenderFunc(props: {
                 throw e;
               }
             })() ? (
-              <div className={classNames(projectcss.all, sty.freeBox__pomKc)}>
-                <div className={classNames(projectcss.all, sty.freeBox__zU9PX)}>
+              <div
+                className={classNames(projectcss.all, sty.freeBox__pomKc, {
+                  [sty.freeBoxglobal_newView_newView__pomKc0DHva]: hasVariant(
+                    globalVariants,
+                    "newView",
+                    "newView"
+                  )
+                })}
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__zU9PX, {
+                    [sty.freeBoxglobal_newView_newView__zU9PX0DHva]: hasVariant(
+                      globalVariants,
+                      "newView",
+                      "newView"
+                    )
+                  })}
+                >
                   <div
                     className={classNames(
                       projectcss.all,
@@ -3695,13 +3724,26 @@ function PlasmicSignsPage__RenderFunc(props: {
                 <div
                   data-plasmic-name={"selectionBox"}
                   data-plasmic-override={overrides.selectionBox}
-                  className={classNames(projectcss.all, sty.selectionBox)}
+                  className={classNames(projectcss.all, sty.selectionBox, {
+                    [sty.selectionBoxglobal_newView_newView]: hasVariant(
+                      globalVariants,
+                      "newView",
+                      "newView"
+                    )
+                  })}
                 >
                   <div
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__bk4X
+                      sty.text__bk4X,
+                      {
+                        [sty.textglobal_newView_newView__bk4X0DHva]: hasVariant(
+                          globalVariants,
+                          "newView",
+                          "newView"
+                        )
+                      }
                     )}
                   >
                     {
@@ -3741,7 +3783,13 @@ function PlasmicSignsPage__RenderFunc(props: {
                         throw e;
                       }
                     })()}
-                    className={classNames("__wab_instance", sty.choices)}
+                    className={classNames("__wab_instance", sty.choices, {
+                      [sty.choicesglobal_newView_newView]: hasVariant(
+                        globalVariants,
+                        "newView",
+                        "newView"
+                      )
+                    })}
                     list={generateStateValueProp($state, ["choices", "list"])}
                     onListChange={async (...eventArgs: any) => {
                       generateStateOnChangeProp($state, [
@@ -3780,7 +3828,13 @@ function PlasmicSignsPage__RenderFunc(props: {
                 <div
                   data-plasmic-name={"selectionBox2"}
                   data-plasmic-override={overrides.selectionBox2}
-                  className={classNames(projectcss.all, sty.selectionBox2)}
+                  className={classNames(projectcss.all, sty.selectionBox2, {
+                    [sty.selectionBox2global_newView_newView]: hasVariant(
+                      globalVariants,
+                      "newView",
+                      "newView"
+                    )
+                  })}
                 >
                   <div
                     className={classNames(
@@ -3826,7 +3880,13 @@ function PlasmicSignsPage__RenderFunc(props: {
                         throw e;
                       }
                     })()}
-                    className={classNames("__wab_instance", sty.befur)}
+                    className={classNames("__wab_instance", sty.befur, {
+                      [sty.befurglobal_newView_newView]: hasVariant(
+                        globalVariants,
+                        "newView",
+                        "newView"
+                      )
+                    })}
                     list={generateStateValueProp($state, ["befur", "list"])}
                     onListChange={async (...eventArgs: any) => {
                       generateStateOnChangeProp($state, [

@@ -4363,8 +4363,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                               const actionArgs = {
                                                 customFunction: async () => {
                                                   return ($state.switchSetting[
-                                                    currentIndex
-                                                  ].isChecked = false);
+                                                    currentday
+                                                  ][currentIndex].isChecked =
+                                                    false);
                                                 }
                                               };
                                               return (({ customFunction }) => {

@@ -94,7 +94,6 @@ export const PlasmicDetailsmonth__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicDetailsmonth__OverridesType = {
   root?: Flex__<"div">;
-  svg?: Flex__<"svg">;
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
   fragmentChart?: Flex__<typeof Chart>;
@@ -320,9 +319,7 @@ function PlasmicDetailsmonth__RenderFunc(props: {
           <div className={classNames(projectcss.all, sty.freeBox__yl0T)}>
             <div className={classNames(projectcss.all, sty.freeBox__b2Dqs)}>
               <Icon22Icon
-                data-plasmic-name={"svg"}
-                data-plasmic-override={overrides.svg}
-                className={classNames(projectcss.all, sty.svg)}
+                className={classNames(projectcss.all, sty.svg__fGWD)}
                 role={"img"}
               />
             </div>
@@ -870,14 +867,31 @@ function PlasmicDetailsmonth__RenderFunc(props: {
                   }
                 </div>
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__w6IbP
-                )}
-              >
-                {"Enter some text"}
+              <div className={classNames(projectcss.all, sty.freeBox__lp2P2)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__w6IbP
+                  )}
+                >
+                  {"\u0648\u0636\u0639\u06cc\u062a"}
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__t0Bvx)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__vpq6P
+                    )}
+                  >
+                    {"Enter some text"}
+                  </div>
+                  <svg
+                    className={classNames(projectcss.all, sty.svg__a9AyP)}
+                    role={"img"}
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -954,8 +968,7 @@ function PlasmicDetailsmonth__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "svg", "button", "button2", "fragmentChart", "apiRequest"],
-  svg: ["svg"],
+  root: ["root", "button", "button2", "fragmentChart", "apiRequest"],
   button: ["button"],
   button2: ["button2"],
   fragmentChart: ["fragmentChart"],
@@ -966,7 +979,6 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  svg: "svg";
   button: typeof Button;
   button2: typeof Button;
   fragmentChart: typeof Chart;
@@ -1058,7 +1070,6 @@ export const PlasmicDetailsmonth = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    svg: makeNodeComponent("svg"),
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
     fragmentChart: makeNodeComponent("fragmentChart"),
