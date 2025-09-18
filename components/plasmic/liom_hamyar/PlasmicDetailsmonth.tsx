@@ -879,142 +879,190 @@ function PlasmicDetailsmonth__RenderFunc(props: {
                 >
                   {"\u0648\u0636\u0639\u06cc\u062a"}
                 </div>
-                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                  (() => {
-                    try {
-                      return (() => {
-                        const events = $state.apiRequest.data.result.events;
-                        const periodStart =
-                          $state.apiRequest.data.result.period.start;
-                        const periodEnd =
-                          $state.apiRequest.data.result.period.end;
-                        const eventsMap = new Map(
-                          events.map(e => {
-                            const { year, month, day } = e.date;
-                            const dateStr = `${year}-${String(month).padStart(
-                              2,
-                              "0"
-                            )}-${String(day).padStart(2, "0")}`;
-                            return [dateStr, e.sex];
-                          })
-                        );
-                        const startDate = new Date(
-                          periodStart.year,
-                          periodStart.month - 1,
-                          periodStart.day
-                        );
-                        const endDate = new Date(
-                          periodEnd.year,
-                          periodEnd.month - 1,
-                          periodEnd.day
-                        );
-                        const fmt = new Intl.DateTimeFormat("fa-IR-u-nu-latn", {
-                          timeZone: "Asia/Tehran",
-                          day: "2-digit"
-                        });
-                        const waterList = [];
-                        for (
-                          let d = new Date(startDate);
-                          d <= endDate;
-                          d.setDate(d.getDate() + 1)
+                <div className={classNames(projectcss.all, sty.freeBox__yllzJ)}>
+                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return (() => {
+                          const events = $state.apiRequest.data.result.events;
+                          const periodStart =
+                            $state.apiRequest.data.result.period.start;
+                          const periodEnd =
+                            $state.apiRequest.data.result.period.end;
+                          const eventsMap = new Map(
+                            events.map(e => {
+                              const { year, month, day } = e.date;
+                              const dateStr = `${year}-${String(month).padStart(
+                                2,
+                                "0"
+                              )}-${String(day).padStart(2, "0")}`;
+                              return [dateStr, e.sex];
+                            })
+                          );
+                          const startDate = new Date(
+                            periodStart.year,
+                            periodStart.month - 1,
+                            periodStart.day
+                          );
+                          const endDate = new Date(
+                            periodEnd.year,
+                            periodEnd.month - 1,
+                            periodEnd.day
+                          );
+                          const fmt = new Intl.DateTimeFormat(
+                            "fa-IR-u-nu-latn",
+                            {
+                              timeZone: "Asia/Tehran",
+                              day: "2-digit"
+                            }
+                          );
+                          const waterList = [];
+                          for (
+                            let d = new Date(startDate);
+                            d <= endDate;
+                            d.setDate(d.getDate() + 1)
+                          ) {
+                            const gregorianStr = d.toLocaleDateString("en-CA", {
+                              timeZone: "Asia/Tehran"
+                            });
+                            const persianStr = fmt.format(d);
+                            waterList.push({
+                              date: persianStr,
+                              sex: eventsMap.get(gregorianStr) ?? 0
+                            });
+                          }
+                          return waterList;
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
                         ) {
-                          const gregorianStr = d.toLocaleDateString("en-CA", {
-                            timeZone: "Asia/Tehran"
-                          });
-                          const persianStr = fmt.format(d);
-                          waterList.push({
-                            date: persianStr,
-                            sex: eventsMap.get(gregorianStr) ?? 0
-                          });
+                          return [];
                         }
-                        return waterList;
-                      })();
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return [];
+                        throw e;
                       }
-                      throw e;
-                    }
-                  })()
-                ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                  const currentItem = __plasmic_item_0;
-                  const currentIndex = __plasmic_idx_0;
-                  return (
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__t0Bvx)}
-                      key={currentIndex}
-                    >
-                      {(() => {
-                        try {
-                          return (
-                            currentItem.sex == 0 ||
-                            currentItem.sex == "noProtected"
-                          );
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })() ? (
-                        <Icon298Icon
-                          className={classNames(projectcss.all, sty.svg__a9AyP)}
-                          role={"img"}
-                        />
-                      ) : null}
-                      {(() => {
-                        try {
-                          return (
-                            currentItem.sex != 0 &&
-                            currentItem.sex != "noProtected"
-                          );
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })() ? (
-                        <Icon299Icon
-                          className={classNames(projectcss.all, sty.svg__auPtm)}
-                          role={"img"}
-                        />
-                      ) : null}
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
                       <div
                         className={classNames(
                           projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__vpq6P
+                          sty.freeBox__t0Bvx
                         )}
+                        key={currentIndex}
                       >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return currentItem.date;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "";
-                              }
-                              throw e;
+                        {(() => {
+                          try {
+                            return (
+                              currentItem.sex == 0 ||
+                              currentItem.sex == "noProtected"
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
                             }
-                          })()}
-                        </React.Fragment>
+                            throw e;
+                          }
+                        })() ? (
+                          <Icon298Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__a9AyP
+                            )}
+                            role={"img"}
+                          />
+                        ) : null}
+                        {(() => {
+                          try {
+                            return (
+                              currentItem.sex != 0 &&
+                              currentItem.sex != "noProtected"
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <Icon299Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__auPtm
+                            )}
+                            role={"img"}
+                          />
+                        ) : null}
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__vpq6P
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem.date;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__kcuE4)}>
+                <Icon299Icon
+                  className={classNames(projectcss.all, sty.svg__i9OxQ)}
+                  role={"img"}
+                />
+
+                <Icon299Icon
+                  className={classNames(projectcss.all, sty.svg__pgx3N)}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___0DKvI
+                  )}
+                >
+                  {
+                    "\u0631\u0627\u0628\u0637\u0647 \u0645\u062d\u0627\u0641\u0638\u062a \u0646\u0634\u062f\u0647 \u062f\u0627\u0634\u062a\u0645 "
+                  }
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__rLKk7
+                  )}
+                >
+                  {
+                    "\u0631\u0627\u0628\u0637\u0647 \u0645\u062d\u0627\u0641\u0638\u062a \u0634\u062f\u0647 \u062f\u0627\u0634\u062a\u0645"
+                  }
+                </div>
               </div>
             </div>
           </div>

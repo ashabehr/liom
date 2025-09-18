@@ -68,6 +68,9 @@
   width: auto;
   height: auto;
   align-self: center;
+  filter: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 .freeBox__gEQo3 {
   padding-left: 0px;
