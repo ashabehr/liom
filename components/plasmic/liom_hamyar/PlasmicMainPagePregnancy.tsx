@@ -283,6 +283,19 @@ function PlasmicMainPagePregnancy__RenderFunc(props: {
           className={classNames("__wab_instance", sty.toolsComponent, {
             [sty.toolsComponentpage_tools]: hasVariant($state, "page", "tools")
           })}
+          token={(() => {
+            try {
+              return $state.token;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
         />
       </Reveal>
     </div>

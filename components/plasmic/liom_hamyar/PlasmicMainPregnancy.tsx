@@ -446,15 +446,6 @@ function PlasmicMainPregnancy__RenderFunc(props: {
           />
 
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__sVlbe
-            )}
-          >
-            {"variable"}
-          </div>
-          <div
             data-plasmic-name={"main"}
             data-plasmic-override={overrides.main}
             className={classNames(projectcss.all, sty.main, {

@@ -59,7 +59,6 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import TabWidget from "../../TabWidget"; // plasmic-import: 5oNm4PTVAr6q/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
@@ -77,19 +76,19 @@ export type PlasmicToolsComponent__VariantsArgs = {};
 type VariantPropType = keyof PlasmicToolsComponent__VariantsArgs;
 export const PlasmicToolsComponent__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicToolsComponent__ArgsType = {};
+export type PlasmicToolsComponent__ArgsType = { token?: string };
 type ArgPropType = keyof PlasmicToolsComponent__ArgsType;
-export const PlasmicToolsComponent__ArgProps = new Array<ArgPropType>();
+export const PlasmicToolsComponent__ArgProps = new Array<ArgPropType>("token");
 
 export type PlasmicToolsComponent__OverridesType = {
   root?: Flex__<"div">;
-  sideEffect?: Flex__<typeof SideEffect>;
   getUserInfo?: Flex__<typeof ApiRequest>;
   tabWidget?: Flex__<typeof TabWidget>;
   img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultToolsComponentProps {
+  token?: string;
   className?: string;
 }
 
@@ -364,12 +363,6 @@ function PlasmicToolsComponent__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       },
       {
-        path: "token",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
         path: "getUserInfo.data",
         type: "private",
         variableType: "object",
@@ -420,227 +413,6 @@ function PlasmicToolsComponent__RenderFunc(props: {
         sty.root
       )}
     >
-      <SideEffect
-        data-plasmic-name={"sideEffect"}
-        data-plasmic-override={overrides.sideEffect}
-        className={classNames("__wab_instance", sty.sideEffect)}
-        onMount={async () => {
-          const $steps = {};
-
-          $steps["getParams"] = true
-            ? (() => {
-                const actionArgs = {
-                  customFunction: async () => {
-                    return (() => {
-                      const queryString = window.location.search;
-                      const urlParams = new URLSearchParams(queryString);
-                      return urlParams.forEach((value, key) => {
-                        $state.paramsObject[key] = value;
-                      });
-                    })();
-                  }
-                };
-                return (({ customFunction }) => {
-                  return customFunction();
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["getParams"] != null &&
-            typeof $steps["getParams"] === "object" &&
-            typeof $steps["getParams"].then === "function"
-          ) {
-            $steps["getParams"] = await $steps["getParams"];
-          }
-
-          $steps["clearParams"] = true
-            ? (() => {
-                const actionArgs = {
-                  customFunction: async () => {
-                    return (() => {
-                      const searchParams = new URLSearchParams(
-                        window.location.search
-                      );
-                      searchParams.delete("token");
-                      searchParams.delete("userId");
-                      searchParams.delete("user_id");
-                      const newUrl = `${
-                        window.location.pathname
-                      }?${searchParams.toString()}`;
-                      return window.history.replaceState(null, "", newUrl);
-                    })();
-                  }
-                };
-                return (({ customFunction }) => {
-                  return customFunction();
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["clearParams"] != null &&
-            typeof $steps["clearParams"] === "object" &&
-            typeof $steps["clearParams"].then === "function"
-          ) {
-            $steps["clearParams"] = await $steps["clearParams"];
-          }
-
-          $steps["getToken"] = true
-            ? (() => {
-                const actionArgs = {
-                  customFunction: async () => {
-                    return (() => {
-                      if (
-                        $state.paramsObject.token !== undefined &&
-                        $state.paramsObject.token.trim() !== ""
-                      ) {
-                        if (!$state.paramsObject.token.startsWith("ey"))
-                          $state.paramsObject.token =
-                            $state.paramsObject.token.slice(6, -3);
-                        var setCookie = (name, value, days) => {
-                          const expires = new Date(
-                            Date.now() + days * 86400000
-                          ).toUTCString();
-                          document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
-                        };
-                        return setCookie(
-                          "token",
-                          JSON.stringify([$state.paramsObject.token]),
-                          100
-                        );
-                      }
-                    })();
-                  }
-                };
-                return (({ customFunction }) => {
-                  return customFunction();
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["getToken"] != null &&
-            typeof $steps["getToken"] === "object" &&
-            typeof $steps["getToken"].then === "function"
-          ) {
-            $steps["getToken"] = await $steps["getToken"];
-          }
-
-          $steps["getTokenFromCookie"] = true
-            ? (() => {
-                const actionArgs = {
-                  customFunction: async () => {
-                    return (() => {
-                      var getCookie = name => {
-                        const cookies = document.cookie.split("; ");
-                        for (let cookie of cookies) {
-                          const [key, value] = cookie.split("=");
-                          if (key === name) return JSON.parse(value)[0];
-                        }
-                        return "";
-                      };
-                      return ($state.token = getCookie("token"));
-                    })();
-                  }
-                };
-                return (({ customFunction }) => {
-                  return customFunction();
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["getTokenFromCookie"] != null &&
-            typeof $steps["getTokenFromCookie"] === "object" &&
-            typeof $steps["getTokenFromCookie"].then === "function"
-          ) {
-            $steps["getTokenFromCookie"] = await $steps["getTokenFromCookie"];
-          }
-
-          $steps["invokeGlobalAction"] = true
-            ? (() => {
-                const actionArgs = {
-                  args: [
-                    undefined,
-                    "https://n8n.staas.ir/webhook/userInfo_v2",
-                    (() => {
-                      try {
-                        return { token: $state.token };
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()
-                  ]
-                };
-                return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                  ...actionArgs.args
-                ]);
-              })()
-            : undefined;
-          if (
-            $steps["invokeGlobalAction"] != null &&
-            typeof $steps["invokeGlobalAction"] === "object" &&
-            typeof $steps["invokeGlobalAction"].then === "function"
-          ) {
-            $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
-          }
-
-          $steps["updateUser"] = true
-            ? (() => {
-                const actionArgs = {
-                  variable: {
-                    objRoot: $state,
-                    variablePath: ["user"]
-                  },
-                  operation: 0,
-                  value: $steps.invokeGlobalAction.data
-                };
-                return (({ variable, value, startIndex, deleteCount }) => {
-                  if (!variable) {
-                    return;
-                  }
-                  const { objRoot, variablePath } = variable;
-
-                  $stateSet(objRoot, variablePath, value);
-                  return value;
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["updateUser"] != null &&
-            typeof $steps["updateUser"] === "object" &&
-            typeof $steps["updateUser"].then === "function"
-          ) {
-            $steps["updateUser"] = await $steps["updateUser"];
-          }
-
-          $steps["runCode"] = true
-            ? (() => {
-                const actionArgs = {
-                  customFunction: async () => {
-                    return (() => {
-                      return console.log($state.user);
-                    })();
-                  }
-                };
-                return (({ customFunction }) => {
-                  return customFunction();
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["runCode"] != null &&
-            typeof $steps["runCode"] === "object" &&
-            typeof $steps["runCode"].then === "function"
-          ) {
-            $steps["runCode"] = await $steps["runCode"];
-          }
-        }}
-      />
-
       <ApiRequest
         data-plasmic-name={"getUserInfo"}
         data-plasmic-override={overrides.getUserInfo}
@@ -805,9 +577,7 @@ function PlasmicToolsComponent__RenderFunc(props: {
         }}
         params={(() => {
           try {
-            return {
-              token: $state.token
-            };
+            return { token: $props.token };
           } catch (e) {
             if (
               e instanceof TypeError ||
@@ -1031,7 +801,7 @@ function PlasmicToolsComponent__RenderFunc(props: {
                                         })(),
                                         (() => {
                                           try {
-                                            return $state.token;
+                                            return $props.token;
                                           } catch (e) {
                                             if (
                                               e instanceof TypeError ||
@@ -1248,8 +1018,7 @@ function PlasmicToolsComponent__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "sideEffect", "getUserInfo", "tabWidget", "img"],
-  sideEffect: ["sideEffect"],
+  root: ["root", "getUserInfo", "tabWidget", "img"],
   getUserInfo: ["getUserInfo", "tabWidget", "img"],
   tabWidget: ["tabWidget"],
   img: ["img"]
@@ -1259,7 +1028,6 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  sideEffect: typeof SideEffect;
   getUserInfo: typeof ApiRequest;
   tabWidget: typeof TabWidget;
   img: typeof PlasmicImg__;
@@ -1325,7 +1093,6 @@ export const PlasmicToolsComponent = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    sideEffect: makeNodeComponent("sideEffect"),
     getUserInfo: makeNodeComponent("getUserInfo"),
     tabWidget: makeNodeComponent("tabWidget"),
     img: makeNodeComponent("img"),
