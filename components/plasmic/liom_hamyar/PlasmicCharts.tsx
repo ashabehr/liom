@@ -821,7 +821,7 @@ function PlasmicCharts__RenderFunc(props: {
                 }
               })() ? (
                 <Chart
-                  cartesianGrid={["horizontal", "vertical"]}
+                  cartesianGrid={[]}
                   chartConfig={(() => {
                     const __composite = [
                       {
@@ -830,11 +830,37 @@ function PlasmicCharts__RenderFunc(props: {
                         dot: false,
                         key: null,
                         label: null
+                      },
+                      {
+                        color: null,
+                        type: "natural",
+                        dot: false,
+                        hidden: null,
+                        key: null,
+                        label: null
+                      },
+                      {
+                        color: null,
+                        type: "natural",
+                        dot: false,
+                        hidden: null,
+                        key: null,
+                        label: null
                       }
                     ];
                     __composite["0"]["color"] = "var(--token-qvl81LxkOSoe)";
                     __composite["0"]["key"] = "value";
                     __composite["0"]["label"] = "\u0645\u0628\u0644\u063a";
+                    __composite["1"]["color"] = "var(--token-G-IZ_XhVdlqp)";
+                    __composite["1"]["hidden"] = true;
+                    __composite["1"]["key"] = "ok_unique";
+                    __composite["1"]["label"] =
+                      "\u062a\u0623\u06cc\u06cc\u062f \u0634\u062f\u0647";
+                    __composite["2"]["color"] = "var(--token-bZhLbadoELTb)";
+                    __composite["2"]["hidden"] = true;
+                    __composite["2"]["key"] = "pending_unique";
+                    __composite["2"]["label"] =
+                      "\u062f\u0631 \u0627\u0646\u062a\u0638\u0627\u0631 \u062a\u0623\u06cc\u06cc\u062f";
                     return __composite;
                   })()}
                   className={classNames(
@@ -1209,7 +1235,7 @@ function PlasmicCharts__RenderFunc(props: {
                 }
               })() ? (
                 <Chart
-                  cartesianGrid={["horizontal", "vertical"]}
+                  cartesianGrid={[]}
                   chartConfig={(() => {
                     const __composite = [
                       {
