@@ -376,7 +376,8 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                             }
                             return "";
                           };
-                          return ($state.token = getCookie("token"));
+                          $state.token = getCookie("token");
+                          return console.log("rrr:" + $state.token);
                         })();
                       }
                     };

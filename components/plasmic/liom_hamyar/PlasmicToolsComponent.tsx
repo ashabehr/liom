@@ -386,6 +386,12 @@ function PlasmicToolsComponent__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "user",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -546,6 +552,91 @@ function PlasmicToolsComponent__RenderFunc(props: {
             typeof $steps["getTokenFromCookie"].then === "function"
           ) {
             $steps["getTokenFromCookie"] = await $steps["getTokenFromCookie"];
+          }
+
+          $steps["invokeGlobalAction"] = true
+            ? (() => {
+                const actionArgs = {
+                  args: [
+                    undefined,
+                    "https://n8n.staas.ir/webhook/userInfo_v2",
+                    (() => {
+                      try {
+                        return { token: $state.token };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+                  ]
+                };
+                return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                  ...actionArgs.args
+                ]);
+              })()
+            : undefined;
+          if (
+            $steps["invokeGlobalAction"] != null &&
+            typeof $steps["invokeGlobalAction"] === "object" &&
+            typeof $steps["invokeGlobalAction"].then === "function"
+          ) {
+            $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
+          }
+
+          $steps["updateUser"] = true
+            ? (() => {
+                const actionArgs = {
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["user"]
+                  },
+                  operation: 0,
+                  value: $steps.invokeGlobalAction.data
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  $stateSet(objRoot, variablePath, value);
+                  return value;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateUser"] != null &&
+            typeof $steps["updateUser"] === "object" &&
+            typeof $steps["updateUser"].then === "function"
+          ) {
+            $steps["updateUser"] = await $steps["updateUser"];
+          }
+
+          $steps["runCode"] = true
+            ? (() => {
+                const actionArgs = {
+                  customFunction: async () => {
+                    return (() => {
+                      return console.log($state.user);
+                    })();
+                  }
+                };
+                return (({ customFunction }) => {
+                  return customFunction();
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["runCode"] != null &&
+            typeof $steps["runCode"] === "object" &&
+            typeof $steps["runCode"].then === "function"
+          ) {
+            $steps["runCode"] = await $steps["runCode"];
           }
         }}
       />
