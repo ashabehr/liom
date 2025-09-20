@@ -531,8 +531,7 @@ function PlasmicToolsComponent__RenderFunc(props: {
                         }
                         return "";
                       };
-                      $state.token = getCookie("token");
-                      return console.log("toolspage-token:" + $state.token);
+                      return ($state.token = getCookie("token"));
                     })();
                   }
                 };

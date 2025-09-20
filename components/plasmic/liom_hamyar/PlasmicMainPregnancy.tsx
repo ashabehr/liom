@@ -288,6 +288,25 @@ function PlasmicMainPregnancy__RenderFunc(props: {
         path: "mainPagePregnancy.token",
         type: "private",
         variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.token;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "token",
+        type: "private",
+        variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
@@ -344,6 +363,36 @@ function PlasmicMainPregnancy__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
+              $steps["runCode2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var getCookie = name => {
+                            const cookies = document.cookie.split("; ");
+                            for (let cookie of cookies) {
+                              const [key, value] = cookie.split("=");
+                              if (key === name) return JSON.parse(value)[0];
+                            }
+                            return "";
+                          };
+                          return ($state.token = getCookie("token"));
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode2"] != null &&
+                typeof $steps["runCode2"] === "object" &&
+                typeof $steps["runCode2"].then === "function"
+              ) {
+                $steps["runCode2"] = await $steps["runCode2"];
+              }
+
               $steps["runCode"] = false
                 ? (() => {
                     const actionArgs = {
@@ -395,6 +444,15 @@ function PlasmicMainPregnancy__RenderFunc(props: {
             }}
           />
 
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__sVlbe
+            )}
+          >
+            {"variable"}
+          </div>
           <div
             data-plasmic-name={"main"}
             data-plasmic-override={overrides.main}
@@ -1050,7 +1108,7 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                     })()
                   : (() => {
                       try {
-                        return $state.mainPagePregnancy.token;
+                        return $state.token;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
