@@ -14,6 +14,10 @@
   max-width: 100%;
   object-fit: cover;
 }
+.sideEffect:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
 .getInfo:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
