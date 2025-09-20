@@ -290,7 +290,7 @@
   }
 }
 
-.plasmic_tokens:where(.global_newView_newView) {
+.plasmic_tokens.global_newView_newView.global_newView_newView {
   --token-yL32ChWVky0P: #ffffff;
   --plasmic-token-app-bg: var(--token-yL32ChWVky0P);
   --token-_Tqr-iwbEpLO: #4595ff;

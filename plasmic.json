@@ -4515,6 +4515,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/detailsmonth"
+        },
+        {
+          "id": "lCS9WJtBvfol",
+          "name": "Charts",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicCharts.tsx",
+          "importSpec": {
+            "modulePath": "Charts.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicCharts.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -6487,6 +6500,26 @@
           "id": "bMTPZcxBEEb7",
           "name": "Icon299Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon299.tsx"
+        },
+        {
+          "id": "kGRkoZZWjwVN",
+          "name": "Icon300Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon300.tsx"
+        },
+        {
+          "id": "eIAznL4YafOt",
+          "name": "Icon301Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon301.tsx"
+        },
+        {
+          "id": "DJz0qfLJXRLW",
+          "name": "Icon302Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon302.tsx"
+        },
+        {
+          "id": "eR1M432ACvbc",
+          "name": "Icon303Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon303.tsx"
         }
       ],
       "images": [
@@ -7229,6 +7262,16 @@
           "id": "-KZifuJsgp18",
           "name": "image 110",
           "filePath": "../public/plasmic/liom_hamyar/images/image110.png"
+        },
+        {
+          "id": "LDgNnJmZUNy4",
+          "name": "image 111",
+          "filePath": "../public/plasmic/liom_hamyar/images/image111.png"
+        },
+        {
+          "id": "bWfz1FD9EGFL",
+          "name": "image 112",
+          "filePath": "../public/plasmic/liom_hamyar/images/image112.png"
         }
       ],
       "indirect": false,
@@ -7411,6 +7454,6 @@
   "nextjsConfig": {
     "pagesDir": "../src/pages"
   },
-  "cliVersion": "0.1.342",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.342/dist/plasmic.schema.json"
+  "cliVersion": "0.1.343",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.343/dist/plasmic.schema.json"
 }

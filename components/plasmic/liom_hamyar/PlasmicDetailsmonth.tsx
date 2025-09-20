@@ -68,8 +68,6 @@ import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/compo
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_plasmic_rich_components } from "../plasmic_rich_components/PlasmicStyleTokensProvider"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -99,8 +97,8 @@ export const PlasmicDetailsmonth__ArgProps = new Array<ArgPropType>();
 export type PlasmicDetailsmonth__OverridesType = {
   root?: Flex__<"div">;
   apiRequest?: Flex__<typeof ApiRequest>;
-  fragmentChart?: Flex__<typeof Chart>;
   img?: Flex__<typeof PlasmicImg__>;
+  fragmentChart?: Flex__<typeof Chart>;
   section?: Flex__<"section">;
   headerLiom?: Flex__<typeof HeaderLiom>;
   button?: Flex__<typeof Button>;
@@ -308,7 +306,7 @@ function PlasmicDetailsmonth__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "4f0de08-f31c-4e91-85b2-37dfdb0d24f7"
+          "84f0de08-f31c-4e91-85b2-37dfdb0d24f7"
       }
     ],
     [$props, $ctx, $refs]
@@ -321,10 +319,6 @@ function PlasmicDetailsmonth__RenderFunc(props: {
   });
 
   const styleTokensClassNames = _useStyleTokens();
-  const styleTokensClassNames_antd_5_hostless =
-    useStyleTokens_antd_5_hostless();
-  const styleTokensClassNames_plasmic_rich_components =
-    useStyleTokens_plasmic_rich_components();
 
   return (
     <React.Fragment>
@@ -348,8 +342,6 @@ function PlasmicDetailsmonth__RenderFunc(props: {
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
             styleTokensClassNames,
-            styleTokensClassNames_antd_5_hostless,
-            styleTokensClassNames_plasmic_rich_components,
             sty.root
           )}
         >
@@ -596,6 +588,39 @@ function PlasmicDetailsmonth__RenderFunc(props: {
                         "\u0647\u0631 \u0631\u0648\u0632 \n\u0628\u0647 \u06a9\u0645\u06a9 \u0627\u0628\u0632\u0627\u0631  >> \u0628\u0631\u0646\u0627\u0645\u0647 \u0627\u0645\u0631\u0648\u0632 << \u0639\u0644\u0627\u0626\u0645\u062a\u0648\u0646 \u0631\u0648 \u062b\u0628\u062a \u06a9\u0646\u06cc\u062f \u062a\u0627 \u062f\u0627\u062f\u0647 \u0628\u06cc\u0634\u062a\u0631\u06cc \u0627\u0632 \u0627\u062a\u0641\u0627\u0642\u0627\u062a\u06cc \u06a9\u0647 \u062f\u0631 \u06cc\u06a9 \u062f\u0648\u0631\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u0634\u0645\u0627 \u0631\u062e \u062f\u0627\u062f\u0647 \u0627\u0633\u062a \u0628\u062f\u0633\u062a \u0622\u0648\u0631\u06cc\u062f "
                       }
                     </div>
+                    {(() => {
+                      try {
+                        return $state.apiRequest.data.result.events.length == 0;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <PlasmicImg__
+                        data-plasmic-name={"img"}
+                        data-plasmic-override={overrides.img}
+                        alt={""}
+                        className={classNames(sty.img)}
+                        displayHeight={"auto"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"auto"}
+                        loading={"lazy"}
+                        src={{
+                          src: "/plasmic/liom_hamyar/images/image110.png",
+                          fullWidth: 385,
+                          fullHeight: 721,
+                          aspectRatio: undefined
+                        }}
+                      />
+                    ) : null}
                   </div>
                 ) : null}
                 {(() => {
@@ -1222,39 +1247,6 @@ function PlasmicDetailsmonth__RenderFunc(props: {
                   </div>
                 ) : null}
               </div>
-              {(() => {
-                try {
-                  return $state.apiRequest.data.result.events.length == 0;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <PlasmicImg__
-                  data-plasmic-name={"img"}
-                  data-plasmic-override={overrides.img}
-                  alt={""}
-                  className={classNames(sty.img)}
-                  displayHeight={"auto"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={"auto"}
-                  loading={"lazy"}
-                  src={{
-                    src: "/plasmic/liom_hamyar/images/image110.png",
-                    fullWidth: 385,
-                    fullHeight: 721,
-                    aspectRatio: undefined
-                  }}
-                />
-              ) : null}
             </div>
           </ApiRequest>
           <section
@@ -1479,16 +1471,16 @@ const PlasmicDescendants = {
   root: [
     "root",
     "apiRequest",
-    "fragmentChart",
     "img",
+    "fragmentChart",
     "section",
     "headerLiom",
     "button",
     "button2"
   ],
-  apiRequest: ["apiRequest", "fragmentChart", "img"],
-  fragmentChart: ["fragmentChart"],
+  apiRequest: ["apiRequest", "img", "fragmentChart"],
   img: ["img"],
+  fragmentChart: ["fragmentChart"],
   section: ["section", "headerLiom"],
   headerLiom: ["headerLiom"],
   button: ["button"],
@@ -1500,8 +1492,8 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   apiRequest: typeof ApiRequest;
-  fragmentChart: typeof Chart;
   img: typeof PlasmicImg__;
+  fragmentChart: typeof Chart;
   section: "section";
   headerLiom: typeof HeaderLiom;
   button: typeof Button;
@@ -1594,8 +1586,8 @@ export const PlasmicDetailsmonth = Object.assign(
   {
     // Helper components rendering sub-elements
     apiRequest: makeNodeComponent("apiRequest"),
-    fragmentChart: makeNodeComponent("fragmentChart"),
     img: makeNodeComponent("img"),
+    fragmentChart: makeNodeComponent("fragmentChart"),
     section: makeNodeComponent("section"),
     headerLiom: makeNodeComponent("headerLiom"),
     button: makeNodeComponent("button"),

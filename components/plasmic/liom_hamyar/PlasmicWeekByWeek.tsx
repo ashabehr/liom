@@ -72,8 +72,6 @@ import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkg
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_plasmic_rich_components } from "../plasmic_rich_components/PlasmicStyleTokensProvider"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -492,10 +490,6 @@ function PlasmicWeekByWeek__RenderFunc(props: {
   });
 
   const styleTokensClassNames = _useStyleTokens();
-  const styleTokensClassNames_antd_5_hostless =
-    useStyleTokens_antd_5_hostless();
-  const styleTokensClassNames_plasmic_rich_components =
-    useStyleTokens_plasmic_rich_components();
 
   return (
     <React.Fragment>
@@ -519,8 +513,6 @@ function PlasmicWeekByWeek__RenderFunc(props: {
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
             styleTokensClassNames,
-            styleTokensClassNames_antd_5_hostless,
-            styleTokensClassNames_plasmic_rich_components,
             sty.root,
             { [sty.rootdark]: hasVariant($state, "dark", "dark") }
           )}
@@ -1819,9 +1811,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                             projectcss.root_reset,
                             projectcss.plasmic_default_styles,
                             projectcss.plasmic_mixins,
-                            styleTokensClassNames,
-                            styleTokensClassNames_antd_5_hostless,
-                            styleTokensClassNames_plasmic_rich_components
+                            styleTokensClassNames
                           )}
                           footer={
                             <div
@@ -1948,9 +1938,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                             projectcss.root_reset,
                             projectcss.plasmic_default_styles,
                             projectcss.plasmic_mixins,
-                            styleTokensClassNames,
-                            styleTokensClassNames_antd_5_hostless,
-                            styleTokensClassNames_plasmic_rich_components
+                            styleTokensClassNames
                           )}
                           footer={
                             <div

@@ -66,10 +66,9 @@ import Reports from "../../Reports"; // plasmic-import: pmKDqHBtiLCT/component
 import UserPage2 from "../../UserPage2"; // plasmic-import: 3UGIP49FNSVo/component
 import Sendnotif from "../../Sendnotif"; // plasmic-import: 1f3SHQQwHGQn/component
 import Sendmessage from "../../Sendmessage"; // plasmic-import: MCAKqEbtK9Qy/component
+import Charts from "../../Charts"; // plasmic-import: lCS9WJtBvfol/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_plasmic_rich_components } from "../plasmic_rich_components/PlasmicStyleTokensProvider"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -79,12 +78,12 @@ import sty from "./PlasmicMain2.module.css"; // plasmic-import: qh0CBDuGi8tY/css
 createPlasmicElementProxy;
 
 export type PlasmicMain2__VariantMembers = {
-  page: "reports" | "tabPage" | "notifs";
+  page: "reports" | "tabPage" | "notifs" | "charts";
   user: "user";
   dataUser: "dataUser";
 };
 export type PlasmicMain2__VariantsArgs = {
-  page?: SingleChoiceArg<"reports" | "tabPage" | "notifs">;
+  page?: SingleChoiceArg<"reports" | "tabPage" | "notifs" | "charts">;
   user?: SingleBooleanChoiceArg<"user">;
   dataUser?: SingleBooleanChoiceArg<"dataUser">;
 };
@@ -118,13 +117,14 @@ export type PlasmicMain2__OverridesType = {
   userPage2?: Flex__<typeof UserPage2>;
   sendMessage?: Flex__<typeof Sendnotif>;
   nitif?: Flex__<typeof Sendmessage>;
+  charts?: Flex__<typeof Charts>;
 };
 
 export interface DefaultMain2Props {
   header?: any;
   page2?: string;
   onPage2Change?: (val: string) => void;
-  page?: SingleChoiceArg<"reports" | "tabPage" | "notifs">;
+  page?: SingleChoiceArg<"reports" | "tabPage" | "notifs" | "charts">;
   user?: SingleBooleanChoiceArg<"user">;
   dataUser?: SingleBooleanChoiceArg<"dataUser">;
   className?: string;
@@ -495,6 +495,12 @@ function PlasmicMain2__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "charts.payment",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -507,10 +513,6 @@ function PlasmicMain2__RenderFunc(props: {
   });
 
   const styleTokensClassNames = _useStyleTokens();
-  const styleTokensClassNames_antd_5_hostless =
-    useStyleTokens_antd_5_hostless();
-  const styleTokensClassNames_plasmic_rich_components =
-    useStyleTokens_plasmic_rich_components();
 
   return (
     <div
@@ -524,11 +526,10 @@ function PlasmicMain2__RenderFunc(props: {
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
         styleTokensClassNames,
-        styleTokensClassNames_antd_5_hostless,
-        styleTokensClassNames_plasmic_rich_components,
         sty.root,
         {
           [sty.rootdataUser]: hasVariant($state, "dataUser", "dataUser"),
+          [sty.rootpage_charts]: hasVariant($state, "page", "charts"),
           [sty.rootpage_notifs]: hasVariant($state, "page", "notifs"),
           [sty.rootpage_reports]: hasVariant($state, "page", "reports"),
           [sty.rootpage_tabPage]: hasVariant($state, "page", "tabPage"),
@@ -1372,7 +1373,9 @@ function PlasmicMain2__RenderFunc(props: {
       <Sendmessage
         data-plasmic-name={"nitif"}
         data-plasmic-override={overrides.nitif}
-        className={classNames("__wab_instance", sty.nitif)}
+        className={classNames("__wab_instance", sty.nitif, {
+          [sty.nitifpage_notifs]: hasVariant($state, "page", "notifs")
+        })}
         onFilessChange={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, ["nitif", "filess"]).apply(
             null,
@@ -1436,6 +1439,30 @@ function PlasmicMain2__RenderFunc(props: {
         selectedTab={generateStateValueProp($state, ["nitif", "selectedTab"])}
         tabList={generateStateValueProp($state, ["nitif", "tabList"])}
       />
+
+      <Charts
+        data-plasmic-name={"charts"}
+        data-plasmic-override={overrides.charts}
+        className={classNames("__wab_instance", sty.charts, {
+          [sty.chartspage_charts]: hasVariant($state, "page", "charts")
+        })}
+        onPaymentChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["charts", "payment"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+      >
+        {"\u0646\u0645\u0648\u062f\u0627\u0631 \u0647\u0627"}
+      </Charts>
     </div>
   ) as React.ReactElement | null;
 }
@@ -1451,7 +1478,8 @@ const PlasmicDescendants = {
     "reports",
     "userPage2",
     "sendMessage",
-    "nitif"
+    "nitif",
+    "charts"
   ],
   sideEffect: ["sideEffect"],
   userPage: ["userPage", "freeBox", "blockquote"],
@@ -1461,7 +1489,8 @@ const PlasmicDescendants = {
   reports: ["reports"],
   userPage2: ["userPage2"],
   sendMessage: ["sendMessage"],
-  nitif: ["nitif"]
+  nitif: ["nitif"],
+  charts: ["charts"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1477,6 +1506,7 @@ type NodeDefaultElementType = {
   userPage2: typeof UserPage2;
   sendMessage: typeof Sendnotif;
   nitif: typeof Sendmessage;
+  charts: typeof Charts;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1548,6 +1578,7 @@ export const PlasmicMain2 = Object.assign(
     userPage2: makeNodeComponent("userPage2"),
     sendMessage: makeNodeComponent("sendMessage"),
     nitif: makeNodeComponent("nitif"),
+    charts: makeNodeComponent("charts"),
 
     // Metadata about props expected for PlasmicMain2
     internalVariantProps: PlasmicMain2__VariantProps,

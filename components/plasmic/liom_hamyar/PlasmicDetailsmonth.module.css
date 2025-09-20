@@ -78,6 +78,7 @@
   justify-content: flex-start;
   align-items: center;
   row-gap: var(--token-1KusGK5GePTh);
+  min-height: 80vh;
   min-width: 0;
   border-radius: var(--token-O5TjkXII_aat);
   padding: var(--token-O5TjkXII_aat);
@@ -193,7 +194,25 @@
   max-width: 100%;
   text-align: right;
   font-weight: 700;
+  font-size: var(--token-Wa5tmrNKVUYF);
   min-width: 0;
+}
+.img {
+  object-fit: cover;
+  max-width: 100%;
+  opacity: 0.08;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: auto;
+  object-position: 40% 50%;
+  filter: none;
+  right: 0;
+  margin: 1.5rem;
+}
+.img > picture > img {
+  object-fit: cover;
+  object-position: 40% 50%;
 }
 .freeBox__wjEkt {
   display: flex;
@@ -550,19 +569,6 @@
   font-size: 12px;
   font-weight: 400;
   text-align: right;
-}
-.img {
-  object-fit: cover;
-  max-width: 100%;
-  opacity: 0.15;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: auto;
-  right: 0;
-}
-.img > picture > img {
-  object-fit: cover;
 }
 .section {
   display: grid;

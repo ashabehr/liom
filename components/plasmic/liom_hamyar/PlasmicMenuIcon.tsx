@@ -61,8 +61,6 @@ import {
 
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_plasmic_rich_components } from "../plasmic_rich_components/PlasmicStyleTokensProvider"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -85,6 +83,7 @@ import Icon274Icon from "./icons/PlasmicIcon__Icon274"; // plasmic-import: s-mb3
 import Icon275Icon from "./icons/PlasmicIcon__Icon275"; // plasmic-import: JX2J1clropJv/icon
 import Icon277Icon from "./icons/PlasmicIcon__Icon277"; // plasmic-import: rQHnbmXyT27Z/icon
 import BellIcon from "../fragment_icons/icons/PlasmicIcon__Bell"; // plasmic-import: rDjUqSUK3eUM/icon
+import Icon303Icon from "./icons/PlasmicIcon__Icon303"; // plasmic-import: eR1M432ACvbc/icon
 
 createPlasmicElementProxy;
 
@@ -106,7 +105,8 @@ export type PlasmicMenuIcon__VariantMembers = {
     | "birthday"
     | "love"
     | "alert"
-    | "notification";
+    | "notification"
+    | "charts";
   unnamedVariant: "unnamedVariant";
   unnamedVariant2: "unnamedVariant2";
 };
@@ -129,6 +129,7 @@ export type PlasmicMenuIcon__VariantsArgs = {
     | "love"
     | "alert"
     | "notification"
+    | "charts"
   >;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
   unnamedVariant2?: SingleBooleanChoiceArg<"unnamedVariant2">;
@@ -168,6 +169,7 @@ export interface DefaultMenuIconProps {
     | "love"
     | "alert"
     | "notification"
+    | "charts"
   >;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
   unnamedVariant2?: SingleBooleanChoiceArg<"unnamedVariant2">;
@@ -254,10 +256,6 @@ function PlasmicMenuIcon__RenderFunc(props: {
   });
 
   const styleTokensClassNames = _useStyleTokens();
-  const styleTokensClassNames_antd_5_hostless =
-    useStyleTokens_antd_5_hostless();
-  const styleTokensClassNames_plasmic_rich_components =
-    useStyleTokens_plasmic_rich_components();
 
   return (
     <PlasmicIcon__
@@ -266,8 +264,10 @@ function PlasmicMenuIcon__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       PlasmicIconType={
-        hasVariant($state, "icons", "notification") &&
-        hasVariant(globalVariants, "screen", "mobile")
+        hasVariant($state, "icons", "charts")
+          ? Icon303Icon
+          : hasVariant($state, "icons", "notification") &&
+            hasVariant(globalVariants, "screen", "mobile")
           ? BellIcon
           : hasVariant($state, "icons", "notification")
           ? BellIcon
@@ -307,8 +307,6 @@ function PlasmicMenuIcon__RenderFunc(props: {
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
         styleTokensClassNames,
-        styleTokensClassNames_antd_5_hostless,
-        styleTokensClassNames_plasmic_rich_components,
         sty.root,
         {
           [sty.rooticons_alert]: hasVariant($state, "icons", "alert"),
@@ -316,6 +314,7 @@ function PlasmicMenuIcon__RenderFunc(props: {
           [sty.rooticons_birthday]: hasVariant($state, "icons", "birthday"),
           [sty.rooticons_chart]: hasVariant($state, "icons", "chart"),
           [sty.rooticons_chartbar]: hasVariant($state, "icons", "chartbar"),
+          [sty.rooticons_charts]: hasVariant($state, "icons", "charts"),
           [sty.rooticons_history]: hasVariant($state, "icons", "history"),
           [sty.rooticons_love]: hasVariant($state, "icons", "love"),
           [sty.rooticons_message]: hasVariant($state, "icons", "message"),

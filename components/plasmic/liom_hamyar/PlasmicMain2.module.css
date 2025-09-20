@@ -144,3 +144,16 @@
   flex-shrink: 0;
   display: none;
 }
+.nitifpage_notifs:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: flex;
+}
+.charts:global(.__wab_instance) {
+  max-width: 100%;
+  flex-shrink: 0;
+  display: none;
+}
+.chartspage_charts:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: flex;
+}

@@ -71,8 +71,6 @@ import { SwiperSlider } from "@/components/SwiperSlider"; // plasmic-import: hd-
 import ReminderSetting from "../../ReminderSetting"; // plasmic-import: VZcPBQBUFNbT/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_plasmic_rich_components } from "../plasmic_rich_components/PlasmicStyleTokensProvider"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -701,10 +699,6 @@ function PlasmicReminder__RenderFunc(props: {
   });
 
   const styleTokensClassNames = _useStyleTokens();
-  const styleTokensClassNames_antd_5_hostless =
-    useStyleTokens_antd_5_hostless();
-  const styleTokensClassNames_plasmic_rich_components =
-    useStyleTokens_plasmic_rich_components();
 
   return (
     <div
@@ -718,8 +712,6 @@ function PlasmicReminder__RenderFunc(props: {
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
         styleTokensClassNames,
-        styleTokensClassNames_antd_5_hostless,
-        styleTokensClassNames_plasmic_rich_components,
         sty.root
       )}
     >
@@ -2458,10 +2450,7 @@ function PlasmicReminder__RenderFunc(props: {
                               ty: "fl",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.078431372549, 0.494117647059,
-                                  0.898039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 4
                               },
                               o: { a: 0, k: 100, ix: 5 },
