@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-import { CodeComponentMeta, useSelector } from "@plasmicapp/host";
+import { CodeComponentMeta } from "@plasmicapp/host";
 import * as ChartPrimitive from "@/components/ui/chart";
 import {
   Bar,
@@ -55,43 +55,25 @@ export const Chart = (props: ChartType) => {
     className,
   } = props;
 
-  const reformmatedConfig = ([dataKey ?? {}, ...chartConfig]?.reduce?.(
-    (acc, item) => {
+  const reformmatedConfig =
+    ([dataKey ?? {}, ...chartConfig]?.reduce?.((acc, item) => {
       const key = item.key;
       acc[key] = item;
       return acc;
-    },
-    {}
-  ) ?? {}) satisfies ChartConfig;
+    }, {}) ?? {}) satisfies ChartConfig;
 
   const ComponentContainerChart: any = useMemo(() => {
-    if (type === "bar") {
-      return BarChart;
-    }
-    if (type === "area") {
-      return AreaChart;
-    }
-    if (type === "line") {
-      return LineChart;
-    }
-    if (type === "pie") {
-      return PieChart;
-    }
+    if (type === "bar") return BarChart;
+    if (type === "area") return AreaChart;
+    if (type === "line") return LineChart;
+    if (type === "pie") return PieChart;
   }, [type]);
 
   const ComponentChart: any = useMemo(() => {
-    if (type === "bar") {
-      return Bar;
-    }
-    if (type === "area") {
-      return Area;
-    }
-    if (type === "line") {
-      return Line;
-    }
-    if (type === "pie") {
-      return Pie;
-    }
+    if (type === "bar") return Bar;
+    if (type === "area") return Area;
+    if (type === "line") return Line;
+    if (type === "pie") return Pie;
   }, [type]);
 
   return (
@@ -103,11 +85,7 @@ export const Chart = (props: ChartType) => {
         accessibilityLayer
         {...(type === "bar" && { layout })}
         {...(type !== "pie" && { data })}
-        margin={{
-          right: 16,
-          left: 16,
-          top: 16,
-        }}
+        margin={{ right: 16, left: 16, top: 16 }}
       >
         {type !== "pie" && cartesianGrid?.length > 0 && (
           <CartesianGrid
@@ -175,8 +153,9 @@ export const Chart = (props: ChartType) => {
               {...(type !== "bar" && { dot: item?.dot ?? false })}
               {...(stack && { stackId: "a" })}
               allowReorder="yes"
+              hide={item.hidden} // 👈 سری رو مخفی می‌کنه
             >
-              {label && (
+              {label && !item.hidden && ( // 👈 فقط وقتی hidden=false لِیبِل نشون داده بشه
                 <LabelList
                   dataKey={item.key}
                   position={
@@ -237,41 +216,9 @@ export const chartMeta: CodeComponentMeta<ChartType> = {
         },
       ],
     },
-    data: {
-      type: "array",
-    },
-    dataKey: {
-      type: "object",
-      hidden: (ps) => !!ps?.type && !["pie"].includes(ps?.type),
-      nameFunc: (item: any) => item?.key,
-      fields: {
-        key: {
-          type: "choice",
-          options: (ps) => {
-            return Object.keys(ps.data?.[0] ?? []);
-          },
-        },
-        label: {
-          type: "string",
-        },
-      },
-    },
-    nameKey: {
-      type: "object",
-      hidden: (ps) => !!ps?.type && !["pie"].includes(ps?.type),
-      nameFunc: (item: any) => item?.key,
-      fields: {
-        key: {
-          type: "choice",
-          options: (ps) => {
-            return Object.keys(ps.data?.[0] ?? []);
-          },
-        },
-        label: {
-          type: "string",
-        },
-      },
-    },
+    data: { type: "array" },
+    dataKey: { ... },
+    nameKey: { ... },
     chartConfig: {
       type: "array",
       hidden: (ps) =>
@@ -290,9 +237,7 @@ export const chartMeta: CodeComponentMeta<ChartType> = {
                 : Object.keys(ps.data?.[0] ?? []);
             },
           },
-          label: {
-            type: "string",
-          },
+          label: { type: "string" },
           color: {
             type: "color",
             defaultValue: "#000000",
@@ -300,171 +245,34 @@ export const chartMeta: CodeComponentMeta<ChartType> = {
           },
           type: {
             type: "choice",
-            hidden: (ps) => {
-              return !!ps?.type && ["bar", "pie"].includes(ps?.type);
-            },
+            hidden: (ps) => !!ps?.type && ["bar", "pie"].includes(ps?.type),
             options: ["natural", "linear", "step"],
-            defaultValueHint: "natural",
             defaultValue: "natural",
           },
           dot: {
             type: "boolean",
-            hidden: (ps) => {
-              return !!ps?.type && ["bar", "pie"].includes(ps?.type);
-            },
-            defaultValueHint: false,
+            hidden: (ps) => !!ps?.type && ["bar", "pie"].includes(ps?.type),
+            defaultValue: false,
+          },
+          hidden: { // 👈 فیلد جدید
+            type: "boolean",
             defaultValue: false,
           },
         },
       },
     },
-    layout: {
-      type: "choice",
-      hidden: (ps) => {
-        return ps.type != "bar";
-      },
-      options: [
-        {
-          label: "Vertical",
-          value: "vertical",
-        },
-        {
-          label: "Horizontal",
-          value: "horizontal",
-        },
-      ],
-      defaultValue: "vertical",
-      defaultValueHint: "horizontal",
-    },
-    cartesianGrid: {
-      displayName: "Cartesian grid",
-      type: "choice",
-      hidden: (ps) => ps.type === "pie",
-      multiSelect: true,
-      options: [
-        {
-          label: "Vertical",
-          value: "vertical",
-        },
-        {
-          label: "Horizontal",
-          value: "horizontal",
-        },
-      ],
-    },
-    xAxis: {
-      displayName: "X axis",
-      type: "object",
-      hidden: (ps) => ps.type === "pie",
-      nameFunc: (item: any) => (item?.enabled ? item?.key : "Configure..."),
-      fields: {
-        enabled: "boolean",
-        key: {
-          type: "choice",
-          options: (ps) => {
-            return ["auto", ...Object.keys(ps.data?.[0] ?? [])];
-          },
-        },
-        type: {
-          type: "choice",
-          hidden: (_, __, ps) => {
-            return ps.item?.key === "auto";
-          },
-          options: [
-            {
-              label: "Category",
-              value: "category",
-            },
-            {
-              label: "Number",
-              value: "number",
-            },
-          ],
-        },
-        tickLine: "boolean",
-        tickMargin: {
-          type: "number",
-          defaultValue: 10,
-          defaultValueHint: 10,
-        },
-        axisLine: "boolean",
-      },
-    },
-    yAxis: {
-      displayName: "Y axis",
-      type: "object",
-      hidden: (ps) => ps.type === "pie",
-      nameFunc: (item: any) => (item?.enabled ? item?.key : "Configure..."),
-      fields: {
-        enabled: "boolean",
-        key: {
-          type: "choice",
-          options: (ps) => {
-            return ["auto", ...Object.keys(ps.data?.[0] ?? [])];
-          },
-        },
-        type: {
-          type: "choice",
-          hidden: (_, __, ps) => {
-            return ps.item?.key === "auto";
-          },
-          options: [
-            {
-              label: "Category",
-              value: "category",
-            },
-            {
-              label: "Number",
-              value: "number",
-            },
-          ],
-        },
-        tickLine: "boolean",
-        tickMargin: {
-          type: "number",
-          defaultValue: 10,
-          defaultValueHint: 10,
-        },
-        axisLine: "boolean",
-      },
-    },
-    tooltip: {
-      displayName: "Tooltip",
-      type: "object",
-      fields: {
-        enabled: "boolean",
-        indicator: {
-          type: "choice",
-          options: [
-            {
-              label: "dot",
-              value: "dot",
-            },
-            {
-              label: "line",
-              value: "line",
-            },
-            {
-              label: "dashed",
-              value: "dashed",
-            },
-          ],
-        },
-        hideLabel: "boolean",
-        hideIndicator: "boolean",
-      },
-    },
+    layout: { ... },
+    cartesianGrid: { ... },
+    xAxis: { ... },
+    yAxis: { ... },
+    tooltip: { ... },
     label: "boolean",
     stack: {
       type: "boolean",
       hidden: (ps) => ps.type === "pie",
     },
-    legend: {
-      type: "boolean",
-    },
+    legend: { type: "boolean" },
   },
   classNameProp: "className",
-  defaultStyles: {
-    width: "stretch",
-  },
+  defaultStyles: { width: "stretch" },
 };
