@@ -4530,18 +4530,17 @@
           "componentType": "component"
         },
         {
-          "id": "CS5zFADQGOEY",
-          "name": "But",
+          "id": "tXN0uQ-uT9R3",
+          "name": "RadioGroupLiom",
           "type": "managed",
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicBut.tsx",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicRadioGroupLiom.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/but.tsx"
+            "modulePath": "RadioGroupLiom.tsx"
           },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicBut.module.css",
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicRadioGroupLiom.module.css",
           "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/but"
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -7286,6 +7285,11 @@
           "id": "bWfz1FD9EGFL",
           "name": "image 112",
           "filePath": "../public/plasmic/liom_hamyar/images/image112.png"
+        },
+        {
+          "id": "0Efo05taqM_y",
+          "name": "IMG_5677.jpg",
+          "filePath": "../public/plasmic/liom_hamyar/images/img5677Jpg.jpg"
         }
       ],
       "indirect": false,

@@ -40,6 +40,9 @@
   border-width: 1px;
   border-color: var(--token-55cSeNPovQFh);
 }
+.rootstyle2_grayBackgerand_color_light_selected {
+  background: var(--token-IlR0iqdnKI_m);
+}
 .freeBox {
   width: 100%;
   height: auto;

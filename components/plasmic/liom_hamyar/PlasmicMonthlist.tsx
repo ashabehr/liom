@@ -510,15 +510,47 @@ function PlasmicMonthlist__RenderFunc(props: {
               </div>
             }
             loadingDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__kn8Dv
-                )}
-              >
-                {"Loading..."}
-              </div>
+              <React.Fragment>
+                <div className={classNames(projectcss.all, sty.freeBox__xrcMp)}>
+                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return [2, 4, 4, 4];
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___902M4,
+                          "shimmer"
+                        )}
+                        key={currentIndex}
+                      />
+                    );
+                  })}
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__kn8Dv
+                  )}
+                >
+                  {"Loading..."}
+                </div>
+              </React.Fragment>
             }
             method={"POST"}
             onError={async (...eventArgs: any) => {

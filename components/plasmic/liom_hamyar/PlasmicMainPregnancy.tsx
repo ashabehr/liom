@@ -531,7 +531,9 @@ function PlasmicMainPregnancy__RenderFunc(props: {
               <MainPregnancyHeader
                 data-plasmic-name={"mainHeader"}
                 data-plasmic-override={overrides.mainHeader}
-                className={classNames("__wab_instance", sty.mainHeader)}
+                className={classNames("__wab_instance", sty.mainHeader, {
+                  [sty.mainHeaderedit]: hasVariant($state, "edit", "edit")
+                })}
                 dopen={generateStateValueProp($state, ["mainHeader", "dopen"])}
                 onDopenChange2={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, [
@@ -1083,35 +1085,19 @@ function PlasmicMainPregnancy__RenderFunc(props: {
               className={classNames("__wab_instance", sty.editProfile2, {
                 [sty.editProfile2edit]: hasVariant($state, "edit", "edit")
               })}
-              token={
-                hasVariant($state, "edit", "edit")
-                  ? (() => {
-                      try {
-                        return $state.mainPage.token;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()
-                  : (() => {
-                      try {
-                        return $state.token;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()
-              }
+              token={(() => {
+                try {
+                  return $state.token;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
             />
           </Reveal>
           <BackHandler

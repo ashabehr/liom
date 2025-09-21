@@ -640,7 +640,7 @@
 }
 .section__zkPhI {
   display: grid;
-  position: relative;
+  position: fixed;
   align-content: flex-start;
   justify-items: center;
   width: auto;
@@ -651,6 +651,11 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  left: 0;
+  top: auto;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
     min(
@@ -663,22 +668,28 @@
 .section__zkPhI > * {
   grid-column: 4;
 }
+@media (max-width: 640px) {
+  .section__zkPhI > * {
+    grid-column: 4;
+  }
+}
 .freeBox__stJmD {
   display: flex;
   flex-direction: row;
-  position: fixed;
+  position: relative;
   align-items: center;
   justify-content: center;
-  width: auto;
+  width: 100%;
   height: auto;
   max-width: 100%;
   column-gap: var(--token-1KusGK5GePTh);
   background: none;
-  left: 0;
+  left: auto;
   top: auto;
   z-index: 1;
-  right: 0;
-  bottom: 0;
+  right: auto;
+  bottom: auto;
+  min-width: 0;
   padding: 0px;
 }
 .button:global(.__wab_instance) {
