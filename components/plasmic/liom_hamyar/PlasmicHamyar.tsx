@@ -636,12 +636,12 @@ function PlasmicHamyar__RenderFunc(props: {
                 try {
                   return (() => {
                     if (
-                      $state.userdata.result.user?.healthStatus?.toLowerCase() ===
+                      $state.userdata?.result?.user?.healthStatus?.toLowerCase() ===
                       "pregnancy"
                     ) {
                       return "Pregnancy";
                     } else {
-                      return $state.userdata.result.userStatus.periodStatus;
+                      return $state.userdata?.result?.userStatus?.periodStatus;
                     }
                   })();
                 } catch (e) {
@@ -850,35 +850,39 @@ function PlasmicHamyar__RenderFunc(props: {
             : (() => {
                 try {
                   return (() => {
-                    switch ($state.userdata.result.userStatus.periodStatus) {
+                    switch ($state.userdata?.result?.userStatus?.periodStatus) {
                       case null:
                         return "";
                       case "fertility":
                         if (
-                          $state.userdata.result.userStatus
-                            .daysToEndFertility == 0
+                          $state.userdata?.result?.userStatus
+                            ?.daysToEndFertility == 0
                         )
                           return "تا پایان امروز";
                         return (
-                          $state.userdata.result.userStatus.daysToEndFertility +
+                          $state.userdata?.result?.userStatus
+                            ?.daysToEndFertility +
                           " روز " +
                           "دیگر"
                         );
                       case "pms":
-                        if ($state.userdata.result.userStatus.daysToEndPms == 0)
+                        if (
+                          $state.userdata?.result?.userStatus?.daysToEndPms == 0
+                        )
                           return "تا پایان امروز";
                         return (
-                          $state.userdata.result.userStatus.daysToEndPms +
+                          $state.userdata?.result?.userStatus?.daysToEndPms +
                           " روز " +
                           "دیگر"
                         );
                       case "blood":
                         if (
-                          $state.userdata.result.userStatus.daysToEndPeriod == 0
+                          $state.userdata?.result?.userStatus
+                            ?.daysToEndPeriod == 0
                         )
                           return "تا پایان امروز";
                         return (
-                          $state.userdata.result.userStatus.daysToEndPeriod +
+                          $state.userdata?.result?.userStatus?.daysToEndPeriod +
                           " روز " +
                           "دیگر"
                         );
@@ -5171,7 +5175,7 @@ function PlasmicHamyar__RenderFunc(props: {
                           )}
                         >
                           {hasVariant($state, "noPartner", "noPartner")
-                            ? "\u0644\u0637\u0641\u0627\u064b \u0627\u0632 \u0647\u0645\u0633\u0631\u062a\u0648\u0646 \u0628\u062e\u0648\u0627\u06cc\u0646 \u062a\u0627 \u0627\u0632 \u0637\u0631\u06cc\u0642 \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0644\u06cc\u0648\u0645 \u0634\u0645\u0627 \u0631\u0648 \u0628\u0647\u200c\u0639\u0646\u0648\u0627\u0646 \u0647\u0645\u06cc\u0627\u0631 \u0627\u0636\u0627\u0641\u0647 \u06a9\u0646\u0647\u060c \u06cc\u0627 \u0628\u0627 \u062f\u06a9\u0645\u0647 \u0632\u06cc\u0631 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0642\u0627\u0639\u062f\u06af\u06cc \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u0646."
+                            ? "\u0627\u0632 \u0647\u0645\u0633\u0631\u062a \u0628\u062e\u0648\u0627\u0647 \u062a\u0648\u06cc \u0627\u067e \u0644\u06cc\u0648\u0645 \u062a\u0648 \u0631\u0648 \u0628\u0647\u200c\u0639\u0646\u0648\u0627\u0646 \u0647\u0645\u06cc\u0627\u0631 \u0627\u0636\u0627\u0641\u0647 \u06a9\u0646\u0647\u060c \u06cc\u0627 \u062e\u0648\u062f\u062a \u0628\u0627 \u062f\u06a9\u0645\u0647 \u0632\u06cc\u0631 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0642\u0627\u0639\u062f\u06af\u06cc \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646."
                             : "Enter some text"}
                         </div>
                         {(
@@ -5291,7 +5295,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                               gateway: "hamyarGuest",
                                               data: "",
                                               username:
-                                                $state.userdata?.result?.man?.id.replace(
+                                                $state.userdata?.result?.man?.id.replaceAll(
                                                   "-",
                                                   "_"
                                                 ) || "",

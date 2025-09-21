@@ -2038,20 +2038,6 @@
           "path": "/bioritm"
         },
         {
-          "id": "PDbEkiKHzqMX",
-          "name": "Pregnancy",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicPregnancy.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/pregnancyy.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicPregnancy.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/pregnancy"
-        },
-        {
           "id": "YKiT8gl73-sD",
           "name": "Notification",
           "type": "managed",
@@ -4541,6 +4527,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicRadioGroupLiom.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "PDbEkiKHzqMX",
+          "name": "Pregnancyy",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicPregnancyy.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/pregnancyy.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicPregnancyy.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/pregnancyy"
         }
       ],
       "icons": [
