@@ -87,9 +87,21 @@ export type PlasmicDetailsmonth__VariantsArgs = {};
 type VariantPropType = keyof PlasmicDetailsmonth__VariantsArgs;
 export const PlasmicDetailsmonth__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicDetailsmonth__ArgsType = {};
+export type PlasmicDetailsmonth__ArgsType = {
+  details?: string;
+  onDetailsChange?: (val: string) => void;
+  id?: string;
+  onIdChange?: (val: string) => void;
+  back?: () => void;
+};
 type ArgPropType = keyof PlasmicDetailsmonth__ArgsType;
-export const PlasmicDetailsmonth__ArgProps = new Array<ArgPropType>();
+export const PlasmicDetailsmonth__ArgProps = new Array<ArgPropType>(
+  "details",
+  "onDetailsChange",
+  "id",
+  "onIdChange",
+  "back"
+);
 
 export type PlasmicDetailsmonth__OverridesType = {
   root?: Flex__<"div">;
@@ -102,6 +114,11 @@ export type PlasmicDetailsmonth__OverridesType = {
 };
 
 export interface DefaultDetailsmonthProps {
+  details?: string;
+  onDetailsChange?: (val: string) => void;
+  id?: string;
+  onIdChange?: (val: string) => void;
+  back?: () => void;
   className?: string;
 }
 
@@ -210,10 +227,11 @@ function PlasmicDetailsmonth__RenderFunc(props: {
       },
       {
         path: "details",
-        type: "private",
+        type: "writable",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwNThlZDgzLTEwYTctNDlmMS05MTY3LTIwYzk3MjU1OTliMiIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzU3ODQyNjE3fQ.3rutUx2idb9XaNsvl3CFojPoUh9OciNK_RCJdabFIoc"
+
+        valueProp: "details",
+        onChangeProp: "onDetailsChange"
       },
       {
         path: "avgWater",
@@ -301,10 +319,11 @@ function PlasmicDetailsmonth__RenderFunc(props: {
       },
       {
         path: "id",
-        type: "private",
+        type: "writable",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "84f0de08-f31c-4e91-85b2-37dfdb0d24f7"
+
+        valueProp: "id",
+        onChangeProp: "onIdChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -338,9 +357,7 @@ function PlasmicDetailsmonth__RenderFunc(props: {
         data-plasmic-override={overrides.apiRequest}
         body={(() => {
           try {
-            return {
-              id: $state.id
-            };
+            return { id: $state.id };
           } catch (e) {
             if (
               e instanceof TypeError ||
@@ -408,7 +425,19 @@ function PlasmicDetailsmonth__RenderFunc(props: {
             eventArgs
           );
         }}
-        shouldFetch={true}
+        shouldFetch={(() => {
+          try {
+            return $state.id != "";
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return true;
+            }
+            throw e;
+          }
+        })()}
         url={"https://n8n.staas.ir/webhook/calendar/getDetails"}
       >
         <div className={classNames(projectcss.all, sty.freeBox__k9Z1)}>
@@ -1192,7 +1221,45 @@ function PlasmicDetailsmonth__RenderFunc(props: {
           data-plasmic-name={"headerLiom"}
           data-plasmic-override={overrides.headerLiom}
           className={classNames("__wab_instance", sty.headerLiom)}
-        />
+        >
+          <div className={classNames(projectcss.all, sty.freeBox__c37Nd)}>
+            <XIcon
+              className={classNames(projectcss.all, sty.svg__nCsKm)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["runBack"] = true
+                  ? (() => {
+                      const actionArgs = { eventRef: $props["back"] };
+                      return (({ eventRef, args }) => {
+                        return eventRef?.(...(args ?? []));
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runBack"] != null &&
+                  typeof $steps["runBack"] === "object" &&
+                  typeof $steps["runBack"].then === "function"
+                ) {
+                  $steps["runBack"] = await $steps["runBack"];
+                }
+              }}
+              role={"img"}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__nGTmw
+              )}
+            >
+              {
+                "\u0627\u0645\u06a9\u0627\u0646\u0627\u062a \u0648\u06cc\u0698\u0647"
+              }
+            </div>
+          </div>
+        </HeaderLiom>
       </section>
       <section className={classNames(projectcss.all, sty.section__zkPhI)}>
         <div className={classNames(projectcss.all, sty.freeBox__stJmD)}>

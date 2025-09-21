@@ -94,6 +94,8 @@ export const PlasmicSettingCycle4__VariantProps = new Array<VariantPropType>(
 );
 
 export type PlasmicSettingCycle4__ArgsType = {
+  token?: string;
+  onTokenChange?: (val: string) => void;
   onBack?: (event: any) => void;
   editTime?: string;
   onEditTimeChange2?: (val: string) => void;
@@ -102,6 +104,8 @@ export type PlasmicSettingCycle4__ArgsType = {
 };
 type ArgPropType = keyof PlasmicSettingCycle4__ArgsType;
 export const PlasmicSettingCycle4__ArgProps = new Array<ArgPropType>(
+  "token",
+  "onTokenChange",
   "onBack",
   "editTime",
   "onEditTimeChange2",
@@ -136,6 +140,8 @@ export type PlasmicSettingCycle4__OverridesType = {
 };
 
 export interface DefaultSettingCycle4Props {
+  token?: string;
+  onTokenChange?: (val: string) => void;
   onBack?: (event: any) => void;
   editTime?: string;
   onEditTimeChange2?: (val: string) => void;
@@ -479,9 +485,11 @@ function PlasmicSettingCycle4__RenderFunc(props: {
       },
       {
         path: "token",
-        type: "private",
+        type: "writable",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+
+        valueProp: "token",
+        onChangeProp: "onTokenChange"
       },
       {
         path: "loadbtn",
@@ -954,7 +962,8 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                         }
                         return "";
                       };
-                      return ($state.token = getCookie("token"));
+                      return ($state.token =
+                        getCookie("token") || $state.token);
                     })();
                   }
                 };

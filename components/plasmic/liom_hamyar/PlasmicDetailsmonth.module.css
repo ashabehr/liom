@@ -20,7 +20,7 @@
       calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
     )
     minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
-  padding: 5rem 0px;
+  padding: 0rem 0px 5rem;
 }
 .root > * {
   grid-column: 4;

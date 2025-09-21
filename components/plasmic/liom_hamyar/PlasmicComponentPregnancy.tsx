@@ -25998,38 +25998,36 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
               (async data => {
                 const $steps = {};
 
-                $steps["runCode"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            try {
-                              localStorage.setItem(
-                                "userinfo",
-                                JSON.stringify(
-                                  $state.getUserInfo?.data?.[0].result
-                                )
-                              );
-                              cosole.log(
-                                "info:" +
+                $steps["runCode"] =
+                  ($state.getUserInfo?.data?.[0]?.success || false) == true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              try {
+                                cosole.log(
+                                  "info:" + $state.getUserInfo?.data?.[0].result
+                                );
+                                localStorage.setItem(
+                                  "userinfo",
                                   JSON.stringify(
                                     $state.getUserInfo?.data?.[0].result
                                   )
-                              );
-                              console.log("saveInfo:ok");
-                              localStorage.setItem("token", $state.token);
-                              return console.log("token:ok");
-                            } catch {
-                              return console.log("saveInfo-token:errore");
-                            }
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
+                                );
+                                console.log("saveInfo:ok");
+                                localStorage.setItem("token", $state.token);
+                                return console.log("token:ok");
+                              } catch {
+                                return console.log("saveInfo-token:errore");
+                              }
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
                 if (
                   $steps["runCode"] != null &&
                   typeof $steps["runCode"] === "object" &&

@@ -63,9 +63,9 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import Line from "../../Line"; // plasmic-import: tYgE5kAlYGXB/component
-import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import Detailsmonth from "../../../src/pages/detailsmonth"; // plasmic-import: zIxrUaJyE_Qc/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -101,9 +101,9 @@ export const PlasmicMonthlist__ArgProps = new Array<ArgPropType>();
 export type PlasmicMonthlist__OverridesType = {
   root?: Flex__<"div">;
   line?: Flex__<typeof Line>;
-  apiRequest?: Flex__<typeof ApiRequest>;
   headerLiom?: Flex__<typeof HeaderLiom>;
   button?: Flex__<typeof Button>;
+  apiRequest?: Flex__<typeof ApiRequest>;
   detailsmonth?: Flex__<typeof Detailsmonth>;
 };
 
@@ -202,6 +202,31 @@ function PlasmicMonthlist__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.list
+      },
+      {
+        path: "detailsmonth.id",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+      },
+      {
+        path: "detailsmonth.details",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.token;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -237,10 +262,15 @@ function PlasmicMonthlist__RenderFunc(props: {
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
             styleTokensClassNames,
-            sty.root
+            sty.root,
+            { [sty.rootlist]: hasVariant($state, "list", "list") }
           )}
         >
-          <div className={classNames(projectcss.all, sty.freeBox___0G5Dt)}>
+          <div
+            className={classNames(projectcss.all, sty.freeBox___0G5Dt, {
+              [sty.freeBoxlist___0G5DtW16R]: hasVariant($state, "list", "list")
+            })}
+          >
             <div className={classNames(projectcss.all, sty.freeBox__bibr1)}>
               <div
                 className={classNames(
@@ -365,15 +395,15 @@ function PlasmicMonthlist__RenderFunc(props: {
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["updateToken"] = true
+                      $steps["updateDetailsmonthId"] = true
                         ? (() => {
                             const actionArgs = {
                               variable: {
                                 objRoot: $state,
-                                variablePath: ["token"]
+                                variablePath: ["detailsmonth", "id"]
                               },
                               operation: 0,
-                              value: currentItem
+                              value: currentItem.id
                             };
                             return (({
                               variable,
@@ -392,11 +422,40 @@ function PlasmicMonthlist__RenderFunc(props: {
                           })()
                         : undefined;
                       if (
-                        $steps["updateToken"] != null &&
-                        typeof $steps["updateToken"] === "object" &&
-                        typeof $steps["updateToken"].then === "function"
+                        $steps["updateDetailsmonthId"] != null &&
+                        typeof $steps["updateDetailsmonthId"] === "object" &&
+                        typeof $steps["updateDetailsmonthId"].then ===
+                          "function"
                       ) {
-                        $steps["updateToken"] = await $steps["updateToken"];
+                        $steps["updateDetailsmonthId"] = await $steps[
+                          "updateDetailsmonthId"
+                        ];
+                      }
+
+                      $steps["updateList"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              vgroup: "list",
+                              operation: 2,
+                              value: "list"
+                            };
+                            return (({ vgroup, value }) => {
+                              if (typeof value === "string") {
+                                value = [value];
+                              }
+
+                              const oldValue = $stateGet($state, vgroup);
+                              $stateSet($state, vgroup, !oldValue);
+                              return !oldValue;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateList"] != null &&
+                        typeof $steps["updateList"] === "object" &&
+                        typeof $steps["updateList"].then === "function"
+                      ) {
+                        $steps["updateList"] = await $steps["updateList"];
                       }
                     }}
                   >
@@ -532,12 +591,140 @@ function PlasmicMonthlist__RenderFunc(props: {
                 );
               })}
             </div>
+            <section
+              className={classNames(projectcss.all, sty.section__fxaoD, {
+                [sty.sectionlist__fxaoDW16R]: hasVariant($state, "list", "list")
+              })}
+            >
+              <HeaderLiom
+                data-plasmic-name={"headerLiom"}
+                data-plasmic-override={overrides.headerLiom}
+                className={classNames("__wab_instance", sty.headerLiom)}
+              >
+                <div className={classNames(projectcss.all, sty.freeBox__v4BVd)}>
+                  <XIcon
+                    className={classNames(projectcss.all, sty.svg__qi6K7)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  return window.history.back();
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    }}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__qhgGc
+                    )}
+                  >
+                    {
+                      "\u06af\u0632\u0627\u0631\u0634 \u062f\u0648\u0631\u0647 \u0647\u0627"
+                    }
+                  </div>
+                </div>
+              </HeaderLiom>
+            </section>
+            <section
+              className={classNames(projectcss.all, sty.section__lhXfm, {
+                [sty.sectionlist__lhXfmW16R]: hasVariant($state, "list", "list")
+              })}
+            >
+              <Button
+                data-plasmic-name={"button"}
+                data-plasmic-override={overrides.button}
+                className={classNames("__wab_instance", sty.button)}
+                color={generateStateValueProp($state, ["button", "color"])}
+                load={generateStateValueProp($state, ["button", "load"])}
+                loading={generateStateValueProp($state, ["button", "loading"])}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "loading"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__yx5FB
+                  )}
+                >
+                  {
+                    "\u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u0627\u0645\u0631\u0648\u0632"
+                  }
+                </div>
+              </Button>
+            </section>
           </div>
           <ApiRequest
             data-plasmic-name={"apiRequest"}
             data-plasmic-override={overrides.apiRequest}
             body={{ from: 0, size: 10 }}
-            className={classNames("__wab_instance", sty.apiRequest)}
+            className={classNames("__wab_instance", sty.apiRequest, {
+              [sty.apiRequestlist]: hasVariant($state, "list", "list")
+            })}
             config={(() => {
               try {
                 return {
@@ -621,128 +808,74 @@ function PlasmicMonthlist__RenderFunc(props: {
             url={"https://n8n.staas.ir/webhook/calendar/getDataList"}
           />
 
-          <section className={classNames(projectcss.all, sty.section__fxaoD)}>
-            <HeaderLiom
-              data-plasmic-name={"headerLiom"}
-              data-plasmic-override={overrides.headerLiom}
-              className={classNames("__wab_instance", sty.headerLiom)}
-            >
-              <div className={classNames(projectcss.all, sty.freeBox__v4BVd)}>
-                <XIcon
-                  className={classNames(projectcss.all, sty.svg__qi6K7)}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                return window.history.back();
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-                  }}
-                  role={"img"}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__qhgGc
-                  )}
-                >
-                  {
-                    "\u06af\u0632\u0627\u0631\u0634 \u062f\u0648\u0631\u0647 \u0647\u0627"
-                  }
-                </div>
-              </div>
-            </HeaderLiom>
-          </section>
-          <section className={classNames(projectcss.all, sty.section__lhXfm)}>
-            <Button
-              data-plasmic-name={"button"}
-              data-plasmic-override={overrides.button}
-              className={classNames("__wab_instance", sty.button)}
-              color={generateStateValueProp($state, ["button", "color"])}
-              load={generateStateValueProp($state, ["button", "load"])}
-              loading={generateStateValueProp($state, ["button", "loading"])}
-              onColorChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button", "color"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              onLoadChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button", "load"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              onLoadingChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button", "loading"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__yx5FB
-                )}
-              >
-                {
-                  "\u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u0627\u0645\u0631\u0648\u0632"
-                }
-              </div>
-            </Button>
-          </section>
           <Detailsmonth
             data-plasmic-name={"detailsmonth"}
             data-plasmic-override={overrides.detailsmonth}
-            className={classNames("__wab_instance", sty.detailsmonth)}
+            back={async () => {
+              const $steps = {};
+
+              $steps["updateList"] = true
+                ? (() => {
+                    const actionArgs = {
+                      vgroup: "list",
+                      operation: 2,
+                      value: "list"
+                    };
+                    return (({ vgroup, value }) => {
+                      if (typeof value === "string") {
+                        value = [value];
+                      }
+
+                      const oldValue = $stateGet($state, vgroup);
+                      $stateSet($state, vgroup, !oldValue);
+                      return !oldValue;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateList"] != null &&
+                typeof $steps["updateList"] === "object" &&
+                typeof $steps["updateList"].then === "function"
+              ) {
+                $steps["updateList"] = await $steps["updateList"];
+              }
+            }}
+            className={classNames("__wab_instance", sty.detailsmonth, {
+              [sty.detailsmonthlist]: hasVariant($state, "list", "list")
+            })}
+            details={generateStateValueProp($state, [
+              "detailsmonth",
+              "details"
+            ])}
+            id={generateStateValueProp($state, ["detailsmonth", "id"])}
+            onDetailsChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "detailsmonth",
+                "details"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onIdChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["detailsmonth", "id"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
           />
         </div>
       </div>
@@ -751,11 +884,11 @@ function PlasmicMonthlist__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "line", "apiRequest", "headerLiom", "button", "detailsmonth"],
+  root: ["root", "line", "headerLiom", "button", "apiRequest", "detailsmonth"],
   line: ["line"],
-  apiRequest: ["apiRequest"],
   headerLiom: ["headerLiom"],
   button: ["button"],
+  apiRequest: ["apiRequest"],
   detailsmonth: ["detailsmonth"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -764,9 +897,9 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   line: typeof Line;
-  apiRequest: typeof ApiRequest;
   headerLiom: typeof HeaderLiom;
   button: typeof Button;
+  apiRequest: typeof ApiRequest;
   detailsmonth: typeof Detailsmonth;
 };
 
@@ -856,9 +989,9 @@ export const PlasmicMonthlist = Object.assign(
   {
     // Helper components rendering sub-elements
     line: makeNodeComponent("line"),
-    apiRequest: makeNodeComponent("apiRequest"),
     headerLiom: makeNodeComponent("headerLiom"),
     button: makeNodeComponent("button"),
+    apiRequest: makeNodeComponent("apiRequest"),
     detailsmonth: makeNodeComponent("detailsmonth"),
 
     // Metadata about props expected for PlasmicMonthlist

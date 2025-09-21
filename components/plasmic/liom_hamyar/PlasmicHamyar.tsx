@@ -133,6 +133,7 @@ import Icon23Icon from "./icons/PlasmicIcon__Icon23"; // plasmic-import: 3iiTmpS
 import Icon202Icon from "./icons/PlasmicIcon__Icon202"; // plasmic-import: lD6NOJADOGZx/icon
 import Icon242Icon from "./icons/PlasmicIcon__Icon242"; // plasmic-import: rdGNS3m3zs7z/icon
 
+import { v4 as __lib_uuid__v4 } from "uuid";
 import __lib_copyToClipboard from "copy-to-clipboard";
 
 createPlasmicElementProxy;
@@ -170,7 +171,7 @@ export type PlasmicHamyar__OverridesType = {
   main?: Flex__<"div">;
   telegram2?: Flex__<typeof Button>;
   nopartner?: Flex__<"div">;
-  button22?: Flex__<typeof Button>;
+  createWife?: Flex__<typeof Button>;
   button17?: Flex__<typeof Button>;
   noData?: Flex__<"div">;
   cyclebox?: Flex__<typeof Cyclebox>;
@@ -243,6 +244,9 @@ export type PlasmicHamyar__OverridesType = {
 export interface DefaultHamyarProps {}
 
 const $$ = {
+  uuid: {
+    v4: __lib_uuid__v4
+  },
   copyToClipboard: __lib_copyToClipboard
 };
 
@@ -2153,19 +2157,19 @@ function PlasmicHamyar__RenderFunc(props: {
           })()
       },
       {
-        path: "button22.color",
+        path: "createWife.color",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "button22.loading",
+        path: "createWife.loading",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "button22.load",
+        path: "createWife.load",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
@@ -2181,6 +2185,57 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "kjlkjkj"
+      },
+      {
+        path: "settingCycle4.token",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "noPartner", "noPartner")
+            ? (() => {
+                try {
+                  return (() => {
+                    try {
+                      const data = window.localStorage.getItem("wifeInfo");
+                      if (!data) return "";
+                      const parsed = JSON.parse(data);
+                      return parsed?.token || "";
+                    } catch (e) {
+                      return "";
+                    }
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
+            : (() => {
+                try {
+                  return (() => {
+                    try {
+                      const data = window.localStorage.getItem("wifeInfo");
+                      if (!data) return "";
+                      const parsed = JSON.parse(data);
+                      return parsed?.token || "";
+                    } catch (e) {
+                      return "";
+                    }
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
       }
     ],
     [$props, $ctx, $refs]
@@ -5099,121 +5154,432 @@ function PlasmicHamyar__RenderFunc(props: {
                             ? "\u0644\u0637\u0641\u0627\u064b \u0627\u0632 \u0647\u0645\u0633\u0631\u062a\u0648\u0646 \u0628\u062e\u0648\u0627\u06cc\u0646 \u062a\u0627 \u0627\u0632 \u0637\u0631\u06cc\u0642 \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0644\u06cc\u0648\u0645 \u0634\u0645\u0627 \u0631\u0648 \u0628\u0647\u200c\u0639\u0646\u0648\u0627\u0646 \u0647\u0645\u06cc\u0627\u0631 \u0627\u0636\u0627\u0641\u0647 \u06a9\u0646\u0647\u060c \u06cc\u0627 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc\u0646 \u0628\u0627 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u062f\u06a9\u0645\u0647 \u0632\u06cc\u0631 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0645\u0631\u0628\u0648\u0637 \u0628\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u0647\u0645\u0633\u0631\u062a\u0648\u0646 \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f"
                             : "Enter some text"}
                         </div>
-                        <Button
-                          data-plasmic-name={"button22"}
-                          data-plasmic-override={overrides.button22}
-                          className={classNames(
-                            "__wab_instance",
-                            sty.button22,
-                            {
-                              [sty.button22noPartner]: hasVariant(
-                                $state,
-                                "noPartner",
-                                "noPartner"
-                              ),
-                              [sty.button22page_unnamedVariant]: hasVariant(
-                                $state,
-                                "page",
-                                "unnamedVariant"
-                              )
-                            }
-                          )}
-                          color={generateStateValueProp($state, [
-                            "button22",
-                            "color"
-                          ])}
-                          load={generateStateValueProp($state, [
-                            "button22",
-                            "load"
-                          ])}
-                          loading={generateStateValueProp($state, [
-                            "button22",
-                            "loading"
-                          ])}
-                          onClick={async event => {
-                            const $steps = {};
+                        {(
+                          hasVariant($state, "noPartner", "noPartner")
+                            ? (() => {
+                                try {
+                                  return (
+                                    $state.userdata?.result?.man?.id == "1" ||
+                                    $state.userdata?.result?.man?.id ==
+                                      "b60ec8fa-455a-4c93-9b25-54b6981d90cd"
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            : true
+                        ) ? (
+                          <Button
+                            data-plasmic-name={"createWife"}
+                            data-plasmic-override={overrides.createWife}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.createWife,
+                              {
+                                [sty.createWifenoPartner]: hasVariant(
+                                  $state,
+                                  "noPartner",
+                                  "noPartner"
+                                ),
+                                [sty.createWifepage_unnamedVariant]: hasVariant(
+                                  $state,
+                                  "page",
+                                  "unnamedVariant"
+                                )
+                              }
+                            )}
+                            color={generateStateValueProp($state, [
+                              "createWife",
+                              "color"
+                            ])}
+                            load={generateStateValueProp($state, [
+                              "createWife",
+                              "load"
+                            ])}
+                            loading={generateStateValueProp($state, [
+                              "createWife",
+                              "loading"
+                            ])}
+                            onClick={async event => {
+                              const $steps = {};
 
-                            $steps["updateEditCycle"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    vgroup: "editCycle",
-                                    operation: 2
-                                  };
-                                  return (({ vgroup, value }) => {
-                                    if (typeof value === "string") {
-                                      value = [value];
-                                    }
+                              $steps["updateButton22Loading"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["createWife", "loading"]
+                                      },
+                                      operation: 4
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
 
-                                    const oldValue = $stateGet($state, vgroup);
-                                    $stateSet($state, vgroup, !oldValue);
-                                    return !oldValue;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateEditCycle"] != null &&
-                              typeof $steps["updateEditCycle"] === "object" &&
-                              typeof $steps["updateEditCycle"].then ===
-                                "function"
-                            ) {
-                              $steps["updateEditCycle"] = await $steps[
-                                "updateEditCycle"
-                              ];
-                            }
-                          }}
-                          onColorChange={async (...eventArgs: any) => {
-                            ((...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "button22",
-                                "color"
-                              ])(eventArgs[0]);
-                            }).apply(null, eventArgs);
+                                      const oldValue = $stateGet(
+                                        objRoot,
+                                        variablePath
+                                      );
+                                      $stateSet(
+                                        objRoot,
+                                        variablePath,
+                                        !oldValue
+                                      );
+                                      return !oldValue;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateButton22Loading"] != null &&
+                                typeof $steps["updateButton22Loading"] ===
+                                  "object" &&
+                                typeof $steps["updateButton22Loading"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateButton22Loading"] = await $steps[
+                                  "updateButton22Loading"
+                                ];
+                              }
 
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          }}
-                          onLoadChange={async (...eventArgs: any) => {
-                            ((...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "button22",
-                                "load"
-                              ])(eventArgs[0]);
-                            }).apply(null, eventArgs);
+                              $steps["invokeGlobalAction"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      args: [
+                                        "POST",
+                                        "https://api.liom.app/auth/signup",
+                                        undefined,
+                                        (() => {
+                                          try {
+                                            return {
+                                              type: "username",
+                                              name: "همسرم",
+                                              gateway: "hamyarGuest",
+                                              data: "",
+                                              username:
+                                                $state.userdata?.result?.man
+                                                  ?.id || "",
+                                              target: "calendar",
+                                              sex: "female",
+                                              token: "",
+                                              version: "",
+                                              lang: "fa",
+                                              country: "98",
+                                              anotherLang: "fa",
+                                              device: (() => {
+                                                const userAgent =
+                                                  window.navigator.userAgent;
+                                                if (
+                                                  /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                                    userAgent
+                                                  )
+                                                ) {
+                                                  return "Mobile";
+                                                } else if (
+                                                  /Tablet|iPad/i.test(userAgent)
+                                                ) {
+                                                  return "Tablet";
+                                                } else {
+                                                  return "Desktop";
+                                                }
+                                              })(),
+                                              uniqueId: $$.uuid.v4(),
+                                              fcm: " ",
+                                              os: (() => {
+                                                const userAgent =
+                                                  window.navigator.userAgent;
+                                                const platform =
+                                                  window.navigator.userAgent;
+                                                if (/Windows/i.test(platform))
+                                                  return "Windows";
+                                                if (/Mac/i.test(platform))
+                                                  return "macOS";
+                                                if (/Linux/i.test(platform))
+                                                  return "Linux";
+                                                if (/Android/i.test(userAgent))
+                                                  return "Android";
+                                                if (
+                                                  /iPhone|iPad|iPod/i.test(
+                                                    userAgent
+                                                  )
+                                                )
+                                                  return "iOS";
+                                                return "Unknown OS";
+                                              })(),
+                                              osVersion: (() => {
+                                                const userAgent =
+                                                  window.navigator.userAgent;
+                                                if (
+                                                  /Windows NT 10.0/.test(
+                                                    userAgent
+                                                  )
+                                                )
+                                                  return "Windows 10";
+                                                if (
+                                                  /Windows NT 6.3/.test(
+                                                    userAgent
+                                                  )
+                                                )
+                                                  return "Windows 8.1";
+                                                if (
+                                                  /Windows NT 6.2/.test(
+                                                    userAgent
+                                                  )
+                                                )
+                                                  return "Windows 8";
+                                                if (
+                                                  /Windows NT 6.1/.test(
+                                                    userAgent
+                                                  )
+                                                )
+                                                  return "Windows 7";
+                                                if (
+                                                  /Mac OS X (\d+[\._]\d+)/.test(
+                                                    userAgent
+                                                  )
+                                                )
+                                                  return `macOS ${RegExp.$1.replace(
+                                                    "_",
+                                                    "."
+                                                  )}`;
+                                                if (
+                                                  /Android (\d+(\.\d+)?)/.test(
+                                                    userAgent
+                                                  )
+                                                )
+                                                  return `Android ${RegExp.$1}`;
+                                                if (
+                                                  /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                                    userAgent
+                                                  )
+                                                )
+                                                  return `iOS ${RegExp.$2.replace(
+                                                    "_",
+                                                    "."
+                                                  )}`;
+                                                return "Unknown Version";
+                                              })(),
+                                              password:
+                                                $state.userdata?.result?.man
+                                                  ?.id +
+                                                $state.userdata.result?.man
+                                                  ?.refCode,
+                                              postLang: "fa",
+                                              refCode: "",
+                                              isCountryPending: false,
+                                              device_type:
+                                                window.navigator.platform,
+                                              additionalData: {
+                                                ip: "132465",
+                                                name: "test1"
+                                              },
+                                              city: null,
+                                              state: null,
+                                              birthYear: null,
+                                              religious: 0
+                                            };
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      ]
+                                    };
+                                    return $globalActions[
+                                      "Fragment.apiRequest"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["invokeGlobalAction"] != null &&
+                                typeof $steps["invokeGlobalAction"] ===
+                                  "object" &&
+                                typeof $steps["invokeGlobalAction"].then ===
+                                  "function"
+                              ) {
+                                $steps["invokeGlobalAction"] = await $steps[
+                                  "invokeGlobalAction"
+                                ];
+                              }
 
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          }}
-                          onLoadingChange={async (...eventArgs: any) => {
-                            ((...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "button22",
-                                "loading"
-                              ])(eventArgs[0]);
-                            }).apply(null, eventArgs);
+                              $steps["runCode"] = $steps.invokeGlobalAction
+                                ?.data?.result
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return window.localStorage.setItem(
+                                          "wifeInfo",
+                                          JSON.stringify(
+                                            $steps.invokeGlobalAction.data
+                                              .result
+                                          )
+                                        );
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
 
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          }}
-                        >
-                          {hasVariant($state, "noPartner", "noPartner")
-                            ? "\u0627\u0641\u0632\u0648\u062f\u0646 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0642\u0627\u0639\u062f\u06af\u06cc"
-                            : " "}
-                        </Button>
+                              $steps["updateEditCycle"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      vgroup: "editCycle",
+                                      operation: 2
+                                    };
+                                    return (({ vgroup, value }) => {
+                                      if (typeof value === "string") {
+                                        value = [value];
+                                      }
+
+                                      const oldValue = $stateGet(
+                                        $state,
+                                        vgroup
+                                      );
+                                      $stateSet($state, vgroup, !oldValue);
+                                      return !oldValue;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateEditCycle"] != null &&
+                                typeof $steps["updateEditCycle"] === "object" &&
+                                typeof $steps["updateEditCycle"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateEditCycle"] = await $steps[
+                                  "updateEditCycle"
+                                ];
+                              }
+
+                              $steps["updateButton22Loading2"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["createWife", "loading"]
+                                      },
+                                      operation: 4
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      const oldValue = $stateGet(
+                                        objRoot,
+                                        variablePath
+                                      );
+                                      $stateSet(
+                                        objRoot,
+                                        variablePath,
+                                        !oldValue
+                                      );
+                                      return !oldValue;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateButton22Loading2"] != null &&
+                                typeof $steps["updateButton22Loading2"] ===
+                                  "object" &&
+                                typeof $steps["updateButton22Loading2"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateButton22Loading2"] = await $steps[
+                                  "updateButton22Loading2"
+                                ];
+                              }
+                            }}
+                            onColorChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "createWife",
+                                  "color"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "createWife",
+                                  "load"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadingChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "createWife",
+                                  "loading"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                          >
+                            {hasVariant($state, "noPartner", "noPartner")
+                              ? "\u0627\u0641\u0632\u0648\u062f\u0646 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0642\u0627\u0639\u062f\u06af\u06cc"
+                              : " "}
+                          </Button>
+                        ) : null}
                       </div>
                     ) : null}
                     {(
@@ -9004,7 +9370,14 @@ function PlasmicHamyar__RenderFunc(props: {
                           <div
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__l2UhF
+                              sty.freeBox__l2UhF,
+                              {
+                                [sty.freeBoxnoPartner__l2UhFc7PeD]: hasVariant(
+                                  $state,
+                                  "noPartner",
+                                  "noPartner"
+                                )
+                              }
                             )}
                           />
                         ) : null}
@@ -9044,7 +9417,15 @@ function PlasmicHamyar__RenderFunc(props: {
                                 <div
                                   className={classNames(
                                     projectcss.all,
-                                    sty.freeBox__pwA8
+                                    sty.freeBox__pwA8,
+                                    {
+                                      [sty.freeBoxnoPartner__pwA8C7PeD]:
+                                        hasVariant(
+                                          $state,
+                                          "noPartner",
+                                          "noPartner"
+                                        )
+                                    }
                                   )}
                                   key={currentIndex}
                                 >
@@ -26097,6 +26478,11 @@ function PlasmicHamyar__RenderFunc(props: {
               }
             }}
             className={classNames("__wab_instance", sty.reminder2, {
+              [sty.reminder2noPartner]: hasVariant(
+                $state,
+                "noPartner",
+                "noPartner"
+              ),
               [sty.reminder2page_reminder]: hasVariant(
                 $state,
                 "page",
@@ -26786,68 +27172,148 @@ function PlasmicHamyar__RenderFunc(props: {
             })()}
           />
 
-          <SettingCycle4
-            data-plasmic-name={"settingCycle4"}
-            data-plasmic-override={overrides.settingCycle4}
-            active={true}
-            className={classNames("__wab_instance", sty.settingCycle4, {
-              [sty.settingCycle4editCycle]: hasVariant(
-                $state,
-                "editCycle",
-                "editCycle"
-              ),
-              [sty.settingCycle4noPartner]: hasVariant(
-                $state,
-                "noPartner",
-                "noPartner"
-              ),
-              [sty.settingCycle4noPartner_editCycle]:
-                hasVariant($state, "noPartner", "noPartner") &&
-                hasVariant($state, "editCycle", "editCycle")
-            })}
-            editTime={generateStateValueProp($state, [
-              "settingCycle4",
-              "editTime"
-            ])}
-            onBack={async event => {
-              const $steps = {};
-
-              $steps["updateEditCycle"] = true
-                ? (() => {
-                    const actionArgs = { vgroup: "editCycle", operation: 6 };
-                    return (({ vgroup, value }) => {
-                      if (typeof value === "string") {
-                        value = [value];
-                      }
-
-                      $stateSet($state, vgroup, false);
-                      return false;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateEditCycle"] != null &&
-                typeof $steps["updateEditCycle"] === "object" &&
-                typeof $steps["updateEditCycle"].then === "function"
-              ) {
-                $steps["updateEditCycle"] = await $steps["updateEditCycle"];
-              }
-            }}
-            onEditTimeChange2={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, [
+          {(() => {
+            const child$Props = {
+              active: true,
+              className: classNames("__wab_instance", sty.settingCycle4, {
+                [sty.settingCycle4editCycle]: hasVariant(
+                  $state,
+                  "editCycle",
+                  "editCycle"
+                ),
+                [sty.settingCycle4noPartner]: hasVariant(
+                  $state,
+                  "noPartner",
+                  "noPartner"
+                ),
+                [sty.settingCycle4noPartner_editCycle]:
+                  hasVariant($state, "noPartner", "noPartner") &&
+                  hasVariant($state, "editCycle", "editCycle")
+              }),
+              editTime: generateStateValueProp($state, [
                 "settingCycle4",
                 "editTime"
-              ]).apply(null, eventArgs);
+              ]),
+              onBack: async event => {
+                const $steps = {};
 
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-          />
+                $steps["updateEditCycle"] = true
+                  ? (() => {
+                      const actionArgs = { vgroup: "editCycle", operation: 6 };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        $stateSet($state, vgroup, false);
+                        return false;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateEditCycle"] != null &&
+                  typeof $steps["updateEditCycle"] === "object" &&
+                  typeof $steps["updateEditCycle"].then === "function"
+                ) {
+                  $steps["updateEditCycle"] = await $steps["updateEditCycle"];
+                }
+              },
+              onEditTimeChange2: async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "settingCycle4",
+                  "editTime"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              },
+              onTokenChange: async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "settingCycle4",
+                  "token"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              },
+              token: generateStateValueProp($state, ["settingCycle4", "token"])
+            };
+
+            initializePlasmicStates(
+              $state,
+              [
+                {
+                  name: "settingCycle4.token",
+                  initFunc: ({ $props, $state, $queries }) =>
+                    hasVariant($state, "noPartner", "noPartner")
+                      ? (() => {
+                          try {
+                            return (() => {
+                              try {
+                                const data =
+                                  window.localStorage.getItem("wifeInfo");
+                                if (!data) return "";
+                                const parsed = JSON.parse(data);
+                                return parsed?.token || "";
+                              } catch (e) {
+                                return "";
+                              }
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : (() => {
+                          try {
+                            return (() => {
+                              try {
+                                const data =
+                                  window.localStorage.getItem("wifeInfo");
+                                if (!data) return "";
+                                const parsed = JSON.parse(data);
+                                return parsed?.token || "";
+                              } catch (e) {
+                                return "";
+                              }
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                }
+              ],
+              []
+            );
+            return (
+              <SettingCycle4
+                data-plasmic-name={"settingCycle4"}
+                data-plasmic-override={overrides.settingCycle4}
+                {...child$Props}
+              />
+            );
+          })()}
         </div>
       </div>
     </React.Fragment>
@@ -26861,7 +27327,7 @@ const PlasmicDescendants = {
     "main",
     "telegram2",
     "nopartner",
-    "button22",
+    "createWife",
     "button17",
     "noData",
     "cyclebox",
@@ -26935,7 +27401,7 @@ const PlasmicDescendants = {
     "main",
     "telegram2",
     "nopartner",
-    "button22",
+    "createWife",
     "button17",
     "noData",
     "cyclebox",
@@ -26977,8 +27443,8 @@ const PlasmicDescendants = {
     "heart"
   ],
   telegram2: ["telegram2"],
-  nopartner: ["nopartner", "button22", "button17"],
-  button22: ["button22"],
+  nopartner: ["nopartner", "createWife", "button17"],
+  createWife: ["createWife"],
   button17: ["button17"],
   noData: ["noData"],
   cyclebox: ["cyclebox", "lineClomp", "progress"],
@@ -27077,7 +27543,7 @@ type NodeDefaultElementType = {
   main: "div";
   telegram2: typeof Button;
   nopartner: "div";
-  button22: typeof Button;
+  createWife: typeof Button;
   button17: typeof Button;
   noData: "div";
   cyclebox: typeof Cyclebox;
@@ -27236,7 +27702,7 @@ export const PlasmicHamyar = Object.assign(
     main: makeNodeComponent("main"),
     telegram2: makeNodeComponent("telegram2"),
     nopartner: makeNodeComponent("nopartner"),
-    button22: makeNodeComponent("button22"),
+    createWife: makeNodeComponent("createWife"),
     button17: makeNodeComponent("button17"),
     noData: makeNodeComponent("noData"),
     cyclebox: makeNodeComponent("cyclebox"),

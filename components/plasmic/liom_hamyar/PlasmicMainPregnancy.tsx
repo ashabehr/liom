@@ -308,6 +308,18 @@ function PlasmicMainPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "settingCycle4.token",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+      },
+      {
+        path: "settingCycle4.editTime",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "kjlkjkj"
       }
     ],
     [$props, $ctx, $refs]
@@ -880,6 +892,10 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                   "setting"
                 )
               })}
+              editTime={generateStateValueProp($state, [
+                "settingCycle4",
+                "editTime"
+              ])}
               onBack={async event => {
                 const $steps = {};
 
@@ -909,81 +925,111 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                   $steps["updateSetting"] = await $steps["updateSetting"];
                 }
               }}
-              onEditTimeChange2={async val => {
-                const $steps = {};
+              onEditTimeChange2={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "settingCycle4",
+                  "editTime"
+                ]).apply(null, eventArgs);
 
-                $steps["updateMainPageEditTime"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["mainPage", "editTime"]
-                        },
-                        operation: 0,
-                        value: $state.settingCycle4.editTime
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
                 if (
-                  $steps["updateMainPageEditTime"] != null &&
-                  typeof $steps["updateMainPageEditTime"] === "object" &&
-                  typeof $steps["updateMainPageEditTime"].then === "function"
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
                 ) {
-                  $steps["updateMainPageEditTime"] = await $steps[
-                    "updateMainPageEditTime"
-                  ];
+                  return;
                 }
 
-                $steps["updateMainHeaderDopen"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["mainHeader", "dopen"]
-                        },
-                        operation: 0,
-                        value: console.log($state.settingCycle4.editTime)
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
+                (async val => {
+                  const $steps = {};
 
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
+                  $steps["updateMainPageEditTime"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["mainPage", "editTime"]
+                          },
+                          operation: 0,
+                          value: $state.settingCycle4.editTime
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateMainPageEditTime"] != null &&
+                    typeof $steps["updateMainPageEditTime"] === "object" &&
+                    typeof $steps["updateMainPageEditTime"].then === "function"
+                  ) {
+                    $steps["updateMainPageEditTime"] = await $steps[
+                      "updateMainPageEditTime"
+                    ];
+                  }
+
+                  $steps["updateMainHeaderDopen"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["mainHeader", "dopen"]
+                          },
+                          operation: 0,
+                          value: console.log($state.settingCycle4.editTime)
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateMainHeaderDopen"] != null &&
+                    typeof $steps["updateMainHeaderDopen"] === "object" &&
+                    typeof $steps["updateMainHeaderDopen"].then === "function"
+                  ) {
+                    $steps["updateMainHeaderDopen"] = await $steps[
+                      "updateMainHeaderDopen"
+                    ];
+                  }
+                }).apply(null, eventArgs);
+              }}
+              onTokenChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "settingCycle4",
+                  "token"
+                ]).apply(null, eventArgs);
+
                 if (
-                  $steps["updateMainHeaderDopen"] != null &&
-                  typeof $steps["updateMainHeaderDopen"] === "object" &&
-                  typeof $steps["updateMainHeaderDopen"].then === "function"
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
                 ) {
-                  $steps["updateMainHeaderDopen"] = await $steps[
-                    "updateMainHeaderDopen"
-                  ];
+                  return;
                 }
               }}
+              token={generateStateValueProp($state, ["settingCycle4", "token"])}
               userStatus={(() => {
                 try {
                   return $state.mainPage.userInfo.result.userStatus;
