@@ -1255,7 +1255,7 @@ function PlasmicDetailsmonth__RenderFunc(props: {
               )}
             >
               {
-                "\u0627\u0645\u06a9\u0627\u0646\u0627\u062a \u0648\u06cc\u0698\u0647"
+                "\u062c\u0632\u0626\u06cc\u0627\u062a \u06af\u0632\u0627\u0631\u0634"
               }
             </div>
           </div>
