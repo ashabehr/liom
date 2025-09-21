@@ -5297,7 +5297,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                               username:
                                                 $state.userdata?.result?.man?.id.replaceAll(
                                                   "-",
-                                                  "_"
+                                                  ""
                                                 ) || "",
                                               target: "calendar",
                                               sex: "female",
@@ -7270,7 +7270,7 @@ function PlasmicHamyar__RenderFunc(props: {
                       try {
                         return (() => {
                           let future1 = new Date(
-                            $state.userdata.result.userStatus.pmsStart
+                            $state.userdata?.result?.userStatus?.pmsStart
                           );
                           let current_date1 = new Date();
                           let delta1 = future1 - current_date1;
@@ -9335,16 +9335,17 @@ function PlasmicHamyar__RenderFunc(props: {
                                     try {
                                       return (() => {
                                         if (
-                                          $state.userdata.result.userStatus
-                                            .daysToEndPms == 0
+                                          $state.userdata?.result?.userStatus
+                                            ?.daysToEndPms == 0
                                         )
                                           return "تا پایان امروز";
-                                        return (
-                                          $state.userdata.result.userStatus
-                                            .daysToEndPms +
-                                          " روز " +
-                                          "دیگر"
-                                        );
+                                        return $state.userdata?.result
+                                          ?.userStatus?.daysToEndPms
+                                          ? $state.userdata?.result?.userStatus
+                                              ?.daysToEndPms +
+                                              " روز " +
+                                              "دیگر"
+                                          : "نامعلوم";
                                       })();
                                     } catch (e) {
                                       if (
@@ -9405,7 +9406,14 @@ function PlasmicHamyar__RenderFunc(props: {
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.__wab_text,
-                                  sty.text__gUb7
+                                  sty.text__gUb7,
+                                  {
+                                    [sty.textnoPartner__gUb7C7PeD]: hasVariant(
+                                      $state,
+                                      "noPartner",
+                                      "noPartner"
+                                    )
+                                  }
                                 )}
                               >
                                 <React.Fragment>
@@ -9413,7 +9421,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                     try {
                                       return (() => {
                                         let future1 = new Date(
-                                          $state.userdata.result.userStatus.pmsStart
+                                          $state.userdata?.result?.userStatus.pmsStart
                                         );
                                         let current_date1 = new Date();
                                         let delta1 = future1 - current_date1;
@@ -9422,9 +9430,9 @@ function PlasmicHamyar__RenderFunc(props: {
                                         );
                                         if (days_remaining1 == 0)
                                           return "تا پایان امروز";
-                                        return (
-                                          days_remaining1 + " روز " + "دیگر"
-                                        );
+                                        return days_remaining1
+                                          ? days_remaining1 + " روز دیگر"
+                                          : "نامعلوم";
                                       })();
                                     } catch (e) {
                                       if (
@@ -9616,7 +9624,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                       <React.Fragment>
                                         {(() => {
                                           try {
-                                            return currentItem.name + ":";
+                                            return (() => {
+                                              try {
+                                                return currentItem.name + ":";
+                                              } catch {}
+                                            })();
                                           } catch (e) {
                                             if (
                                               e instanceof TypeError ||
@@ -12257,7 +12269,7 @@ function PlasmicHamyar__RenderFunc(props: {
                         <React.Fragment>
                           {(() => {
                             try {
-                              return $state.advices[0].doc;
+                              return $state.advices?.[0]?.doc;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
