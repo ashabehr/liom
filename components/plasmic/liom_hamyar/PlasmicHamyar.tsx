@@ -5295,8 +5295,8 @@ function PlasmicHamyar__RenderFunc(props: {
                                               gateway: "hamyarGuest",
                                               data: "",
                                               username:
-                                                $state.userdata?.result?.man?.id.replaceAll(
-                                                  "-",
+                                                $state.userdata?.result?.man?.id.replace(
+                                                  /[^a-zA-Z]/g,
                                                   ""
                                                 ) || "",
                                               target: "calendar",
