@@ -113,33 +113,9 @@ export const Chart = (props: ChartType) => {
         )}
         {tooltip?.enabled && (
           <ChartPrimitive.ChartTooltip
-            content={(props) => {
-              const { payload = [], label } = props;
-        
-              // از chartConfig سری‌های مخفی رو هم اضافه می‌کنیم
-              const mergedPayload = chartConfig.map((cfg) => {
-                const found = payload.find((p) => p.dataKey === cfg.key);
-                return (
-                  found || {
-                    dataKey: cfg.key,
-                    value: payload?.[0]?.payload?.[cfg.key],
-                    color: cfg.color,
-                    name: cfg.label || cfg.key,
-                  }
-                );
-              });
-        
-              return (
-                <ChartPrimitive.ChartTooltipContent
-                  {...tooltip}
-                  payload={mergedPayload}
-                  label={label}
-                />
-              );
-            }}
+            content={<ChartPrimitive.ChartTooltipContent {...tooltip} />}
           />
         )}
-
         {type === "pie" && (
           <ComponentChart
             data={data.map((item) => ({
