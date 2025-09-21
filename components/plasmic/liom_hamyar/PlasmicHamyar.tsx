@@ -95,6 +95,7 @@ import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import MobileDialog from "../../MobileDialog"; // plasmic-import: h7ceF9lBthFF/component
 import Reminder from "../../Reminder"; // plasmic-import: 3v9tn6uUJCPM/component
 import ReminderSetting from "../../ReminderSetting"; // plasmic-import: VZcPBQBUFNbT/component
+import SettingCycle4 from "../../SettingCycle4"; // plasmic-import: C5hqeG28n8GP/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -140,20 +141,23 @@ export type PlasmicHamyar__VariantMembers = {
   lackOfCourseInformation: "lackOfCourseInformation";
   noPartner: "noPartner";
   reminder: "reminder";
-  page: "reminder";
+  page: "reminder" | "unnamedVariant";
+  editCycle: "editCycle";
 };
 export type PlasmicHamyar__VariantsArgs = {
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
   noPartner?: SingleBooleanChoiceArg<"noPartner">;
   reminder?: SingleBooleanChoiceArg<"reminder">;
-  page?: SingleChoiceArg<"reminder">;
+  page?: SingleChoiceArg<"reminder" | "unnamedVariant">;
+  editCycle?: SingleBooleanChoiceArg<"editCycle">;
 };
 type VariantPropType = keyof PlasmicHamyar__VariantsArgs;
 export const PlasmicHamyar__VariantProps = new Array<VariantPropType>(
   "lackOfCourseInformation",
   "noPartner",
   "reminder",
-  "page"
+  "page",
+  "editCycle"
 );
 
 export type PlasmicHamyar__ArgsType = {};
@@ -166,6 +170,7 @@ export type PlasmicHamyar__OverridesType = {
   main?: Flex__<"div">;
   telegram2?: Flex__<typeof Button>;
   nopartner?: Flex__<"div">;
+  button22?: Flex__<typeof Button>;
   button17?: Flex__<typeof Button>;
   noData?: Flex__<"div">;
   cyclebox?: Flex__<typeof Cyclebox>;
@@ -232,6 +237,7 @@ export type PlasmicHamyar__OverridesType = {
   remember?: Flex__<typeof ApiRequest>;
   reminder2?: Flex__<typeof Reminder>;
   reminderSetting?: Flex__<typeof ReminderSetting>;
+  settingCycle4?: Flex__<typeof SettingCycle4>;
 };
 
 export interface DefaultHamyarProps {}
@@ -2145,6 +2151,36 @@ function PlasmicHamyar__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "button22.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button22.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button22.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "editCycle",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.editCycle
+      },
+      {
+        path: "settingCycle4.editTime",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "kjlkjkj"
       }
     ],
     [$props, $ctx, $refs]
@@ -2197,6 +2233,7 @@ function PlasmicHamyar__RenderFunc(props: {
             styleTokensClassNames,
             sty.root,
             {
+              [sty.rooteditCycle]: hasVariant($state, "editCycle", "editCycle"),
               [sty.rootlackOfCourseInformation]: hasVariant(
                 $state,
                 "lackOfCourseInformation",
@@ -3232,7 +3269,9 @@ function PlasmicHamyar__RenderFunc(props: {
           />
 
           {(
-            hasVariant($state, "page", "reminder")
+            hasVariant($state, "editCycle", "editCycle")
+              ? true
+              : hasVariant($state, "page", "reminder")
               ? true
               : hasVariant($state, "reminder", "reminder")
               ? true
@@ -3259,6 +3298,11 @@ function PlasmicHamyar__RenderFunc(props: {
               data-plasmic-name={"main"}
               data-plasmic-override={overrides.main}
               className={classNames(projectcss.all, sty.main, {
+                [sty.maineditCycle]: hasVariant(
+                  $state,
+                  "editCycle",
+                  "editCycle"
+                ),
                 [sty.mainlackOfCourseInformation]: hasVariant(
                   $state,
                   "lackOfCourseInformation",
@@ -5052,9 +5096,124 @@ function PlasmicHamyar__RenderFunc(props: {
                           )}
                         >
                           {hasVariant($state, "noPartner", "noPartner")
-                            ? "\u0644\u0637\u0641\u0627 \u0627\u0632 \u0647\u0645\u0633\u0631 \u062e\u0648\u062f \u0628\u062e\u0648\u0627\u0647\u06cc\u062f \u062a\u0627 \u0627\u0632 \u0637\u0631\u06cc\u0642 \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0644\u06cc\u0648\u0645 \u0634\u0645\u0627 \u0631\u0627 \u0628\u0639\u0646\u0648\u0627\u0646 \u0647\u0645\u06cc\u0627\u0631 \u062e\u0648\u062f \u0627\u0636\u0627\u0641\u0647 \u06a9\u0646\u062f"
+                            ? "\u0644\u0637\u0641\u0627\u064b \u0627\u0632 \u0647\u0645\u0633\u0631\u062a\u0648\u0646 \u0628\u062e\u0648\u0627\u06cc\u0646 \u062a\u0627 \u0627\u0632 \u0637\u0631\u06cc\u0642 \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0644\u06cc\u0648\u0645 \u0634\u0645\u0627 \u0631\u0648 \u0628\u0647\u200c\u0639\u0646\u0648\u0627\u0646 \u0647\u0645\u06cc\u0627\u0631 \u0627\u0636\u0627\u0641\u0647 \u06a9\u0646\u0647\u060c \u06cc\u0627 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc\u0646 \u0628\u0627 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u062f\u06a9\u0645\u0647 \u0632\u06cc\u0631 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0645\u0631\u0628\u0648\u0637 \u0628\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u0647\u0645\u0633\u0631\u062a\u0648\u0646 \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f"
                             : "Enter some text"}
                         </div>
+                        <Button
+                          data-plasmic-name={"button22"}
+                          data-plasmic-override={overrides.button22}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.button22,
+                            {
+                              [sty.button22noPartner]: hasVariant(
+                                $state,
+                                "noPartner",
+                                "noPartner"
+                              ),
+                              [sty.button22page_unnamedVariant]: hasVariant(
+                                $state,
+                                "page",
+                                "unnamedVariant"
+                              )
+                            }
+                          )}
+                          color={generateStateValueProp($state, [
+                            "button22",
+                            "color"
+                          ])}
+                          load={generateStateValueProp($state, [
+                            "button22",
+                            "load"
+                          ])}
+                          loading={generateStateValueProp($state, [
+                            "button22",
+                            "loading"
+                          ])}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["updateEditCycle"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    vgroup: "editCycle",
+                                    operation: 2
+                                  };
+                                  return (({ vgroup, value }) => {
+                                    if (typeof value === "string") {
+                                      value = [value];
+                                    }
+
+                                    const oldValue = $stateGet($state, vgroup);
+                                    $stateSet($state, vgroup, !oldValue);
+                                    return !oldValue;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateEditCycle"] != null &&
+                              typeof $steps["updateEditCycle"] === "object" &&
+                              typeof $steps["updateEditCycle"].then ===
+                                "function"
+                            ) {
+                              $steps["updateEditCycle"] = await $steps[
+                                "updateEditCycle"
+                              ];
+                            }
+                          }}
+                          onColorChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button22",
+                                "color"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                          onLoadChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button22",
+                                "load"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                          onLoadingChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button22",
+                                "loading"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                        >
+                          {hasVariant($state, "noPartner", "noPartner")
+                            ? "\u0627\u0641\u0632\u0648\u062f\u0646 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0642\u0627\u0639\u062f\u06af\u06cc"
+                            : " "}
+                        </Button>
                       </div>
                     ) : null}
                     {(
@@ -21090,7 +21249,9 @@ function PlasmicHamyar__RenderFunc(props: {
             </div>
           ) : null}
           {(
-            hasVariant($state, "page", "reminder")
+            hasVariant($state, "editCycle", "editCycle")
+              ? true
+              : hasVariant($state, "page", "reminder")
               ? true
               : hasVariant($state, "reminder", "reminder")
               ? true
@@ -21112,6 +21273,11 @@ function PlasmicHamyar__RenderFunc(props: {
               data-plasmic-name={"loading"}
               data-plasmic-override={overrides.loading}
               className={classNames(projectcss.all, sty.loading, {
+                [sty.loadingeditCycle]: hasVariant(
+                  $state,
+                  "editCycle",
+                  "editCycle"
+                ),
                 [sty.loadingnoPartner]: hasVariant(
                   $state,
                   "noPartner",
@@ -21290,7 +21456,9 @@ function PlasmicHamyar__RenderFunc(props: {
           />
 
           {(
-            hasVariant($state, "noPartner", "noPartner")
+            hasVariant($state, "editCycle", "editCycle")
+              ? true
+              : hasVariant($state, "noPartner", "noPartner")
               ? true
               : (() => {
                   try {
@@ -21311,6 +21479,11 @@ function PlasmicHamyar__RenderFunc(props: {
           ) ? (
             <div
               className={classNames(projectcss.all, sty.freeBox__sVmd2, {
+                [sty.freeBoxeditCycle__sVmd2U9Adl]: hasVariant(
+                  $state,
+                  "editCycle",
+                  "editCycle"
+                ),
                 [sty.freeBoxnoPartner__sVmd2C7PeD]: hasVariant(
                   $state,
                   "noPartner",
@@ -21448,6 +21621,8 @@ function PlasmicHamyar__RenderFunc(props: {
             hasVariant($state, "page", "reminder") &&
             hasVariant($state, "reminder", "reminder")
               ? true
+              : hasVariant($state, "editCycle", "editCycle")
+              ? true
               : hasVariant($state, "page", "reminder")
               ? true
               : hasVariant($state, "reminder", "reminder")
@@ -21473,6 +21648,11 @@ function PlasmicHamyar__RenderFunc(props: {
               data-plasmic-name={"section"}
               data-plasmic-override={overrides.section}
               className={classNames(projectcss.all, sty.section, {
+                [sty.sectioneditCycle]: hasVariant(
+                  $state,
+                  "editCycle",
+                  "editCycle"
+                ),
                 [sty.sectionnoPartner]: hasVariant(
                   $state,
                   "noPartner",
@@ -21531,6 +21711,11 @@ function PlasmicHamyar__RenderFunc(props: {
                         projectcss.all,
                         sty.freeBox__j5Sw8,
                         {
+                          [sty.freeBoxeditCycle__j5Sw8U9Adl]: hasVariant(
+                            $state,
+                            "editCycle",
+                            "editCycle"
+                          ),
                           [sty.freeBoxnoPartner__j5Sw8C7PeD]: hasVariant(
                             $state,
                             "noPartner",
@@ -26600,6 +26785,69 @@ function PlasmicHamyar__RenderFunc(props: {
               }
             })()}
           />
+
+          <SettingCycle4
+            data-plasmic-name={"settingCycle4"}
+            data-plasmic-override={overrides.settingCycle4}
+            active={true}
+            className={classNames("__wab_instance", sty.settingCycle4, {
+              [sty.settingCycle4editCycle]: hasVariant(
+                $state,
+                "editCycle",
+                "editCycle"
+              ),
+              [sty.settingCycle4noPartner]: hasVariant(
+                $state,
+                "noPartner",
+                "noPartner"
+              ),
+              [sty.settingCycle4noPartner_editCycle]:
+                hasVariant($state, "noPartner", "noPartner") &&
+                hasVariant($state, "editCycle", "editCycle")
+            })}
+            editTime={generateStateValueProp($state, [
+              "settingCycle4",
+              "editTime"
+            ])}
+            onBack={async event => {
+              const $steps = {};
+
+              $steps["updateEditCycle"] = true
+                ? (() => {
+                    const actionArgs = { vgroup: "editCycle", operation: 6 };
+                    return (({ vgroup, value }) => {
+                      if (typeof value === "string") {
+                        value = [value];
+                      }
+
+                      $stateSet($state, vgroup, false);
+                      return false;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateEditCycle"] != null &&
+                typeof $steps["updateEditCycle"] === "object" &&
+                typeof $steps["updateEditCycle"].then === "function"
+              ) {
+                $steps["updateEditCycle"] = await $steps["updateEditCycle"];
+              }
+            }}
+            onEditTimeChange2={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "settingCycle4",
+                "editTime"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -26613,6 +26861,7 @@ const PlasmicDescendants = {
     "main",
     "telegram2",
     "nopartner",
+    "button22",
     "button17",
     "noData",
     "cyclebox",
@@ -26678,13 +26927,15 @@ const PlasmicDescendants = {
     "button18",
     "remember",
     "reminder2",
-    "reminderSetting"
+    "reminderSetting",
+    "settingCycle4"
   ],
   sideEffect: ["sideEffect"],
   main: [
     "main",
     "telegram2",
     "nopartner",
+    "button22",
     "button17",
     "noData",
     "cyclebox",
@@ -26726,7 +26977,8 @@ const PlasmicDescendants = {
     "heart"
   ],
   telegram2: ["telegram2"],
-  nopartner: ["nopartner", "button17"],
+  nopartner: ["nopartner", "button22", "button17"],
+  button22: ["button22"],
   button17: ["button17"],
   noData: ["noData"],
   cyclebox: ["cyclebox", "lineClomp", "progress"],
@@ -26813,7 +27065,8 @@ const PlasmicDescendants = {
   button18: ["button18"],
   remember: ["remember"],
   reminder2: ["reminder2"],
-  reminderSetting: ["reminderSetting"]
+  reminderSetting: ["reminderSetting"],
+  settingCycle4: ["settingCycle4"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -26824,6 +27077,7 @@ type NodeDefaultElementType = {
   main: "div";
   telegram2: typeof Button;
   nopartner: "div";
+  button22: typeof Button;
   button17: typeof Button;
   noData: "div";
   cyclebox: typeof Cyclebox;
@@ -26890,6 +27144,7 @@ type NodeDefaultElementType = {
   remember: typeof ApiRequest;
   reminder2: typeof Reminder;
   reminderSetting: typeof ReminderSetting;
+  settingCycle4: typeof SettingCycle4;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -26981,6 +27236,7 @@ export const PlasmicHamyar = Object.assign(
     main: makeNodeComponent("main"),
     telegram2: makeNodeComponent("telegram2"),
     nopartner: makeNodeComponent("nopartner"),
+    button22: makeNodeComponent("button22"),
     button17: makeNodeComponent("button17"),
     noData: makeNodeComponent("noData"),
     cyclebox: makeNodeComponent("cyclebox"),
@@ -27047,6 +27303,7 @@ export const PlasmicHamyar = Object.assign(
     remember: makeNodeComponent("remember"),
     reminder2: makeNodeComponent("reminder2"),
     reminderSetting: makeNodeComponent("reminderSetting"),
+    settingCycle4: makeNodeComponent("settingCycle4"),
 
     // Metadata about props expected for PlasmicHamyar
     internalVariantProps: PlasmicHamyar__VariantProps,

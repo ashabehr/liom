@@ -18238,7 +18238,15 @@ function PlasmicCalendar__RenderFunc(props: {
                             data-plasmic-override={overrides.button16}
                             className={classNames(
                               "__wab_instance",
-                              sty.button16
+                              sty.button16,
+                              {
+                                [sty.button16lackOfCourseInformation]:
+                                  hasVariant(
+                                    $state,
+                                    "lackOfCourseInformation",
+                                    "lackOfCourseInformation"
+                                  )
+                              }
                             )}
                             color={generateStateValueProp($state, [
                               "button16",
