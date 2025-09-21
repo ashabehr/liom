@@ -509,6 +509,40 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
                       ];
                     }
 
+                    $steps["updateDopen"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["dopen"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDopen"] != null &&
+                      typeof $steps["updateDopen"] === "object" &&
+                      typeof $steps["updateDopen"].then === "function"
+                    ) {
+                      $steps["updateDopen"] = await $steps["updateDopen"];
+                    }
+
                     $steps["invokeGlobalAction"] = true
                       ? (() => {
                           const actionArgs = {
@@ -573,40 +607,6 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
                       $steps["invokeGlobalAction"] = await $steps[
                         "invokeGlobalAction"
                       ];
-                    }
-
-                    $steps["updateDopen"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["dopen"]
-                            },
-                            operation: 0,
-                            value: false
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateDopen"] != null &&
-                      typeof $steps["updateDopen"] === "object" &&
-                      typeof $steps["updateDopen"].then === "function"
-                    ) {
-                      $steps["updateDopen"] = await $steps["updateDopen"];
                     }
                   }}
                 >

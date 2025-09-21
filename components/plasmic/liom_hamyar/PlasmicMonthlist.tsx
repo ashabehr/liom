@@ -342,6 +342,29 @@ function PlasmicMonthlist__RenderFunc(props: {
                   <div
                     className={classNames(projectcss.all, sty.freeBox___0Jo)}
                     key={currentIndex}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return ($ctx.pageRoute = "/detailmonth");
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    }}
                   >
                     <div
                       className={classNames(
@@ -510,47 +533,36 @@ function PlasmicMonthlist__RenderFunc(props: {
               </div>
             }
             loadingDisplay={
-              <React.Fragment>
-                <div className={classNames(projectcss.all, sty.freeBox__xrcMp)}>
-                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                    (() => {
-                      try {
-                        return [2, 4, 4, 4];
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
+              <div className={classNames(projectcss.all, sty.freeBox__xrcMp)}>
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return [2, 4, 4, 4];
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
                       }
-                    })()
-                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                    const currentItem = __plasmic_item_0;
-                    const currentIndex = __plasmic_idx_0;
-                    return (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___902M4,
-                          "shimmer"
-                        )}
-                        key={currentIndex}
-                      />
-                    );
-                  })}
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__kn8Dv
-                  )}
-                >
-                  {"Loading..."}
-                </div>
-              </React.Fragment>
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___902M4,
+                        "shimmer"
+                      )}
+                      key={currentIndex}
+                    />
+                  );
+                })}
+              </div>
             }
             method={"POST"}
             onError={async (...eventArgs: any) => {

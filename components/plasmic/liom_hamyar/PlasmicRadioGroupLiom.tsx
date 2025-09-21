@@ -98,7 +98,6 @@ export const PlasmicRadioGroupLiom__ArgProps = new Array<ArgPropType>(
 export type PlasmicRadioGroupLiom__OverridesType = {
   root?: Flex__<"div">;
   radioGrop?: Flex__<typeof RadioGrop>;
-  text?: Flex__<"div">;
 };
 
 export interface DefaultRadioGroupLiomProps {
@@ -282,31 +281,21 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
             })()}
             style2={"grayBackgerand"}
           >
-            <div
-              data-plasmic-name={"text"}
-              data-plasmic-override={overrides.text}
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return currentItem.label;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
-                    }
-                    throw e;
+            <React.Fragment>
+              {(() => {
+                try {
+                  return currentItem.label;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "";
                   }
-                })()}
-              </React.Fragment>
-            </div>
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
           </RadioGrop>
         );
       })}
@@ -315,9 +304,8 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "radioGrop", "text"],
-  radioGrop: ["radioGrop", "text"],
-  text: ["text"]
+  root: ["root", "radioGrop"],
+  radioGrop: ["radioGrop"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -325,7 +313,6 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   radioGrop: typeof RadioGrop;
-  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -389,7 +376,6 @@ export const PlasmicRadioGroupLiom = Object.assign(
   {
     // Helper components rendering sub-elements
     radioGrop: makeNodeComponent("radioGrop"),
-    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicRadioGroupLiom
     internalVariantProps: PlasmicRadioGroupLiom__VariantProps,

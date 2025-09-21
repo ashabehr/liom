@@ -60,7 +60,6 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
-import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import TextInput from "../../TextInput"; // plasmic-import: cOSV4CnhD7mN/component
 import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
@@ -115,7 +114,6 @@ export const PlasmicEditProfile2__ArgProps = new Array<ArgPropType>(
 export type PlasmicEditProfile2__OverridesType = {
   root?: Flex__<"div">;
   embedHtml?: Flex__<typeof Embed>;
-  sideEffect?: Flex__<typeof SideEffect>;
   getInfo?: Flex__<typeof ApiRequest>;
   verticalIdentity2?: Flex__<"div">;
   verticalForNameInput2?: Flex__<"div">;
@@ -932,37 +930,6 @@ function PlasmicEditProfile2__RenderFunc(props: {
         code={
           '<script src="https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js"></script>\r\n'
         }
-      />
-
-      <SideEffect
-        data-plasmic-name={"sideEffect"}
-        data-plasmic-override={overrides.sideEffect}
-        className={classNames("__wab_instance", sty.sideEffect)}
-        onMount={async () => {
-          const $steps = {};
-
-          $steps["runCode"] = true
-            ? (() => {
-                const actionArgs = {
-                  customFunction: async () => {
-                    return (() => {
-                      return console.log("token-rominaaa:" + $state.token);
-                    })();
-                  }
-                };
-                return (({ customFunction }) => {
-                  return customFunction();
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["runCode"] != null &&
-            typeof $steps["runCode"] === "object" &&
-            typeof $steps["runCode"].then === "function"
-          ) {
-            $steps["runCode"] = await $steps["runCode"];
-          }
-        }}
       />
 
       <ApiRequest
@@ -4463,7 +4430,6 @@ const PlasmicDescendants = {
   root: [
     "root",
     "embedHtml",
-    "sideEffect",
     "getInfo",
     "verticalIdentity2",
     "verticalForNameInput2",
@@ -4530,7 +4496,6 @@ const PlasmicDescendants = {
     "backHandler"
   ],
   embedHtml: ["embedHtml"],
-  sideEffect: ["sideEffect"],
   getInfo: [
     "getInfo",
     "verticalIdentity2",
@@ -4752,7 +4717,6 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   embedHtml: typeof Embed;
-  sideEffect: typeof SideEffect;
   getInfo: typeof ApiRequest;
   verticalIdentity2: "div";
   verticalForNameInput2: "div";
@@ -4880,7 +4844,6 @@ export const PlasmicEditProfile2 = Object.assign(
   {
     // Helper components rendering sub-elements
     embedHtml: makeNodeComponent("embedHtml"),
-    sideEffect: makeNodeComponent("sideEffect"),
     getInfo: makeNodeComponent("getInfo"),
     verticalIdentity2: makeNodeComponent("verticalIdentity2"),
     verticalForNameInput2: makeNodeComponent("verticalForNameInput2"),

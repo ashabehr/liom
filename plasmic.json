@@ -4513,7 +4513,7 @@
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicDetailsmonth.module.css",
           "scheme": "blackbox",
-          "componentType": "page",
+          "componentType": "component",
           "path": "/detailsmonth"
         },
         {

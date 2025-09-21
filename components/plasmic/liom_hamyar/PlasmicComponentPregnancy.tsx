@@ -26048,7 +26048,19 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 throw e;
               }
             })()}
-            shouldFetch={true}
+            shouldFetch={(() => {
+              try {
+                return $state.token != "";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()}
             url={"https://n8n.staas.ir/webhook/userInfo_v2"}
           />
 
