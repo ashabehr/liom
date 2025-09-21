@@ -234,7 +234,7 @@ function PlasmicHamyarAdd__RenderFunc(props: {
         path: "name2.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "textInput2.value",

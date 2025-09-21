@@ -84,13 +84,16 @@ createPlasmicElementProxy;
 
 export type PlasmicSettingCycle4__VariantMembers = {
   dark: "dark";
+  hamyar: "hamyar";
 };
 export type PlasmicSettingCycle4__VariantsArgs = {
   dark?: SingleBooleanChoiceArg<"dark">;
+  hamyar?: SingleBooleanChoiceArg<"hamyar">;
 };
 type VariantPropType = keyof PlasmicSettingCycle4__VariantsArgs;
 export const PlasmicSettingCycle4__VariantProps = new Array<VariantPropType>(
-  "dark"
+  "dark",
+  "hamyar"
 );
 
 export type PlasmicSettingCycle4__ArgsType = {
@@ -101,6 +104,7 @@ export type PlasmicSettingCycle4__ArgsType = {
   onEditTimeChange2?: (val: string) => void;
   userStatus?: any;
   active?: boolean;
+  click?: () => void;
 };
 type ArgPropType = keyof PlasmicSettingCycle4__ArgsType;
 export const PlasmicSettingCycle4__ArgProps = new Array<ArgPropType>(
@@ -110,7 +114,8 @@ export const PlasmicSettingCycle4__ArgProps = new Array<ArgPropType>(
   "editTime",
   "onEditTimeChange2",
   "userStatus",
-  "active"
+  "active",
+  "click"
 );
 
 export type PlasmicSettingCycle4__OverridesType = {
@@ -147,7 +152,9 @@ export interface DefaultSettingCycle4Props {
   onEditTimeChange2?: (val: string) => void;
   userStatus?: any;
   active?: boolean;
+  click?: () => void;
   dark?: SingleBooleanChoiceArg<"dark">;
+  hamyar?: SingleBooleanChoiceArg<"hamyar">;
   className?: string;
 }
 
@@ -904,6 +911,12 @@ function PlasmicSettingCycle4__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "hamyar",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.hamyar
       }
     ],
     [$props, $ctx, $refs]
@@ -930,7 +943,10 @@ function PlasmicSettingCycle4__RenderFunc(props: {
         projectcss.plasmic_mixins,
         styleTokensClassNames,
         sty.root,
-        { [sty.rootdark]: hasVariant($state, "dark", "dark") }
+        {
+          [sty.rootdark]: hasVariant($state, "dark", "dark"),
+          [sty.roothamyar]: hasVariant($state, "hamyar", "hamyar")
+        }
       )}
     >
       <Embed
@@ -1040,7 +1056,16 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                 projectcss.__wab_text,
                 sty.text__xUyu4,
                 {
-                  [sty.textdark__xUyu4Rm0PC]: hasVariant($state, "dark", "dark")
+                  [sty.textdark__xUyu4Rm0PC]: hasVariant(
+                    $state,
+                    "dark",
+                    "dark"
+                  ),
+                  [sty.texthamyar__xUyu4Aa3Ay]: hasVariant(
+                    $state,
+                    "hamyar",
+                    "hamyar"
+                  )
                 }
               )}
             >
@@ -1059,13 +1084,18 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                       $state,
                       "dark",
                       "dark"
+                    ),
+                    [sty.texthamyar__rmIq3Aa3Ay]: hasVariant(
+                      $state,
+                      "hamyar",
+                      "hamyar"
                     )
                   }
                 )}
               >
-                {
-                  "\u0645\u0639\u0645\u0648\u0644\u0627 \u0686\u0646\u062f \u0631\u0648\u0632 \u062e\u0648\u0646\u0631\u06cc\u0632\u06cc \u062f\u0627\u0631\u06cc\u061f"
-                }
+                {hasVariant($state, "hamyar", "hamyar")
+                  ? "\u0645\u0639\u0645\u0648\u0644\u0627 \u0686\u0646\u062f \u0631\u0648\u0632 \u062e\u0648\u0646\u0631\u06cc\u0632\u06cc \u062f\u0627\u0631\u0647\u061f"
+                  : "\u0645\u0639\u0645\u0648\u0644\u0627 \u0686\u0646\u062f \u0631\u0648\u0632 \u062e\u0648\u0646\u0631\u06cc\u0632\u06cc \u062f\u0627\u0631\u06cc\u061f"}
               </div>
               <div
                 className={classNames(
@@ -1173,7 +1203,15 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                 })()}
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__crw4C)}>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__crw4C, {
+                [sty.freeBoxhamyar__crw4CAa3Ay]: hasVariant(
+                  $state,
+                  "hamyar",
+                  "hamyar"
+                )
+              })}
+            >
               <div
                 className={classNames(
                   projectcss.all,
@@ -1184,13 +1222,18 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                       $state,
                       "dark",
                       "dark"
+                    ),
+                    [sty.texthamyar__zrS5CAa3Ay]: hasVariant(
+                      $state,
+                      "hamyar",
+                      "hamyar"
                     )
                   }
                 )}
               >
-                {
-                  "\u0637\u0648\u0644 \u0633\u06cc\u06a9\u0644 \u067e\u0631\u06cc\u0648\u062f \u0634\u0645\u0627 \u0686\u0646\u062f \u0631\u0648\u0632 \u0627\u0633\u062a\u061f"
-                }
+                {hasVariant($state, "hamyar", "hamyar")
+                  ? "\u0637\u0648\u0644 \u0633\u06cc\u06a9\u0644 \u067e\u0631\u06cc\u0648\u062f\u0634  \u0686\u0646\u062f \u0631\u0648\u0632 \u0627\u0633\u062a\u061f"
+                  : "\u0637\u0648\u0644 \u0633\u06cc\u06a9\u0644 \u067e\u0631\u06cc\u0648\u062f \u0634\u0645\u0627 \u0686\u0646\u062f \u0631\u0648\u0632 \u0627\u0633\u062a\u061f"}
               </div>
               <div
                 className={classNames(
@@ -1298,13 +1341,18 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                       $state,
                       "dark",
                       "dark"
+                    ),
+                    [sty.texthamyar__fdESaAa3Ay]: hasVariant(
+                      $state,
+                      "hamyar",
+                      "hamyar"
                     )
                   }
                 )}
               >
-                {
-                  '\u0641\u0627\u0635\u0644\u0647 \u0627\u0648\u0644\u06cc\u0646 \u0642\u0627\u0639\u062f\u06af\u06cc \u062a\u0627 \u0634\u0631\u0648\u0639 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0639\u062f\u06cc\u062a \u0627\u0633\u062a. ( \u062d\u0648\u0627\u0633\u062a \u0628\u0627\u0634\u0647 \u06a9\u0647 \u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u067e\u0631\u06cc\u0648\u062f\u062a "\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc"  \u0631\u0648\u0647\u0645 \u062d\u0633\u0627\u0628 \u06a9\u0646\u06cc)'
-                }
+                {hasVariant($state, "hamyar", "hamyar")
+                  ? '\u0641\u0627\u0635\u0644\u0647 \u0627\u0648\u0644\u06cc\u0646 \u0642\u0627\u0639\u062f\u06af\u06cc \u062a\u0627 \u0634\u0631\u0648\u0639 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0639\u062f\u06cc \u0627\u0633\u062a. ( \u062d\u0648\u0627\u0633\u062a \u0628\u0627\u0634\u0647 \u06a9\u0647 \u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u067e\u0631\u06cc\u0648\u062f "\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc"  \u0631\u0648\u0647\u0645 \u062d\u0633\u0627\u0628 \u06a9\u0646\u06cc)'
+                  : '\u0641\u0627\u0635\u0644\u0647 \u0627\u0648\u0644\u06cc\u0646 \u0642\u0627\u0639\u062f\u06af\u06cc \u062a\u0627 \u0634\u0631\u0648\u0639 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0639\u062f\u06cc\u062a \u0627\u0633\u062a. ( \u062d\u0648\u0627\u0633\u062a \u0628\u0627\u0634\u0647 \u06a9\u0647 \u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u067e\u0631\u06cc\u0648\u062f\u062a "\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc"  \u0631\u0648\u0647\u0645 \u062d\u0633\u0627\u0628 \u06a9\u0646\u06cc)'}
               </div>
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__nQ7IJ)}>
@@ -1318,13 +1366,18 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                       $state,
                       "dark",
                       "dark"
+                    ),
+                    [sty.texthamyar__yuIbIAa3Ay]: hasVariant(
+                      $state,
+                      "hamyar",
+                      "hamyar"
                     )
                   }
                 )}
               >
-                {
-                  "\u06a9\u06cc \u067e\u0631\u06cc\u0648\u062f \u0645\u06cc\u0634\u06cc\u062f\u061f"
-                }
+                {hasVariant($state, "hamyar", "hamyar")
+                  ? "\u06a9\u06cc \u067e\u0631\u06cc\u0648\u062f \u0645\u06cc\u0634\u0647\u061f"
+                  : "\u06a9\u06cc \u067e\u0631\u06cc\u0648\u062f \u0645\u06cc\u0634\u06cc\u062f\u061f"}
               </div>
               <div
                 className={classNames(
@@ -1336,6 +1389,11 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                       $state,
                       "dark",
                       "dark"
+                    ),
+                    [sty.freeBoxhamyar__hMqpqAa3Ay]: hasVariant(
+                      $state,
+                      "hamyar",
+                      "hamyar"
                     )
                   }
                 )}
@@ -1410,7 +1468,16 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                 {(() => {
                   const child$Props = {
                     className: classNames("__wab_instance", sty.lastTimeBox3, {
-                      [sty.lastTimeBox3dark]: hasVariant($state, "dark", "dark")
+                      [sty.lastTimeBox3dark]: hasVariant(
+                        $state,
+                        "dark",
+                        "dark"
+                      ),
+                      [sty.lastTimeBox3hamyar]: hasVariant(
+                        $state,
+                        "hamyar",
+                        "hamyar"
+                      )
                     }),
                     onChange: async (...eventArgs: any) => {
                       generateStateOnChangePropForCodeComponents(
@@ -1486,13 +1553,18 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                         $state,
                         "dark",
                         "dark"
+                      ),
+                      [sty.texthamyar__visWpAa3Ay]: hasVariant(
+                        $state,
+                        "hamyar",
+                        "hamyar"
                       )
                     }
                   )}
                 >
-                  {
-                    "\u062d\u0627\u0644\u0627 \u06a9\u0647 \u06cc\u0627\u062f\u062a \u0646\u0645\u06cc\u0627\u062f \u06a9\u06cc \u067e\u0631\u06cc\u0648\u062f \u0645\u06cc\u0634\u06cc\u060c \u0645\u06cc\u062f\u0648\u0646\u06cc \u0622\u062e\u0631\u06cc\u0646 \u0628\u0627\u0631 \u06a9\u06cc \u067e\u0631\u06cc\u0648\u062f \u0634\u062f\u06cc\u061f"
-                  }
+                  {hasVariant($state, "hamyar", "hamyar")
+                    ? "\u062d\u0627\u0644\u0627 \u06a9\u0647 \u06cc\u0627\u062f\u062a \u0646\u0645\u06cc\u0627\u062f \u06a9\u06cc \u067e\u0631\u06cc\u0648\u062f \u0645\u06cc\u0634\u0647\u060c \u0645\u06cc\u062f\u0648\u0646\u06cc \u0622\u062e\u0631\u06cc\u0646 \u0628\u0627\u0631 \u06a9\u06cc \u067e\u0631\u06cc\u0648\u062f \u0634\u062f\u0647\u061f"
+                    : "\u062d\u0627\u0644\u0627 \u06a9\u0647 \u06cc\u0627\u062f\u062a \u0646\u0645\u06cc\u0627\u062f \u06a9\u06cc \u067e\u0631\u06cc\u0648\u062f \u0645\u06cc\u0634\u06cc\u060c \u0645\u06cc\u062f\u0648\u0646\u06cc \u0622\u062e\u0631\u06cc\u0646 \u0628\u0627\u0631 \u06a9\u06cc \u067e\u0631\u06cc\u0648\u062f \u0634\u062f\u06cc\u061f"}
                 </div>
                 <div
                   className={classNames(
@@ -1941,6 +2013,22 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                     typeof $steps["updateLoadbtn2"].then === "function"
                   ) {
                     $steps["updateLoadbtn2"] = await $steps["updateLoadbtn2"];
+                  }
+
+                  $steps["runClick"] = true
+                    ? (() => {
+                        const actionArgs = { eventRef: $props["click"] };
+                        return (({ eventRef, args }) => {
+                          return eventRef?.(...(args ?? []));
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runClick"] != null &&
+                    typeof $steps["runClick"] === "object" &&
+                    typeof $steps["runClick"].then === "function"
+                  ) {
+                    $steps["runClick"] = await $steps["runClick"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {

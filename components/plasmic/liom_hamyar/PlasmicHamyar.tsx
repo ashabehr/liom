@@ -5449,6 +5449,56 @@ function PlasmicHamyar__RenderFunc(props: {
                                 $steps["runCode"] = await $steps["runCode"];
                               }
 
+                              $steps["invokeGlobalAction2"] = $steps
+                                .invokeGlobalAction?.data?.result
+                                ? (() => {
+                                    const actionArgs = {
+                                      args: [
+                                        "POST",
+                                        "https://n8n.staas.ir/webhook/rest/user/hamyar/add",
+                                        undefined,
+                                        (() => {
+                                          try {
+                                            return {
+                                              authorization:
+                                                $steps.invokeGlobalAction?.data
+                                                  ?.result?.token,
+                                              mobile: $state.mobile,
+                                              name: $state.userdata?.result?.man
+                                                ?.name,
+                                              type: "hamyar",
+                                              relation: "husband"
+                                            };
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      ]
+                                    };
+                                    return $globalActions[
+                                      "Fragment.apiRequest"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["invokeGlobalAction2"] != null &&
+                                typeof $steps["invokeGlobalAction2"] ===
+                                  "object" &&
+                                typeof $steps["invokeGlobalAction2"].then ===
+                                  "function"
+                              ) {
+                                $steps["invokeGlobalAction2"] = await $steps[
+                                  "invokeGlobalAction2"
+                                ];
+                              }
+
                               $steps["updateEditCycle"] = true
                                 ? (() => {
                                     const actionArgs = {
@@ -22709,7 +22759,13 @@ function PlasmicHamyar__RenderFunc(props: {
           <Dialog
             data-plasmic-name={"dialog"}
             data-plasmic-override={overrides.dialog}
-            className={classNames("__wab_instance", sty.dialog)}
+            className={classNames("__wab_instance", sty.dialog, {
+              [sty.dialognoPartner]: hasVariant(
+                $state,
+                "noPartner",
+                "noPartner"
+              )
+            })}
             onOpendialogChange={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["dialog", "opendialog"]).apply(
                 null,
@@ -26325,6 +26381,11 @@ function PlasmicHamyar__RenderFunc(props: {
               }
             })()}
             className={classNames("__wab_instance", sty.remember, {
+              [sty.remembernoPartner]: hasVariant(
+                $state,
+                "noPartner",
+                "noPartner"
+              ),
               [sty.rememberpage_reminder]: hasVariant(
                 $state,
                 "page",
@@ -27190,10 +27251,36 @@ function PlasmicHamyar__RenderFunc(props: {
                   hasVariant($state, "noPartner", "noPartner") &&
                   hasVariant($state, "editCycle", "editCycle")
               }),
+              click: async () => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            return window.location.reload();
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              },
               editTime: generateStateValueProp($state, [
                 "settingCycle4",
                 "editTime"
               ]),
+              hamyar: true,
               onBack: async event => {
                 const $steps = {};
 
@@ -27246,7 +27333,20 @@ function PlasmicHamyar__RenderFunc(props: {
                   return;
                 }
               },
-              token: generateStateValueProp($state, ["settingCycle4", "token"])
+              token: generateStateValueProp($state, ["settingCycle4", "token"]),
+              userStatus: (() => {
+                try {
+                  return $state.userdata.result?.userStatus || {};
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
             };
 
             initializePlasmicStates(

@@ -33,6 +33,13 @@
 .rootdark > * {
   grid-column: 4;
 }
+.roothamyar {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+.roothamyar > * {
+  grid-column: 4;
+}
 .embedHtml:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -180,6 +187,9 @@
 }
 .textdark__xUyu4Rm0PC {
   color: #ffffff;
+}
+.texthamyar__xUyu4Aa3Ay {
+  display: none;
 }
 .freeBox__dpVxh {
   display: flex;
