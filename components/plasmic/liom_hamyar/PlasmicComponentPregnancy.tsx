@@ -26003,9 +26003,9 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                       const actionArgs = {
                         customFunction: async () => {
                           return (() => {
+                            console.log("info:");
                             try {
-                              console.log("info:");
-                              console.log($state.getUserInfo?.data?.[0].result);
+                              console.log($state.getUserInfo);
                               console.log(
                                 $state.getUserInfo?.data?.[0]?.success || false
                               );

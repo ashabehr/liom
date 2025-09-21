@@ -99,7 +99,8 @@ export type PlasmicButton__VariantMembers = {
     | "orange"
     | "whiteYellowLine"
     | "softBlack"
-    | "softPurple";
+    | "softPurple"
+    | "grayLigth";
   filterX: "filterX";
   loading: "loading";
   filter: "filter";
@@ -133,6 +134,7 @@ export type PlasmicButton__VariantsArgs = {
     | "whiteYellowLine"
     | "softBlack"
     | "softPurple"
+    | "grayLigth"
   >;
   filterX?: SingleBooleanChoiceArg<"filterX">;
   loading?: SingleBooleanChoiceArg<"loading">;
@@ -223,6 +225,7 @@ export interface DefaultButtonProps extends pp.BaseButtonProps {
     | "whiteYellowLine"
     | "softBlack"
     | "softPurple"
+    | "grayLigth"
   >;
   filterX?: SingleBooleanChoiceArg<"filterX">;
   loading?: SingleBooleanChoiceArg<"loading">;
@@ -404,6 +407,7 @@ function PlasmicButton__RenderFunc(props: {
           ),
           [sty.rootcolor_blue]: hasVariant($state, "color", "blue"),
           [sty.rootcolor_clear]: hasVariant($state, "color", "clear"),
+          [sty.rootcolor_grayLigth]: hasVariant($state, "color", "grayLigth"),
           [sty.rootcolor_green]: hasVariant($state, "color", "green"),
           [sty.rootcolor_line]: hasVariant($state, "color", "line"),
           [sty.rootcolor_line_color_yellow]:
