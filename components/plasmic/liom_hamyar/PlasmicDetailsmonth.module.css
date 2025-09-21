@@ -20,7 +20,7 @@
       calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
     )
     minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
-  padding: 80px 0px;
+  padding: 5rem 0px;
 }
 .root > * {
   grid-column: 4;
@@ -570,7 +570,7 @@
   font-weight: 400;
   text-align: right;
 }
-.section {
+.section__imGJf {
   display: grid;
   position: fixed;
   align-content: flex-start;
@@ -590,7 +590,7 @@
     )
     minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
 }
-.section > * {
+.section__imGJf > * {
   grid-column: 4;
 }
 .headerLiom:global(.__wab_instance) {
@@ -638,6 +638,31 @@
   min-height: 0;
   padding: 8px 0px 0px 16px;
 }
+.section__zkPhI {
+  display: grid;
+  position: relative;
+  align-content: flex-start;
+  justify-items: center;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  background: none;
+  column-gap: var(--token-1KusGK5GePTh);
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns:
+    var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
+    min(
+      var(--plsmc-standard-width),
+      calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
+    )
+    minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
+  padding: var(--token-B5WvIYiqPJW-);
+}
+.section__zkPhI > * {
+  grid-column: 4;
+}
 .freeBox__stJmD {
   display: flex;
   flex-direction: row;
@@ -654,7 +679,7 @@
   z-index: 1;
   right: 0;
   bottom: 0;
-  padding: var(--token-B5WvIYiqPJW-);
+  padding: 0px;
 }
 .button:global(.__wab_instance) {
   max-width: 100%;

@@ -904,9 +904,9 @@ function PlasmicCharts__RenderFunc(props: {
                       hideIndicator: null
                     };
                     __composite["enabled"] = true;
-                    __composite["indicator"] = "line";
-                    __composite["hideLabel"] = false;
-                    __composite["hideIndicator"] = false;
+                    __composite["indicator"] = "dashed";
+                    __composite["hideLabel"] = true;
+                    __composite["hideIndicator"] = true;
                     return __composite;
                   })()}
                   type={"bar"}

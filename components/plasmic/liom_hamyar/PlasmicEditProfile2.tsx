@@ -946,7 +946,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
                 const actionArgs = {
                   customFunction: async () => {
                     return (() => {
-                      return console.log("token:" + $state.token);
+                      return console.log("token-rominaaa:" + $state.token);
                     })();
                   }
                 };
@@ -1185,26 +1185,6 @@ function PlasmicEditProfile2__RenderFunc(props: {
 
           (async data => {
             const $steps = {};
-
-            $steps["runCode"] = true
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return (() => {})();
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["runCode"] != null &&
-              typeof $steps["runCode"] === "object" &&
-              typeof $steps["runCode"].then === "function"
-            ) {
-              $steps["runCode"] = await $steps["runCode"];
-            }
           }).apply(null, eventArgs);
         }}
         params={(() => {

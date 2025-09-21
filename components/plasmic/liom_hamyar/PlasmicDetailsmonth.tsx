@@ -99,7 +99,6 @@ export type PlasmicDetailsmonth__OverridesType = {
   apiRequest?: Flex__<typeof ApiRequest>;
   img?: Flex__<typeof PlasmicImg__>;
   fragmentChart?: Flex__<typeof Chart>;
-  section?: Flex__<"section">;
   headerLiom?: Flex__<typeof HeaderLiom>;
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
@@ -1249,218 +1248,217 @@ function PlasmicDetailsmonth__RenderFunc(props: {
               </div>
             </div>
           </ApiRequest>
-          <section
-            data-plasmic-name={"section"}
-            data-plasmic-override={overrides.section}
-            className={classNames(projectcss.all, sty.section)}
-          >
+          <section className={classNames(projectcss.all, sty.section__imGJf)}>
             <HeaderLiom
               data-plasmic-name={"headerLiom"}
               data-plasmic-override={overrides.headerLiom}
               className={classNames("__wab_instance", sty.headerLiom)}
             />
           </section>
-          <div className={classNames(projectcss.all, sty.freeBox__stJmD)}>
-            <Button
-              data-plasmic-name={"button"}
-              data-plasmic-override={overrides.button}
-              className={classNames("__wab_instance", sty.button)}
-              color={generateStateValueProp($state, ["button", "color"])}
-              load={generateStateValueProp($state, ["button", "load"])}
-              loading={generateStateValueProp($state, ["button", "loading"])}
-              onColorChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button", "color"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
+          <section className={classNames(projectcss.all, sty.section__zkPhI)}>
+            <div className={classNames(projectcss.all, sty.freeBox__stJmD)}>
+              <Button
+                data-plasmic-name={"button"}
+                data-plasmic-override={overrides.button}
+                className={classNames("__wab_instance", sty.button)}
+                color={generateStateValueProp($state, ["button", "color"])}
+                load={generateStateValueProp($state, ["button", "load"])}
+                loading={generateStateValueProp($state, ["button", "loading"])}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
 
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              onLoadChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button", "load"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
 
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              onLoadingChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button", "loading"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "loading"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
 
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__bIlE0
-                )}
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
               >
-                {
-                  "\u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u0627\u0645\u0631\u0648\u0632"
-                }
-              </div>
-            </Button>
-            <Button
-              data-plasmic-name={"button2"}
-              data-plasmic-override={overrides.button2}
-              className={classNames("__wab_instance", sty.button2)}
-              color={generateStateValueProp($state, ["button2", "color"])}
-              load={generateStateValueProp($state, ["button2", "load"])}
-              loading={generateStateValueProp($state, ["button2", "loading"])}
-              onClick={async event => {
-                const $steps = {};
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__bIlE0
+                  )}
+                >
+                  {
+                    "\u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u0627\u0645\u0631\u0648\u0632"
+                  }
+                </div>
+              </Button>
+              <Button
+                data-plasmic-name={"button2"}
+                data-plasmic-override={overrides.button2}
+                className={classNames("__wab_instance", sty.button2)}
+                color={generateStateValueProp($state, ["button2", "color"])}
+                load={generateStateValueProp($state, ["button2", "load"])}
+                loading={generateStateValueProp($state, ["button2", "loading"])}
+                onClick={async event => {
+                  const $steps = {};
 
-                $steps["runCode"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            function a(date) {
-                              const now = new Date(
-                                date.year,
-                                date.month - 1,
-                                date.day
-                              );
-                              return new Intl.DateTimeFormat("fa-IR", {
-                                year: "numeric",
-                                month: "long",
-                                day: "numeric"
-                              }).format(now);
-                            }
-                            const text = `
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              function a(date) {
+                                const now = new Date(
+                                  date.year,
+                                  date.month - 1,
+                                  date.day
+                                );
+                                return new Intl.DateTimeFormat("fa-IR", {
+                                  year: "numeric",
+                                  month: "long",
+                                  day: "numeric"
+                                }).format(now);
+                              }
+                              const text = `
 تاریخ شروع دوره : ${a($state.apiRequest.data.result.period.start)}
 تاریخ پایان دوره : ${a($state.apiRequest.data.result.period.end)}
 داروهای مصرفی : ( ${$state.drugNames.map(d => `${d.name}`).join(",")} )
 میانگین آب مصرفی : روزانه ${$state.avgWater} لیوان 
 وضعیت رابطه جنسی :  ${$state.sex ? "رابطه داشتم" : "رابطه نداشتم"}
 `;
-                            return $$.copyToClipboard(text);
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
-                ) {
-                  $steps["runCode"] = await $steps["runCode"];
-                }
+                              return $$.copyToClipboard(text);
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
 
-                $steps["updateButton2Color2"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        args: [
-                          undefined,
-                          "\u06af\u0632\u0627\u0631\u0634 \u062f\u0648\u0631\u0647 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u06a9\u067e\u06cc \u0634\u062f!",
-                          "bottom-center"
-                        ]
-                      };
-                      return $globalActions["Fragment.showToast"]?.apply(null, [
-                        ...actionArgs.args
-                      ]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateButton2Color2"] != null &&
-                  typeof $steps["updateButton2Color2"] === "object" &&
-                  typeof $steps["updateButton2Color2"].then === "function"
-                ) {
-                  $steps["updateButton2Color2"] = await $steps[
-                    "updateButton2Color2"
-                  ];
-                }
-              }}
-              onColorChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button2", "color"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
+                  $steps["updateButton2Color2"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            undefined,
+                            "\u06af\u0632\u0627\u0631\u0634 \u062f\u0648\u0631\u0647 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u06a9\u067e\u06cc \u0634\u062f!",
+                            "bottom-center"
+                          ]
+                        };
+                        return $globalActions["Fragment.showToast"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateButton2Color2"] != null &&
+                    typeof $steps["updateButton2Color2"] === "object" &&
+                    typeof $steps["updateButton2Color2"].then === "function"
+                  ) {
+                    $steps["updateButton2Color2"] = await $steps[
+                      "updateButton2Color2"
+                    ];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button2", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
 
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              onLoadChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button2", "load"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button2", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
 
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              onLoadingChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button2", "loading"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button2", "loading"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
 
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              serface={true}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__w6Nm
-                )}
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                serface={true}
               >
-                {
-                  "\u062f\u0631\u06cc\u0627\u0641\u062a \u06af\u0632\u0627\u0631\u0634 \u062f\u0648\u0631\u0647"
-                }
-              </div>
-            </Button>
-          </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__w6Nm
+                  )}
+                >
+                  {
+                    "\u062f\u0631\u06cc\u0627\u0641\u062a \u06af\u0632\u0627\u0631\u0634 \u062f\u0648\u0631\u0647"
+                  }
+                </div>
+              </Button>
+            </div>
+          </section>
         </div>
       </div>
     </React.Fragment>
@@ -1473,7 +1471,6 @@ const PlasmicDescendants = {
     "apiRequest",
     "img",
     "fragmentChart",
-    "section",
     "headerLiom",
     "button",
     "button2"
@@ -1481,7 +1478,6 @@ const PlasmicDescendants = {
   apiRequest: ["apiRequest", "img", "fragmentChart"],
   img: ["img"],
   fragmentChart: ["fragmentChart"],
-  section: ["section", "headerLiom"],
   headerLiom: ["headerLiom"],
   button: ["button"],
   button2: ["button2"]
@@ -1494,7 +1490,6 @@ type NodeDefaultElementType = {
   apiRequest: typeof ApiRequest;
   img: typeof PlasmicImg__;
   fragmentChart: typeof Chart;
-  section: "section";
   headerLiom: typeof HeaderLiom;
   button: typeof Button;
   button2: typeof Button;
@@ -1588,7 +1583,6 @@ export const PlasmicDetailsmonth = Object.assign(
     apiRequest: makeNodeComponent("apiRequest"),
     img: makeNodeComponent("img"),
     fragmentChart: makeNodeComponent("fragmentChart"),
-    section: makeNodeComponent("section"),
     headerLiom: makeNodeComponent("headerLiom"),
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
