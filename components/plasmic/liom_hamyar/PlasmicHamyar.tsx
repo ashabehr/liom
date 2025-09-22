@@ -3429,7 +3429,8 @@ function PlasmicHamyar__RenderFunc(props: {
                         {(() => {
                           try {
                             return (
-                              $state.userdata.result.man.name + " خوش آمدید! "
+                              $state.userdata?.result?.man?.name +
+                              " خوش آمدید! "
                             );
                           } catch (e) {
                             if (
