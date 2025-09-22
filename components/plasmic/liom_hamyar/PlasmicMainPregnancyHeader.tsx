@@ -1136,7 +1136,7 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
                       const actionArgs = {
                         customFunction: async () => {
                           return window.open(
-                            `https://apps.liom.app/setting-pregnancy/?token=${$props.token}&userId=${$props.userInfo.userId}`,
+                            `https://apps.liom.app/setting-pregnancy/?token=${$props.token}&userId=${$props.userInfo.id}`,
                             "_self"
                           );
                         }

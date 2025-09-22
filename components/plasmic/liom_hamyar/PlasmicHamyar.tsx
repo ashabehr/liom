@@ -7538,10 +7538,15 @@ function PlasmicHamyar__RenderFunc(props: {
                           const manId = $state.userdata?.result?.man?.id;
                           const username =
                             $state.userdata?.result?.user?.username;
-                          if (manId && username) {
-                            const cleanId = manId.replace(/[^a-zA-Z]/g, "");
-                            return cleanId === username;
-                          } else return false;
+                          try {
+                            if (manId && username) {
+                              const cleanId = manId.replace(/[^a-zA-Z]/g, "");
+                              return cleanId === username;
+                            }
+                            return false;
+                          } catch (e) {
+                            return false;
+                          }
                         })();
                       } catch (e) {
                         if (
