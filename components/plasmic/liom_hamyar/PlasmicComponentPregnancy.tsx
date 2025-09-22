@@ -26004,16 +26004,9 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                       const actionArgs = {
                         customFunction: async () => {
                           return (() => {
-                            console.log("info:");
+                            console.log("infooo:");
                             try {
                               console.log($state.getUserInfo);
-                              localStorage.setItem(
-                                "userinfo",
-                                JSON.stringify(
-                                  $state.getUserInfo?.data?.[0].result
-                                )
-                              );
-                              console.log("saveInfo:ok");
                               localStorage.setItem("token", $state.token);
                               return console.log("token:ok");
                             } catch {
