@@ -462,6 +462,18 @@
   bottom: auto;
   display: none;
 }
+.freeBox___1MPv {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
 .freeBox__ualnp {
   display: flex;
   flex-direction: column;
@@ -734,33 +746,6 @@
   .text__b09G5 {
     font-size: 12px;
   }
-}
-.button22:global(.__wab_instance) {
-  max-width: 100%;
-  width: 90%;
-  display: none;
-}
-.svg__pgMtz {
-  position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
-}
-.text__hjB2 {
-  font-weight: 300;
-}
-.svg__oQpCy {
-  object-fit: cover;
-  max-width: 100%;
-  width: 20px;
-  height: 20px;
-  position: relative;
-  left: auto;
-  top: auto;
-  z-index: 1;
-  color: var(--token-jgohepLVeKvh);
-  right: auto;
-  bottom: auto;
 }
 .freeBox__cIahf {
   display: flex;

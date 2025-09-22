@@ -736,33 +736,6 @@
     font-size: 12px;
   }
 }
-.button22:global(.__wab_instance) {
-  max-width: 100%;
-  width: 90%;
-  display: none;
-}
-.svg___5Azi {
-  position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
-}
-.text__reNwi {
-  font-weight: 300;
-}
-.svg__bd0Lt {
-  object-fit: cover;
-  max-width: 100%;
-  width: 20px;
-  height: 20px;
-  position: relative;
-  left: auto;
-  top: auto;
-  z-index: 1;
-  color: var(--token-jgohepLVeKvh);
-  right: auto;
-  bottom: auto;
-}
 .freeBox__xtMdu {
   display: flex;
   flex-direction: column;

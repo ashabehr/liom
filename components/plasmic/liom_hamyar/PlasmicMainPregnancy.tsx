@@ -391,7 +391,11 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                             }
                             return "";
                           };
-                          return ($state.token = getCookie("token"));
+                          $state.token = getCookie("token");
+                          return console.log(
+                            JSON.parse(localStorage.getItem("userinfo")).user ||
+                              {}
+                          );
                         })();
                       }
                     };
@@ -727,44 +731,29 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["goToPage"] = true
+                      $steps["runCode"] = true
                         ? (() => {
                             const actionArgs = {
-                              destination: (() => {
-                                try {
-                                  return `https://apps.liom.app/notification?app=pregnancy&userId=${$state.userInfo.user.id}`;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return `/notification`;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            };
-                            return (({ destination }) => {
-                              if (
-                                typeof destination === "string" &&
-                                destination.startsWith("#")
-                              ) {
-                                document
-                                  .getElementById(destination.substr(1))
-                                  .scrollIntoView({ behavior: "smooth" });
-                              } else {
-                                __nextRouter?.push(destination);
+                              customFunction: async () => {
+                                return (() => {
+                                  return window.open(
+                                    `https://apps.liom.app/notification?app=pregnancy&userId=${$state.userInfo.user.id}`,
+                                    "_self"
+                                  );
+                                })();
                               }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
                             })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
                       if (
-                        $steps["goToPage"] != null &&
-                        typeof $steps["goToPage"] === "object" &&
-                        typeof $steps["goToPage"].then === "function"
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
                       ) {
-                        $steps["goToPage"] = await $steps["goToPage"];
+                        $steps["runCode"] = await $steps["runCode"];
                       }
                     }}
                   >

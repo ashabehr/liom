@@ -604,7 +604,7 @@
 .slotTargetSlot3pregnancy {
   text-align: center;
 }
-.button__dp7My:global(.__wab_instance) {
+.button:global(.__wab_instance) {
   max-width: 100%;
   width: 100%;
   min-width: 0;

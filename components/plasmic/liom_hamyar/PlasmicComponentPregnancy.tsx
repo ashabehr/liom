@@ -26003,8 +26003,6 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                         customFunction: async () => {
                           return (() => {
                             try {
-                              console.log("infooo:");
-                              console.log($state.getUserInfo);
                               localStorage.setItem(
                                 "userinfo",
                                 JSON.stringify(
@@ -26051,7 +26049,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
             })()}
             shouldFetch={(() => {
               try {
-                return $state.token;
+                return ($state.token || "") != "";
               } catch (e) {
                 if (
                   e instanceof TypeError ||

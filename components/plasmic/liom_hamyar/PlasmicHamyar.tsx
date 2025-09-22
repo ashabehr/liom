@@ -109,7 +109,6 @@ import Icon271Icon from "./icons/PlasmicIcon__Icon271"; // plasmic-import: vZy72
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
-import Icon251Icon from "./icons/PlasmicIcon__Icon251"; // plasmic-import: OXj7Y-pBlB2X/icon
 import Icon125Icon from "./icons/PlasmicIcon__Icon125"; // plasmic-import: Q7X4s11MfEIR/icon
 import Icon124Icon from "./icons/PlasmicIcon__Icon124"; // plasmic-import: PTcWiaBFyPBw/icon
 import Icon126Icon from "./icons/PlasmicIcon__Icon126"; // plasmic-import: MKLSqOtGUXQ0/icon
@@ -178,7 +177,6 @@ export type PlasmicHamyar__OverridesType = {
   cyclebox?: Flex__<typeof Cyclebox>;
   lineClomp?: Flex__<typeof LineClomp>;
   progress?: Flex__<typeof AntdProgress>;
-  button22?: Flex__<typeof Button>;
   button9?: Flex__<typeof Button>;
   button14?: Flex__<typeof Button>;
   button10?: Flex__<typeof Button>;
@@ -2242,24 +2240,6 @@ function PlasmicHamyar__RenderFunc(props: {
                   throw e;
                 }
               })()
-      },
-      {
-        path: "button22.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "grayLigth"
-      },
-      {
-        path: "button22.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button22.load",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -5842,6 +5822,12 @@ function PlasmicHamyar__RenderFunc(props: {
                               : " "}
                           </Button>
                         ) : null}
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox___1MPv
+                          )}
+                        />
                       </div>
                     ) : null}
                     {(
@@ -7337,101 +7323,6 @@ function PlasmicHamyar__RenderFunc(props: {
                   <Cyclebox
                     data-plasmic-name={"cyclebox"}
                     data-plasmic-override={overrides.cyclebox}
-                    button2={
-                      <Button
-                        data-plasmic-name={"button22"}
-                        data-plasmic-override={overrides.button22}
-                        className={classNames("__wab_instance", sty.button22, {
-                          [sty.button22noPartner]: hasVariant(
-                            $state,
-                            "noPartner",
-                            "noPartner"
-                          )
-                        })}
-                        color={generateStateValueProp($state, [
-                          "button22",
-                          "color"
-                        ])}
-                        endIcon={
-                          <Icon251Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__oQpCy
-                            )}
-                            role={"img"}
-                          />
-                        }
-                        load={generateStateValueProp($state, [
-                          "button22",
-                          "load"
-                        ])}
-                        loading={generateStateValueProp($state, [
-                          "button22",
-                          "loading"
-                        ])}
-                        onColorChange={async (...eventArgs: any) => {
-                          ((...eventArgs) => {
-                            generateStateOnChangeProp($state, [
-                              "button22",
-                              "color"
-                            ])(eventArgs[0]);
-                          }).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        }}
-                        onLoadChange={async (...eventArgs: any) => {
-                          ((...eventArgs) => {
-                            generateStateOnChangeProp($state, [
-                              "button22",
-                              "load"
-                            ])(eventArgs[0]);
-                          }).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        }}
-                        onLoadingChange={async (...eventArgs: any) => {
-                          ((...eventArgs) => {
-                            generateStateOnChangeProp($state, [
-                              "button22",
-                              "loading"
-                            ])(eventArgs[0]);
-                          }).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        }}
-                        showEndIcon={true}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__hjB2
-                          )}
-                        >
-                          {
-                            "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0642\u0627\u0639\u062f\u06af\u06cc"
-                          }
-                        </div>
-                      </Button>
-                    }
                     className={classNames("__wab_instance", sty.cyclebox, {
                       [sty.cycleboxlackOfCourseInformation]: hasVariant(
                         $state,
@@ -7448,6 +7339,220 @@ function PlasmicHamyar__RenderFunc(props: {
                       "cyclebox",
                       "cycle"
                     ])}
+                    editCycle={async event => {
+                      const $steps = {};
+
+                      $steps["invokeGlobalAction"] =
+                        !window.localStorage.getItem("wifeInfo")
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://api.liom.app/auth/signin",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        password:
+                                          $state.userdata?.result?.man?.id +
+                                          $state.userdata.result?.man?.refCode,
+                                        username:
+                                          $state.userdata?.result?.man?.id.replace(
+                                            /[^a-zA-Z]/g,
+                                            ""
+                                          ) || "",
+                                        gateway: "hamyarGuest",
+                                        data: "",
+                                        target: "calendar",
+                                        version: "",
+                                        device: (() => {
+                                          const userAgent =
+                                            window.navigator.userAgent;
+                                          if (
+                                            /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                              userAgent
+                                            )
+                                          ) {
+                                            return "Mobile";
+                                          } else if (
+                                            /Tablet|iPad/i.test(userAgent)
+                                          ) {
+                                            return "Tablet";
+                                          } else {
+                                            return "Desktop";
+                                          }
+                                        })(),
+                                        uniqueId: $$.uuid.v4(),
+                                        fcm:
+                                          window.localStorage.getItem(
+                                            "fcmToken"
+                                          ) || " ",
+                                        os: (() => {
+                                          const userAgent =
+                                            window.navigator.userAgent;
+                                          const platform =
+                                            window.navigator.userAgent;
+                                          if (/Windows/i.test(platform))
+                                            return "Windows";
+                                          if (/Mac/i.test(platform))
+                                            return "macOS";
+                                          if (/Linux/i.test(platform))
+                                            return "Linux";
+                                          if (/Android/i.test(userAgent))
+                                            return "Android";
+                                          if (
+                                            /iPhone|iPad|iPod/i.test(userAgent)
+                                          )
+                                            return "iOS";
+                                          return "Unknown OS";
+                                        })(),
+                                        osVersion: (() => {
+                                          const userAgent =
+                                            window.navigator.userAgent;
+                                          if (/Windows NT 10.0/.test(userAgent))
+                                            return "Windows 10";
+                                          if (/Windows NT 6.3/.test(userAgent))
+                                            return "Windows 8.1";
+                                          if (/Windows NT 6.2/.test(userAgent))
+                                            return "Windows 8";
+                                          if (/Windows NT 6.1/.test(userAgent))
+                                            return "Windows 7";
+                                          if (
+                                            /Mac OS X (\d+[\._]\d+)/.test(
+                                              userAgent
+                                            )
+                                          )
+                                            return `macOS ${RegExp.$1.replace(
+                                              "_",
+                                              "."
+                                            )}`;
+                                          if (
+                                            /Android (\d+(\.\d+)?)/.test(
+                                              userAgent
+                                            )
+                                          )
+                                            return `Android ${RegExp.$1}`;
+                                          if (
+                                            /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                              userAgent
+                                            )
+                                          )
+                                            return `iOS ${RegExp.$2.replace(
+                                              "_",
+                                              "."
+                                            )}`;
+                                          return "Unknown Version";
+                                        })(),
+                                        additionalData: {
+                                          ip: "132465",
+                                          name: "test1"
+                                        },
+                                        device_type: window.navigator.platform
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["runCode"] = $steps.invokeGlobalAction?.data
+                        ?.result
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  return window.localStorage.setItem(
+                                    "wifeInfo",
+                                    JSON.stringify(
+                                      $steps.invokeGlobalAction.data.result
+                                    )
+                                  );
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+
+                      $steps["updateEditCycle"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              vgroup: "editCycle",
+                              operation: 2
+                            };
+                            return (({ vgroup, value }) => {
+                              if (typeof value === "string") {
+                                value = [value];
+                              }
+
+                              const oldValue = $stateGet($state, vgroup);
+                              $stateSet($state, vgroup, !oldValue);
+                              return !oldValue;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateEditCycle"] != null &&
+                        typeof $steps["updateEditCycle"] === "object" &&
+                        typeof $steps["updateEditCycle"].then === "function"
+                      ) {
+                        $steps["updateEditCycle"] = await $steps[
+                          "updateEditCycle"
+                        ];
+                      }
+                    }}
+                    editCycle2={(() => {
+                      try {
+                        return (() => {
+                          const manId = $state.userdata?.result?.man?.id;
+                          const username =
+                            $state.userdata?.result?.user?.username;
+                          if (manId && username) {
+                            const cleanId = manId.replace(/[^a-zA-Z]/g, "");
+                            return cleanId === username;
+                          } else return false;
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })()}
                     fertility={generateStateValueProp($state, [
                       "cyclebox",
                       "fertility"
@@ -27752,7 +27857,6 @@ const PlasmicDescendants = {
     "cyclebox",
     "lineClomp",
     "progress",
-    "button22",
     "button9",
     "button14",
     "button10",
@@ -27827,7 +27931,6 @@ const PlasmicDescendants = {
     "cyclebox",
     "lineClomp",
     "progress",
-    "button22",
     "button9",
     "button14",
     "button10",
@@ -27868,10 +27971,9 @@ const PlasmicDescendants = {
   createWife: ["createWife"],
   button17: ["button17"],
   noData: ["noData"],
-  cyclebox: ["cyclebox", "lineClomp", "progress", "button22"],
+  cyclebox: ["cyclebox", "lineClomp", "progress"],
   lineClomp: ["lineClomp"],
   progress: ["progress"],
-  button22: ["button22"],
   button9: ["button9"],
   button14: ["button14"],
   button10: ["button10"],
@@ -27971,7 +28073,6 @@ type NodeDefaultElementType = {
   cyclebox: typeof Cyclebox;
   lineClomp: typeof LineClomp;
   progress: typeof AntdProgress;
-  button22: typeof Button;
   button9: typeof Button;
   button14: typeof Button;
   button10: typeof Button;
@@ -28131,7 +28232,6 @@ export const PlasmicHamyar = Object.assign(
     cyclebox: makeNodeComponent("cyclebox"),
     lineClomp: makeNodeComponent("lineClomp"),
     progress: makeNodeComponent("progress"),
-    button22: makeNodeComponent("button22"),
     button9: makeNodeComponent("button9"),
     button14: makeNodeComponent("button14"),
     button10: makeNodeComponent("button10"),

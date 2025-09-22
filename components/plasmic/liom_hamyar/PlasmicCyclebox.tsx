@@ -107,11 +107,12 @@ export type PlasmicCyclebox__ArgsType = {
   onClickDescription?: (event: any) => void;
   textsycle?: string;
   onTextsycleChange?: (val: string) => void;
+  editCycle?: (event: any) => void;
+  editCycle2?: boolean;
   children?: React.ReactNode;
   slot?: React.ReactNode;
   slot2?: React.ReactNode;
   slot3?: React.ReactNode;
-  button2?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicCyclebox__ArgsType;
 export const PlasmicCyclebox__ArgProps = new Array<ArgPropType>(
@@ -124,17 +125,19 @@ export const PlasmicCyclebox__ArgProps = new Array<ArgPropType>(
   "onClickDescription",
   "textsycle",
   "onTextsycleChange",
+  "editCycle",
+  "editCycle2",
   "children",
   "slot",
   "slot2",
-  "slot3",
-  "button2"
+  "slot3"
 );
 
 export type PlasmicCyclebox__OverridesType = {
   root?: Flex__<"div">;
   img?: Flex__<typeof PlasmicImg__>;
   lottie?: Flex__<typeof LottieWrapper>;
+  button?: Flex__<typeof Button>;
 };
 
 export interface DefaultCycleboxProps {
@@ -147,11 +150,12 @@ export interface DefaultCycleboxProps {
   onClickDescription?: (event: any) => void;
   textsycle?: string;
   onTextsycleChange?: (val: string) => void;
+  editCycle?: (event: any) => void;
+  editCycle2?: boolean;
   children?: React.ReactNode;
   slot?: React.ReactNode;
   slot2?: React.ReactNode;
   slot3?: React.ReactNode;
-  button2?: React.ReactNode;
   pms?: SingleBooleanChoiceArg<"pms">;
   fertility?: SingleBooleanChoiceArg<"fertility">;
   period?: SingleBooleanChoiceArg<"period">;
@@ -180,7 +184,9 @@ function PlasmicCyclebox__RenderFunc(props: {
   const args = React.useMemo(
     () =>
       Object.assign(
-        {},
+        {
+          editCycle2: false
+        },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
         )
@@ -256,6 +262,24 @@ function PlasmicCyclebox__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.pregnancy
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "grayLigth"
+      },
+      {
+        path: "button.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1928,27 +1952,87 @@ function PlasmicCyclebox__RenderFunc(props: {
           })}
         </div>
       </div>
-      {renderPlasmicSlot({
-        defaultContents: (
-          <Button
-            className={classNames("__wab_instance", sty.button__dp7My)}
-            color={["grayLigth"]}
-          >
-            {
-              "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0642\u0627\u0639\u062f\u06af\u06cc"
+      {(() => {
+        try {
+          return $props.editCycle;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
+          }
+          throw e;
+        }
+      })() ? (
+        <Button
+          data-plasmic-name={"button"}
+          data-plasmic-override={overrides.button}
+          className={classNames("__wab_instance", sty.button)}
+          color={generateStateValueProp($state, ["button", "color"])}
+          load={generateStateValueProp($state, ["button", "load"])}
+          loading={generateStateValueProp($state, ["button", "loading"])}
+          onClick={args.editCycle}
+          onColorChange={async (...eventArgs: any) => {
+            ((...eventArgs) => {
+              generateStateOnChangeProp($state, ["button", "color"])(
+                eventArgs[0]
+              );
+            }).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
             }
-          </Button>
-        ),
-        value: args.button2
-      })}
+          }}
+          onLoadChange={async (...eventArgs: any) => {
+            ((...eventArgs) => {
+              generateStateOnChangeProp($state, ["button", "load"])(
+                eventArgs[0]
+              );
+            }).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          onLoadingChange={async (...eventArgs: any) => {
+            ((...eventArgs) => {
+              generateStateOnChangeProp($state, ["button", "loading"])(
+                eventArgs[0]
+              );
+            }).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+        >
+          {
+            "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0642\u0627\u0639\u062f\u06af\u06cc"
+          }
+        </Button>
+      ) : null}
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "img", "lottie"],
+  root: ["root", "img", "lottie", "button"],
   img: ["img"],
-  lottie: ["lottie"]
+  lottie: ["lottie"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1957,6 +2041,7 @@ type NodeDefaultElementType = {
   root: "div";
   img: typeof PlasmicImg__;
   lottie: typeof LottieWrapper;
+  button: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2021,6 +2106,7 @@ export const PlasmicCyclebox = Object.assign(
     // Helper components rendering sub-elements
     img: makeNodeComponent("img"),
     lottie: makeNodeComponent("lottie"),
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicCyclebox
     internalVariantProps: PlasmicCyclebox__VariantProps,
