@@ -397,6 +397,32 @@ function PlasmicMonthlist__RenderFunc(props: {
                     onClick={async event => {
                       const $steps = {};
 
+                      $steps["updateList"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              vgroup: "list",
+                              operation: 2,
+                              value: "list"
+                            };
+                            return (({ vgroup, value }) => {
+                              if (typeof value === "string") {
+                                value = [value];
+                              }
+
+                              const oldValue = $stateGet($state, vgroup);
+                              $stateSet($state, vgroup, !oldValue);
+                              return !oldValue;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateList"] != null &&
+                        typeof $steps["updateList"] === "object" &&
+                        typeof $steps["updateList"].then === "function"
+                      ) {
+                        $steps["updateList"] = await $steps["updateList"];
+                      }
+
                       $steps["updateDetailsmonthId"] = true
                         ? (() => {
                             const actionArgs = {
@@ -434,30 +460,24 @@ function PlasmicMonthlist__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["updateList"] = true
+                      $steps["runCode"] = true
                         ? (() => {
                             const actionArgs = {
-                              vgroup: "list",
-                              operation: 2,
-                              value: "list"
-                            };
-                            return (({ vgroup, value }) => {
-                              if (typeof value === "string") {
-                                value = [value];
+                              customFunction: async () => {
+                                return console.log("home: ", currentItem.id);
                               }
-
-                              const oldValue = $stateGet($state, vgroup);
-                              $stateSet($state, vgroup, !oldValue);
-                              return !oldValue;
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
                             })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
                       if (
-                        $steps["updateList"] != null &&
-                        typeof $steps["updateList"] === "object" &&
-                        typeof $steps["updateList"].then === "function"
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
                       ) {
-                        $steps["updateList"] = await $steps["updateList"];
+                        $steps["runCode"] = await $steps["runCode"];
                       }
                     }}
                   >

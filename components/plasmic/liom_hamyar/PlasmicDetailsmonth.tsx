@@ -63,6 +63,7 @@ import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/compo
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { Chart } from "@/fragment/components/chart"; // plasmic-import: 2Vi4mc7aEpf-/codeComponent
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -113,6 +114,7 @@ export type PlasmicDetailsmonth__OverridesType = {
   fragmentChart?: Flex__<typeof Chart>;
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
+  sideEffect?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultDetailsmonthProps {
@@ -1470,6 +1472,37 @@ function PlasmicDetailsmonth__RenderFunc(props: {
           </Button>
         </div>
       </section>
+      <SideEffect
+        data-plasmic-name={"sideEffect"}
+        data-plasmic-override={overrides.sideEffect}
+        className={classNames("__wab_instance", sty.sideEffect)}
+        onMount={async () => {
+          const $steps = {};
+
+          $steps["runCode"] = true
+            ? (() => {
+                const actionArgs = {
+                  customFunction: async () => {
+                    return (() => {
+                      console.log($state.id);
+                      return console.log($props.token);
+                    })();
+                  }
+                };
+                return (({ customFunction }) => {
+                  return customFunction();
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["runCode"] != null &&
+            typeof $steps["runCode"] === "object" &&
+            typeof $steps["runCode"].then === "function"
+          ) {
+            $steps["runCode"] = await $steps["runCode"];
+          }
+        }}
+      />
     </div>
   ) as React.ReactElement | null;
 }
@@ -1482,14 +1515,16 @@ const PlasmicDescendants = {
     "img",
     "fragmentChart",
     "button",
-    "button2"
+    "button2",
+    "sideEffect"
   ],
   headerLiom: ["headerLiom"],
   apiRequest: ["apiRequest", "img", "fragmentChart"],
   img: ["img"],
   fragmentChart: ["fragmentChart"],
   button: ["button"],
-  button2: ["button2"]
+  button2: ["button2"],
+  sideEffect: ["sideEffect"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1502,6 +1537,7 @@ type NodeDefaultElementType = {
   fragmentChart: typeof Chart;
   button: typeof Button;
   button2: typeof Button;
+  sideEffect: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1570,6 +1606,7 @@ export const PlasmicDetailsmonth = Object.assign(
     fragmentChart: makeNodeComponent("fragmentChart"),
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
+    sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicDetailsmonth
     internalVariantProps: PlasmicDetailsmonth__VariantProps,
