@@ -1952,78 +1952,62 @@ function PlasmicCyclebox__RenderFunc(props: {
           })}
         </div>
       </div>
-      {(() => {
-        try {
-          return $props.editCycle;
-        } catch (e) {
+      <Button
+        data-plasmic-name={"button"}
+        data-plasmic-override={overrides.button}
+        className={classNames("__wab_instance", sty.button)}
+        color={generateStateValueProp($state, ["button", "color"])}
+        load={generateStateValueProp($state, ["button", "load"])}
+        loading={generateStateValueProp($state, ["button", "loading"])}
+        onClick={args.editCycle}
+        onColorChange={async (...eventArgs: any) => {
+          ((...eventArgs) => {
+            generateStateOnChangeProp($state, ["button", "color"])(
+              eventArgs[0]
+            );
+          }).apply(null, eventArgs);
+
           if (
-            e instanceof TypeError ||
-            e?.plasmicType === "PlasmicUndefinedDataError"
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
           ) {
-            return true;
+            return;
           }
-          throw e;
+        }}
+        onLoadChange={async (...eventArgs: any) => {
+          ((...eventArgs) => {
+            generateStateOnChangeProp($state, ["button", "load"])(eventArgs[0]);
+          }).apply(null, eventArgs);
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        onLoadingChange={async (...eventArgs: any) => {
+          ((...eventArgs) => {
+            generateStateOnChangeProp($state, ["button", "loading"])(
+              eventArgs[0]
+            );
+          }).apply(null, eventArgs);
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+      >
+        {
+          "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0642\u0627\u0639\u062f\u06af\u06cc"
         }
-      })() ? (
-        <Button
-          data-plasmic-name={"button"}
-          data-plasmic-override={overrides.button}
-          className={classNames("__wab_instance", sty.button)}
-          color={generateStateValueProp($state, ["button", "color"])}
-          load={generateStateValueProp($state, ["button", "load"])}
-          loading={generateStateValueProp($state, ["button", "loading"])}
-          onClick={args.editCycle}
-          onColorChange={async (...eventArgs: any) => {
-            ((...eventArgs) => {
-              generateStateOnChangeProp($state, ["button", "color"])(
-                eventArgs[0]
-              );
-            }).apply(null, eventArgs);
-
-            if (
-              eventArgs.length > 1 &&
-              eventArgs[1] &&
-              eventArgs[1]._plasmic_state_init_
-            ) {
-              return;
-            }
-          }}
-          onLoadChange={async (...eventArgs: any) => {
-            ((...eventArgs) => {
-              generateStateOnChangeProp($state, ["button", "load"])(
-                eventArgs[0]
-              );
-            }).apply(null, eventArgs);
-
-            if (
-              eventArgs.length > 1 &&
-              eventArgs[1] &&
-              eventArgs[1]._plasmic_state_init_
-            ) {
-              return;
-            }
-          }}
-          onLoadingChange={async (...eventArgs: any) => {
-            ((...eventArgs) => {
-              generateStateOnChangeProp($state, ["button", "loading"])(
-                eventArgs[0]
-              );
-            }).apply(null, eventArgs);
-
-            if (
-              eventArgs.length > 1 &&
-              eventArgs[1] &&
-              eventArgs[1]._plasmic_state_init_
-            ) {
-              return;
-            }
-          }}
-        >
-          {
-            "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0642\u0627\u0639\u062f\u06af\u06cc"
-          }
-        </Button>
-      ) : null}
+      </Button>
     </div>
   ) as React.ReactElement | null;
 }
