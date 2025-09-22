@@ -93,6 +93,7 @@ export type PlasmicDetailsmonth__ArgsType = {
   id?: string;
   onIdChange2?: (val: string) => void;
   back?: () => void;
+  token?: string;
 };
 type ArgPropType = keyof PlasmicDetailsmonth__ArgsType;
 export const PlasmicDetailsmonth__ArgProps = new Array<ArgPropType>(
@@ -100,7 +101,8 @@ export const PlasmicDetailsmonth__ArgProps = new Array<ArgPropType>(
   "onDetailsChange2",
   "id",
   "onIdChange2",
-  "back"
+  "back",
+  "token"
 );
 
 export type PlasmicDetailsmonth__OverridesType = {
@@ -119,6 +121,7 @@ export interface DefaultDetailsmonthProps {
   id?: string;
   onIdChange2?: (val: string) => void;
   back?: () => void;
+  token?: string;
   className?: string;
 }
 
@@ -278,10 +281,11 @@ function PlasmicDetailsmonth__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                const events = $state.apiRequest.data.result.events;
-                const allDrugs = events.flatMap(e => e.drug || []);
-                const drugNames = [...new Set(allDrugs.map(d => d))];
-                return drugNames;
+                try {
+                  const events = $state.apiRequest.data.result.events;
+                  const allDrugs = events.flatMap(e => e.drug || []);
+                  const drugNames = [...new Set(allDrugs.map(d => d))];
+                } catch {}
               })();
             } catch (e) {
               if (
@@ -302,9 +306,11 @@ function PlasmicDetailsmonth__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                const events = $state.apiRequest.data.result.events;
-                const sex = events.flatMap(e => e.sex || []);
-                return sex.length > 0;
+                try {
+                  const events = $state.apiRequest.data.result.events;
+                  const sex = events.flatMap(e => e.sex || []);
+                  return sex.length > 0;
+                } catch {}
               })();
             } catch (e) {
               if (
@@ -371,7 +377,7 @@ function PlasmicDetailsmonth__RenderFunc(props: {
         className={classNames("__wab_instance", sty.apiRequest)}
         config={(() => {
           try {
-            return { headers: { authorization: $state.details } };
+            return { headers: { authorization: $props.token } };
           } catch (e) {
             if (
               e instanceof TypeError ||

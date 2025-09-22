@@ -5655,7 +5655,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                 ? (() => {
                                     const actionArgs = {
                                       args: [
-                                        "POST",
+                                        "PUT",
                                         "https://n8n.staas.ir/webhook/rest/user/hamyar/add",
                                         undefined,
                                         (() => {

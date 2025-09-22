@@ -1020,8 +1020,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkMTdiNmJkLTkzZmYtNGYzZS04ZGYzLTQwMDNkOTU2NGJkOCIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzQ2MjU3MDQ1fQ.VGtD4MdU57dGqdh7uxLTL3lCugmBcv_kybVqfb_2dSI"
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "paramsObject",
@@ -2441,7 +2440,6 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                       customFunction: async () => {
                         return setTimeout(() => {
                           try {
-                            console.log($state.getUserInfo.data);
                             var token = $state.token;
                             var name =
                               $state.getUserInfo.data?.[0]?.result?.user
@@ -26004,9 +26002,16 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                       const actionArgs = {
                         customFunction: async () => {
                           return (() => {
-                            console.log("infooo:");
                             try {
+                              console.log("infooo:");
                               console.log($state.getUserInfo);
+                              localStorage.setItem(
+                                "userinfo",
+                                JSON.stringify(
+                                  $state.getUserInfo?.data?.[0].result
+                                )
+                              );
+                              console.log("saveInfo:ok");
                               localStorage.setItem("token", $state.token);
                               return console.log("token:ok");
                             } catch {
@@ -26044,7 +26049,19 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 throw e;
               }
             })()}
-            shouldFetch={true}
+            shouldFetch={(() => {
+              try {
+                return $state.token;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()}
             url={"https://n8n.staas.ir/webhook/userInfo_v2"}
           />
 

@@ -489,7 +489,7 @@ function PlasmicMonthlist__RenderFunc(props: {
                               e instanceof TypeError ||
                               e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              return "\u0627\u0632 \u06f7 \u0634\u0647\u0631\u06cc\u0648\u0631 \u06f1\u06f4\u06f0\u06f4";
+                              return "\\u0627\\u0632 \\u06f7 \\u06  34\\u0647\\u0631\\u06cc\\u0648\\u0631 \\u06f1\\u06f4\\u06f0\\u06f4";
                             }
                             throw e;
                           }
@@ -871,6 +871,19 @@ function PlasmicMonthlist__RenderFunc(props: {
                   return;
                 }
               }}
+              token={(() => {
+                try {
+                  return $state.token;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
             />
           </Reveal>
         </div>
