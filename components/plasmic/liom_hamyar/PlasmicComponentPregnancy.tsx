@@ -26006,9 +26006,6 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                             console.log("info:");
                             try {
                               console.log($state.getUserInfo);
-                              console.log(
-                                $state.getUserInfo?.data?.[0]?.success || false
-                              );
                               localStorage.setItem(
                                 "userinfo",
                                 JSON.stringify(
@@ -26053,19 +26050,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 throw e;
               }
             })()}
-            shouldFetch={(() => {
-              try {
-                return $state.token != "";
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return false;
-                }
-                throw e;
-              }
-            })()}
+            shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/userInfo_v2"}
           />
 

@@ -363,6 +363,9 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                 "newView",
                 "newView"
               ),
+              [sty.rootglobal_newView_newView_subItem]:
+                hasVariant($state, "subItem", "subItem") &&
+                hasVariant(globalVariants, "newView", "newView"),
               [sty.rootsetting]: hasVariant($state, "setting", "setting"),
               [sty.rootsubItem]: hasVariant($state, "subItem", "subItem")
             }
@@ -468,7 +471,29 @@ function PlasmicMainPregnancy__RenderFunc(props: {
             <MainPagePregnancy
               data-plasmic-name={"mainPagePregnancy"}
               data-plasmic-override={overrides.mainPagePregnancy}
-              className={classNames("__wab_instance", sty.mainPagePregnancy)}
+              className={classNames("__wab_instance", sty.mainPagePregnancy, {
+                [sty.mainPagePregnancyglobal_newView_newView]: hasVariant(
+                  globalVariants,
+                  "newView",
+                  "newView"
+                ),
+                [sty.mainPagePregnancyglobal_newView_newView_subItem]:
+                  hasVariant($state, "subItem", "subItem") &&
+                  hasVariant(globalVariants, "newView", "newView"),
+                [sty.mainPagePregnancysetting]: hasVariant(
+                  $state,
+                  "setting",
+                  "setting"
+                ),
+                [sty.mainPagePregnancysubItem]: hasVariant(
+                  $state,
+                  "subItem",
+                  "subItem"
+                ),
+                [sty.mainPagePregnancysubItem_setting]:
+                  hasVariant($state, "setting", "setting") &&
+                  hasVariant($state, "subItem", "subItem")
+              })}
               editTime={generateStateValueProp($state, [
                 "mainPagePregnancy",
                 "editTime"

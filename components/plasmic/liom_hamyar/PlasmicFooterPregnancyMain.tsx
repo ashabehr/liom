@@ -411,7 +411,15 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
                   $state,
                   "footer2",
                   "tools"
-                )
+                ),
+                [sty.svgglobal_newView_newView__abCaO0DHva]: hasVariant(
+                  globalVariants,
+                  "newView",
+                  "newView"
+                ),
+                [sty.svgglobal_newView_newView_footer2_tools__abCaO0DHvaWWhUi]:
+                  hasVariant($state, "footer2", "tools") &&
+                  hasVariant(globalVariants, "newView", "newView")
               })}
               role={"img"}
             />

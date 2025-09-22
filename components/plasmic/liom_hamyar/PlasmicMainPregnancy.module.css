@@ -38,6 +38,9 @@
 .rootsubItem > * {
   grid-column: 4;
 }
+.rootglobal_newView_newView_subItem > * {
+  grid-column: 4;
+}
 .rootedit > * {
   grid-column: 4;
 }

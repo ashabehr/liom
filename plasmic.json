@@ -2965,20 +2965,6 @@
           "componentType": "component"
         },
         {
-          "id": "Tu6H8DIKZJrf",
-          "name": "Pregnancy2",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicPregnancy2.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/pregnancy.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicPregnancy2.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/pregnancy-2"
-        },
-        {
           "id": "S8dzLP5nduJ8",
           "name": "Medisene",
           "type": "managed",
@@ -4541,6 +4527,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/pregnancyy"
+        },
+        {
+          "id": "Tu6H8DIKZJrf",
+          "name": "Pregnancy",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicPregnancy.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/pregnancy.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicPregnancy.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/pregnancy"
         }
       ],
       "icons": [
