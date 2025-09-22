@@ -5280,6 +5280,164 @@ function PlasmicHamyar__RenderFunc(props: {
                                 ];
                               }
 
+                              $steps["invokeGlobalAction3"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      args: [
+                                        "POST",
+                                        "https://api.liom.app/auth/signin",
+                                        undefined,
+                                        (() => {
+                                          try {
+                                            return {
+                                              password:
+                                                $state.userdata?.result?.man
+                                                  ?.id +
+                                                $state.userdata.result?.man
+                                                  ?.refCode,
+                                              username:
+                                                $state.userdata?.result?.man?.id.replace(
+                                                  /[^a-zA-Z]/g,
+                                                  ""
+                                                ) || "",
+                                              gateway: "hamyarGuest",
+                                              data: "",
+                                              target: "calendar",
+                                              version: "",
+                                              device: (() => {
+                                                const userAgent =
+                                                  window.navigator.userAgent;
+                                                if (
+                                                  /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                                    userAgent
+                                                  )
+                                                ) {
+                                                  return "Mobile";
+                                                } else if (
+                                                  /Tablet|iPad/i.test(userAgent)
+                                                ) {
+                                                  return "Tablet";
+                                                } else {
+                                                  return "Desktop";
+                                                }
+                                              })(),
+                                              uniqueId: $$.uuid.v4(),
+                                              fcm:
+                                                window.localStorage.getItem(
+                                                  "fcmToken"
+                                                ) || " ",
+
+                                              os: (() => {
+                                                const userAgent =
+                                                  window.navigator.userAgent;
+                                                const platform =
+                                                  window.navigator.userAgent;
+                                                if (/Windows/i.test(platform))
+                                                  return "Windows";
+                                                if (/Mac/i.test(platform))
+                                                  return "macOS";
+                                                if (/Linux/i.test(platform))
+                                                  return "Linux";
+                                                if (/Android/i.test(userAgent))
+                                                  return "Android";
+                                                if (
+                                                  /iPhone|iPad|iPod/i.test(
+                                                    userAgent
+                                                  )
+                                                )
+                                                  return "iOS";
+                                                return "Unknown OS";
+                                              })(),
+                                              osVersion: (() => {
+                                                const userAgent =
+                                                  window.navigator.userAgent;
+                                                if (
+                                                  /Windows NT 10.0/.test(
+                                                    userAgent
+                                                  )
+                                                )
+                                                  return "Windows 10";
+                                                if (
+                                                  /Windows NT 6.3/.test(
+                                                    userAgent
+                                                  )
+                                                )
+                                                  return "Windows 8.1";
+                                                if (
+                                                  /Windows NT 6.2/.test(
+                                                    userAgent
+                                                  )
+                                                )
+                                                  return "Windows 8";
+                                                if (
+                                                  /Windows NT 6.1/.test(
+                                                    userAgent
+                                                  )
+                                                )
+                                                  return "Windows 7";
+                                                if (
+                                                  /Mac OS X (\d+[\._]\d+)/.test(
+                                                    userAgent
+                                                  )
+                                                )
+                                                  return `macOS ${RegExp.$1.replace(
+                                                    "_",
+                                                    "."
+                                                  )}`;
+                                                if (
+                                                  /Android (\d+(\.\d+)?)/.test(
+                                                    userAgent
+                                                  )
+                                                )
+                                                  return `Android ${RegExp.$1}`;
+                                                if (
+                                                  /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                                    userAgent
+                                                  )
+                                                )
+                                                  return `iOS ${RegExp.$2.replace(
+                                                    "_",
+                                                    "."
+                                                  )}`;
+                                                return "Unknown Version";
+                                              })(),
+                                              additionalData: {
+                                                ip: "132465",
+                                                name: "test1"
+                                              },
+                                              device_type:
+                                                window.navigator.platform
+                                            };
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      ]
+                                    };
+                                    return $globalActions[
+                                      "Fragment.apiRequest"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["invokeGlobalAction3"] != null &&
+                                typeof $steps["invokeGlobalAction3"] ===
+                                  "object" &&
+                                typeof $steps["invokeGlobalAction3"].then ===
+                                  "function"
+                              ) {
+                                $steps["invokeGlobalAction3"] = await $steps[
+                                  "invokeGlobalAction3"
+                                ];
+                              }
+
                               $steps["invokeGlobalAction"] =
                                 !window.localStorage.getItem("wifeInfo")
                                   ? (() => {
@@ -5478,44 +5636,6 @@ function PlasmicHamyar__RenderFunc(props: {
                                 typeof $steps["runCode"].then === "function"
                               ) {
                                 $steps["runCode"] = await $steps["runCode"];
-                              }
-
-                              $steps["updateInputValue"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["input", "value"]
-                                      },
-                                      operation: 0
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["updateInputValue"] != null &&
-                                typeof $steps["updateInputValue"] ===
-                                  "object" &&
-                                typeof $steps["updateInputValue"].then ===
-                                  "function"
-                              ) {
-                                $steps["updateInputValue"] = await $steps[
-                                  "updateInputValue"
-                                ];
                               }
 
                               $steps["invokeGlobalAction2"] = $steps

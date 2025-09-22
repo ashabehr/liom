@@ -2441,6 +2441,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                       customFunction: async () => {
                         return setTimeout(() => {
                           try {
+                            console.log($state.getUserInfo.data);
                             var token = $state.token;
                             var name =
                               $state.getUserInfo.data?.[0]?.result?.user
@@ -2597,7 +2598,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                           } catch (error) {
                             console.log("\u274C خطا مدیریت شد:", error.message);
                           }
-                        }, 4000);
+                        }, 10000);
                       }
                     };
                     return (({ customFunction }) => {

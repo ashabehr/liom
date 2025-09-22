@@ -6,6 +6,8 @@ import GlobalContextsProvider from "../../components/plasmic/liom_hamyar/Plasmic
 
 import { UnnamedGlobalGroupOfVariants4ContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants4";
 import { UnnamedGlobalGroupOfVariants5ContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants5";
+import { UnnamedGlobalGroupOfVariants6ContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants6";
+import { NewViewContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__NewView";
 import { PlasmicHamyar2 } from "../../components/plasmic/liom_hamyar/PlasmicHamyar2";
 import { useRouter } from "next/router";
 
@@ -28,19 +30,23 @@ function Hamyar2() {
   // (https://nextjs.org/docs/advanced-features/custom-app).
 
   return (
-    <UnnamedGlobalGroupOfVariants5ContextProvider value={undefined}>
-      <UnnamedGlobalGroupOfVariants4ContextProvider value={undefined}>
-        <GlobalContextsProvider>
-          <PageParamsProvider__
-            route={useRouter()?.pathname}
-            params={useRouter()?.query}
-            query={useRouter()?.query}
-          >
-            <PlasmicHamyar2 />
-          </PageParamsProvider__>
-        </GlobalContextsProvider>
-      </UnnamedGlobalGroupOfVariants4ContextProvider>
-    </UnnamedGlobalGroupOfVariants5ContextProvider>
+    <NewViewContextProvider value={undefined}>
+      <UnnamedGlobalGroupOfVariants6ContextProvider value={undefined}>
+        <UnnamedGlobalGroupOfVariants5ContextProvider value={undefined}>
+          <UnnamedGlobalGroupOfVariants4ContextProvider value={undefined}>
+            <GlobalContextsProvider>
+              <PageParamsProvider__
+                route={useRouter()?.pathname}
+                params={useRouter()?.query}
+                query={useRouter()?.query}
+              >
+                <PlasmicHamyar2 />
+              </PageParamsProvider__>
+            </GlobalContextsProvider>
+          </UnnamedGlobalGroupOfVariants4ContextProvider>
+        </UnnamedGlobalGroupOfVariants5ContextProvider>
+      </UnnamedGlobalGroupOfVariants6ContextProvider>
+    </NewViewContextProvider>
   );
 }
 

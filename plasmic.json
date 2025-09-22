@@ -3069,20 +3069,6 @@
           "componentType": "component"
         },
         {
-          "id": "7NsGx2iJsGKX",
-          "name": "Hamyar2",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicHamyar2.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/hamyar-2.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicHamyar2.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/hamyar-2"
-        },
-        {
           "id": "j5op3vcM_4hJ",
           "name": "Dialog3",
           "type": "managed",
@@ -4541,6 +4527,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/pregnancy"
+        },
+        {
+          "id": "RNnuQ6N0Um_C",
+          "name": "Hamyar2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicHamyar2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/hamyar-2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicHamyar2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/hamyar-2"
         }
       ],
       "icons": [

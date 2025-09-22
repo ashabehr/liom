@@ -605,31 +605,15 @@ function PlasmicMonthlist__RenderFunc(props: {
               >
                 <div className={classNames(projectcss.all, sty.freeBox__v4BVd)}>
                   <XIcon
-                    className={classNames(projectcss.all, sty.svg__qi6K7)}
+                    className={classNames(projectcss.all, sty.svg__qi6K7, {
+                      [sty.svglist__qi6K7W16R]: hasVariant(
+                        $state,
+                        "list",
+                        "list"
+                      )
+                    })}
                     onClick={async event => {
                       const $steps = {};
-
-                      $steps["runCode"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return (() => {
-                                  return window.history.back();
-                                })();
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
-                      }
                     }}
                     role={"img"}
                   />
