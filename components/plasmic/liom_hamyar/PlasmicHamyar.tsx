@@ -5480,6 +5480,44 @@ function PlasmicHamyar__RenderFunc(props: {
                                 $steps["runCode"] = await $steps["runCode"];
                               }
 
+                              $steps["updateInputValue"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["input", "value"]
+                                      },
+                                      operation: 0
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateInputValue"] != null &&
+                                typeof $steps["updateInputValue"] ===
+                                  "object" &&
+                                typeof $steps["updateInputValue"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateInputValue"] = await $steps[
+                                  "updateInputValue"
+                                ];
+                              }
+
                               $steps["invokeGlobalAction2"] = $steps
                                 .invokeGlobalAction?.data?.result
                                 ? (() => {

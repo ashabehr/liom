@@ -66,6 +66,7 @@ import Line from "../../Line"; // plasmic-import: tYgE5kAlYGXB/component
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import Detailsmonth from "../../../src/pages/detailsmonth"; // plasmic-import: zIxrUaJyE_Qc/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -104,6 +105,7 @@ export type PlasmicMonthlist__OverridesType = {
   headerLiom?: Flex__<typeof HeaderLiom>;
   button?: Flex__<typeof Button>;
   apiRequest?: Flex__<typeof ApiRequest>;
+  reveal?: Flex__<typeof Reveal>;
   detailsmonth?: Flex__<typeof Detailsmonth>;
 };
 
@@ -808,75 +810,85 @@ function PlasmicMonthlist__RenderFunc(props: {
             url={"https://n8n.staas.ir/webhook/calendar/getDataList"}
           />
 
-          <Detailsmonth
-            data-plasmic-name={"detailsmonth"}
-            data-plasmic-override={overrides.detailsmonth}
-            back={async () => {
-              const $steps = {};
-
-              $steps["updateList"] = true
-                ? (() => {
-                    const actionArgs = {
-                      vgroup: "list",
-                      operation: 2,
-                      value: "list"
-                    };
-                    return (({ vgroup, value }) => {
-                      if (typeof value === "string") {
-                        value = [value];
-                      }
-
-                      const oldValue = $stateGet($state, vgroup);
-                      $stateSet($state, vgroup, !oldValue);
-                      return !oldValue;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateList"] != null &&
-                typeof $steps["updateList"] === "object" &&
-                typeof $steps["updateList"].then === "function"
-              ) {
-                $steps["updateList"] = await $steps["updateList"];
-              }
-            }}
-            className={classNames("__wab_instance", sty.detailsmonth, {
-              [sty.detailsmonthlist]: hasVariant($state, "list", "list")
+          <Reveal
+            data-plasmic-name={"reveal"}
+            data-plasmic-override={overrides.reveal}
+            className={classNames("__wab_instance", sty.reveal, {
+              [sty.reveallist]: hasVariant($state, "list", "list")
             })}
-            details={generateStateValueProp($state, [
-              "detailsmonth",
-              "details"
-            ])}
-            id={generateStateValueProp($state, ["detailsmonth", "id"])}
-            onDetailsChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, [
+            damping={0.3}
+            triggerOnce={true}
+          >
+            <Detailsmonth
+              data-plasmic-name={"detailsmonth"}
+              data-plasmic-override={overrides.detailsmonth}
+              back={async () => {
+                const $steps = {};
+
+                $steps["updateList"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        vgroup: "list",
+                        operation: 2,
+                        value: "list"
+                      };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        const oldValue = $stateGet($state, vgroup);
+                        $stateSet($state, vgroup, !oldValue);
+                        return !oldValue;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateList"] != null &&
+                  typeof $steps["updateList"] === "object" &&
+                  typeof $steps["updateList"].then === "function"
+                ) {
+                  $steps["updateList"] = await $steps["updateList"];
+                }
+              }}
+              className={classNames("__wab_instance", sty.detailsmonth, {
+                [sty.detailsmonthlist]: hasVariant($state, "list", "list")
+              })}
+              details={generateStateValueProp($state, [
                 "detailsmonth",
                 "details"
-              ]).apply(null, eventArgs);
+              ])}
+              id={generateStateValueProp($state, ["detailsmonth", "id"])}
+              onDetailsChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "detailsmonth",
+                  "details"
+                ]).apply(null, eventArgs);
 
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            onIdChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["detailsmonth", "id"]).apply(
-                null,
-                eventArgs
-              );
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onIdChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["detailsmonth", "id"]).apply(
+                  null,
+                  eventArgs
+                );
 
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-          />
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+            />
+          </Reveal>
         </div>
       </div>
     </React.Fragment>
@@ -884,11 +896,20 @@ function PlasmicMonthlist__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "line", "headerLiom", "button", "apiRequest", "detailsmonth"],
+  root: [
+    "root",
+    "line",
+    "headerLiom",
+    "button",
+    "apiRequest",
+    "reveal",
+    "detailsmonth"
+  ],
   line: ["line"],
   headerLiom: ["headerLiom"],
   button: ["button"],
   apiRequest: ["apiRequest"],
+  reveal: ["reveal", "detailsmonth"],
   detailsmonth: ["detailsmonth"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -900,6 +921,7 @@ type NodeDefaultElementType = {
   headerLiom: typeof HeaderLiom;
   button: typeof Button;
   apiRequest: typeof ApiRequest;
+  reveal: typeof Reveal;
   detailsmonth: typeof Detailsmonth;
 };
 
@@ -992,6 +1014,7 @@ export const PlasmicMonthlist = Object.assign(
     headerLiom: makeNodeComponent("headerLiom"),
     button: makeNodeComponent("button"),
     apiRequest: makeNodeComponent("apiRequest"),
+    reveal: makeNodeComponent("reveal"),
     detailsmonth: makeNodeComponent("detailsmonth"),
 
     // Metadata about props expected for PlasmicMonthlist
