@@ -59,9 +59,9 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { Chart } from "@/fragment/components/chart"; // plasmic-import: 2Vi4mc7aEpf-/codeComponent
-import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -71,10 +71,10 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicDetailsmonth.module.css"; // plasmic-import: zIxrUaJyE_Qc/css
 
+import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 import Icon165Icon from "./icons/PlasmicIcon__Icon165"; // plasmic-import: BbakN6wLCJed/icon
 import Icon298Icon from "./icons/PlasmicIcon__Icon298"; // plasmic-import: 8xj6BHtABX4C/icon
 import Icon299Icon from "./icons/PlasmicIcon__Icon299"; // plasmic-import: bMTPZcxBEEb7/icon
-import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
@@ -107,10 +107,10 @@ export const PlasmicDetailsmonth__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicDetailsmonth__OverridesType = {
   root?: Flex__<"div">;
+  headerLiom?: Flex__<typeof HeaderLiom>;
   apiRequest?: Flex__<typeof ApiRequest>;
   img?: Flex__<typeof PlasmicImg__>;
   fragmentChart?: Flex__<typeof Chart>;
-  headerLiom?: Flex__<typeof HeaderLiom>;
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
 };
@@ -281,11 +281,15 @@ function PlasmicDetailsmonth__RenderFunc(props: {
           (() => {
             try {
               return (() => {
+                let allDrugs = [];
+                let drugNames = [];
                 try {
-                  const events = $state.apiRequest.data.result.events;
-                  const allDrugs = events.flatMap(e => e.drug || []);
-                  const drugNames = [...new Set(allDrugs.map(d => d))];
-                } catch {}
+                  const events = $state.apiRequest?.data?.result?.events || [];
+                  allDrugs = events.flatMap(e => e.drug || []);
+                  return (drugNames = [...new Set(allDrugs)]);
+                } catch (err) {
+                  return console.error("خطا در پردازش داده‌ها:", err);
+                }
               })();
             } catch (e) {
               if (
@@ -358,6 +362,51 @@ function PlasmicDetailsmonth__RenderFunc(props: {
         sty.root
       )}
     >
+      <section className={classNames(projectcss.all, sty.section__imGJf)}>
+        <HeaderLiom
+          data-plasmic-name={"headerLiom"}
+          data-plasmic-override={overrides.headerLiom}
+          className={classNames("__wab_instance", sty.headerLiom)}
+        >
+          <div className={classNames(projectcss.all, sty.freeBox__c37Nd)}>
+            <XIcon
+              className={classNames(projectcss.all, sty.svg__nCsKm)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["runBack"] = true
+                  ? (() => {
+                      const actionArgs = { eventRef: $props["back"] };
+                      return (({ eventRef, args }) => {
+                        return eventRef?.(...(args ?? []));
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runBack"] != null &&
+                  typeof $steps["runBack"] === "object" &&
+                  typeof $steps["runBack"].then === "function"
+                ) {
+                  $steps["runBack"] = await $steps["runBack"];
+                }
+              }}
+              role={"img"}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__nGTmw
+              )}
+            >
+              {
+                "\u062c\u0632\u0626\u06cc\u0627\u062a \u06af\u0632\u0627\u0631\u0634"
+              }
+            </div>
+          </div>
+        </HeaderLiom>
+      </section>
       <ApiRequest
         data-plasmic-name={"apiRequest"}
         data-plasmic-override={overrides.apiRequest}
@@ -1218,51 +1267,6 @@ function PlasmicDetailsmonth__RenderFunc(props: {
           </div>
         </div>
       </ApiRequest>
-      <section className={classNames(projectcss.all, sty.section__imGJf)}>
-        <HeaderLiom
-          data-plasmic-name={"headerLiom"}
-          data-plasmic-override={overrides.headerLiom}
-          className={classNames("__wab_instance", sty.headerLiom)}
-        >
-          <div className={classNames(projectcss.all, sty.freeBox__c37Nd)}>
-            <XIcon
-              className={classNames(projectcss.all, sty.svg__nCsKm)}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["runBack"] = true
-                  ? (() => {
-                      const actionArgs = { eventRef: $props["back"] };
-                      return (({ eventRef, args }) => {
-                        return eventRef?.(...(args ?? []));
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["runBack"] != null &&
-                  typeof $steps["runBack"] === "object" &&
-                  typeof $steps["runBack"].then === "function"
-                ) {
-                  $steps["runBack"] = await $steps["runBack"];
-                }
-              }}
-              role={"img"}
-            />
-
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__nGTmw
-              )}
-            >
-              {
-                "\u062c\u0632\u0626\u06cc\u0627\u062a \u06af\u0632\u0627\u0631\u0634"
-              }
-            </div>
-          </div>
-        </HeaderLiom>
-      </section>
       <section className={classNames(projectcss.all, sty.section__zkPhI)}>
         <div className={classNames(projectcss.all, sty.freeBox__stJmD)}>
           <Button
@@ -1473,17 +1477,17 @@ function PlasmicDetailsmonth__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "headerLiom",
     "apiRequest",
     "img",
     "fragmentChart",
-    "headerLiom",
     "button",
     "button2"
   ],
+  headerLiom: ["headerLiom"],
   apiRequest: ["apiRequest", "img", "fragmentChart"],
   img: ["img"],
   fragmentChart: ["fragmentChart"],
-  headerLiom: ["headerLiom"],
   button: ["button"],
   button2: ["button2"]
 } as const;
@@ -1492,10 +1496,10 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  headerLiom: typeof HeaderLiom;
   apiRequest: typeof ApiRequest;
   img: typeof PlasmicImg__;
   fragmentChart: typeof Chart;
-  headerLiom: typeof HeaderLiom;
   button: typeof Button;
   button2: typeof Button;
 };
@@ -1560,10 +1564,10 @@ export const PlasmicDetailsmonth = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    headerLiom: makeNodeComponent("headerLiom"),
     apiRequest: makeNodeComponent("apiRequest"),
     img: makeNodeComponent("img"),
     fragmentChart: makeNodeComponent("fragmentChart"),
-    headerLiom: makeNodeComponent("headerLiom"),
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
 
