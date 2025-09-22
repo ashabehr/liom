@@ -503,5 +503,5 @@
   display: none;
 }
 .detailsmonthlist:global(.__wab_instance) {
-  display: grid;
+  display: flex;
 }

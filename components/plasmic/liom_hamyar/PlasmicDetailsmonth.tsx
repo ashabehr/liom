@@ -89,17 +89,17 @@ export const PlasmicDetailsmonth__VariantProps = new Array<VariantPropType>();
 
 export type PlasmicDetailsmonth__ArgsType = {
   details?: string;
-  onDetailsChange?: (val: string) => void;
+  onDetailsChange2?: (val: string) => void;
   id?: string;
-  onIdChange?: (val: string) => void;
+  onIdChange2?: (val: string) => void;
   back?: () => void;
 };
 type ArgPropType = keyof PlasmicDetailsmonth__ArgsType;
 export const PlasmicDetailsmonth__ArgProps = new Array<ArgPropType>(
   "details",
-  "onDetailsChange",
+  "onDetailsChange2",
   "id",
-  "onIdChange",
+  "onIdChange2",
   "back"
 );
 
@@ -115,9 +115,9 @@ export type PlasmicDetailsmonth__OverridesType = {
 
 export interface DefaultDetailsmonthProps {
   details?: string;
-  onDetailsChange?: (val: string) => void;
+  onDetailsChange2?: (val: string) => void;
   id?: string;
-  onIdChange?: (val: string) => void;
+  onIdChange2?: (val: string) => void;
   back?: () => void;
   className?: string;
 }
@@ -231,7 +231,7 @@ function PlasmicDetailsmonth__RenderFunc(props: {
         variableType: "text",
 
         valueProp: "details",
-        onChangeProp: "onDetailsChange"
+        onChangeProp: "onDetailsChange2"
       },
       {
         path: "avgWater",
@@ -323,7 +323,7 @@ function PlasmicDetailsmonth__RenderFunc(props: {
         variableType: "text",
 
         valueProp: "id",
-        onChangeProp: "onIdChange"
+        onChangeProp: "onIdChange2"
       }
     ],
     [$props, $ctx, $refs]
@@ -371,11 +371,7 @@ function PlasmicDetailsmonth__RenderFunc(props: {
         className={classNames("__wab_instance", sty.apiRequest)}
         config={(() => {
           try {
-            return {
-              headers: {
-                authorization: $state.details
-              }
-            };
+            return { headers: { authorization: $state.details } };
           } catch (e) {
             if (
               e instanceof TypeError ||
@@ -427,7 +423,7 @@ function PlasmicDetailsmonth__RenderFunc(props: {
         }}
         shouldFetch={(() => {
           try {
-            return $state.id != "";
+            return $state.id != "" && $state.id != null;
           } catch (e) {
             if (
               e instanceof TypeError ||

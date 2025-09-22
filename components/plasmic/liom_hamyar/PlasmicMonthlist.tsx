@@ -843,7 +843,7 @@ function PlasmicMonthlist__RenderFunc(props: {
                 "details"
               ])}
               id={generateStateValueProp($state, ["detailsmonth", "id"])}
-              onDetailsChange={async (...eventArgs: any) => {
+              onDetailsChange2={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "detailsmonth",
                   "details"
@@ -857,7 +857,7 @@ function PlasmicMonthlist__RenderFunc(props: {
                   return;
                 }
               }}
-              onIdChange={async (...eventArgs: any) => {
+              onIdChange2={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, ["detailsmonth", "id"]).apply(
                   null,
                   eventArgs
