@@ -237,6 +237,12 @@ function PlasmicMonthlist__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "paramsObject",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
