@@ -23044,6 +23044,11 @@ function PlasmicHamyar__RenderFunc(props: {
                         $state,
                         "noPartner",
                         "noPartner"
+                      ),
+                      [sty.freeBoxpage_reminder__sHtVAslU1R]: hasVariant(
+                        $state,
+                        "page",
+                        "reminder"
                       )
                     })}
                     onClick={async event => {
