@@ -481,19 +481,7 @@ function PlasmicDetailsmonth__RenderFunc(props: {
             eventArgs
           );
         }}
-        shouldFetch={(() => {
-          try {
-            return $state.id != "" && $state.id != null;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return true;
-            }
-            throw e;
-          }
-        })()}
+        shouldFetch={true}
         url={"https://n8n.staas.ir/webhook/calendar/getDetails"}
       >
         <div className={classNames(projectcss.all, sty.freeBox__k9Z1)}>

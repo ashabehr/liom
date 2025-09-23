@@ -26907,26 +26907,25 @@ function PlasmicHamyar__RenderFunc(props: {
             back={async () => {
               const $steps = {};
 
-              $steps["updateReminder"] = true
+              $steps["updatePage"] = true
                 ? (() => {
-                    const actionArgs = { vgroup: "reminder", operation: 2 };
+                    const actionArgs = { vgroup: "page", operation: 1 };
                     return (({ vgroup, value }) => {
                       if (typeof value === "string") {
                         value = [value];
                       }
 
-                      const oldValue = $stateGet($state, vgroup);
-                      $stateSet($state, vgroup, !oldValue);
-                      return !oldValue;
+                      $stateSet($state, vgroup, undefined);
+                      return undefined;
                     })?.apply(null, [actionArgs]);
                   })()
                 : undefined;
               if (
-                $steps["updateReminder"] != null &&
-                typeof $steps["updateReminder"] === "object" &&
-                typeof $steps["updateReminder"].then === "function"
+                $steps["updatePage"] != null &&
+                typeof $steps["updatePage"] === "object" &&
+                typeof $steps["updatePage"].then === "function"
               ) {
-                $steps["updateReminder"] = await $steps["updateReminder"];
+                $steps["updatePage"] = await $steps["updatePage"];
               }
             }}
             className={classNames("__wab_instance", sty.reminder2, {
