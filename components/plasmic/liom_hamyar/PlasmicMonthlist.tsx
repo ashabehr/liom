@@ -67,7 +67,7 @@ import Line from "../../Line"; // plasmic-import: tYgE5kAlYGXB/component
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
-import Detailsmonth from "../../../src/pages/detailsmonth"; // plasmic-import: zIxrUaJyE_Qc/component
+import Detailsmonth2 from "../../Detailsmonth2"; // plasmic-import: 2iOsvG_psYjY/component
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -107,7 +107,7 @@ export type PlasmicMonthlist__OverridesType = {
   headerLiom?: Flex__<typeof HeaderLiom>;
   button?: Flex__<typeof Button>;
   reveal?: Flex__<typeof Reveal>;
-  detailsmonth?: Flex__<typeof Detailsmonth>;
+  detailsmonth2?: Flex__<typeof Detailsmonth2>;
   sideEffect?: Flex__<typeof SideEffect>;
 };
 
@@ -208,7 +208,19 @@ function PlasmicMonthlist__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.list
       },
       {
-        path: "detailsmonth.id",
+        path: "id",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "detailsmonth2.details",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "detailsmonth2.id",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
@@ -225,31 +237,6 @@ function PlasmicMonthlist__RenderFunc(props: {
               throw e;
             }
           })()
-      },
-      {
-        path: "detailsmonth.details",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.token;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
-      },
-      {
-        path: "id",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -875,9 +862,9 @@ function PlasmicMonthlist__RenderFunc(props: {
             damping={0.3}
             triggerOnce={true}
           >
-            <Detailsmonth
-              data-plasmic-name={"detailsmonth"}
-              data-plasmic-override={overrides.detailsmonth}
+            <Detailsmonth2
+              data-plasmic-name={"detailsmonth2"}
+              data-plasmic-override={overrides.detailsmonth2}
               back={async () => {
                 const $steps = {};
 
@@ -885,7 +872,7 @@ function PlasmicMonthlist__RenderFunc(props: {
                   ? (() => {
                       const actionArgs = {
                         vgroup: "list",
-                        operation: 2,
+                        operation: 6,
                         value: "list"
                       };
                       return (({ vgroup, value }) => {
@@ -893,9 +880,8 @@ function PlasmicMonthlist__RenderFunc(props: {
                           value = [value];
                         }
 
-                        const oldValue = $stateGet($state, vgroup);
-                        $stateSet($state, vgroup, !oldValue);
-                        return !oldValue;
+                        $stateSet($state, vgroup, false);
+                        return false;
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
@@ -907,17 +893,15 @@ function PlasmicMonthlist__RenderFunc(props: {
                   $steps["updateList"] = await $steps["updateList"];
                 }
               }}
-              className={classNames("__wab_instance", sty.detailsmonth, {
-                [sty.detailsmonthlist]: hasVariant($state, "list", "list")
-              })}
+              className={classNames("__wab_instance", sty.detailsmonth2)}
               details={generateStateValueProp($state, [
-                "detailsmonth",
+                "detailsmonth2",
                 "details"
               ])}
-              id={generateStateValueProp($state, ["detailsmonth", "id"])}
+              id={generateStateValueProp($state, ["detailsmonth2", "id"])}
               onDetailsChange2={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
-                  "detailsmonth",
+                  "detailsmonth2",
                   "details"
                 ]).apply(null, eventArgs);
 
@@ -930,10 +914,10 @@ function PlasmicMonthlist__RenderFunc(props: {
                 }
               }}
               onIdChange2={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["detailsmonth", "id"]).apply(
-                  null,
-                  eventArgs
-                );
+                generateStateOnChangeProp($state, [
+                  "detailsmonth2",
+                  "id"
+                ]).apply(null, eventArgs);
 
                 if (
                   eventArgs.length > 1 &&
@@ -1109,15 +1093,15 @@ const PlasmicDescendants = {
     "headerLiom",
     "button",
     "reveal",
-    "detailsmonth",
+    "detailsmonth2",
     "sideEffect"
   ],
   apiRequest: ["apiRequest", "line"],
   line: ["line"],
   headerLiom: ["headerLiom"],
   button: ["button"],
-  reveal: ["reveal", "detailsmonth"],
-  detailsmonth: ["detailsmonth"],
+  reveal: ["reveal", "detailsmonth2"],
+  detailsmonth2: ["detailsmonth2"],
   sideEffect: ["sideEffect"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -1130,7 +1114,7 @@ type NodeDefaultElementType = {
   headerLiom: typeof HeaderLiom;
   button: typeof Button;
   reveal: typeof Reveal;
-  detailsmonth: typeof Detailsmonth;
+  detailsmonth2: typeof Detailsmonth2;
   sideEffect: typeof SideEffect;
 };
 
@@ -1224,7 +1208,7 @@ export const PlasmicMonthlist = Object.assign(
     headerLiom: makeNodeComponent("headerLiom"),
     button: makeNodeComponent("button"),
     reveal: makeNodeComponent("reveal"),
-    detailsmonth: makeNodeComponent("detailsmonth"),
+    detailsmonth2: makeNodeComponent("detailsmonth2"),
     sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicMonthlist

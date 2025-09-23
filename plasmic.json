@@ -4554,6 +4554,33 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicNoNet.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "XgTHYWnkS6wj",
+          "name": "Datelist",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicDatelist.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/datelist.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicDatelist.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/datelist"
+        },
+        {
+          "id": "2iOsvG_psYjY",
+          "name": "Detailsmonth2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicDetailsmonth2.tsx",
+          "importSpec": {
+            "modulePath": "Detailsmonth2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicDetailsmonth2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

@@ -10159,7 +10159,7 @@ function PlasmicHamyar__RenderFunc(props: {
                             )}
                           >
                             {
-                              "\u0644\u06cc\u0633\u062a \u06cc\u0627\u062f\u0622\u0648\u0631\u0647\u0627"
+                              "\u0644\u06cc\u0633\u062a \u0645\u0647\u0645 \u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627"
                             }
                           </div>
                         </Button>
@@ -22510,114 +22510,92 @@ function PlasmicHamyar__RenderFunc(props: {
                     )
                   })}
                 >
-                  {(() => {
-                    try {
-                      return (
-                        $state.userdata?.result?.man?.id == "1" ||
-                        $state.userdata?.result?.man?.id ==
-                          "b60ec8fa-455a-4c93-9b25-54b6981d90cd"
-                      );
-                    } catch (e) {
+                  <div
+                    aria-pressed={undefined}
+                    className={classNames(projectcss.all, sty.freeBox__j5Sw8, {
+                      [sty.freeBoxeditCycle__j5Sw8U9Adl]: hasVariant(
+                        $state,
+                        "editCycle",
+                        "editCycle"
+                      ),
+                      [sty.freeBoxnoPartner__j5Sw8C7PeD]: hasVariant(
+                        $state,
+                        "noPartner",
+                        "noPartner"
+                      ),
+                      [sty.freeBoxpage_reminder__j5Sw8SlU1R]: hasVariant(
+                        $state,
+                        "page",
+                        "reminder"
+                      )
+                    })}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updatePage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              vgroup: "page",
+                              operation: 0,
+                              value: "reminder"
+                            };
+                            return (({ vgroup, value }) => {
+                              if (typeof value === "string") {
+                                value = [value];
+                              }
+
+                              $stateSet($state, vgroup, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
                       if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
+                        $steps["updatePage"] != null &&
+                        typeof $steps["updatePage"] === "object" &&
+                        typeof $steps["updatePage"].then === "function"
                       ) {
-                        return true;
+                        $steps["updatePage"] = await $steps["updatePage"];
                       }
-                      throw e;
-                    }
-                  })() ? (
+                    }}
+                  >
+                    <PlasmicIcon__
+                      PlasmicIconType={
+                        hasVariant($state, "page", "reminder")
+                          ? Icon289Icon
+                          : Icon287Icon
+                      }
+                      className={classNames(projectcss.all, sty.svg__jzbyo, {
+                        [sty.svgnoPartner__jzbyOc7PeD]: hasVariant(
+                          $state,
+                          "noPartner",
+                          "noPartner"
+                        ),
+                        [sty.svgpage_reminder__jzbyOslU1R]: hasVariant(
+                          $state,
+                          "page",
+                          "reminder"
+                        )
+                      })}
+                      role={"img"}
+                    />
+
                     <div
-                      aria-pressed={undefined}
                       className={classNames(
                         projectcss.all,
-                        sty.freeBox__j5Sw8,
+                        projectcss.__wab_text,
+                        sty.text__lvaGt,
                         {
-                          [sty.freeBoxeditCycle__j5Sw8U9Adl]: hasVariant(
-                            $state,
-                            "editCycle",
-                            "editCycle"
-                          ),
-                          [sty.freeBoxnoPartner__j5Sw8C7PeD]: hasVariant(
-                            $state,
-                            "noPartner",
-                            "noPartner"
-                          ),
-                          [sty.freeBoxpage_reminder__j5Sw8SlU1R]: hasVariant(
+                          [sty.textpage_reminder__lvaGtslU1R]: hasVariant(
                             $state,
                             "page",
                             "reminder"
                           )
                         }
                       )}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["updatePage"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                vgroup: "page",
-                                operation: 0,
-                                value: "reminder"
-                              };
-                              return (({ vgroup, value }) => {
-                                if (typeof value === "string") {
-                                  value = [value];
-                                }
-
-                                $stateSet($state, vgroup, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updatePage"] != null &&
-                          typeof $steps["updatePage"] === "object" &&
-                          typeof $steps["updatePage"].then === "function"
-                        ) {
-                          $steps["updatePage"] = await $steps["updatePage"];
-                        }
-                      }}
                     >
-                      <PlasmicIcon__
-                        PlasmicIconType={
-                          hasVariant($state, "page", "reminder")
-                            ? Icon289Icon
-                            : Icon287Icon
-                        }
-                        className={classNames(projectcss.all, sty.svg__jzbyo, {
-                          [sty.svgnoPartner__jzbyOc7PeD]: hasVariant(
-                            $state,
-                            "noPartner",
-                            "noPartner"
-                          ),
-                          [sty.svgpage_reminder__jzbyOslU1R]: hasVariant(
-                            $state,
-                            "page",
-                            "reminder"
-                          )
-                        })}
-                        role={"img"}
-                      />
-
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__lvaGt,
-                          {
-                            [sty.textpage_reminder__lvaGtslU1R]: hasVariant(
-                              $state,
-                              "page",
-                              "reminder"
-                            )
-                          }
-                        )}
-                      >
-                        {"\u06cc\u0627\u062f \u0622\u0648\u0631\u06cc"}
-                      </div>
+                      {"\u06cc\u0627\u062f \u0622\u0648\u0631\u06cc"}
                     </div>
-                  ) : null}
+                  </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox___5YvYk, {
                       [sty.freeBoxpage_reminder___5YvYKslU1R]: hasVariant(

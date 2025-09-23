@@ -547,6 +547,7 @@
   height: 15px;
   color: var(--token-AwpLXbw5AmtS);
   flex-shrink: 0;
+  display: none;
 }
 .todayMeeting3 {
   box-shadow: none;
@@ -1154,4 +1155,8 @@
   right: auto;
   bottom: auto;
   display: none;
+}
+.backHandler:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
 }
