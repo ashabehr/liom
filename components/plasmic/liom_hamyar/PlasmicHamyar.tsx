@@ -113,7 +113,7 @@ import Icon125Icon from "./icons/PlasmicIcon__Icon125"; // plasmic-import: Q7X4s
 import Icon124Icon from "./icons/PlasmicIcon__Icon124"; // plasmic-import: PTcWiaBFyPBw/icon
 import Icon126Icon from "./icons/PlasmicIcon__Icon126"; // plasmic-import: MKLSqOtGUXQ0/icon
 import Icon280Icon from "./icons/PlasmicIcon__Icon280"; // plasmic-import: Q1zg9JItuLZ-/icon
-import Icon278Icon from "./icons/PlasmicIcon__Icon278"; // plasmic-import: CPpihkrGcjaH/icon
+import Icon304Icon from "./icons/PlasmicIcon__Icon304"; // plasmic-import: 703ShUnmEPbT/icon
 import Icon281Icon from "./icons/PlasmicIcon__Icon281"; // plasmic-import: LFRF9KNEKTKm/icon
 import Icon282Icon from "./icons/PlasmicIcon__Icon282"; // plasmic-import: 7X0kotbii7tD/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
@@ -9830,225 +9830,113 @@ function PlasmicHamyar__RenderFunc(props: {
                             </div>
                           </div>
                         ) : null}
-                        {(() => {
-                          try {
-                            return $state.userdata?.result?.man?.id == "1";
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__l2UhF,
+                            {
+                              [sty.freeBoxnoPartner__l2UhFc7PeD]: hasVariant(
+                                $state,
+                                "noPartner",
+                                "noPartner"
+                              )
                             }
-                            throw e;
-                          }
-                        })() ? (
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__l2UhF,
-                              {
-                                [sty.freeBoxnoPartner__l2UhFc7PeD]: hasVariant(
-                                  $state,
-                                  "noPartner",
-                                  "noPartner"
-                                )
+                          )}
+                        />
+
+                        {(_par =>
+                          !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                          (() => {
+                            try {
+                              return $state.remind?.slice(0, 2);
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
                               }
-                            )}
-                          />
-                        ) : null}
-                        {(() => {
-                          try {
-                            return $state.userdata?.result?.man?.id == "1";
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
+                              throw e;
                             }
-                            throw e;
-                          }
-                        })()
-                          ? (_par =>
-                              !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                              (() => {
-                                try {
-                                  return $state.remind?.slice(0, 2);
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return [];
-                                  }
-                                  throw e;
+                          })()
+                        ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                          const currentItem = __plasmic_item_0;
+                          const currentIndex = __plasmic_idx_0;
+                          return (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__pwA8,
+                                {
+                                  [sty.freeBoxnoPartner__pwA8C7PeD]: hasVariant(
+                                    $state,
+                                    "noPartner",
+                                    "noPartner"
+                                  )
                                 }
-                              })()
-                            ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                              const currentItem = __plasmic_item_0;
-                              const currentIndex = __plasmic_idx_0;
-                              return (
+                              )}
+                              key={currentIndex}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__pl4Lo
+                                )}
+                              >
                                 <div
                                   className={classNames(
                                     projectcss.all,
-                                    sty.freeBox__pwA8,
-                                    {
-                                      [sty.freeBoxnoPartner__pwA8C7PeD]:
-                                        hasVariant(
-                                          $state,
-                                          "noPartner",
-                                          "noPartner"
-                                        )
-                                    }
+                                    projectcss.__wab_text,
+                                    sty.text___1Hn38
                                   )}
-                                  key={currentIndex}
                                 >
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__pl4Lo
-                                    )}
-                                  >
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text___1Hn38
-                                      )}
-                                    >
-                                      <React.Fragment>
-                                        {(() => {
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return (() => {
                                           try {
-                                            return (() => {
-                                              try {
-                                                return currentItem.name + ":";
-                                              } catch {}
-                                            })();
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return "\u0634\u0631\u0648\u0639 pms :";
-                                            }
-                                            throw e;
-                                          }
-                                        })()}
-                                      </React.Fragment>
-                                    </div>
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__jb0B
-                                      )}
-                                      style={
-                                        hasVariant(
-                                          globalVariants,
-                                          "screen",
-                                          "mobile"
-                                        )
-                                          ? (() => {
-                                              try {
-                                                return (() => {
-                                                  let future1 = new Date(
-                                                    currentItem.date_greg
-                                                  );
-                                                  let current_date1 =
-                                                    new Date();
-                                                  let delta1 =
-                                                    future1 - current_date1;
-                                                  let days_remaining1 =
-                                                    Math.floor(
-                                                      delta1 /
-                                                        (1000 * 60 * 60 * 24)
-                                                    );
-                                                  if (days_remaining1 < 7) {
-                                                    return { color: "#8B0000" };
-                                                  }
-                                                })();
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })()
-                                          : (() => {
-                                              try {
-                                                return (() => {
-                                                  let future1 = new Date(
-                                                    currentItem.date_greg
-                                                  );
-                                                  let current_date1 =
-                                                    new Date();
-                                                  let delta1 =
-                                                    future1 - current_date1;
-                                                  let days_remaining1 =
-                                                    Math.floor(
-                                                      delta1 /
-                                                        (1000 * 60 * 60 * 24)
-                                                    );
-                                                  if (days_remaining1 < 7) {
-                                                    return { color: "#8B0000" };
-                                                  }
-                                                })();
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })()
+                                            return currentItem.name + ":";
+                                          } catch {}
+                                        })();
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "\u0634\u0631\u0648\u0639 pms :";
+                                        }
+                                        throw e;
                                       }
-                                    >
-                                      <React.Fragment>
-                                        {(() => {
+                                    })()}
+                                  </React.Fragment>
+                                </div>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__jb0B
+                                  )}
+                                  style={
+                                    hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobile"
+                                    )
+                                      ? (() => {
                                           try {
                                             return (() => {
-                                              try {
-                                                var d = currentItem.dates
-                                                  ? JSON.parse(
-                                                      currentItem.dates
-                                                    )[0]
-                                                  : null;
-                                                if (!d) return "";
-                                                let future1 = new Date(d);
-                                                let current_date1 = new Date();
-                                                future1.setHours(0, 0, 0, 0);
-                                                current_date1.setHours(
-                                                  0,
-                                                  0,
-                                                  0,
-                                                  0
-                                                );
-                                                let delta1 =
-                                                  future1 - current_date1;
-                                                let days_remaining1 =
-                                                  Math.floor(
-                                                    delta1 /
-                                                      (1000 * 60 * 60 * 24)
-                                                  );
-                                                if (days_remaining1 == 0)
-                                                  return "تا پایان امروز";
-                                                return (
-                                                  days_remaining1 +
-                                                  " روز " +
-                                                  "دیگر"
-                                                );
-                                              } catch {
-                                                return "";
+                                              let future1 = new Date(
+                                                currentItem.date_greg
+                                              );
+                                              let current_date1 = new Date();
+                                              let delta1 =
+                                                future1 - current_date1;
+                                              let days_remaining1 = Math.floor(
+                                                delta1 / (1000 * 60 * 60 * 24)
+                                              );
+                                              if (days_remaining1 < 7) {
+                                                return { color: "#8B0000" };
                                               }
                                             })();
                                           } catch (e) {
@@ -10057,22 +9945,88 @@ function PlasmicHamyar__RenderFunc(props: {
                                               e?.plasmicType ===
                                                 "PlasmicUndefinedDataError"
                                             ) {
-                                              return "\u0646\u0627 \u0645\u0639\u0644\u0648\u0645";
+                                              return undefined;
                                             }
                                             throw e;
                                           }
-                                        })()}
-                                      </React.Fragment>
-                                    </div>
-                                  </div>
+                                        })()
+                                      : (() => {
+                                          try {
+                                            return (() => {
+                                              let future1 = new Date(
+                                                currentItem.date_greg
+                                              );
+                                              let current_date1 = new Date();
+                                              let delta1 =
+                                                future1 - current_date1;
+                                              let days_remaining1 = Math.floor(
+                                                delta1 / (1000 * 60 * 60 * 24)
+                                              );
+                                              if (days_remaining1 < 7) {
+                                                return { color: "#8B0000" };
+                                              }
+                                            })();
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                  }
+                                >
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return (() => {
+                                          try {
+                                            var d = currentItem.dates
+                                              ? JSON.parse(currentItem.dates)[0]
+                                              : null;
+                                            if (!d) return "";
+                                            let future1 = new Date(d);
+                                            let current_date1 = new Date();
+                                            future1.setHours(0, 0, 0, 0);
+                                            current_date1.setHours(0, 0, 0, 0);
+                                            let delta1 =
+                                              future1 - current_date1;
+                                            let days_remaining1 = Math.floor(
+                                              delta1 / (1000 * 60 * 60 * 24)
+                                            );
+                                            if (days_remaining1 == 0)
+                                              return "تا پایان امروز";
+                                            return (
+                                              days_remaining1 + " روز " + "دیگر"
+                                            );
+                                          } catch {
+                                            return "";
+                                          }
+                                        })();
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "\u0646\u0627 \u0645\u0639\u0644\u0648\u0645";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
                                 </div>
-                              );
-                            })
-                          : null}
+                              </div>
+                            </div>
+                          );
+                        })}
                       </div>
                       {(() => {
                         try {
-                          return $ctx.query.r == "8z1hf8";
+                          return $state.remind.length > 0;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -10086,7 +10040,17 @@ function PlasmicHamyar__RenderFunc(props: {
                         <Button
                           data-plasmic-name={"button21"}
                           data-plasmic-override={overrides.button21}
-                          className={classNames("__wab_instance", sty.button21)}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.button21,
+                            {
+                              [sty.button21page_reminder]: hasVariant(
+                                $state,
+                                "page",
+                                "reminder"
+                              )
+                            }
+                          )}
                           color={generateStateValueProp($state, [
                             "button21",
                             "color"
@@ -10102,32 +10066,29 @@ function PlasmicHamyar__RenderFunc(props: {
                           onClick={async event => {
                             const $steps = {};
 
-                            $steps["updateReminder"] = true
+                            $steps["updatePage"] = true
                               ? (() => {
                                   const actionArgs = {
-                                    vgroup: "reminder",
-                                    operation: 2
+                                    vgroup: "page",
+                                    operation: 0,
+                                    value: "reminder"
                                   };
                                   return (({ vgroup, value }) => {
                                     if (typeof value === "string") {
                                       value = [value];
                                     }
 
-                                    const oldValue = $stateGet($state, vgroup);
-                                    $stateSet($state, vgroup, !oldValue);
-                                    return !oldValue;
+                                    $stateSet($state, vgroup, value);
+                                    return value;
                                   })?.apply(null, [actionArgs]);
                                 })()
                               : undefined;
                             if (
-                              $steps["updateReminder"] != null &&
-                              typeof $steps["updateReminder"] === "object" &&
-                              typeof $steps["updateReminder"].then ===
-                                "function"
+                              $steps["updatePage"] != null &&
+                              typeof $steps["updatePage"] === "object" &&
+                              typeof $steps["updatePage"].then === "function"
                             ) {
-                              $steps["updateReminder"] = await $steps[
-                                "updateReminder"
-                              ];
+                              $steps["updatePage"] = await $steps["updatePage"];
                             }
                           }}
                           onColorChange={async (...eventArgs: any) => {
@@ -10181,10 +10142,10 @@ function PlasmicHamyar__RenderFunc(props: {
                           showStartIcon={true}
                           size={"compact"}
                           startIcon={
-                            <Icon278Icon
+                            <Icon304Icon
                               className={classNames(
                                 projectcss.all,
-                                sty.svg__dSSsb
+                                sty.svg__eJl4R
                               )}
                               role={"img"}
                             />
@@ -10198,7 +10159,7 @@ function PlasmicHamyar__RenderFunc(props: {
                             )}
                           >
                             {
-                              "\u062a\u0646\u0638\u06cc\u0645 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627"
+                              "\u0644\u06cc\u0633\u062a \u06cc\u0627\u062f\u0622\u0648\u0631\u0647\u0627"
                             }
                           </div>
                         </Button>

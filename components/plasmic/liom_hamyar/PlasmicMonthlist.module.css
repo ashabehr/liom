@@ -35,8 +35,8 @@
   }
 }
 .rootlist {
-  padding-top: 6rem;
-  padding-bottom: 4rem;
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
 }
 .rootlist > * {
   grid-column: 4;
@@ -227,6 +227,44 @@
   font-size: var(--token-Wa5tmrNKVUYF);
   min-width: 0;
 }
+.apiRequest:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.freeBox__xrcMp {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  row-gap: var(--token-uOLZE7OyOW-J);
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox___902M4 {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: 50px;
+  max-width: 100%;
+  min-width: 0;
+  flex-shrink: 0;
+  border-radius: var(--token-cZA5sZsrFzOz);
+  padding: 8px;
+}
+.text__alUa5 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
 .freeBox___0Jo {
   display: flex;
   flex-direction: row;
@@ -283,6 +321,7 @@
   width: 20px;
   height: 20px;
   flex-shrink: 0;
+  display: none;
 }
 .svg__eeXpD {
   object-fit: cover;
@@ -451,44 +490,6 @@
   bottom: auto;
   display: none;
 }
-.apiRequest:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.freeBox__xrcMp {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  justify-content: flex-start;
-  align-items: center;
-  row-gap: var(--token-uOLZE7OyOW-J);
-  min-width: 0;
-  padding: 8px;
-}
-.freeBox___902M4 {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  align-items: stretch;
-  justify-content: flex-start;
-  width: 100%;
-  height: 50px;
-  max-width: 100%;
-  min-width: 0;
-  flex-shrink: 0;
-  border-radius: var(--token-cZA5sZsrFzOz);
-  padding: 8px;
-}
-.text__alUa5 {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
 .reveal:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -510,4 +511,8 @@
 }
 .detailsmonthlist:global(.__wab_instance) {
   display: flex;
+}
+.sideEffect:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
 }

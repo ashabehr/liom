@@ -65,6 +65,7 @@ import { Select } from "@/fragment/components/select"; // plasmic-import: 5Mch6a
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
+import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import Line from "../../Line"; // plasmic-import: tYgE5kAlYGXB/component
 import { SwiperSlider } from "@/components/SwiperSlider"; // plasmic-import: hd-bzFw1zcpE/codeComponent
@@ -79,10 +80,10 @@ import sty from "./PlasmicReminder.module.css"; // plasmic-import: 3v9tn6uUJCPM/
 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
 import Oval3Icon from "./icons/PlasmicIcon__Oval3"; // plasmic-import: lOJpmSR7qOUd/icon
 import Icon295Icon from "./icons/PlasmicIcon__Icon295"; // plasmic-import: SfM64OkCrE9j/icon
 import Icon270Icon from "./icons/PlasmicIcon__Icon270"; // plasmic-import: Y171g_Z8ZZ84/icon
-import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
 import Icon283Icon from "./icons/PlasmicIcon__Icon283"; // plasmic-import: d6oFXeX9yzDi/icon
 
 createPlasmicElementProxy;
@@ -143,6 +144,7 @@ export type PlasmicReminder__OverridesType = {
   dialog2?: Flex__<typeof Dialog>;
   datePickers?: Flex__<typeof DatePickers>;
   button4?: Flex__<typeof Button>;
+  headerLiom?: Flex__<typeof HeaderLiom>;
   todayMeeting2?: Flex__<"div">;
   frame22?: Flex__<"div">;
   frame23?: Flex__<"div">;
@@ -210,7 +212,7 @@ function PlasmicReminder__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          data: [],
+          data: ["ghcjgdshcjs"],
           subscription: false,
           telegram: false,
           activeSmsNotif: false
@@ -1459,6 +1461,47 @@ function PlasmicReminder__RenderFunc(props: {
             </Button>
           </div>
         </Dialog>
+        <HeaderLiom
+          data-plasmic-name={"headerLiom"}
+          data-plasmic-override={overrides.headerLiom}
+          className={classNames("__wab_instance", sty.headerLiom)}
+        >
+          <div className={classNames(projectcss.all, sty.freeBox__mFarw)}>
+            <ChevronRightIcon
+              className={classNames(projectcss.all, sty.svg__qTt4T)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["runBack"] = true
+                  ? (() => {
+                      const actionArgs = { eventRef: $props["back"] };
+                      return (({ eventRef, args }) => {
+                        return eventRef?.(...(args ?? []));
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runBack"] != null &&
+                  typeof $steps["runBack"] === "object" &&
+                  typeof $steps["runBack"].then === "function"
+                ) {
+                  $steps["runBack"] = await $steps["runBack"];
+                }
+              }}
+              role={"img"}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__yuoPm
+              )}
+            >
+              {"\u06cc\u0627\u062f \u0622\u0648\u0631 \u0647\u0627"}
+            </div>
+          </div>
+        </HeaderLiom>
       </section>
       {(() => {
         try {
@@ -2137,7 +2180,10 @@ function PlasmicReminder__RenderFunc(props: {
           ) : null}
           {(() => {
             try {
-              return !$state.sms && !$props.subscription;
+              return (
+                // !$state.sms && !$props.subscription
+                false
+              );
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -4328,6 +4374,7 @@ const PlasmicDescendants = {
     "dialog2",
     "datePickers",
     "button4",
+    "headerLiom",
     "todayMeeting2",
     "frame22",
     "frame23",
@@ -4361,7 +4408,8 @@ const PlasmicDescendants = {
     "button5",
     "dialog2",
     "datePickers",
-    "button4"
+    "button4",
+    "headerLiom"
   ],
   dialog: ["dialog", "input", "select", "switchbest3", "button5"],
   input: ["input"],
@@ -4371,6 +4419,7 @@ const PlasmicDescendants = {
   dialog2: ["dialog2", "datePickers", "button4"],
   datePickers: ["datePickers"],
   button4: ["button4"],
+  headerLiom: ["headerLiom"],
   todayMeeting2: [
     "todayMeeting2",
     "frame22",
@@ -4430,6 +4479,7 @@ type NodeDefaultElementType = {
   dialog2: typeof Dialog;
   datePickers: typeof DatePickers;
   button4: typeof Button;
+  headerLiom: typeof HeaderLiom;
   todayMeeting2: "div";
   frame22: "div";
   frame23: "div";
@@ -4524,6 +4574,7 @@ export const PlasmicReminder = Object.assign(
     dialog2: makeNodeComponent("dialog2"),
     datePickers: makeNodeComponent("datePickers"),
     button4: makeNodeComponent("button4"),
+    headerLiom: makeNodeComponent("headerLiom"),
     todayMeeting2: makeNodeComponent("todayMeeting2"),
     frame22: makeNodeComponent("frame22"),
     frame23: makeNodeComponent("frame23"),

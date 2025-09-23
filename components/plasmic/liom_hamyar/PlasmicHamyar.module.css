@@ -1856,14 +1856,23 @@
     width: auto;
   }
 }
-.svg__dSSsb {
-  position: relative;
+.svg__eJl4R {
   object-fit: cover;
+  max-width: 100%;
   width: 20px;
   height: 20px;
+  position: relative;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  color: var(--token-jgohepLVeKvh);
+  right: auto;
+  bottom: auto;
 }
 .text__unfSc {
   font-size: 14px;
+  margin-bottom: -2px;
+  font-weight: 700;
 }
 .svg__yxXY {
   object-fit: cover;
@@ -5481,7 +5490,7 @@
   grid-column: 4;
 }
 .sectionpage_reminder {
-  display: grid;
+  display: none;
 }
 .sectionpage_reminder > * {
   grid-column: 4;

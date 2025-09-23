@@ -72,6 +72,7 @@ import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5x
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
+import NoNet from "../../NoNet"; // plasmic-import: uUHjvITgF605/component
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
@@ -133,7 +134,7 @@ export type PlasmicBioritm2__OverridesType = {
   datePickers2?: Flex__<typeof DatePickers>;
   button5?: Flex__<typeof Button>;
   button6?: Flex__<typeof Button>;
-  button9?: Flex__<typeof Button>;
+  noNet?: Flex__<typeof NoNet>;
   dialog2?: Flex__<typeof Dialog>;
   dialog?: Flex__<typeof Dialog>;
   datePickers?: Flex__<typeof DatePickers>;
@@ -500,12 +501,6 @@ function PlasmicBioritm2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => []
       },
       {
-        path: "button9.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
-      },
-      {
         path: "button8.load",
         type: "private",
         variableType: "text",
@@ -537,12 +532,6 @@ function PlasmicBioritm2__RenderFunc(props: {
       },
       {
         path: "button6.load",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "button9.load",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
@@ -591,12 +580,6 @@ function PlasmicBioritm2__RenderFunc(props: {
       },
       {
         path: "button6.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button9.loading",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -673,7 +656,13 @@ function PlasmicBioritm2__RenderFunc(props: {
           <SideEffect
             data-plasmic-name={"sideEffect"}
             data-plasmic-override={overrides.sideEffect}
-            className={classNames("__wab_instance", sty.sideEffect)}
+            className={classNames("__wab_instance", sty.sideEffect, {
+              [sty.sideEffectferstTimepage]: hasVariant(
+                $state,
+                "ferstTimepage",
+                "ferstTimepage"
+              )
+            })}
             onMount={async () => {
               const $steps = {};
 
@@ -6428,152 +6417,22 @@ function PlasmicBioritm2__RenderFunc(props: {
                     }
                   })()
             ) ? (
-              <div
-                className={classNames(projectcss.all, sty.freeBox__c3Rt5, {
-                  [sty.freeBoxferstTimepage__c3Rt5Gb6Kk]: hasVariant(
+              <NoNet
+                data-plasmic-name={"noNet"}
+                data-plasmic-override={overrides.noNet}
+                className={classNames("__wab_instance", sty.noNet, {
+                  [sty.noNetferstTimepage]: hasVariant(
                     $state,
                     "ferstTimepage",
                     "ferstTimepage"
                   )
                 })}
-                style={
+                ferstTimepage={
                   hasVariant($state, "ferstTimepage", "ferstTimepage")
-                    ? (() => {
-                        try {
-                          return {};
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })()
+                    ? true
                     : undefined
                 }
-              >
-                <div className={classNames(projectcss.all, sty.freeBox___0K9Q)}>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__fLceo
-                    )}
-                  >
-                    {
-                      "\u0644\u0637\u0641\u0627 \u0627\u0632 \u0627\u062a\u0635\u0627\u0644 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a \u062e\u0648\u062f \u0645\u0637\u0645\u0639\u0646 \u0634\u0648\u06cc\u062f."
-                    }
-                  </div>
-                </div>
-                <Button
-                  data-plasmic-name={"button9"}
-                  data-plasmic-override={overrides.button9}
-                  className={classNames("__wab_instance", sty.button9)}
-                  color={generateStateValueProp($state, ["button9", "color"])}
-                  endIcon={
-                    <Icon144Icon
-                      className={classNames(projectcss.all, sty.svg__ysXhr)}
-                      role={"img"}
-                    />
-                  }
-                  load={generateStateValueProp($state, ["button9", "load"])}
-                  loading={generateStateValueProp($state, [
-                    "button9",
-                    "loading"
-                  ])}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                window.sessionStorage.removeItem("cash");
-                                return window.location.reload();
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-                  }}
-                  onColorChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button9", "color"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  onLoadChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button9", "load"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  onLoadingChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button9", "loading"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  startIcon={
-                    <ChevronRightIcon
-                      className={classNames(projectcss.all, sty.svg__ecGrU)}
-                      role={"img"}
-                    />
-                  }
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__biEoS
-                    )}
-                  >
-                    {
-                      "\u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc \u0645\u062c\u062f\u062f"
-                    }
-                  </div>
-                </Button>
-              </div>
+              />
             ) : null}
           </ApiRequest>
           <section
@@ -7236,7 +7095,7 @@ const PlasmicDescendants = {
     "datePickers2",
     "button5",
     "button6",
-    "button9",
+    "noNet",
     "dialog2",
     "dialog",
     "datePickers",
@@ -7265,7 +7124,7 @@ const PlasmicDescendants = {
     "datePickers2",
     "button5",
     "button6",
-    "button9"
+    "noNet"
   ],
   slideinModal4: ["slideinModal4"],
   slideinModal5: ["slideinModal5", "datePickers3", "button8"],
@@ -7282,7 +7141,7 @@ const PlasmicDescendants = {
   datePickers2: ["datePickers2"],
   button5: ["button5"],
   button6: ["button6"],
-  button9: ["button9"],
+  noNet: ["noNet"],
   dialog2: ["dialog2"],
   dialog: ["dialog", "datePickers", "button", "button4"],
   datePickers: ["datePickers"],
@@ -7315,7 +7174,7 @@ type NodeDefaultElementType = {
   datePickers2: typeof DatePickers;
   button5: typeof Button;
   button6: typeof Button;
-  button9: typeof Button;
+  noNet: typeof NoNet;
   dialog2: typeof Dialog;
   dialog: typeof Dialog;
   datePickers: typeof DatePickers;
@@ -7429,7 +7288,7 @@ export const PlasmicBioritm2 = Object.assign(
     datePickers2: makeNodeComponent("datePickers2"),
     button5: makeNodeComponent("button5"),
     button6: makeNodeComponent("button6"),
-    button9: makeNodeComponent("button9"),
+    noNet: makeNodeComponent("noNet"),
     dialog2: makeNodeComponent("dialog2"),
     dialog: makeNodeComponent("dialog"),
     datePickers: makeNodeComponent("datePickers"),

@@ -729,7 +729,3 @@
   bottom: auto;
   display: none;
 }
-.sideEffect:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
