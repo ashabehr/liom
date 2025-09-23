@@ -957,7 +957,7 @@ function PlasmicMonthlist__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
-              $steps["params"] = false
+              $steps["params"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -983,7 +983,7 @@ function PlasmicMonthlist__RenderFunc(props: {
                 $steps["params"] = await $steps["params"];
               }
 
-              $steps["clearParams"] = false
+              $steps["clearParams"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -1014,7 +1014,7 @@ function PlasmicMonthlist__RenderFunc(props: {
                 $steps["clearParams"] = await $steps["clearParams"];
               }
 
-              $steps["setCookie"] = false
+              $steps["setCookie"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
