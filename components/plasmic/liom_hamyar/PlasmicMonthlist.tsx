@@ -899,7 +899,9 @@ function PlasmicMonthlist__RenderFunc(props: {
                   $steps["updateList"] = await $steps["updateList"];
                 }
               }}
-              className={classNames("__wab_instance", sty.detailsmonth2)}
+              className={classNames("__wab_instance", sty.detailsmonth2, {
+                [sty.detailsmonth2list]: hasVariant($state, "list", "list")
+              })}
               details={generateStateValueProp($state, [
                 "detailsmonth2",
                 "details"

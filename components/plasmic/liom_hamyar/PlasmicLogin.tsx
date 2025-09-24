@@ -10501,7 +10501,6 @@ function PlasmicLogin__RenderFunc(props: {
                                 true ||
                               $steps.invokeGlobalAction2?.data?.success ==
                                 true) &&
-                            $state?.type == "mobile" &&
                             $state?.gender == "male" &&
                             $state.paramsObject.redirect_url == null
                               ? (() => {
@@ -10591,24 +10590,23 @@ function PlasmicLogin__RenderFunc(props: {
                             ];
                           }
 
-                          $steps["updateLoginPage2"] =
-                            $state.gender == "male" && $state.number == ""
-                              ? (() => {
-                                  const actionArgs = {
-                                    vgroup: "loginPage",
-                                    operation: 0,
-                                    value: "mobile"
-                                  };
-                                  return (({ vgroup, value }) => {
-                                    if (typeof value === "string") {
-                                      value = [value];
-                                    }
+                          $steps["updateLoginPage2"] = false
+                            ? (() => {
+                                const actionArgs = {
+                                  vgroup: "loginPage",
+                                  operation: 0,
+                                  value: "mobile"
+                                };
+                                return (({ vgroup, value }) => {
+                                  if (typeof value === "string") {
+                                    value = [value];
+                                  }
 
-                                    $stateSet($state, vgroup, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
+                                  $stateSet($state, vgroup, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
                           if (
                             $steps["updateLoginPage2"] != null &&
                             typeof $steps["updateLoginPage2"] === "object" &&
