@@ -1145,7 +1145,7 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                               try {
                                 return (
                                   currentItem.sex == 0 ||
-                                  currentItem.sex == "noProtected"
+                                  currentItem.sex == "any"
                                 );
                               } catch (e) {
                                 if (
@@ -1169,7 +1169,7 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                               try {
                                 return (
                                   currentItem.sex != 0 &&
-                                  currentItem.sex != "noProtected"
+                                  currentItem.sex == "noProtected"
                                 );
                               } catch (e) {
                                 if (
@@ -1193,7 +1193,8 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                               try {
                                 return (
                                   currentItem.sex != 0 &&
-                                  currentItem.sex != "noProtected"
+                                  currentItem.sex != "noProtected" &&
+                                  currentItem.sex == "protected"
                                 );
                               } catch (e) {
                                 if (
