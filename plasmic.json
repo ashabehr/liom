@@ -4567,6 +4567,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicDetailsmonth2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "9tzYn9LtBZOf",
+          "name": "LoginMan",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicLoginMan.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/login-man.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicLoginMan.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/login-man"
         }
       ],
       "icons": [
@@ -6564,6 +6578,11 @@
           "id": "703ShUnmEPbT",
           "name": "Icon304Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon304.tsx"
+        },
+        {
+          "id": "oMWvE38W149h",
+          "name": "Icon305Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon305.tsx"
         }
       ],
       "images": [
