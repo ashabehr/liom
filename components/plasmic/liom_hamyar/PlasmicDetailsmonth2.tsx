@@ -260,7 +260,7 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                   );
                   const total =
                     Math.floor((end - start) / (1000 * 60 * 60 * 24)) + 1;
-                  const avg = total > 0 ? Math.round(t / total) : 0;
+                  return total > 0 ? Math.round(t / total) : 0;
                 } catch {
                   return 0;
                 }
@@ -1185,6 +1185,30 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                                 className={classNames(
                                   projectcss.all,
                                   sty.svg__dPjsK
+                                )}
+                                role={"img"}
+                              />
+                            ) : null}
+                            {(() => {
+                              try {
+                                return (
+                                  currentItem.sex != 0 &&
+                                  currentItem.sex != "noProtected"
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return true;
+                                }
+                                throw e;
+                              }
+                            })() ? (
+                              <Icon299Icon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg___2Wq53
                                 )}
                                 role={"img"}
                               />
