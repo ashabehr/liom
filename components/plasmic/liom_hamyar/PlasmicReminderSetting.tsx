@@ -1763,7 +1763,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           (() => {
                             try {
                               return (() => {
-                                $state.select2.weekdays = $state.week;
+                                $state.select2.weekdays = undefined;
                                 let dates = [$state.date.start.f];
                                 if ($state.date.end) {
                                   $state.select2.finishTime = $state.date.end.f;
