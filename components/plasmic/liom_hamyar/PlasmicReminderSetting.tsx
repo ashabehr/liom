@@ -172,7 +172,7 @@ export type PlasmicReminderSetting__OverridesType = {
   frame28?: Flex__<"div">;
   frame29?: Flex__<"div">;
   frame30?: Flex__<"div">;
-  button3?: Flex__<typeof Button>;
+  editItem?: Flex__<typeof Button>;
   switchSetting?: Flex__<typeof Switchbest>;
   button2?: Flex__<typeof Button>;
 };
@@ -443,7 +443,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant(globalVariants, "screen", "mobile") ? false : false
+          hasVariant(globalVariants, "screen", "mobile") ? false : true
       },
       {
         path: "datePickers.value",
@@ -963,17 +963,17 @@ function PlasmicReminderSetting__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "button3[][].color",
+        path: "editItem[][].color",
         type: "private",
         variableType: "text"
       },
       {
-        path: "button3[][].loading",
+        path: "editItem[][].loading",
         type: "private",
         variableType: "boolean"
       },
       {
-        path: "button3[][].load",
+        path: "editItem[][].load",
         type: "private",
         variableType: "boolean"
       },
@@ -1904,9 +1904,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           (() => {
                             try {
                               return (() => {
-                                $state.select2.active = $props.subscription
-                                  ? 1
-                                  : 0;
                                 $state.select2.weekdays = $state.week;
                                 let dates = [$state.date.start.f];
                                 if ($state.date.end) {
@@ -3996,22 +3993,22 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   const child$Props = {
                                     className: classNames(
                                       "__wab_instance",
-                                      sty.button3
+                                      sty.editItem
                                     ),
                                     color: generateStateValueProp($state, [
-                                      "button3",
+                                      "editItem",
                                       __plasmic_idx_0,
                                       __plasmic_idx_1,
                                       "color"
                                     ]),
                                     load: generateStateValueProp($state, [
-                                      "button3",
+                                      "editItem",
                                       __plasmic_idx_0,
                                       __plasmic_idx_1,
                                       "load"
                                     ]),
                                     loading: generateStateValueProp($state, [
-                                      "button3",
+                                      "editItem",
                                       __plasmic_idx_0,
                                       __plasmic_idx_1,
                                       "loading"
@@ -4059,6 +4056,72 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                       ) {
                                         $steps["updateSelect2"] = await $steps[
                                           "updateSelect2"
+                                        ];
+                                      }
+
+                                      $steps["runCode"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              customFunction: async () => {
+                                                return (() => {
+                                                  function formatTimeString(
+                                                    value
+                                                  ) {
+                                                    if (!value) return "";
+                                                    return ([hh, mm, ss] =
+                                                      value.split(":"));
+                                                  }
+                                                  const times = JSON.parse(
+                                                    $state.select2.times
+                                                  );
+                                                  const formatted =
+                                                    times.map(formatTimeString);
+                                                  $state.time2.hour = parseInt(
+                                                    formatted[0][0]
+                                                  );
+                                                  $state.time2.minute =
+                                                    parseInt(formatted[0][1]);
+                                                  const m = JSON.parse(
+                                                    $state.select2.dates
+                                                  )[0];
+                                                  let today = new Date(m);
+                                                  const f = today
+                                                    .toISOString()
+                                                    .split("T")[0];
+                                                  const g =
+                                                    new Intl.DateTimeFormat(
+                                                      "fa-IR",
+                                                      {
+                                                        year: "numeric",
+                                                        month: "long",
+                                                        day: "numeric"
+                                                      }
+                                                    ).format(today);
+                                                  return ($state.date[
+                                                    $state.dateType
+                                                  ] = {
+                                                    f,
+                                                    g,
+                                                    year: today.getFullYear(),
+                                                    month: today.getMonth() + 1,
+                                                    day: today.getDate()
+                                                  });
+                                                })();
+                                              }
+                                            };
+                                            return (({ customFunction }) => {
+                                              return customFunction();
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["runCode"] != null &&
+                                        typeof $steps["runCode"] === "object" &&
+                                        typeof $steps["runCode"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["runCode"] = await $steps[
+                                          "runCode"
                                         ];
                                       }
 
@@ -4116,7 +4179,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     ) => {
                                       ((...eventArgs) => {
                                         generateStateOnChangeProp($state, [
-                                          "button3",
+                                          "editItem",
                                           __plasmic_idx_0,
                                           __plasmic_idx_1,
                                           "color"
@@ -4134,7 +4197,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     onLoadChange: async (...eventArgs: any) => {
                                       ((...eventArgs) => {
                                         generateStateOnChangeProp($state, [
-                                          "button3",
+                                          "editItem",
                                           __plasmic_idx_0,
                                           __plasmic_idx_1,
                                           "load"
@@ -4154,7 +4217,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     ) => {
                                       ((...eventArgs) => {
                                         generateStateOnChangeProp($state, [
-                                          "button3",
+                                          "editItem",
                                           __plasmic_idx_0,
                                           __plasmic_idx_1,
                                           "loading"
@@ -4176,7 +4239,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     $state,
                                     [
                                       {
-                                        name: "button3[][].color",
+                                        name: "editItem[][].color",
                                         initFunc: ({
                                           $props,
                                           $state,
@@ -4184,7 +4247,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                         }) => "clear"
                                       },
                                       {
-                                        name: "button3[][].loading",
+                                        name: "editItem[][].loading",
                                         initFunc: ({
                                           $props,
                                           $state,
@@ -4192,7 +4255,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                         }) => undefined
                                       },
                                       {
-                                        name: "button3[][].load",
+                                        name: "editItem[][].load",
                                         initFunc: ({
                                           $props,
                                           $state,
@@ -4204,8 +4267,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   );
                                   return (
                                     <Button
-                                      data-plasmic-name={"button3"}
-                                      data-plasmic-override={overrides.button3}
+                                      data-plasmic-name={"editItem"}
+                                      data-plasmic-override={overrides.editItem}
                                       {...child$Props}
                                     >
                                       <div
@@ -4862,7 +4925,7 @@ const PlasmicDescendants = {
     "frame28",
     "frame29",
     "frame30",
-    "button3",
+    "editItem",
     "switchSetting",
     "button2"
   ],
@@ -4917,7 +4980,7 @@ const PlasmicDescendants = {
     "frame28",
     "frame29",
     "frame30",
-    "button3",
+    "editItem",
     "switchSetting",
     "button2"
   ],
@@ -4927,7 +4990,7 @@ const PlasmicDescendants = {
     "frame28",
     "frame29",
     "frame30",
-    "button3",
+    "editItem",
     "switchSetting",
     "button2"
   ],
@@ -4936,14 +4999,14 @@ const PlasmicDescendants = {
     "frame28",
     "frame29",
     "frame30",
-    "button3",
+    "editItem",
     "switchSetting",
     "button2"
   ],
   frame28: ["frame28", "frame29", "frame30"],
   frame29: ["frame29", "frame30"],
   frame30: ["frame30"],
-  button3: ["button3"],
+  editItem: ["editItem"],
   switchSetting: ["switchSetting"],
   button2: ["button2"]
 } as const;
@@ -4983,7 +5046,7 @@ type NodeDefaultElementType = {
   frame28: "div";
   frame29: "div";
   frame30: "div";
-  button3: typeof Button;
+  editItem: typeof Button;
   switchSetting: typeof Switchbest;
   button2: typeof Button;
 };
@@ -5079,7 +5142,7 @@ export const PlasmicReminderSetting = Object.assign(
     frame28: makeNodeComponent("frame28"),
     frame29: makeNodeComponent("frame29"),
     frame30: makeNodeComponent("frame30"),
-    button3: makeNodeComponent("button3"),
+    editItem: makeNodeComponent("editItem"),
     switchSetting: makeNodeComponent("switchSetting"),
     button2: makeNodeComponent("button2"),
 

@@ -1156,7 +1156,7 @@
   border-radius: 50px;
   padding: 0px;
 }
-.button3:global(.__wab_instance) {
+.editItem:global(.__wab_instance) {
   max-width: 100%;
   width: 30px;
   height: 30px;
