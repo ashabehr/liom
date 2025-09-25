@@ -1838,7 +1838,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 }
 
                 $steps["runCode"] =
-                  $steps.insert?.data?.success == true
+                  $steps.insert?.data?.success == true ||
+                  $steps.edit?.data?.success == true
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
@@ -3924,24 +3925,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                               customFunction: async () => {
                                                 return (() => {
                                                   try {
-                                                    function formatTimeString(
-                                                      value
-                                                    ) {
-                                                      if (!value) return "";
-                                                      return ([hh, mm, ss] =
-                                                        value.split(":"));
-                                                    }
-                                                    const times = JSON.parse(
-                                                      $state.select2.times
-                                                    );
-                                                    const formatted =
-                                                      times.map(
-                                                        formatTimeString
-                                                      );
-                                                    $state.time2.hour =
-                                                      parseInt(formatted[0][0]);
-                                                    $state.time2.minute =
-                                                      parseInt(formatted[0][1]);
                                                     const m = JSON.parse(
                                                       $state.select2.dates
                                                     )[0];
@@ -3958,7 +3941,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                           day: "numeric"
                                                         }
                                                       ).format(today);
-                                                    return ($state.date[
+                                                    $state.date[
                                                       $state.dateType
                                                     ] = {
                                                       f,
@@ -3967,7 +3950,27 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                       month:
                                                         today.getMonth() + 1,
                                                       day: today.getDate()
-                                                    });
+                                                    };
+                                                    function formatTimeString(
+                                                      value
+                                                    ) {
+                                                      if (!value) return "";
+                                                      return ([hh, mm, ss] =
+                                                        value.split(":"));
+                                                    }
+                                                    const times = JSON.parse(
+                                                      $state.select2.times
+                                                    );
+                                                    const formatted =
+                                                      times.map(
+                                                        formatTimeString
+                                                      );
+                                                    $state.time2.hour =
+                                                      parseInt(formatted[0][0]);
+                                                    return ($state.time2.minute =
+                                                      parseInt(
+                                                        formatted[0][1]
+                                                      ));
                                                   } catch {}
                                                 })();
                                               }
