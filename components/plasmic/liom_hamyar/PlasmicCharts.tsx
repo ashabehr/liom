@@ -109,6 +109,8 @@ export type PlasmicCharts__OverridesType = {
   frame47?: Flex__<"div">;
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
+  frame50?: Flex__<"div">;
+  button3?: Flex__<typeof Button>;
 };
 
 export interface DefaultChartsProps {
@@ -493,6 +495,24 @@ function PlasmicCharts__RenderFunc(props: {
             link: "https://n8n.staas.ir/webhook/panel/convertionUpsellCustomPage"
           }
         ]
+      },
+      {
+        path: "button3.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "button3.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button3.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1357,18 +1377,297 @@ function PlasmicCharts__RenderFunc(props: {
             </div>
           </div>
         </div>
+        <div
+          data-plasmic-name={"frame50"}
+          data-plasmic-override={overrides.frame50}
+          className={classNames(projectcss.all, sty.frame50)}
+        >
+          <div className={classNames(projectcss.all, sty.freeBox__rBw2N)}>
+            <div className={classNames(projectcss.all, sty.freeBox__qT68T)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__r2GXa
+                )}
+              >
+                {
+                  "\u0646\u0631\u062e \u067e\u0631\u062f\u0627\u062e\u062a \u0645\u0648\u0641\u0642"
+                }
+              </div>
+              {(() => {
+                try {
+                  return $state.payment.length == 0;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div className={classNames(projectcss.all, sty.freeBox__xw2Ws)}>
+                  <Button
+                    data-plasmic-name={"button3"}
+                    data-plasmic-override={overrides.button3}
+                    className={classNames("__wab_instance", sty.button3)}
+                    color={generateStateValueProp($state, ["button3", "color"])}
+                    load={generateStateValueProp($state, ["button3", "load"])}
+                    loading={generateStateValueProp($state, [
+                      "button3",
+                      "loading"
+                    ])}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updatePayment2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["button3", "loading"]
+                              },
+                              operation: 4
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              const oldValue = $stateGet(objRoot, variablePath);
+                              $stateSet(objRoot, variablePath, !oldValue);
+                              return !oldValue;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updatePayment2"] != null &&
+                        typeof $steps["updatePayment2"] === "object" &&
+                        typeof $steps["updatePayment2"].then === "function"
+                      ) {
+                        $steps["updatePayment2"] = await $steps[
+                          "updatePayment2"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                undefined,
+                                "https://n8n.staas.ir/webhook/panel/convertionPayment",
+                                undefined,
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      headers: {
+                                        Authorization: "Bearer " + $state.token
+                                      }
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["updatePayment"] = $steps.invokeGlobalAction?.data
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["payment"]
+                              },
+                              operation: 0,
+                              value: $steps.invokeGlobalAction?.data
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updatePayment"] != null &&
+                        typeof $steps["updatePayment"] === "object" &&
+                        typeof $steps["updatePayment"].then === "function"
+                      ) {
+                        $steps["updatePayment"] = await $steps["updatePayment"];
+                      }
+
+                      $steps["updatePayment3"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["button3", "loading"]
+                              },
+                              operation: 4
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              const oldValue = $stateGet(objRoot, variablePath);
+                              $stateSet(objRoot, variablePath, !oldValue);
+                              return !oldValue;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updatePayment3"] != null &&
+                        typeof $steps["updatePayment3"] === "object" &&
+                        typeof $steps["updatePayment3"].then === "function"
+                      ) {
+                        $steps["updatePayment3"] = await $steps[
+                          "updatePayment3"
+                        ];
+                      }
+                    }}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button3", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button3", "load"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadingChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button3",
+                          "loading"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    shape={"rounded"}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__sOnzJ)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___53Mvc
+                        )}
+                      >
+                        {
+                          "\u0646\u0645\u0627\u06cc\u0634 \u0646\u0645\u0648\u062f\u0627\u0631"
+                        }
+                      </div>
+                      <Icon302Icon
+                        className={classNames(projectcss.all, sty.svg__kXbxa)}
+                        role={"img"}
+                      />
+                    </div>
+                  </Button>
+                </div>
+              ) : null}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  frame49: ["frame49", "frame25", "frame48", "frame47", "button", "button2"],
+  frame49: [
+    "frame49",
+    "frame25",
+    "frame48",
+    "frame47",
+    "button",
+    "button2",
+    "frame50",
+    "button3"
+  ],
   frame25: ["frame25"],
-  frame48: ["frame48", "frame47", "button", "button2"],
+  frame48: ["frame48", "frame47", "button", "button2", "frame50", "button3"],
   frame47: ["frame47", "button", "button2"],
   button: ["button"],
-  button2: ["button2"]
+  button2: ["button2"],
+  frame50: ["frame50", "button3"],
+  button3: ["button3"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1380,6 +1679,8 @@ type NodeDefaultElementType = {
   frame47: "div";
   button: typeof Button;
   button2: typeof Button;
+  frame50: "div";
+  button3: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1447,6 +1748,8 @@ export const PlasmicCharts = Object.assign(
     frame47: makeNodeComponent("frame47"),
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
+    frame50: makeNodeComponent("frame50"),
+    button3: makeNodeComponent("button3"),
 
     // Metadata about props expected for PlasmicCharts
     internalVariantProps: PlasmicCharts__VariantProps,

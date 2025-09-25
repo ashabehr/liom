@@ -305,3 +305,118 @@
   object-fit: cover;
   min-width: 0;
 }
+.frame50 {
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  column-gap: 8px;
+  min-width: 0;
+}
+@media (max-width: 640px) {
+  .frame50 {
+    overflow: auto;
+  }
+}
+.freeBox__rBw2N {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  column-gap: var(--token-1KusGK5GePTh);
+  min-width: 0;
+  padding: 0px;
+}
+.freeBox__qT68T {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 0px;
+}
+.text__r2GXa {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  font-weight: 700;
+  font-size: var(--token-cunRwTCjQp3O);
+  min-width: 0;
+}
+.freeBox__xw2Ws {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.button3:global(.__wab_instance) {
+  max-width: 100%;
+  position: absolute;
+  left: auto;
+  top: 40%;
+  right: auto;
+  bottom: auto;
+}
+.svg__ynxsv {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.freeBox__sOnzJ {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: var(--token-O5TjkXII_aat);
+  min-width: 0;
+  padding: 0px;
+}
+.text___53Mvc {
+  font-weight: 700;
+  font-size: var(--token-Wa5tmrNKVUYF);
+}
+.svg__kXbxa {
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.svg__xuMdy {
+  object-fit: cover;
+  max-width: 100%;
+  width: 40px;
+  height: 50px;
+  position: relative;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  color: var(--token-jgohepLVeKvh);
+  right: auto;
+  bottom: auto;
+  display: none;
+}
