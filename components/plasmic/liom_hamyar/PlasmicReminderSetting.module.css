@@ -1172,12 +1172,14 @@
   display: none;
   padding: var(--token-38wfsm-OP2Vm) var(--token-O5TjkXII_aat);
 }
-.svg___98Xdb {
+.img {
   object-fit: cover;
   max-width: 100%;
-  color: var(--token-AwpLXbw5AmtS);
   width: 25px;
   height: 25px;
+}
+.img > picture > img {
+  object-fit: cover;
 }
 .svg__wkYa {
   object-fit: cover;

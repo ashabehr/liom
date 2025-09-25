@@ -86,7 +86,6 @@ import Icon291Icon from "./icons/PlasmicIcon__Icon291"; // plasmic-import: U9F0J
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon283Icon from "./icons/PlasmicIcon__Icon283"; // plasmic-import: d6oFXeX9yzDi/icon
-import Icon294Icon from "./icons/PlasmicIcon__Icon294"; // plasmic-import: xW6pYJfWqycL/icon
 
 createPlasmicElementProxy;
 
@@ -173,6 +172,7 @@ export type PlasmicReminderSetting__OverridesType = {
   frame29?: Flex__<"div">;
   frame30?: Flex__<"div">;
   editItem?: Flex__<typeof Button>;
+  img?: Flex__<typeof PlasmicImg__>;
   switchSetting?: Flex__<typeof Switchbest>;
   button2?: Flex__<typeof Button>;
 };
@@ -3923,48 +3923,52 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                             const actionArgs = {
                                               customFunction: async () => {
                                                 return (() => {
-                                                  function formatTimeString(
-                                                    value
-                                                  ) {
-                                                    if (!value) return "";
-                                                    return ([hh, mm, ss] =
-                                                      value.split(":"));
-                                                  }
-                                                  const times = JSON.parse(
-                                                    $state.select2.times
-                                                  );
-                                                  const formatted =
-                                                    times.map(formatTimeString);
-                                                  $state.time2.hour = parseInt(
-                                                    formatted[0][0]
-                                                  );
-                                                  $state.time2.minute =
-                                                    parseInt(formatted[0][1]);
-                                                  const m = JSON.parse(
-                                                    $state.select2.dates
-                                                  )[0];
-                                                  let today = new Date(m);
-                                                  const f = today
-                                                    .toISOString()
-                                                    .split("T")[0];
-                                                  const g =
-                                                    new Intl.DateTimeFormat(
-                                                      "fa-IR",
-                                                      {
-                                                        year: "numeric",
-                                                        month: "long",
-                                                        day: "numeric"
-                                                      }
-                                                    ).format(today);
-                                                  return ($state.date[
-                                                    $state.dateType
-                                                  ] = {
-                                                    f,
-                                                    g,
-                                                    year: today.getFullYear(),
-                                                    month: today.getMonth() + 1,
-                                                    day: today.getDate()
-                                                  });
+                                                  try {
+                                                    function formatTimeString(
+                                                      value
+                                                    ) {
+                                                      if (!value) return "";
+                                                      return ([hh, mm, ss] =
+                                                        value.split(":"));
+                                                    }
+                                                    const times = JSON.parse(
+                                                      $state.select2.times
+                                                    );
+                                                    const formatted =
+                                                      times.map(
+                                                        formatTimeString
+                                                      );
+                                                    $state.time2.hour =
+                                                      parseInt(formatted[0][0]);
+                                                    $state.time2.minute =
+                                                      parseInt(formatted[0][1]);
+                                                    const m = JSON.parse(
+                                                      $state.select2.dates
+                                                    )[0];
+                                                    let today = new Date(m);
+                                                    const f = today
+                                                      .toISOString()
+                                                      .split("T")[0];
+                                                    const g =
+                                                      new Intl.DateTimeFormat(
+                                                        "fa-IR",
+                                                        {
+                                                          year: "numeric",
+                                                          month: "long",
+                                                          day: "numeric"
+                                                        }
+                                                      ).format(today);
+                                                    return ($state.date[
+                                                      $state.dateType
+                                                    ] = {
+                                                      f,
+                                                      g,
+                                                      year: today.getFullYear(),
+                                                      month:
+                                                        today.getMonth() + 1,
+                                                      day: today.getDate()
+                                                    });
+                                                  } catch {}
                                                 })();
                                               }
                                             };
@@ -4141,38 +4145,25 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           "\u062b\u0628\u062a \u062a\u0627\u0631\u06cc\u062e"
                                         }
                                       </div>
-                                      {(() => {
-                                        try {
-                                          return (
-                                            currentItem.text != "occasion" &&
-                                            (() => {
-                                              const datesStr =
-                                                currentItem.dates || "[]";
-                                              const parsed = JSON.parse(
-                                                datesStr || "[]"
-                                              );
-                                              return parsed.length != 0;
-                                            })()
-                                          );
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return true;
-                                          }
-                                          throw e;
-                                        }
-                                      })() ? (
-                                        <Icon294Icon
-                                          className={classNames(
-                                            projectcss.all,
-                                            sty.svg___98Xdb
-                                          )}
-                                          role={"img"}
-                                        />
-                                      ) : null}
+                                      <PlasmicImg__
+                                        data-plasmic-name={"img"}
+                                        data-plasmic-override={overrides.img}
+                                        alt={""}
+                                        className={classNames(sty.img)}
+                                        displayHeight={"25px"}
+                                        displayMaxHeight={"none"}
+                                        displayMaxWidth={"100%"}
+                                        displayMinHeight={"0"}
+                                        displayMinWidth={"0"}
+                                        displayWidth={"25px"}
+                                        loading={"lazy"}
+                                        src={{
+                                          src: "/plasmic/liom_hamyar/images/image117.svg",
+                                          fullWidth: 24,
+                                          fullHeight: 24,
+                                          aspectRatio: 1
+                                        }}
+                                      />
                                     </Button>
                                   );
                                 })()
@@ -4787,6 +4778,7 @@ const PlasmicDescendants = {
     "frame29",
     "frame30",
     "editItem",
+    "img",
     "switchSetting",
     "button2"
   ],
@@ -4842,6 +4834,7 @@ const PlasmicDescendants = {
     "frame29",
     "frame30",
     "editItem",
+    "img",
     "switchSetting",
     "button2"
   ],
@@ -4852,6 +4845,7 @@ const PlasmicDescendants = {
     "frame29",
     "frame30",
     "editItem",
+    "img",
     "switchSetting",
     "button2"
   ],
@@ -4861,13 +4855,15 @@ const PlasmicDescendants = {
     "frame29",
     "frame30",
     "editItem",
+    "img",
     "switchSetting",
     "button2"
   ],
   frame28: ["frame28", "frame29", "frame30"],
   frame29: ["frame29", "frame30"],
   frame30: ["frame30"],
-  editItem: ["editItem"],
+  editItem: ["editItem", "img"],
+  img: ["img"],
   switchSetting: ["switchSetting"],
   button2: ["button2"]
 } as const;
@@ -4908,6 +4904,7 @@ type NodeDefaultElementType = {
   frame29: "div";
   frame30: "div";
   editItem: typeof Button;
+  img: typeof PlasmicImg__;
   switchSetting: typeof Switchbest;
   button2: typeof Button;
 };
@@ -5004,6 +5001,7 @@ export const PlasmicReminderSetting = Object.assign(
     frame29: makeNodeComponent("frame29"),
     frame30: makeNodeComponent("frame30"),
     editItem: makeNodeComponent("editItem"),
+    img: makeNodeComponent("img"),
     switchSetting: makeNodeComponent("switchSetting"),
     button2: makeNodeComponent("button2"),
 

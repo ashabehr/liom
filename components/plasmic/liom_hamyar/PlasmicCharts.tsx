@@ -61,6 +61,7 @@ import {
 
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Chart } from "@/fragment/components/chart"; // plasmic-import: 2Vi4mc7aEpf-/codeComponent
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -110,6 +111,7 @@ export type PlasmicCharts__OverridesType = {
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
   frame50?: Flex__<"div">;
+  embedHtml?: Flex__<typeof Embed>;
   button3?: Flex__<typeof Button>;
 };
 
@@ -487,32 +489,25 @@ function PlasmicCharts__RenderFunc(props: {
           },
           {
             lable: "\u0646\u0631\u062e \u0635\u0641\u062d\u0647 upselling",
-            link: "https://n8n.staas.ir/webhook/panel/convertionUpsellCustomPage"
-          },
-          {
-            lable:
-              "\u0646\u0631\u062e \u0622\u067e\u0633\u0644 + \u06a9\u0627\u0633\u062a\u0648\u0645",
-            link: "https://n8n.staas.ir/webhook/panel/convertionUpsellCustomPage"
+            link: "https://n8n.staas.ir/webhook/panel/convertionUpsellCustomPage",
+            icon: '<svg width="305" height="137" viewBox="0 0 305 137" fill="none" xmlns="http://www.w3.org/2000/svg">\r\n<path fill-rule="evenodd" clip-rule="evenodd" d="M4.8252 135.741L4.82521 64.9098C4.82521 61.9412 8.02757 60.076 10.6097 61.5407C12.2149 62.4513 14.2397 62.1029 15.4482 60.7081L19.383 56.1669C20.9099 54.4047 23.361 53.7586 25.5581 54.5393C28.3298 55.5241 31.394 54.2227 32.6099 51.5443L33.2476 50.1395C35.6887 44.762 43.1571 44.321 46.2142 49.3737L47.5493 51.5803L56.0942 69.011L62.0301 80.5526C63.7174 83.8333 66.4859 86.4307 69.8674 87.9056C72.0508 88.8579 73.9942 90.2854 75.556 92.084L80.106 97.3241C81.1823 98.5636 82.4295 99.6437 83.8102 100.532L86.8339 102.477C89.0238 103.885 91.7077 104.301 94.221 103.62C97.1044 102.839 99.4298 100.708 100.459 97.9039L107.363 79.0821L110.883 71.7764C113.254 66.8556 119.895 65.983 123.456 70.1243C124.114 70.8889 124.918 71.5146 125.82 71.9646L131.548 74.821C132.509 75.3001 133.395 75.9178 134.176 76.6541L134.912 77.3473C138.657 80.876 144.484 80.9377 148.304 77.4891C149.476 76.4309 150.377 75.1071 150.932 73.6288L156.733 58.168C157.775 55.3938 160.896 54.0212 163.644 55.1289C165.753 55.9791 168.169 55.3819 169.64 53.6472L175.722 46.4715L181.571 41.1466C183.257 39.6119 185.594 39.0118 187.811 39.5441C190.776 40.2562 193.857 38.9316 195.38 36.2893L201.356 25.921L207.02 15.5816C208.873 12.1991 211.927 9.63465 215.58 8.39519C217.472 7.75284 219.222 6.74827 220.731 5.43751L222.393 3.99334C225.267 1.49741 229.195 0.596769 232.868 1.59149C234.621 2.06607 236.236 2.95173 237.578 4.17501L242.101 8.29814C243.418 9.49849 244.842 10.5749 246.357 11.5138L250.577 14.1299C251.94 14.975 253.231 15.9318 254.436 16.9903L260.239 22.0878C260.856 22.6306 261.395 23.2574 261.838 23.95L262.904 25.6148C265.991 30.4371 273.103 30.2354 275.911 25.2457L276.131 24.8546C277.432 22.5447 279.944 21.1874 282.588 21.3656C285.175 21.5399 287.639 20.2455 288.964 18.0174L293.14 10.9925C294.45 8.78867 297.055 7.71048 299.539 8.3436C302.101 8.99649 303.894 11.3037 303.894 13.9476V135.741" fill="url(#paint0_linear_19_555)"/>\r\n<path d="M4.8252 135.741L4.82521 64.9098C4.82521 61.9412 8.02757 60.076 10.6097 61.5407C12.2149 62.4513 14.2397 62.1029 15.4482 60.7081L19.383 56.1669C20.9099 54.4047 23.361 53.7586 25.5581 54.5393C28.3298 55.5241 31.394 54.2227 32.6099 51.5443L33.2476 50.1395C35.6887 44.762 43.1571 44.321 46.2142 49.3737L47.5493 51.5803L56.0942 69.011L62.0301 80.5526C63.7174 83.8333 66.4859 86.4307 69.8674 87.9056C72.0508 88.8579 73.9942 90.2854 75.556 92.084L80.106 97.3241C81.1823 98.5636 82.4295 99.6437 83.8102 100.532L86.8339 102.477C89.0238 103.885 91.7077 104.301 94.221 103.62C97.1044 102.839 99.4298 100.708 100.459 97.9039L107.363 79.0821L110.883 71.7764C113.254 66.8556 119.895 65.983 123.456 70.1243C124.114 70.8889 124.918 71.5146 125.82 71.9646L131.548 74.821C132.509 75.3001 133.395 75.9178 134.176 76.6541L134.912 77.3473C138.657 80.876 144.484 80.9377 148.304 77.4891C149.476 76.4309 150.377 75.1071 150.932 73.6288L156.733 58.168C157.775 55.3938 160.896 54.0212 163.644 55.1289C165.753 55.9791 168.169 55.3819 169.64 53.6472L175.722 46.4715L181.571 41.1467C183.257 39.6119 185.594 39.0118 187.811 39.5441C190.776 40.2562 193.857 38.9316 195.38 36.2893L201.356 25.921L207.02 15.5816C208.873 12.1991 211.927 9.63465 215.58 8.39519C217.472 7.75284 219.222 6.74827 220.731 5.43751L222.393 3.99334C225.267 1.49741 229.195 0.596769 232.868 1.59149C234.621 2.06607 236.236 2.95173 237.578 4.17501L242.101 8.29814C243.418 9.49849 244.842 10.5749 246.357 11.5138L250.577 14.1299C251.94 14.975 253.231 15.9318 254.436 16.9903L260.239 22.0878C260.856 22.6306 261.395 23.2574 261.838 23.95L262.904 25.6148C265.991 30.4371 273.103 30.2354 275.911 25.2457L276.131 24.8546C277.432 22.5447 279.944 21.1874 282.588 21.3656C285.175 21.5399 287.639 20.2455 288.964 18.0174L293.14 10.9925C294.45 8.78867 297.055 7.71048 299.539 8.3436C302.101 8.99649 303.894 11.3037 303.894 13.9476V135.741" stroke="#7854DF" stroke-linecap="round" stroke-linejoin="round"/>\r\n<rect x="299.421" y="7.09753" width="5.57927" height="129.531" rx="2.78963" fill="#F9F9F9"/>\r\n<rect y="49.6829" width="7.43902" height="86.9451" rx="3.71951" fill="#F9F9F9"/>\r\n<defs>\r\n<linearGradient id="paint0_linear_19_555" x1="154.36" y1="0" x2="154.36" y2="135.741" gradientUnits="userSpaceOnUse">\r\n<stop stop-color="#7854DF"/>\r\n<stop offset="1" stop-color="white" stop-opacity="0"/>\r\n</linearGradient>\r\n</defs>\r\n</svg>\r\n  },\r\n  '
           }
         ]
       },
       {
-        path: "button3.color",
+        path: "button3[].color",
         type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
+        variableType: "text"
       },
       {
-        path: "button3.loading",
+        path: "button3[].loading",
         type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        variableType: "boolean"
       },
       {
-        path: "button3.load",
+        path: "button3[].load",
         type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        variableType: "boolean"
       }
     ],
     [$props, $ctx, $refs]
@@ -1382,44 +1377,91 @@ function PlasmicCharts__RenderFunc(props: {
           data-plasmic-override={overrides.frame50}
           className={classNames(projectcss.all, sty.frame50)}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__rBw2N)}>
-            <div className={classNames(projectcss.all, sty.freeBox__qT68T)}>
+          {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+            (() => {
+              try {
+                return $state.charts;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return [];
+                }
+                throw e;
+              }
+            })()
+          ).map((__plasmic_item_0, __plasmic_idx_0) => {
+            const currentItem = __plasmic_item_0;
+            const currentIndex = __plasmic_idx_0;
+            return (
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__r2GXa
-                )}
+                className={classNames(projectcss.all, sty.freeBox__rBw2N)}
+                key={currentIndex}
               >
-                {
-                  "\u0646\u0631\u062e \u067e\u0631\u062f\u0627\u062e\u062a \u0645\u0648\u0641\u0642"
-                }
-              </div>
-              {(() => {
-                try {
-                  return $state.payment.length == 0;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <div className={classNames(projectcss.all, sty.freeBox__xw2Ws)}>
-                  <Button
-                    data-plasmic-name={"button3"}
-                    data-plasmic-override={overrides.button3}
-                    className={classNames("__wab_instance", sty.button3)}
-                    color={generateStateValueProp($state, ["button3", "color"])}
-                    load={generateStateValueProp($state, ["button3", "load"])}
-                    loading={generateStateValueProp($state, [
+                <div className={classNames(projectcss.all, sty.freeBox__qT68T)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__r2GXa
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return currentItem.lable;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "\u0646\u0631\u062e \u067e\u0631\u062f\u0627\u062e\u062a \u0645\u0648\u0641\u0642";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                </div>
+                <Embed
+                  data-plasmic-name={"embedHtml"}
+                  data-plasmic-override={overrides.embedHtml}
+                  className={classNames("__wab_instance", sty.embedHtml)}
+                  code={(() => {
+                    try {
+                      return currentItem.icon;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "<div>Paste your embed code via the right sidebar</div>";
+                      }
+                      throw e;
+                    }
+                  })()}
+                />
+
+                {(() => {
+                  const child$Props = {
+                    className: classNames("__wab_instance", sty.button3),
+                    color: generateStateValueProp($state, [
                       "button3",
+                      __plasmic_idx_0,
+                      "color"
+                    ]),
+                    load: generateStateValueProp($state, [
+                      "button3",
+                      __plasmic_idx_0,
+                      "load"
+                    ]),
+                    loading: generateStateValueProp($state, [
+                      "button3",
+                      __plasmic_idx_0,
                       "loading"
-                    ])}
-                    onClick={async event => {
+                    ]),
+                    onClick: async event => {
                       const $steps = {};
 
                       $steps["updatePayment2"] = true
@@ -1463,7 +1505,20 @@ function PlasmicCharts__RenderFunc(props: {
                             const actionArgs = {
                               args: [
                                 undefined,
-                                "https://n8n.staas.ir/webhook/panel/convertionPayment",
+                                (() => {
+                                  try {
+                                    return currentItem.link;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
                                 undefined,
                                 undefined,
                                 (() => {
@@ -1571,41 +1626,46 @@ function PlasmicCharts__RenderFunc(props: {
                           "updatePayment3"
                         ];
                       }
-                    }}
-                    onColorChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, ["button3", "color"])(
-                          eventArgs[0]
-                        );
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                    onLoadChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, ["button3", "load"])(
-                          eventArgs[0]
-                        );
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                    onLoadingChange={async (...eventArgs: any) => {
+                    },
+                    onColorChange: async (...eventArgs: any) => {
                       ((...eventArgs) => {
                         generateStateOnChangeProp($state, [
                           "button3",
+                          __plasmic_idx_0,
+                          "color"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    },
+                    onLoadChange: async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button3",
+                          __plasmic_idx_0,
+                          "load"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    },
+                    onLoadingChange: async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button3",
+                          __plasmic_idx_0,
                           "loading"
                         ])(eventArgs[0]);
                       }).apply(null, eventArgs);
@@ -1617,35 +1677,66 @@ function PlasmicCharts__RenderFunc(props: {
                       ) {
                         return;
                       }
-                    }}
-                    shape={"rounded"}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__sOnzJ)}
+                    },
+                    shape: "rounded",
+                    size: "compact"
+                  };
+
+                  initializePlasmicStates(
+                    $state,
+                    [
+                      {
+                        name: "button3[].color",
+                        initFunc: ({ $props, $state, $queries }) => []
+                      },
+                      {
+                        name: "button3[].loading",
+                        initFunc: ({ $props, $state, $queries }) => undefined
+                      },
+                      {
+                        name: "button3[].load",
+                        initFunc: ({ $props, $state, $queries }) => false
+                      }
+                    ],
+                    [__plasmic_idx_0]
+                  );
+                  return (
+                    <Button
+                      data-plasmic-name={"button3"}
+                      data-plasmic-override={overrides.button3}
+                      {...child$Props}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text___53Mvc
+                          sty.freeBox__sOnzJ
                         )}
                       >
-                        {
-                          "\u0646\u0645\u0627\u06cc\u0634 \u0646\u0645\u0648\u062f\u0627\u0631"
-                        }
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___53Mvc
+                          )}
+                        >
+                          {
+                            "\u0646\u0645\u0627\u06cc\u0634 \u0646\u0645\u0648\u062f\u0627\u0631"
+                          }
+                        </div>
+                        <Icon302Icon
+                          className={classNames(projectcss.all, sty.svg__kXbxa)}
+                          role={"img"}
+                        />
                       </div>
-                      <Icon302Icon
-                        className={classNames(projectcss.all, sty.svg__kXbxa)}
-                        role={"img"}
-                      />
-                    </div>
-                  </Button>
-                </div>
-              ) : null}
-            </div>
-          </div>
+                    </Button>
+                  );
+                })()}
+              </div>
+            );
+          })}
         </div>
       </div>
+      <div className={classNames(projectcss.all, sty.freeBox___6MzkJ)} />
     </div>
   ) as React.ReactElement | null;
 }
@@ -1659,14 +1750,24 @@ const PlasmicDescendants = {
     "button",
     "button2",
     "frame50",
+    "embedHtml",
     "button3"
   ],
   frame25: ["frame25"],
-  frame48: ["frame48", "frame47", "button", "button2", "frame50", "button3"],
+  frame48: [
+    "frame48",
+    "frame47",
+    "button",
+    "button2",
+    "frame50",
+    "embedHtml",
+    "button3"
+  ],
   frame47: ["frame47", "button", "button2"],
   button: ["button"],
   button2: ["button2"],
-  frame50: ["frame50", "button3"],
+  frame50: ["frame50", "embedHtml", "button3"],
+  embedHtml: ["embedHtml"],
   button3: ["button3"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -1680,6 +1781,7 @@ type NodeDefaultElementType = {
   button: typeof Button;
   button2: typeof Button;
   frame50: "div";
+  embedHtml: typeof Embed;
   button3: typeof Button;
 };
 
@@ -1749,6 +1851,7 @@ export const PlasmicCharts = Object.assign(
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
     frame50: makeNodeComponent("frame50"),
+    embedHtml: makeNodeComponent("embedHtml"),
     button3: makeNodeComponent("button3"),
 
     // Metadata about props expected for PlasmicCharts
