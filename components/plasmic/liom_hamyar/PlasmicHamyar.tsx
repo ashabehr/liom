@@ -94,6 +94,7 @@ import { Iframe } from "@plasmicpkgs/plasmic-basic-components";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import MobileDialog from "../../MobileDialog"; // plasmic-import: h7ceF9lBthFF/component
 import Reminder from "../../Reminder"; // plasmic-import: 3v9tn6uUJCPM/component
+import { BackHandler } from "@/components/BackHandler"; // plasmic-import: wpIQCsQJqUoV/codeComponent
 import ReminderSetting from "../../ReminderSetting"; // plasmic-import: VZcPBQBUFNbT/component
 import SettingCycle4 from "../../SettingCycle4"; // plasmic-import: C5hqeG28n8GP/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
@@ -141,14 +142,14 @@ createPlasmicElementProxy;
 export type PlasmicHamyar__VariantMembers = {
   lackOfCourseInformation: "lackOfCourseInformation";
   noPartner: "noPartner";
-  reminder: "reminder";
+  remindersetting: "remindersetting";
   page: "reminder" | "unnamedVariant";
   editCycle: "editCycle";
 };
 export type PlasmicHamyar__VariantsArgs = {
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
   noPartner?: SingleBooleanChoiceArg<"noPartner">;
-  reminder?: SingleBooleanChoiceArg<"reminder">;
+  remindersetting?: SingleBooleanChoiceArg<"remindersetting">;
   page?: SingleChoiceArg<"reminder" | "unnamedVariant">;
   editCycle?: SingleBooleanChoiceArg<"editCycle">;
 };
@@ -156,7 +157,7 @@ type VariantPropType = keyof PlasmicHamyar__VariantsArgs;
 export const PlasmicHamyar__VariantProps = new Array<VariantPropType>(
   "lackOfCourseInformation",
   "noPartner",
-  "reminder",
+  "remindersetting",
   "page",
   "editCycle"
 );
@@ -184,7 +185,6 @@ export type PlasmicHamyar__OverridesType = {
   countdown4?: Flex__<typeof Countdown>;
   button21?: Flex__<typeof Button>;
   checkbox?: Flex__<typeof Checkbox>;
-  reveal?: Flex__<typeof Reveal>;
   useful2?: Flex__<typeof Useful>;
   useful?: Flex__<typeof Useful>;
   harmful2?: Flex__<typeof Harmful>;
@@ -2033,10 +2033,10 @@ function PlasmicHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "reminder",
+        path: "remindersetting",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.reminder
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.remindersetting
       },
       {
         path: "button21.color",
@@ -2300,10 +2300,14 @@ function PlasmicHamyar__RenderFunc(props: {
               ),
               [sty.rootnoPartner]: hasVariant($state, "noPartner", "noPartner"),
               [sty.rootpage_reminder]: hasVariant($state, "page", "reminder"),
-              [sty.rootreminder]: hasVariant($state, "reminder", "reminder"),
-              [sty.rootreminder_page_reminder]:
+              [sty.rootremindersetting]: hasVariant(
+                $state,
+                "remindersetting",
+                "remindersetting"
+              ),
+              [sty.rootremindersetting_page_reminder]:
                 hasVariant($state, "page", "reminder") &&
-                hasVariant($state, "reminder", "reminder")
+                hasVariant($state, "remindersetting", "remindersetting")
             }
           )}
           onLoad={async event => {
@@ -2706,7 +2710,10 @@ function PlasmicHamyar__RenderFunc(props: {
                 window.sessionStorage.getItem("page") == "settingReminder" &&
                 window.document.referrer.includes("shop-result")
                   ? (() => {
-                      const actionArgs = { vgroup: "reminder", operation: 2 };
+                      const actionArgs = {
+                        vgroup: "remindersetting",
+                        operation: 2
+                      };
                       return (({ vgroup, value }) => {
                         if (typeof value === "string") {
                           value = [value];
@@ -3332,7 +3339,7 @@ function PlasmicHamyar__RenderFunc(props: {
               ? true
               : hasVariant($state, "page", "reminder")
               ? true
-              : hasVariant($state, "reminder", "reminder")
+              : hasVariant($state, "remindersetting", "remindersetting")
               ? true
               : hasVariant($state, "noPartner", "noPartner")
               ? true
@@ -3373,7 +3380,11 @@ function PlasmicHamyar__RenderFunc(props: {
                   "noPartner"
                 ),
                 [sty.mainpage_reminder]: hasVariant($state, "page", "reminder"),
-                [sty.mainreminder]: hasVariant($state, "reminder", "reminder")
+                [sty.mainremindersetting]: hasVariant(
+                  $state,
+                  "remindersetting",
+                  "remindersetting"
+                )
               })}
             >
               <div
@@ -9446,10 +9457,10 @@ function PlasmicHamyar__RenderFunc(props: {
                             "page",
                             "reminder"
                           ),
-                          [sty.freeBoxreminder__d04NJuHqpO]: hasVariant(
+                          [sty.freeBoxremindersetting__d04NJuHqpO]: hasVariant(
                             $state,
-                            "reminder",
-                            "reminder"
+                            "remindersetting",
+                            "remindersetting"
                           )
                         }
                       )}
@@ -9469,11 +9480,12 @@ function PlasmicHamyar__RenderFunc(props: {
                               "page",
                               "reminder"
                             ),
-                            [sty.freeBoxreminder__aErc9UHqpO]: hasVariant(
-                              $state,
-                              "reminder",
-                              "reminder"
-                            )
+                            [sty.freeBoxremindersetting__aErc9UHqpO]:
+                              hasVariant(
+                                $state,
+                                "remindersetting",
+                                "remindersetting"
+                              )
                           }
                         )}
                       >
@@ -9552,11 +9564,12 @@ function PlasmicHamyar__RenderFunc(props: {
                               "page",
                               "reminder"
                             ),
-                            [sty.freeBoxreminder__rYpc3UHqpO]: hasVariant(
-                              $state,
-                              "reminder",
-                              "reminder"
-                            )
+                            [sty.freeBoxremindersetting__rYpc3UHqpO]:
+                              hasVariant(
+                                $state,
+                                "remindersetting",
+                                "remindersetting"
+                              )
                           }
                         )}
                       >
@@ -13317,10 +13330,10 @@ function PlasmicHamyar__RenderFunc(props: {
                                 "page",
                                 "reminder"
                               ),
-                              [sty.textreminder__z49PwUHqpO]: hasVariant(
+                              [sty.textremindersetting__z49PwUHqpO]: hasVariant(
                                 $state,
-                                "reminder",
-                                "reminder"
+                                "remindersetting",
+                                "remindersetting"
                               )
                             }
                           )}
@@ -13423,9 +13436,10 @@ function PlasmicHamyar__RenderFunc(props: {
                               : "\u0628\u0631\u0627\u06cc \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0631\u062f\u0646 \u0631\u0648\u06cc \u0647\u0631 \u0645\u0648\u0636\u0648\u0639 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a\u0634 \u0631\u0648 \u0628\u062e\u0648\u0646."}
                           </div>
                           <Reveal
-                            data-plasmic-name={"reveal"}
-                            data-plasmic-override={overrides.reveal}
-                            className={classNames("__wab_instance", sty.reveal)}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.reveal__xOft5
+                            )}
                             triggerOnce={true}
                           >
                             <div
@@ -22146,7 +22160,7 @@ function PlasmicHamyar__RenderFunc(props: {
               ? true
               : hasVariant($state, "page", "reminder")
               ? true
-              : hasVariant($state, "reminder", "reminder")
+              : hasVariant($state, "remindersetting", "remindersetting")
               ? true
               : (() => {
                   try {
@@ -22181,10 +22195,10 @@ function PlasmicHamyar__RenderFunc(props: {
                   "page",
                   "reminder"
                 ),
-                [sty.loadingreminder]: hasVariant(
+                [sty.loadingremindersetting]: hasVariant(
                   $state,
-                  "reminder",
-                  "reminder"
+                  "remindersetting",
+                  "remindersetting"
                 )
               })}
             >
@@ -22294,10 +22308,10 @@ function PlasmicHamyar__RenderFunc(props: {
                             "page",
                             "reminder"
                           ),
-                          [sty.freeBoxreminder__z35I0UHqpO]: hasVariant(
+                          [sty.freeBoxremindersetting__z35I0UHqpO]: hasVariant(
                             $state,
-                            "reminder",
-                            "reminder"
+                            "remindersetting",
+                            "remindersetting"
                           )
                         }
                       )}
@@ -22512,13 +22526,13 @@ function PlasmicHamyar__RenderFunc(props: {
           ) : null}
           {(
             hasVariant($state, "page", "reminder") &&
-            hasVariant($state, "reminder", "reminder")
+            hasVariant($state, "remindersetting", "remindersetting")
               ? true
               : hasVariant($state, "editCycle", "editCycle")
               ? true
               : hasVariant($state, "page", "reminder")
               ? true
-              : hasVariant($state, "reminder", "reminder")
+              : hasVariant($state, "remindersetting", "remindersetting")
               ? true
               : (() => {
                   try {
@@ -22556,14 +22570,14 @@ function PlasmicHamyar__RenderFunc(props: {
                   "page",
                   "reminder"
                 ),
-                [sty.sectionreminder]: hasVariant(
+                [sty.sectionremindersetting]: hasVariant(
                   $state,
-                  "reminder",
-                  "reminder"
+                  "remindersetting",
+                  "remindersetting"
                 ),
-                [sty.sectionreminder_page_reminder]:
+                [sty.sectionremindersetting_page_reminder]:
                   hasVariant($state, "page", "reminder") &&
-                  hasVariant($state, "reminder", "reminder")
+                  hasVariant($state, "remindersetting", "remindersetting")
               })}
             >
               <div className={classNames(projectcss.all, sty.freeBox__s6DdH)}>
@@ -26836,14 +26850,14 @@ function PlasmicHamyar__RenderFunc(props: {
                 "page",
                 "reminder"
               ),
-              [sty.rememberreminder]: hasVariant(
+              [sty.rememberremindersetting]: hasVariant(
                 $state,
-                "reminder",
-                "reminder"
+                "remindersetting",
+                "remindersetting"
               ),
-              [sty.rememberreminder_page_reminder]:
+              [sty.rememberremindersetting_page_reminder]:
                 hasVariant($state, "page", "reminder") &&
-                hasVariant($state, "reminder", "reminder")
+                hasVariant($state, "remindersetting", "remindersetting")
             })}
             config={(() => {
               try {
@@ -26940,257 +26954,388 @@ function PlasmicHamyar__RenderFunc(props: {
             url={"https://n8n.staas.ir/webhook/user/task/day"}
           />
 
-          <Reminder
-            data-plasmic-name={"reminder2"}
-            data-plasmic-override={overrides.reminder2}
-            activeSmsNotif={(() => {
-              try {
-                return $state.userdata?.result?.man?.activeSmsNotif
-                  ? true
-                  : false;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return false;
-                }
-                throw e;
-              }
-            })()}
-            back={async () => {
-              const $steps = {};
-
-              $steps["updatePage"] = true
-                ? (() => {
-                    const actionArgs = { vgroup: "page", operation: 1 };
-                    return (({ vgroup, value }) => {
-                      if (typeof value === "string") {
-                        value = [value];
-                      }
-
-                      $stateSet($state, vgroup, undefined);
-                      return undefined;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updatePage"] != null &&
-                typeof $steps["updatePage"] === "object" &&
-                typeof $steps["updatePage"].then === "function"
-              ) {
-                $steps["updatePage"] = await $steps["updatePage"];
-              }
-            }}
-            className={classNames("__wab_instance", sty.reminder2, {
-              [sty.reminder2noPartner]: hasVariant(
-                $state,
-                "noPartner",
-                "noPartner"
-              ),
-              [sty.reminder2page_reminder]: hasVariant(
+          <Reveal
+            className={classNames("__wab_instance", sty.reveal__mJmMz, {
+              [sty.revealpage_reminder__mJmMzslU1R]: hasVariant(
                 $state,
                 "page",
                 "reminder"
               ),
-              [sty.reminder2reminder]: hasVariant(
+              [sty.revealremindersetting__mJmMzUHqpO]: hasVariant(
                 $state,
-                "reminder",
-                "reminder"
+                "remindersetting",
+                "remindersetting"
               ),
-              [sty.reminder2reminder_page_reminder]:
+              [sty.revealremindersetting_page_reminder__mJmMzUHqpOSlU1R]:
                 hasVariant($state, "page", "reminder") &&
-                hasVariant($state, "reminder", "reminder")
+                hasVariant($state, "remindersetting", "remindersetting")
             })}
-            data={(() => {
-              try {
-                return $state.remind;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return [
-                    {
-                      id: 32,
-                      man_id: 3,
-                      name: "\u062a\u0648\u0644\u062f \u062a\u0627\u0646\u0627\u0646\u062a\u0627\u062a\u0646",
-                      date_greg: "2025-12-02",
-                      date_shamsi: "1386/10/10",
-                      type: "ChildBirthday",
-                      description: null,
-                      repeat_yearly: 1,
-                      remind_before: 0,
-                      smsActive: 1
-                    },
-                    {
-                      id: 31,
-                      man_id: 3,
-                      name: "\u062a\u0648\u0644\u062f \u0646\u062a\u0627\u0646\u062a\u0627",
-                      date_greg: "2025-12-05",
-                      date_shamsi: "1386/10/10",
-                      type: "ChildBirthday",
-                      description: null,
-                      repeat_yearly: 1,
-                      remind_before: 0,
-                      smsActive: 1
-                    },
-                    {
-                      id: 30,
-                      man_id: 3,
-                      name: "\u062a\u0648\u0644\u062f \u0645\u062d\u0645\u062f",
-                      date_greg: "2025-12-15",
-                      date_shamsi: "1386/10/10",
-                      type: "ChildBirthday",
-                      description: null,
-                      repeat_yearly: 1,
-                      remind_before: 0,
-                      smsActive: 0
-                    },
-                    {
-                      id: 29,
-                      man_id: 3,
-                      name: "\u062a\u0648\u0644\u062f \u0639\u0644\u06cc",
-                      date_greg: "2025-12-31",
-                      date_shamsi: "1388/10/10",
-                      type: "ChildBirthday",
-                      description: null,
-                      repeat_yearly: 1,
-                      remind_before: 0,
-                      smsActive: 0
-                    },
-                    {
-                      id: 21,
-                      man_id: 3,
-                      name: "\u0631\u0648\u0632 \u0632\u0646 \u0648 \u0645\u0627\u062f\u0631",
-                      date_greg: "2026-02-09",
-                      date_shamsi: "1404/11/20",
-                      type: "Occasion",
-                      description:
-                        "\u0648\u0644\u0627\u062f\u062a \u062d\u0636\u0631\u062a \u0641\u0627\u0637\u0645\u0647 \u0632\u0647\u0631\u0627 (\u0633)",
-                      repeat_yearly: 1,
-                      remind_before: 3,
-                      smsActive: 0
-                    },
-                    {
-                      id: 24,
-                      man_id: 3,
-                      name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
-                      date_greg: "2026-02-14",
-                      date_shamsi: "1404/11/25",
-                      type: "Occasion",
-                      description:
-                        "\u0631\u0648\u0632 \u0639\u0634\u0642 \u062c\u0647\u0627\u0646\u06cc",
-                      repeat_yearly: 1,
-                      remind_before: 7,
-                      smsActive: 0
-                    },
-                    {
-                      id: 25,
-                      man_id: 3,
-                      name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
-                      date_greg: "2026-02-19",
-                      date_shamsi: "1404/11/30",
-                      type: "Occasion",
-                      description:
-                        "\u0631\u0648\u0632 \u0632\u0646 \u0648 \u0639\u0634\u0642 \u062f\u0631 \u0627\u06cc\u0631\u0627\u0646 \u0628\u0627\u0633\u062a\u0627\u0646",
-                      repeat_yearly: 1,
-                      remind_before: 7,
-                      smsActive: 0
-                    },
-                    {
-                      id: 23,
-                      man_id: 3,
-                      name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
-                      date_greg: "2026-03-08",
-                      date_shamsi: "1404/12/17",
-                      type: "Occasion",
-                      description: "International Women's Day",
-                      repeat_yearly: 1,
-                      remind_before: 7,
-                      smsActive: 0
-                    },
-                    {
-                      id: 22,
-                      man_id: 3,
-                      name: "\u0631\u0648\u0632 \u062f\u062e\u062a\u0631",
-                      date_greg: "2026-05-30",
-                      date_shamsi: "1405/03/09",
-                      type: "Occasion",
-                      description:
-                        "\u0648\u0644\u0627\u062f\u062a \u062d\u0636\u0631\u062a \u0645\u0639\u0635\u0648\u0645\u0647 (\u0633)",
-                      repeat_yearly: 1,
-                      remind_before: 3,
-                      smsActive: 0
-                    },
-                    {
-                      id: 26,
-                      man_id: 3,
-                      name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
-                      date_greg: "2026-10-11",
-                      date_shamsi: "1405/07/19",
-                      type: "Occasion",
-                      description: "International Day of the Girl Child",
-                      repeat_yearly: 1,
-                      remind_before: 7,
-                      smsActive: 0
-                    },
-                    {
-                      id: 28,
-                      man_id: 3,
-                      name: "\u062a\u0648\u0644\u062f \u0632\u0647\u0631\u0627",
-                      date_greg: "2026-12-30",
-                      date_shamsi: "1379/10/10",
-                      type: "SpouseBirthday",
-                      description: null,
-                      repeat_yearly: 1,
-                      remind_before: 0,
-                      smsActive: 0
-                    }
-                  ];
+            damping={0.2}
+            triggerOnce={true}
+          >
+            <Reminder
+              data-plasmic-name={"reminder2"}
+              data-plasmic-override={overrides.reminder2}
+              activeSmsNotif={(() => {
+                try {
+                  return $state.userdata?.result?.man?.activeSmsNotif
+                    ? true
+                    : false;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
                 }
-                throw e;
-              }
-            })()}
-            manId={(() => {
-              try {
-                return $state.userdata?.result?.man?.id;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-            onRefreshChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["reminder2", "refresh"]).apply(
-                null,
-                eventArgs
-              );
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-
-              (async val => {
+              })()}
+              back={async () => {
                 const $steps = {};
 
-                $steps["updateReminderSettingRefresh"] = true
+                $steps["updatePage"] = true
+                  ? (() => {
+                      const actionArgs = { vgroup: "page", operation: 1 };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        $stateSet($state, vgroup, undefined);
+                        return undefined;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updatePage"] != null &&
+                  typeof $steps["updatePage"] === "object" &&
+                  typeof $steps["updatePage"].then === "function"
+                ) {
+                  $steps["updatePage"] = await $steps["updatePage"];
+                }
+              }}
+              className={classNames("__wab_instance", sty.reminder2, {
+                [sty.reminder2noPartner]: hasVariant(
+                  $state,
+                  "noPartner",
+                  "noPartner"
+                ),
+                [sty.reminder2page_reminder]: hasVariant(
+                  $state,
+                  "page",
+                  "reminder"
+                ),
+                [sty.reminder2remindersetting]: hasVariant(
+                  $state,
+                  "remindersetting",
+                  "remindersetting"
+                ),
+                [sty.reminder2remindersetting_page_reminder]:
+                  hasVariant($state, "page", "reminder") &&
+                  hasVariant($state, "remindersetting", "remindersetting")
+              })}
+              data={(() => {
+                try {
+                  return $state.remind;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [
+                      {
+                        id: 32,
+                        man_id: 3,
+                        name: "\u062a\u0648\u0644\u062f \u062a\u0627\u0646\u0627\u0646\u062a\u0627\u062a\u0646",
+                        date_greg: "2025-12-02",
+                        date_shamsi: "1386/10/10",
+                        type: "ChildBirthday",
+                        description: null,
+                        repeat_yearly: 1,
+                        remind_before: 0,
+                        smsActive: 1
+                      },
+                      {
+                        id: 31,
+                        man_id: 3,
+                        name: "\u062a\u0648\u0644\u062f \u0646\u062a\u0627\u0646\u062a\u0627",
+                        date_greg: "2025-12-05",
+                        date_shamsi: "1386/10/10",
+                        type: "ChildBirthday",
+                        description: null,
+                        repeat_yearly: 1,
+                        remind_before: 0,
+                        smsActive: 1
+                      },
+                      {
+                        id: 30,
+                        man_id: 3,
+                        name: "\u062a\u0648\u0644\u062f \u0645\u062d\u0645\u062f",
+                        date_greg: "2025-12-15",
+                        date_shamsi: "1386/10/10",
+                        type: "ChildBirthday",
+                        description: null,
+                        repeat_yearly: 1,
+                        remind_before: 0,
+                        smsActive: 0
+                      },
+                      {
+                        id: 29,
+                        man_id: 3,
+                        name: "\u062a\u0648\u0644\u062f \u0639\u0644\u06cc",
+                        date_greg: "2025-12-31",
+                        date_shamsi: "1388/10/10",
+                        type: "ChildBirthday",
+                        description: null,
+                        repeat_yearly: 1,
+                        remind_before: 0,
+                        smsActive: 0
+                      },
+                      {
+                        id: 21,
+                        man_id: 3,
+                        name: "\u0631\u0648\u0632 \u0632\u0646 \u0648 \u0645\u0627\u062f\u0631",
+                        date_greg: "2026-02-09",
+                        date_shamsi: "1404/11/20",
+                        type: "Occasion",
+                        description:
+                          "\u0648\u0644\u0627\u062f\u062a \u062d\u0636\u0631\u062a \u0641\u0627\u0637\u0645\u0647 \u0632\u0647\u0631\u0627 (\u0633)",
+                        repeat_yearly: 1,
+                        remind_before: 3,
+                        smsActive: 0
+                      },
+                      {
+                        id: 24,
+                        man_id: 3,
+                        name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
+                        date_greg: "2026-02-14",
+                        date_shamsi: "1404/11/25",
+                        type: "Occasion",
+                        description:
+                          "\u0631\u0648\u0632 \u0639\u0634\u0642 \u062c\u0647\u0627\u0646\u06cc",
+                        repeat_yearly: 1,
+                        remind_before: 7,
+                        smsActive: 0
+                      },
+                      {
+                        id: 25,
+                        man_id: 3,
+                        name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
+                        date_greg: "2026-02-19",
+                        date_shamsi: "1404/11/30",
+                        type: "Occasion",
+                        description:
+                          "\u0631\u0648\u0632 \u0632\u0646 \u0648 \u0639\u0634\u0642 \u062f\u0631 \u0627\u06cc\u0631\u0627\u0646 \u0628\u0627\u0633\u062a\u0627\u0646",
+                        repeat_yearly: 1,
+                        remind_before: 7,
+                        smsActive: 0
+                      },
+                      {
+                        id: 23,
+                        man_id: 3,
+                        name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
+                        date_greg: "2026-03-08",
+                        date_shamsi: "1404/12/17",
+                        type: "Occasion",
+                        description: "International Women's Day",
+                        repeat_yearly: 1,
+                        remind_before: 7,
+                        smsActive: 0
+                      },
+                      {
+                        id: 22,
+                        man_id: 3,
+                        name: "\u0631\u0648\u0632 \u062f\u062e\u062a\u0631",
+                        date_greg: "2026-05-30",
+                        date_shamsi: "1405/03/09",
+                        type: "Occasion",
+                        description:
+                          "\u0648\u0644\u0627\u062f\u062a \u062d\u0636\u0631\u062a \u0645\u0639\u0635\u0648\u0645\u0647 (\u0633)",
+                        repeat_yearly: 1,
+                        remind_before: 3,
+                        smsActive: 0
+                      },
+                      {
+                        id: 26,
+                        man_id: 3,
+                        name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
+                        date_greg: "2026-10-11",
+                        date_shamsi: "1405/07/19",
+                        type: "Occasion",
+                        description: "International Day of the Girl Child",
+                        repeat_yearly: 1,
+                        remind_before: 7,
+                        smsActive: 0
+                      },
+                      {
+                        id: 28,
+                        man_id: 3,
+                        name: "\u062a\u0648\u0644\u062f \u0632\u0647\u0631\u0627",
+                        date_greg: "2026-12-30",
+                        date_shamsi: "1379/10/10",
+                        type: "SpouseBirthday",
+                        description: null,
+                        repeat_yearly: 1,
+                        remind_before: 0,
+                        smsActive: 0
+                      }
+                    ];
+                  }
+                  throw e;
+                }
+              })()}
+              manId={(() => {
+                try {
+                  return $state.userdata?.result?.man?.id;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              onRefreshChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminder2",
+                  "refresh"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+
+                (async val => {
+                  const $steps = {};
+
+                  $steps["updateReminderSettingRefresh"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["reminderSetting", "refresh"]
+                          },
+                          operation: 0,
+                          value: $state.reminderSetting.refresh + 1
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateReminderSettingRefresh"] != null &&
+                    typeof $steps["updateReminderSettingRefresh"] ===
+                      "object" &&
+                    typeof $steps["updateReminderSettingRefresh"].then ===
+                      "function"
+                  ) {
+                    $steps["updateReminderSettingRefresh"] = await $steps[
+                      "updateReminderSettingRefresh"
+                    ];
+                  }
+                }).apply(null, eventArgs);
+              }}
+              onSmsChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["reminder2", "sms"]).apply(
+                  null,
+                  eventArgs
+                );
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onTelChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["reminder2", "tel"]).apply(
+                  null,
+                  eventArgs
+                );
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              phone={(() => {
+                try {
+                  return $state.mobile;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              refresh={generateStateValueProp($state, ["reminder2", "refresh"])}
+              setting={async () => {
+                const $steps = {};
+
+                $steps["updateReminder"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        vgroup: "remindersetting",
+                        operation: 2
+                      };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        const oldValue = $stateGet($state, vgroup);
+                        $stateSet($state, vgroup, !oldValue);
+                        return !oldValue;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateReminder"] != null &&
+                  typeof $steps["updateReminder"] === "object" &&
+                  typeof $steps["updateReminder"].then === "function"
+                ) {
+                  $steps["updateReminder"] = await $steps["updateReminder"];
+                }
+              }}
+              shop={async () => {
+                const $steps = {};
+
+                $steps["updateDialogOpendialog"] = true
                   ? (() => {
                       const actionArgs = {
                         variable: {
                           objRoot: $state,
-                          variablePath: ["reminderSetting", "refresh"]
+                          variablePath: ["dialog", "opendialog"]
                         },
                         operation: 0,
-                        value: $state.reminderSetting.refresh + 1
+                        value: true
                       };
                       return (({
                         variable,
@@ -27209,474 +27354,504 @@ function PlasmicHamyar__RenderFunc(props: {
                     })()
                   : undefined;
                 if (
-                  $steps["updateReminderSettingRefresh"] != null &&
-                  typeof $steps["updateReminderSettingRefresh"] === "object" &&
-                  typeof $steps["updateReminderSettingRefresh"].then ===
-                    "function"
+                  $steps["updateDialogOpendialog"] != null &&
+                  typeof $steps["updateDialogOpendialog"] === "object" &&
+                  typeof $steps["updateDialogOpendialog"].then === "function"
                 ) {
-                  $steps["updateReminderSettingRefresh"] = await $steps[
-                    "updateReminderSettingRefresh"
+                  $steps["updateDialogOpendialog"] = await $steps[
+                    "updateDialogOpendialog"
                   ];
                 }
-              }).apply(null, eventArgs);
-            }}
-            onSmsChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["reminder2", "sms"]).apply(
-                null,
-                eventArgs
-              );
 
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            onTelChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["reminder2", "tel"]).apply(
-                null,
-                eventArgs
-              );
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            phone={(() => {
-              try {
-                return $state.mobile;
-              } catch (e) {
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            return window.sessionStorage.setItem(
+                              "page",
+                              "settingReminder"
+                            );
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
                 if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
                 ) {
-                  return undefined;
+                  $steps["runCode"] = await $steps["runCode"];
                 }
-                throw e;
-              }
-            })()}
-            refresh={generateStateValueProp($state, ["reminder2", "refresh"])}
-            setting={async () => {
-              const $steps = {};
+              }}
+              sms={generateStateValueProp($state, ["reminder2", "sms"])}
+              subscription={(() => {
+                try {
+                  return $state?.userdata?.result?.man?.hamyarStatus
+                    ? true
+                    : false;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })()}
+              tel={generateStateValueProp($state, ["reminder2", "tel"])}
+              telegram={(() => {
+                try {
+                  return $state.userdata?.result?.man?.telegramId
+                    ? true
+                    : false;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })()}
+              telegramId={(() => {
+                try {
+                  return $state.userdata?.result?.man?.telegramId;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              token={(() => {
+                try {
+                  return $state.tokenUser;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+            />
 
-              $steps["updateReminder"] = true
-                ? (() => {
-                    const actionArgs = { vgroup: "reminder", operation: 2 };
-                    return (({ vgroup, value }) => {
-                      if (typeof value === "string") {
-                        value = [value];
-                      }
-
-                      const oldValue = $stateGet($state, vgroup);
-                      $stateSet($state, vgroup, !oldValue);
-                      return !oldValue;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateReminder"] != null &&
-                typeof $steps["updateReminder"] === "object" &&
-                typeof $steps["updateReminder"].then === "function"
-              ) {
-                $steps["updateReminder"] = await $steps["updateReminder"];
-              }
-            }}
-            shop={async () => {
-              const $steps = {};
-
-              $steps["updateDialogOpendialog"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["dialog", "opendialog"]
-                      },
-                      operation: 0,
-                      value: true
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateDialogOpendialog"] != null &&
-                typeof $steps["updateDialogOpendialog"] === "object" &&
-                typeof $steps["updateDialogOpendialog"].then === "function"
-              ) {
-                $steps["updateDialogOpendialog"] = await $steps[
-                  "updateDialogOpendialog"
-                ];
-              }
-
-              $steps["runCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          return window.sessionStorage.setItem(
-                            "page",
-                            "settingReminder"
-                          );
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
-              }
-            }}
-            sms={generateStateValueProp($state, ["reminder2", "sms"])}
-            subscription={(() => {
-              try {
-                return $state?.userdata?.result?.man?.hamyarStatus
+            <BackHandler
+              active={
+                hasVariant($state, "page", "reminder") &&
+                hasVariant($state, "remindersetting", "remindersetting")
+                  ? false
+                  : hasVariant($state, "page", "reminder")
                   ? true
-                  : false;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
-                }
-                throw e;
+                  : false
               }
-            })()}
-            tel={generateStateValueProp($state, ["reminder2", "tel"])}
-            telegram={(() => {
-              try {
-                return $state.userdata?.result?.man?.telegramId ? true : false;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return false;
-                }
-                throw e;
-              }
-            })()}
-            telegramId={(() => {
-              try {
-                return $state.userdata?.result?.man?.telegramId;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-            token={(() => {
-              try {
-                return $state.tokenUser;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-          />
+              className={classNames("__wab_instance", sty.backHandler__kuTeZ, {
+                [sty.backHandlerpage_reminder__kuTeZslU1R]: hasVariant(
+                  $state,
+                  "page",
+                  "reminder"
+                ),
+                [sty.backHandlerremindersetting_page_reminder__kuTeZuHqpOSlU1R]:
+                  hasVariant($state, "page", "reminder") &&
+                  hasVariant($state, "remindersetting", "remindersetting")
+              })}
+              onBack={async () => {
+                const $steps = {};
 
-          <ReminderSetting
-            data-plasmic-name={"reminderSetting"}
-            data-plasmic-override={overrides.reminderSetting}
-            back={async () => {
-              const $steps = {};
+                $steps["updatePage"] = true
+                  ? (() => {
+                      const actionArgs = { vgroup: "page", operation: 1 };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
 
-              $steps["runCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return ($state.reminderSetting.refresh += "1");
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
-              }
-
-              $steps["updateReminder"] = true
-                ? (() => {
-                    const actionArgs = { vgroup: "reminder", operation: 6 };
-                    return (({ vgroup, value }) => {
-                      if (typeof value === "string") {
-                        value = [value];
-                      }
-
-                      $stateSet($state, vgroup, false);
-                      return false;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateReminder"] != null &&
-                typeof $steps["updateReminder"] === "object" &&
-                typeof $steps["updateReminder"].then === "function"
-              ) {
-                $steps["updateReminder"] = await $steps["updateReminder"];
-              }
-            }}
-            className={classNames("__wab_instance", sty.reminderSetting, {
-              [sty.reminderSettingreminder]: hasVariant(
+                        $stateSet($state, vgroup, undefined);
+                        return undefined;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updatePage"] != null &&
+                  typeof $steps["updatePage"] === "object" &&
+                  typeof $steps["updatePage"].then === "function"
+                ) {
+                  $steps["updatePage"] = await $steps["updatePage"];
+                }
+              }}
+            />
+          </Reveal>
+          <Reveal
+            className={classNames("__wab_instance", sty.reveal__seNgU, {
+              [sty.revealeditCycle__seNgUu9Adl]: hasVariant(
                 $state,
-                "reminder",
+                "editCycle",
+                "editCycle"
+              ),
+              [sty.revealpage_reminder__seNgUslU1R]: hasVariant(
+                $state,
+                "page",
                 "reminder"
-              )
+              ),
+              [sty.revealremindersetting__seNgUuHqpO]: hasVariant(
+                $state,
+                "remindersetting",
+                "remindersetting"
+              ),
+              [sty.revealremindersetting_page_reminder__seNgUuHqpOSlU1R]:
+                hasVariant($state, "remindersetting", "remindersetting") &&
+                hasVariant($state, "page", "reminder")
             })}
-            data={(() => {
-              try {
-                return $state.remind;
-              } catch (e) {
+            damping={0.2}
+            triggerOnce={true}
+          >
+            <ReminderSetting
+              data-plasmic-name={"reminderSetting"}
+              data-plasmic-override={overrides.reminderSetting}
+              back={async () => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return ($state.reminderSetting.refresh += "1");
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
                 if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
                 ) {
-                  return [];
+                  $steps["runCode"] = await $steps["runCode"];
                 }
-                throw e;
+
+                $steps["updateReminder"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        vgroup: "remindersetting",
+                        operation: 6
+                      };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        $stateSet($state, vgroup, false);
+                        return false;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateReminder"] != null &&
+                  typeof $steps["updateReminder"] === "object" &&
+                  typeof $steps["updateReminder"].then === "function"
+                ) {
+                  $steps["updateReminder"] = await $steps["updateReminder"];
+                }
+              }}
+              className={classNames("__wab_instance", sty.reminderSetting, {
+                [sty.reminderSettingremindersetting]: hasVariant(
+                  $state,
+                  "remindersetting",
+                  "remindersetting"
+                )
+              })}
+              data={(() => {
+                try {
+                  return $state.remind;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [];
+                  }
+                  throw e;
+                }
+              })()}
+              manId={
+                hasVariant($state, "remindersetting", "remindersetting") &&
+                hasVariant(globalVariants, "screen", "mobile")
+                  ? (() => {
+                      try {
+                        return $state.userdata?.result?.man?.id;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+                  : (() => {
+                      try {
+                        return $state.userdata?.result?.man?.id || "";
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
               }
-            })()}
-            manId={
-              hasVariant($state, "reminder", "reminder") &&
-              hasVariant(globalVariants, "screen", "mobile")
-                ? (() => {
-                    try {
-                      return $state.userdata?.result?.man?.id;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()
-                : (() => {
-                    try {
-                      return $state.userdata?.result?.man?.id || "";
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()
-            }
-            onRefreshChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, [
+              onRefreshChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminderSetting",
+                  "refresh"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onSmsChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminderSetting",
+                  "sms"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onTelChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminderSetting",
+                  "tel"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              phoneNumber={(() => {
+                try {
+                  return $state.mobile;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              refresh={generateStateValueProp($state, [
                 "reminderSetting",
                 "refresh"
-              ]).apply(null, eventArgs);
+              ])}
+              shop={async () => {
+                const $steps = {};
 
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            onSmsChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, [
-                "reminderSetting",
-                "sms"
-              ]).apply(null, eventArgs);
+                $steps["updateDialogOpendialog"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["dialog", "opendialog"]
+                        },
+                        operation: 4
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
 
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            onTelChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, [
-                "reminderSetting",
-                "tel"
-              ]).apply(null, eventArgs);
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            phoneNumber={(() => {
-              try {
-                return $state.mobile;
-              } catch (e) {
+                        const oldValue = $stateGet(objRoot, variablePath);
+                        $stateSet(objRoot, variablePath, !oldValue);
+                        return !oldValue;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
                 if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
+                  $steps["updateDialogOpendialog"] != null &&
+                  typeof $steps["updateDialogOpendialog"] === "object" &&
+                  typeof $steps["updateDialogOpendialog"].then === "function"
                 ) {
-                  return undefined;
+                  $steps["updateDialogOpendialog"] = await $steps[
+                    "updateDialogOpendialog"
+                  ];
                 }
-                throw e;
-              }
-            })()}
-            refresh={generateStateValueProp($state, [
-              "reminderSetting",
-              "refresh"
-            ])}
-            shop={async () => {
-              const $steps = {};
 
-              $steps["updateDialogOpendialog"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["dialog", "opendialog"]
-                      },
-                      operation: 4
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            return window.sessionStorage.setItem(
+                              "page",
+                              "settingReminder"
+                            );
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }}
+              sms={generateStateValueProp($state, ["reminderSetting", "sms"])}
+              subscription={(() => {
+                try {
+                  return $state?.userdata?.result?.man?.hamyarStatus
+                    ? true
+                    : false;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })()}
+              tel={generateStateValueProp($state, ["reminderSetting", "tel"])}
+              telegramId={(() => {
+                try {
+                  return $state.userdata?.result?.man?.telegramId;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              telegramOn={(() => {
+                try {
+                  return $state.userdata?.result?.man?.telegramId
+                    ? true
+                    : false;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })()}
+              token={(() => {
+                try {
+                  return $state.tokenUser;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+            />
 
-                      const oldValue = $stateGet(objRoot, variablePath);
-                      $stateSet(objRoot, variablePath, !oldValue);
-                      return !oldValue;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateDialogOpendialog"] != null &&
-                typeof $steps["updateDialogOpendialog"] === "object" &&
-                typeof $steps["updateDialogOpendialog"].then === "function"
-              ) {
-                $steps["updateDialogOpendialog"] = await $steps[
-                  "updateDialogOpendialog"
-                ];
-              }
-
-              $steps["runCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          return window.sessionStorage.setItem(
-                            "page",
-                            "settingReminder"
-                          );
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
-              }
-            }}
-            sms={generateStateValueProp($state, ["reminderSetting", "sms"])}
-            subscription={(() => {
-              try {
-                return $state?.userdata?.result?.man?.hamyarStatus
+            <BackHandler
+              active={
+                hasVariant($state, "remindersetting", "remindersetting")
                   ? true
-                  : false;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return false;
-                }
-                throw e;
+                  : false
               }
-            })()}
-            tel={generateStateValueProp($state, ["reminderSetting", "tel"])}
-            telegramId={(() => {
-              try {
-                return $state.userdata?.result?.man?.telegramId;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-            telegramOn={(() => {
-              try {
-                return $state.userdata?.result?.man?.telegramId ? true : false;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return false;
-                }
-                throw e;
-              }
-            })()}
-            token={(() => {
-              try {
-                return $state.tokenUser;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-          />
+              className={classNames("__wab_instance", sty.backHandler__atbtf, {
+                [sty.backHandlerpage_reminder__atbtFslU1R]: hasVariant(
+                  $state,
+                  "page",
+                  "reminder"
+                ),
+                [sty.backHandlerremindersetting__atbtfuHqpO]: hasVariant(
+                  $state,
+                  "remindersetting",
+                  "remindersetting"
+                ),
+                [sty.backHandlerremindersetting_page_reminder__atbtfuHqpOSlU1R]:
+                  hasVariant($state, "remindersetting", "remindersetting") &&
+                  hasVariant($state, "page", "reminder")
+              })}
+              onBack={async () => {
+                const $steps = {};
 
+                $steps["updateRemindersetting"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        vgroup: "remindersetting",
+                        operation: 6
+                      };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        $stateSet($state, vgroup, false);
+                        return false;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateRemindersetting"] != null &&
+                  typeof $steps["updateRemindersetting"] === "object" &&
+                  typeof $steps["updateRemindersetting"].then === "function"
+                ) {
+                  $steps["updateRemindersetting"] = await $steps[
+                    "updateRemindersetting"
+                  ];
+                }
+              }}
+            />
+          </Reveal>
           {(() => {
             const child$Props = {
               active: true,
@@ -27884,7 +28059,6 @@ const PlasmicDescendants = {
     "countdown4",
     "button21",
     "checkbox",
-    "reveal",
     "useful2",
     "useful",
     "harmful2",
@@ -27958,7 +28132,6 @@ const PlasmicDescendants = {
     "countdown4",
     "button21",
     "checkbox",
-    "reveal",
     "useful2",
     "useful",
     "harmful2",
@@ -28001,7 +28174,6 @@ const PlasmicDescendants = {
   countdown4: ["countdown4"],
   button21: ["button21"],
   checkbox: ["checkbox"],
-  reveal: ["reveal", "useful2", "useful"],
   useful2: ["useful2"],
   useful: ["useful"],
   harmful2: ["harmful2"],
@@ -28100,7 +28272,6 @@ type NodeDefaultElementType = {
   countdown4: typeof Countdown;
   button21: typeof Button;
   checkbox: typeof Checkbox;
-  reveal: typeof Reveal;
   useful2: typeof Useful;
   useful: typeof Useful;
   harmful2: typeof Harmful;
@@ -28259,7 +28430,6 @@ export const PlasmicHamyar = Object.assign(
     countdown4: makeNodeComponent("countdown4"),
     button21: makeNodeComponent("button21"),
     checkbox: makeNodeComponent("checkbox"),
-    reveal: makeNodeComponent("reveal"),
     useful2: makeNodeComponent("useful2"),
     useful: makeNodeComponent("useful"),
     harmful2: makeNodeComponent("harmful2"),

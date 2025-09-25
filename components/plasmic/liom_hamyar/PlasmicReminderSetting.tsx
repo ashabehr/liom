@@ -2079,9 +2079,17 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           return (() => {
                             const m = $state.datePickers.value.gregorian.month;
                             const d = $state.datePickers.value.gregorian.day;
-                            const now = new Date();
+                            const nowUtc = new Date();
+                            const now = new Date(
+                              nowUtc.getTime() + 3.5 * 60 * 60 * 1000
+                            );
                             const currentYear = now.getFullYear();
-                            let today = new Date(currentYear, m - 1, d);
+                            let todayUtc = new Date(
+                              Date.UTC(currentYear, m - 1, d)
+                            );
+                            let today = new Date(
+                              todayUtc.getTime() + 3.5 * 60 * 60 * 1000
+                            );
                             if (today < now) {
                               today.setFullYear(currentYear + 1);
                             }
@@ -2095,9 +2103,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             return ($state.date[$state.dateType] = {
                               f,
                               g,
-                              year: today.getFullYear(),
-                              month: today.getMonth() + 1,
-                              day: today.getDate()
+                              year: $state.datePickers.value.year,
+                              month: $state.datePickers.value.month,
+                              day: $state.datePickers.value.day
                             });
                           })();
                         }
@@ -3965,15 +3973,47 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                           day: "numeric"
                                                         }
                                                       ).format(today);
+                                                    function faToEnDigits(str) {
+                                                      return str.replace(
+                                                        /[۰-۹]/g,
+                                                        d =>
+                                                          "۰۱۲۳۴۵۶۷۸۹".indexOf(
+                                                            d
+                                                          )
+                                                      );
+                                                    }
+                                                    const jy = Number(
+                                                      faToEnDigits(
+                                                        new Intl.DateTimeFormat(
+                                                          "fa-IR",
+                                                          { year: "numeric" }
+                                                        ).format(today)
+                                                      )
+                                                    );
+                                                    const jm = Number(
+                                                      faToEnDigits(
+                                                        new Intl.DateTimeFormat(
+                                                          "fa-IR",
+                                                          { month: "numeric" }
+                                                        ).format(today)
+                                                      )
+                                                    );
+                                                    const jd = Number(
+                                                      faToEnDigits(
+                                                        new Intl.DateTimeFormat(
+                                                          "fa-IR",
+                                                          { day: "numeric" }
+                                                        ).format(today)
+                                                      )
+                                                    );
                                                     $state.date[
                                                       $state.dateType
                                                     ] = {
                                                       f,
                                                       g,
-                                                      year: today.getFullYear(),
-                                                      month:
-                                                        today.getMonth() + 1,
-                                                      day: today.getDate()
+                                                      year: jy,
+                                                      month: jm,
+                                                      day: jd
                                                     };
                                                     function formatTimeString(
                                                       value
