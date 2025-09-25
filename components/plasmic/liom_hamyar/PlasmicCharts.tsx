@@ -472,6 +472,27 @@ function PlasmicCharts__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "charts",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          {
+            lable:
+              "\u0646\u0631\u062e \u067e\u0631\u062f\u0627\u062e\u062a \u0645\u0648\u0641\u0642",
+            link: "https://n8n.staas.ir/webhook/panel/convertionPayment"
+          },
+          {
+            lable: "\u0646\u0631\u062e \u0635\u0641\u062d\u0647 upselling",
+            link: "https://n8n.staas.ir/webhook/panel/convertionUpsellCustomPage"
+          },
+          {
+            lable:
+              "\u0646\u0631\u062e \u0622\u067e\u0633\u0644 + \u06a9\u0627\u0633\u062a\u0648\u0645",
+            link: "https://n8n.staas.ir/webhook/panel/convertionUpsellCustomPage"
+          }
+        ]
       }
     ],
     [$props, $ctx, $refs]

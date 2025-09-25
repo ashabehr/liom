@@ -443,7 +443,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant(globalVariants, "screen", "mobile") ? false : true
+          hasVariant(globalVariants, "screen", "mobile") ? false : false
       },
       {
         path: "datePickers.value",
@@ -1073,7 +1073,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
               )}
             >
               {
-                "\u062a\u0646\u0638\u06cc\u0645\u0627\u062a \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc"
+                "\u062a\u0646\u0638\u06cc\u0645\u0627\u062a \u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627"
               }
             </div>
           </div>
