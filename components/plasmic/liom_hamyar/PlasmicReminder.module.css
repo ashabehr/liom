@@ -1155,7 +1155,3 @@
   bottom: auto;
   display: none;
 }
-.backHandler:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}

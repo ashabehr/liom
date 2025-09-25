@@ -70,7 +70,6 @@ import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import Line from "../../Line"; // plasmic-import: tYgE5kAlYGXB/component
 import { SwiperSlider } from "@/components/SwiperSlider"; // plasmic-import: hd-bzFw1zcpE/codeComponent
 import ReminderSetting from "../../ReminderSetting"; // plasmic-import: VZcPBQBUFNbT/component
-import { BackHandler } from "@/components/BackHandler"; // plasmic-import: wpIQCsQJqUoV/codeComponent
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -169,7 +168,6 @@ export type PlasmicReminder__OverridesType = {
   slide2?: Flex__<"div">;
   reminderSetting2?: Flex__<typeof ReminderSetting>;
   button?: Flex__<typeof Button>;
-  backHandler?: Flex__<typeof BackHandler>;
 };
 
 export interface DefaultReminderProps {
@@ -4360,31 +4358,6 @@ function PlasmicReminder__RenderFunc(props: {
           </div>
         </div>
       ) : null}
-      <BackHandler
-        data-plasmic-name={"backHandler"}
-        data-plasmic-override={overrides.backHandler}
-        active={true}
-        className={classNames("__wab_instance", sty.backHandler)}
-        onBack={async () => {
-          const $steps = {};
-
-          $steps["runBack"] = true
-            ? (() => {
-                const actionArgs = { eventRef: $props["back"] };
-                return (({ eventRef, args }) => {
-                  return eventRef?.(...(args ?? []));
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["runBack"] != null &&
-            typeof $steps["runBack"] === "object" &&
-            typeof $steps["runBack"].then === "function"
-          ) {
-            $steps["runBack"] = await $steps["runBack"];
-          }
-        }}
-      />
     </div>
   ) as React.ReactElement | null;
 }
@@ -4424,8 +4397,7 @@ const PlasmicDescendants = {
     "reminderSetting",
     "slide2",
     "reminderSetting2",
-    "button",
-    "backHandler"
+    "button"
   ],
   section: [
     "section",
@@ -4491,8 +4463,7 @@ const PlasmicDescendants = {
   reminderSetting: ["reminderSetting"],
   slide2: ["slide2", "reminderSetting2"],
   reminderSetting2: ["reminderSetting2"],
-  button: ["button"],
-  backHandler: ["backHandler"]
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -4532,7 +4503,6 @@ type NodeDefaultElementType = {
   slide2: "div";
   reminderSetting2: typeof ReminderSetting;
   button: typeof Button;
-  backHandler: typeof BackHandler;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -4628,7 +4598,6 @@ export const PlasmicReminder = Object.assign(
     slide2: makeNodeComponent("slide2"),
     reminderSetting2: makeNodeComponent("reminderSetting2"),
     button: makeNodeComponent("button"),
-    backHandler: makeNodeComponent("backHandler"),
 
     // Metadata about props expected for PlasmicReminder
     internalVariantProps: PlasmicReminder__VariantProps,

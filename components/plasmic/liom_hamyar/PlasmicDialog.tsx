@@ -62,8 +62,8 @@ import {
 import { Dialog } from "@plasmicpkgs/radix-ui";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { DialogContent } from "@plasmicpkgs/radix-ui";
-import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { DialogTitle } from "@plasmicpkgs/radix-ui";
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { DialogClose } from "@plasmicpkgs/radix-ui";
@@ -106,6 +106,8 @@ export type PlasmicDialog__OverridesType = {
   dialog3?: Flex__<typeof Dialog>;
   button3?: Flex__<typeof Button>;
   dialogContent?: Flex__<typeof DialogContent>;
+  dialogTitle?: Flex__<typeof DialogTitle>;
+  text?: Flex__<"div">;
   dialogClose?: Flex__<typeof DialogClose>;
 };
 
@@ -364,6 +366,7 @@ function PlasmicDialog__RenderFunc(props: {
               role={"img"}
             />
           }
+          submitsForm={false}
         />
       }
     >
@@ -390,6 +393,23 @@ function PlasmicDialog__RenderFunc(props: {
           styleTokensClassNames
         )}
       >
+        <DialogTitle
+          data-plasmic-name={"dialogTitle"}
+          data-plasmic-override={overrides.dialogTitle}
+          className={classNames("__wab_instance", sty.dialogTitle)}
+        >
+          <div
+            data-plasmic-name={"text"}
+            data-plasmic-override={overrides.text}
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text
+            )}
+          >
+            {"Sheet title"}
+          </div>
+        </DialogTitle>
         {renderPlasmicSlot({
           defaultContents: (
             <ApiRequest
@@ -698,9 +718,18 @@ function PlasmicDialog__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  dialog3: ["dialog3", "button3", "dialogContent", "dialogClose"],
+  dialog3: [
+    "dialog3",
+    "button3",
+    "dialogContent",
+    "dialogTitle",
+    "text",
+    "dialogClose"
+  ],
   button3: ["button3"],
-  dialogContent: ["dialogContent", "dialogClose"],
+  dialogContent: ["dialogContent", "dialogTitle", "text", "dialogClose"],
+  dialogTitle: ["dialogTitle", "text"],
+  text: ["text"],
   dialogClose: ["dialogClose"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -710,6 +739,8 @@ type NodeDefaultElementType = {
   dialog3: typeof Dialog;
   button3: typeof Button;
   dialogContent: typeof DialogContent;
+  dialogTitle: typeof DialogTitle;
+  text: "div";
   dialogClose: typeof DialogClose;
 };
 
@@ -775,6 +806,8 @@ export const PlasmicDialog = Object.assign(
     // Helper components rendering sub-elements
     button3: makeNodeComponent("button3"),
     dialogContent: makeNodeComponent("dialogContent"),
+    dialogTitle: makeNodeComponent("dialogTitle"),
+    text: makeNodeComponent("text"),
     dialogClose: makeNodeComponent("dialogClose"),
 
     // Metadata about props expected for PlasmicDialog

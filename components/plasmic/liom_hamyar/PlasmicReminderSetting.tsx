@@ -1811,7 +1811,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
 
                 $steps["invokeGlobalAction2"] =
                   $steps.insert?.data?.success == true ||
-                  $steps.update?.data?.success == true
+                  $steps.edit?.data?.success == true
                     ? (() => {
                         const actionArgs = {
                           args: [
@@ -1838,8 +1838,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 }
 
                 $steps["runCode"] =
-                  $steps.insert?.data?.success == true ||
-                  $steps.edit?.data?.success == true
+                  $steps.insert?.data?.success == true
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
@@ -1861,6 +1860,30 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   typeof $steps["runCode"].then === "function"
                 ) {
                   $steps["runCode"] = await $steps["runCode"];
+                }
+
+                $steps["runCode3"] =
+                  $steps.edit?.data?.success == true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              $state.dialog.opendialog = false;
+                              return ($state.select2 = {});
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["runCode3"] != null &&
+                  typeof $steps["runCode3"] === "object" &&
+                  typeof $steps["runCode3"].then === "function"
+                ) {
+                  $steps["runCode3"] = await $steps["runCode3"];
                 }
 
                 $steps["updateButton5Load2"] = true
@@ -2064,6 +2087,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             }
                             const f = today.toISOString().split("T")[0];
                             const g = new Intl.DateTimeFormat("fa-IR", {
+                              timeZone: "Asia/Tehran",
                               year: "numeric",
                               month: "long",
                               day: "numeric"
