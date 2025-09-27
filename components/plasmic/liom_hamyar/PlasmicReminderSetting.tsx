@@ -851,6 +851,12 @@ function PlasmicReminderSetting__RenderFunc(props: {
 
         valueProp: "sms",
         onChangeProp: "onSmsChange"
+      },
+      {
+        path: "disable",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -961,7 +967,12 @@ function PlasmicReminderSetting__RenderFunc(props: {
         >
           <div className={classNames(projectcss.all, sty.freeBox__p32It)}>
             <div className={classNames(projectcss.all, sty.freeBox__lk7Ua)}>
-              <div className={classNames(projectcss.all, sty.freeBox__zoDiw)}>
+              <div
+                className={classNames(projectcss.all, sty.freeBox__zoDiw)}
+                onClick={async event => {
+                  const $steps = {};
+                }}
+              >
                 <div
                   className={classNames(
                     projectcss.all,
@@ -975,6 +986,19 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   data-plasmic-name={"input"}
                   data-plasmic-override={overrides.input}
                   className={classNames("__wab_instance", sty.input)}
+                  disabled={(() => {
+                    try {
+                      return $state.disable;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })()}
                   onChange={async (...eventArgs: any) => {
                     generateStateOnChangeProp($state, ["input", "value"]).apply(
                       null,
@@ -987,6 +1011,61 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   type={"text"}
                   value={generateStateValueProp($state, ["input", "value"])}
                 />
+
+                {(() => {
+                  try {
+                    return $state.disable;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___9Cmk)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateDisable"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["disable"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateDisable"] != null &&
+                        typeof $steps["updateDisable"] === "object" &&
+                        typeof $steps["updateDisable"].then === "function"
+                      ) {
+                        $steps["updateDisable"] = await $steps["updateDisable"];
+                      }
+                    }}
+                  />
+                ) : null}
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__p8KA1)}>
                 <div

@@ -345,96 +345,110 @@ function PlasmicChartViow__RenderFunc(props: {
           />
         </div>
       </div>
-      <Chart
-        data-plasmic-name={"fragmentChart"}
-        data-plasmic-override={overrides.fragmentChart}
-        chartConfig={(() => {
-          try {
-            return (() => {
-              try {
-                return [$props.selectChart.config2];
-              } catch {}
-            })();
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return undefined;
-            }
-            throw e;
+      {(() => {
+        try {
+          return $props.data.length > 0;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
           }
-        })()}
-        className={classNames("__wab_instance", sty.fragmentChart)}
-        data={(() => {
-          try {
-            return (() => {
-              try {
-                return $props.data.map(i => {
-                  const now = new Date(i.date);
-                  const g = new Intl.DateTimeFormat("fa-IR", {
-                    month: "long",
-                    day: "numeric"
-                  }).format(now);
-                  return {
-                    ...i,
-                    date: g
-                  };
-                });
-              } catch {}
-            })();
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return undefined;
+          throw e;
+        }
+      })() ? (
+        <Chart
+          data-plasmic-name={"fragmentChart"}
+          data-plasmic-override={overrides.fragmentChart}
+          chartConfig={(() => {
+            try {
+              return (() => {
+                try {
+                  return [$props.selectChart.config2];
+                } catch {}
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
             }
-            throw e;
-          }
-        })()}
-        layout={"horizontal"}
-        legend={false}
-        tooltip={(() => {
-          const __composite = { enabled: null, indicator: null };
-          __composite["enabled"] = true;
-          __composite["indicator"] = "dot";
-          return __composite;
-        })()}
-        type={"bar"}
-        xAxis={(() => {
-          const __composite = {
-            key: null,
-            type: null,
-            enabled: null,
-            tickLine: null,
-            axisLine: null
-          };
-          __composite["key"] = "date";
-          __composite["type"] = "category";
-          __composite["enabled"] = true;
-          __composite["tickLine"] = false;
-          __composite["axisLine"] = true;
-          return __composite;
-        })()}
-        yAxis={(() => {
-          const __composite = {
-            enabled: null,
-            type: null,
-            tickLine: null,
-            axisLine: null,
-            tickMargin: null,
-            key: null
-          };
-          __composite["enabled"] = true;
-          __composite["type"] = "number";
-          __composite["tickLine"] = false;
-          __composite["axisLine"] = true;
-          __composite["tickMargin"] = 20;
-          __composite["key"] = $props.selectChart.config.key;
-          return __composite;
-        })()}
-      />
+          })()}
+          className={classNames("__wab_instance", sty.fragmentChart)}
+          data={(() => {
+            try {
+              return (() => {
+                try {
+                  return $props.data.map(i => {
+                    const now = new Date(i.date);
+                    const g = new Intl.DateTimeFormat("fa-IR", {
+                      month: "long",
+                      day: "numeric"
+                    }).format(now);
+                    return {
+                      ...i,
+                      date: g
+                    };
+                  });
+                } catch {}
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+          layout={"horizontal"}
+          legend={false}
+          tooltip={(() => {
+            const __composite = { enabled: null, indicator: null };
+            __composite["enabled"] = true;
+            __composite["indicator"] = "dot";
+            return __composite;
+          })()}
+          type={"bar"}
+          xAxis={(() => {
+            const __composite = {
+              key: null,
+              type: null,
+              enabled: null,
+              tickLine: null,
+              axisLine: null
+            };
+            __composite["key"] = "date";
+            __composite["type"] = "category";
+            __composite["enabled"] = true;
+            __composite["tickLine"] = false;
+            __composite["axisLine"] = true;
+            return __composite;
+          })()}
+          yAxis={(() => {
+            const __composite = {
+              enabled: null,
+              type: null,
+              tickLine: null,
+              axisLine: null,
+              tickMargin: null,
+              key: null
+            };
+            __composite["enabled"] = true;
+            __composite["type"] = "number";
+            __composite["tickLine"] = false;
+            __composite["axisLine"] = true;
+            __composite["tickMargin"] = 20;
+            __composite["key"] = $props.selectChart.config.key;
+            return __composite;
+          })()}
+        />
+      ) : null}
     </div>
   ) as React.ReactElement | null;
 }
