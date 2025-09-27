@@ -1,7 +1,12 @@
 /* eslint-disable react/display-name */
 import { CodeComponentMeta, useSelector } from "@plasmicapp/host";
 import * as InputPrimitive from "@/components/ui/input";
-import { HTMLInputTypeAttribute, RefAttributes } from "react";
+import {
+  HTMLInputTypeAttribute,
+  RefAttributes,
+  useEffect,
+  useRef,
+} from "react";
 
 type InputType = {
   placeholder?: string;
@@ -29,9 +34,23 @@ export const Input = (props: InputType) => {
     multiple,
     accept,
   } = props;
+
   const fragmentConfig = useSelector("Fragment");
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  // جلوگیری از فوکوس خودکار بعد از mount
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.blur();
+    }
+  }, []);
+
+  // حذف autoFocus از attributes
+  const { autoFocus, ...restAttributes } = attributes ?? {};
+
   return (
     <InputPrimitive.Input
+      ref={inputRef}
       disabled={disabled}
       onChange={(e) => onChange?.(e.target?.value ?? "")}
       value={value}
@@ -40,11 +59,11 @@ export const Input = (props: InputType) => {
       placeholder={placeholder}
       className={className}
       type={type}
-      {...(type == "file" && {
+      {...(type === "file" && {
         multiple,
         accept,
       })}
-      {...attributes}
+      {...restAttributes}
     />
   );
 };
