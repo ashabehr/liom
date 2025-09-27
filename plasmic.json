@@ -4581,6 +4581,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/login-man"
+        },
+        {
+          "id": "npU0JycAnQRQ",
+          "name": "ChartViow",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicChartViow.tsx",
+          "importSpec": {
+            "modulePath": "ChartViow.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicChartViow.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

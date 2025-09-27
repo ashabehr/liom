@@ -67,6 +67,7 @@ import UserPage2 from "../../UserPage2"; // plasmic-import: 3UGIP49FNSVo/compone
 import Sendnotif from "../../Sendnotif"; // plasmic-import: 1f3SHQQwHGQn/component
 import Sendmessage from "../../Sendmessage"; // plasmic-import: MCAKqEbtK9Qy/component
 import Charts from "../../Charts"; // plasmic-import: lCS9WJtBvfol/component
+import ChartViow from "../../ChartViow"; // plasmic-import: npU0JycAnQRQ/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -81,17 +82,20 @@ export type PlasmicMain2__VariantMembers = {
   page: "reports" | "tabPage" | "notifs" | "charts";
   user: "user";
   dataUser: "dataUser";
+  chartViow: "chartViow";
 };
 export type PlasmicMain2__VariantsArgs = {
   page?: SingleChoiceArg<"reports" | "tabPage" | "notifs" | "charts">;
   user?: SingleBooleanChoiceArg<"user">;
   dataUser?: SingleBooleanChoiceArg<"dataUser">;
+  chartViow?: SingleBooleanChoiceArg<"chartViow">;
 };
 type VariantPropType = keyof PlasmicMain2__VariantsArgs;
 export const PlasmicMain2__VariantProps = new Array<VariantPropType>(
   "page",
   "user",
-  "dataUser"
+  "dataUser",
+  "chartViow"
 );
 
 export type PlasmicMain2__ArgsType = {
@@ -118,6 +122,7 @@ export type PlasmicMain2__OverridesType = {
   sendMessage?: Flex__<typeof Sendnotif>;
   nitif?: Flex__<typeof Sendmessage>;
   charts?: Flex__<typeof Charts>;
+  chartViow2?: Flex__<typeof ChartViow>;
 };
 
 export interface DefaultMain2Props {
@@ -127,6 +132,7 @@ export interface DefaultMain2Props {
   page?: SingleChoiceArg<"reports" | "tabPage" | "notifs" | "charts">;
   user?: SingleBooleanChoiceArg<"user">;
   dataUser?: SingleBooleanChoiceArg<"dataUser">;
+  chartViow?: SingleBooleanChoiceArg<"chartViow">;
   className?: string;
 }
 
@@ -500,6 +506,24 @@ function PlasmicMain2__RenderFunc(props: {
         path: "charts.payment",
         type: "private",
         variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "charts.selectChart",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "chartViow",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.chartViow
+      },
+      {
+        path: "chartViow2.userdata",
+        type: "private",
+        variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
@@ -528,6 +552,7 @@ function PlasmicMain2__RenderFunc(props: {
         styleTokensClassNames,
         sty.root,
         {
+          [sty.rootchartViow]: hasVariant($state, "chartViow", "chartViow"),
           [sty.rootdataUser]: hasVariant($state, "dataUser", "dataUser"),
           [sty.rootpage_charts]: hasVariant($state, "page", "charts"),
           [sty.rootpage_notifs]: hasVariant($state, "page", "notifs"),
@@ -558,7 +583,9 @@ function PlasmicMain2__RenderFunc(props: {
         data-plasmic-name={"userPage"}
         data-plasmic-override={overrides.userPage}
         className={classNames("__wab_instance", sty.userPage, {
+          [sty.userPagechartViow]: hasVariant($state, "chartViow", "chartViow"),
           [sty.userPagedataUser]: hasVariant($state, "dataUser", "dataUser"),
+          [sty.userPagepage_charts]: hasVariant($state, "page", "charts"),
           [sty.userPagepage_reports]: hasVariant($state, "page", "reports"),
           [sty.userPagepage_tabPage]: hasVariant($state, "page", "tabPage"),
           [sty.userPageuser]: hasVariant($state, "user", "user"),
@@ -1374,6 +1401,7 @@ function PlasmicMain2__RenderFunc(props: {
         data-plasmic-name={"nitif"}
         data-plasmic-override={overrides.nitif}
         className={classNames("__wab_instance", sty.nitif, {
+          [sty.nitifpage_charts]: hasVariant($state, "page", "charts"),
           [sty.nitifpage_notifs]: hasVariant($state, "page", "notifs")
         })}
         onFilessChange={async (...eventArgs: any) => {
@@ -1443,9 +1471,68 @@ function PlasmicMain2__RenderFunc(props: {
       <Charts
         data-plasmic-name={"charts"}
         data-plasmic-override={overrides.charts}
+        chartOpen={async () => {
+          const $steps = {};
+
+          $steps["updateChartViow"] = true
+            ? (() => {
+                const actionArgs = { vgroup: "chartViow", operation: 4 };
+                return (({ vgroup, value }) => {
+                  if (typeof value === "string") {
+                    value = [value];
+                  }
+
+                  $stateSet($state, vgroup, true);
+                  return true;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateChartViow"] != null &&
+            typeof $steps["updateChartViow"] === "object" &&
+            typeof $steps["updateChartViow"].then === "function"
+          ) {
+            $steps["updateChartViow"] = await $steps["updateChartViow"];
+          }
+        }}
         className={classNames("__wab_instance", sty.charts, {
-          [sty.chartspage_charts]: hasVariant($state, "page", "charts")
+          [sty.chartschartViow]: hasVariant($state, "chartViow", "chartViow"),
+          [sty.chartspage_charts]: hasVariant($state, "page", "charts"),
+          [sty.chartspage_charts_chartViow]:
+            hasVariant($state, "page", "charts") &&
+            hasVariant($state, "chartViow", "chartViow")
         })}
+        onClick={async event => {
+          const $steps = {};
+
+          $steps["updateItems"] = true
+            ? (() => {
+                const actionArgs = {
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["items"]
+                  },
+                  operation: 0
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  $stateSet(objRoot, variablePath, value);
+                  return value;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateItems"] != null &&
+            typeof $steps["updateItems"] === "object" &&
+            typeof $steps["updateItems"].then === "function"
+          ) {
+            $steps["updateItems"] = await $steps["updateItems"];
+          }
+        }}
         onPaymentChange={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, ["charts", "payment"]).apply(
             null,
@@ -1460,9 +1547,120 @@ function PlasmicMain2__RenderFunc(props: {
             return;
           }
         }}
+        onSelectChartChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["charts", "selectChart"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        payment={generateStateValueProp($state, ["charts", "payment"])}
+        selectChart={generateStateValueProp($state, ["charts", "selectChart"])}
       >
         {"\u0646\u0645\u0648\u062f\u0627\u0631 \u0647\u0627"}
       </Charts>
+      <ChartViow
+        data-plasmic-name={"chartViow2"}
+        data-plasmic-override={overrides.chartViow2}
+        className={classNames("__wab_instance", sty.chartViow2, {
+          [sty.chartViow2chartViow]: hasVariant(
+            $state,
+            "chartViow",
+            "chartViow"
+          ),
+          [sty.chartViow2page_charts]: hasVariant($state, "page", "charts")
+        })}
+        data={$state.charts.payment}
+        onBack={async event => {
+          const $steps = {};
+
+          $steps["updateChartViow"] = true
+            ? (() => {
+                const actionArgs = { vgroup: "chartViow", operation: 6 };
+                return (({ vgroup, value }) => {
+                  if (typeof value === "string") {
+                    value = [value];
+                  }
+
+                  $stateSet($state, vgroup, false);
+                  return false;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateChartViow"] != null &&
+            typeof $steps["updateChartViow"] === "object" &&
+            typeof $steps["updateChartViow"].then === "function"
+          ) {
+            $steps["updateChartViow"] = await $steps["updateChartViow"];
+          }
+        }}
+        onUserdataChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["chartViow2", "userdata"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        selectChart={(() => {
+          try {
+            return $state.charts.selectChart;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
+      >
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__fRB4,
+            {
+              [sty.textpage_charts__fRB46Ypl]: hasVariant(
+                $state,
+                "page",
+                "charts"
+              )
+            }
+          )}
+        >
+          <React.Fragment>
+            {(() => {
+              try {
+                return $state.charts.selectChart.lable;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "\u0627\u0637\u0644\u0627\u0639\u0627\u062a";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
+        </div>
+      </ChartViow>
     </div>
   ) as React.ReactElement | null;
 }
@@ -1479,7 +1677,8 @@ const PlasmicDescendants = {
     "userPage2",
     "sendMessage",
     "nitif",
-    "charts"
+    "charts",
+    "chartViow2"
   ],
   sideEffect: ["sideEffect"],
   userPage: ["userPage", "freeBox", "blockquote"],
@@ -1490,7 +1689,8 @@ const PlasmicDescendants = {
   userPage2: ["userPage2"],
   sendMessage: ["sendMessage"],
   nitif: ["nitif"],
-  charts: ["charts"]
+  charts: ["charts"],
+  chartViow2: ["chartViow2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1507,6 +1707,7 @@ type NodeDefaultElementType = {
   sendMessage: typeof Sendnotif;
   nitif: typeof Sendmessage;
   charts: typeof Charts;
+  chartViow2: typeof ChartViow;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1579,6 +1780,7 @@ export const PlasmicMain2 = Object.assign(
     sendMessage: makeNodeComponent("sendMessage"),
     nitif: makeNodeComponent("nitif"),
     charts: makeNodeComponent("charts"),
+    chartViow2: makeNodeComponent("chartViow2"),
 
     // Metadata about props expected for PlasmicMain2
     internalVariantProps: PlasmicMain2__VariantProps,

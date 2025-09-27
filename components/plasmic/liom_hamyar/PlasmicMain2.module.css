@@ -34,11 +34,17 @@
   flex-shrink: 0;
   display: none;
 }
+.userPagepage_charts:global(.__wab_instance) {
+  flex-shrink: 0;
+}
 .userPageuser:global(.__wab_instance) {
   flex-shrink: 0;
   display: flex;
 }
 .userPagedataUser:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.userPagechartViow:global(.__wab_instance) {
   flex-shrink: 0;
 }
 .userPageuser_page_reports:global(.__wab_instance) {
@@ -148,6 +154,9 @@
   flex-shrink: 0;
   display: flex;
 }
+.nitifpage_charts:global(.__wab_instance) {
+  flex-shrink: 0;
+}
 .charts:global(.__wab_instance) {
   max-width: 100%;
   flex-shrink: 0;
@@ -156,4 +165,26 @@
 .chartspage_charts:global(.__wab_instance) {
   flex-shrink: 0;
   display: flex;
+}
+.chartschartViow:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.chartspage_charts_chartViow:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: none;
+}
+.chartViow2:global(.__wab_instance) {
+  max-width: 100%;
+  flex-shrink: 0;
+  display: none;
+}
+.chartViow2page_charts:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.chartViow2chartViow:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: flex;
+}
+.text__fRB4 {
+  font-size: var(--token-UXPBeNJ4rrVx);
 }

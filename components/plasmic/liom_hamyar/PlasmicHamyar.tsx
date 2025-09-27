@@ -10242,9 +10242,22 @@ function PlasmicHamyar__RenderFunc(props: {
                               sty.text__unfSc
                             )}
                           >
-                            {
-                              "\u0644\u06cc\u0633\u062a \u0645\u0647\u0645 \u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627"
-                            }
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return "لیست رویدادها";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "\u0644\u06cc\u0633\u062a \u0645\u0647\u0645 \u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
                           </div>
                         </Button>
                       ) : null}

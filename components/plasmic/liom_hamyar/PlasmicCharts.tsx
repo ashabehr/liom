@@ -59,9 +59,8 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
-import { Chart } from "@/fragment/components/chart"; // plasmic-import: 2Vi4mc7aEpf-/codeComponent
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -90,7 +89,11 @@ export type PlasmicCharts__ArgsType = {
   loading?: boolean;
   onClick?: (event: any) => void;
   children?: React.ReactNode;
+  payment?: any;
   onPaymentChange?: (val: string) => void;
+  selectChart?: any;
+  onSelectChartChange?: (val: string) => void;
+  chartOpen?: () => void;
 };
 type ArgPropType = keyof PlasmicCharts__ArgsType;
 export const PlasmicCharts__ArgProps = new Array<ArgPropType>(
@@ -100,16 +103,17 @@ export const PlasmicCharts__ArgProps = new Array<ArgPropType>(
   "loading",
   "onClick",
   "children",
-  "onPaymentChange"
+  "payment",
+  "onPaymentChange",
+  "selectChart",
+  "onSelectChartChange",
+  "chartOpen"
 );
 
 export type PlasmicCharts__OverridesType = {
   frame49?: Flex__<"div">;
   frame25?: Flex__<"div">;
   frame48?: Flex__<"div">;
-  frame47?: Flex__<"div">;
-  button?: Flex__<typeof Button>;
-  button2?: Flex__<typeof Button>;
   frame50?: Flex__<"div">;
   embedHtml?: Flex__<typeof Embed>;
   button3?: Flex__<typeof Button>;
@@ -122,7 +126,11 @@ export interface DefaultChartsProps {
   loading?: boolean;
   onClick?: (event: any) => void;
   children?: React.ReactNode;
+  payment?: any;
   onPaymentChange?: (val: string) => void;
+  selectChart?: any;
+  onSelectChartChange?: (val: string) => void;
+  chartOpen?: () => void;
   className?: string;
 }
 
@@ -422,10 +430,10 @@ function PlasmicCharts__RenderFunc(props: {
     () => [
       {
         path: "payment",
-        type: "readonly",
+        type: "writable",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [],
 
+        valueProp: "payment",
         onChangeProp: "onPaymentChange"
       },
       {
@@ -435,47 +443,11 @@ function PlasmicCharts__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => []
       },
       {
-        path: "button.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "clear"
-      },
-      {
-        path: "button.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button.load",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
         path: "token",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tX3BhbmVsIn0.X3Y6yLedtYcV-7xxz2sFVoO6OBddGxGU3cB6Z23GBEQ"
-      },
-      {
-        path: "button2.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "clear"
-      },
-      {
-        path: "button2.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button2.load",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "charts",
@@ -485,12 +457,59 @@ function PlasmicCharts__RenderFunc(props: {
           {
             lable:
               "\u0646\u0631\u062e \u067e\u0631\u062f\u0627\u062e\u062a \u0645\u0648\u0641\u0642",
-            link: "https://n8n.staas.ir/webhook/panel/convertionPayment"
+            link: "https://n8n.staas.ir/webhook/panel/convertionPayment",
+            icon: '<svg width="305" height="135" viewBox="0 0 305 135" fill="none" xmlns="http://www.w3.org/2000/svg">\r\n<path fill-rule="evenodd" clip-rule="evenodd" d="M1.53174 130.559V79.6143C1.53174 75.072 5.72803 71.6913 10.1663 72.6581C11.529 72.9549 12.9489 72.8449 14.2497 72.3418L17.7445 70.9901C20.8458 69.7906 24.3665 70.7843 26.3831 73.4281C29.7491 77.8412 36.5812 77.1752 39.0315 72.195L40.476 69.2592C42.695 64.7491 48.0433 62.7482 52.6777 64.6943L53.3081 64.959C54.5248 65.4699 55.8289 65.7404 57.1485 65.7557L59.599 65.7841C63.588 65.8304 67.3643 67.5909 69.9645 70.6165L71.7894 72.7401C74.6516 76.0706 79.3432 77.16 83.3801 75.4315C85.8982 74.3532 87.8679 72.2948 88.8341 69.7316L95.8117 51.2216C96.9721 48.1435 100.645 46.8783 103.455 48.5888C106.233 50.28 109.865 49.0641 111.065 46.041L113.129 40.8407C115.903 33.8519 125.277 32.6333 129.745 38.6807C130.059 39.1053 130.407 39.5033 130.787 39.8706L140.94 49.7013L145.745 55.0611C148.515 58.1517 153.554 57.342 155.216 53.5389C157.443 48.4461 164.896 49.2223 166.025 54.6645L167.3 60.807C168.899 68.512 179.661 69.1411 182.147 61.6747L183.835 56.6023L192.08 36.0758C193.712 32.0142 196.241 28.3745 199.48 25.4297L203.472 21.799C204.67 20.7094 205.672 19.4214 206.433 17.9916L211.63 8.22498C213.746 4.24835 219.185 3.61382 222.159 6.9965C224.629 9.80528 228.964 9.92851 231.589 7.26462L231.795 7.0561C234.74 4.06814 239.673 4.48083 242.081 7.9166L242.897 9.08173C245.675 13.0456 251.331 13.6039 254.83 10.2596L255.03 10.0686C257.38 7.82284 260.84 7.19007 263.832 8.45901L265.284 9.07458C268.046 10.2459 270.178 12.5391 271.145 15.3792L277.713 34.6666C278.871 38.0681 283.301 38.8993 285.613 36.149C287.967 33.3496 292.486 34.2703 293.557 37.7674L301.797 64.6668V130.559" fill="url(#paint0_linear_19_600)"/>\r\n<path d="M1.53174 130.559V79.6143C1.53174 75.072 5.72803 71.6913 10.1663 72.6581C11.529 72.9549 12.9489 72.8449 14.2497 72.3418L17.7445 70.9901C20.8458 69.7906 24.3665 70.7843 26.3831 73.4281C29.7491 77.8412 36.5812 77.1752 39.0315 72.195L40.476 69.2592C42.695 64.7491 48.0433 62.7482 52.6777 64.6943L53.3081 64.959C54.5248 65.4699 55.8289 65.7404 57.1485 65.7557L59.599 65.7841C63.588 65.8304 67.3643 67.5909 69.9645 70.6165L71.7894 72.7401C74.6516 76.0706 79.3432 77.16 83.3801 75.4315C85.8982 74.3532 87.8679 72.2948 88.8341 69.7316L95.8117 51.2216C96.9721 48.1435 100.645 46.8783 103.455 48.5888C106.233 50.28 109.865 49.0641 111.065 46.041L113.129 40.8407C115.903 33.8519 125.277 32.6333 129.745 38.6807C130.059 39.1053 130.407 39.5033 130.787 39.8706L140.94 49.7013L145.745 55.0611C148.515 58.1517 153.554 57.342 155.216 53.5389C157.443 48.4461 164.896 49.2223 166.025 54.6645L167.3 60.807C168.899 68.512 179.661 69.1411 182.147 61.6747L183.835 56.6023L192.08 36.0758C193.712 32.0142 196.241 28.3745 199.48 25.4297L203.472 21.799C204.67 20.7094 205.672 19.4214 206.433 17.9916L211.63 8.22498C213.746 4.24835 219.185 3.61382 222.159 6.9965C224.629 9.80528 228.964 9.92851 231.589 7.26462L231.795 7.0561C234.74 4.06814 239.673 4.48083 242.081 7.9166L242.897 9.08173C245.675 13.0456 251.331 13.6039 254.83 10.2596L255.03 10.0686C257.38 7.82284 260.84 7.19007 263.832 8.45901L265.284 9.07458C268.046 10.2459 270.178 12.5391 271.145 15.3792L277.713 34.6666C278.871 38.0681 283.301 38.8993 285.613 36.149C287.967 33.3496 292.486 34.2703 293.557 37.7674L301.797 64.6668M301.797 64.6668V130.559M301.797 64.6668V114.128" stroke="#00A478" stroke-linecap="round" stroke-linejoin="round"/>\r\n<rect x="300" y="44" width="5" height="91" rx="2.5" fill="#F9F9F9"/>\r\n<rect y="58.6184" width="3.34247" height="76.3816" rx="1.67123" fill="#F9F9F9"/>\r\n<defs>\r\n<linearGradient id="paint0_linear_19_600" x1="151.664" y1="0" x2="151.664" y2="130.559" gradientUnits="userSpaceOnUse">\r\n<stop stop-color="#00A478"/>\r\n<stop offset="1" stop-color="white" stop-opacity="0"/>\r\n</linearGradient>\r\n</defs>\r\n</svg>\r\n',
+            config: {
+              enabled: true,
+              key: "value",
+              type: "Number",
+              tickLine: true,
+              tickMargin: 10,
+              axisLine: true
+            },
+            config2: {
+              key: "value",
+              label: "\u0645\u0628\u0644\u063a",
+              color: "#16A34A",
+              hidden: false
+            }
           },
           {
             lable: "\u0646\u0631\u062e \u0635\u0641\u062d\u0647 upselling",
             link: "https://n8n.staas.ir/webhook/panel/convertionUpsellCustomPage",
-            icon: '<svg width="305" height="137" viewBox="0 0 305 137" fill="none" xmlns="http://www.w3.org/2000/svg">\r\n<path fill-rule="evenodd" clip-rule="evenodd" d="M4.8252 135.741L4.82521 64.9098C4.82521 61.9412 8.02757 60.076 10.6097 61.5407C12.2149 62.4513 14.2397 62.1029 15.4482 60.7081L19.383 56.1669C20.9099 54.4047 23.361 53.7586 25.5581 54.5393C28.3298 55.5241 31.394 54.2227 32.6099 51.5443L33.2476 50.1395C35.6887 44.762 43.1571 44.321 46.2142 49.3737L47.5493 51.5803L56.0942 69.011L62.0301 80.5526C63.7174 83.8333 66.4859 86.4307 69.8674 87.9056C72.0508 88.8579 73.9942 90.2854 75.556 92.084L80.106 97.3241C81.1823 98.5636 82.4295 99.6437 83.8102 100.532L86.8339 102.477C89.0238 103.885 91.7077 104.301 94.221 103.62C97.1044 102.839 99.4298 100.708 100.459 97.9039L107.363 79.0821L110.883 71.7764C113.254 66.8556 119.895 65.983 123.456 70.1243C124.114 70.8889 124.918 71.5146 125.82 71.9646L131.548 74.821C132.509 75.3001 133.395 75.9178 134.176 76.6541L134.912 77.3473C138.657 80.876 144.484 80.9377 148.304 77.4891C149.476 76.4309 150.377 75.1071 150.932 73.6288L156.733 58.168C157.775 55.3938 160.896 54.0212 163.644 55.1289C165.753 55.9791 168.169 55.3819 169.64 53.6472L175.722 46.4715L181.571 41.1466C183.257 39.6119 185.594 39.0118 187.811 39.5441C190.776 40.2562 193.857 38.9316 195.38 36.2893L201.356 25.921L207.02 15.5816C208.873 12.1991 211.927 9.63465 215.58 8.39519C217.472 7.75284 219.222 6.74827 220.731 5.43751L222.393 3.99334C225.267 1.49741 229.195 0.596769 232.868 1.59149C234.621 2.06607 236.236 2.95173 237.578 4.17501L242.101 8.29814C243.418 9.49849 244.842 10.5749 246.357 11.5138L250.577 14.1299C251.94 14.975 253.231 15.9318 254.436 16.9903L260.239 22.0878C260.856 22.6306 261.395 23.2574 261.838 23.95L262.904 25.6148C265.991 30.4371 273.103 30.2354 275.911 25.2457L276.131 24.8546C277.432 22.5447 279.944 21.1874 282.588 21.3656C285.175 21.5399 287.639 20.2455 288.964 18.0174L293.14 10.9925C294.45 8.78867 297.055 7.71048 299.539 8.3436C302.101 8.99649 303.894 11.3037 303.894 13.9476V135.741" fill="url(#paint0_linear_19_555)"/>\r\n<path d="M4.8252 135.741L4.82521 64.9098C4.82521 61.9412 8.02757 60.076 10.6097 61.5407C12.2149 62.4513 14.2397 62.1029 15.4482 60.7081L19.383 56.1669C20.9099 54.4047 23.361 53.7586 25.5581 54.5393C28.3298 55.5241 31.394 54.2227 32.6099 51.5443L33.2476 50.1395C35.6887 44.762 43.1571 44.321 46.2142 49.3737L47.5493 51.5803L56.0942 69.011L62.0301 80.5526C63.7174 83.8333 66.4859 86.4307 69.8674 87.9056C72.0508 88.8579 73.9942 90.2854 75.556 92.084L80.106 97.3241C81.1823 98.5636 82.4295 99.6437 83.8102 100.532L86.8339 102.477C89.0238 103.885 91.7077 104.301 94.221 103.62C97.1044 102.839 99.4298 100.708 100.459 97.9039L107.363 79.0821L110.883 71.7764C113.254 66.8556 119.895 65.983 123.456 70.1243C124.114 70.8889 124.918 71.5146 125.82 71.9646L131.548 74.821C132.509 75.3001 133.395 75.9178 134.176 76.6541L134.912 77.3473C138.657 80.876 144.484 80.9377 148.304 77.4891C149.476 76.4309 150.377 75.1071 150.932 73.6288L156.733 58.168C157.775 55.3938 160.896 54.0212 163.644 55.1289C165.753 55.9791 168.169 55.3819 169.64 53.6472L175.722 46.4715L181.571 41.1467C183.257 39.6119 185.594 39.0118 187.811 39.5441C190.776 40.2562 193.857 38.9316 195.38 36.2893L201.356 25.921L207.02 15.5816C208.873 12.1991 211.927 9.63465 215.58 8.39519C217.472 7.75284 219.222 6.74827 220.731 5.43751L222.393 3.99334C225.267 1.49741 229.195 0.596769 232.868 1.59149C234.621 2.06607 236.236 2.95173 237.578 4.17501L242.101 8.29814C243.418 9.49849 244.842 10.5749 246.357 11.5138L250.577 14.1299C251.94 14.975 253.231 15.9318 254.436 16.9903L260.239 22.0878C260.856 22.6306 261.395 23.2574 261.838 23.95L262.904 25.6148C265.991 30.4371 273.103 30.2354 275.911 25.2457L276.131 24.8546C277.432 22.5447 279.944 21.1874 282.588 21.3656C285.175 21.5399 287.639 20.2455 288.964 18.0174L293.14 10.9925C294.45 8.78867 297.055 7.71048 299.539 8.3436C302.101 8.99649 303.894 11.3037 303.894 13.9476V135.741" stroke="#7854DF" stroke-linecap="round" stroke-linejoin="round"/>\r\n<rect x="299.421" y="7.09753" width="5.57927" height="129.531" rx="2.78963" fill="#F9F9F9"/>\r\n<rect y="49.6829" width="7.43902" height="86.9451" rx="3.71951" fill="#F9F9F9"/>\r\n<defs>\r\n<linearGradient id="paint0_linear_19_555" x1="154.36" y1="0" x2="154.36" y2="135.741" gradientUnits="userSpaceOnUse">\r\n<stop stop-color="#7854DF"/>\r\n<stop offset="1" stop-color="white" stop-opacity="0"/>\r\n</linearGradient>\r\n</defs>\r\n</svg>\r\n  },\r\n  '
+            icon: '<svg width="305" height="137" viewBox="0 0 305 137" fill="none" xmlns="http://www.w3.org/2000/svg">\r\n<path fill-rule="evenodd" clip-rule="evenodd" d="M4.8252 135.741L4.82521 64.9098C4.82521 61.9412 8.02757 60.076 10.6097 61.5407C12.2149 62.4513 14.2397 62.1029 15.4482 60.7081L19.383 56.1669C20.9099 54.4047 23.361 53.7586 25.5581 54.5393C28.3298 55.5241 31.394 54.2227 32.6099 51.5443L33.2476 50.1395C35.6887 44.762 43.1571 44.321 46.2142 49.3737L47.5493 51.5803L56.0942 69.011L62.0301 80.5526C63.7174 83.8333 66.4859 86.4307 69.8674 87.9056C72.0508 88.8579 73.9942 90.2854 75.556 92.084L80.106 97.3241C81.1823 98.5636 82.4295 99.6437 83.8102 100.532L86.8339 102.477C89.0238 103.885 91.7077 104.301 94.221 103.62C97.1044 102.839 99.4298 100.708 100.459 97.9039L107.363 79.0821L110.883 71.7764C113.254 66.8556 119.895 65.983 123.456 70.1243C124.114 70.8889 124.918 71.5146 125.82 71.9646L131.548 74.821C132.509 75.3001 133.395 75.9178 134.176 76.6541L134.912 77.3473C138.657 80.876 144.484 80.9377 148.304 77.4891C149.476 76.4309 150.377 75.1071 150.932 73.6288L156.733 58.168C157.775 55.3938 160.896 54.0212 163.644 55.1289C165.753 55.9791 168.169 55.3819 169.64 53.6472L175.722 46.4715L181.571 41.1466C183.257 39.6119 185.594 39.0118 187.811 39.5441C190.776 40.2562 193.857 38.9316 195.38 36.2893L201.356 25.921L207.02 15.5816C208.873 12.1991 211.927 9.63465 215.58 8.39519C217.472 7.75284 219.222 6.74827 220.731 5.43751L222.393 3.99334C225.267 1.49741 229.195 0.596769 232.868 1.59149C234.621 2.06607 236.236 2.95173 237.578 4.17501L242.101 8.29814C243.418 9.49849 244.842 10.5749 246.357 11.5138L250.577 14.1299C251.94 14.975 253.231 15.9318 254.436 16.9903L260.239 22.0878C260.856 22.6306 261.395 23.2574 261.838 23.95L262.904 25.6148C265.991 30.4371 273.103 30.2354 275.911 25.2457L276.131 24.8546C277.432 22.5447 279.944 21.1874 282.588 21.3656C285.175 21.5399 287.639 20.2455 288.964 18.0174L293.14 10.9925C294.45 8.78867 297.055 7.71048 299.539 8.3436C302.101 8.99649 303.894 11.3037 303.894 13.9476V135.741" fill="url(#paint0_linear_19_555)"/>\r\n<path d="M4.8252 135.741L4.82521 64.9098C4.82521 61.9412 8.02757 60.076 10.6097 61.5407C12.2149 62.4513 14.2397 62.1029 15.4482 60.7081L19.383 56.1669C20.9099 54.4047 23.361 53.7586 25.5581 54.5393C28.3298 55.5241 31.394 54.2227 32.6099 51.5443L33.2476 50.1395C35.6887 44.762 43.1571 44.321 46.2142 49.3737L47.5493 51.5803L56.0942 69.011L62.0301 80.5526C63.7174 83.8333 66.4859 86.4307 69.8674 87.9056C72.0508 88.8579 73.9942 90.2854 75.556 92.084L80.106 97.3241C81.1823 98.5636 82.4295 99.6437 83.8102 100.532L86.8339 102.477C89.0238 103.885 91.7077 104.301 94.221 103.62C97.1044 102.839 99.4298 100.708 100.459 97.9039L107.363 79.0821L110.883 71.7764C113.254 66.8556 119.895 65.983 123.456 70.1243C124.114 70.8889 124.918 71.5146 125.82 71.9646L131.548 74.821C132.509 75.3001 133.395 75.9178 134.176 76.6541L134.912 77.3473C138.657 80.876 144.484 80.9377 148.304 77.4891C149.476 76.4309 150.377 75.1071 150.932 73.6288L156.733 58.168C157.775 55.3938 160.896 54.0212 163.644 55.1289C165.753 55.9791 168.169 55.3819 169.64 53.6472L175.722 46.4715L181.571 41.1467C183.257 39.6119 185.594 39.0118 187.811 39.5441C190.776 40.2562 193.857 38.9316 195.38 36.2893L201.356 25.921L207.02 15.5816C208.873 12.1991 211.927 9.63465 215.58 8.39519C217.472 7.75284 219.222 6.74827 220.731 5.43751L222.393 3.99334C225.267 1.49741 229.195 0.596769 232.868 1.59149C234.621 2.06607 236.236 2.95173 237.578 4.17501L242.101 8.29814C243.418 9.49849 244.842 10.5749 246.357 11.5138L250.577 14.1299C251.94 14.975 253.231 15.9318 254.436 16.9903L260.239 22.0878C260.856 22.6306 261.395 23.2574 261.838 23.95L262.904 25.6148C265.991 30.4371 273.103 30.2354 275.911 25.2457L276.131 24.8546C277.432 22.5447 279.944 21.1874 282.588 21.3656C285.175 21.5399 287.639 20.2455 288.964 18.0174L293.14 10.9925C294.45 8.78867 297.055 7.71048 299.539 8.3436C302.101 8.99649 303.894 11.3037 303.894 13.9476V135.741" stroke="#7854DF" stroke-linecap="round" stroke-linejoin="round"/>\r\n<rect x="299.421" y="7.09753" width="5.57927" height="129.531" rx="2.78963" fill="#F9F9F9"/>\r\n<rect y="49.6829" width="7.43902" height="86.9451" rx="3.71951" fill="#F9F9F9"/>\r\n<defs>\r\n<linearGradient id="paint0_linear_19_555" x1="154.36" y1="0" x2="154.36" y2="135.741" gradientUnits="userSpaceOnUse">\r\n<stop stop-color="#7854DF"/>\r\n<stop offset="1" stop-color="white" stop-opacity="0"/>\r\n</linearGradient>\r\n</defs>\r\n</svg>  ',
+            config: {
+              enabled: true,
+              key: "page_conversion_rate",
+              type: "Number",
+              tickLine: true,
+              axisLine: true
+            },
+            config2: {
+              key: "page_conversion_rate",
+              label: "\u0646\u0631\u062e \u062a\u0628\u062f\u06cc\u0644 (%)",
+              color: "#8b5cf6",
+              hidden: false
+            }
+          },
+          {
+            lable:
+              "\u0646\u0631\u062e \u0622\u067e\u0633\u0644 + \u06a9\u0627\u0633\u062a\u0648\u0645",
+            link: "https://n8n.staas.ir/webhook/panel/convertionUpsellCustomPage",
+            icon: '<svg width="305" height="136" viewBox="0 0 305 136" fill="none" xmlns="http://www.w3.org/2000/svg">\r\n<path fill-rule="evenodd" clip-rule="evenodd" d="M2.0324 134.608L0.567052 67.9137C0.453315 62.737 7.61612 61.2852 9.527 66.0976C10.4564 68.4383 13.0819 69.6117 15.4458 68.743L19.842 67.1273C21.51 66.5142 23.317 66.3839 25.0557 66.7513L28.8467 67.5522C31.9757 68.2134 34.9316 69.5221 37.5244 71.3943L41.5578 74.3068C43.7022 75.8553 46.0484 77.1031 48.5311 78.0155L51.9687 79.2789C54.6331 80.2582 57.1393 81.6233 59.4071 83.3306L64.5654 87.214C66.282 88.5064 68.3043 89.3317 70.435 89.6094C75.2736 90.24 80.0336 87.9813 82.6052 83.8345L87.8768 75.3338C89.0079 73.5097 89.9251 71.5615 90.6103 69.5275L100.776 39.349L111.542 16.0975C111.829 15.4774 112.178 14.8879 112.584 14.3382C117.25 8.01889 127.024 9.19344 130.059 16.4384L131.825 20.6515C133.416 24.4479 136.786 27.2076 140.822 28.0177C143.873 28.6302 146.582 30.3671 148.412 32.8838L156.763 44.3708L161.568 52.2817C164.671 57.3912 171.912 57.8531 175.639 53.1794C177.776 50.5006 181.299 49.3458 184.606 50.2401L187.141 50.9255C189.248 51.4951 191.467 51.5077 193.58 50.962L193.792 50.9071C198.573 49.6726 203.645 51.1606 207.001 54.782L208.371 56.26C211.19 59.3027 215.036 61.1951 219.167 61.573L222.152 61.846C223.339 61.9546 224.495 62.2821 225.563 62.812C230.689 65.3554 236.889 62.9073 238.894 57.5485L242.515 47.8723C244.327 43.0296 250.5 41.6162 254.239 45.1878C256.254 47.113 259.199 47.7029 261.801 46.7026L266.023 45.0791C267.814 44.3903 269.449 43.3491 270.831 42.0171L278.188 34.9239C279.345 33.808 280.672 32.8822 282.118 32.1808L283.3 31.6076C288.054 29.3023 293.724 30.0422 297.727 33.4904C300.649 36.0072 302.329 39.6723 302.329 43.5288V129.623" fill="url(#paint0_linear_19_574)"/>\r\n<path d="M2.0324 134.608L0.567052 67.9137C0.453315 62.737 7.61612 61.2852 9.527 66.0976C10.4564 68.4383 13.0819 69.6117 15.4458 68.743L19.842 67.1272C21.51 66.5142 23.317 66.3839 25.0557 66.7513L28.8467 67.5522C31.9757 68.2134 34.9316 69.5221 37.5244 71.3943L41.5578 74.3068C43.7022 75.8553 46.0484 77.1031 48.5311 78.0155L51.9687 79.2789C54.6331 80.2582 57.1393 81.6233 59.4071 83.3306L64.5654 87.214C66.282 88.5064 68.3043 89.3317 70.435 89.6094C75.2736 90.24 80.0336 87.9813 82.6052 83.8345L87.8768 75.3338C89.0079 73.5097 89.9251 71.5615 90.6103 69.5275L100.776 39.349L111.542 16.0975C111.829 15.4774 112.178 14.8879 112.584 14.3382C117.25 8.01889 127.024 9.19344 130.059 16.4384L131.825 20.6515C133.416 24.4479 136.786 27.2076 140.822 28.0177C143.873 28.6302 146.582 30.3671 148.412 32.8838L156.763 44.3708L161.568 52.2817C164.671 57.3912 171.912 57.8531 175.639 53.1794C177.776 50.5006 181.299 49.3458 184.606 50.2401L187.141 50.9255C189.248 51.4951 191.467 51.5077 193.58 50.962L193.792 50.9071C198.573 49.6726 203.645 51.1606 207.001 54.782L208.371 56.26C211.19 59.3027 215.036 61.1951 219.167 61.573L222.152 61.846C223.339 61.9546 224.495 62.2821 225.563 62.812C230.689 65.3554 236.889 62.9073 238.894 57.5485L242.515 47.8723C244.327 43.0296 250.5 41.6162 254.239 45.1878C256.254 47.113 259.199 47.7029 261.801 46.7026L266.023 45.0791C267.814 44.3903 269.449 43.3491 270.831 42.0171L278.188 34.9239C279.345 33.808 280.672 32.8822 282.118 32.1808L283.3 31.6076C288.054 29.3023 293.724 30.0422 297.727 33.4904C300.649 36.0072 302.329 39.6723 302.329 43.5288V129.623" stroke="#F8AE55" stroke-linecap="round" stroke-linejoin="round"/>\r\n<rect x="299" y="15" width="5.77663" height="117.81" rx="2.88832" fill="#F9F9F9"/>\r\n<rect y="31" width="6" height="104" rx="3" fill="#F9F9F9"/>\r\n<defs>\r\n<linearGradient id="paint0_linear_19_574" x1="151.165" y1="0" x2="151.165" y2="134.608" gradientUnits="userSpaceOnUse">\r\n<stop stop-color="#F8AE55"/>\r\n<stop offset="1" stop-color="white" stop-opacity="0"/>\r\n</linearGradient>\r\n</defs>\r\n</svg>\r\n',
+            config: {
+              enabled: true,
+              key: "page_conversion_rate",
+              type: "Number",
+              tickLine: true,
+              axisLine: true
+            },
+            config2: {
+              key: "page_conversion_rate",
+              label: "\u0646\u0631\u062e \u062a\u0628\u062f\u06cc\u0644 (%)",
+              color: "#8b5cf6",
+              hidden: false
+            }
           }
         ]
       },
@@ -508,6 +527,14 @@ function PlasmicCharts__RenderFunc(props: {
         path: "button3[].load",
         type: "private",
         variableType: "boolean"
+      },
+      {
+        path: "selectChart",
+        type: "writable",
+        variableType: "object",
+
+        valueProp: "selectChart",
+        onChangeProp: "onSelectChartChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -559,818 +586,6 @@ function PlasmicCharts__RenderFunc(props: {
             className={classNames(projectcss.all, sty.svg__oPc6Z)}
             role={"img"}
           />
-        </div>
-        <div
-          data-plasmic-name={"frame47"}
-          data-plasmic-override={overrides.frame47}
-          className={classNames(projectcss.all, sty.frame47)}
-        >
-          <div className={classNames(projectcss.all, sty.freeBox___5OOpX)}>
-            <div className={classNames(projectcss.all, sty.freeBox__c0Kjn)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__k515Z
-                )}
-              >
-                {
-                  "\u0646\u0631\u062e \u067e\u0631\u062f\u0627\u062e\u062a \u0645\u0648\u0641\u0642"
-                }
-              </div>
-              {(() => {
-                try {
-                  return $state.payment.length == 0;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <div className={classNames(projectcss.all, sty.freeBox__mmSfz)}>
-                  <PlasmicImg__
-                    alt={""}
-                    className={classNames(sty.img__hIf8O)}
-                    displayHeight={"auto"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"auto"}
-                    loading={"lazy"}
-                    src={{
-                      src: "/plasmic/liom_hamyar/images/image111.png",
-                      fullWidth: 690,
-                      fullHeight: 431,
-                      aspectRatio: undefined
-                    }}
-                  />
-
-                  <Button
-                    data-plasmic-name={"button"}
-                    data-plasmic-override={overrides.button}
-                    className={classNames("__wab_instance", sty.button)}
-                    color={generateStateValueProp($state, ["button", "color"])}
-                    load={generateStateValueProp($state, ["button", "load"])}
-                    loading={generateStateValueProp($state, [
-                      "button",
-                      "loading"
-                    ])}
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["updatePayment2"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["button", "loading"]
-                              },
-                              operation: 4
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              const oldValue = $stateGet(objRoot, variablePath);
-                              $stateSet(objRoot, variablePath, !oldValue);
-                              return !oldValue;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updatePayment2"] != null &&
-                        typeof $steps["updatePayment2"] === "object" &&
-                        typeof $steps["updatePayment2"].then === "function"
-                      ) {
-                        $steps["updatePayment2"] = await $steps[
-                          "updatePayment2"
-                        ];
-                      }
-
-                      $steps["invokeGlobalAction"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                undefined,
-                                "https://n8n.staas.ir/webhook/panel/convertionPayment",
-                                undefined,
-                                undefined,
-                                (() => {
-                                  try {
-                                    return {
-                                      headers: {
-                                        Authorization: "Bearer " + $state.token
-                                      }
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              ]
-                            };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
-                      }
-
-                      $steps["updatePayment"] = $steps.invokeGlobalAction?.data
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["payment"]
-                              },
-                              operation: 0,
-                              value: $steps.invokeGlobalAction?.data
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updatePayment"] != null &&
-                        typeof $steps["updatePayment"] === "object" &&
-                        typeof $steps["updatePayment"].then === "function"
-                      ) {
-                        $steps["updatePayment"] = await $steps["updatePayment"];
-                      }
-
-                      $steps["updatePayment3"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["button", "loading"]
-                              },
-                              operation: 4
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              const oldValue = $stateGet(objRoot, variablePath);
-                              $stateSet(objRoot, variablePath, !oldValue);
-                              return !oldValue;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updatePayment3"] != null &&
-                        typeof $steps["updatePayment3"] === "object" &&
-                        typeof $steps["updatePayment3"].then === "function"
-                      ) {
-                        $steps["updatePayment3"] = await $steps[
-                          "updatePayment3"
-                        ];
-                      }
-                    }}
-                    onColorChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, ["button", "color"])(
-                          eventArgs[0]
-                        );
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                    onLoadChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, ["button", "load"])(
-                          eventArgs[0]
-                        );
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                    onLoadingChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, [
-                          "button",
-                          "loading"
-                        ])(eventArgs[0]);
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__s7VcO)}
-                    >
-                      <Icon302Icon
-                        className={classNames(projectcss.all, sty.svg__cmGwL)}
-                        role={"img"}
-                      />
-
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__jJ6Cj
-                        )}
-                      >
-                        {
-                          "\u0646\u0645\u0627\u06cc\u0634 \u0646\u0645\u0648\u062f\u0627\u0631"
-                        }
-                      </div>
-                    </div>
-                  </Button>
-                </div>
-              ) : null}
-              {(() => {
-                try {
-                  return $state.payment.length > 0;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <Chart
-                  cartesianGrid={[]}
-                  chartConfig={(() => {
-                    const __composite = [
-                      {
-                        color: null,
-                        type: "natural",
-                        dot: false,
-                        key: null,
-                        label: null
-                      },
-                      {
-                        color: null,
-                        type: "natural",
-                        dot: false,
-                        hidden: null,
-                        key: null,
-                        label: null
-                      },
-                      {
-                        color: null,
-                        type: "natural",
-                        dot: false,
-                        hidden: null,
-                        key: null,
-                        label: null
-                      }
-                    ];
-                    __composite["0"]["color"] = "var(--token-qvl81LxkOSoe)";
-                    __composite["0"]["key"] = "value";
-                    __composite["0"]["label"] = "\u0645\u0628\u0644\u063a";
-                    __composite["1"]["color"] = "var(--token-G-IZ_XhVdlqp)";
-                    __composite["1"]["hidden"] = true;
-                    __composite["1"]["key"] = "ok_unique";
-                    __composite["1"]["label"] =
-                      "\u062a\u0623\u06cc\u06cc\u062f \u0634\u062f\u0647";
-                    __composite["2"]["color"] = "var(--token-bZhLbadoELTb)";
-                    __composite["2"]["hidden"] = true;
-                    __composite["2"]["key"] = "pending_unique";
-                    __composite["2"]["label"] =
-                      "\u062f\u0631 \u0627\u0646\u062a\u0638\u0627\u0631 \u062a\u0623\u06cc\u06cc\u062f";
-                    return __composite;
-                  })()}
-                  className={classNames(
-                    "__wab_instance",
-                    sty.fragmentChart__vpBBm
-                  )}
-                  data={(() => {
-                    try {
-                      return $state.payment.map(i => {
-                        const now = new Date(i.date);
-                        const g = new Intl.DateTimeFormat("fa-IR", {
-                          month: "long",
-                          day: "numeric"
-                        }).format(now);
-                        return {
-                          date: g,
-                          value: i.value,
-                          ok_unique: i.ok_unique,
-                          pending_unique: i.pending_unique
-                        };
-                      });
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                  label={false}
-                  layout={"horizontal"}
-                  legend={false}
-                  stack={false}
-                  tooltip={(() => {
-                    const __composite = {
-                      enabled: null,
-                      indicator: null,
-                      hideLabel: null,
-                      hideIndicator: null
-                    };
-                    __composite["enabled"] = true;
-                    __composite["indicator"] = "dashed";
-                    __composite["hideLabel"] = true;
-                    __composite["hideIndicator"] = true;
-                    return __composite;
-                  })()}
-                  type={"bar"}
-                  xAxis={(() => {
-                    const __composite = {
-                      key: null,
-                      enabled: null,
-                      type: null,
-                      tickLine: null,
-                      axisLine: null
-                    };
-                    __composite["key"] = "date";
-                    __composite["enabled"] = true;
-                    __composite["type"] = "category";
-                    __composite["tickLine"] = true;
-                    __composite["axisLine"] = true;
-                    return __composite;
-                  })()}
-                  yAxis={(() => {
-                    const __composite = {
-                      key: null,
-                      type: null,
-                      enabled: null,
-                      tickLine: null,
-                      axisLine: null
-                    };
-                    __composite["key"] = "value";
-                    __composite["type"] = "number";
-                    __composite["enabled"] = true;
-                    __composite["tickLine"] = false;
-                    __composite["axisLine"] = true;
-                    return __composite;
-                  })()}
-                />
-              ) : null}
-            </div>
-            <div className={classNames(projectcss.all, sty.freeBox__csmYx)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__aABe
-                )}
-              >
-                {"\u0646\u0631\u062e \u0635\u0641\u062d\u0647 upselling"}
-              </div>
-              {(() => {
-                try {
-                  return $state.upseling.length == 0;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <div className={classNames(projectcss.all, sty.freeBox__vsPA)}>
-                  <PlasmicImg__
-                    alt={""}
-                    className={classNames(sty.img__dwXXl)}
-                    displayHeight={"auto"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"auto"}
-                    loading={"lazy"}
-                    src={{
-                      src: "/plasmic/liom_hamyar/images/image112.png",
-                      fullWidth: 686,
-                      fullHeight: 431,
-                      aspectRatio: undefined
-                    }}
-                  />
-
-                  <Button
-                    data-plasmic-name={"button2"}
-                    data-plasmic-override={overrides.button2}
-                    className={classNames("__wab_instance", sty.button2)}
-                    color={generateStateValueProp($state, ["button2", "color"])}
-                    load={generateStateValueProp($state, ["button2", "load"])}
-                    loading={generateStateValueProp($state, [
-                      "button2",
-                      "loading"
-                    ])}
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["updateButton2Loading"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["button2", "loading"]
-                              },
-                              operation: 4
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              const oldValue = $stateGet(objRoot, variablePath);
-                              $stateSet(objRoot, variablePath, !oldValue);
-                              return !oldValue;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateButton2Loading"] != null &&
-                        typeof $steps["updateButton2Loading"] === "object" &&
-                        typeof $steps["updateButton2Loading"].then ===
-                          "function"
-                      ) {
-                        $steps["updateButton2Loading"] = await $steps[
-                          "updateButton2Loading"
-                        ];
-                      }
-
-                      $steps["invokeGlobalAction"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                undefined,
-                                "https://n8n.staas.ir/webhook/panel/convertionUpsellingPage",
-                                undefined,
-                                undefined,
-                                (() => {
-                                  try {
-                                    return {
-                                      headers: {
-                                        Authorization: "Bearer " + $state.token
-                                      }
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              ]
-                            };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
-                      }
-
-                      $steps["updateUpseling"] = $steps.invokeGlobalAction?.data
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["upseling"]
-                              },
-                              operation: 0,
-                              value: $steps.invokeGlobalAction?.data
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateUpseling"] != null &&
-                        typeof $steps["updateUpseling"] === "object" &&
-                        typeof $steps["updateUpseling"].then === "function"
-                      ) {
-                        $steps["updateUpseling"] = await $steps[
-                          "updateUpseling"
-                        ];
-                      }
-
-                      $steps["updatePayment2"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["button2", "loading"]
-                              },
-                              operation: 4
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              const oldValue = $stateGet(objRoot, variablePath);
-                              $stateSet(objRoot, variablePath, !oldValue);
-                              return !oldValue;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updatePayment2"] != null &&
-                        typeof $steps["updatePayment2"] === "object" &&
-                        typeof $steps["updatePayment2"].then === "function"
-                      ) {
-                        $steps["updatePayment2"] = await $steps[
-                          "updatePayment2"
-                        ];
-                      }
-                    }}
-                    onColorChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, ["button2", "color"])(
-                          eventArgs[0]
-                        );
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                    onLoadChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, ["button2", "load"])(
-                          eventArgs[0]
-                        );
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                    onLoadingChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, [
-                          "button2",
-                          "loading"
-                        ])(eventArgs[0]);
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__c8Ipf)}
-                    >
-                      <Icon302Icon
-                        className={classNames(projectcss.all, sty.svg___94Y)}
-                        role={"img"}
-                      />
-
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__nwkQr
-                        )}
-                      >
-                        {
-                          "\u0646\u0645\u0627\u06cc\u0634 \u0646\u0645\u0648\u062f\u0627\u0631"
-                        }
-                      </div>
-                    </div>
-                  </Button>
-                </div>
-              ) : null}
-              {(() => {
-                try {
-                  return $state.upseling.length > 0;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <Chart
-                  cartesianGrid={[]}
-                  chartConfig={(() => {
-                    const __composite = [
-                      {
-                        color: null,
-                        type: "natural",
-                        dot: false,
-                        key: null,
-                        label: null
-                      }
-                    ];
-                    __composite["0"]["color"] = "var(--token-bHHJuMx2zyxz)";
-                    __composite["0"]["key"] = "page_conversion_rate";
-                    __composite["0"]["label"] =
-                      "\u0646\u0631\u062e \u062a\u0628\u062f\u06cc\u0644 (%)";
-                    return __composite;
-                  })()}
-                  className={classNames(
-                    "__wab_instance",
-                    sty.fragmentChart__benNv
-                  )}
-                  data={(() => {
-                    try {
-                      return $state.upseling.map(i => {
-                        const now = new Date(i.date);
-                        const g = new Intl.DateTimeFormat("fa-IR", {
-                          month: "long",
-                          day: "numeric"
-                        }).format(now);
-                        return {
-                          date: g,
-                          ok_count: i.ok_count,
-                          not_ok_count: i.not_ok_count,
-                          ok_nok_conversion_rate: i.ok_nok_conversion_rate,
-                          page_view_count: i.page_view_count,
-                          page_conversion_rate: i.page_conversion_rate
-                        };
-                      });
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                  label={false}
-                  layout={"horizontal"}
-                  legend={false}
-                  stack={false}
-                  tooltip={(() => {
-                    const __composite = {
-                      enabled: null,
-                      indicator: null,
-                      hideLabel: null,
-                      hideIndicator: null
-                    };
-                    __composite["enabled"] = true;
-                    __composite["indicator"] = "line";
-                    __composite["hideLabel"] = false;
-                    __composite["hideIndicator"] = false;
-                    return __composite;
-                  })()}
-                  type={"bar"}
-                  xAxis={(() => {
-                    const __composite = {
-                      key: null,
-                      enabled: null,
-                      type: null,
-                      tickLine: null,
-                      axisLine: null
-                    };
-                    __composite["key"] = "date";
-                    __composite["enabled"] = true;
-                    __composite["type"] = "category";
-                    __composite["tickLine"] = true;
-                    __composite["axisLine"] = true;
-                    return __composite;
-                  })()}
-                  yAxis={(() => {
-                    const __composite = {
-                      key: null,
-                      type: null,
-                      enabled: null,
-                      tickLine: null,
-                      axisLine: null
-                    };
-                    __composite["key"] = "page_conversion_rate";
-                    __composite["type"] = "number";
-                    __composite["enabled"] = true;
-                    __composite["tickLine"] = false;
-                    __composite["axisLine"] = true;
-                    return __composite;
-                  })()}
-                />
-              ) : null}
-            </div>
-          </div>
         </div>
         <div
           data-plasmic-name={"frame50"}
@@ -1464,14 +679,15 @@ function PlasmicCharts__RenderFunc(props: {
                     onClick: async event => {
                       const $steps = {};
 
-                      $steps["updatePayment2"] = true
+                      $steps["updatePayment4"] = true
                         ? (() => {
                             const actionArgs = {
                               variable: {
                                 objRoot: $state,
-                                variablePath: ["button3", "loading"]
+                                variablePath: ["selectChart"]
                               },
-                              operation: 4
+                              operation: 0,
+                              value: currentItem
                             };
                             return (({
                               variable,
@@ -1484,9 +700,33 @@ function PlasmicCharts__RenderFunc(props: {
                               }
                               const { objRoot, variablePath } = variable;
 
-                              const oldValue = $stateGet(objRoot, variablePath);
-                              $stateSet(objRoot, variablePath, !oldValue);
-                              return !oldValue;
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updatePayment4"] != null &&
+                        typeof $steps["updatePayment4"] === "object" &&
+                        typeof $steps["updatePayment4"].then === "function"
+                      ) {
+                        $steps["updatePayment4"] = await $steps[
+                          "updatePayment4"
+                        ];
+                      }
+
+                      $steps["updatePayment2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  return ($state.button3[currentIndex].loading =
+                                    true);
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
                             })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
@@ -1594,26 +834,13 @@ function PlasmicCharts__RenderFunc(props: {
                       $steps["updatePayment3"] = true
                         ? (() => {
                             const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["button3", "loading"]
-                              },
-                              operation: 4
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
+                              customFunction: async () => {
+                                return ($state.button3[currentIndex].loading =
+                                  false);
                               }
-                              const { objRoot, variablePath } = variable;
-
-                              const oldValue = $stateGet(objRoot, variablePath);
-                              $stateSet(objRoot, variablePath, !oldValue);
-                              return !oldValue;
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
                             })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
@@ -1624,6 +851,26 @@ function PlasmicCharts__RenderFunc(props: {
                       ) {
                         $steps["updatePayment3"] = await $steps[
                           "updatePayment3"
+                        ];
+                      }
+
+                      $steps["updatePayment5"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              eventRef: $props["chartOpen"]
+                            };
+                            return (({ eventRef, args }) => {
+                              return eventRef?.(...(args ?? []));
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updatePayment5"] != null &&
+                        typeof $steps["updatePayment5"] === "object" &&
+                        typeof $steps["updatePayment5"].then === "function"
+                      ) {
+                        $steps["updatePayment5"] = await $steps[
+                          "updatePayment5"
                         ];
                       }
                     },
@@ -1742,30 +989,9 @@ function PlasmicCharts__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  frame49: [
-    "frame49",
-    "frame25",
-    "frame48",
-    "frame47",
-    "button",
-    "button2",
-    "frame50",
-    "embedHtml",
-    "button3"
-  ],
+  frame49: ["frame49", "frame25", "frame48", "frame50", "embedHtml", "button3"],
   frame25: ["frame25"],
-  frame48: [
-    "frame48",
-    "frame47",
-    "button",
-    "button2",
-    "frame50",
-    "embedHtml",
-    "button3"
-  ],
-  frame47: ["frame47", "button", "button2"],
-  button: ["button"],
-  button2: ["button2"],
+  frame48: ["frame48", "frame50", "embedHtml", "button3"],
   frame50: ["frame50", "embedHtml", "button3"],
   embedHtml: ["embedHtml"],
   button3: ["button3"]
@@ -1777,9 +1003,6 @@ type NodeDefaultElementType = {
   frame49: "div";
   frame25: "div";
   frame48: "div";
-  frame47: "div";
-  button: typeof Button;
-  button2: typeof Button;
   frame50: "div";
   embedHtml: typeof Embed;
   button3: typeof Button;
@@ -1847,9 +1070,6 @@ export const PlasmicCharts = Object.assign(
     // Helper components rendering sub-elements
     frame25: makeNodeComponent("frame25"),
     frame48: makeNodeComponent("frame48"),
-    frame47: makeNodeComponent("frame47"),
-    button: makeNodeComponent("button"),
-    button2: makeNodeComponent("button2"),
     frame50: makeNodeComponent("frame50"),
     embedHtml: makeNodeComponent("embedHtml"),
     button3: makeNodeComponent("button3"),
