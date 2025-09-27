@@ -5803,19 +5803,19 @@
           "checksum": "037a05bf3aff3f0945b8faf0f12f14c5"
         },
         {
-          "assetId": "suVPi77vb6vv9K5rYJwyxC",
-          "type": "projectCss",
-          "checksum": "d8e9d89779cb3233825e634295af2ff9"
-        },
-        {
           "type": "renderModule",
           "assetId": "npU0JycAnQRQ",
-          "checksum": "36335adbd9c0acdcd8cd0c3c2da358d3"
+          "checksum": "f94283c343301dff426a1a95a096b0fb"
         },
         {
           "type": "cssRules",
           "assetId": "npU0JycAnQRQ",
-          "checksum": "36335adbd9c0acdcd8cd0c3c2da358d3"
+          "checksum": "f94283c343301dff426a1a95a096b0fb"
+        },
+        {
+          "assetId": "suVPi77vb6vv9K5rYJwyxC",
+          "type": "projectCss",
+          "checksum": "d8e9d89779cb3233825e634295af2ff9"
         }
       ],
       "codegenVersion": "0.0.2"

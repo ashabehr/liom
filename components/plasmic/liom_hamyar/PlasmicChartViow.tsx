@@ -137,142 +137,117 @@ function PlasmicChartViow__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          data: {
-            user: {
-              countBuyBreastCancer: 3,
-              countBuyHamyarStatus: 1,
-              countBuyHusbandSms: 3,
-              countBuyPregnancySubStatus: 5,
-              countBuySelfSms: 1,
-              countBuySpecialAdvice: 1,
-              activeTel: true,
-              breastCancerSmsSubTime: {
-                year: 2026,
-                month: 2,
-                day: 3,
-                hour: 4,
-                minute: 3,
-                second: 11,
-                nanosecond: 141000000,
-                timeZoneOffsetSeconds: 0
-              },
-              pregnancySubTime: {
-                year: 2027,
-                month: 11,
-                day: 27,
-                hour: 0,
-                minute: 36,
-                second: 38,
-                nanosecond: 358000000,
-                timeZoneOffsetSeconds: 0
-              },
-              hamyarTime: {
-                year: 2025,
-                month: 5,
-                day: 21,
-                hour: 22,
-                minute: 22,
-                second: 35,
-                nanosecond: 336000000,
-                timeZoneOffsetSeconds: 0
-              },
-              husbandSmsSubTime: {
-                year: 2025,
-                month: 10,
-                day: 7,
-                hour: 8,
-                minute: 39,
-                second: 22,
-                nanosecond: 886000000,
-                timeZoneOffsetSeconds: 0
-              },
-              pregnancyBabyGrowthTime: {
-                year: 2027,
-                month: 11,
-                day: 27,
-                hour: 0,
-                minute: 36,
-                second: 38,
-                nanosecond: 463000000,
-                timeZoneOffsetSeconds: 0
-              },
-              pregnancyBecomeFatherTime: {
-                year: 2027,
-                month: 11,
-                day: 27,
-                hour: 0,
-                minute: 36,
-                second: 38,
-                nanosecond: 463000000,
-                timeZoneOffsetSeconds: 0
-              },
-              pregnancyBetterRelationTime: {
-                year: 2027,
-                month: 11,
-                day: 27,
-                hour: 0,
-                minute: 36,
-                second: 38,
-                nanosecond: 463000000,
-                timeZoneOffsetSeconds: 0
-              },
-              pregnancyDangerTime: {
-                year: 2027,
-                month: 11,
-                day: 27,
-                hour: 0,
-                minute: 36,
-                second: 38,
-                nanosecond: 463000000,
-                timeZoneOffsetSeconds: 0
-              },
-              pregnancySelfSmsTime: {
-                year: 2027,
-                month: 11,
-                day: 27,
-                hour: 0,
-                minute: 36,
-                second: 38,
-                nanosecond: 463000000,
-                timeZoneOffsetSeconds: 0
-              },
-              selfHamyarSmsSubTime: {
-                year: 2025,
-                month: 12,
-                day: 6,
-                hour: 10,
-                minute: 33,
-                second: 20,
-                nanosecond: 363000000,
-                timeZoneOffsetSeconds: 0
-              },
-              specialAdviceSubTim: {
-                year: 2025,
-                month: 3,
-                day: 9,
-                hour: 16,
-                minute: 11,
-                second: 12,
-                nanosecond: 839000000,
-                timeZoneOffsetSeconds: 0
-              },
-              mobile: "",
-              id: "265149",
-              lastActivity: {
-                year: 2025,
-                month: 9,
-                day: 12,
-                hour: 18,
-                minute: 23,
-                second: 34,
-                nanosecond: 707000000,
-                timeZoneOffsetSeconds: 0
-              },
-              username: "melika",
-              refcode: "3d8fb3"
+          data: [
+            {
+              date: "2025-09-17",
+              ok_count: 20,
+              not_ok_count: 122,
+              ok_nok_conversion_rate: 14.08,
+              page_view_count: 1537,
+              page_conversion_rate: 1.3
+            },
+            {
+              date: "2025-09-18",
+              ok_count: 20,
+              not_ok_count: 124,
+              ok_nok_conversion_rate: 13.89,
+              page_view_count: 1265,
+              page_conversion_rate: 1.58
+            },
+            {
+              date: "2025-09-19",
+              ok_count: 17,
+              not_ok_count: 137,
+              ok_nok_conversion_rate: 11.04,
+              page_view_count: 1200,
+              page_conversion_rate: 1.42
+            },
+            {
+              date: "2025-09-20",
+              ok_count: 24,
+              not_ok_count: 141,
+              ok_nok_conversion_rate: 14.55,
+              page_view_count: 1510,
+              page_conversion_rate: 1.59
+            },
+            {
+              date: "2025-09-21",
+              ok_count: 25,
+              not_ok_count: 143,
+              ok_nok_conversion_rate: 14.88,
+              page_view_count: 1654,
+              page_conversion_rate: 1.51
+            },
+            {
+              date: "2025-09-22",
+              ok_count: 21,
+              not_ok_count: 144,
+              ok_nok_conversion_rate: 12.73,
+              page_view_count: 1179,
+              page_conversion_rate: 1.78
+            },
+            {
+              date: "2025-09-23",
+              ok_count: 16,
+              not_ok_count: 135,
+              ok_nok_conversion_rate: 10.6,
+              page_view_count: 1221,
+              page_conversion_rate: 1.31
+            },
+            {
+              date: "2025-09-24",
+              ok_count: 17,
+              not_ok_count: 154,
+              ok_nok_conversion_rate: 9.94,
+              page_view_count: 1222,
+              page_conversion_rate: 1.39
+            },
+            {
+              date: "2025-09-25",
+              ok_count: 23,
+              not_ok_count: 191,
+              ok_nok_conversion_rate: 10.75,
+              page_view_count: 1639,
+              page_conversion_rate: 1.4
+            },
+            {
+              date: "2025-09-26",
+              ok_count: 25,
+              not_ok_count: 191,
+              ok_nok_conversion_rate: 11.57,
+              page_view_count: 1651,
+              page_conversion_rate: 1.51
+            },
+            {
+              date: "2025-09-27",
+              ok_count: 2,
+              not_ok_count: 7,
+              ok_nok_conversion_rate: 22.22,
+              page_view_count: 163,
+              page_conversion_rate: 1.23
             }
-          },
-          loading: false
+          ],
+          loading: false,
+          selectChart: {
+            lable:
+              "\u0646\u0631\u062e \u067e\u0631\u062f\u0627\u062e\u062a \u0645\u0648\u0641\u0642",
+            link: "https://n8n.staas.ir/webhook/panel/convertionPayment",
+            icon: '<svg width="305" height="135" viewBox="0 0 305 135" fill="none" xmlns="http://www.w3.org/2000/svg">\r\n<path fill-rule="evenodd" clip-rule="evenodd" d="M1.53174 130.559V79.6143C1.53174 75.072 5.72803 71.6913 10.1663 72.6581C11.529 72.9549 12.9489 72.8449 14.2497 72.3418L17.7445 70.9901C20.8458 69.7906 24.3665 70.7843 26.3831 73.4281C29.7491 77.8412 36.5812 77.1752 39.0315 72.195L40.476 69.2592C42.695 64.7491 48.0433 62.7482 52.6777 64.6943L53.3081 64.959C54.5248 65.4699 55.8289 65.7404 57.1485 65.7557L59.599 65.7841C63.588 65.8304 67.3643 67.5909 69.9645 70.6165L71.7894 72.7401C74.6516 76.0706 79.3432 77.16 83.3801 75.4315C85.8982 74.3532 87.8679 72.2948 88.8341 69.7316L95.8117 51.2216C96.9721 48.1435 100.645 46.8783 103.455 48.5888C106.233 50.28 109.865 49.0641 111.065 46.041L113.129 40.8407C115.903 33.8519 125.277 32.6333 129.745 38.6807C130.059 39.1053 130.407 39.5033 130.787 39.8706L140.94 49.7013L145.745 55.0611C148.515 58.1517 153.554 57.342 155.216 53.5389C157.443 48.4461 164.896 49.2223 166.025 54.6645L167.3 60.807C168.899 68.512 179.661 69.1411 182.147 61.6747L183.835 56.6023L192.08 36.0758C193.712 32.0142 196.241 28.3745 199.48 25.4297L203.472 21.799C204.67 20.7094 205.672 19.4214 206.433 17.9916L211.63 8.22498C213.746 4.24835 219.185 3.61382 222.159 6.9965C224.629 9.80528 228.964 9.92851 231.589 7.26462L231.795 7.0561C234.74 4.06814 239.673 4.48083 242.081 7.9166L242.897 9.08173C245.675 13.0456 251.331 13.6039 254.83 10.2596L255.03 10.0686C257.38 7.82284 260.84 7.19007 263.832 8.45901L265.284 9.07458C268.046 10.2459 270.178 12.5391 271.145 15.3792L277.713 34.6666C278.871 38.0681 283.301 38.8993 285.613 36.149C287.967 33.3496 292.486 34.2703 293.557 37.7674L301.797 64.6668V130.559" fill="url(#paint0_linear_19_600)"/>\r\n<path d="M1.53174 130.559V79.6143C1.53174 75.072 5.72803 71.6913 10.1663 72.6581C11.529 72.9549 12.9489 72.8449 14.2497 72.3418L17.7445 70.9901C20.8458 69.7906 24.3665 70.7843 26.3831 73.4281C29.7491 77.8412 36.5812 77.1752 39.0315 72.195L40.476 69.2592C42.695 64.7491 48.0433 62.7482 52.6777 64.6943L53.3081 64.959C54.5248 65.4699 55.8289 65.7404 57.1485 65.7557L59.599 65.7841C63.588 65.8304 67.3643 67.5909 69.9645 70.6165L71.7894 72.7401C74.6516 76.0706 79.3432 77.16 83.3801 75.4315C85.8982 74.3532 87.8679 72.2948 88.8341 69.7316L95.8117 51.2216C96.9721 48.1435 100.645 46.8783 103.455 48.5888C106.233 50.28 109.865 49.0641 111.065 46.041L113.129 40.8407C115.903 33.8519 125.277 32.6333 129.745 38.6807C130.059 39.1053 130.407 39.5033 130.787 39.8706L140.94 49.7013L145.745 55.0611C148.515 58.1517 153.554 57.342 155.216 53.5389C157.443 48.4461 164.896 49.2223 166.025 54.6645L167.3 60.807C168.899 68.512 179.661 69.1411 182.147 61.6747L183.835 56.6023L192.08 36.0758C193.712 32.0142 196.241 28.3745 199.48 25.4297L203.472 21.799C204.67 20.7094 205.672 19.4214 206.433 17.9916L211.63 8.22498C213.746 4.24835 219.185 3.61382 222.159 6.9965C224.629 9.80528 228.964 9.92851 231.589 7.26462L231.795 7.0561C234.74 4.06814 239.673 4.48083 242.081 7.9166L242.897 9.08173C245.675 13.0456 251.331 13.6039 254.83 10.2596L255.03 10.0686C257.38 7.82284 260.84 7.19007 263.832 8.45901L265.284 9.07458C268.046 10.2459 270.178 12.5391 271.145 15.3792L277.713 34.6666C278.871 38.0681 283.301 38.8993 285.613 36.149C287.967 33.3496 292.486 34.2703 293.557 37.7674L301.797 64.6668M301.797 64.6668V130.559M301.797 64.6668V114.128" stroke="#00A478" stroke-linecap="round" stroke-linejoin="round"/>\r\n<rect x="300" y="44" width="5" height="91" rx="2.5" fill="#F9F9F9"/>\r\n<rect y="58.6184" width="3.34247" height="76.3816" rx="1.67123" fill="#F9F9F9"/>\r\n<defs>\r\n<linearGradient id="paint0_linear_19_600" x1="151.664" y1="0" x2="151.664" y2="130.559" gradientUnits="userSpaceOnUse">\r\n<stop stop-color="#00A478"/>\r\n<stop offset="1" stop-color="white" stop-opacity="0"/>\r\n</linearGradient>\r\n</defs>\r\n</svg>\r\n',
+            config: {
+              enabled: true,
+              key: "value",
+              type: "Number",
+              tickLine: true,
+              tickMargin: 10,
+              axisLine: true
+            },
+            config2: {
+              key: "value",
+              label: "\u0645\u0628\u0644\u063a",
+              color: "#16A34A",
+              hidden: false
+            }
+          }
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -375,7 +350,11 @@ function PlasmicChartViow__RenderFunc(props: {
         data-plasmic-override={overrides.fragmentChart}
         chartConfig={(() => {
           try {
-            return [$props.selectChart.config2];
+            return (() => {
+              try {
+                return [$props.selectChart.config2];
+              } catch {}
+            })();
           } catch (e) {
             if (
               e instanceof TypeError ||
@@ -389,17 +368,21 @@ function PlasmicChartViow__RenderFunc(props: {
         className={classNames("__wab_instance", sty.fragmentChart)}
         data={(() => {
           try {
-            return $props.data.map(i => {
-              const now = new Date(i.date);
-              const g = new Intl.DateTimeFormat("fa-IR", {
-                month: "long",
-                day: "numeric"
-              }).format(now);
-              return {
-                ...i,
-                date: g
-              };
-            });
+            return (() => {
+              try {
+                return $props.data.map(i => {
+                  const now = new Date(i.date);
+                  const g = new Intl.DateTimeFormat("fa-IR", {
+                    month: "long",
+                    day: "numeric"
+                  }).format(now);
+                  return {
+                    ...i,
+                    date: g
+                  };
+                });
+              } catch {}
+            })();
           } catch (e) {
             if (
               e instanceof TypeError ||
