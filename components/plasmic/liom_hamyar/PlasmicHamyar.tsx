@@ -86,7 +86,6 @@ import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/c
 import { AntdTooltip } from "@plasmicpkgs/antd5/skinny/registerTooltip";
 import Heart from "../../Heart"; // plasmic-import: OuOhJXUpgiRr/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
-import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { DialogTitle } from "@plasmicpkgs/radix-ui";
@@ -213,7 +212,6 @@ export type PlasmicHamyar__OverridesType = {
   heart?: Flex__<typeof Heart>;
   loading?: Flex__<"div">;
   favicon?: Flex__<typeof Embed>;
-  pullToRefresh?: Flex__<typeof PullToRefresh>;
   button19?: Flex__<typeof Button>;
   section?: Flex__<"section">;
   embedHtml?: Flex__<typeof Embed>;
@@ -22345,36 +22343,6 @@ function PlasmicHamyar__RenderFunc(props: {
             }
           />
 
-          <PullToRefresh
-            data-plasmic-name={"pullToRefresh"}
-            data-plasmic-override={overrides.pullToRefresh}
-            className={classNames("__wab_instance", sty.pullToRefresh)}
-            onRefresh={async () => {
-              const $steps = {};
-
-              $steps["refreshData"] = true
-                ? (() => {
-                    const actionArgs = {
-                      queryInvalidation: ["plasmic_refresh_all"]
-                    };
-                    return (async ({ queryInvalidation }) => {
-                      if (!queryInvalidation) {
-                        return;
-                      }
-                      await plasmicInvalidate(queryInvalidation);
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["refreshData"] != null &&
-                typeof $steps["refreshData"] === "object" &&
-                typeof $steps["refreshData"].then === "function"
-              ) {
-                $steps["refreshData"] = await $steps["refreshData"];
-              }
-            }}
-          />
-
           {(
             hasVariant($state, "editCycle", "editCycle")
               ? true
@@ -28100,7 +28068,6 @@ const PlasmicDescendants = {
     "heart",
     "loading",
     "favicon",
-    "pullToRefresh",
     "button19",
     "section",
     "embedHtml",
@@ -28215,7 +28182,6 @@ const PlasmicDescendants = {
   heart: ["heart"],
   loading: ["loading"],
   favicon: ["favicon"],
-  pullToRefresh: ["pullToRefresh"],
   button19: ["button19"],
   section: ["section"],
   embedHtml: ["embedHtml"],
@@ -28313,7 +28279,6 @@ type NodeDefaultElementType = {
   heart: typeof Heart;
   loading: "div";
   favicon: typeof Embed;
-  pullToRefresh: typeof PullToRefresh;
   button19: typeof Button;
   section: "section";
   embedHtml: typeof Embed;
@@ -28471,7 +28436,6 @@ export const PlasmicHamyar = Object.assign(
     heart: makeNodeComponent("heart"),
     loading: makeNodeComponent("loading"),
     favicon: makeNodeComponent("favicon"),
-    pullToRefresh: makeNodeComponent("pullToRefresh"),
     button19: makeNodeComponent("button19"),
     section: makeNodeComponent("section"),
     embedHtml: makeNodeComponent("embedHtml"),
