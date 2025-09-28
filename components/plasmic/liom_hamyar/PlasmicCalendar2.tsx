@@ -119,6 +119,7 @@ export type PlasmicCalendar2__ArgsType = {
   setting?: () => void;
   editTime?: string;
   onEditTimeChange2?: (val: string) => void;
+  editPage?: () => void;
 };
 type ArgPropType = keyof PlasmicCalendar2__ArgsType;
 export const PlasmicCalendar2__ArgProps = new Array<ArgPropType>(
@@ -128,7 +129,8 @@ export const PlasmicCalendar2__ArgProps = new Array<ArgPropType>(
   "onTokenChange",
   "setting",
   "editTime",
-  "onEditTimeChange2"
+  "onEditTimeChange2",
+  "editPage"
 );
 
 export type PlasmicCalendar2__OverridesType = {
@@ -144,6 +146,9 @@ export type PlasmicCalendar2__OverridesType = {
   warning?: Flex__<typeof AntdModal>;
   button20?: Flex__<typeof Button>;
   button21?: Flex__<typeof Button>;
+  warning2?: Flex__<typeof AntdModal>;
+  button24?: Flex__<typeof Button>;
+  button26?: Flex__<typeof Button>;
   directDialog?: Flex__<typeof DirectDialog2>;
   timer?: Flex__<typeof Timer>;
   button18?: Flex__<typeof Button>;
@@ -183,6 +188,7 @@ export interface DefaultCalendar2Props {
   setting?: () => void;
   editTime?: string;
   onEditTimeChange2?: (val: string) => void;
+  editPage?: () => void;
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
   className?: string;
 }
@@ -1205,7 +1211,7 @@ function PlasmicCalendar2__RenderFunc(props: {
         path: "edit.opendialog",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "editList",
@@ -1219,19 +1225,23 @@ function PlasmicCalendar2__RenderFunc(props: {
                   {
                     title: "هنوز پریود نشدم",
                     text: "اگه پریودت با تاخیر مواجه شده و چرخه و تقویم قاعدگیت دارن اینو بهت نشون میدن که تو پریود شدی با این دکمه وضعیت فعلیت رو درست کن",
-                    action: "warning"
+                    action: "warning",
+                    show:
+                      $state.userInfo?.result?.userStatus?.periodStatus ==
+                      "blood"
                   },
-                  {
-                    title: "دوره کاملا اشتباه محاسبه شده",
-                    text: "احتمال داره که به دلیل نامنظمی یا فراموشی اطلاعاتت رو اشتباه وارد کرده باشی اینجا بزن تا از روش دیگه ای باهم مجدد محاسبه کنیم"
-                  },
-                  {
-                    title: "باردار شدم",
-                    text: "اگه به نظرت باردار شدی همین حالا ثبتش کن تا ببنیم کوچولت چند وقتشه :)"
-                  },
+                  //     {
+                  //   "title":"دوره کاملا اشتباه محاسبه شده",
+                  //   "text":"احتمال داره که به دلیل نامنظمی یا فراموشی اطلاعاتت رو اشتباه وارد کرده باشی اینجا بزن تا از روش دیگه ای باهم مجدد محاسبه کنیم",
+                  // },
+                  //     {
+                  //   "title":"باردار شدم",
+                  //   "text":"اگه به نظرت باردار شدی همین حالا ثبتش کن تا ببنیم کوچولت چند وقتشه :)",
+                  // },
                   {
                     title: "ویرایش دوره",
-                    text: "اگر اطلاعات دوره ات رو اشتباه وارد کردی و اینطوری تقویم و چرخه ات متناسب محاسبه نشده اند میتونی به کمک این دکمه اطلاعات رو تصحیح کنی"
+                    text: "اگر اطلاعات دوره ات رو اشتباه وارد کردی و اینطوری تقویم و چرخه ات متناسب محاسبه نشده اند میتونی به کمک این دکمه اطلاعات رو تصحیح کنی",
+                    action: "editPage"
                   }
                 ]
               };
@@ -1737,6 +1747,48 @@ function PlasmicCalendar2__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "warning2.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button24.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "clear"
+      },
+      {
+        path: "button24.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button24.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button26.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "clear"
+      },
+      {
+        path: "button26.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button26.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -3936,6 +3988,25 @@ function PlasmicCalendar2__RenderFunc(props: {
                             "updateWarningOpen"
                           ];
                         }
+
+                        $steps["runSetting"] =
+                          currentItem.action == "editPage"
+                            ? (() => {
+                                const actionArgs = {
+                                  eventRef: $props["setting"]
+                                };
+                                return (({ eventRef, args }) => {
+                                  return eventRef?.(...(args ?? []));
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["runSetting"] != null &&
+                          typeof $steps["runSetting"] === "object" &&
+                          typeof $steps["runSetting"].then === "function"
+                        ) {
+                          $steps["runSetting"] = await $steps["runSetting"];
+                        }
                       },
                       onColorChange: async (...eventArgs: any) => {
                         ((...eventArgs) => {
@@ -3988,7 +4059,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                           return;
                         }
                       },
-                      shape: "rounded"
+                      shape: "rounded",
+                      size: "compact"
                     };
 
                     initializePlasmicStates(
@@ -4138,6 +4210,93 @@ function PlasmicCalendar2__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
+                  $steps["updateButton25Loading"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["button25", "loading"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateButton25Loading"] != null &&
+                    typeof $steps["updateButton25Loading"] === "object" &&
+                    typeof $steps["updateButton25Loading"].then === "function"
+                  ) {
+                    $steps["updateButton25Loading"] = await $steps[
+                      "updateButton25Loading"
+                    ];
+                  }
+
+                  $steps["invokeGlobalAction"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "POST",
+                            "https://n8n.staas.ir/webhook/calendar/getData",
+                            undefined,
+                            (() => {
+                              try {
+                                return (() => {
+                                  $state.list.period.start = {
+                                    year: $state.lastTime.gy,
+                                    month: $state.lastTime.gm,
+                                    day: $state.lastTime.gd
+                                  };
+                                  return {
+                                    cycle: $state.cycle,
+                                    length: $state.lengh,
+                                    type: $ctx.query.type,
+                                    authorization: $state.token,
+                                    calendar: $state.list
+                                  };
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction"] != null &&
+                    typeof $steps["invokeGlobalAction"] === "object" &&
+                    typeof $steps["invokeGlobalAction"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction"] = await $steps[
+                      "invokeGlobalAction"
+                    ];
+                  }
+
                   $steps["updateWarningOpen"] = true
                     ? (() => {
                         const actionArgs = {
@@ -4171,6 +4330,42 @@ function PlasmicCalendar2__RenderFunc(props: {
                   ) {
                     $steps["updateWarningOpen"] = await $steps[
                       "updateWarningOpen"
+                    ];
+                  }
+
+                  $steps["updateButton25Loading2"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["button25", "loading"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateButton25Loading2"] != null &&
+                    typeof $steps["updateButton25Loading2"] === "object" &&
+                    typeof $steps["updateButton25Loading2"].then === "function"
+                  ) {
+                    $steps["updateButton25Loading2"] = await $steps[
+                      "updateButton25Loading2"
                     ];
                   }
                 }}
@@ -4317,6 +4512,289 @@ function PlasmicCalendar2__RenderFunc(props: {
               onLoadingChange={async (...eventArgs: any) => {
                 ((...eventArgs) => {
                   generateStateOnChangeProp($state, ["button21", "loading"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              size={"compact"}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return "انصراف";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return " ";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            </Button>
+          </div>
+        </div>
+      </AntdModal>
+      <AntdModal
+        data-plasmic-name={"warning2"}
+        data-plasmic-override={overrides.warning2}
+        className={classNames("__wab_instance", sty.warning2)}
+        defaultStylesClassName={classNames(
+          projectcss.root_reset,
+          projectcss.plasmic_default_styles,
+          projectcss.plasmic_mixins,
+          styleTokensClassNames
+        )}
+        hideFooter={true}
+        maskClosable={true}
+        modalContentClassName={classNames({ [sty["pcls_D5oDQHwqg4Fk"]]: true })}
+        modalScopeClassName={sty["warning2__modal"]}
+        onOpenChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["warning2", "open"]).apply(
+            null,
+            eventArgs
+          );
+        }}
+        open={generateStateValueProp($state, ["warning2", "open"])}
+        title={
+          <div className={classNames(projectcss.all, sty.freeBox__alWsg)}>
+            <Icon140Icon
+              className={classNames(projectcss.all, sty.svg__pDwI)}
+              role={"img"}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__j2Xn
+              )}
+            >
+              {
+                "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0642\u0627\u0639\u062f\u06af\u06cc"
+              }
+            </div>
+          </div>
+        }
+        trigger={null}
+        wrapClassName={classNames({ [sty["pcls_X2RnT31vCxNm"]]: true })}
+      >
+        <div className={classNames(projectcss.all, sty.freeBox___1BlZa)}>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__gP0T
+            )}
+          >
+            {
+              "\u0637\u0628\u0642 \u0627\u0637\u0644\u0627\u0639\u0627\u062a\u06cc \u06a9\u0647 \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u06cc \u062a\u0648 \u0648\u0627\u0631\u062f \u062f\u0648\u0631\u0647 \u06cc \u0642\u0631\u0645\u0632 \u0634\u062f\u06cc \u0648 \u062e\u0648\u0646 \u0631\u06cc\u0632\u06cc \u062f\u0627\u0631\u06cc \u0628\u0627 \u062a\u0627\u06cc\u06cc\u062f \u0627\u06cc\u0646 \u062f\u06cc\u0627\u0644\u0648\u06af \u06cc\u0639\u0646\u06cc \u067e\u0631\u06cc\u0648\u062f\u06cc\u062a \u0628\u0627 \u062a\u0627\u062e\u06cc\u0631 \u0645\u0648\u0627\u062c\u0647 \u0634\u062f\u0647"
+            }
+          </div>
+          <div className={classNames(projectcss.all, sty.freeBox__kdcIt)}>
+            <div className={classNames(projectcss.all, sty.freeBox__n1AqO)}>
+              <Button
+                data-plasmic-name={"button24"}
+                data-plasmic-override={overrides.button24}
+                className={classNames("__wab_instance", sty.button24)}
+                color={generateStateValueProp($state, ["button24", "color"])}
+                load={generateStateValueProp($state, ["button24", "load"])}
+                loading={generateStateValueProp($state, [
+                  "button24",
+                  "loading"
+                ])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateWarningOpen"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["warning2", "open"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateWarningOpen"] != null &&
+                    typeof $steps["updateWarningOpen"] === "object" &&
+                    typeof $steps["updateWarningOpen"].then === "function"
+                  ) {
+                    $steps["updateWarningOpen"] = await $steps[
+                      "updateWarningOpen"
+                    ];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button24", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button24", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button24", "loading"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                size={"compact"}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return "بله";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return " ";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </Button>
+            </div>
+            <Button
+              data-plasmic-name={"button26"}
+              data-plasmic-override={overrides.button26}
+              className={classNames("__wab_instance", sty.button26)}
+              color={generateStateValueProp($state, ["button26", "color"])}
+              load={generateStateValueProp($state, ["button26", "load"])}
+              loading={generateStateValueProp($state, ["button26", "loading"])}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["updateWarningOpen"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["warning2", "open"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateWarningOpen"] != null &&
+                  typeof $steps["updateWarningOpen"] === "object" &&
+                  typeof $steps["updateWarningOpen"].then === "function"
+                ) {
+                  $steps["updateWarningOpen"] = await $steps[
+                    "updateWarningOpen"
+                  ];
+                }
+              }}
+              onColorChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button26", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onLoadChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button26", "load"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onLoadingChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button26", "loading"])(
                     eventArgs[0]
                   );
                 }).apply(null, eventArgs);
@@ -55860,6 +56338,9 @@ const PlasmicDescendants = {
     "warning",
     "button20",
     "button21",
+    "warning2",
+    "button24",
+    "button26",
     "directDialog",
     "timer",
     "button18",
@@ -55901,6 +56382,9 @@ const PlasmicDescendants = {
   warning: ["warning", "button20", "button21"],
   button20: ["button20"],
   button21: ["button21"],
+  warning2: ["warning2", "button24", "button26"],
+  button24: ["button24"],
+  button26: ["button26"],
   directDialog: ["directDialog"],
   timer: ["timer"],
   button18: ["button18"],
@@ -55980,6 +56464,9 @@ type NodeDefaultElementType = {
   warning: typeof AntdModal;
   button20: typeof Button;
   button21: typeof Button;
+  warning2: typeof AntdModal;
+  button24: typeof Button;
+  button26: typeof Button;
   directDialog: typeof DirectDialog2;
   timer: typeof Timer;
   button18: typeof Button;
@@ -56082,6 +56569,9 @@ export const PlasmicCalendar2 = Object.assign(
     warning: makeNodeComponent("warning"),
     button20: makeNodeComponent("button20"),
     button21: makeNodeComponent("button21"),
+    warning2: makeNodeComponent("warning2"),
+    button24: makeNodeComponent("button24"),
+    button26: makeNodeComponent("button26"),
     directDialog: makeNodeComponent("directDialog"),
     timer: makeNodeComponent("timer"),
     button18: makeNodeComponent("button18"),
