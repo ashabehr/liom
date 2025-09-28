@@ -4018,16 +4018,33 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               var date = JSON.parse(currentday[0].dates)[0];
                               if (date) {
                                 function parseISOToLocal(dateStr) {
-                                  let [y, m, d] = dateStr.split("-");
+                                  let [y, m, d] = dateStr
+                                    .split("-")
+                                    .map(Number);
                                   return new Date(y, m - 1, d);
                                 }
                                 let d = parseISOToLocal(date);
-                                return d.toLocaleDateString("fa-IR", {
-                                  month: "long"
-                                });
-                              } else return "";
+                                let formatter = new Intl.DateTimeFormat(
+                                  "fa-IR",
+                                  {
+                                    timeZone: "Asia/Tehran",
+                                    month: "long"
+                                  }
+                                );
+                                if (currentday[0].schedule_type == "everyDay") {
+                                  return "";
+                                } else {
+                                  return formatter.format(d);
+                                }
+                              } else {
+                                return currentday[0].schedule_type == "everyDay"
+                                  ? ""
+                                  : "";
+                              }
                             } catch {
-                              return "";
+                              return currentday[0].schedule_type == "everyDay"
+                                ? ""
+                                : "";
                             }
                           })();
                         } catch (e) {
