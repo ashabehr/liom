@@ -1002,275 +1002,256 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   {"\u0646\u0648\u0639 "}
                 </div>
               </div>
-              {(() => {
-                try {
-                  return $state.week.length > 0;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <div className={classNames(projectcss.all, sty.freeBox__kls3Y)}>
+              <div className={classNames(projectcss.all, sty.freeBox__kls3Y)}>
+                <div className={classNames(projectcss.all, sty.freeBox__tdBtA)}>
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__tdBtA)}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__iVkje
+                    )}
                   >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__iVkje
-                      )}
-                    >
-                      {"\u062a\u06a9\u0631\u0627\u0631"}
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__gy6F8)}
-                    >
-                      <Repead
-                        data-plasmic-name={"repead"}
-                        data-plasmic-override={overrides.repead}
-                        className={classNames("__wab_instance", sty.repead)}
-                        click={async () => {
-                          const $steps = {};
+                    {"\u062a\u06a9\u0631\u0627\u0631"}
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__gy6F8)}
+                  >
+                    <Repead
+                      data-plasmic-name={"repead"}
+                      data-plasmic-override={overrides.repead}
+                      className={classNames("__wab_instance", sty.repead)}
+                      click={async () => {
+                        const $steps = {};
 
-                          $steps["runCode"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return (() => {
-                                      if ($state.repead.selected === "daily") {
-                                        return ($state.week = [
-                                          "saturday",
-                                          "sunday",
-                                          "monday",
-                                          "tuesday",
-                                          "wednesday",
-                                          "thursday",
-                                          "friday"
-                                        ]);
-                                      } else if (
-                                        $state.repead.selected === "sat_to_wed"
-                                      ) {
-                                        return ($state.week = [
-                                          "saturday",
-                                          "sunday",
-                                          "monday",
-                                          "tuesday",
-                                          "wednesday"
-                                        ]);
-                                      } else if (
-                                        $state.repead.selected === "once"
-                                      ) {
-                                        return ($state.week = []);
-                                      }
-                                    })();
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
-                          ) {
-                            $steps["runCode"] = await $steps["runCode"];
-                          }
-                        }}
-                        data={[
-                          {
-                            label: "\u0633\u0627\u0644\u0627\u0646\u0647",
-                            value: "once"
-                          },
-                          {
-                            label: "\u0647\u0631 \u0631\u0648\u0632",
-                            value: "daily",
-                            days: [
-                              "\u0634\u0646\u0628\u0647",
-                              "\u06cc\u06a9\u0634\u0646\u0628\u0647",
-                              "\u062f\u0648\u0634\u0646\u0628\u0647",
-                              "\u0633\u0647\u200c\u0634\u0646\u0628\u0647",
-                              "\u0686\u0647\u0627\u0631\u0634\u0646\u0628\u0647",
-                              "\u067e\u0646\u062c\u0634\u0646\u0628\u0647",
-                              "\u062c\u0645\u0639\u0647"
-                            ]
-                          },
-                          {
-                            label:
-                              "\u0634\u0646\u0628\u0647 \u062a\u0627 \u0686\u0647\u0627\u0631\u0634\u0646\u0628\u0647",
-                            value: "sat_to_wed",
-                            days: [
-                              "\u0634\u0646\u0628\u0647",
-                              "\u06cc\u06a9\u0634\u0646\u0628\u0647",
-                              "\u062f\u0648\u0634\u0646\u0628\u0647",
-                              "\u0633\u0647\u200c\u0634\u0646\u0628\u0647",
-                              "\u0686\u0647\u0627\u0631\u0634\u0646\u0628\u0647"
-                            ]
-                          }
-                        ]}
-                        onSelectedChange={async (...eventArgs: any) => {
-                          generateStateOnChangeProp($state, [
-                            "repead",
-                            "selected"
-                          ]).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        }}
-                        selected={generateStateValueProp($state, [
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    if ($state.repead.selected === "daily") {
+                                      return ($state.week = [
+                                        "saturday",
+                                        "sunday",
+                                        "monday",
+                                        "tuesday",
+                                        "wednesday",
+                                        "thursday",
+                                        "friday"
+                                      ]);
+                                    } else if (
+                                      $state.repead.selected === "sat_to_wed"
+                                    ) {
+                                      return ($state.week = [
+                                        "saturday",
+                                        "sunday",
+                                        "monday",
+                                        "tuesday",
+                                        "wednesday"
+                                      ]);
+                                    } else if (
+                                      $state.repead.selected === "once"
+                                    ) {
+                                      return ($state.week = []);
+                                    }
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      }}
+                      data={[
+                        {
+                          label: "\u0633\u0627\u0644\u0627\u0646\u0647",
+                          value: "once"
+                        },
+                        {
+                          label: "\u0647\u0631 \u0631\u0648\u0632",
+                          value: "daily",
+                          days: [
+                            "\u0634\u0646\u0628\u0647",
+                            "\u06cc\u06a9\u0634\u0646\u0628\u0647",
+                            "\u062f\u0648\u0634\u0646\u0628\u0647",
+                            "\u0633\u0647\u200c\u0634\u0646\u0628\u0647",
+                            "\u0686\u0647\u0627\u0631\u0634\u0646\u0628\u0647",
+                            "\u067e\u0646\u062c\u0634\u0646\u0628\u0647",
+                            "\u062c\u0645\u0639\u0647"
+                          ]
+                        },
+                        {
+                          label:
+                            "\u0634\u0646\u0628\u0647 \u062a\u0627 \u0686\u0647\u0627\u0631\u0634\u0646\u0628\u0647",
+                          value: "sat_to_wed",
+                          days: [
+                            "\u0634\u0646\u0628\u0647",
+                            "\u06cc\u06a9\u0634\u0646\u0628\u0647",
+                            "\u062f\u0648\u0634\u0646\u0628\u0647",
+                            "\u0633\u0647\u200c\u0634\u0646\u0628\u0647",
+                            "\u0686\u0647\u0627\u0631\u0634\u0646\u0628\u0647"
+                          ]
+                        }
+                      ]}
+                      onSelectedChange={async (...eventArgs: any) => {
+                        generateStateOnChangeProp($state, [
                           "repead",
                           "selected"
-                        ])}
-                      />
+                        ]).apply(null, eventArgs);
 
-                      <RadioGrop
-                        data-plasmic-name={"radioGrop"}
-                        data-plasmic-override={overrides.radioGrop}
-                        className={classNames("__wab_instance", sty.radioGrop)}
-                        onClick={async event => {
-                          const $steps = {};
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      selected={generateStateValueProp($state, [
+                        "repead",
+                        "selected"
+                      ])}
+                    />
 
-                          $steps["runCode"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return (() => {
-                                      if ($state.repead.selected === "daily") {
-                                        return ($state.week = [
-                                          "saturday",
-                                          "sunday",
-                                          "monday",
-                                          "tuesday",
-                                          "wednesday",
-                                          "thursday",
-                                          "friday"
-                                        ]);
-                                      } else if (
-                                        $state.repead.selected === "sat_to_wed"
-                                      ) {
-                                        return ($state.week = [
-                                          "saturday",
-                                          "sunday",
-                                          "monday",
-                                          "tuesday",
-                                          "wednesday"
-                                        ]);
-                                      } else if (
-                                        $state.repead.selected === "once"
-                                      ) {
-                                        return ($state.week = []);
-                                      }
-                                    })();
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
+                    <RadioGrop
+                      data-plasmic-name={"radioGrop"}
+                      data-plasmic-override={overrides.radioGrop}
+                      className={classNames("__wab_instance", sty.radioGrop)}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    if ($state.repead.selected === "daily") {
+                                      return ($state.week = [
+                                        "saturday",
+                                        "sunday",
+                                        "monday",
+                                        "tuesday",
+                                        "wednesday",
+                                        "thursday",
+                                        "friday"
+                                      ]);
+                                    } else if (
+                                      $state.repead.selected === "sat_to_wed"
+                                    ) {
+                                      return ($state.week = [
+                                        "saturday",
+                                        "sunday",
+                                        "monday",
+                                        "tuesday",
+                                        "wednesday"
+                                      ]);
+                                    } else if (
+                                      $state.repead.selected === "once"
+                                    ) {
+                                      return ($state.week = []);
+                                    }
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+
+                        $steps["updateDialog3Opendialog"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["weekDays", "opendialog"]
+                                },
+                                operation: 4
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                const oldValue = $stateGet(
+                                  objRoot,
+                                  variablePath
+                                );
+                                $stateSet(objRoot, variablePath, !oldValue);
+                                return !oldValue;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateDialog3Opendialog"] != null &&
+                          typeof $steps["updateDialog3Opendialog"] ===
+                            "object" &&
+                          typeof $steps["updateDialog3Opendialog"].then ===
+                            "function"
+                        ) {
+                          $steps["updateDialog3Opendialog"] = await $steps[
+                            "updateDialog3Opendialog"
+                          ];
+                        }
+                      }}
+                      selected={(() => {
+                        try {
+                          return $state.repead.selected == "custom";
+                        } catch (e) {
                           if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            $steps["runCode"] = await $steps["runCode"];
+                            return [];
                           }
-
-                          $steps["updateDialog3Opendialog"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["weekDays", "opendialog"]
-                                  },
-                                  operation: 4
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  const oldValue = $stateGet(
-                                    objRoot,
-                                    variablePath
-                                  );
-                                  $stateSet(objRoot, variablePath, !oldValue);
-                                  return !oldValue;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateDialog3Opendialog"] != null &&
-                            typeof $steps["updateDialog3Opendialog"] ===
-                              "object" &&
-                            typeof $steps["updateDialog3Opendialog"].then ===
-                              "function"
-                          ) {
-                            $steps["updateDialog3Opendialog"] = await $steps[
-                              "updateDialog3Opendialog"
-                            ];
-                          }
-                        }}
-                        selected={(() => {
-                          try {
-                            return $state.repead.selected == "custom";
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return [];
-                            }
-                            throw e;
-                          }
-                        })()}
+                          throw e;
+                        }
+                      })()}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__o4G6
+                        )}
                       >
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__o4G6
+                            projectcss.__wab_text,
+                            sty.text__hqoGv
                           )}
                         >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__hqoGv
-                            )}
-                          >
-                            {"\u0633\u0641\u0627\u0631\u0634\u06cc"}
-                          </div>
-                          <ChevronLeftIcon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__u4X51
-                            )}
-                            role={"img"}
-                          />
+                          {"\u0633\u0641\u0627\u0631\u0634\u06cc"}
                         </div>
-                      </RadioGrop>
-                    </div>
+                        <ChevronLeftIcon
+                          className={classNames(projectcss.all, sty.svg__u4X51)}
+                          role={"img"}
+                        />
+                      </div>
+                    </RadioGrop>
                   </div>
                 </div>
-              ) : null}
+              </div>
               <div className={classNames(projectcss.all, sty.freeBox__gTXuD)}>
                 {(() => {
                   try {

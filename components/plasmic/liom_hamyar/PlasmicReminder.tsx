@@ -152,12 +152,7 @@ export type PlasmicReminder__OverridesType = {
   frame24?: Flex__<"div">;
   frame25?: Flex__<"div">;
   frame26?: Flex__<"div">;
-  todayMeeting3?: Flex__<"div">;
-  frame27?: Flex__<"div">;
-  frame28?: Flex__<"div">;
-  frame29?: Flex__<"div">;
-  frame30?: Flex__<"div">;
-  frame31?: Flex__<"div">;
+  img?: Flex__<typeof PlasmicImg__>;
   lottie?: Flex__<typeof LottieWrapper>;
   button3?: Flex__<typeof Button>;
   frame32?: Flex__<"div">;
@@ -2050,7 +2045,32 @@ function PlasmicReminder__RenderFunc(props: {
           </div>
           {(() => {
             try {
-              return $props.data?.length == 0;
+              return (() => {
+                try {
+                  const today = new Date();
+                  const todayISO = today.toISOString().split("T")[0];
+                  const todayWeekday = today
+                    .toLocaleDateString("en-US", { weekday: "long" })
+                    .toLowerCase();
+                  const todayAndEveryDayList = $props.data.filter(t => {
+                    let parsedDates = [];
+                    try {
+                      parsedDates = t.dates ? JSON.parse(t.dates) : [];
+                    } catch {}
+                    if (t.schedule_type === "everyDay") {
+                      let weekdays = [];
+                      try {
+                        weekdays = t.weekdays ? JSON.parse(t.weekdays) : [];
+                      } catch {}
+                      return weekdays.includes(todayWeekday);
+                    }
+                    return parsedDates[0] === todayISO;
+                  });
+                  return todayAndEveryDayList.length == 0;
+                } catch {
+                  return true;
+                }
+              })();
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -2061,313 +2081,50 @@ function PlasmicReminder__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <div
-              data-plasmic-name={"todayMeeting3"}
-              data-plasmic-override={overrides.todayMeeting3}
-              className={classNames(projectcss.all, sty.todayMeeting3)}
-            >
-              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                (() => {
-                  try {
-                    return (() => {
-                      try {
-                        const groupsMap = new Map();
-                        $state.ofline.forEach(t => {
-                          let parsedDates;
-                          try {
-                            parsedDates = t.dates ? JSON.parse(t.dates) : [];
-                          } catch (e) {
-                            parsedDates = [];
-                          }
-                          t.telegramId = $props.telegramId;
-                          t.phoneNumber = $props.phoneNumber;
-                          t.token1 = $props.token;
-                          t.liomId = $props.manId;
-                          const key = parsedDates[0] || "__noDate__";
-                          if (!groupsMap.has(key)) groupsMap.set(key, []);
-                          groupsMap.get(key).push(t);
-                        });
-                        const groups = Array.from(groupsMap.entries())
-                          .sort((a, b) => {
-                            if (a[0] === "__noDate__") return 1;
-                            if (b[0] === "__noDate__") return -1;
-                            const dateA = new Date(a[0]);
-                            const dateB = new Date(b[0]);
-                            const timeA = dateA.getTime();
-                            const timeB = dateB.getTime();
-                            if (Number.isNaN(timeA)) return 1;
-                            if (Number.isNaN(timeB)) return -1;
-                            return timeA - timeB;
-                          })
-                          .map(entry => entry[1]);
-                        return groups;
-                      } catch {
-                        return "?";
-                      }
-                    })();
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return [];
-                    }
-                    throw e;
-                  }
-                })()
-              ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                const currentday = __plasmic_item_0;
-                const currentIndex = __plasmic_idx_0;
-                return (
-                  <div
-                    data-plasmic-name={"frame27"}
-                    data-plasmic-override={overrides.frame27}
-                    className={classNames(projectcss.all, sty.frame27)}
-                    key={currentIndex}
-                  >
-                    <div
-                      data-plasmic-name={"frame28"}
-                      data-plasmic-override={overrides.frame28}
-                      className={classNames(projectcss.all, sty.frame28)}
-                    >
-                      <div
-                        data-plasmic-name={"frame29"}
-                        data-plasmic-override={overrides.frame29}
-                        className={classNames(projectcss.all, sty.frame29)}
-                      >
-                        <div
-                          data-plasmic-name={"frame30"}
-                          data-plasmic-override={overrides.frame30}
-                          className={classNames(projectcss.all, sty.frame30)}
-                        >
-                          <div
-                            data-plasmic-name={"frame31"}
-                            data-plasmic-override={overrides.frame31}
-                            className={classNames(projectcss.all, sty.frame31)}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__mKdU
-                              )}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox___1AStH
-                                )}
-                              >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__pUess
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return (() => {
-                                          try {
-                                            var date = JSON.parse(
-                                              currentday[0].dates
-                                            )[0];
-                                            if (date) {
-                                              function parseISOToUTC(dateStr) {
-                                                let [y, m, d] = dateStr
-                                                  .split("-")
-                                                  .map(Number);
-                                                return new Date(
-                                                  Date.UTC(y, m - 1, d)
-                                                );
-                                              }
-                                              let d = parseISOToUTC(date);
-                                              let formatter =
-                                                new Intl.DateTimeFormat(
-                                                  "fa-IR",
-                                                  {
-                                                    timeZone: "Asia/Tehran",
-                                                    day: "numeric"
-                                                  }
-                                                );
-                                              return formatter.format(d);
-                                            } else {
-                                              return "?";
-                                            }
-                                          } catch {
-                                            return "?";
-                                          }
-                                        })();
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "Townhall Meeting";
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
-                                </div>
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__jmrXf
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return (() => {
-                                          try {
-                                            var date = JSON.parse(
-                                              currentday[0].dates
-                                            )[0];
-                                            if (date)
-                                              return new Date(
-                                                date
-                                              ).toLocaleDateString("fa-IR", {
-                                                month: "long"
-                                              });
-                                            else return "";
-                                          } catch {
-                                            return "";
-                                          }
-                                        })();
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "Townhall Meeting";
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
-                                </div>
-                              </div>
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__iVXt
-                                )}
-                              >
-                                {(_par =>
-                                  !_par
-                                    ? []
-                                    : Array.isArray(_par)
-                                    ? _par
-                                    : [_par])(
-                                  (() => {
-                                    try {
-                                      return currentday;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return [];
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                ).map((__plasmic_item_1, __plasmic_idx_1) => {
-                                  const currentItem = __plasmic_item_1;
-                                  const currentIndex = __plasmic_idx_1;
-                                  return (
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__dx4Lv
-                                      )}
-                                      key={currentIndex}
-                                    >
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          sty.freeBox__ikPhK
-                                        )}
-                                      >
-                                        <Oval3Icon
-                                          className={classNames(
-                                            projectcss.all,
-                                            sty.svg__ujEqz
-                                          )}
-                                          role={"img"}
-                                        />
+            <div className={classNames(projectcss.all, sty.freeBox___2TeVq)}>
+              <PlasmicImg__
+                data-plasmic-name={"img"}
+                data-plasmic-override={overrides.img}
+                alt={""}
+                className={classNames(sty.img)}
+                displayHeight={"80px"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"80px"}
+                loading={"lazy"}
+                src={{
+                  src: "/plasmic/liom_hamyar/images/image118.png",
+                  fullWidth: 512,
+                  fullHeight: 512,
+                  aspectRatio: undefined
+                }}
+              />
 
-                                        <div
-                                          className={classNames(
-                                            projectcss.all,
-                                            projectcss.__wab_text,
-                                            sty.text__c6Rm
-                                          )}
-                                        >
-                                          <React.Fragment>
-                                            {(() => {
-                                              try {
-                                                return currentItem.name;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return "";
-                                                }
-                                                throw e;
-                                              }
-                                            })()}
-                                          </React.Fragment>
-                                        </div>
-                                      </div>
-                                      {(() => {
-                                        try {
-                                          return !currentItem.active;
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return true;
-                                          }
-                                          throw e;
-                                        }
-                                      })() ? (
-                                        <div
-                                          className={classNames(
-                                            projectcss.all,
-                                            sty.freeBox__ejcmi
-                                          )}
-                                        >
-                                          <Icon295Icon
-                                            className={classNames(
-                                              projectcss.all,
-                                              sty.svg__jE1J
-                                            )}
-                                            role={"img"}
-                                          />
-                                        </div>
-                                      ) : null}
-                                    </div>
-                                  );
-                                })}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___4Uf40
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return "«برای امروز رویدادی وجود ندارد»";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "\u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627\u06cc \u0645\u0647\u0645 \u067e\u06cc\u0634 \u0631\u0648";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
             </div>
           ) : null}
           {(() => {
@@ -3218,45 +2975,6 @@ function PlasmicReminder__RenderFunc(props: {
                                 })()}
                               </React.Fragment>
                             </div>
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__ufiah
-                              )}
-                            >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return (() => {
-                                      try {
-                                        var date = JSON.parse(
-                                          currentday[0].dates
-                                        )[0];
-                                        if (date)
-                                          return new Date(
-                                            date
-                                          ).toLocaleDateString("fa-IR", {
-                                            month: "long"
-                                          });
-                                        else return "";
-                                      } catch {
-                                        return "";
-                                      }
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "Townhall Meeting";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            </div>
                           </div>
                           <div
                             className={classNames(
@@ -3277,51 +2995,12 @@ function PlasmicReminder__RenderFunc(props: {
                                     return (() => {
                                       try {
                                         return (
-                                          "ساعت: " +
+                                          "ساعت ها: " +
                                           JSON.parse(currentday.times).join(
                                             "  ,  "
                                           )
                                         );
                                       } catch {}
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "Townhall Meeting";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            </div>
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__qWgY
-                              )}
-                            >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return (() => {
-                                      try {
-                                        var date = JSON.parse(
-                                          currentday[0].dates
-                                        )[0];
-                                        if (date)
-                                          return new Date(
-                                            date
-                                          ).toLocaleDateString("fa-IR", {
-                                            month: "long"
-                                          });
-                                        else return "";
-                                      } catch {
-                                        return "";
-                                      }
                                     })();
                                   } catch (e) {
                                     if (
@@ -4694,12 +4373,7 @@ const PlasmicDescendants = {
     "frame24",
     "frame25",
     "frame26",
-    "todayMeeting3",
-    "frame27",
-    "frame28",
-    "frame29",
-    "frame30",
-    "frame31",
+    "img",
     "lottie",
     "button3",
     "frame32",
@@ -4752,19 +4426,7 @@ const PlasmicDescendants = {
   frame24: ["frame24", "frame25", "frame26"],
   frame25: ["frame25", "frame26"],
   frame26: ["frame26"],
-  todayMeeting3: [
-    "todayMeeting3",
-    "frame27",
-    "frame28",
-    "frame29",
-    "frame30",
-    "frame31"
-  ],
-  frame27: ["frame27", "frame28", "frame29", "frame30", "frame31"],
-  frame28: ["frame28", "frame29", "frame30", "frame31"],
-  frame29: ["frame29", "frame30", "frame31"],
-  frame30: ["frame30", "frame31"],
-  frame31: ["frame31"],
+  img: ["img"],
   lottie: ["lottie"],
   button3: ["button3"],
   frame32: ["frame32", "frame33", "frame34", "frame35", "frame36"],
@@ -4810,12 +4472,7 @@ type NodeDefaultElementType = {
   frame24: "div";
   frame25: "div";
   frame26: "div";
-  todayMeeting3: "div";
-  frame27: "div";
-  frame28: "div";
-  frame29: "div";
-  frame30: "div";
-  frame31: "div";
+  img: typeof PlasmicImg__;
   lottie: typeof LottieWrapper;
   button3: typeof Button;
   frame32: "div";
@@ -4910,12 +4567,7 @@ export const PlasmicReminder = Object.assign(
     frame24: makeNodeComponent("frame24"),
     frame25: makeNodeComponent("frame25"),
     frame26: makeNodeComponent("frame26"),
-    todayMeeting3: makeNodeComponent("todayMeeting3"),
-    frame27: makeNodeComponent("frame27"),
-    frame28: makeNodeComponent("frame28"),
-    frame29: makeNodeComponent("frame29"),
-    frame30: makeNodeComponent("frame30"),
-    frame31: makeNodeComponent("frame31"),
+    img: makeNodeComponent("img"),
     lottie: makeNodeComponent("lottie"),
     button3: makeNodeComponent("button3"),
     frame32: makeNodeComponent("frame32"),
