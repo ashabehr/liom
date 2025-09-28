@@ -231,7 +231,13 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
           <RadioGrop
             data-plasmic-name={"radioGrop"}
             data-plasmic-override={overrides.radioGrop}
-            className={classNames("__wab_instance", sty.radioGrop)}
+            className={classNames("__wab_instance", sty.radioGrop, {
+              [sty.radioGropunnamedVariant]: hasVariant(
+                $state,
+                "unnamedVariant",
+                "unnamedVariant"
+              )
+            })}
             color={"light"}
             key={currentIndex}
             onClick={async event => {

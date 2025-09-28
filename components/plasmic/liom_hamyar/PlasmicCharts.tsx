@@ -467,12 +467,26 @@ function PlasmicCharts__RenderFunc(props: {
               tickMargin: 10,
               axisLine: true
             },
-            config2: {
-              key: "value",
-              label: "\u0645\u0628\u0644\u063a",
-              color: "#16A34A",
-              hidden: false
-            }
+            config2: [
+              {
+                key: "pending_unique",
+                label: "\u062f\u0631 \u0627\u0646\u062a\u0638\u0627\u0631",
+                color: "#F59E0B",
+                hidden: true
+              },
+              {
+                key: "ok_unique",
+                label: "\u062a\u0627\u06cc\u06cc\u062f \u0634\u062f\u0647",
+                color: "#3B82F6",
+                hidden: true
+              },
+              {
+                key: "value",
+                label: "\u0645\u0628\u0644\u063a",
+                color: "#16A34A",
+                hidden: false
+              }
+            ]
           },
           {
             lable: "\u0646\u0631\u062e \u0635\u0641\u062d\u0647 upselling",
@@ -485,12 +499,41 @@ function PlasmicCharts__RenderFunc(props: {
               tickLine: true,
               axisLine: true
             },
-            config2: {
-              key: "page_conversion_rate",
-              label: "\u0646\u0631\u062e \u062a\u0628\u062f\u06cc\u0644 (%)",
-              color: "#8b5cf6",
-              hidden: false
-            }
+            config2: [
+              {
+                key: "ok_count",
+                label: "\u062a\u0627\u06cc\u06cc\u062f \u0634\u062f\u0647",
+                color: "#16A34A",
+                hidden: true
+              },
+              {
+                key: "not_ok_count",
+                label: "\u0631\u062f \u0634\u062f\u0647",
+                color: "#DC2626",
+                hidden: true
+              },
+              {
+                key: "ok_nok_conversion_rate",
+                label:
+                  "\u0646\u0631\u062e \u062a\u0628\u062f\u06cc\u0644 \u062a\u0627\u06cc\u06cc\u062f/\u0631\u062f",
+                color: "#2563EB",
+                hidden: true
+              },
+              {
+                key: "page_view_count",
+                label:
+                  "\u0628\u0627\u0632\u062f\u06cc\u062f \u0635\u0641\u062d\u0647",
+                color: "#F59E0B",
+                hidden: true
+              },
+              {
+                key: "page_conversion_rate",
+                label:
+                  "\u0646\u0631\u062e \u062a\u0628\u062f\u06cc\u0644 \u0635\u0641\u062d\u0647",
+                color: "#9333EA",
+                hidden: false
+              }
+            ]
           },
           {
             lable:
@@ -504,12 +547,41 @@ function PlasmicCharts__RenderFunc(props: {
               tickLine: true,
               axisLine: true
             },
-            config2: {
-              key: "page_conversion_rate",
-              label: "\u0646\u0631\u062e \u062a\u0628\u062f\u06cc\u0644 (%)",
-              color: "#8b5cf6",
-              hidden: false
-            }
+            config2: [
+              {
+                key: "ok_count",
+                label: "\u062a\u0627\u06cc\u06cc\u062f \u0634\u062f\u0647",
+                color: "#16A34A",
+                hidden: true
+              },
+              {
+                key: "not_ok_count",
+                label: "\u0631\u062f \u0634\u062f\u0647",
+                color: "#DC2626",
+                hidden: true
+              },
+              {
+                key: "ok_nok_conversion_rate",
+                label:
+                  "\u0646\u0631\u062e \u062a\u0628\u062f\u06cc\u0644 \u062a\u0627\u06cc\u06cc\u062f/\u0631\u062f",
+                color: "#2563EB",
+                hidden: true
+              },
+              {
+                key: "page_view_count",
+                label:
+                  "\u0628\u0627\u0632\u062f\u06cc\u062f \u0635\u0641\u062d\u0647",
+                color: "#F59E0B",
+                hidden: true
+              },
+              {
+                key: "page_conversion_rate",
+                label:
+                  "\u0646\u0631\u062e \u062a\u0628\u062f\u06cc\u0644 \u0635\u0641\u062d\u0647",
+                color: "#9333EA",
+                hidden: false
+              }
+            ]
           }
         ]
       },

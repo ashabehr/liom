@@ -102,6 +102,7 @@ export type PlasmicChartViow__OverridesType = {
   frame49?: Flex__<"div">;
   frame25?: Flex__<"div">;
   frame48?: Flex__<"div">;
+  text?: Flex__<"div">;
   fragmentChart?: Flex__<typeof Chart>;
 };
 
@@ -345,6 +346,103 @@ function PlasmicChartViow__RenderFunc(props: {
           />
         </div>
       </div>
+      <div className={classNames(projectcss.all, sty.freeBox__htt0J)}>
+        {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+          (() => {
+            try {
+              return $props.selectChart.config2;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+        ).map((__plasmic_item_0, __plasmic_idx_0) => {
+          const currentItem = __plasmic_item_0;
+          const currentIndex = __plasmic_idx_0;
+          return (
+            <div
+              className={classNames(projectcss.all, sty.freeBox___3RU1D)}
+              key={currentIndex}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return $props.selectChart.config2.forEach(i => {
+                            if (i.hidden == false) i.hidden = true;
+                            if (i.key == currentItem.key) i.hidden = false;
+                          });
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }}
+            >
+              <div
+                className={classNames(projectcss.all, sty.freeBox__go6J6)}
+                style={(() => {
+                  try {
+                    return {
+                      background: currentItem.color
+                    };
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+              />
+
+              <div
+                data-plasmic-name={"text"}
+                data-plasmic-override={overrides.text}
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return currentItem.label;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+            </div>
+          );
+        })}
+      </div>
       {(() => {
         try {
           return $props.data.length > 0;
@@ -365,7 +463,7 @@ function PlasmicChartViow__RenderFunc(props: {
             try {
               return (() => {
                 try {
-                  return [$props.selectChart.config2];
+                  return $props.selectChart.config2;
                 } catch {}
               })();
             } catch (e) {
@@ -444,7 +542,9 @@ function PlasmicChartViow__RenderFunc(props: {
             __composite["tickLine"] = false;
             __composite["axisLine"] = true;
             __composite["tickMargin"] = 20;
-            __composite["key"] = $props.selectChart.config.key;
+            __composite["key"] = $props.selectChart.config2.find(
+              i => i.hidden == false
+            ).key;
             return __composite;
           })()}
         />
@@ -454,9 +554,10 @@ function PlasmicChartViow__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  frame49: ["frame49", "frame25", "frame48", "fragmentChart"],
+  frame49: ["frame49", "frame25", "frame48", "text", "fragmentChart"],
   frame25: ["frame25"],
   frame48: ["frame48"],
+  text: ["text"],
   fragmentChart: ["fragmentChart"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -466,6 +567,7 @@ type NodeDefaultElementType = {
   frame49: "div";
   frame25: "div";
   frame48: "div";
+  text: "div";
   fragmentChart: typeof Chart;
 };
 
@@ -531,6 +633,7 @@ export const PlasmicChartViow = Object.assign(
     // Helper components rendering sub-elements
     frame25: makeNodeComponent("frame25"),
     frame48: makeNodeComponent("frame48"),
+    text: makeNodeComponent("text"),
     fragmentChart: makeNodeComponent("fragmentChart"),
 
     // Metadata about props expected for PlasmicChartViow

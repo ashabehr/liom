@@ -4594,6 +4594,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicChartViow.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "PU9vKa6cnb4P",
+          "name": "Choice",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicChoice.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/choice.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicChoice.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/choice"
         }
       ],
       "icons": [
@@ -6596,6 +6610,11 @@
           "id": "oMWvE38W149h",
           "name": "Icon305Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon305.tsx"
+        },
+        {
+          "id": "jxGdzfvYEdqR",
+          "name": "Icon306Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon306.tsx"
         }
       ],
       "images": [

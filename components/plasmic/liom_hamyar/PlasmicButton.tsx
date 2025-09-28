@@ -479,7 +479,12 @@ function PlasmicButton__RenderFunc(props: {
           [sty.rootsize_minimal]: hasVariant($state, "size", "minimal"),
           [sty.rootsize_minimal_color_link]:
             hasVariant($state, "color", "link") &&
-            hasVariant($state, "size", "minimal")
+            hasVariant($state, "size", "minimal"),
+          [sty.rootunnamedVariant2]: hasVariant(
+            $state,
+            "unnamedVariant2",
+            "unnamedVariant2"
+          )
         }
       )}
       disabled={args.disabled}

@@ -83,6 +83,51 @@
   min-width: 0;
   border-width: 1px;
 }
+.freeBox__htt0J {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  column-gap: var(--token-1KusGK5GePTh);
+  min-width: 0;
+  padding: 0px;
+}
+.freeBox___3RU1D {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  column-gap: var(--token-O5TjkXII_aat);
+  padding: 0px;
+}
+.freeBox__go6J6 {
+  display: block;
+  position: relative;
+  width: 15px;
+  height: 15px;
+  max-width: 100%;
+  background: var(--token-mjj-ONNCZx4S);
+  flex-shrink: 0;
+  border-radius: 4px;
+  padding: 0px;
+}
+.text {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  align-self: flex-start;
+  min-width: 0;
+}
 .fragmentChart:global(.__wab_instance) {
   width: 100%;
   max-width: 100%;

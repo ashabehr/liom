@@ -219,6 +219,7 @@
   min-width: 0;
 }
 .freeBox__kls3Y {
+  display: flex;
   flex-direction: row;
   position: relative;
   width: 100%;
@@ -227,7 +228,6 @@
   justify-content: flex-start;
   align-items: center;
   min-width: 0;
-  display: none;
   padding: 0px;
 }
 .freeBox__tdBtA {
@@ -467,6 +467,108 @@
   text-align: right;
   font-size: var(--token-Wa5tmrNKVUYF);
   min-width: 0;
+}
+.freeBox__iOoxC {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  row-gap: var(--token-38wfsm-OP2Vm);
+  min-width: 0;
+  padding: 0px;
+}
+.text__m26V {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  font-size: var(--token-Wa5tmrNKVUYF);
+  font-weight: 500;
+  min-width: 0;
+}
+.freeBox__c06WY {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-top: 0px;
+  column-gap: var(--token-O5TjkXII_aat);
+  min-width: 0;
+  border-radius: 0.3rem;
+  padding: 8px;
+  border-width: 1px;
+}
+.svg__je4Op {
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.freeBox___4YZz {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  grid-row-gap: var(--token-uOLZE7OyOW-J);
+  grid-column-gap: var(--token-uOLZE7OyOW-J);
+  min-width: 0;
+  padding: var(--token-O5TjkXII_aat) 0px;
+}
+.freeBox__nOBn0 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  border-radius: var(--token-O5TjkXII_aat);
+  padding: 0px;
+  border: 1px solid var(--token-qvl81LxkOSoe);
+}
+.freeBox__g4CiI {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 0px;
+}
+.text__i286M {
+  width: auto;
+  height: 25px;
+  max-width: 100%;
+  text-align: right;
+  font-size: var(--token-Wa5tmrNKVUYF);
+  flex-shrink: 0;
+}
+.svg__uzFx4 {
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20px;
+  color: var(--token-4RAe7M2gInqR);
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  opacity: 1;
+  flex-shrink: 0;
 }
 .button5:global(.__wab_instance) {
   max-width: 100%;

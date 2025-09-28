@@ -121,6 +121,11 @@
   background: #154bff;
   border-radius: 25px;
 }
+.rootunnamedVariant2 {
+  background: var(--token-ukwKZMvHWx7C);
+  border-radius: 50px;
+  border-color: var(--token-qvl81LxkOSoe);
+}
 .rootbuttonDataaa {
   background: linear-gradient(#682c2c00, #682c2c00), var(--token-SX03PBUzWAqr);
 }
@@ -262,6 +267,9 @@
   background: var(--token-hBbVVSmAB0oc);
   box-shadow: 0px 4px 16px 0px #00000033;
   border-radius: 25px;
+}
+.rootunnamedVariant2:hover {
+  background: none;
 }
 .rootbuttonDataaa:hover {
   background: #ffffff00;
