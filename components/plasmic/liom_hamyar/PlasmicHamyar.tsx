@@ -8715,35 +8715,15 @@ function PlasmicHamyar__RenderFunc(props: {
                             style={(() => {
                               try {
                                 return (() => {
-                                  var hamyarTime =
-                                    $state.userdata?.result?.man?.hamyarTime;
-                                  if (hamyarTime) {
-                                    const targetDate = new Date(
-                                      Date.UTC(
-                                        hamyarTime.year,
-                                        hamyarTime.month,
-                                        hamyarTime.day,
-                                        hamyarTime.hour,
-                                        hamyarTime.minute,
-                                        hamyarTime.second
-                                      )
-                                    );
-                                    const now = new Date();
-                                    const diffMs = targetDate - now;
-                                    const diffDays =
-                                      diffMs / (1000 * 60 * 60 * 24);
-                                    const style =
-                                      diffDays > 3
-                                        ? {
-                                            background:
-                                              "var(--plasmic-token-green)"
-                                          }
-                                        : {
-                                            background:
-                                              "var(--plasmic-token-system-warning)"
-                                          };
-                                  } else {
-                                  }
+                                  return $state.userdata?.result?.man
+                                    ?.timeToEndHamyarTime?.days > 3
+                                    ? {
+                                        background: "var(--plasmic-token-green)"
+                                      }
+                                    : {
+                                        background:
+                                          "var(--plasmic-token-system-warning)"
+                                      };
                                 })();
                               } catch (e) {
                                 if (
@@ -25932,9 +25912,7 @@ function PlasmicHamyar__RenderFunc(props: {
                         ? (() => {
                             const actionArgs = {
                               customFunction: async () => {
-                                return (() => {
-                                  return window.history.back();
-                                })();
+                                return ($state.shopPage.open = false);
                               }
                             };
                             return (({ customFunction }) => {
@@ -26066,31 +26044,13 @@ function PlasmicHamyar__RenderFunc(props: {
                       style={(() => {
                         try {
                           return (() => {
-                            var hamyarTime =
-                              $state.userdata?.result?.man?.hamyarTime;
-                            if (hamyarTime) {
-                              const targetDate = new Date(
-                                Date.UTC(
-                                  hamyarTime.year,
-                                  hamyarTime.month,
-                                  hamyarTime.day,
-                                  hamyarTime.hour,
-                                  hamyarTime.minute,
-                                  hamyarTime.second
-                                )
-                              );
-                              const now = new Date();
-                              const diffMs = targetDate - now;
-                              const diffDays = diffMs / (1000 * 60 * 60 * 24);
-                              const style =
-                                diffDays > 3
-                                  ? { background: "var(--plasmic-token-green)" }
-                                  : {
-                                      background:
-                                        "var(--plasmic-token-system-warning)"
-                                    };
-                            } else {
-                            }
+                            return $state.userdata?.result?.man
+                              ?.timeToEndHamyarTime?.days > 3
+                              ? { background: "var(--plasmic-token-green)" }
+                              : {
+                                  background:
+                                    "var(--plasmic-token-system-warning)"
+                                };
                           })();
                         } catch (e) {
                           if (
@@ -26134,31 +26094,13 @@ function PlasmicHamyar__RenderFunc(props: {
                       style={(() => {
                         try {
                           return (() => {
-                            var hamyarTime =
-                              $state.userdata?.result?.man?.hamyarTime;
-                            if (hamyarTime) {
-                              const targetDate = new Date(
-                                Date.UTC(
-                                  hamyarTime.year,
-                                  hamyarTime.month,
-                                  hamyarTime.day,
-                                  hamyarTime.hour,
-                                  hamyarTime.minute,
-                                  hamyarTime.second
-                                )
-                              );
-                              const now = new Date();
-                              const diffMs = targetDate - now;
-                              const diffDays = diffMs / (1000 * 60 * 60 * 24);
-                              const style =
-                                diffDays > 3
-                                  ? { background: "var(--plasmic-token-green)" }
-                                  : {
-                                      background:
-                                        "var(--plasmic-token-system-warning)"
-                                    };
-                            } else {
-                            }
+                            return $state.userdata?.result?.man
+                              ?.timeToEndHamyarTime?.days > 3
+                              ? { background: "var(--plasmic-token-green)" }
+                              : {
+                                  background:
+                                    "var(--plasmic-token-system-warning)"
+                                };
                           })();
                         } catch (e) {
                           if (
@@ -26202,31 +26144,13 @@ function PlasmicHamyar__RenderFunc(props: {
                       style={(() => {
                         try {
                           return (() => {
-                            var hamyarTime =
-                              $state.userdata?.result?.man?.hamyarTime;
-                            if (hamyarTime) {
-                              const targetDate = new Date(
-                                Date.UTC(
-                                  hamyarTime.year,
-                                  hamyarTime.month,
-                                  hamyarTime.day,
-                                  hamyarTime.hour,
-                                  hamyarTime.minute,
-                                  hamyarTime.second
-                                )
-                              );
-                              const now = new Date();
-                              const diffMs = targetDate - now;
-                              const diffDays = diffMs / (1000 * 60 * 60 * 24);
-                              const style =
-                                diffDays > 3
-                                  ? { background: "var(--plasmic-token-green)" }
-                                  : {
-                                      background:
-                                        "var(--plasmic-token-system-warning)"
-                                    };
-                            } else {
-                            }
+                            return $state.userdata?.result?.man
+                              ?.timeToEndHamyarTime?.days > 3
+                              ? { background: "var(--plasmic-token-green)" }
+                              : {
+                                  background:
+                                    "var(--plasmic-token-system-warning)"
+                                };
                           })();
                         } catch (e) {
                           if (
@@ -26270,31 +26194,13 @@ function PlasmicHamyar__RenderFunc(props: {
                       style={(() => {
                         try {
                           return (() => {
-                            var hamyarTime =
-                              $state.userdata?.result?.man?.hamyarTime;
-                            if (hamyarTime) {
-                              const targetDate = new Date(
-                                Date.UTC(
-                                  hamyarTime.year,
-                                  hamyarTime.month,
-                                  hamyarTime.day,
-                                  hamyarTime.hour,
-                                  hamyarTime.minute,
-                                  hamyarTime.second
-                                )
-                              );
-                              const now = new Date();
-                              const diffMs = targetDate - now;
-                              const diffDays = diffMs / (1000 * 60 * 60 * 24);
-                              const style =
-                                diffDays > 3
-                                  ? { background: "var(--plasmic-token-green)" }
-                                  : {
-                                      background:
-                                        "var(--plasmic-token-system-warning)"
-                                    };
-                            } else {
-                            }
+                            return $state.userdata?.result?.man
+                              ?.timeToEndHamyarTime?.days > 3
+                              ? { background: "var(--plasmic-token-green)" }
+                              : {
+                                  background:
+                                    "var(--plasmic-token-system-warning)"
+                                };
                           })();
                         } catch (e) {
                           if (
@@ -26360,23 +26266,7 @@ function PlasmicHamyar__RenderFunc(props: {
                             throw e;
                           }
                         })()
-                      : (() => {
-                          try {
-                            return (
-                              !$state.userdata.result.man.hamyarStatus ||
-                              $state.userdata?.result?.man?.timeToEndHamyarTime
-                                ?.days < 3
-                            );
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
-                            }
-                            throw e;
-                          }
-                        })()
+                      : true
                   ) ? (
                     <div
                       className={classNames(
