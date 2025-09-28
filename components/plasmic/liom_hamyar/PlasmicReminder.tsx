@@ -81,9 +81,9 @@ import sty from "./PlasmicReminder.module.css"; // plasmic-import: 3v9tn6uUJCPM/
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
+import Icon270Icon from "./icons/PlasmicIcon__Icon270"; // plasmic-import: Y171g_Z8ZZ84/icon
 import Oval3Icon from "./icons/PlasmicIcon__Oval3"; // plasmic-import: lOJpmSR7qOUd/icon
 import Icon295Icon from "./icons/PlasmicIcon__Icon295"; // plasmic-import: SfM64OkCrE9j/icon
-import Icon270Icon from "./icons/PlasmicIcon__Icon270"; // plasmic-import: Y171g_Z8ZZ84/icon
 import Icon283Icon from "./icons/PlasmicIcon__Icon283"; // plasmic-import: d6oFXeX9yzDi/icon
 
 createPlasmicElementProxy;
@@ -145,6 +145,7 @@ export type PlasmicReminder__OverridesType = {
   datePickers?: Flex__<typeof DatePickers>;
   button4?: Flex__<typeof Button>;
   headerLiom?: Flex__<typeof HeaderLiom>;
+  button2?: Flex__<typeof Button>;
   todayMeeting2?: Flex__<"div">;
   frame22?: Flex__<"div">;
   frame23?: Flex__<"div">;
@@ -159,7 +160,11 @@ export type PlasmicReminder__OverridesType = {
   frame31?: Flex__<"div">;
   lottie?: Flex__<typeof LottieWrapper>;
   button3?: Flex__<typeof Button>;
-  button2?: Flex__<typeof Button>;
+  frame32?: Flex__<"div">;
+  frame33?: Flex__<"div">;
+  frame34?: Flex__<"div">;
+  frame35?: Flex__<"div">;
+  frame36?: Flex__<"div">;
   line?: Flex__<typeof Line>;
   swiperSlider?: Flex__<typeof SwiperSlider>;
   slide1?: Flex__<"div">;
@@ -212,7 +217,41 @@ function PlasmicReminder__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          data: ["j"],
+          data: [
+            {
+              id: 243,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "",
+              schedule_type: "everyDay",
+              name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628",
+              text: "drinkWater",
+              token1: "",
+              dates: null,
+              weekdays:
+                '["monday","tuesday","wednesday","thursday","friday","saturday"]',
+              times:
+                '["08:00","10:00","12:00","15:20","18:00","20:00","22:00","00:30"]',
+              finishTime: "2025-12-11 23:59:02",
+              active: 1
+            },
+            {
+              id: 241,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "",
+              schedule_type: "everyYear",
+              name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631\u0645",
+              text: "birthday_child",
+              token1:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1ODk2MDI4N30._Tp-wZXlukWoGyta2f-pCjVqGASV2wPp5eSWFhUPLj4",
+              dates: '["2026-03-08"]',
+              weekdays: null,
+              times: '["09:30"]',
+              finishTime: "2025-09-23 15:55:12",
+              active: 0
+            }
+          ],
           subscription: false,
           telegram: false,
           activeSmsNotif: false
@@ -446,7 +485,7 @@ function PlasmicReminder__RenderFunc(props: {
         path: "button2.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => "line"
       },
       {
         path: "button2.loading",
@@ -1465,6 +1504,120 @@ function PlasmicReminder__RenderFunc(props: {
           data-plasmic-name={"headerLiom"}
           data-plasmic-override={overrides.headerLiom}
           className={classNames("__wab_instance", sty.headerLiom)}
+          slot={
+            <Button
+              data-plasmic-name={"button2"}
+              data-plasmic-override={overrides.button2}
+              className={classNames("__wab_instance", sty.button2)}
+              color={generateStateValueProp($state, ["button2", "color"])}
+              endIcon={
+                <Icon270Icon
+                  className={classNames(projectcss.all, sty.svg__k7GJq)}
+                  role={"img"}
+                />
+              }
+              load={generateStateValueProp($state, ["button2", "load"])}
+              loading={generateStateValueProp($state, ["button2", "loading"])}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["runSetting"] = true
+                  ? (() => {
+                      const actionArgs = { eventRef: $props["setting"] };
+                      return (({ eventRef, args }) => {
+                        return eventRef?.(...(args ?? []));
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runSetting"] != null &&
+                  typeof $steps["runSetting"] === "object" &&
+                  typeof $steps["runSetting"].then === "function"
+                ) {
+                  $steps["runSetting"] = await $steps["runSetting"];
+                }
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return ($state.refresh = +"1");
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }}
+              onColorChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button2", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onLoadChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button2", "load"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onLoadingChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button2", "loading"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              showEndIcon={true}
+              size={"compact"}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__kiqd2
+                )}
+              >
+                {
+                  "\u062a\u0646\u0638\u06cc\u0645\u0627\u062a \u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627"
+                }
+              </div>
+            </Button>
+          }
         >
           <div className={classNames(projectcss.all, sty.freeBox__mFarw)}>
             <ChevronRightIcon
@@ -1556,8 +1709,9 @@ function PlasmicReminder__RenderFunc(props: {
                 (() => {
                   try {
                     return (() => {
+                      const groupsMap = new Map();
                       try {
-                        const groupsMap = new Map();
+                        const todayISO = new Date().toISOString().split("T")[0];
                         $props.data.forEach(t => {
                           let parsedDates;
                           try {
@@ -1565,18 +1719,23 @@ function PlasmicReminder__RenderFunc(props: {
                           } catch (e) {
                             parsedDates = [];
                           }
+                          if (
+                            t.schedule_type === "everyDay" ||
+                            parsedDates[0] === todayISO
+                          ) {
+                            return;
+                          }
                           t.telegramId = $props.telegramId;
                           t.phoneNumber = $props.phoneNumber;
-                          t.token1 = $props.token;
                           t.liomId = $props.manId;
-                          const key = parsedDates[0] || "__noDate__";
+                          let key = parsedDates[0] || "__noDate__";
                           if (!groupsMap.has(key)) groupsMap.set(key, []);
                           groupsMap.get(key).push(t);
                         });
                         const groups = Array.from(groupsMap.entries())
                           .sort((a, b) => {
-                            if (a[0] === "__noDate__") return 1;
-                            if (b[0] === "__noDate__") return -1;
+                            if (a[0] === "__noDate__") return -1;
+                            if (b[0] === "__noDate__") return 1;
                             const dateA = new Date(a[0]);
                             const dateB = new Date(b[0]);
                             const timeA = dateA.getTime();
@@ -1588,7 +1747,7 @@ function PlasmicReminder__RenderFunc(props: {
                           .map(entry => entry[1]);
                         return groups;
                       } catch {
-                        return "?";
+                        return [];
                       }
                     })();
                   } catch (e) {
@@ -1856,6 +2015,39 @@ function PlasmicReminder__RenderFunc(props: {
               })}
             </div>
           ) : null}
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__o4PAk
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return (() => {
+                    const today = new Date();
+                    const formatter = new Intl.DateTimeFormat("fa-IR", {
+                      day: "numeric",
+                      month: "long",
+                      timeZone: "Asia/Tehran"
+                    });
+                    const todayFa = formatter.format(today);
+                    const title = `رویدادهای امروز (${todayFa})`;
+                    return title;
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "\u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627\u06cc \u0645\u0647\u0645 \u067e\u06cc\u0634 \u0631\u0648";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </div>
           {(() => {
             try {
               return $props.data?.length == 0;
@@ -2921,118 +3113,238 @@ function PlasmicReminder__RenderFunc(props: {
               </Button>
             </div>
           ) : null}
-          <Button
-            data-plasmic-name={"button2"}
-            data-plasmic-override={overrides.button2}
-            className={classNames("__wab_instance", sty.button2)}
-            color={generateStateValueProp($state, ["button2", "color"])}
-            endIcon={
-              <Icon270Icon
-                className={classNames(projectcss.all, sty.svg__k7GJq)}
-                role={"img"}
-              />
-            }
-            load={generateStateValueProp($state, ["button2", "load"])}
-            loading={generateStateValueProp($state, ["button2", "loading"])}
-            onClick={async event => {
-              const $steps = {};
-
-              $steps["runSetting"] = true
-                ? (() => {
-                    const actionArgs = { eventRef: $props["setting"] };
-                    return (({ eventRef, args }) => {
-                      return eventRef?.(...(args ?? []));
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runSetting"] != null &&
-                typeof $steps["runSetting"] === "object" &&
-                typeof $steps["runSetting"].then === "function"
-              ) {
-                $steps["runSetting"] = await $steps["runSetting"];
-              }
-
-              $steps["runCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return ($state.refresh = +"1");
+          {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+            (() => {
+              try {
+                return (() => {
+                  try {
+                    const today = new Date();
+                    const todayISO = today.toISOString().split("T")[0];
+                    const todayWeekday = today
+                      .toLocaleDateString("en-US", { weekday: "long" })
+                      .toLowerCase();
+                    const todayAndEveryDayList = $props.data.filter(t => {
+                      let parsedDates = [];
+                      try {
+                        parsedDates = t.dates ? JSON.parse(t.dates) : [];
+                      } catch {}
+                      if (t.schedule_type === "everyDay") {
+                        let weekdays = [];
+                        try {
+                          weekdays = t.weekdays ? JSON.parse(t.weekdays) : [];
+                        } catch {}
+                        return weekdays.includes(todayWeekday);
                       }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
+                      return parsedDates[0] === todayISO;
+                    });
+                    return todayAndEveryDayList;
+                  } catch {
+                    return [];
+                  }
+                })();
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return [];
+                }
+                throw e;
               }
-            }}
-            onColorChange={async (...eventArgs: any) => {
-              ((...eventArgs) => {
-                generateStateOnChangeProp($state, ["button2", "color"])(
-                  eventArgs[0]
-                );
-              }).apply(null, eventArgs);
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            onLoadChange={async (...eventArgs: any) => {
-              ((...eventArgs) => {
-                generateStateOnChangeProp($state, ["button2", "load"])(
-                  eventArgs[0]
-                );
-              }).apply(null, eventArgs);
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            onLoadingChange={async (...eventArgs: any) => {
-              ((...eventArgs) => {
-                generateStateOnChangeProp($state, ["button2", "loading"])(
-                  eventArgs[0]
-                );
-              }).apply(null, eventArgs);
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            showEndIcon={true}
-            size={"compact"}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__kiqd2
-              )}
-            >
-              {
-                "\u062a\u0646\u0638\u06cc\u0645\u0627\u062a \u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627"
-              }
-            </div>
-          </Button>
+            })()
+          ).map((__plasmic_item_0, __plasmic_idx_0) => {
+            const currentday = __plasmic_item_0;
+            const currentIndex = __plasmic_idx_0;
+            return (
+              <div
+                data-plasmic-name={"frame32"}
+                data-plasmic-override={overrides.frame32}
+                className={classNames(projectcss.all, sty.frame32)}
+                key={currentIndex}
+              >
+                <div
+                  data-plasmic-name={"frame33"}
+                  data-plasmic-override={overrides.frame33}
+                  className={classNames(projectcss.all, sty.frame33)}
+                >
+                  <div
+                    data-plasmic-name={"frame34"}
+                    data-plasmic-override={overrides.frame34}
+                    className={classNames(projectcss.all, sty.frame34)}
+                  >
+                    <div
+                      data-plasmic-name={"frame35"}
+                      data-plasmic-override={overrides.frame35}
+                      className={classNames(projectcss.all, sty.frame35)}
+                    >
+                      <div
+                        data-plasmic-name={"frame36"}
+                        data-plasmic-override={overrides.frame36}
+                        className={classNames(projectcss.all, sty.frame36)}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__czZhb
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__yoYac
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__glRVz
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return currentday.name;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "Townhall Meeting";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__ufiah
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return (() => {
+                                      try {
+                                        var date = JSON.parse(
+                                          currentday[0].dates
+                                        )[0];
+                                        if (date)
+                                          return new Date(
+                                            date
+                                          ).toLocaleDateString("fa-IR", {
+                                            month: "long"
+                                          });
+                                        else return "";
+                                      } catch {
+                                        return "";
+                                      }
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "Townhall Meeting";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__e6Ao0
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__pRlD7
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return (() => {
+                                      try {
+                                        return (
+                                          "ساعت: " +
+                                          JSON.parse(currentday.times).join(
+                                            "  ,  "
+                                          )
+                                        );
+                                      } catch {}
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "Townhall Meeting";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__qWgY
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return (() => {
+                                      try {
+                                        var date = JSON.parse(
+                                          currentday[0].dates
+                                        )[0];
+                                        if (date)
+                                          return new Date(
+                                            date
+                                          ).toLocaleDateString("fa-IR", {
+                                            month: "long"
+                                          });
+                                        else return "";
+                                      } catch {
+                                        return "";
+                                      }
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "Townhall Meeting";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       ) : null}
       {(() => {
@@ -4375,6 +4687,7 @@ const PlasmicDescendants = {
     "datePickers",
     "button4",
     "headerLiom",
+    "button2",
     "todayMeeting2",
     "frame22",
     "frame23",
@@ -4389,7 +4702,11 @@ const PlasmicDescendants = {
     "frame31",
     "lottie",
     "button3",
-    "button2",
+    "frame32",
+    "frame33",
+    "frame34",
+    "frame35",
+    "frame36",
     "line",
     "swiperSlider",
     "slide1",
@@ -4409,7 +4726,8 @@ const PlasmicDescendants = {
     "dialog2",
     "datePickers",
     "button4",
-    "headerLiom"
+    "headerLiom",
+    "button2"
   ],
   dialog: ["dialog", "input", "select", "switchbest3", "button5"],
   input: ["input"],
@@ -4419,7 +4737,8 @@ const PlasmicDescendants = {
   dialog2: ["dialog2", "datePickers", "button4"],
   datePickers: ["datePickers"],
   button4: ["button4"],
-  headerLiom: ["headerLiom"],
+  headerLiom: ["headerLiom", "button2"],
+  button2: ["button2"],
   todayMeeting2: [
     "todayMeeting2",
     "frame22",
@@ -4448,7 +4767,11 @@ const PlasmicDescendants = {
   frame31: ["frame31"],
   lottie: ["lottie"],
   button3: ["button3"],
-  button2: ["button2"],
+  frame32: ["frame32", "frame33", "frame34", "frame35", "frame36"],
+  frame33: ["frame33", "frame34", "frame35", "frame36"],
+  frame34: ["frame34", "frame35", "frame36"],
+  frame35: ["frame35", "frame36"],
+  frame36: ["frame36"],
   line: ["line"],
   swiperSlider: [
     "swiperSlider",
@@ -4480,6 +4803,7 @@ type NodeDefaultElementType = {
   datePickers: typeof DatePickers;
   button4: typeof Button;
   headerLiom: typeof HeaderLiom;
+  button2: typeof Button;
   todayMeeting2: "div";
   frame22: "div";
   frame23: "div";
@@ -4494,7 +4818,11 @@ type NodeDefaultElementType = {
   frame31: "div";
   lottie: typeof LottieWrapper;
   button3: typeof Button;
-  button2: typeof Button;
+  frame32: "div";
+  frame33: "div";
+  frame34: "div";
+  frame35: "div";
+  frame36: "div";
   line: typeof Line;
   swiperSlider: typeof SwiperSlider;
   slide1: "div";
@@ -4575,6 +4903,7 @@ export const PlasmicReminder = Object.assign(
     datePickers: makeNodeComponent("datePickers"),
     button4: makeNodeComponent("button4"),
     headerLiom: makeNodeComponent("headerLiom"),
+    button2: makeNodeComponent("button2"),
     todayMeeting2: makeNodeComponent("todayMeeting2"),
     frame22: makeNodeComponent("frame22"),
     frame23: makeNodeComponent("frame23"),
@@ -4589,7 +4918,11 @@ export const PlasmicReminder = Object.assign(
     frame31: makeNodeComponent("frame31"),
     lottie: makeNodeComponent("lottie"),
     button3: makeNodeComponent("button3"),
-    button2: makeNodeComponent("button2"),
+    frame32: makeNodeComponent("frame32"),
+    frame33: makeNodeComponent("frame33"),
+    frame34: makeNodeComponent("frame34"),
+    frame35: makeNodeComponent("frame35"),
+    frame36: makeNodeComponent("frame36"),
     line: makeNodeComponent("line"),
     swiperSlider: makeNodeComponent("swiperSlider"),
     slide1: makeNodeComponent("slide1"),

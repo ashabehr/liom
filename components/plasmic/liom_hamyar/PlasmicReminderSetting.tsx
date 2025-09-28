@@ -3891,12 +3891,19 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       t.telegramId = $props.telegramId;
                       t.phoneNumber = $props.phoneNumber;
                       t.liomId = $props.manId;
-                      const key = parsedDates[0] || "__noDate__";
+                      let key;
+                      if (t.schedule_type === "everyDay") {
+                        key = "__everyDay__";
+                      } else {
+                        key = parsedDates[0] || "__noDate__";
+                      }
                       if (!groupsMap.has(key)) groupsMap.set(key, []);
                       groupsMap.get(key).push(t);
                     });
                     const groups = Array.from(groupsMap.entries())
                       .sort((a, b) => {
+                        if (a[0] === "__everyDay__") return -1;
+                        if (b[0] === "__everyDay__") return 1;
                         if (a[0] === "__noDate__") return -1;
                         if (b[0] === "__noDate__") return 1;
                         const dateA = new Date(a[0]);
@@ -3946,6 +3953,25 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       projectcss.__wab_text,
                       sty.text__eVpMn
                     )}
+                    style={(() => {
+                      try {
+                        return (() => {
+                          const style =
+                            currentday[0].schedule_type === "everyDay"
+                              ? { fontSize: "20px" }
+                              : {};
+                          return style;
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
                   >
                     <React.Fragment>
                       {(() => {
@@ -3968,12 +3994,20 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     day: "numeric"
                                   }
                                 );
-                                return formatter.format(d);
+                                if (currentday[0].schedule_type == "everyDay") {
+                                  return "روزانه";
+                                } else {
+                                  return formatter.format(d);
+                                }
                               } else {
-                                return "?";
+                                return currentday[0].schedule_type == "everyDay"
+                                  ? "روزانه"
+                                  : "?";
                               }
                             } catch {
-                              return "?";
+                              return currentday[0].schedule_type == "everyDay"
+                                ? "روزانه"
+                                : "?";
                             }
                           })();
                         } catch (e) {

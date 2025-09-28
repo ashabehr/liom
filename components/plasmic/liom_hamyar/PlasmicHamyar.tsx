@@ -9859,7 +9859,15 @@ function PlasmicHamyar__RenderFunc(props: {
                           !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                           (() => {
                             try {
-                              return $state.remind?.slice(0, 2);
+                              return (() => {
+                                return (
+                                  $state.remind
+                                    ?.filter(
+                                      i => i.schedule_type === "everyYear"
+                                    )
+                                    .slice(0, 2) ?? []
+                                );
+                              })();
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||

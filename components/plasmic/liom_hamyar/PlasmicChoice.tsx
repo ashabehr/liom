@@ -159,6 +159,12 @@ function PlasmicChoice__RenderFunc(props: {
             value: 4
           }
         ]
+      },
+      {
+        path: "variable2",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       }
     ],
     [$props, $ctx, $refs]
@@ -245,7 +251,60 @@ function PlasmicChoice__RenderFunc(props: {
                         data-plasmic-name={"radioGrop"}
                         data-plasmic-override={overrides.radioGrop}
                         className={classNames("__wab_instance", sty.radioGrop)}
-                        style2={"lineligt"}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["runCode"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      if (
+                                        $state.variable2.find(
+                                          i => i === currentItem.label
+                                        )
+                                      ) {
+                                        return ($state.variable2 =
+                                          $state.variable2.filter(
+                                            i => i !== currentItem.label
+                                          ));
+                                      } else
+                                        return $state.variable2.push(
+                                          currentItem.label
+                                        );
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+                        }}
+                        selected={(() => {
+                          try {
+                            return $state.variable2.find(
+                              i => i == currentItem.label
+                            )
+                              ? true
+                              : false;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()}
                       >
                         <React.Fragment>
                           {(() => {
