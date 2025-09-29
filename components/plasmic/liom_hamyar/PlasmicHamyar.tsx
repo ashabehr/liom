@@ -19118,6 +19118,7 @@ function PlasmicHamyar__RenderFunc(props: {
                   "shopModalMobile",
                   "click"
                 ])}
+                dark={false}
                 onClick={async event => {
                   const $steps = {};
 
@@ -25817,6 +25818,57 @@ function PlasmicHamyar__RenderFunc(props: {
               />
             );
           })()}
+          <BackHandler
+            active={(() => {
+              try {
+                return $state.shopPage.open;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()}
+            className={classNames("__wab_instance", sty.backHandler__rcm1V)}
+            onBack={async () => {
+              const $steps = {};
+
+              $steps["updateShopPageOpen"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["shopPage", "open"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateShopPageOpen"] != null &&
+                typeof $steps["updateShopPageOpen"] === "object" &&
+                typeof $steps["updateShopPageOpen"].then === "function"
+              ) {
+                $steps["updateShopPageOpen"] = await $steps[
+                  "updateShopPageOpen"
+                ];
+              }
+            }}
+          />
+
           <AntdModal
             data-plasmic-name={"shopPage"}
             data-plasmic-override={overrides.shopPage}
@@ -25958,62 +26010,6 @@ function PlasmicHamyar__RenderFunc(props: {
               )
             })}
           >
-            <BackHandler
-              active={(() => {
-                try {
-                  return $state.shopPage.open;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })()}
-              className={classNames("__wab_instance", sty.backHandler__rcm1V)}
-              onBack={async () => {
-                const $steps = {};
-
-                $steps["updateShopPageOpen"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["shopPage", "open"]
-                        },
-                        operation: 0,
-                        value: false
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateShopPageOpen"] != null &&
-                  typeof $steps["updateShopPageOpen"] === "object" &&
-                  typeof $steps["updateShopPageOpen"].then === "function"
-                ) {
-                  $steps["updateShopPageOpen"] = await $steps[
-                    "updateShopPageOpen"
-                  ];
-                }
-              }}
-            />
-
             <section className={classNames(projectcss.all, sty.section__dqO4Z)}>
               <div className={classNames(projectcss.all, sty.freeBox__hl29H)}>
                 <div

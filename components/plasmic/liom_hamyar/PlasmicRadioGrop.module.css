@@ -32,6 +32,11 @@
 .rootsize_mini {
   padding: 4px;
 }
+.rootchoise {
+  background: var(--token-RfhqiwT2YAVo);
+  border-radius: 50px;
+  border-color: var(--token-ODBUExjR6VEF);
+}
 .rootcolor_light_selected {
   background: var(--token-xZSjH46lB6C3);
 }

@@ -1241,7 +1241,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                   {
                     title: "ویرایش دوره",
                     text: "اگر اطلاعات دوره ات رو اشتباه وارد کردی و اینطوری تقویم و چرخه ات متناسب محاسبه نشده اند میتونی به کمک این دکمه اطلاعات رو تصحیح کنی",
-                    action: "editPage"
+                    action: "editPage",
+                    show: true
                   }
                 ]
               };
@@ -3843,263 +3844,290 @@ function PlasmicCalendar2__RenderFunc(props: {
                 className={classNames(projectcss.all, sty.freeBox__oTaUr)}
                 key={currentIndex}
               >
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___2B3Eh)}
-                >
+                {(() => {
+                  try {
+                    return currentItem.show;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__wbCb7
-                    )}
+                    className={classNames(projectcss.all, sty.freeBox__xOsFd)}
                   >
-                    <React.Fragment>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___2B3Eh
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__wbCb7
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return currentItem.title;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__kCsR
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return currentItem.text;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__f64J)}
+                    >
                       {(() => {
-                        try {
-                          return currentItem.title;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__kCsR
-                    )}
-                  >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return currentItem.text;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  </div>
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__f64J)}>
-                  {(() => {
-                    const child$Props = {
-                      className: classNames("__wab_instance", sty.button19),
-                      color: generateStateValueProp($state, [
-                        "button19",
-                        __plasmic_idx_0,
-                        "color"
-                      ]),
-                      load: generateStateValueProp($state, [
-                        "button19",
-                        __plasmic_idx_0,
-                        "load"
-                      ]),
-                      loading: generateStateValueProp($state, [
-                        "button19",
-                        __plasmic_idx_0,
-                        "loading"
-                      ]),
-                      onClick: async event => {
-                        const $steps = {};
-
-                        $steps["updateEditOpendialog"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["edit", "opendialog"]
-                                },
-                                operation: 0,
-                                value: false
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateEditOpendialog"] != null &&
-                          typeof $steps["updateEditOpendialog"] === "object" &&
-                          typeof $steps["updateEditOpendialog"].then ===
-                            "function"
-                        ) {
-                          $steps["updateEditOpendialog"] = await $steps[
-                            "updateEditOpendialog"
-                          ];
-                        }
-
-                        $steps["updateWarningOpen"] =
-                          currentItem.action == "warning"
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["warning", "open"]
-                                  },
-                                  operation: 0,
-                                  value: true
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                        if (
-                          $steps["updateWarningOpen"] != null &&
-                          typeof $steps["updateWarningOpen"] === "object" &&
-                          typeof $steps["updateWarningOpen"].then === "function"
-                        ) {
-                          $steps["updateWarningOpen"] = await $steps[
-                            "updateWarningOpen"
-                          ];
-                        }
-
-                        $steps["runSetting"] =
-                          currentItem.action == "editPage"
-                            ? (() => {
-                                const actionArgs = {
-                                  eventRef: $props["setting"]
-                                };
-                                return (({ eventRef, args }) => {
-                                  return eventRef?.(...(args ?? []));
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                        if (
-                          $steps["runSetting"] != null &&
-                          typeof $steps["runSetting"] === "object" &&
-                          typeof $steps["runSetting"].then === "function"
-                        ) {
-                          $steps["runSetting"] = await $steps["runSetting"];
-                        }
-                      },
-                      onColorChange: async (...eventArgs: any) => {
-                        ((...eventArgs) => {
-                          generateStateOnChangeProp($state, [
+                        const child$Props = {
+                          className: classNames("__wab_instance", sty.button19),
+                          color: generateStateValueProp($state, [
                             "button19",
                             __plasmic_idx_0,
                             "color"
-                          ])(eventArgs[0]);
-                        }).apply(null, eventArgs);
-
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
-                        }
-                      },
-                      onLoadChange: async (...eventArgs: any) => {
-                        ((...eventArgs) => {
-                          generateStateOnChangeProp($state, [
+                          ]),
+                          load: generateStateValueProp($state, [
                             "button19",
                             __plasmic_idx_0,
                             "load"
-                          ])(eventArgs[0]);
-                        }).apply(null, eventArgs);
-
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
-                        }
-                      },
-                      onLoadingChange: async (...eventArgs: any) => {
-                        ((...eventArgs) => {
-                          generateStateOnChangeProp($state, [
+                          ]),
+                          loading: generateStateValueProp($state, [
                             "button19",
                             __plasmic_idx_0,
                             "loading"
-                          ])(eventArgs[0]);
-                        }).apply(null, eventArgs);
+                          ]),
+                          onClick: async event => {
+                            const $steps = {};
 
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
-                        }
-                      },
-                      shape: "rounded",
-                      size: "compact"
-                    };
+                            $steps["updateEditOpendialog"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["edit", "opendialog"]
+                                    },
+                                    operation: 0,
+                                    value: false
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
 
-                    initializePlasmicStates(
-                      $state,
-                      [
-                        {
-                          name: "button19[].color",
-                          initFunc: ({ $props, $state, $queries }) => "line"
-                        },
-                        {
-                          name: "button19[].load",
-                          initFunc: ({ $props, $state, $queries }) => false
-                        },
-                        {
-                          name: "button19[].loading",
-                          initFunc: ({ $props, $state, $queries }) => undefined
-                        }
-                      ],
-                      [__plasmic_idx_0]
-                    );
-                    return (
-                      <Button
-                        data-plasmic-name={"button19"}
-                        data-plasmic-override={overrides.button19}
-                        {...child$Props}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text___9RvYj
-                          )}
-                        >
-                          {"\u062b\u0628\u062a"}
-                        </div>
-                      </Button>
-                    );
-                  })()}
-                </div>
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateEditOpendialog"] != null &&
+                              typeof $steps["updateEditOpendialog"] ===
+                                "object" &&
+                              typeof $steps["updateEditOpendialog"].then ===
+                                "function"
+                            ) {
+                              $steps["updateEditOpendialog"] = await $steps[
+                                "updateEditOpendialog"
+                              ];
+                            }
+
+                            $steps["updateWarningOpen"] =
+                              currentItem.action == "warning"
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["warning", "open"]
+                                      },
+                                      operation: 0,
+                                      value: true
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["updateWarningOpen"] != null &&
+                              typeof $steps["updateWarningOpen"] === "object" &&
+                              typeof $steps["updateWarningOpen"].then ===
+                                "function"
+                            ) {
+                              $steps["updateWarningOpen"] = await $steps[
+                                "updateWarningOpen"
+                              ];
+                            }
+
+                            $steps["runSetting"] =
+                              currentItem.action == "editPage"
+                                ? (() => {
+                                    const actionArgs = {
+                                      eventRef: $props["setting"]
+                                    };
+                                    return (({ eventRef, args }) => {
+                                      return eventRef?.(...(args ?? []));
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["runSetting"] != null &&
+                              typeof $steps["runSetting"] === "object" &&
+                              typeof $steps["runSetting"].then === "function"
+                            ) {
+                              $steps["runSetting"] = await $steps["runSetting"];
+                            }
+                          },
+                          onColorChange: async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button19",
+                                __plasmic_idx_0,
+                                "color"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          },
+                          onLoadChange: async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button19",
+                                __plasmic_idx_0,
+                                "load"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          },
+                          onLoadingChange: async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button19",
+                                __plasmic_idx_0,
+                                "loading"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          },
+                          shape: "rounded",
+                          size: "compact"
+                        };
+
+                        initializePlasmicStates(
+                          $state,
+                          [
+                            {
+                              name: "button19[].color",
+                              initFunc: ({ $props, $state, $queries }) => "line"
+                            },
+                            {
+                              name: "button19[].load",
+                              initFunc: ({ $props, $state, $queries }) => false
+                            },
+                            {
+                              name: "button19[].loading",
+                              initFunc: ({ $props, $state, $queries }) =>
+                                undefined
+                            }
+                          ],
+                          [__plasmic_idx_0]
+                        );
+                        return (
+                          <Button
+                            data-plasmic-name={"button19"}
+                            data-plasmic-override={overrides.button19}
+                            {...child$Props}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text___9RvYj
+                              )}
+                            >
+                              {"\u062b\u0628\u062a"}
+                            </div>
+                          </Button>
+                        );
+                      })()}
+                    </div>
+                  </div>
+                ) : null}
               </div>
             );
           })}
@@ -4256,18 +4284,44 @@ function PlasmicCalendar2__RenderFunc(props: {
                             (() => {
                               try {
                                 return (() => {
-                                  $state.list.period.start = {
-                                    year: $state.lastTime.gy,
-                                    month: $state.lastTime.gm,
-                                    day: $state.lastTime.gd
-                                  };
-                                  return {
-                                    cycle: $state.cycle,
-                                    length: $state.lengh,
-                                    type: $ctx.query.type,
-                                    authorization: $state.token,
-                                    calendar: $state.list
-                                  };
+                                  const data =
+                                    $state.userInfo?.result?.calender?.[0];
+                                  function getIranToday() {
+                                    const nowIran = new Date(
+                                      new Date().toLocaleString("en-US", {
+                                        timeZone: "Asia/Tehran"
+                                      })
+                                    );
+                                    return new Date(
+                                      nowIran.getFullYear(),
+                                      nowIran.getMonth(),
+                                      nowIran.getDate()
+                                    );
+                                  }
+                                  function updateCycleValue() {
+                                    const todayDate = getIranToday();
+                                    const endDate = new Date(
+                                      data.end.year,
+                                      data.end.month - 1,
+                                      data.end.day
+                                    );
+                                    let diffDays = Math.floor(
+                                      (todayDate - endDate) /
+                                        (1000 * 60 * 60 * 24)
+                                    );
+                                    endDate.setDate(endDate.getDate() + 1);
+                                    diffDays = diffDays + 1;
+                                    (data.end = {
+                                      year: endDate.getFullYear(),
+                                      month: endDate.getMonth() + 1,
+                                      day: endDate.getDate()
+                                    }),
+                                      (data.addCycle = diffDays);
+                                    data.cycleValue = diffDays;
+                                    return data;
+                                  }
+                                  const updated = updateCycleValue();
+                                  return updated;
                                 })();
                               } catch (e) {
                                 if (
@@ -4295,6 +4349,42 @@ function PlasmicCalendar2__RenderFunc(props: {
                     $steps["invokeGlobalAction"] = await $steps[
                       "invokeGlobalAction"
                     ];
+                  }
+
+                  $steps["updateEditTime"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["editTime"]
+                          },
+                          operation: 0,
+                          value: new Date().toLocaleString("fa-IR", {
+                            timeZone: "Asia/Tehran"
+                          })
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateEditTime"] != null &&
+                    typeof $steps["updateEditTime"] === "object" &&
+                    typeof $steps["updateEditTime"].then === "function"
+                  ) {
+                    $steps["updateEditTime"] = await $steps["updateEditTime"];
                   }
 
                   $steps["updateWarningOpen"] = true
@@ -18002,22 +18092,42 @@ function PlasmicCalendar2__RenderFunc(props: {
                             $steps["runCode"] = await $steps["runCode"];
                           }
 
-                          $steps["runSetting"] = true
+                          $steps["updateEditOpendialog"] = true
                             ? (() => {
                                 const actionArgs = {
-                                  eventRef: $props["setting"]
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["edit", "opendialog"]
+                                  },
+                                  operation: 0,
+                                  value: true
                                 };
-                                return (({ eventRef, args }) => {
-                                  return eventRef?.(...(args ?? []));
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
                                 })?.apply(null, [actionArgs]);
                               })()
                             : undefined;
                           if (
-                            $steps["runSetting"] != null &&
-                            typeof $steps["runSetting"] === "object" &&
-                            typeof $steps["runSetting"].then === "function"
+                            $steps["updateEditOpendialog"] != null &&
+                            typeof $steps["updateEditOpendialog"] ===
+                              "object" &&
+                            typeof $steps["updateEditOpendialog"].then ===
+                              "function"
                           ) {
-                            $steps["runSetting"] = await $steps["runSetting"];
+                            $steps["updateEditOpendialog"] = await $steps[
+                              "updateEditOpendialog"
+                            ];
                           }
 
                           $steps["invokeGlobalAction"] = true

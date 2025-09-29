@@ -76,6 +76,7 @@ export type PlasmicRadioGrop__VariantMembers = {
   color: "light";
   style2: "line" | "grayBackgerand" | "lineligt";
   size: "mini";
+  choise: "choise";
 };
 export type PlasmicRadioGrop__VariantsArgs = {
   selected?: SingleBooleanChoiceArg<"selected">;
@@ -84,6 +85,7 @@ export type PlasmicRadioGrop__VariantsArgs = {
   color?: SingleChoiceArg<"light">;
   style2?: SingleChoiceArg<"line" | "grayBackgerand" | "lineligt">;
   size?: SingleChoiceArg<"mini">;
+  choise?: SingleBooleanChoiceArg<"choise">;
 };
 type VariantPropType = keyof PlasmicRadioGrop__VariantsArgs;
 export const PlasmicRadioGrop__VariantProps = new Array<VariantPropType>(
@@ -92,7 +94,8 @@ export const PlasmicRadioGrop__VariantProps = new Array<VariantPropType>(
   "disable",
   "color",
   "style2",
-  "size"
+  "size",
+  "choise"
 );
 
 export type PlasmicRadioGrop__ArgsType = {
@@ -119,6 +122,7 @@ export interface DefaultRadioGropProps {
   color?: SingleChoiceArg<"light">;
   style2?: SingleChoiceArg<"line" | "grayBackgerand" | "lineligt">;
   size?: SingleChoiceArg<"mini">;
+  choise?: SingleBooleanChoiceArg<"choise">;
   className?: string;
 }
 
@@ -202,6 +206,12 @@ function PlasmicRadioGrop__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.size
+      },
+      {
+        path: "choise",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.choise
       }
     ],
     [$props, $ctx, $refs]
@@ -229,6 +239,7 @@ function PlasmicRadioGrop__RenderFunc(props: {
         styleTokensClassNames,
         sty.root,
         {
+          [sty.rootchoise]: hasVariant($state, "choise", "choise"),
           [sty.rootcolor_light]: hasVariant($state, "color", "light"),
           [sty.rootcolor_light_selected]:
             hasVariant($state, "color", "light") &&
@@ -266,6 +277,7 @@ function PlasmicRadioGrop__RenderFunc(props: {
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
         className={classNames(projectcss.all, sty.freeBox, {
+          [sty.freeBoxchoise]: hasVariant($state, "choise", "choise"),
           [sty.freeBoxselected]: hasVariant($state, "selected", "selected"),
           [sty.freeBoxstyle2_lineligt]: hasVariant($state, "style2", "lineligt")
         })}

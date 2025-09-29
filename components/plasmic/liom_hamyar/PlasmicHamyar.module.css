@@ -3851,7 +3851,7 @@
   max-width: 100%;
   left: 0;
   top: auto;
-  z-index: 1;
+  z-index: 2000;
   position: fixed;
   right: 0;
   bottom: 0;
@@ -6211,13 +6211,17 @@
 .settingCycle4editCycle:global(.__wab_instance) {
   display: grid;
 }
+.backHandler__rcm1V:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
 .shopPage:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
   height: 1118px;
   left: 0px;
   top: 0px;
-  z-index: 1;
+  z-index: 0;
   position: fixed;
   margin-bottom: 0px;
 }
@@ -6258,10 +6262,6 @@
     height: 30px;
     outline: none;
   }
-}
-.backHandler__rcm1V:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
 }
 .section__dqO4Z {
   display: grid;
