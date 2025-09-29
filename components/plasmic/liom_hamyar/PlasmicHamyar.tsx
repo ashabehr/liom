@@ -3489,11 +3489,10 @@ function PlasmicHamyar__RenderFunc(props: {
                                       } else if (
                                         typeof window !== "undefined"
                                       ) {
-                                        if (inWebViow)
-                                          return window.open(
-                                            "https://t.me/liomApp_bot",
-                                            "_blank"
-                                          );
+                                        return window.open(
+                                          "https://t.me/liomApp_bot",
+                                          "_blank"
+                                        );
                                       }
                                     })();
                                   }
@@ -8989,11 +8988,10 @@ function PlasmicHamyar__RenderFunc(props: {
                                         "https://t.me/liomApp_bot"
                                       );
                                     } else if (typeof window !== "undefined") {
-                                      if (inWebViow)
-                                        window.open(
-                                          "https://t.me/liomApp_bot",
-                                          "_blank"
-                                        );
+                                      window.open(
+                                        "https://t.me/liomApp_bot",
+                                        "_blank"
+                                      );
                                     }
                                     return window.localStorage.setItem(
                                       "telegram",
@@ -23859,11 +23857,10 @@ function PlasmicHamyar__RenderFunc(props: {
                                       "https://t.me/liomApp_bot"
                                     );
                                   } else if (typeof window !== "undefined") {
-                                    if (inWebViow)
-                                      window.open(
-                                        "https://t.me/liomApp_bot",
-                                        "_blank"
-                                      );
+                                    window.open(
+                                      "https://t.me/liomApp_bot",
+                                      "_blank"
+                                    );
                                   }
                                   return window.localStorage.setItem(
                                     "telegram",
