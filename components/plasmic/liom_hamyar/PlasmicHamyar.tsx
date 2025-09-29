@@ -2155,7 +2155,7 @@ function PlasmicHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.ignore && $state.userdata?.result?.man?.id == "1";
+              return $state.ignore;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -5171,7 +5171,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                   return (
                                     $state.userdata?.result?.man?.id == "1" ||
                                     $state.userdata?.result?.man?.id ==
-                                      "b60ec8fa-455a-4c93-9b25-54b6981d90cd"
+                                      "ce7d05fb-17de-4a65-97e0-501b570834db"
                                   );
                                 } catch (e) {
                                   if (
@@ -27998,7 +27998,13 @@ function PlasmicHamyar__RenderFunc(props: {
           <AntdModal
             data-plasmic-name={"warning"}
             data-plasmic-override={overrides.warning}
-            className={classNames("__wab_instance", sty.warning)}
+            className={classNames("__wab_instance", sty.warning, {
+              [sty.warningnoPartner]: hasVariant(
+                $state,
+                "noPartner",
+                "noPartner"
+              )
+            })}
             defaultStylesClassName={classNames(
               projectcss.root_reset,
               projectcss.plasmic_default_styles,
