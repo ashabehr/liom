@@ -4245,12 +4245,12 @@ function PlasmicCalendar2__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["updateButton25Loading"] = true
+                  $steps["updateButton20Loading"] = true
                     ? (() => {
                         const actionArgs = {
                           variable: {
                             objRoot: $state,
-                            variablePath: ["button25", "loading"]
+                            variablePath: ["button20", "loading"]
                           },
                           operation: 0,
                           value: true
@@ -4272,12 +4272,12 @@ function PlasmicCalendar2__RenderFunc(props: {
                       })()
                     : undefined;
                   if (
-                    $steps["updateButton25Loading"] != null &&
-                    typeof $steps["updateButton25Loading"] === "object" &&
-                    typeof $steps["updateButton25Loading"].then === "function"
+                    $steps["updateButton20Loading"] != null &&
+                    typeof $steps["updateButton20Loading"] === "object" &&
+                    typeof $steps["updateButton20Loading"].then === "function"
                   ) {
-                    $steps["updateButton25Loading"] = await $steps[
-                      "updateButton25Loading"
+                    $steps["updateButton20Loading"] = await $steps[
+                      "updateButton20Loading"
                     ];
                   }
 
@@ -4307,23 +4307,29 @@ function PlasmicCalendar2__RenderFunc(props: {
                                   }
                                   function updateCycleValue() {
                                     const todayDate = getIranToday();
-                                    const endDate = new Date(
+                                    let endDate = new Date(
                                       data.end.year,
                                       data.end.month - 1,
                                       data.end.day
                                     );
+                                    if (endDate > todayDate) {
+                                      endDate.setDate(
+                                        endDate.getDate() -
+                                          $state.userInfo?.result?.userStatus
+                                            ?.cycle
+                                      );
+                                    }
                                     let diffDays = Math.floor(
                                       (todayDate - endDate) /
                                         (1000 * 60 * 60 * 24)
                                     );
                                     endDate.setDate(endDate.getDate() + 1);
-                                    diffDays = diffDays + 1;
-                                    (data.end = {
+                                    data.end = {
                                       year: endDate.getFullYear(),
                                       month: endDate.getMonth() + 1,
                                       day: endDate.getDate()
-                                    }),
-                                      (data.addCycle = diffDays);
+                                    };
+                                    data.addCycle = diffDays;
                                     data.cycleValue = diffDays;
                                     return data;
                                   }
@@ -4439,7 +4445,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                         const actionArgs = {
                           variable: {
                             objRoot: $state,
-                            variablePath: ["button25", "loading"]
+                            variablePath: ["button20", "loading"]
                           },
                           operation: 0,
                           value: false
