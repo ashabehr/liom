@@ -45,6 +45,11 @@
   border-width: 1px;
   border-color: var(--token-55cSeNPovQFh);
 }
+.rootchoise_selected {
+  background: var(--token-qvl81LxkOSoe);
+  border-width: 1px;
+  border-style: solid;
+}
 .rootstyle2_grayBackgerand_color_light_selected {
   background: var(--token-IlR0iqdnKI_m);
 }
@@ -75,4 +80,7 @@
 }
 .slotTargetChildrenstyle2_lineligt_selected {
   color: #535353;
+}
+.slotTargetChildrenchoise_selected {
+  color: var(--token-R_Rsn0nP9oIv);
 }

@@ -250,6 +250,7 @@ function PlasmicChoice__RenderFunc(props: {
                       <RadioGrop
                         data-plasmic-name={"radioGrop"}
                         data-plasmic-override={overrides.radioGrop}
+                        choise={true}
                         className={classNames("__wab_instance", sty.radioGrop)}
                         onClick={async event => {
                           const $steps = {};

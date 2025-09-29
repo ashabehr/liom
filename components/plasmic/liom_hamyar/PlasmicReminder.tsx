@@ -67,6 +67,7 @@ import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
+import MenuIcon from "../../MenuIcon"; // plasmic-import: JBF-V8Q5mpWl/component
 import Line from "../../Line"; // plasmic-import: tYgE5kAlYGXB/component
 import { SwiperSlider } from "@/components/SwiperSlider"; // plasmic-import: hd-bzFw1zcpE/codeComponent
 import ReminderSetting from "../../ReminderSetting"; // plasmic-import: VZcPBQBUFNbT/component
@@ -156,6 +157,7 @@ export type PlasmicReminder__OverridesType = {
   lottie?: Flex__<typeof LottieWrapper>;
   button3?: Flex__<typeof Button>;
   frame32?: Flex__<"div">;
+  menuIcon?: Flex__<typeof MenuIcon>;
   frame33?: Flex__<"div">;
   frame34?: Flex__<"div">;
   frame35?: Flex__<"div">;
@@ -214,23 +216,6 @@ function PlasmicReminder__RenderFunc(props: {
         {
           data: [
             {
-              id: 243,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "",
-              schedule_type: "everyDay",
-              name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628",
-              text: "drinkWater",
-              token1: "",
-              dates: null,
-              weekdays:
-                '["monday","tuesday","wednesday","thursday","friday","saturday"]',
-              times:
-                '["08:00","10:00","12:00","15:20","18:00","20:00","22:00","00:30"]',
-              finishTime: "2025-12-11 23:59:02",
-              active: 1
-            },
-            {
               id: 241,
               liomId: "1",
               telegramId: "5384384618",
@@ -240,7 +225,7 @@ function PlasmicReminder__RenderFunc(props: {
               text: "birthday_child",
               token1:
                 "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1ODk2MDI4N30._Tp-wZXlukWoGyta2f-pCjVqGASV2wPp5eSWFhUPLj4",
-              dates: '["2026-03-08"]',
+              dates: '["2025-09-29"]',
               weekdays: null,
               times: '["09:30"]',
               finishTime: "2025-09-23 15:55:12",
@@ -1706,7 +1691,24 @@ function PlasmicReminder__RenderFunc(props: {
                     return (() => {
                       const groupsMap = new Map();
                       try {
-                        const todayISO = new Date().toISOString().split("T")[0];
+                        function getIranISODate() {
+                          const nowIran = new Date(
+                            new Date().toLocaleString("en-US", {
+                              timeZone: "Asia/Tehran"
+                            })
+                          );
+                          const year = nowIran.getFullYear();
+                          const month = String(nowIran.getMonth() + 1).padStart(
+                            2,
+                            "0"
+                          );
+                          const day = String(nowIran.getDate()).padStart(
+                            2,
+                            "0"
+                          );
+                          return `${year}-${month}-${day}`;
+                        }
+                        const todayISO = getIranISODate();
                         $props.data.forEach(t => {
                           let parsedDates;
                           try {
@@ -1827,7 +1829,7 @@ function PlasmicReminder__RenderFunc(props: {
                                                   "fa-IR",
                                                   {
                                                     timeZone: "Asia/Tehran",
-                                                    day: "numeric"
+                                                    day: "2-digit"
                                                   }
                                                 );
                                               return formatter.format(d);
@@ -2919,6 +2921,57 @@ function PlasmicReminder__RenderFunc(props: {
                 className={classNames(projectcss.all, sty.frame32)}
                 key={currentIndex}
               >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___30GP4)}
+                  style={(() => {
+                    try {
+                      return (() => {
+                        let color;
+                        switch (currentday.text) {
+                          case "drinkWater":
+                            color = "--antd-colorInfoTextHover";
+                            break;
+                          case "routineSkinMorning":
+                            color = "--antd-colorWarningTextHover";
+                            break;
+                          default:
+                            color = "--antd-colorPrimaryTextHover";
+                            break;
+                        }
+                        return { background: `var(${color})` };
+                      })();
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                >
+                  <MenuIcon
+                    data-plasmic-name={"menuIcon"}
+                    data-plasmic-override={overrides.menuIcon}
+                    className={classNames("__wab_instance", sty.menuIcon)}
+                    color={"waite"}
+                    icons={(() => {
+                      try {
+                        return currentday.text;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
+                    size={"_25"}
+                  />
+                </div>
                 <div
                   data-plasmic-name={"frame33"}
                   data-plasmic-override={overrides.frame33}
@@ -4377,6 +4430,7 @@ const PlasmicDescendants = {
     "lottie",
     "button3",
     "frame32",
+    "menuIcon",
     "frame33",
     "frame34",
     "frame35",
@@ -4429,7 +4483,8 @@ const PlasmicDescendants = {
   img: ["img"],
   lottie: ["lottie"],
   button3: ["button3"],
-  frame32: ["frame32", "frame33", "frame34", "frame35", "frame36"],
+  frame32: ["frame32", "menuIcon", "frame33", "frame34", "frame35", "frame36"],
+  menuIcon: ["menuIcon"],
   frame33: ["frame33", "frame34", "frame35", "frame36"],
   frame34: ["frame34", "frame35", "frame36"],
   frame35: ["frame35", "frame36"],
@@ -4476,6 +4531,7 @@ type NodeDefaultElementType = {
   lottie: typeof LottieWrapper;
   button3: typeof Button;
   frame32: "div";
+  menuIcon: typeof MenuIcon;
   frame33: "div";
   frame34: "div";
   frame35: "div";
@@ -4571,6 +4627,7 @@ export const PlasmicReminder = Object.assign(
     lottie: makeNodeComponent("lottie"),
     button3: makeNodeComponent("button3"),
     frame32: makeNodeComponent("frame32"),
+    menuIcon: makeNodeComponent("menuIcon"),
     frame33: makeNodeComponent("frame33"),
     frame34: makeNodeComponent("frame34"),
     frame35: makeNodeComponent("frame35"),

@@ -84,6 +84,8 @@ import Icon275Icon from "./icons/PlasmicIcon__Icon275"; // plasmic-import: JX2J1
 import Icon277Icon from "./icons/PlasmicIcon__Icon277"; // plasmic-import: rQHnbmXyT27Z/icon
 import BellIcon from "../fragment_icons/icons/PlasmicIcon__Bell"; // plasmic-import: rDjUqSUK3eUM/icon
 import Icon303Icon from "./icons/PlasmicIcon__Icon303"; // plasmic-import: eR1M432ACvbc/icon
+import Icon308Icon from "./icons/PlasmicIcon__Icon308"; // plasmic-import: ujrmfJ7_W8UT/icon
+import Icon309Icon from "./icons/PlasmicIcon__Icon309"; // plasmic-import: capAF3E74mwy/icon
 
 createPlasmicElementProxy;
 
@@ -106,9 +108,13 @@ export type PlasmicMenuIcon__VariantMembers = {
     | "love"
     | "alert"
     | "notification"
-    | "charts";
+    | "charts"
+    | "drinkWater"
+    | "routineSkinMorning";
   unnamedVariant: "unnamedVariant";
   unnamedVariant2: "unnamedVariant2";
+  color: "waite";
+  size: "_25";
 };
 export type PlasmicMenuIcon__VariantsArgs = {
   select?: SingleBooleanChoiceArg<"select">;
@@ -130,16 +136,22 @@ export type PlasmicMenuIcon__VariantsArgs = {
     | "alert"
     | "notification"
     | "charts"
+    | "drinkWater"
+    | "routineSkinMorning"
   >;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
   unnamedVariant2?: SingleBooleanChoiceArg<"unnamedVariant2">;
+  color?: SingleChoiceArg<"waite">;
+  size?: SingleChoiceArg<"_25">;
 };
 type VariantPropType = keyof PlasmicMenuIcon__VariantsArgs;
 export const PlasmicMenuIcon__VariantProps = new Array<VariantPropType>(
   "select",
   "icons",
   "unnamedVariant",
-  "unnamedVariant2"
+  "unnamedVariant2",
+  "color",
+  "size"
 );
 
 export type PlasmicMenuIcon__ArgsType = {};
@@ -170,9 +182,13 @@ export interface DefaultMenuIconProps {
     | "alert"
     | "notification"
     | "charts"
+    | "drinkWater"
+    | "routineSkinMorning"
   >;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
   unnamedVariant2?: SingleBooleanChoiceArg<"unnamedVariant2">;
+  color?: SingleChoiceArg<"waite">;
+  size?: SingleChoiceArg<"_25">;
   className?: string;
 }
 
@@ -244,6 +260,18 @@ function PlasmicMenuIcon__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.unnamedVariant2
+      },
+      {
+        path: "color",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.color
+      },
+      {
+        path: "size",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.size
       }
     ],
     [$props, $ctx, $refs]
@@ -264,7 +292,11 @@ function PlasmicMenuIcon__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       PlasmicIconType={
-        hasVariant($state, "icons", "charts")
+        hasVariant($state, "icons", "routineSkinMorning")
+          ? Icon309Icon
+          : hasVariant($state, "icons", "drinkWater")
+          ? Icon308Icon
+          : hasVariant($state, "icons", "charts")
           ? Icon303Icon
           : hasVariant($state, "icons", "notification") &&
             hasVariant(globalVariants, "screen", "mobile")
@@ -309,12 +341,14 @@ function PlasmicMenuIcon__RenderFunc(props: {
         styleTokensClassNames,
         sty.root,
         {
+          [sty.rootcolor_waite]: hasVariant($state, "color", "waite"),
           [sty.rooticons_alert]: hasVariant($state, "icons", "alert"),
           [sty.rooticons_barChart]: hasVariant($state, "icons", "barChart"),
           [sty.rooticons_birthday]: hasVariant($state, "icons", "birthday"),
           [sty.rooticons_chart]: hasVariant($state, "icons", "chart"),
           [sty.rooticons_chartbar]: hasVariant($state, "icons", "chartbar"),
           [sty.rooticons_charts]: hasVariant($state, "icons", "charts"),
+          [sty.rooticons_drinkWater]: hasVariant($state, "icons", "drinkWater"),
           [sty.rooticons_history]: hasVariant($state, "icons", "history"),
           [sty.rooticons_love]: hasVariant($state, "icons", "love"),
           [sty.rooticons_message]: hasVariant($state, "icons", "message"),
@@ -330,6 +364,11 @@ function PlasmicMenuIcon__RenderFunc(props: {
             "icons",
             "questioncircle"
           ),
+          [sty.rooticons_routineSkinMorning]: hasVariant(
+            $state,
+            "icons",
+            "routineSkinMorning"
+          ),
           [sty.rooticons_settings]: hasVariant($state, "icons", "settings"),
           [sty.rooticons_speedometer]: hasVariant(
             $state,
@@ -338,7 +377,8 @@ function PlasmicMenuIcon__RenderFunc(props: {
           ),
           [sty.rooticons_target]: hasVariant($state, "icons", "target"),
           [sty.rooticons_users]: hasVariant($state, "icons", "users"),
-          [sty.rootselect]: hasVariant($state, "select", "select")
+          [sty.rootselect]: hasVariant($state, "select", "select"),
+          [sty.rootsize__25]: hasVariant($state, "size", "_25")
         }
       )}
       role={"img"}

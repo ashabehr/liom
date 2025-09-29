@@ -4179,7 +4179,14 @@ function PlasmicCalendar2__RenderFunc(props: {
         )}
         hideFooter={true}
         maskClosable={true}
-        modalContentClassName={classNames({ [sty["pcls_C1lAVCkb1bFy"]]: true })}
+        modalContentClassName={classNames({
+          [sty["pcls_C1lAVCkb1bFy"]]: true,
+          [sty["pcls_sccH5P1FXUEl"]]: hasVariant(
+            globalVariants,
+            "screen",
+            "mobile"
+          )
+        })}
         modalScopeClassName={sty["warning__modal"]}
         onOpenChange={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, ["warning", "open"]).apply(
@@ -4321,7 +4328,11 @@ function PlasmicCalendar2__RenderFunc(props: {
                                     return data;
                                   }
                                   const updated = updateCycleValue();
-                                  return updated;
+                                  return {
+                                    ...updated,
+                                    authorization: $state.token,
+                                    type: "edit"
+                                  };
                                 })();
                               } catch (e) {
                                 if (

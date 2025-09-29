@@ -240,6 +240,9 @@ function PlasmicRadioGrop__RenderFunc(props: {
         sty.root,
         {
           [sty.rootchoise]: hasVariant($state, "choise", "choise"),
+          [sty.rootchoise_selected]:
+            hasVariant($state, "choise", "choise") &&
+            hasVariant($state, "selected", "selected"),
           [sty.rootcolor_light]: hasVariant($state, "color", "light"),
           [sty.rootcolor_light_selected]:
             hasVariant($state, "color", "light") &&
@@ -278,6 +281,9 @@ function PlasmicRadioGrop__RenderFunc(props: {
         data-plasmic-override={overrides.freeBox}
         className={classNames(projectcss.all, sty.freeBox, {
           [sty.freeBoxchoise]: hasVariant($state, "choise", "choise"),
+          [sty.freeBoxchoise_selected]:
+            hasVariant($state, "choise", "choise") &&
+            hasVariant($state, "selected", "selected"),
           [sty.freeBoxselected]: hasVariant($state, "selected", "selected"),
           [sty.freeBoxstyle2_lineligt]: hasVariant($state, "style2", "lineligt")
         })}
@@ -286,6 +292,14 @@ function PlasmicRadioGrop__RenderFunc(props: {
           defaultContents: "Enter some text",
           value: args.children,
           className: classNames(sty.slotTargetChildren, {
+            [sty.slotTargetChildrenchoise]: hasVariant(
+              $state,
+              "choise",
+              "choise"
+            ),
+            [sty.slotTargetChildrenchoise_selected]:
+              hasVariant($state, "choise", "choise") &&
+              hasVariant($state, "selected", "selected"),
             [sty.slotTargetChildrencolor_light_selected]:
               hasVariant($state, "color", "light") &&
               hasVariant($state, "selected", "selected"),

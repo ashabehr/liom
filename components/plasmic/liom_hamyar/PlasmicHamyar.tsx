@@ -109,8 +109,6 @@ import Icon271Icon from "./icons/PlasmicIcon__Icon271"; // plasmic-import: vZy72
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
-import Icon125Icon from "./icons/PlasmicIcon__Icon125"; // plasmic-import: Q7X4s11MfEIR/icon
-import Icon124Icon from "./icons/PlasmicIcon__Icon124"; // plasmic-import: PTcWiaBFyPBw/icon
 import Icon280Icon from "./icons/PlasmicIcon__Icon280"; // plasmic-import: Q1zg9JItuLZ-/icon
 import Icon304Icon from "./icons/PlasmicIcon__Icon304"; // plasmic-import: 703ShUnmEPbT/icon
 import Icon281Icon from "./icons/PlasmicIcon__Icon281"; // plasmic-import: LFRF9KNEKTKm/icon
@@ -177,8 +175,6 @@ export type PlasmicHamyar__OverridesType = {
   cyclebox?: Flex__<typeof Cyclebox>;
   lineClomp?: Flex__<typeof LineClomp>;
   progress?: Flex__<typeof AntdProgress>;
-  button9?: Flex__<typeof Button>;
-  button14?: Flex__<typeof Button>;
   button21?: Flex__<typeof Button>;
   checkbox?: Flex__<typeof Checkbox>;
   useful2?: Flex__<typeof Useful>;
@@ -1335,12 +1331,6 @@ function PlasmicHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "button9.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
-      },
-      {
         path: "dialog.opendialog",
         type: "private",
         variableType: "boolean",
@@ -1459,12 +1449,6 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button14.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
       },
       {
         path: "harmful2[].cycle",
@@ -1594,18 +1578,6 @@ function PlasmicHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => []
       },
       {
-        path: "button9.load",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "button14.load",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
         path: "button3.load",
         type: "private",
         variableType: "text",
@@ -1682,18 +1654,6 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "button9.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button14.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
         path: "button3.loading",
@@ -8056,753 +8016,6 @@ function PlasmicHamyar__RenderFunc(props: {
                       )
                     })}
                   >
-                    {(() => {
-                      try {
-                        return $state.userdata?.result?.man?.hamyarStatus;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
-                        }
-                        throw e;
-                      }
-                    })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__ead5H
-                        )}
-                        onClick={async event => {
-                          const $steps = {};
-
-                          $steps["updateShopPageOpen"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["shopPage", "open"]
-                                  },
-                                  operation: 0,
-                                  value: true
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateShopPageOpen"] != null &&
-                            typeof $steps["updateShopPageOpen"] === "object" &&
-                            typeof $steps["updateShopPageOpen"].then ===
-                              "function"
-                          ) {
-                            $steps["updateShopPageOpen"] = await $steps[
-                              "updateShopPageOpen"
-                            ];
-                          }
-                        }}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__kiA8F
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__aD64X
-                            )}
-                          >
-                            <PlasmicIcon__
-                              PlasmicIconType={
-                                hasVariant(globalVariants, "screen", "mobile")
-                                  ? Icon125Icon
-                                  : Icon125Icon
-                              }
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg__qmu8I
-                              )}
-                              role={"img"}
-                            />
-
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__nYZk9
-                              )}
-                            >
-                              <div
-                                className={projectcss.__wab_expr_html_text}
-                                dangerouslySetInnerHTML={{
-                                  __html: (() => {
-                                    try {
-                                      return (() => {
-                                        if (
-                                          !(
-                                            $state.userdata.result.user
-                                              .husbandSmsSubStatus ||
-                                            $state.userdata.result.user
-                                              .motherSmsSubStatus
-                                          )
-                                        )
-                                          return "ارسال یادآوری";
-                                        else return "اشتراک ویژه";
-                                      })();
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                }}
-                              />
-                            </div>
-                          </div>
-                          {(() => {
-                            try {
-                              return $state.cyclebox.cycle != "Pregnancy";
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return true;
-                              }
-                              throw e;
-                            }
-                          })() ? (
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox___2Twno
-                              )}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__uZrM0
-                                )}
-                              >
-                                <div
-                                  className={projectcss.__wab_expr_html_text}
-                                  dangerouslySetInnerHTML={{
-                                    __html: (() => {
-                                      try {
-                                        return (() => {
-                                          if (
-                                            !(
-                                              $state.userdata.result.user
-                                                .husbandSmsSubStatus ||
-                                              $state.userdata.result.user
-                                                .motherSmsSubStatus
-                                            )
-                                          )
-                                            return (
-                                              `علاوه بر تغییرات <b>چرخه قاعدگیش،</b> توصیه‌هایی می‌فرستم که <b>بدونی چیکار کنی</b>. ` +
-                                              `<b>` +
-                                              (function () {
-                                                var name = $state.name;
-                                                return name.length > 10
-                                                  ? name.substring(0, 10) +
-                                                      "..."
-                                                  : name;
-                                              })() +
-                                              `</b>` +
-                                              ` هم <b>پیامک می‌گیره</b> تا حواسش به <b>رابطه‌تون</b> باشه و <b>خودش رو کنترل کنه</b>. اینطوری <b>رابطه شادتری دارید</b>.`
-                                            );
-                                          else
-                                            return `
-<div style="color: green;">
-  <b>${$state.name}</b> اشتراک یادآوری رو فعال کرده.
-</div>
-<p>
-  اگه می‌خوای برای همیارت هم توصیه‌هایی بفرستم که حواسش به رابطه‌تون باشه و رفتارشو کنترل کنه، اشتراک توصیه فعال کن.
-</p>
-`;
-                                        })();
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "\u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc\u0634 \u0631\u0648 \u0628\u0631\u0627\u062a \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u06a9\u0647 <b>\u0631\u0627\u062d\u062a\u200c\u062a\u0631 <b/>\u0628\u062a\u0648\u0646\u06cc \u0627\u0637\u0644\u0627\u0639 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc \u0648 \u0645\u0631\u0627\u0642\u0628\u0634 \u0628\u0627\u0634\u06cc. \u0627\u06cc\u0646\u0637\u0648\u0631\u06cc \u0631\u0627\u062d\u062a\u200c\u062a\u0631 \u0628\u0627 \u0647\u0645 \u06a9\u0646\u0627\u0631 \u0645\u06cc\u0627\u06cc\u062f \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc\u0646.";
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                  }}
-                                />
-                              </div>
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__pyher
-                                )}
-                              >
-                                <Button
-                                  data-plasmic-name={"button9"}
-                                  data-plasmic-override={overrides.button9}
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.button9
-                                  )}
-                                  color={generateStateValueProp($state, [
-                                    "button9",
-                                    "color"
-                                  ])}
-                                  load={generateStateValueProp($state, [
-                                    "button9",
-                                    "load"
-                                  ])}
-                                  loading={generateStateValueProp($state, [
-                                    "button9",
-                                    "loading"
-                                  ])}
-                                  onClick={async event => {
-                                    const $steps = {};
-
-                                    $steps["updateDialogOpendialog"] = true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            variable: {
-                                              objRoot: $state,
-                                              variablePath: [
-                                                "dialog",
-                                                "opendialog"
-                                              ]
-                                            },
-                                            operation: 0,
-                                            value: true
-                                          };
-                                          return (({
-                                            variable,
-                                            value,
-                                            startIndex,
-                                            deleteCount
-                                          }) => {
-                                            if (!variable) {
-                                              return;
-                                            }
-                                            const { objRoot, variablePath } =
-                                              variable;
-
-                                            $stateSet(
-                                              objRoot,
-                                              variablePath,
-                                              value
-                                            );
-                                            return value;
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                    if (
-                                      $steps["updateDialogOpendialog"] !=
-                                        null &&
-                                      typeof $steps[
-                                        "updateDialogOpendialog"
-                                      ] === "object" &&
-                                      typeof $steps["updateDialogOpendialog"]
-                                        .then === "function"
-                                    ) {
-                                      $steps["updateDialogOpendialog"] =
-                                        await $steps["updateDialogOpendialog"];
-                                    }
-                                  }}
-                                  onColorChange={async (...eventArgs: any) => {
-                                    ((...eventArgs) => {
-                                      generateStateOnChangeProp($state, [
-                                        "button9",
-                                        "color"
-                                      ])(eventArgs[0]);
-                                    }).apply(null, eventArgs);
-
-                                    if (
-                                      eventArgs.length > 1 &&
-                                      eventArgs[1] &&
-                                      eventArgs[1]._plasmic_state_init_
-                                    ) {
-                                      return;
-                                    }
-                                  }}
-                                  onLoadChange={async (...eventArgs: any) => {
-                                    ((...eventArgs) => {
-                                      generateStateOnChangeProp($state, [
-                                        "button9",
-                                        "load"
-                                      ])(eventArgs[0]);
-                                    }).apply(null, eventArgs);
-
-                                    if (
-                                      eventArgs.length > 1 &&
-                                      eventArgs[1] &&
-                                      eventArgs[1]._plasmic_state_init_
-                                    ) {
-                                      return;
-                                    }
-                                  }}
-                                  onLoadingChange={async (
-                                    ...eventArgs: any
-                                  ) => {
-                                    ((...eventArgs) => {
-                                      generateStateOnChangeProp($state, [
-                                        "button9",
-                                        "loading"
-                                      ])(eventArgs[0]);
-                                    }).apply(null, eventArgs);
-
-                                    if (
-                                      eventArgs.length > 1 &&
-                                      eventArgs[1] &&
-                                      eventArgs[1]._plasmic_state_init_
-                                    ) {
-                                      return;
-                                    }
-                                  }}
-                                  size={
-                                    hasVariant(
-                                      globalVariants,
-                                      "screen",
-                                      "mobile"
-                                    )
-                                      ? "minimal"
-                                      : "compact"
-                                  }
-                                >
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text___54G,
-                                      hasVariant(
-                                        globalVariants,
-                                        "screen",
-                                        "mobile"
-                                      )
-                                        ? "animashen"
-                                        : undefined
-                                    )}
-                                  >
-                                    <React.Fragment>
-                                      {(() => {
-                                        try {
-                                          return (() => {
-                                            if (
-                                              !(
-                                                $state.userdata.result.user
-                                                  .husbandSmsSubStatus ||
-                                                $state.userdata.result.user
-                                                  .motherSmsSubStatus
-                                              )
-                                            )
-                                              return "همین حالا  یادآور فعال کن";
-                                            else
-                                              return "همین حالا اشتراک ویژه فعال کن";
-                                          })();
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return "\u0647\u0645\u06cc\u0646 \u062d\u0627\u0644\u0627  \u06cc\u0627\u062f\u0622\u0648\u0631 \u0641\u0639\u0627\u0644 \u06a9\u0646";
-                                          }
-                                          throw e;
-                                        }
-                                      })()}
-                                    </React.Fragment>
-                                  </div>
-                                </Button>
-                              </div>
-                              <Icon124Icon
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.svg__zUdOg,
-                                  hasVariant(globalVariants, "screen", "mobile")
-                                    ? ``
-                                    : "bounce"
-                                )}
-                                role={"img"}
-                              />
-                            </div>
-                          ) : null}
-                          {(() => {
-                            try {
-                              return $state.cyclebox.cycle == "Pregnancy";
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return true;
-                              }
-                              throw e;
-                            }
-                          })() ? (
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__xmXdL
-                              )}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__pBs8
-                                )}
-                              >
-                                {hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobile"
-                                ) ? (
-                                  <div
-                                    className={projectcss.__wab_expr_html_text}
-                                    dangerouslySetInnerHTML={{
-                                      __html: (() => {
-                                        try {
-                                          return "تغییرات <b>دوران بارداریش</b> رو برات ارسال می‌کنم که <b>راحت‌تر بتونی ازش اطلاع داشته باشی و حمایتش کنی.</b> اینطوری بهتر همدیگرو درک می‌کنین و <b>رابطه شادتری دارین.</b>";
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return "\u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc\u0634 \u0631\u0648 \u0628\u0631\u0627\u062a \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u06a9\u0647 <b>\u0631\u0627\u062d\u062a\u200c\u062a\u0631 <b/>\u0628\u062a\u0648\u0646\u06cc \u0627\u0637\u0644\u0627\u0639 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc \u0648 \u0645\u0631\u0627\u0642\u0628\u0634 \u0628\u0627\u0634\u06cc. \u0627\u06cc\u0646\u0637\u0648\u0631\u06cc \u0631\u0627\u062d\u062a\u200c\u062a\u0631 \u0628\u0627 \u0647\u0645 \u06a9\u0646\u0627\u0631 \u0645\u06cc\u0627\u06cc\u062f \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc\u0646.";
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                    }}
-                                  />
-                                ) : (
-                                  <div
-                                    className={projectcss.__wab_expr_html_text}
-                                    dangerouslySetInnerHTML={{
-                                      __html: (() => {
-                                        try {
-                                          return "تغییرات <b>دوران بارداریش</b> رو برات ارسال می‌کنم که <b>راحت‌تر بتونی ازش اطلاع داشته باشی و حمایتش کنی.</b> اینطوری بهتر همدیگرو درک می‌کنین و <b>رابطه شادتری دارین.</b>";
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return "\u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc\u0634 \u0631\u0648 \u0628\u0631\u0627\u062a \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u06a9\u0647 <b>\u0631\u0627\u062d\u062a\u200c\u062a\u0631 <b/>\u0628\u062a\u0648\u0646\u06cc \u0627\u0637\u0644\u0627\u0639 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc \u0648 \u0645\u0631\u0627\u0642\u0628\u0634 \u0628\u0627\u0634\u06cc. \u0627\u06cc\u0646\u0637\u0648\u0631\u06cc \u0631\u0627\u062d\u062a\u200c\u062a\u0631 \u0628\u0627 \u0647\u0645 \u06a9\u0646\u0627\u0631 \u0645\u06cc\u0627\u06cc\u062f \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc\u0646.";
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                    }}
-                                  />
-                                )}
-                              </div>
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox___7Ip2J
-                                )}
-                              >
-                                <Button
-                                  data-plasmic-name={"button14"}
-                                  data-plasmic-override={overrides.button14}
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.button14
-                                  )}
-                                  color={generateStateValueProp($state, [
-                                    "button14",
-                                    "color"
-                                  ])}
-                                  load={generateStateValueProp($state, [
-                                    "button14",
-                                    "load"
-                                  ])}
-                                  loading={generateStateValueProp($state, [
-                                    "button14",
-                                    "loading"
-                                  ])}
-                                  onClick={async event => {
-                                    const $steps = {};
-
-                                    $steps["updateDialog3Opendialog"] = true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            variable: {
-                                              objRoot: $state,
-                                              variablePath: [
-                                                "dialog3",
-                                                "opendialog"
-                                              ]
-                                            },
-                                            operation: 0,
-                                            value: true
-                                          };
-                                          return (({
-                                            variable,
-                                            value,
-                                            startIndex,
-                                            deleteCount
-                                          }) => {
-                                            if (!variable) {
-                                              return;
-                                            }
-                                            const { objRoot, variablePath } =
-                                              variable;
-
-                                            $stateSet(
-                                              objRoot,
-                                              variablePath,
-                                              value
-                                            );
-                                            return value;
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                    if (
-                                      $steps["updateDialog3Opendialog"] !=
-                                        null &&
-                                      typeof $steps[
-                                        "updateDialog3Opendialog"
-                                      ] === "object" &&
-                                      typeof $steps["updateDialog3Opendialog"]
-                                        .then === "function"
-                                    ) {
-                                      $steps["updateDialog3Opendialog"] =
-                                        await $steps["updateDialog3Opendialog"];
-                                    }
-                                  }}
-                                  onColorChange={async (...eventArgs: any) => {
-                                    ((...eventArgs) => {
-                                      generateStateOnChangeProp($state, [
-                                        "button14",
-                                        "color"
-                                      ])(eventArgs[0]);
-                                    }).apply(null, eventArgs);
-
-                                    if (
-                                      eventArgs.length > 1 &&
-                                      eventArgs[1] &&
-                                      eventArgs[1]._plasmic_state_init_
-                                    ) {
-                                      return;
-                                    }
-                                  }}
-                                  onLoadChange={async (...eventArgs: any) => {
-                                    ((...eventArgs) => {
-                                      generateStateOnChangeProp($state, [
-                                        "button14",
-                                        "load"
-                                      ])(eventArgs[0]);
-                                    }).apply(null, eventArgs);
-
-                                    if (
-                                      eventArgs.length > 1 &&
-                                      eventArgs[1] &&
-                                      eventArgs[1]._plasmic_state_init_
-                                    ) {
-                                      return;
-                                    }
-                                  }}
-                                  onLoadingChange={async (
-                                    ...eventArgs: any
-                                  ) => {
-                                    ((...eventArgs) => {
-                                      generateStateOnChangeProp($state, [
-                                        "button14",
-                                        "loading"
-                                      ])(eventArgs[0]);
-                                    }).apply(null, eventArgs);
-
-                                    if (
-                                      eventArgs.length > 1 &&
-                                      eventArgs[1] &&
-                                      eventArgs[1]._plasmic_state_init_
-                                    ) {
-                                      return;
-                                    }
-                                  }}
-                                  size={
-                                    hasVariant(
-                                      globalVariants,
-                                      "screen",
-                                      "mobile"
-                                    )
-                                      ? "minimal"
-                                      : "compact"
-                                  }
-                                >
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__ti7Rq,
-                                      hasVariant(
-                                        globalVariants,
-                                        "screen",
-                                        "mobile"
-                                      )
-                                        ? "animashen"
-                                        : undefined
-                                    )}
-                                  >
-                                    {
-                                      "\u0647\u0645\u06cc\u0646 \u062d\u0627\u0644\u0627  \u06cc\u0627\u062f\u0622\u0648\u0631 \u0641\u0639\u0627\u0644 \u06a9\u0646"
-                                    }
-                                  </div>
-                                </Button>
-                              </div>
-                              <Icon124Icon
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.svg__nvjCf,
-                                  hasVariant(globalVariants, "screen", "mobile")
-                                    ? ``
-                                    : "bounce"
-                                )}
-                                role={"img"}
-                              />
-                            </div>
-                          ) : null}
-                        </div>
-                        {(
-                          hasVariant(globalVariants, "screen", "mobile")
-                            ? (() => {
-                                try {
-                                  return $state.userdata.result.man
-                                    .hamyarStatus;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return true;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            : true
-                        ) ? (
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__oad1M
-                            )}
-                            style={(() => {
-                              try {
-                                return (() => {
-                                  return $state.userdata?.result?.man
-                                    ?.timeToEndHamyarTime?.days > 3
-                                    ? {
-                                        background: "var(--plasmic-token-green)"
-                                      }
-                                    : {
-                                        background:
-                                          "var(--plasmic-token-system-warning)"
-                                      };
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__aBco
-                              )}
-                            >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return (() => {
-                                      var hamyarTime =
-                                        $state.userdata?.result?.man
-                                          ?.hamyarTime;
-                                      if (hamyarTime) {
-                                        const targetDate = new Date(
-                                          Date.UTC(
-                                            hamyarTime.year,
-                                            hamyarTime.month - 1,
-                                            hamyarTime.day,
-                                            hamyarTime.hour,
-                                            hamyarTime.minute,
-                                            hamyarTime.second
-                                          )
-                                        );
-                                        const now = new Date();
-                                        const diffMs = targetDate - now;
-                                        const diffDays =
-                                          diffMs / (1000 * 60 * 60 * 24);
-                                        if (diffDays < 3 && diffDays > 0) {
-                                          return "۳ روز تا پایان اشتراک!";
-                                        } else if (diffDays <= 0) {
-                                          return "اشتراک به پایان رسیده است";
-                                        } else {
-                                          const formatter =
-                                            new Intl.DateTimeFormat("fa-IR", {
-                                              timeZone: "Asia/Tehran",
-                                              year: "numeric",
-                                              month: "long",
-                                              day: "numeric"
-                                            });
-                                          return (
-                                            "اشتراک فعال تا:  " +
-                                            formatter.format(targetDate)
-                                          );
-                                        }
-                                      } else {
-                                        return "";
-                                      }
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0634\u0645\u0627 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a ";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            </div>
-                          </div>
-                        ) : null}
-                      </div>
-                    ) : null}
                     <div
                       className={classNames(
                         projectcss.all,
@@ -15815,6 +15028,190 @@ function PlasmicHamyar__RenderFunc(props: {
                         ) : null}
                       </div>
                     </div>
+                  </div>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.userdata?.result?.man?.hamyarStatus;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__ead5H)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateShopPageOpen"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["shopPage", "open"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateShopPageOpen"] != null &&
+                        typeof $steps["updateShopPageOpen"] === "object" &&
+                        typeof $steps["updateShopPageOpen"].then === "function"
+                      ) {
+                        $steps["updateShopPageOpen"] = await $steps[
+                          "updateShopPageOpen"
+                        ];
+                      }
+                    }}
+                  >
+                    {(
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? (() => {
+                            try {
+                              return $state.userdata.result.man.hamyarStatus;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })()
+                        : true
+                    ) ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__oad1M
+                        )}
+                        style={(() => {
+                          try {
+                            return (() => {
+                              return $state.userdata?.result?.man
+                                ?.timeToEndHamyarTime?.days > 3
+                                ? { background: "var(--plasmic-token-green)" }
+                                : {
+                                    background:
+                                      "var(--plasmic-token-system-warning)"
+                                  };
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__aBco
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (() => {
+                                  var hamyarTime =
+                                    $state.userdata?.result?.man?.hamyarTime;
+                                  if (hamyarTime) {
+                                    const targetDate = new Date(
+                                      Date.UTC(
+                                        hamyarTime.year,
+                                        hamyarTime.month - 1,
+                                        hamyarTime.day,
+                                        hamyarTime.hour,
+                                        hamyarTime.minute,
+                                        hamyarTime.second
+                                      )
+                                    );
+                                    const now = new Date();
+                                    const diffMs = targetDate - now;
+                                    const diffDays =
+                                      diffMs / (1000 * 60 * 60 * 24);
+                                    if (diffDays < 3 && diffDays > 0) {
+                                      return "۳ روز تا پایان اشتراک!";
+                                    } else if (diffDays <= 0) {
+                                      return "اشتراک به پایان رسیده است";
+                                    } else {
+                                      const formatter = new Intl.DateTimeFormat(
+                                        "fa-IR",
+                                        {
+                                          timeZone: "Asia/Tehran",
+                                          year: "numeric",
+                                          month: "long",
+                                          day: "numeric"
+                                        }
+                                      );
+                                      return (
+                                        "اشتراک فعال تا:  " +
+                                        formatter.format(targetDate)
+                                      );
+                                    }
+                                  } else {
+                                    return "";
+                                  }
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0634\u0645\u0627 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a ";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__nFnq
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text___774If
+                            )}
+                          >
+                            {
+                              "\u062a\u0645\u062f\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9"
+                            }
+                          </div>
+                        </div>
+                      </div>
+                    ) : null}
                   </div>
                 ) : null}
                 <AntdModal
@@ -26020,7 +25417,7 @@ function PlasmicHamyar__RenderFunc(props: {
                   )}
                 >
                   {
-                    "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0634\u0645\u0627 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a! \u062a\u0627:"
+                    "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0634\u0645\u0627 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a  \u062a\u0627:"
                   }
                 </div>
                 <div className={classNames(projectcss.all, sty.freeBox__onx50)}>
@@ -28495,8 +27892,6 @@ const PlasmicDescendants = {
     "cyclebox",
     "lineClomp",
     "progress",
-    "button9",
-    "button14",
     "button21",
     "checkbox",
     "useful2",
@@ -28564,8 +27959,6 @@ const PlasmicDescendants = {
     "cyclebox",
     "lineClomp",
     "progress",
-    "button9",
-    "button14",
     "button21",
     "checkbox",
     "useful2",
@@ -28598,8 +27991,6 @@ const PlasmicDescendants = {
   cyclebox: ["cyclebox", "lineClomp", "progress"],
   lineClomp: ["lineClomp"],
   progress: ["progress"],
-  button9: ["button9"],
-  button14: ["button14"],
   button21: ["button21"],
   checkbox: ["checkbox"],
   useful2: ["useful2"],
@@ -28700,8 +28091,6 @@ type NodeDefaultElementType = {
   cyclebox: typeof Cyclebox;
   lineClomp: typeof LineClomp;
   progress: typeof AntdProgress;
-  button9: typeof Button;
-  button14: typeof Button;
   button21: typeof Button;
   checkbox: typeof Checkbox;
   useful2: typeof Useful;
@@ -28854,8 +28243,6 @@ export const PlasmicHamyar = Object.assign(
     cyclebox: makeNodeComponent("cyclebox"),
     lineClomp: makeNodeComponent("lineClomp"),
     progress: makeNodeComponent("progress"),
-    button9: makeNodeComponent("button9"),
-    button14: makeNodeComponent("button14"),
     button21: makeNodeComponent("button21"),
     checkbox: makeNodeComponent("checkbox"),
     useful2: makeNodeComponent("useful2"),

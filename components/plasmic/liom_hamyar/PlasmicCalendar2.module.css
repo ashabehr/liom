@@ -275,11 +275,33 @@
 .warning:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  position: fixed;
+  right: 0;
+  bottom: 0;
   padding: 0px;
 }
 .warning__modal :global(.ant-modal-content) {
   background: var(--token-SXG6cjnWZyNC);
   outline: none;
+}
+@media (max-width: 640px) {
+  .warning:global(.__wab_instance) {
+    padding-right: var(--token-B5WvIYiqPJW-);
+    padding-left: var(--token-B5WvIYiqPJW-);
+  }
+}
+@media (max-width: 640px) {
+  .warning__modal :global(.ant-modal-content) {
+    outline: none;
+    padding: var(--token-uOLZE7OyOW-J);
+  }
 }
 .freeBox__luJJj {
   display: flex;
