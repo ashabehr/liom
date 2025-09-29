@@ -3477,14 +3477,24 @@ function PlasmicHamyar__RenderFunc(props: {
                                 const actionArgs = {
                                   customFunction: async () => {
                                     return (() => {
-                                      window.open(
-                                        "https://t.me/liomApp_bot",
-                                        "_blank"
-                                      );
-                                      return window.localStorage.setItem(
-                                        "telegram",
-                                        true
-                                      );
+                                      if (
+                                        typeof window !== "undefined" &&
+                                        window.FlutterChannel &&
+                                        typeof window.FlutterChannel
+                                          .postMessage === "function"
+                                      ) {
+                                        return window.FlutterChannel.postMessage(
+                                          "https://t.me/liomApp_bot"
+                                        );
+                                      } else if (
+                                        typeof window !== "undefined"
+                                      ) {
+                                        if (inWebViow)
+                                          return window.open(
+                                            "https://t.me/liomApp_bot",
+                                            "_blank"
+                                          );
+                                      }
                                     })();
                                   }
                                 };
@@ -8969,10 +8979,22 @@ function PlasmicHamyar__RenderFunc(props: {
                               const actionArgs = {
                                 customFunction: async () => {
                                   return (() => {
-                                    window.open(
-                                      "https://t.me/liomApp_bot",
-                                      "_blank"
-                                    );
+                                    if (
+                                      typeof window !== "undefined" &&
+                                      window.FlutterChannel &&
+                                      typeof window.FlutterChannel
+                                        .postMessage === "function"
+                                    ) {
+                                      window.FlutterChannel.postMessage(
+                                        "https://t.me/liomApp_bot"
+                                      );
+                                    } else if (typeof window !== "undefined") {
+                                      if (inWebViow)
+                                        window.open(
+                                          "https://t.me/liomApp_bot",
+                                          "_blank"
+                                        );
+                                    }
                                     return window.localStorage.setItem(
                                       "telegram",
                                       true
@@ -23827,10 +23849,22 @@ function PlasmicHamyar__RenderFunc(props: {
                             const actionArgs = {
                               customFunction: async () => {
                                 return (() => {
-                                  window.open(
-                                    "https://t.me/liomApp_bot",
-                                    "_blank"
-                                  );
+                                  if (
+                                    typeof window !== "undefined" &&
+                                    window.FlutterChannel &&
+                                    typeof window.FlutterChannel.postMessage ===
+                                      "function"
+                                  ) {
+                                    window.FlutterChannel.postMessage(
+                                      "https://t.me/liomApp_bot"
+                                    );
+                                  } else if (typeof window !== "undefined") {
+                                    if (inWebViow)
+                                      window.open(
+                                        "https://t.me/liomApp_bot",
+                                        "_blank"
+                                      );
+                                  }
                                   return window.localStorage.setItem(
                                     "telegram",
                                     true
@@ -24084,6 +24118,15 @@ function PlasmicHamyar__RenderFunc(props: {
               </Dialog>
             );
           })()}
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__y0TGn
+            )}
+          >
+            {"Enter some text"}
+          </div>
           <ApiRequest
             data-plasmic-name={"remember"}
             data-plasmic-override={overrides.remember}
