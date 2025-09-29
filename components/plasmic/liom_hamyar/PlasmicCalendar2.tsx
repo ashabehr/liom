@@ -4315,8 +4315,9 @@ function PlasmicCalendar2__RenderFunc(props: {
                                     if (endDate > todayDate) {
                                       endDate.setDate(
                                         endDate.getDate() -
-                                          $state.userInfo?.result?.userStatus
-                                            ?.cycle
+                                          ($state.userInfo?.result?.userStatus
+                                            ?.cycle -
+                                            1)
                                       );
                                     }
                                     let diffDays = Math.floor(
