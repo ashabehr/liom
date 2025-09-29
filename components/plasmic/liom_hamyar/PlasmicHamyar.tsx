@@ -28051,7 +28051,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 <React.Fragment>
                   {(() => {
                     try {
-                      return `${$state.userdata?.result?.hamyar?.name} شمارا به عنوان همیار قاعدگی اضافه شده است. با تایید این پیام، یعنی این همیار برای پیگیری چرخه و یادآوری‌های قاعدگی فعال خواهد شد.`;
+                      return `${$state.userdata?.result?.hamyar?.name} شما را به عنوان همیار قاعدگی اضافه کرده است. با تأیید این پیام، این درخواست پذیرفته می‌شود و شما به عنوان همیار او ثبت می شوید.`;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -28124,6 +28124,8 @@ function PlasmicHamyar__RenderFunc(props: {
                             const actionArgs = {
                               args: [
                                 "POST",
+                                "https://n8n.staas.ir/webhook/hamyar/validate/link",
+                                undefined,
                                 (() => {
                                   try {
                                     return {
@@ -28396,6 +28398,8 @@ function PlasmicHamyar__RenderFunc(props: {
                           const actionArgs = {
                             args: [
                               "POST",
+                              "https://n8n.staas.ir/webhook/hamyar/validate/link",
+                              undefined,
                               (() => {
                                 try {
                                   return {
