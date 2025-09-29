@@ -436,9 +436,16 @@ function PlasmicButton__RenderFunc(props: {
           [sty.rootfilter]: hasVariant($state, "filter", "filter"),
           [sty.rootisDisabled]: hasVariant($state, "isDisabled", "isDisabled"),
           [sty.rootloading]: hasVariant($state, "loading", "loading"),
+          [sty.rootloading_color_clear]:
+            hasVariant($state, "loading", "loading") &&
+            hasVariant($state, "color", "clear"),
           [sty.rootloading_size_compact]:
             hasVariant($state, "loading", "loading") &&
             hasVariant($state, "size", "compact"),
+          [sty.rootloading_size_compact_color_clear]:
+            hasVariant($state, "color", "clear") &&
+            hasVariant($state, "size", "compact") &&
+            hasVariant($state, "loading", "loading"),
           [sty.rootserface]: hasVariant($state, "serface", "serface"),
           [sty.rootshape_round]: hasVariant($state, "shape", "round"),
           [sty.rootshape_round_size_compact]:
@@ -470,6 +477,9 @@ function PlasmicButton__RenderFunc(props: {
             hasVariant($state, "shape", "rounded") &&
             hasVariant($state, "showStartIcon", "showStartIcon"),
           [sty.rootsize_compact]: hasVariant($state, "size", "compact"),
+          [sty.rootsize_compact_color_clear]:
+            hasVariant($state, "color", "clear") &&
+            hasVariant($state, "size", "compact"),
           [sty.rootsize_compact_shape_rounded]:
             hasVariant($state, "size", "compact") &&
             hasVariant($state, "shape", "rounded"),
@@ -618,11 +628,21 @@ function PlasmicButton__RenderFunc(props: {
                 "isDisabled"
               ),
               [sty.svgloading]: hasVariant($state, "loading", "loading"),
+              [sty.svgloading_color_clear]:
+                hasVariant($state, "loading", "loading") &&
+                hasVariant($state, "color", "clear"),
               [sty.svgloading_color_white]:
                 hasVariant($state, "color", "white") &&
                 hasVariant($state, "loading", "loading"),
               [sty.svgloading_size_compact]:
                 hasVariant($state, "loading", "loading") &&
+                hasVariant($state, "size", "compact"),
+              [sty.svgloading_size_compact_color_clear]:
+                hasVariant($state, "color", "clear") &&
+                hasVariant($state, "size", "compact") &&
+                hasVariant($state, "loading", "loading"),
+              [sty.svgsize_compact_color_clear]:
+                hasVariant($state, "color", "clear") &&
                 hasVariant($state, "size", "compact"),
               [sty.svgsize_minimal_loading]:
                 hasVariant($state, "loading", "loading") &&

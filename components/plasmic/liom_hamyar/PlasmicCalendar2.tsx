@@ -4329,7 +4329,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                                   }
                                   const updated = updateCycleValue();
                                   return {
-                                    ...updated,
+                                    calendar: { ...updated },
                                     authorization: $state.token,
                                     type: "edit"
                                   };

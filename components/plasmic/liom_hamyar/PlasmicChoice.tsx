@@ -137,7 +137,7 @@ function PlasmicChoice__RenderFunc(props: {
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: "variable",
+        path: "info",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => [
@@ -161,7 +161,7 @@ function PlasmicChoice__RenderFunc(props: {
         ]
       },
       {
-        path: "variable2",
+        path: "newInfo",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => []
@@ -225,7 +225,7 @@ function PlasmicChoice__RenderFunc(props: {
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
-                    return $state.variable;
+                    return $state.info;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -261,16 +261,16 @@ function PlasmicChoice__RenderFunc(props: {
                                   customFunction: async () => {
                                     return (() => {
                                       if (
-                                        $state.variable2.find(
+                                        $state.newInfo.find(
                                           i => i === currentItem.label
                                         )
                                       ) {
-                                        return ($state.variable2 =
-                                          $state.variable2.filter(
+                                        return ($state.newInfo =
+                                          $state.newInfo.filter(
                                             i => i !== currentItem.label
                                           ));
                                       } else
-                                        return $state.variable2.push(
+                                        return $state.newInfo.push(
                                           currentItem.label
                                         );
                                     })();
@@ -291,7 +291,7 @@ function PlasmicChoice__RenderFunc(props: {
                         }}
                         selected={(() => {
                           try {
-                            return $state.variable2.find(
+                            return $state.newInfo.find(
                               i => i == currentItem.label
                             )
                               ? true

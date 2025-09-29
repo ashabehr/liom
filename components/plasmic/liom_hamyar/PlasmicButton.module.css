@@ -365,6 +365,9 @@
 .svgloading_color_white {
   color: var(--token-64O07uLgKimi);
 }
+.svgloading_size_compact_color_clear {
+  color: var(--token-EueuB3d74YKA);
+}
 .slotTargetChildren {
   color: #ededec;
   font-weight: 500;
