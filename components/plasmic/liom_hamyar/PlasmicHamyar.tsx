@@ -2212,8 +2212,8 @@ function PlasmicHamyar__RenderFunc(props: {
             try {
               return (
                 $state.userdata?.result &&
-                (!$state.userdata?.result?.rel?.active ||
-                  $state.userdata?.result?.rel?.ignore == null)
+                !$state.userdata?.result?.rel?.active &&
+                $state.userdata?.result?.rel?.ignore == null
               );
             } catch (e) {
               if (
