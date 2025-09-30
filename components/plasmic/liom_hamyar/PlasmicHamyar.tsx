@@ -8528,7 +8528,23 @@ function PlasmicHamyar__RenderFunc(props: {
                           !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                           (() => {
                             try {
-                              return $state.remind.slice(0, 2) ?? [];
+                              return (
+                                $state.remind
+                                  .filter(i => i.schedule_type != "everyDay")
+                                  .flatMap(item => {
+                                    let dates = item.dates
+                                      ? JSON.parse(item.dates)
+                                      : [];
+                                    if (dates.length > 0) {
+                                      return dates.map(d => ({
+                                        ...item,
+                                        dates: d // فقط همون یک تاریخ
+                                      }));
+                                    }
+                                    return [item];
+                                  })
+                                  .slice(0, 2) ?? []
+                              );
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -8665,7 +8681,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                         return (() => {
                                           try {
                                             var d = currentItem.dates
-                                              ? JSON.parse(currentItem.dates)[0]
+                                              ? currentItem.dates
                                               : null;
                                             if (!d) return "";
                                             let future1 = new Date(d);
