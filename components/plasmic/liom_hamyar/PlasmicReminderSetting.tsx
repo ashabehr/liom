@@ -1354,7 +1354,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   variablePath: ["dateIndex"]
                                 },
                                 operation: 0,
-                                value: -1
+                                value: $state.date.length > 1 ? -1 : 0
                               };
                               return (({
                                 variable,
@@ -2014,7 +2014,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               variablePath: ["timeIndex"]
                             },
                             operation: 0,
-                            value: -1
+                            value: $state.time2.length > 1 ? -1 : 0
                           };
                           return (({
                             variable,

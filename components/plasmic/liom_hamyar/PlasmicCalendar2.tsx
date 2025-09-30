@@ -1226,8 +1226,9 @@ function PlasmicCalendar2__RenderFunc(props: {
                     title: "هنوز پریود نشدم",
                     text: "اگه پریودت با تاخیر مواجه شده و چرخه و تقویم قاعدگیت دارن اینو بهت نشون میدن که تو پریود شدی با این دکمه وضعیت فعلیت رو درست کن",
                     action: "warning",
-                    show: false
-                    // "show": $state.userInfo?.result?.userStatus?.periodStatus=="blood"
+                    show:
+                      $state.userInfo?.result?.user?.id ==
+                      "5916daaf-e7b3-44e9-85bd-5d5dfe00e2db"
                   },
                   //     {
                   //   "title":"دوره کاملا اشتباه محاسبه شده",
@@ -1260,7 +1261,7 @@ function PlasmicCalendar2__RenderFunc(props: {
         path: "warning.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "button20.color",
@@ -4314,16 +4315,15 @@ function PlasmicCalendar2__RenderFunc(props: {
                                     if (endDate > todayDate) {
                                       endDate.setDate(
                                         endDate.getDate() -
-                                          ($state.userInfo?.result?.userStatus
-                                            ?.cycle -
-                                            1)
+                                          $state.userInfo?.result?.userStatus
+                                            ?.cycle
                                       );
                                     }
                                     let diffDays = Math.floor(
                                       (todayDate - endDate) /
                                         (1000 * 60 * 60 * 24)
                                     );
-                                    endDate.setDate(endDate.getDate() + 1);
+                                    endDate.setDate(endDate.getDate() - 1);
                                     data.end = {
                                       year: endDate.getFullYear(),
                                       month: endDate.getMonth() + 1,

@@ -2212,8 +2212,10 @@ function PlasmicHamyar__RenderFunc(props: {
             try {
               return (
                 $state.userdata?.result &&
-                !$state.userdata?.result?.rel?.active &&
-                $state.userdata?.result?.rel?.ignore == null
+                !(
+                  $state.userdata?.result?.rel?.active == true ||
+                  $state.userdata?.result?.rel?.ignore == true
+                )
               );
             } catch (e) {
               if (
@@ -8526,32 +8528,7 @@ function PlasmicHamyar__RenderFunc(props: {
                           !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                           (() => {
                             try {
-                              return (
-                                $state.remind
-                                  ?.filter(i => i.schedule_type === "everyYear")
-                                  .flatMap(i => {
-                                    let parsedDates;
-                                    try {
-                                      parsedDates = i.dates
-                                        ? JSON.parse(i.dates)
-                                        : [];
-                                    } catch {
-                                      parsedDates = [];
-                                    }
-
-                                    if (parsedDates.length === 0) {
-                                      // اگه تاریخ نداره فقط همون آبجکت با dates خالی
-                                      return [{ ...i, dates: [] }];
-                                    }
-
-                                    // برای هر تاریخ یک کپی جدا
-                                    return parsedDates.map(date => ({
-                                      ...i,
-                                      dates: [date]
-                                    }));
-                                  })
-                                  .slice(0, 2) ?? []
-                              );
+                              return $state.remind.slice(0, 2) ?? [];
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -28056,7 +28033,7 @@ function PlasmicHamyar__RenderFunc(props: {
                   )}
                 >
                   {
-                    "\u062a\u0623\u06cc\u06cc\u062f \u0647\u0645\u06cc\u0627\u0631"
+                    "\u0634\u0645\u0627 \u0628\u0647 \u0639\u0646\u0648\u0627\u0646 \u0647\u0645\u06cc\u0627\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc \u062b\u0628\u062a \u0634\u062f\u06cc\u062f"
                   }
                 </div>
               </div>
@@ -28074,7 +28051,9 @@ function PlasmicHamyar__RenderFunc(props: {
                 <React.Fragment>
                   {(() => {
                     try {
-                      return `${$state.userdata?.result?.hamyar?.name} شما را به عنوان همیار قاعدگی اضافه کرده است. با تأیید این پیام، این درخواست پذیرفته می‌شود و شما به عنوان همیار او ثبت می شوید.`;
+                      return `${$state.userdata?.result?.hamyar?.name} شمارا به عنوان همیار قاعدگی خود در اپلیکیشن لیوم ثبت کرده است. 
+با تایید این پیام از این به بعد به اطلاعات قاعدگی ${$state.userdata?.result?.hamyar?.name} دسترسی خواهید داشت و همچنین پیامک های یادآوری مربط به دوره ی قاعدگی اش را دریافت میکنید. 
+اگر شماره شما به اشتباه وارد شده است و نسبتی با ${$state.userdata?.result?.hamyar?.name} ندارید روی دکمه انصراف بزنید. `;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
