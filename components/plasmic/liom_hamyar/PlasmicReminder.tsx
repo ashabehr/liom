@@ -216,20 +216,102 @@ function PlasmicReminder__RenderFunc(props: {
         {
           data: [
             {
+              id: 256,
+              liomId: "1",
+              telegramId: "573538820",
+              phoneNumber: "",
+              schedule_type: "everyDay",
+              name: "\u0642\u0631\u0635 \u0645\u0641\u0646\u0627\u0646\u06cc\u06a9 \u0627\u0633\u06cc\u062f",
+              text: "pill",
+              token1:
+                "\u0645\u0641\u0646\u0627\u0646\u06cc\u06a9 \u0627\u0633\u06cc\u062f",
+              dates: null,
+              weekdays:
+                '["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]',
+              times: '["10:00","18:00","02:00"]',
+              finishTime: "2025-09-30 23:59:59",
+              active: 1
+            },
+            {
+              id: 243,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyDay",
+              name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628",
+              text: "drinkWater",
+              token1: null,
+              dates: null,
+              weekdays:
+                '["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]',
+              times:
+                '["08:00","10:00","12:00","15:20","18:00","22:00","00:30"]',
+              finishTime: "2026-08-27 00:00:00",
+              active: 1
+            },
+            {
+              id: 255,
+              liomId: "1",
+              telegramId: "5384384618",
+              phoneNumber: "null",
+              schedule_type: "everyYear",
+              name: "\u062a\u0648\u0644\u062f \u0641\u0631\u0632\u0646\u062f",
+              text: "birthdayBoyChild",
+              token1: null,
+              dates: '["2025-11-21","2026-06-24"]',
+              weekdays:
+                '["sunday","monday","tuesday","wednesday","friday","saturday"]',
+              times: '["10:00"]',
+              finishTime: "2025-12-11 23:59:02",
+              active: 1
+            },
+            {
+              id: 258,
+              liomId: "1",
+              telegramId: "33263188",
+              phoneNumber: "",
+              schedule_type: "everyYear",
+              name: "\u0631\u0648\u0632 \u0645\u0627\u062f\u0631",
+              text: "motherAndWifeDayIran",
+              token1: "",
+              dates: '["2025-12-11"]',
+              weekdays:
+                '["sunday","monday","tuesday","wednesday","friday","saturday"]',
+              times: '["10:00"]',
+              finishTime: "2025-12-11 23:59:02",
+              active: 1
+            },
+            {
               id: 241,
               liomId: "1",
               telegramId: "5384384618",
-              phoneNumber: "",
+              phoneNumber: "null",
               schedule_type: "everyYear",
               name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631\u0645",
               text: "birthday_child",
               token1:
                 "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1ODk2MDI4N30._Tp-wZXlukWoGyta2f-pCjVqGASV2wPp5eSWFhUPLj4",
-              dates: '["2025-09-29"]',
+              dates: '["2026-03-11"]',
               weekdays: null,
-              times: '["09:30"]',
+              times: '["12:00"]',
               finishTime: "2025-09-23 15:55:12",
               active: 0
+            },
+            {
+              id: 257,
+              liomId: "1",
+              telegramId: "33263188",
+              phoneNumber: "",
+              schedule_type: "everyYear",
+              name: "\u062a\u0648\u0644\u062f \u062d\u0644\u0645\u0627",
+              text: "birthday",
+              token1: "\u062d\u0644\u0645\u0627",
+              dates: '["2026-03-29"]',
+              weekdays:
+                '["sunday","monday","tuesday","wednesday","friday","saturday"]',
+              times: '["10:00"]',
+              finishTime: "2026-12-11 23:59:02",
+              active: 1
             }
           ],
           subscription: false,
@@ -1639,10 +1721,75 @@ function PlasmicReminder__RenderFunc(props: {
       {(() => {
         try {
           return (() => {
-            if ($props.data && $props.data.length !== 0) {
-              return true;
-            } else {
-              return $state.slide;
+            const groupsMap = new Map();
+            try {
+              function getIranISODate() {
+                const nowIran = new Date(
+                  new Date().toLocaleString("en-US", {
+                    timeZone: "Asia/Tehran"
+                  })
+                );
+                const year = nowIran.getFullYear();
+                const month = String(nowIran.getMonth() + 1).padStart(2, "0");
+                const day = String(nowIran.getDate()).padStart(2, "0");
+                return `${year}-${month}-${day}`;
+              }
+              const todayISO = getIranISODate();
+              $props.data.forEach(t => {
+                let parsedDates;
+                try {
+                  parsedDates = t.dates ? JSON.parse(t.dates) : [];
+                } catch (e) {
+                  parsedDates = [];
+                }
+                if (
+                  t.schedule_type === "everyDay" ||
+                  parsedDates.includes(todayISO)
+                ) {
+                  return;
+                }
+                if (parsedDates.length === 0) {
+                  const copy = {
+                    ...t,
+                    dates: [],
+                    telegramId: $props.telegramId,
+                    phoneNumber: $props.phoneNumber,
+                    liomId: $props.manId
+                  };
+                  const key = "__noDate__";
+                  if (!groupsMap.has(key)) groupsMap.set(key, []);
+                  groupsMap.get(key).push(copy);
+                } else {
+                  parsedDates.forEach(date => {
+                    const copy = {
+                      ...t,
+                      dates: [date],
+                      telegramId: $props.telegramId,
+                      phoneNumber: $props.phoneNumber,
+                      liomId: $props.manId
+                    };
+                    const key = date || "__noDate__";
+                    if (!groupsMap.has(key)) groupsMap.set(key, []);
+                    groupsMap.get(key).push(copy);
+                  });
+                }
+              });
+              const groups = Array.from(groupsMap.entries())
+                .sort((a, b) => {
+                  if (a[0] === "__noDate__") return -1;
+                  if (b[0] === "__noDate__") return 1;
+                  const dateA = new Date(a[0]);
+                  const dateB = new Date(b[0]);
+                  const timeA = dateA.getTime();
+                  const timeB = dateB.getTime();
+                  if (Number.isNaN(timeA)) return 1;
+                  if (Number.isNaN(timeB)) return -1;
+                  return timeA - timeB;
+                })
+                .map(entry => entry[1]);
+              return groups.length > 0;
+            } catch {
+              return false;
             }
           })();
         } catch (e) {
@@ -1718,16 +1865,35 @@ function PlasmicReminder__RenderFunc(props: {
                           }
                           if (
                             t.schedule_type === "everyDay" ||
-                            parsedDates[0] === todayISO
+                            parsedDates.includes(todayISO)
                           ) {
                             return;
                           }
-                          t.telegramId = $props.telegramId;
-                          t.phoneNumber = $props.phoneNumber;
-                          t.liomId = $props.manId;
-                          let key = parsedDates[0] || "__noDate__";
-                          if (!groupsMap.has(key)) groupsMap.set(key, []);
-                          groupsMap.get(key).push(t);
+                          if (parsedDates.length === 0) {
+                            const copy = {
+                              ...t,
+                              dates: [],
+                              telegramId: $props.telegramId,
+                              phoneNumber: $props.phoneNumber,
+                              liomId: $props.manId
+                            };
+                            const key = "__noDate__";
+                            if (!groupsMap.has(key)) groupsMap.set(key, []);
+                            groupsMap.get(key).push(copy);
+                          } else {
+                            parsedDates.forEach(date => {
+                              const copy = {
+                                ...t,
+                                dates: [date],
+                                telegramId: $props.telegramId,
+                                phoneNumber: $props.phoneNumber,
+                                liomId: $props.manId
+                              };
+                              const key = date || "__noDate__";
+                              if (!groupsMap.has(key)) groupsMap.set(key, []);
+                              groupsMap.get(key).push(copy);
+                            });
+                          }
                         });
                         const groups = Array.from(groupsMap.entries())
                           .sort((a, b) => {
@@ -1811,9 +1977,7 @@ function PlasmicReminder__RenderFunc(props: {
                                       try {
                                         return (() => {
                                           try {
-                                            var date = JSON.parse(
-                                              currentday[0].dates
-                                            )[0];
+                                            var date = currentday[0].dates[0];
                                             if (date) {
                                               function parseISOToUTC(dateStr) {
                                                 let [y, m, d] = dateStr
@@ -1865,9 +2029,7 @@ function PlasmicReminder__RenderFunc(props: {
                                       try {
                                         return (() => {
                                           try {
-                                            var date = JSON.parse(
-                                              currentday[0].dates
-                                            )[0];
+                                            var date = currentday[0].dates[0];
                                             if (date)
                                               return new Date(
                                                 date
@@ -3212,7 +3374,7 @@ function PlasmicReminder__RenderFunc(props: {
               hasVariant(globalVariants, "newView", "newView")
                 ? "#1264D1"
                 : true
-                ? "#7444BC"
+                ? "var(--antd-colorPrimaryTextHover)"
                 : undefined
             }
             activeSlideIndex={generateStateValueProp($state, [

@@ -6630,6 +6630,16 @@
           "id": "capAF3E74mwy",
           "name": "Icon309Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon309.tsx"
+        },
+        {
+          "id": "0VOFyrOg7Aj7",
+          "name": "Icon310Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon310.tsx"
+        },
+        {
+          "id": "lNuAAu8GY-nH",
+          "name": "Icon311Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon311.tsx"
         }
       ],
       "images": [
@@ -7599,6 +7609,6 @@
   "nextjsConfig": {
     "pagesDir": "../src/pages"
   },
-  "cliVersion": "0.1.343",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.343/dist/plasmic.schema.json"
+  "cliVersion": "0.1.344",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.344/dist/plasmic.schema.json"
 }

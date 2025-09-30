@@ -300,14 +300,14 @@
 }
 .freeBox__gTXuD {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   position: relative;
   align-items: stretch;
   justify-content: flex-start;
   width: 100%;
   height: auto;
   max-width: 100%;
-  column-gap: var(--token-uOLZE7OyOW-J);
+  row-gap: var(--token-uOLZE7OyOW-J);
   min-width: 0;
   padding: 0px;
 }
@@ -364,6 +364,76 @@
   font-size: var(--token-Wa5tmrNKVUYF);
   min-width: 0;
 }
+.text__yWbOm {
+  position: relative;
+  width: 100%;
+  height: 25px;
+  max-width: 100%;
+  text-align: right;
+  font-size: var(--token-Wa5tmrNKVUYF);
+  opacity: 0.5;
+  min-width: 0;
+}
+.freeBox__xgMp {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  grid-row-gap: var(--token-uOLZE7OyOW-J);
+  grid-column-gap: var(--token-uOLZE7OyOW-J);
+  min-width: 0;
+  padding: var(--token-O5TjkXII_aat) 0px;
+}
+.freeBox__kweHg {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  background: none;
+  min-width: 0;
+  border-radius: var(--token-B5WvIYiqPJW-);
+  padding: 0px;
+  border: 2px solid var(--token-qvl81LxkOSoe);
+}
+.freeBox___1F1TC {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 0px;
+}
+.text__kHgMi {
+  width: auto;
+  height: 25px;
+  max-width: 100%;
+  text-align: right;
+  font-size: var(--token-Wa5tmrNKVUYF);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.svg__lzsVl {
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 4px;
+  top: 2px;
+  opacity: 1;
+  color: var(--token-qvl81LxkOSoe);
+  flex-shrink: 0;
+}
 .freeBox__tjS7E {
   display: flex;
   flex-direction: column;
@@ -413,11 +483,11 @@
   width: 100%;
   height: 25px;
   max-width: 100%;
-  text-align: center;
+  text-align: right;
+  font-size: var(--token-Wa5tmrNKVUYF);
   min-width: 0;
 }
 .freeBox__mcNrt {
-  display: flex;
   flex-direction: column;
   width: 100%;
   height: auto;
@@ -426,6 +496,7 @@
   align-items: center;
   row-gap: var(--token-38wfsm-OP2Vm);
   min-width: 0;
+  display: none;
   padding: 0px;
 }
 .text__pjVcb {
@@ -513,6 +584,25 @@
   height: 20px;
   flex-shrink: 0;
 }
+.text___2C8SX {
+  position: relative;
+  width: 100%;
+  height: 25px;
+  max-width: 100%;
+  text-align: right;
+  font-size: var(--token-Wa5tmrNKVUYF);
+  min-width: 0;
+}
+.text__wqivh {
+  position: relative;
+  width: 100%;
+  height: 25px;
+  max-width: 100%;
+  text-align: right;
+  font-size: var(--token-Wa5tmrNKVUYF);
+  opacity: 0.5;
+  min-width: 0;
+}
 .freeBox___4YZz {
   display: grid;
   position: relative;
@@ -534,10 +624,11 @@
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
+  background: none;
   min-width: 0;
-  border-radius: var(--token-O5TjkXII_aat);
+  border-radius: var(--token-B5WvIYiqPJW-);
   padding: 0px;
-  border: 1px solid var(--token-qvl81LxkOSoe);
+  border: 2px solid var(--token-qvl81LxkOSoe);
 }
 .freeBox__g4CiI {
   display: flex;
@@ -557,6 +648,7 @@
   max-width: 100%;
   text-align: right;
   font-size: var(--token-Wa5tmrNKVUYF);
+  font-weight: 700;
   flex-shrink: 0;
 }
 .svg__uzFx4 {
@@ -564,11 +656,11 @@
   max-width: 100%;
   width: 20px;
   height: 20px;
-  color: var(--token-4RAe7M2gInqR);
   position: absolute;
-  left: -5px;
-  top: -5px;
+  left: 4px;
+  top: 2px;
   opacity: 1;
+  color: var(--token-qvl81LxkOSoe);
   flex-shrink: 0;
 }
 .button5:global(.__wab_instance) {
@@ -1144,6 +1236,7 @@
   color: var(--token--AiIiH6B786R);
   white-space: pre-wrap;
   margin-bottom: 0px;
+  z-index: 1;
 }
 .text__b6GPk {
   width: auto;
@@ -1259,6 +1352,19 @@
   font-weight: 500;
   letter-spacing: -0.5px;
   color: rgba(43, 43, 43, 1);
+  position: relative;
+  text-align: right;
+  width: auto;
+  flex-shrink: 1;
+}
+.text___71Sm6 {
+  display: block;
+  flex-grow: 0;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  color: var(--token--AiIiH6B786R);
   position: relative;
   text-align: right;
   width: auto;

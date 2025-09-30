@@ -3283,7 +3283,7 @@
     {
       "name": "primary-text",
       "type": "color",
-      "value": "#7444BC",
+      "value": "var(--antd-colorPrimaryTextHover)",
       "category": "color",
       "meta": {
         "projectId": "suVPi77vb6vv9K5rYJwyxC",

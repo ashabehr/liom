@@ -8526,15 +8526,32 @@ function PlasmicHamyar__RenderFunc(props: {
                           !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                           (() => {
                             try {
-                              return (() => {
-                                return (
-                                  $state.remind
-                                    ?.filter(
-                                      i => i.schedule_type === "everyYear"
-                                    )
-                                    .slice(0, 2) ?? []
-                                );
-                              })();
+                              return (
+                                $state.remind
+                                  ?.filter(i => i.schedule_type === "everyYear")
+                                  .flatMap(i => {
+                                    let parsedDates;
+                                    try {
+                                      parsedDates = i.dates
+                                        ? JSON.parse(i.dates)
+                                        : [];
+                                    } catch {
+                                      parsedDates = [];
+                                    }
+
+                                    if (parsedDates.length === 0) {
+                                      // اگه تاریخ نداره فقط همون آبجکت با dates خالی
+                                      return [{ ...i, dates: [] }];
+                                    }
+
+                                    // برای هر تاریخ یک کپی جدا
+                                    return parsedDates.map(date => ({
+                                      ...i,
+                                      dates: [date]
+                                    }));
+                                  })
+                                  .slice(0, 2) ?? []
+                              );
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||

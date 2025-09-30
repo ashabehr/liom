@@ -1237,6 +1237,12 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "userInfo",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -1421,6 +1427,43 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
             className={classNames("__wab_instance", sty.sideEffect__vZvKk)}
             onMount={async () => {
               const $steps = {};
+
+              $steps["getUserLiom"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return fetch(
+                          "https://n8n.staas.ir/webhook/userInfo_v2/?token=" +
+                            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkMTdiNmJkLTkzZmYtNGYzZS04ZGYzLTQwMDNkOTU2NGJkOCIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzQ2MjU3MDQ1fQ.VGtD4MdU57dGqdh7uxLTL3lCugmBcv_kybVqfb_2dSI",
+                          {
+                            method: "GET",
+                            headers: {
+                              "Content-Type": "application/json"
+                            }
+                          }
+                        )
+                          .then(response => response.json())
+                          .then(data => {
+                            $state.userInfo = data;
+                            console.log("user get liommm");
+                          })
+                          .catch(error =>
+                            console.error("Error get user liom:", error)
+                          );
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["getUserLiom"] != null &&
+                typeof $steps["getUserLiom"] === "object" &&
+                typeof $steps["getUserLiom"].then === "function"
+              ) {
+                $steps["getUserLiom"] = await $steps["getUserLiom"];
+              }
 
               $steps["getParams"] = true
                 ? (() => {
@@ -2026,11 +2069,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                         variablePath: ["randomIndex"]
                       },
                       operation: 0,
-                      value: (() => {
-                        return Math.floor(
-                          Math.random() * $state.playList.length
-                        );
-                      })()
+                      value: Math.floor(Math.random() * $state.playList.length)
                     };
                     return (({ variable, value, startIndex, deleteCount }) => {
                       if (!variable) {
@@ -2442,14 +2481,11 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                           try {
                             var token = $state.token;
                             var name =
-                              $state.getUserInfo.data?.[0]?.result?.user
-                                ?.name ?? "";
+                              $state.userInfo?.[0]?.result?.user?.name ?? "";
                             var mobile =
-                              $state.getUserInfo.data?.[0]?.result?.user
-                                ?.mobile ?? "";
+                              $state.userInfo?.[0]?.result?.user?.mobile ?? "";
                             var email =
-                              $state.getUserInfo.data?.[0]?.result?.user
-                                ?.email ?? "";
+                              $state.userInfo?.[0]?.result?.user?.email ?? "";
                             if (typeof mobile == "undefined") {
                               mobile = "";
                             }
@@ -2460,16 +2496,16 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                               name = "";
                             }
                             if (
-                              typeof $state.getUserInfo.data[0].result
-                                .hamyars == "undefined"
+                              typeof $state.userInfo?.[0]?.result?.hamyars ==
+                              "undefined"
                             ) {
-                              $state.getUserInfo.data[0].result.hamyars = [];
+                              $state.userInfo[0].result.hamyars = [];
                             }
                             if (
-                              typeof $state.getUserInfo.data[0].result
-                                .allowance == "undefined"
+                              typeof $state.userInfo?.[0]?.result?.allowance ==
+                              "undefined"
                             ) {
-                              $state.getUserInfo.data[0].result.allowance = [];
+                              $state.userInfo[0].result.allowance = [];
                             }
                             var gy = parseInt(
                               $state.user?.[0]?.dueDate.split("-")[0]
@@ -2483,43 +2519,41 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                             let hamyarsData = [];
                             for (
                               let i = 0;
-                              i <
-                              $state.getUserInfo.data[0].result.hamyars.length;
+                              i < $state.userInfo?.[0]?.result?.hamyars.length;
                               i++
                             ) {
                               hamyarsData.push({
-                                name: $state.getUserInfo.data[0].result.hamyars[
-                                  i
-                                ].user.name,
-                                id: $state.getUserInfo.data[0].result.hamyars[i]
+                                name: $state.userInfo?.[0]?.result?.hamyars[i]
+                                  .user.name,
+                                id: $state.userInfo?.[0]?.result?.hamyars[i]
                                   .user.id,
                                 mobile:
-                                  $state.getUserInfo.data[0].result.hamyars[i]
-                                    .user.mobile,
+                                  $state.userInfo?.[0]?.result?.hamyars[i].user
+                                    .mobile,
                                 statusSms:
-                                  $state.getUserInfo.data[0].result.hamyars[i]
-                                    .rel.statusSms,
+                                  $state.userInfo?.[0]?.result?.result.hamyars[
+                                    i
+                                  ].rel.statusSms,
                                 hamyarStatus:
-                                  $state.getUserInfo.data[0].result.hamyars[i]
-                                    .user.hamyarStatus,
+                                  $state.userInfo?.[0]?.result?.hamyars[i].user
+                                    .hamyarStatus,
                                 hamyarTime:
-                                  $state.getUserInfo.data[0].result.hamyars[i]
-                                    .user.hamyarTime,
+                                  $state.userInfo?.[0]?.result?.hamyars[i].user
+                                    .hamyarTime,
                                 email:
-                                  $state.getUserInfo.data[0].result.hamyars[i]
-                                    .user.email
+                                  $state.userInfo?.[0]?.result?.hamyars[i].user
+                                    .email
                               });
                             }
                             let allowance = [];
                             for (
                               let i = 0;
                               i <
-                              $state.getUserInfo.data[0].result.allowance
-                                .length;
+                              $state.userInfo?.[0]?.result?.allowance.length;
                               i++
                             ) {
                               allowance.push(
-                                $state.getUserInfo.data[0].result.allowance[i]
+                                $state.userInfo?.[0]?.result?.allowance[i]
                               );
                             }
                             fetch(
@@ -6614,13 +6648,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                   </div>
                   {(() => {
                     try {
-                      return (
-                        $state.suggestActiveSms == "true" // &&
-                        // (!($state.getUserInfo.data[0].result.user.selfHamyarSms) ||
-                        //   ($state.getUserInfo.data[0].result.user.selfHamyarSmsSubStatus)
-                        // )
-                        // && (!$state.getUserInfo.data[0].result.hamyars[0].rel.statusSms)
-                      );
+                      return $state.suggestActiveSms == "true";
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -6657,7 +6685,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                             type: "switch",
                             borderColor: "#000000",
                             isChecked:
-                              $state.getUserInfo.data[0].result.hamyars[0].rel
+                              $state.userInfo?.[0]?.result?.hamyars[0].rel
                                 .statusSms
                           };
                         } catch (e) {
@@ -6684,9 +6712,9 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                             textColor: "#000000",
                             type: "switch",
                             isChecked:
-                              $state.getUserInfo.data[0].result.user
+                              $state.userInfo?.[0]?.result?.user
                                 .selfHamyarSms ||
-                              $state.getUserInfo.data[0].result.user
+                              $state.userInfo?.[0]?.result?.user
                                 .selfHamyarSmsSubStatus,
                             borderColor: "#000000"
                           };
@@ -6711,6 +6739,11 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                         "__wab_instance",
                         sty.informationBox___5H6Oq,
                         {
+                          [sty.informationBoxdarkMod___5H6Oqae2Vb]: hasVariant(
+                            $state,
+                            "darkMod",
+                            "darkMod"
+                          ),
                           [sty.informationBoxglobal_newView_newView___5H6Oq0DHva]:
                             hasVariant(globalVariants, "newView", "newView")
                         }
@@ -6726,7 +6759,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                     try {
                                       return (() => {
                                         const allowance =
-                                          $state?.getUserInfo?.data?.[0]?.result
+                                          $state.userInfo?.[0]?.result
                                             ?.allowance || [];
                                         var become_father = allowance.find(
                                           item =>
@@ -6858,8 +6891,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
 
                         $steps["updateTypeBuy"] = (() => {
                           const allowance =
-                            $state?.getUserInfo?.data?.[0]?.result?.allowance ||
-                            [];
+                            $state.userInfo?.[0]?.result?.allowance || [];
                           var become_father = allowance.find(
                             item => item.type == "pregnancy_sub_become_father"
                           )
@@ -6928,8 +6960,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
 
                         $steps["updateDirectDialog2Open"] = (() => {
                           const allowance =
-                            $state?.getUserInfo?.data?.[0]?.result?.allowance ||
-                            [];
+                            $state.userInfo?.[0]?.result?.allowance || [];
                           var become_father = allowance.find(
                             item => item.type == "pregnancy_sub_become_father"
                           )
@@ -7189,8 +7220,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                         customFunction: async () => {
                                           return (() => {
                                             const allowance =
-                                              $state?.getUserInfo?.data?.[0]
-                                                ?.result?.allowance || [];
+                                              $state.userInfo?.[0]?.result
+                                                ?.allowance || [];
                                             const filteredItem = allowance.find(
                                               item =>
                                                 item.type.includes(
@@ -7377,8 +7408,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                         customFunction: async () => {
                                           return (() => {
                                             const allowance =
-                                              $state?.getUserInfo?.data?.[0]
-                                                ?.result?.allowance || [];
+                                              $state.userInfo?.[0]?.result
+                                                ?.allowance || [];
                                             const filteredItem = allowance.find(
                                               item =>
                                                 item.type.includes(
@@ -7389,7 +7420,6 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                               ? filteredItem.active
                                               : false;
                                             var token = $state.token;
-                                            console.log($state?.getUserInfo);
                                             if (!token.startsWith("ey")) {
                                               token = token.slice(
                                                 6,
@@ -7841,8 +7871,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
 
                                   $steps["deepLink"] = (() => {
                                     const allowance =
-                                      $state?.getUserInfo?.data?.[0]?.result
-                                        ?.allowance || [];
+                                      $state.userInfo?.[0]?.result?.allowance ||
+                                      [];
                                     const filteredItem = allowance.find(item =>
                                       item.type.includes(currentItem.shopType)
                                     );
@@ -7967,8 +7997,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                           customFunction: async () => {
                                             return (() => {
                                               const allowance =
-                                                $state?.getUserInfo?.data?.[0]
-                                                  ?.result?.allowance || [];
+                                                $state.userInfo?.[0]?.result
+                                                  ?.allowance || [];
                                               const filteredItem =
                                                 allowance.find(item =>
                                                   item.type.includes(
@@ -9430,9 +9460,9 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                                   customFunction: async () => {
                                                     return (() => {
                                                       const allowance =
-                                                        $state?.getUserInfo
-                                                          ?.data?.[0]?.result
-                                                          ?.allowance || [];
+                                                        $state.userInfo?.[0]
+                                                          ?.result?.allowance ||
+                                                        [];
                                                       const filteredItem =
                                                         allowance.find(item =>
                                                           item.type.includes(
@@ -9650,9 +9680,9 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                                   customFunction: async () => {
                                                     return (() => {
                                                       const allowance =
-                                                        $state?.getUserInfo
-                                                          ?.data?.[0]?.result
-                                                          ?.allowance || [];
+                                                        $state.userInfo?.[0]
+                                                          ?.result?.allowance ||
+                                                        [];
                                                       const filteredItem =
                                                         allowance.find(item =>
                                                           item.type.includes(
@@ -9934,8 +9964,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                         try {
                                           return (() => {
                                             const allowance =
-                                              $state?.getUserInfo?.data?.[0]
-                                                ?.result?.allowance || [];
+                                              $state.userInfo?.[0]?.result
+                                                ?.allowance || [];
                                             const filteredItem = allowance.find(
                                               item =>
                                                 item.type.includes("advice")
@@ -10323,17 +10353,18 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                         try {
                                           return (() => {
                                             const allowance =
-                                              $state?.getUserInfo?.data?.[0]
-                                                ?.result?.allowance || [];
+                                              $state.userInfo?.[0]?.result
+                                                ?.allowance || [];
                                             const filteredItem = allowance.find(
                                               item =>
                                                 item.type.includes(
                                                   "special_advice"
                                                 )
                                             );
-                                            const active = filteredItem
-                                              ? filteredItem.active
-                                              : false;
+                                            const active =
+                                              (filteredItem
+                                                ? filteredItem?.active
+                                                : false) || false;
                                             if (currentItem.vip == 0)
                                               return true;
                                             else if (
@@ -25993,44 +26024,6 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 null,
                 eventArgs
               );
-
-              (async data => {
-                const $steps = {};
-
-                $steps["runCode"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            try {
-                              localStorage.setItem(
-                                "userinfo",
-                                JSON.stringify(
-                                  $state.getUserInfo?.data?.[0].result
-                                )
-                              );
-                              console.log("saveInfo:ok");
-                              localStorage.setItem("token", $state.token);
-                              return console.log("token:ok");
-                            } catch {
-                              return console.log("saveInfo-token:errore");
-                            }
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
-                ) {
-                  $steps["runCode"] = await $steps["runCode"];
-                }
-              }).apply(null, eventArgs);
             }}
             params={(() => {
               try {

@@ -1226,9 +1226,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                     title: "هنوز پریود نشدم",
                     text: "اگه پریودت با تاخیر مواجه شده و چرخه و تقویم قاعدگیت دارن اینو بهت نشون میدن که تو پریود شدی با این دکمه وضعیت فعلیت رو درست کن",
                     action: "warning",
-                    show:
-                      $state.userInfo?.result?.userStatus?.periodStatus ==
-                      "blood"
+                    show: false
+                    // "show": $state.userInfo?.result?.userStatus?.periodStatus=="blood"
                   },
                   //     {
                   //   "title":"دوره کاملا اشتباه محاسبه شده",
@@ -1261,7 +1260,7 @@ function PlasmicCalendar2__RenderFunc(props: {
         path: "warning.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "button20.color",
