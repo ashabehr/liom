@@ -59,8 +59,10 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import TabWidget from "../../TabWidget"; // plasmic-import: 5oNm4PTVAr6q/component
+import DirectDialog2 from "../../DirectDialog2"; // plasmic-import: TQdexUKMB_Ec/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -76,19 +78,31 @@ export type PlasmicToolsComponent__VariantsArgs = {};
 type VariantPropType = keyof PlasmicToolsComponent__VariantsArgs;
 export const PlasmicToolsComponent__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicToolsComponent__ArgsType = { token?: string };
+export type PlasmicToolsComponent__ArgsType = {
+  token?: string;
+  inApp?: string;
+  theme?: string;
+};
 type ArgPropType = keyof PlasmicToolsComponent__ArgsType;
-export const PlasmicToolsComponent__ArgProps = new Array<ArgPropType>("token");
+export const PlasmicToolsComponent__ArgProps = new Array<ArgPropType>(
+  "token",
+  "inApp",
+  "theme"
+);
 
 export type PlasmicToolsComponent__OverridesType = {
   root?: Flex__<"div">;
+  lottie?: Flex__<typeof LottieWrapper>;
   getUserInfo?: Flex__<typeof ApiRequest>;
   tabWidget?: Flex__<typeof TabWidget>;
   img?: Flex__<typeof PlasmicImg__>;
+  directDialog2?: Flex__<typeof DirectDialog2>;
 };
 
 export interface DefaultToolsComponentProps {
   token?: string;
+  inApp?: string;
+  theme?: string;
   className?: string;
 }
 
@@ -159,21 +173,8 @@ function PlasmicToolsComponent__RenderFunc(props: {
                       category: "مادر",
                       items: [
                         {
-                          // "title": "ابزارهای بارداری",
                           title: "",
                           items: [
-                            {
-                              text: "یادآوری غربالگری و آزمایش های مهم",
-                              action: "#selfSms",
-                              shopType: "pregnancy_sub_self_sms",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/selfSmsOutlined.png"
-                            },
-                            {
-                              text: "معرفی مکمل‌ها و ویتامین‌ها",
-                              action: "",
-                              shopType: "danger",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/vitaminOutlined.png"
-                            },
                             {
                               text: "ویدیو آموزشی",
                               description:
@@ -189,95 +190,79 @@ function PlasmicToolsComponent__RenderFunc(props: {
                               action: "#weight",
                               shopType: "",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/bmiOutlined.png"
-                              // }
-                              //   ]
                             },
-
-                            // {
-                            //   "title": "خود درمانی",
-                            //   "items": [
-                            //     {
-                            //       "text": "روتین مو",
-                            //       "description": "برنامه مراقبت و نگهداری از موها در دوران بارداری.",
-                            //       "action": "#hair_care",
-                            //       "shopType" : "hair_car" ,
-                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/hairCareOutlined.png"
-                            //     },
-                            //     {
-                            //       "text": "روتین پوست",
-                            //       "description": "راهنمای مراقبت از پوست در دوران بارداری برای حفظ زیبایی و سلامت.",
-                            //       "action": "#skinCare",
-                            //       "shopType" : "skinCare" ,
-                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/skinCareOutlined.png"
-                            //     },
-                            //     {
-                            //       "text": "پیشگیری از ترک پوستی",
-                            //       "description": "روش‌های جلوگیری از ایجاد ترک‌های پوستی در بارداری.",
-                            //       "action": "#stretch_marks",
-                            //       "shopType" : "stretch_marks_sub" ,
-                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/stretchMarkOutlined.png"
-                            //     },
-                            //     {
-                            //       "text": "درمان  ADHD ",
-                            //       "action": "#adhd_treatment_sub",
-                            //       "shopType" : "adhd_treatment_sub" ,
-                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/adhdOutlined.png"
-                            //     }
-                            //   ]
-                            // },
-                            // {
-                            //   "title": "خود آزمایی",
-                            //   "items": [
-                            //     {
-                            //       "text": "تست نیاز به تراپی دارم",
-                            //       "description": "ارزیابی نیاز به خدمات تراپی روانشناسی و درمانی.",
-                            //       "action": "#need_therapy",
-                            //       "shopType" : "need_therapy_sub" ,
-                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/therapyOutlined.png"
-                            //     },
-                            //     {
-                            //       "text": "تست افسردگی",
-                            //       "description": "ارزیابی سلامت روان و تشخیص علائم افسردگی.",
-                            //       "action": "#depression",
-                            //       "shopType" : "" ,
-                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/depressionNew.png"
-                            //     },
-                            //     {
-                            //       "text": "تست ADHD",
-                            //       "description": "آزمون و ارزیابی اختلال نقص توجه و بیش‌فعالی.",
-                            //       "action": "#adhd",
-                            //       "shopType" : "adhd_sub" ,
-                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/adhdOutlined.png"
-                            //     },
-                            //     {
-                            //       "text": "تست دیابت بارداری (GD)",
-                            //       "action": "#pregnancyDiabetes",
-                            //       "shopType" : "pregnancy_diabetes" ,
-                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/diabetOutlined.png"
-                            //     },
-                            //     {
-                            //       "text": "تست مسمومیت بارداری",
-                            //       "action": "#preeclampsia",
-                            //       "shopType" : "preeclampsia" ,
-                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/preeclampsiaOutlined.png"
-                            //     },
-                            //     {
-                            //       "text": "تست اختلال تیروئید",
-                            //       "action": "#thyroid",
-                            //       "shopType" : "thyroid" ,
-                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/therapyOutlined.png"
-                            //     }
-                            //   ]
-                            // },
-                            //  {
-                            //     "title": "دیگر ابزارها",
-                            //     "items": [
-                            // {
-                            //   "text": "یادآوری خودآزمایی سرطان سینه",
-                            //   "action": "#breastCancer",
-                            //   "shopType" : "" ,
-                            //   "icon": "https://liom.storage.c2.liara.space/config/self_care/breastCancerOutlined.png"
-                            // },
+                            {
+                              text: "روتین مو",
+                              description:
+                                "برنامه مراقبت و نگهداری از موها در دوران بارداری.",
+                              action: "#hair_care",
+                              shopType: "hair_car",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/hairCareOutlined.png"
+                            },
+                            {
+                              text: "روتین پوست",
+                              description:
+                                "راهنمای مراقبت از پوست در دوران بارداری برای حفظ زیبایی و سلامت.",
+                              action: "#skinCare",
+                              shopType: "skinCare",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/skinCareOutlined.png"
+                            },
+                            {
+                              text: "پیشگیری از ترک پوستی",
+                              description:
+                                "روش‌های جلوگیری از ایجاد ترک‌های پوستی در بارداری.",
+                              action: "#stretch_marks",
+                              shopType: "stretch_marks_sub",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/stretchMarkOutlined.png"
+                            },
+                            {
+                              text: "درمان  ADHD ",
+                              action: "#adhd_treatment_sub",
+                              shopType: "adhd_treatment_sub",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/adhdOutlined.png"
+                            },
+                            {
+                              text: "تست نیاز به تراپی دارم",
+                              description:
+                                "ارزیابی نیاز به خدمات تراپی روانشناسی و درمانی.",
+                              action: "#need_therapy",
+                              shopType: "need_therapy_sub",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/therapyOutlined.png"
+                            },
+                            {
+                              text: "تست افسردگی",
+                              description:
+                                "ارزیابی سلامت روان و تشخیص علائم افسردگی.",
+                              action: "#depression",
+                              shopType: "",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/depressionNew.png"
+                            },
+                            {
+                              text: "تست ADHD",
+                              description:
+                                "آزمون و ارزیابی اختلال نقص توجه و بیش‌فعالی.",
+                              action: "#adhd",
+                              shopType: "adhd_sub",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/adhdOutlined.png"
+                            },
+                            {
+                              text: "تست دیابت بارداری (GD)",
+                              action: "#pregnancyDiabetes",
+                              shopType: "pregnancy_diabetes",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/diabetOutlined.png"
+                            },
+                            {
+                              text: "تست مسمومیت بارداری",
+                              action: "#preeclampsia",
+                              shopType: "preeclampsia",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/preeclampsiaOutlined.png"
+                            },
+                            {
+                              text: "تست اختلال تیروئید",
+                              action: "#thyroid",
+                              shopType: "thyroid",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/therapyOutlined.png"
+                            },
                             {
                               text: "همیار بارداری",
                               shopType: "",
@@ -308,22 +293,6 @@ function PlasmicToolsComponent__RenderFunc(props: {
                         {
                           title: "",
                           items: [
-                            {
-                              text: "سیسمونی",
-                              shopType: "",
-                              description:
-                                "راهنمای انتخاب و تهیه سیسمونی مناسب برای نوزاد.",
-                              action: "#sismony",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/sismoonyOutlined.png"
-                            },
-                            {
-                              text: "کیف بیمارستان",
-                              shopType: "",
-                              description:
-                                "لیست کامل وسایل ضروری برای بیمارستان هنگام زایمان.",
-                              action: "#hospitalBag",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/haspitalBagOutlined.png"
-                            },
                             {
                               text: "تست پیش‌بینی جنسیت",
                               shopType: "",
@@ -385,6 +354,30 @@ function PlasmicToolsComponent__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "typeBuy",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "pregnancySub"
+      },
+      {
+        path: "directDialog2.selectShop",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "directDialog2.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -413,6 +406,529 @@ function PlasmicToolsComponent__RenderFunc(props: {
         sty.root
       )}
     >
+      {(() => {
+        try {
+          return $state.loading;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return false;
+          }
+          throw e;
+        }
+      })() ? (
+        <div className={classNames(projectcss.all, sty.freeBox__derEy)}>
+          <LottieWrapper
+            data-plasmic-name={"lottie"}
+            data-plasmic-override={overrides.lottie}
+            animationData={{
+              nm: "Loading Dots",
+              ddd: 0,
+              h: 50,
+              w: 100,
+              meta: { g: "@lottiefiles/toolkit-js 0.33.2" },
+              layers: [
+                {
+                  ty: 4,
+                  nm: "Dot4",
+                  sr: 1,
+                  st: 0,
+                  op: 360,
+                  ip: 0,
+                  hd: false,
+                  ddd: 0,
+                  bm: 0,
+                  hasMask: false,
+                  ao: 0,
+                  ks: {
+                    a: { a: 0, k: [-284, 92, 0], ix: 1 },
+                    s: {
+                      a: 1,
+                      k: [
+                        {
+                          o: { x: 0.333, y: 0 },
+                          i: { x: 0.667, y: 1 },
+                          s: [2.61, 2.32, 100],
+                          t: 25
+                        },
+                        {
+                          o: { x: 0.333, y: 0 },
+                          i: { x: 0.667, y: 1 },
+                          s: [3.91, 3.47, 100],
+                          t: 39
+                        },
+                        { s: [2.61, 2.32, 100], t: 55 }
+                      ],
+                      ix: 6
+                    },
+                    sk: { a: 0, k: 0 },
+                    p: {
+                      a: 1,
+                      k: [
+                        {
+                          o: { x: 0.333, y: 0 },
+                          i: { x: 0.667, y: 1 },
+                          s: [59.48, 25, 0],
+                          t: 25
+                        },
+                        {
+                          o: { x: 0.333, y: 0 },
+                          i: { x: 0.667, y: 1 },
+                          s: [59.48, 23.15, 0],
+                          t: 39
+                        },
+                        { s: [59.48, 25, 0], t: 55 }
+                      ],
+                      ix: 2
+                    },
+                    r: { a: 0, k: 0, ix: 10 },
+                    sa: { a: 0, k: 0 },
+                    o: {
+                      a: 1,
+                      k: [
+                        {
+                          o: { x: 0.333, y: 0 },
+                          i: { x: 0.667, y: 1 },
+                          s: [25],
+                          t: 25
+                        },
+                        {
+                          o: { x: 0.333, y: 0 },
+                          i: { x: 0.667, y: 1 },
+                          s: [100],
+                          t: 39
+                        },
+                        { s: [25], t: 55 }
+                      ],
+                      ix: 11
+                    }
+                  },
+                  ef: [],
+                  shapes: [
+                    {
+                      ty: "gr",
+                      bm: 0,
+                      hd: false,
+                      mn: "ADBE Vector Group",
+                      nm: "Ellipse 1",
+                      ix: 1,
+                      cix: 2,
+                      np: 3,
+                      it: [
+                        {
+                          ty: "el",
+                          bm: 0,
+                          hd: false,
+                          mn: "ADBE Vector Shape - Ellipse",
+                          nm: "Ellipse Path 1",
+                          d: 1,
+                          p: { a: 0, k: [0, 0], ix: 3 },
+                          s: { a: 0, k: [120, 120], ix: 2 }
+                        },
+                        {
+                          ty: "fl",
+                          bm: 0,
+                          hd: false,
+                          mn: "ADBE Vector Graphic - Fill",
+                          nm: "Fill 1",
+                          c: { a: 0, k: [0.5098, 0.3294, 0.7765], ix: 4 },
+                          r: 1,
+                          o: { a: 0, k: 100, ix: 5 }
+                        },
+                        {
+                          ty: "tr",
+                          a: { a: 0, k: [0, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100], ix: 3 },
+                          sk: { a: 0, k: 0, ix: 4 },
+                          p: { a: 0, k: [-284, 92], ix: 2 },
+                          r: { a: 0, k: 0, ix: 6 },
+                          sa: { a: 0, k: 0, ix: 5 },
+                          o: { a: 0, k: 100, ix: 7 }
+                        }
+                      ]
+                    }
+                  ],
+                  ind: 1
+                },
+                {
+                  ty: 4,
+                  nm: "Dot3",
+                  sr: 1,
+                  st: 0,
+                  op: 360,
+                  ip: 0,
+                  hd: false,
+                  ddd: 0,
+                  bm: 0,
+                  hasMask: false,
+                  ao: 0,
+                  ks: {
+                    a: { a: 0, k: [-284, 92, 0], ix: 1 },
+                    s: {
+                      a: 1,
+                      k: [
+                        {
+                          o: { x: 0.333, y: 0 },
+                          i: { x: 0.667, y: 1 },
+                          s: [2.61, 2.32, 100],
+                          t: 17
+                        },
+                        {
+                          o: { x: 0.333, y: 0 },
+                          i: { x: 0.667, y: 1 },
+                          s: [3.91, 3.47, 100],
+                          t: 31
+                        },
+                        { s: [2.61, 2.32, 100], t: 47 }
+                      ],
+                      ix: 6
+                    },
+                    sk: { a: 0, k: 0 },
+                    p: {
+                      a: 1,
+                      k: [
+                        {
+                          o: { x: 0.333, y: 0 },
+                          i: { x: 0.667, y: 1 },
+                          s: [53.23, 25, 0],
+                          t: 17
+                        },
+                        {
+                          o: { x: 0.333, y: 0 },
+                          i: { x: 0.667, y: 1 },
+                          s: [53.23, 23.15, 0],
+                          t: 31
+                        },
+                        { s: [53.23, 25, 0], t: 47 }
+                      ],
+                      ix: 2
+                    },
+                    r: { a: 0, k: 0, ix: 10 },
+                    sa: { a: 0, k: 0 },
+                    o: {
+                      a: 1,
+                      k: [
+                        {
+                          o: { x: 0.333, y: 0 },
+                          i: { x: 0.667, y: 1 },
+                          s: [25],
+                          t: 17
+                        },
+                        {
+                          o: { x: 0.333, y: 0 },
+                          i: { x: 0.667, y: 1 },
+                          s: [100],
+                          t: 31
+                        },
+                        { s: [25], t: 47 }
+                      ],
+                      ix: 11
+                    }
+                  },
+                  ef: [],
+                  shapes: [
+                    {
+                      ty: "gr",
+                      bm: 0,
+                      hd: false,
+                      mn: "ADBE Vector Group",
+                      nm: "Ellipse 1",
+                      ix: 1,
+                      cix: 2,
+                      np: 3,
+                      it: [
+                        {
+                          ty: "el",
+                          bm: 0,
+                          hd: false,
+                          mn: "ADBE Vector Shape - Ellipse",
+                          nm: "Ellipse Path 1",
+                          d: 1,
+                          p: { a: 0, k: [0, 0], ix: 3 },
+                          s: { a: 0, k: [120, 120], ix: 2 }
+                        },
+                        {
+                          ty: "fl",
+                          bm: 0,
+                          hd: false,
+                          mn: "ADBE Vector Graphic - Fill",
+                          nm: "Fill 1",
+                          c: { a: 0, k: [0.5098, 0.3294, 0.7765], ix: 4 },
+                          r: 1,
+                          o: { a: 0, k: 100, ix: 5 }
+                        },
+                        {
+                          ty: "tr",
+                          a: { a: 0, k: [0, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100], ix: 3 },
+                          sk: { a: 0, k: 0, ix: 4 },
+                          p: { a: 0, k: [-284, 92], ix: 2 },
+                          r: { a: 0, k: 0, ix: 6 },
+                          sa: { a: 0, k: 0, ix: 5 },
+                          o: { a: 0, k: 100, ix: 7 }
+                        }
+                      ]
+                    }
+                  ],
+                  ind: 2
+                },
+                {
+                  ty: 4,
+                  nm: "Dot2",
+                  sr: 1,
+                  st: 0,
+                  op: 360,
+                  ip: 0,
+                  hd: false,
+                  ddd: 0,
+                  bm: 0,
+                  hasMask: false,
+                  ao: 0,
+                  ks: {
+                    a: { a: 0, k: [-284, 92, 0], ix: 1 },
+                    s: {
+                      a: 1,
+                      k: [
+                        {
+                          o: { x: 0.333, y: 0 },
+                          i: { x: 0.667, y: 1 },
+                          s: [2.61, 2.32, 100],
+                          t: 9
+                        },
+                        {
+                          o: { x: 0.333, y: 0 },
+                          i: { x: 0.667, y: 1 },
+                          s: [3.91, 3.47, 100],
+                          t: 23
+                        },
+                        { s: [2.61, 2.32, 100], t: 39 }
+                      ],
+                      ix: 6
+                    },
+                    sk: { a: 0, k: 0 },
+                    p: {
+                      a: 1,
+                      k: [
+                        {
+                          o: { x: 0.333, y: 0 },
+                          i: { x: 0.667, y: 1 },
+                          s: [46.98, 25, 0],
+                          t: 9
+                        },
+                        {
+                          o: { x: 0.333, y: 0 },
+                          i: { x: 0.667, y: 1 },
+                          s: [46.98, 23.15, 0],
+                          t: 23
+                        },
+                        { s: [46.98, 25, 0], t: 39 }
+                      ],
+                      ix: 2
+                    },
+                    r: { a: 0, k: 0, ix: 10 },
+                    sa: { a: 0, k: 0 },
+                    o: {
+                      a: 1,
+                      k: [
+                        {
+                          o: { x: 0.333, y: 0 },
+                          i: { x: 0.667, y: 1 },
+                          s: [25],
+                          t: 9
+                        },
+                        {
+                          o: { x: 0.333, y: 0 },
+                          i: { x: 0.667, y: 1 },
+                          s: [100],
+                          t: 23
+                        },
+                        { s: [25], t: 39 }
+                      ],
+                      ix: 11
+                    }
+                  },
+                  ef: [],
+                  shapes: [
+                    {
+                      ty: "gr",
+                      bm: 0,
+                      hd: false,
+                      mn: "ADBE Vector Group",
+                      nm: "Ellipse 1",
+                      ix: 1,
+                      cix: 2,
+                      np: 3,
+                      it: [
+                        {
+                          ty: "el",
+                          bm: 0,
+                          hd: false,
+                          mn: "ADBE Vector Shape - Ellipse",
+                          nm: "Ellipse Path 1",
+                          d: 1,
+                          p: { a: 0, k: [0, 0], ix: 3 },
+                          s: { a: 0, k: [120, 120], ix: 2 }
+                        },
+                        {
+                          ty: "fl",
+                          bm: 0,
+                          hd: false,
+                          mn: "ADBE Vector Graphic - Fill",
+                          nm: "Fill 1",
+                          c: { a: 0, k: [0.5098, 0.3294, 0.7765], ix: 4 },
+                          r: 1,
+                          o: { a: 0, k: 100, ix: 5 }
+                        },
+                        {
+                          ty: "tr",
+                          a: { a: 0, k: [0, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100], ix: 3 },
+                          sk: { a: 0, k: 0, ix: 4 },
+                          p: { a: 0, k: [-284, 92], ix: 2 },
+                          r: { a: 0, k: 0, ix: 6 },
+                          sa: { a: 0, k: 0, ix: 5 },
+                          o: { a: 0, k: 100, ix: 7 }
+                        }
+                      ]
+                    }
+                  ],
+                  ind: 3
+                },
+                {
+                  ty: 4,
+                  nm: "Dot1",
+                  sr: 1,
+                  st: 0,
+                  op: 360,
+                  ip: 0,
+                  hd: false,
+                  ddd: 0,
+                  bm: 0,
+                  hasMask: false,
+                  ao: 0,
+                  ks: {
+                    a: { a: 0, k: [-284, 92, 0], ix: 1 },
+                    s: {
+                      a: 1,
+                      k: [
+                        {
+                          o: { x: 0.333, y: 0 },
+                          i: { x: 0.667, y: 1 },
+                          s: [2.61, 2.32, 100],
+                          t: 0
+                        },
+                        {
+                          o: { x: 0.333, y: 0 },
+                          i: { x: 0.667, y: 1 },
+                          s: [3.91, 3.47, 100],
+                          t: 14
+                        },
+                        { s: [2.61, 2.32, 100], t: 30 }
+                      ],
+                      ix: 6
+                    },
+                    sk: { a: 0, k: 0 },
+                    p: {
+                      a: 1,
+                      k: [
+                        {
+                          o: { x: 0.333, y: 0 },
+                          i: { x: 0.667, y: 1 },
+                          s: [40.73, 25, 0],
+                          t: 0
+                        },
+                        {
+                          o: { x: 0.333, y: 0 },
+                          i: { x: 0.667, y: 1 },
+                          s: [40.73, 23.15, 0],
+                          t: 14
+                        },
+                        { s: [40.73, 25, 0], t: 30 }
+                      ],
+                      ix: 2
+                    },
+                    r: { a: 0, k: 0, ix: 10 },
+                    sa: { a: 0, k: 0 },
+                    o: {
+                      a: 1,
+                      k: [
+                        {
+                          o: { x: 0.333, y: 0 },
+                          i: { x: 0.667, y: 1 },
+                          s: [25],
+                          t: 0
+                        },
+                        {
+                          o: { x: 0.333, y: 0 },
+                          i: { x: 0.667, y: 1 },
+                          s: [100],
+                          t: 14
+                        },
+                        { s: [25], t: 30 }
+                      ],
+                      ix: 11
+                    }
+                  },
+                  ef: [],
+                  shapes: [
+                    {
+                      ty: "gr",
+                      bm: 0,
+                      hd: false,
+                      mn: "ADBE Vector Group",
+                      nm: "Ellipse 1",
+                      ix: 1,
+                      cix: 2,
+                      np: 3,
+                      it: [
+                        {
+                          ty: "el",
+                          bm: 0,
+                          hd: false,
+                          mn: "ADBE Vector Shape - Ellipse",
+                          nm: "Ellipse Path 1",
+                          d: 1,
+                          p: { a: 0, k: [0, 0], ix: 3 },
+                          s: { a: 0, k: [120, 120], ix: 2 }
+                        },
+                        {
+                          ty: "fl",
+                          bm: 0,
+                          hd: false,
+                          mn: "ADBE Vector Graphic - Fill",
+                          nm: "Fill 1",
+                          c: { a: 0, k: [0.5098, 0.3294, 0.7765], ix: 4 },
+                          r: 1,
+                          o: { a: 0, k: 100, ix: 5 }
+                        },
+                        {
+                          ty: "tr",
+                          a: { a: 0, k: [0, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100], ix: 3 },
+                          sk: { a: 0, k: 0, ix: 4 },
+                          p: { a: 0, k: [-284, 92], ix: 2 },
+                          r: { a: 0, k: 0, ix: 6 },
+                          sa: { a: 0, k: 0, ix: 5 },
+                          o: { a: 0, k: 100, ix: 7 }
+                        }
+                      ]
+                    }
+                  ],
+                  ind: 4
+                }
+              ],
+              v: "5.7.11",
+              fr: 60,
+              op: 81,
+              ip: 0,
+              assets: []
+            }}
+            className={classNames("__wab_instance", sty.lottie)}
+          />
+        </div>
+      ) : null}
       <ApiRequest
         data-plasmic-name={"getUserInfo"}
         data-plasmic-override={overrides.getUserInfo}
@@ -747,6 +1263,44 @@ function PlasmicToolsComponent__RenderFunc(props: {
                             onClick={async event => {
                               const $steps = {};
 
+                              $steps["updateLoading"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["loading"]
+                                      },
+                                      operation: 0,
+                                      value: true
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateLoading"] != null &&
+                                typeof $steps["updateLoading"] === "object" &&
+                                typeof $steps["updateLoading"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateLoading"] = await $steps[
+                                  "updateLoading"
+                                ];
+                              }
+
                               $steps["invokeGlobalAction"] = (() => {
                                 const allowance =
                                   $state?.getUserInfo?.data?.[0]?.result
@@ -806,7 +1360,7 @@ function PlasmicToolsComponent__RenderFunc(props: {
                                         })(),
                                         (() => {
                                           try {
-                                            return $ctx.query.inApp;
+                                            return $props.inApp;
                                           } catch (e) {
                                             if (
                                               e instanceof TypeError ||
@@ -820,7 +1374,7 @@ function PlasmicToolsComponent__RenderFunc(props: {
                                         })(),
                                         (() => {
                                           try {
-                                            return $ctx.query.theme;
+                                            return $props.theme;
                                           } catch (e) {
                                             if (
                                               e instanceof TypeError ||
@@ -897,7 +1451,8 @@ function PlasmicToolsComponent__RenderFunc(props: {
                                             !active &&
                                             currentItem.shopType != ""
                                           ) {
-                                            if ($ctx.query.inApp != "true") {
+                                            $state.loading = false;
+                                            if ($props.inApp != "true") {
                                               $state.typeBuy = "pregnancySub";
                                               return ($state.directDialog2.open =
                                                 true);
@@ -990,24 +1545,105 @@ function PlasmicToolsComponent__RenderFunc(props: {
           </div>
         </div>
       </ApiRequest>
+      <DirectDialog2
+        data-plasmic-name={"directDialog2"}
+        data-plasmic-override={overrides.directDialog2}
+        className={classNames("__wab_instance", sty.directDialog2)}
+        onOpenChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["directDialog2", "open"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        onSelectShopChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, [
+            "directDialog2",
+            "selectShop"
+          ]).apply(null, eventArgs);
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        open={generateStateValueProp($state, ["directDialog2", "open"])}
+        redirectUrl={(() => {
+          try {
+            return `https://tools.liom.app/shopResult?buyId=${
+              $state.directDialog2.selectShop.id
+            }&?offCode=&token=${$props.token}&redirectUrl=${encodeURIComponent(
+              window.location.href
+            )}`;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
+        token={(() => {
+          try {
+            return $props.token;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
+        type={(() => {
+          try {
+            return $state.typeBuy;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
+      />
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "getUserInfo", "tabWidget", "img"],
+  root: ["root", "lottie", "getUserInfo", "tabWidget", "img", "directDialog2"],
+  lottie: ["lottie"],
   getUserInfo: ["getUserInfo", "tabWidget", "img"],
   tabWidget: ["tabWidget"],
-  img: ["img"]
+  img: ["img"],
+  directDialog2: ["directDialog2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  lottie: typeof LottieWrapper;
   getUserInfo: typeof ApiRequest;
   tabWidget: typeof TabWidget;
   img: typeof PlasmicImg__;
+  directDialog2: typeof DirectDialog2;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1070,9 +1706,11 @@ export const PlasmicToolsComponent = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    lottie: makeNodeComponent("lottie"),
     getUserInfo: makeNodeComponent("getUserInfo"),
     tabWidget: makeNodeComponent("tabWidget"),
     img: makeNodeComponent("img"),
+    directDialog2: makeNodeComponent("directDialog2"),
 
     // Metadata about props expected for PlasmicToolsComponent
     internalVariantProps: PlasmicToolsComponent__VariantProps,
