@@ -13,7 +13,7 @@ const nextConfig = {
     modern: false,
     forceSwcTransforms: true,
   },
-  output: 'export',
+  // output: 'export',
 
   async headers() {
     return [
