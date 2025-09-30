@@ -60,6 +60,7 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
@@ -69,7 +70,6 @@ import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import TabWeek from "../../TabWeek"; // plasmic-import: IgINnoB13B8X/component
-import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import BuyComponenct from "../../BuyComponenct"; // plasmic-import: Ww7_RchUYDdQ/component
 import TodoList from "../../TodoList"; // plasmic-import: 0x91e3BeeLCM/component
@@ -119,7 +119,6 @@ export type PlasmicComponentPregnancy__OverridesType = {
   collapseAdvice?: Flex__<typeof AntdSingleCollapse>;
   button3?: Flex__<typeof Button>;
   tabWeek?: Flex__<typeof TabWeek>;
-  sideEffect?: Flex__<typeof SideEffect>;
   switchbest?: Flex__<typeof Switchbest>;
   collapseDanger?: Flex__<typeof AntdSingleCollapse>;
   collapseMedicine2?: Flex__<typeof AntdSingleCollapse>;
@@ -1226,25 +1225,10 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       },
       {
-        path: "newView2",
+        path: "variable3",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (() => {
-                return window.localStorage.getItem("newView") || "true";
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -1425,6 +1409,718 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
               </Button>
             </div>
           ) : null}
+          <SideEffect
+            className={classNames("__wab_instance", sty.sideEffect__vZvKk)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["getParams"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const queryString = window.location.search;
+                          const urlParams = new URLSearchParams(queryString);
+                          return urlParams.forEach((value, key) => {
+                            $state.paramsObject[key] = value;
+                          });
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["getParams"] != null &&
+                typeof $steps["getParams"] === "object" &&
+                typeof $steps["getParams"].then === "function"
+              ) {
+                $steps["getParams"] = await $steps["getParams"];
+              }
+
+              $steps["clearParams"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const searchParams = new URLSearchParams(
+                            window.location.search
+                          );
+                          searchParams.delete("token");
+                          searchParams.delete("userId");
+                          searchParams.delete("user_id");
+                          searchParams.delete("origin_user_id");
+                          const newUrl = `${
+                            window.location.pathname
+                          }?${searchParams.toString()}`;
+                          return window.history.replaceState(null, "", newUrl);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["clearParams"] != null &&
+                typeof $steps["clearParams"] === "object" &&
+                typeof $steps["clearParams"].then === "function"
+              ) {
+                $steps["clearParams"] = await $steps["clearParams"];
+              }
+
+              $steps["setCookie"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          if (
+                            $state.paramsObject.token !== undefined &&
+                            $state.paramsObject.token.trim() !== ""
+                          ) {
+                            if (!$state.paramsObject.token.startsWith("ey"))
+                              $state.paramsObject.token =
+                                $state.paramsObject.token.slice(6, -3);
+                            var setCookie = (name, value, days) => {
+                              const expires = new Date(
+                                Date.now() + days * 86400000
+                              ).toUTCString();
+                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                            };
+                            return setCookie(
+                              "token",
+                              JSON.stringify([$state.paramsObject.token]),
+                              100
+                            );
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["setCookie"] != null &&
+                typeof $steps["setCookie"] === "object" &&
+                typeof $steps["setCookie"].then === "function"
+              ) {
+                $steps["setCookie"] = await $steps["setCookie"];
+              }
+
+              $steps["getCookie"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var getCookie = name => {
+                            const cookies = document.cookie.split("; ");
+                            for (let cookie of cookies) {
+                              const [key, value] = cookie.split("=");
+                              if (key === name) return JSON.parse(value)[0];
+                            }
+                            return "";
+                          };
+                          return ($state.token = getCookie("token"));
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["getCookie"] != null &&
+                typeof $steps["getCookie"] === "object" &&
+                typeof $steps["getCookie"].then === "function"
+              ) {
+                $steps["getCookie"] = await $steps["getCookie"];
+              }
+
+              $steps["getUserLiom"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return fetch(
+                          "https://n8n.staas.ir/webhook/userInfo_v2/?token=" +
+                            $state.token,
+                          {
+                            method: "GET",
+                            headers: {
+                              "Content-Type": "application/json"
+                            }
+                          }
+                        )
+                          .then(response => response.json())
+                          .then(data => {
+                            $state.userInfo = data;
+                            console.log("user get liommm");
+
+                            try {
+                              console.log("savingInfo....");
+                              localStorage.setItem(
+                                "userinfo",
+                                JSON.stringify($state.userInfo?.[0]?.result)
+                              );
+                              console.log("saveInfo:ok");
+                              localStorage.setItem("token", $state.token);
+                              console.log("token:ok");
+                            } catch {
+                              console.log("saveInfo-token:errore");
+                            }
+                          })
+                          .catch(error =>
+                            console.error("Error get user liom:", error)
+                          );
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["getUserLiom"] != null &&
+                typeof $steps["getUserLiom"] === "object" &&
+                typeof $steps["getUserLiom"].then === "function"
+              ) {
+                $steps["getUserLiom"] = await $steps["getUserLiom"];
+              }
+
+              $steps["userGuest"] =
+                $state.token == ""
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://api.liom.app/auth/signup/guest",
+                          undefined,
+                          (() => {
+                            try {
+                              return (() => {
+                                function pseudoUUID() {
+                                  let timestamp = Date.now().toString(36);
+                                  let randomStr = Math.random()
+                                    .toString(36)
+                                    .substr(2, 8);
+                                  return timestamp + "-" + randomStr;
+                                }
+                                return {
+                                  name: "کاربر مهمان",
+                                  gateway: "pregnancy",
+                                  country: "98",
+                                  isCountryPending: false,
+                                  lang: "fa",
+                                  version: "",
+                                  os: (() => {
+                                    const userAgent =
+                                      window.navigator.userAgent;
+                                    const platform = window.navigator.userAgent;
+                                    if (/Windows/i.test(platform))
+                                      return "Windows";
+                                    if (/Mac/i.test(platform)) return "macOS";
+                                    if (/Linux/i.test(platform)) return "Linux";
+                                    if (/Android/i.test(userAgent))
+                                      return "Android";
+                                    if (/iPhone|iPad|iPod/i.test(userAgent))
+                                      return "iOS";
+                                    return "Unknown OS";
+                                  })(),
+                                  osVersion: (() => {
+                                    const userAgent =
+                                      window.navigator.userAgent;
+                                    if (/Windows NT 10.0/.test(userAgent))
+                                      return "Windows 10";
+                                    if (/Windows NT 6.3/.test(userAgent))
+                                      return "Windows 8.1";
+                                    if (/Windows NT 6.2/.test(userAgent))
+                                      return "Windows 8";
+                                    if (/Windows NT 6.1/.test(userAgent))
+                                      return "Windows 7";
+                                    if (
+                                      /Mac OS X (\d+[\._]\d+)/.test(userAgent)
+                                    )
+                                      return `macOS ${RegExp.$1.replace(
+                                        "_",
+                                        "."
+                                      )}`;
+                                    if (/Android (\d+(\.\d+)?)/.test(userAgent))
+                                      return `Android ${RegExp.$1}`;
+                                    if (
+                                      /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                        userAgent
+                                      )
+                                    )
+                                      return `iOS ${RegExp.$2.replace(
+                                        "_",
+                                        "."
+                                      )}`;
+                                    return "Unknown Version";
+                                  })(),
+                                  sex: $state.gender || "",
+                                  additionalData: {
+                                    ip: "132465",
+                                    name: "test1"
+                                  },
+                                  device: (() => {
+                                    const userAgent =
+                                      window.navigator.userAgent;
+                                    if (
+                                      /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                        userAgent
+                                      )
+                                    ) {
+                                      return "Mobile";
+                                    } else if (/Tablet|iPad/i.test(userAgent)) {
+                                      return "Tablet";
+                                    } else {
+                                      return "Desktop";
+                                    }
+                                  })(),
+                                  fcm:
+                                    window.localStorage.getItem("fcmToken") ||
+                                    " ",
+                                  uniqueId: pseudoUUID(),
+                                  device_type: window.navigator.platform,
+                                  postLang: "fa"
+                                };
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+              if (
+                $steps["userGuest"] != null &&
+                typeof $steps["userGuest"] === "object" &&
+                typeof $steps["userGuest"].then === "function"
+              ) {
+                $steps["userGuest"] = await $steps["userGuest"];
+              }
+
+              $steps["setCookie2"] =
+                $steps.userGuest?.data?.success ?? false
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            var setCookie = (name, value, days) => {
+                              const expires = new Date(
+                                Date.now() + days * 86400000
+                              ).toUTCString();
+                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                            };
+                            setCookie(
+                              "token",
+                              JSON.stringify([
+                                $steps.userGuest.data.result.token
+                              ]),
+                              100
+                            );
+                            return ($state.token =
+                              $steps.userGuest.data.result.token);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["setCookie2"] != null &&
+                typeof $steps["setCookie2"] === "object" &&
+                typeof $steps["setCookie2"].then === "function"
+              ) {
+                $steps["setCookie2"] = await $steps["setCookie2"];
+              }
+
+              $steps["getUser"] =
+                $state.token != ""
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          undefined,
+                          "https://n8n.staas.ir/webhook/users/profile",
+                          undefined,
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                headers: { Authorization: $state.token }
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+              if (
+                $steps["getUser"] != null &&
+                typeof $steps["getUser"] === "object" &&
+                typeof $steps["getUser"].then === "function"
+              ) {
+                $steps["getUser"] = await $steps["getUser"];
+              }
+
+              $steps["setUserId"] =
+                $steps.getUser?.data?.id != ""
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["userId"]
+                        },
+                        operation: 0,
+                        value: $steps.getUser.data.id
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["setUserId"] != null &&
+                typeof $steps["setUserId"] === "object" &&
+                typeof $steps["setUserId"].then === "function"
+              ) {
+                $steps["setUserId"] = await $steps["setUserId"];
+              }
+
+              $steps["getUser2"] =
+                $state.userId == ""
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          undefined,
+                          "https://n8n.staas.ir/webhook/getLiomId",
+                          (() => {
+                            try {
+                              return { token: $state.token };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+              if (
+                $steps["getUser2"] != null &&
+                typeof $steps["getUser2"] === "object" &&
+                typeof $steps["getUser2"].then === "function"
+              ) {
+                $steps["getUser2"] = await $steps["getUser2"];
+              }
+
+              $steps["updateUserId"] =
+                $state.userId == ""
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["userId"]
+                        },
+                        operation: 0,
+                        value: $steps.getUser2.data?.[0]?.userId
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["updateUserId"] != null &&
+                typeof $steps["updateUserId"] === "object" &&
+                typeof $steps["updateUserId"].then === "function"
+              ) {
+                $steps["updateUserId"] = await $steps["updateUserId"];
+              }
+
+              $steps["getUser2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return fetch(
+                          "https://n8n.staas.ir/webhook/status/?userId=" +
+                            $state.userId,
+                          {
+                            method: "GET",
+                            headers: {
+                              "Content-Type": "application/json",
+                              Authorization:
+                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
+                            }
+                          }
+                        )
+                          .then(response => response.json())
+                          .then(data => {
+                            if (
+                              typeof data?.[0]?.dueDate == "undefined" ||
+                              data?.[0]?.dueDate == null
+                            ) {
+                              $state.isNoData = true;
+                            } else {
+                              $state.isNoData = false;
+                              $state.user = data;
+                              $state.loading = false;
+                            }
+                            console.log("user get");
+                          })
+                          .catch(error => console.error("Error3:", error));
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["getUser2"] != null &&
+                typeof $steps["getUser2"] === "object" &&
+                typeof $steps["getUser2"].then === "function"
+              ) {
+                $steps["getUser2"] = await $steps["getUser2"];
+              }
+
+              $steps["showToast"] = $state.isNoData
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0628\u0631\u0646\u0627\u0645\u0647 \u0627\u0628\u062a\u062f\u0627 \u0628\u0627\u06cc\u062f \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u062e\u0648\u062f \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f",
+                        "bottom-center"
+                      ]
+                    };
+                    return $globalActions["Fragment.showToast"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["showToast"] != null &&
+                typeof $steps["showToast"] === "object" &&
+                typeof $steps["showToast"].then === "function"
+              ) {
+                $steps["showToast"] = await $steps["showToast"];
+              }
+
+              $steps["goToPageSetting"] = $state.isNoData
+                ? (() => {
+                    const actionArgs = {
+                      destination: (() => {
+                        try {
+                          return (() => {
+                            var token = $state.token;
+                            return (
+                              "https://apps.liom.app/setting-pregnancy/?token=" +
+                              token +
+                              "&userId=" +
+                              $state.userId +
+                              "&theme=" +
+                              $ctx.query.theme +
+                              "&inApp=" +
+                              $ctx.query.inApp +
+                              "&inBo=t" +
+                              $ctx.query.inBot
+                            );
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()
+                    };
+                    return (({ destination }) => {
+                      if (
+                        typeof destination === "string" &&
+                        destination.startsWith("#")
+                      ) {
+                        document
+                          .getElementById(destination.substr(1))
+                          .scrollIntoView({ behavior: "smooth" });
+                      } else {
+                        __nextRouter?.push(destination);
+                      }
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["goToPageSetting"] != null &&
+                typeof $steps["goToPageSetting"] === "object" &&
+                typeof $steps["goToPageSetting"].then === "function"
+              ) {
+                $steps["goToPageSetting"] = await $steps["goToPageSetting"];
+              }
+
+              $steps["scroll"] = false
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          try {
+                            const list =
+                              document.getElementById("my-scroll-list");
+                            const list2 = list.children[0];
+                            const fourthItem =
+                              list2.children[$state.selectedWeek];
+                            if (fourthItem) {
+                              const itemPosition =
+                                fourthItem.offsetLeft -
+                                list.offsetWidth * 0.35 +
+                                fourthItem.offsetWidth / 2;
+                              return list.scrollTo({
+                                left: itemPosition,
+                                behavior: "smooth"
+                              });
+                            }
+                          } catch {
+                            return console.log("eroor scroll");
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["scroll"] != null &&
+                typeof $steps["scroll"] === "object" &&
+                typeof $steps["scroll"].then === "function"
+              ) {
+                $steps["scroll"] = await $steps["scroll"];
+              }
+
+              $steps["updateRandomIndex"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["randomIndex"]
+                      },
+                      operation: 0,
+                      value: Math.floor(Math.random() * $state.playList.length)
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateRandomIndex"] != null &&
+                typeof $steps["updateRandomIndex"] === "object" &&
+                typeof $steps["updateRandomIndex"].then === "function"
+              ) {
+                $steps["updateRandomIndex"] = await $steps["updateRandomIndex"];
+              }
+
+              $steps["updateIsTimer"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["isTimer"]
+                      },
+                      operation: 4,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      const oldValue = $stateGet(objRoot, variablePath);
+                      $stateSet(objRoot, variablePath, !oldValue);
+                      return !oldValue;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateIsTimer"] != null &&
+                typeof $steps["updateIsTimer"] === "object" &&
+                typeof $steps["updateIsTimer"].then === "function"
+              ) {
+                $steps["updateIsTimer"] = await $steps["updateIsTimer"];
+              }
+            }}
+          />
+
           <Timer
             data-plasmic-name={"timer"}
             data-plasmic-override={overrides.timer}
@@ -6483,220 +7179,284 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                   <div
                     className={classNames(projectcss.all, sty.freeBox__efo9B)}
                   >
-                    {(() => {
-                      try {
-                        return $state.newView2 != "true";
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return false;
-                        }
-                        throw e;
-                      }
-                    })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__ncH62
-                        )}
-                      >
-                        {(_par =>
-                          !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                          (() => {
-                            try {
-                              return $state.toolsList.length > 0
-                                ? $state.toolsList
-                                : [];
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
-                              }
-                              throw e;
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__ncH62)}
+                    >
+                      {(_par =>
+                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                        (() => {
+                          try {
+                            return $state.toolsList.length > 0
+                              ? $state.toolsList
+                              : [];
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
                             }
-                          })()
-                        ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                          const currentItem = __plasmic_item_0;
-                          const currentIndex = __plasmic_idx_0;
-                          return (
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox___0Ojif
-                              )}
-                              key={currentIndex}
-                              onClick={async event => {
-                                const $steps = {};
+                            throw e;
+                          }
+                        })()
+                      ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                        const currentItem = __plasmic_item_0;
+                        const currentIndex = __plasmic_idx_0;
+                        return (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox___0Ojif
+                            )}
+                            key={currentIndex}
+                            onClick={async event => {
+                              const $steps = {};
 
-                                $steps["runCode"] =
-                                  $ctx.query.inApp == "true"
-                                    ? (() => {
-                                        const actionArgs = {
-                                          customFunction: async () => {
-                                            return (() => {
-                                              const allowance =
-                                                $state.userInfo?.[0]?.result
-                                                  ?.allowance || [];
-                                              const filteredItem =
-                                                allowance.find(item =>
-                                                  item.type.includes(
-                                                    currentItem.action
-                                                  )
+                              $steps["runCode"] =
+                                $ctx.query.inApp == "true"
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            const allowance =
+                                              $state.userInfo?.[0]?.result
+                                                ?.allowance || [];
+                                            const filteredItem = allowance.find(
+                                              item =>
+                                                item.type.includes(
+                                                  currentItem.action
+                                                )
+                                            );
+                                            const active = filteredItem
+                                              ? filteredItem.active
+                                              : false;
+                                            var token = $state.token;
+                                            console.log(allowance);
+                                            if (!token.startsWith("ey")) {
+                                              token = token.slice(
+                                                6,
+                                                token.length - 3
+                                              );
+                                            }
+                                            switch (currentItem.action) {
+                                              case "clinic":
+                                                {
+                                                  const chars =
+                                                    "abcdefghijklmnopqrstuvwxyz0123456789";
+                                                  let randomStr1 = "";
+                                                  let randomStr2 = "";
+                                                  for (let i = 0; i < 6; i++) {
+                                                    const rnd = Math.floor(
+                                                      Math.random() *
+                                                        chars.length
+                                                    );
+                                                    randomStr1 += chars[rnd];
+                                                  }
+                                                  for (let i = 0; i < 6; i++) {
+                                                    const rnd = Math.floor(
+                                                      Math.random() *
+                                                        chars.length
+                                                    );
+                                                    randomStr2 += chars[rnd];
+                                                  }
+                                                  var link =
+                                                    "https://checkup.liom-app.ir/moshavereh/psychology/4?token=" +
+                                                    randomStr1 +
+                                                    token +
+                                                    randomStr2;
+                                                  window.FlutterChannel.postMessage(
+                                                    "#inAppWebView**@@**" +
+                                                      "کلینیک لیوم " +
+                                                      "**@@**" +
+                                                      link
+                                                  );
+                                                }
+                                                break;
+                                              case "hamyar":
+                                                window.FlutterChannel.postMessage(
+                                                  "#hamyarInfo"
                                                 );
-                                              const active = filteredItem
-                                                ? filteredItem.active
-                                                : false;
-                                              var token = $state.token;
-                                              console.log(allowance);
-                                              if (!token.startsWith("ey")) {
-                                                token = token.slice(
-                                                  6,
-                                                  token.length - 3
-                                                );
-                                              }
-                                              switch (currentItem.action) {
-                                                case "clinic":
-                                                  {
-                                                    const chars =
-                                                      "abcdefghijklmnopqrstuvwxyz0123456789";
-                                                    let randomStr1 = "";
-                                                    let randomStr2 = "";
-                                                    for (
-                                                      let i = 0;
-                                                      i < 6;
-                                                      i++
-                                                    ) {
-                                                      const rnd = Math.floor(
-                                                        Math.random() *
-                                                          chars.length
-                                                      );
-                                                      randomStr1 += chars[rnd];
-                                                    }
-                                                    for (
-                                                      let i = 0;
-                                                      i < 6;
-                                                      i++
-                                                    ) {
-                                                      const rnd = Math.floor(
-                                                        Math.random() *
-                                                          chars.length
-                                                      );
-                                                      randomStr2 += chars[rnd];
-                                                    }
+                                                break;
+                                              case "skinCare":
+                                                {
+                                                  if (active) {
                                                     var link =
-                                                      "https://checkup.liom-app.ir/moshavereh/psychology/4?token=" +
+                                                      "https://tools.liom.app/self-medication/?type=skinCare&inApp=true&token=" +
+                                                      token +
+                                                      "&selectStep=0&userId=" +
+                                                      $state.userId +
+                                                      "&theme=" +
+                                                      $ctx.query.theme;
+                                                    window.FlutterChannel.postMessage(
+                                                      "#inAppWebView**@@**" +
+                                                        "روتین پوستی" +
+                                                        "**@@**" +
+                                                        link
+                                                    );
+                                                  } else {
+                                                    window.FlutterChannel.postMessage(
+                                                      "#healthSubscription"
+                                                    );
+                                                  }
+                                                }
+                                                break;
+                                              case "stretch_marks":
+                                                {
+                                                  if (active) {
+                                                    var link =
+                                                      "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=true&token=" +
+                                                      token +
+                                                      "&selectStep=0&userId=" +
+                                                      $state.userId +
+                                                      "&theme=" +
+                                                      $ctx.query.theme;
+                                                    window.FlutterChannel.postMessage(
+                                                      "#inAppWebView**@@**" +
+                                                        "ترک پوستی" +
+                                                        "**@@**" +
+                                                        link
+                                                    );
+                                                  } else {
+                                                    window.FlutterChannel.postMessage(
+                                                      "#healthSubscription"
+                                                    );
+                                                  }
+                                                }
+                                                break;
+                                              case "danger":
+                                                {
+                                                  if (!active) {
+                                                    document
+                                                      .getElementById(
+                                                        "collapseDanger"
+                                                      )
+                                                      .scrollIntoView({
+                                                        behavior: "smooth",
+                                                        block: "start"
+                                                      });
+                                                    $state.collapseDanger.open =
+                                                      true;
+                                                    window.FlutterChannel.postMessage(
+                                                      "#healthSubscription"
+                                                    );
+                                                  }
+                                                }
+                                                break;
+                                              case "adhd":
+                                                {
+                                                  var link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
+                                                    window.location.href
+                                                  )}&inApp=${
+                                                    $ctx.query.inApp
+                                                  }&userId=${$state.userId}`;
+                                                  window.FlutterChannel.postMessage(
+                                                    "#inAppWebView**@@**" +
+                                                      "تست ADHD" +
+                                                      "**@@**" +
+                                                      link
+                                                  );
+                                                }
+                                                break;
+                                              case "statusToday":
+                                                {
+                                                  var link = `https://apps.liom.app/status-day/?token=${$state.token}&userId=${$state.userId}&inApp=true`;
+                                                  window.FlutterChannel.postMessage(
+                                                    "#inAppWebView**@@**" +
+                                                      "وضعیت امروز" +
+                                                      "**@@**" +
+                                                      link
+                                                  );
+                                                }
+                                                break;
+                                              case "chatBot":
+                                                var link =
+                                                  "https://tools.liom.app/chat-bot/?origin_user_id=" +
+                                                  $state?.userId +
+                                                  "&topic=pregnancyWeek" +
+                                                  $state.weeksPregnant +
+                                                  "&token=" +
+                                                  token;
+                                                window.FlutterChannel.postMessage(
+                                                  "#inAppWebView**@@**" +
+                                                    "پزشک هوشمند" +
+                                                    "**@@**" +
+                                                    link
+                                                );
+                                                break;
+                                            }
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+
+                              $steps["runCode2"] =
+                                $ctx.query.inApp != "true"
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            const allowance =
+                                              $state.userInfo?.[0]?.result
+                                                ?.allowance || [];
+                                            const filteredItem = allowance.find(
+                                              item =>
+                                                item.type.includes(
+                                                  currentItem.action
+                                                )
+                                            );
+                                            const active = filteredItem
+                                              ? filteredItem.active
+                                              : false;
+                                            var token = $state.token;
+                                            if (!token.startsWith("ey")) {
+                                              token = token.slice(
+                                                6,
+                                                token.length - 3
+                                              );
+                                            }
+                                            switch (currentItem.action) {
+                                              case "clinic":
+                                                {
+                                                  const chars =
+                                                    "abcdefghijklmnopqrstuvwxyz0123456789";
+                                                  let randomStr1 = "";
+                                                  let randomStr2 = "";
+                                                  for (let i = 0; i < 6; i++) {
+                                                    const rnd = Math.floor(
+                                                      Math.random() *
+                                                        chars.length
+                                                    );
+                                                    randomStr1 += chars[rnd];
+                                                  }
+                                                  for (let i = 0; i < 6; i++) {
+                                                    const rnd = Math.floor(
+                                                      Math.random() *
+                                                        chars.length
+                                                    );
+                                                    randomStr2 += chars[rnd];
+                                                  }
+                                                  window.open(
+                                                    "https://checkup.liom-app.ir/moshavereh/psychology/4?token=" +
                                                       randomStr1 +
                                                       token +
-                                                      randomStr2;
-                                                    window.FlutterChannel.postMessage(
-                                                      "#inAppWebView**@@**" +
-                                                        "کلینیک لیوم " +
-                                                        "**@@**" +
-                                                        link
-                                                    );
-                                                  }
-                                                  break;
-                                                case "hamyar":
-                                                  window.FlutterChannel.postMessage(
-                                                    "#hamyarInfo"
+                                                      randomStr2,
+                                                    "_self"
                                                   );
-                                                  break;
-                                                case "skinCare":
-                                                  {
-                                                    if (active) {
-                                                      var link =
-                                                        "https://tools.liom.app/self-medication/?type=skinCare&inApp=true&token=" +
-                                                        token +
-                                                        "&selectStep=0&userId=" +
-                                                        $state.userId +
-                                                        "&theme=" +
-                                                        $ctx.query.theme;
-                                                      window.FlutterChannel.postMessage(
-                                                        "#inAppWebView**@@**" +
-                                                          "روتین پوستی" +
-                                                          "**@@**" +
-                                                          link
-                                                      );
-                                                    } else {
-                                                      window.FlutterChannel.postMessage(
-                                                        "#healthSubscription"
-                                                      );
-                                                    }
-                                                  }
-                                                  break;
-                                                case "stretch_marks":
-                                                  {
-                                                    if (active) {
-                                                      var link =
-                                                        "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=true&token=" +
-                                                        token +
-                                                        "&selectStep=0&userId=" +
-                                                        $state.userId +
-                                                        "&theme=" +
-                                                        $ctx.query.theme;
-                                                      window.FlutterChannel.postMessage(
-                                                        "#inAppWebView**@@**" +
-                                                          "ترک پوستی" +
-                                                          "**@@**" +
-                                                          link
-                                                      );
-                                                    } else {
-                                                      window.FlutterChannel.postMessage(
-                                                        "#healthSubscription"
-                                                      );
-                                                    }
-                                                  }
-                                                  break;
-                                                case "danger":
-                                                  {
-                                                    if (!active) {
-                                                      document
-                                                        .getElementById(
-                                                          "collapseDanger"
-                                                        )
-                                                        .scrollIntoView({
-                                                          behavior: "smooth",
-                                                          block: "start"
-                                                        });
-                                                      $state.collapseDanger.open =
-                                                        true;
-                                                      window.FlutterChannel.postMessage(
-                                                        "#healthSubscription"
-                                                      );
-                                                    }
-                                                  }
-                                                  break;
-                                                case "adhd":
-                                                  {
-                                                    var link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
-                                                      window.location.href
-                                                    )}&inApp=${
-                                                      $ctx.query.inApp
-                                                    }&userId=${$state.userId}`;
-                                                    window.FlutterChannel.postMessage(
-                                                      "#inAppWebView**@@**" +
-                                                        "تست ADHD" +
-                                                        "**@@**" +
-                                                        link
-                                                    );
-                                                  }
-                                                  break;
-                                                case "statusToday":
-                                                  {
-                                                    var link = `https://apps.liom.app/status-day/?token=${$state.token}&userId=${$state.userId}&inApp=true`;
-                                                    window.FlutterChannel.postMessage(
-                                                      "#inAppWebView**@@**" +
-                                                        "وضعیت امروز" +
-                                                        "**@@**" +
-                                                        link
-                                                    );
-                                                  }
-                                                  break;
-                                                case "chatBot":
+                                                }
+                                                break;
+                                              case "chatBot":
+                                                {
                                                   var link =
                                                     "https://tools.liom.app/chat-bot/?origin_user_id=" +
                                                     $state?.userId +
@@ -6704,290 +7464,265 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                                     $state.weeksPregnant +
                                                     "&token=" +
                                                     token;
-                                                  window.FlutterChannel.postMessage(
-                                                    "#inAppWebView**@@**" +
-                                                      "پزشک هوشمند" +
-                                                      "**@@**" +
-                                                      link
-                                                  );
-                                                  break;
-                                              }
-                                            })();
-                                          }
-                                        };
-                                        return (({ customFunction }) => {
-                                          return customFunction();
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                if (
-                                  $steps["runCode"] != null &&
-                                  typeof $steps["runCode"] === "object" &&
-                                  typeof $steps["runCode"].then === "function"
-                                ) {
-                                  $steps["runCode"] = await $steps["runCode"];
-                                }
-
-                                $steps["runCode2"] =
-                                  $ctx.query.inApp != "true"
-                                    ? (() => {
-                                        const actionArgs = {
-                                          customFunction: async () => {
-                                            return (() => {
-                                              const allowance =
-                                                $state.userInfo?.[0]?.result
-                                                  ?.allowance || [];
-                                              const filteredItem =
-                                                allowance.find(item =>
-                                                  item.type.includes(
-                                                    currentItem.action
-                                                  )
-                                                );
-                                              const active = filteredItem
-                                                ? filteredItem.active
-                                                : false;
-                                              var token = $state.token;
-                                              if (!token.startsWith("ey")) {
-                                                token = token.slice(
-                                                  6,
-                                                  token.length - 3
-                                                );
-                                              }
-                                              switch (currentItem.action) {
-                                                case "clinic":
-                                                  {
-                                                    const chars =
-                                                      "abcdefghijklmnopqrstuvwxyz0123456789";
-                                                    let randomStr1 = "";
-                                                    let randomStr2 = "";
-                                                    for (
-                                                      let i = 0;
-                                                      i < 6;
-                                                      i++
-                                                    ) {
-                                                      const rnd = Math.floor(
-                                                        Math.random() *
-                                                          chars.length
-                                                      );
-                                                      randomStr1 += chars[rnd];
-                                                    }
-                                                    for (
-                                                      let i = 0;
-                                                      i < 6;
-                                                      i++
-                                                    ) {
-                                                      const rnd = Math.floor(
-                                                        Math.random() *
-                                                          chars.length
-                                                      );
-                                                      randomStr2 += chars[rnd];
-                                                    }
-                                                    window.open(
-                                                      "https://checkup.liom-app.ir/moshavereh/psychology/4?token=" +
-                                                        randomStr1 +
-                                                        token +
-                                                        randomStr2,
-                                                      "_self"
-                                                    );
-                                                  }
-                                                  break;
-                                                case "chatBot":
-                                                  {
-                                                    var link =
-                                                      "https://tools.liom.app/chat-bot/?origin_user_id=" +
-                                                      $state?.userId +
-                                                      "&topic=pregnancyWeek" +
-                                                      $state.weeksPregnant +
-                                                      "&token=" +
-                                                      token;
-                                                    window.open(link, "_self");
-                                                  }
-                                                  break;
-                                                case "skinCare":
-                                                  if (active)
-                                                    window.open(
-                                                      "https://tools.liom.app/self-medication/?type=skinCare&inApp=false&token=" +
-                                                        token +
-                                                        "&selectStep=0&userId=" +
-                                                        $state.userId +
-                                                        "&theme=" +
-                                                        $ctx.query.theme,
-                                                      "_self"
-                                                    );
-                                                  else {
-                                                    $state.typeBuy =
-                                                      "pregnancySub";
-                                                    $state.directDialog2.open =
-                                                      true;
-                                                  }
-                                                  break;
-                                                case "statusToday":
+                                                  window.open(link, "_self");
+                                                }
+                                                break;
+                                              case "skinCare":
+                                                if (active)
                                                   window.open(
-                                                    `https://apps.liom.app/status-day/?token=${$state.token}&userId=${$state.userId}&inApp=false`,
+                                                    "https://tools.liom.app/self-medication/?type=skinCare&inApp=false&token=" +
+                                                      token +
+                                                      "&selectStep=0&userId=" +
+                                                      $state.userId +
+                                                      "&theme=" +
+                                                      $ctx.query.theme,
                                                     "_self"
                                                   );
-                                                  break;
-                                                case "stretch_marks":
-                                                  if (active)
-                                                    window.open(
-                                                      "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=false&token=" +
-                                                        token +
-                                                        "&selectStep=0&userId=" +
-                                                        $state.userId +
-                                                        "&theme=" +
-                                                        $ctx.query.theme,
-                                                      "_self"
-                                                    );
-                                                  else {
-                                                    $state.typeBuy =
-                                                      "pregnancySub";
-                                                    $state.directDialog2.open =
-                                                      true;
-                                                  }
-                                                  break;
-                                                case "danger":
-                                                  document
-                                                    .getElementById(
-                                                      "collapseDanger"
-                                                    )
-                                                    .scrollIntoView({
-                                                      behavior: "smooth",
-                                                      block: "start"
-                                                    });
-                                                  $state.collapseDanger.open =
+                                                else {
+                                                  $state.typeBuy =
+                                                    "pregnancySub";
+                                                  $state.directDialog2.open =
                                                     true;
-                                                  if (!active) {
-                                                    $state.typeBuy =
-                                                      "pregnancySub";
-                                                    $state.directDialog2.open =
-                                                      true;
-                                                  }
-                                                  break;
-                                                case "adhd":
-                                                  `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
-                                                    window.location.href
-                                                  )}&inApp=${
-                                                    $ctx.query.inApp
-                                                  }&userId=${$state.userId}`;
-                                                  break;
-                                              }
-                                            })();
-                                          }
-                                        };
-                                        return (({ customFunction }) => {
-                                          return customFunction();
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                if (
-                                  $steps["runCode2"] != null &&
-                                  typeof $steps["runCode2"] === "object" &&
-                                  typeof $steps["runCode2"].then === "function"
-                                ) {
-                                  $steps["runCode2"] = await $steps["runCode2"];
-                                }
+                                                }
+                                                break;
+                                              case "statusToday":
+                                                window.open(
+                                                  `https://apps.liom.app/status-day/?token=${$state.token}&userId=${$state.userId}&inApp=false`,
+                                                  "_self"
+                                                );
+                                                break;
+                                              case "stretch_marks":
+                                                if (active)
+                                                  window.open(
+                                                    "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=false&token=" +
+                                                      token +
+                                                      "&selectStep=0&userId=" +
+                                                      $state.userId +
+                                                      "&theme=" +
+                                                      $ctx.query.theme,
+                                                    "_self"
+                                                  );
+                                                else {
+                                                  $state.typeBuy =
+                                                    "pregnancySub";
+                                                  $state.directDialog2.open =
+                                                    true;
+                                                }
+                                                break;
+                                              case "danger":
+                                                document
+                                                  .getElementById(
+                                                    "collapseDanger"
+                                                  )
+                                                  .scrollIntoView({
+                                                    behavior: "smooth",
+                                                    block: "start"
+                                                  });
+                                                $state.collapseDanger.open =
+                                                  true;
+                                                if (!active) {
+                                                  $state.typeBuy =
+                                                    "pregnancySub";
+                                                  $state.directDialog2.open =
+                                                    true;
+                                                }
+                                                break;
+                                              case "adhd":
+                                                `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
+                                                  window.location.href
+                                                )}&inApp=${
+                                                  $ctx.query.inApp
+                                                }&userId=${$state.userId}`;
+                                                break;
+                                            }
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                              if (
+                                $steps["runCode2"] != null &&
+                                typeof $steps["runCode2"] === "object" &&
+                                typeof $steps["runCode2"].then === "function"
+                              ) {
+                                $steps["runCode2"] = await $steps["runCode2"];
+                              }
 
-                                $steps["toast"] =
-                                  $ctx.query.inApp != "true" &&
-                                  currentItem.action == "hamyar"
-                                    ? (() => {
-                                        const actionArgs = {
-                                          args: [
-                                            "error",
-                                            "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0648\u06cc\u0698\u06af\u06cc \u0644\u0637\u0641\u0627 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u0627\u0632 \u0645\u0627\u0631\u06a9\u062a \u0647\u0627\u06cc \u0645\u0639\u062a\u0628\u0631 \u062f\u0627\u0646\u0644\u0648\u062f \u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f.",
-                                            "bottom-center"
-                                          ]
-                                        };
-                                        return $globalActions[
-                                          "Fragment.showToast"
-                                        ]?.apply(null, [...actionArgs.args]);
-                                      })()
-                                    : undefined;
-                                if (
-                                  $steps["toast"] != null &&
-                                  typeof $steps["toast"] === "object" &&
-                                  typeof $steps["toast"].then === "function"
-                                ) {
-                                  $steps["toast"] = await $steps["toast"];
-                                }
-
-                                $steps["log"] = true
+                              $steps["toast"] =
+                                $ctx.query.inApp != "true" &&
+                                currentItem.action == "hamyar"
                                   ? (() => {
                                       const actionArgs = {
                                         args: [
-                                          "POST",
-                                          "https://api.liom.app/service/log",
-                                          undefined,
-                                          (() => {
-                                            try {
-                                              return {
-                                                userId: $ctx.query.userId.slice(
-                                                  4,
-                                                  $ctx.query.userId.length - 4
-                                                ),
-                                                pageName: "mainPage",
-                                                action:
-                                                  "clickTools-" +
-                                                  currentItem.action,
-                                                extraData: {}
-                                              };
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return undefined;
-                                              }
-                                              throw e;
-                                            }
-                                          })(),
-                                          (() => {
-                                            try {
-                                              return {
-                                                headers: {
-                                                  "Content-Type":
-                                                    "application/json",
-                                                  Authorization:
-                                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
-                                                }
-                                              };
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return undefined;
-                                              }
-                                              throw e;
-                                            }
-                                          })()
+                                          "error",
+                                          "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0648\u06cc\u0698\u06af\u06cc \u0644\u0637\u0641\u0627 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u0627\u0632 \u0645\u0627\u0631\u06a9\u062a \u0647\u0627\u06cc \u0645\u0639\u062a\u0628\u0631 \u062f\u0627\u0646\u0644\u0648\u062f \u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f.",
+                                          "bottom-center"
                                         ]
                                       };
                                       return $globalActions[
-                                        "Fragment.apiRequest"
+                                        "Fragment.showToast"
                                       ]?.apply(null, [...actionArgs.args]);
                                     })()
                                   : undefined;
-                                if (
-                                  $steps["log"] != null &&
-                                  typeof $steps["log"] === "object" &&
-                                  typeof $steps["log"].then === "function"
-                                ) {
-                                  $steps["log"] = await $steps["log"];
+                              if (
+                                $steps["toast"] != null &&
+                                typeof $steps["toast"] === "object" &&
+                                typeof $steps["toast"].then === "function"
+                              ) {
+                                $steps["toast"] = await $steps["toast"];
+                              }
+
+                              $steps["log"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      args: [
+                                        "POST",
+                                        "https://api.liom.app/service/log",
+                                        undefined,
+                                        (() => {
+                                          try {
+                                            return {
+                                              userId: $ctx.query.userId.slice(
+                                                4,
+                                                $ctx.query.userId.length - 4
+                                              ),
+                                              pageName: "mainPage",
+                                              action:
+                                                "clickTools-" +
+                                                currentItem.action,
+                                              extraData: {}
+                                            };
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })(),
+                                        (() => {
+                                          try {
+                                            return {
+                                              headers: {
+                                                "Content-Type":
+                                                  "application/json",
+                                                Authorization:
+                                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                              }
+                                            };
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      ]
+                                    };
+                                    return $globalActions[
+                                      "Fragment.apiRequest"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["log"] != null &&
+                                typeof $steps["log"] === "object" &&
+                                typeof $steps["log"].then === "function"
+                              ) {
+                                $steps["log"] = await $steps["log"];
+                              }
+                            }}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__rqu1Q
+                              )}
+                              style={(() => {
+                                try {
+                                  return {
+                                    "background-color": currentItem.color
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
                                 }
-                              }}
+                              })()}
                             >
+                              {(() => {
+                                try {
+                                  return currentItem.icon == "";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return false;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <LottieWrapper
+                                  animationData={(() => {
+                                    const fixedString =
+                                      currentItem.anim.replace(/'/g, '"');
+                                    return JSON.parse(fixedString);
+                                  })()}
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.lottie__mDhau
+                                  )}
+                                />
+                              ) : null}
+                              {(() => {
+                                try {
+                                  return currentItem.icon != "";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <Embed
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.embedHtml__v5HEg
+                                  )}
+                                  code={currentItem.icon}
+                                />
+                              ) : null}
                               <div
                                 className={classNames(
                                   projectcss.all,
-                                  sty.freeBox__rqu1Q
+                                  projectcss.__wab_text,
+                                  sty.text__pUcZ4
                                 )}
                                 style={(() => {
                                   try {
                                     return {
-                                      "background-color": currentItem.color
+                                      color: currentItem.textColor
                                     };
                                   } catch (e) {
                                     if (
@@ -7001,143 +7736,67 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                   }
                                 })()}
                               >
-                                {(() => {
-                                  try {
-                                    return currentItem.icon == "";
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return false;
-                                    }
-                                    throw e;
-                                  }
-                                })() ? (
-                                  <LottieWrapper
-                                    animationData={(() => {
-                                      const fixedString =
-                                        currentItem.anim.replace(/'/g, '"');
-                                      return JSON.parse(fixedString);
-                                    })()}
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.lottie__mDhau
-                                    )}
-                                  />
-                                ) : null}
-                                {(() => {
-                                  try {
-                                    return currentItem.icon != "";
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return true;
-                                    }
-                                    throw e;
-                                  }
-                                })() ? (
-                                  <Embed
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.embedHtml__v5HEg
-                                    )}
-                                    code={currentItem.icon}
-                                  />
-                                ) : null}
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__pUcZ4
-                                  )}
-                                  style={(() => {
-                                    try {
-                                      return {
-                                        color: currentItem.textColor
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                >
-                                  {hasVariant(
-                                    globalVariants,
-                                    "screen",
-                                    "mobile"
-                                  ) ? (
-                                    <div
-                                      className={
-                                        projectcss.__wab_expr_html_text
-                                      }
-                                      dangerouslySetInnerHTML={{
-                                        __html: (() => {
-                                          try {
-                                            return (
-                                              currentItem.title +
-                                              "<b>" +
-                                              "  >" +
-                                              "</b>"
-                                            );
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return "";
-                                            }
-                                            throw e;
+                                {hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobile"
+                                ) ? (
+                                  <div
+                                    className={projectcss.__wab_expr_html_text}
+                                    dangerouslySetInnerHTML={{
+                                      __html: (() => {
+                                        try {
+                                          return (
+                                            currentItem.title +
+                                            "<b>" +
+                                            "  >" +
+                                            "</b>"
+                                          );
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "";
                                           }
-                                        })()
-                                      }}
-                                    />
-                                  ) : (
-                                    <div
-                                      className={
-                                        projectcss.__wab_expr_html_text
-                                      }
-                                      dangerouslySetInnerHTML={{
-                                        __html: (() => {
-                                          try {
-                                            return (
-                                              currentItem.title +
-                                              "<b>" +
-                                              "  >" +
-                                              "</b>"
-                                            );
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return "";
-                                            }
-                                            throw e;
+                                          throw e;
+                                        }
+                                      })()
+                                    }}
+                                  />
+                                ) : (
+                                  <div
+                                    className={projectcss.__wab_expr_html_text}
+                                    dangerouslySetInnerHTML={{
+                                      __html: (() => {
+                                        try {
+                                          return (
+                                            currentItem.title +
+                                            "<b>" +
+                                            "  >" +
+                                            "</b>"
+                                          );
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "";
                                           }
-                                        })()
-                                      }}
-                                    />
-                                  )}
-                                </div>
+                                          throw e;
+                                        }
+                                      })()
+                                    }}
+                                  />
+                                )}
                               </div>
                             </div>
-                          );
-                        })}
-                      </div>
-                    ) : null}
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
                   {(() => {
                     try {
@@ -10984,11 +11643,9 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                           {"Enter some text"}
                         </div>
                         <SideEffect
-                          data-plasmic-name={"sideEffect"}
-                          data-plasmic-override={overrides.sideEffect}
                           className={classNames(
                             "__wab_instance",
-                            sty.sideEffect
+                            sty.sideEffect__qbwiL
                           )}
                         />
 
@@ -26156,7 +26813,6 @@ const PlasmicDescendants = {
     "collapseAdvice",
     "button3",
     "tabWeek",
-    "sideEffect",
     "switchbest",
     "collapseDanger",
     "collapseMedicine2",
@@ -26180,7 +26836,6 @@ const PlasmicDescendants = {
     "collapseAdvice",
     "button3",
     "tabWeek",
-    "sideEffect",
     "switchbest",
     "collapseDanger",
     "collapseMedicine2",
@@ -26201,7 +26856,6 @@ const PlasmicDescendants = {
   collapseAdvice: ["collapseAdvice", "button3"],
   button3: ["button3"],
   tabWeek: ["tabWeek"],
-  sideEffect: ["sideEffect"],
   switchbest: ["switchbest"],
   collapseDanger: ["collapseDanger"],
   collapseMedicine2: ["collapseMedicine2", "button2"],
@@ -26229,7 +26883,6 @@ type NodeDefaultElementType = {
   collapseAdvice: typeof AntdSingleCollapse;
   button3: typeof Button;
   tabWeek: typeof TabWeek;
-  sideEffect: typeof SideEffect;
   switchbest: typeof Switchbest;
   collapseDanger: typeof AntdSingleCollapse;
   collapseMedicine2: typeof AntdSingleCollapse;
@@ -26313,7 +26966,6 @@ export const PlasmicComponentPregnancy = Object.assign(
     collapseAdvice: makeNodeComponent("collapseAdvice"),
     button3: makeNodeComponent("button3"),
     tabWeek: makeNodeComponent("tabWeek"),
-    sideEffect: makeNodeComponent("sideEffect"),
     switchbest: makeNodeComponent("switchbest"),
     collapseDanger: makeNodeComponent("collapseDanger"),
     collapseMedicine2: makeNodeComponent("collapseMedicine2"),
