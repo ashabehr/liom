@@ -102,9 +102,13 @@ type VariantPropType = keyof PlasmicComponentPregnancy__VariantsArgs;
 export const PlasmicComponentPregnancy__VariantProps =
   new Array<VariantPropType>("darkMod");
 
-export type PlasmicComponentPregnancy__ArgsType = { newView?: boolean };
+export type PlasmicComponentPregnancy__ArgsType = {
+  onWeeksPregnantChange?: (val: string) => void;
+  newView?: boolean;
+};
 type ArgPropType = keyof PlasmicComponentPregnancy__ArgsType;
 export const PlasmicComponentPregnancy__ArgProps = new Array<ArgPropType>(
+  "onWeeksPregnantChange",
   "newView"
 );
 
@@ -134,6 +138,7 @@ export type PlasmicComponentPregnancy__OverridesType = {
 };
 
 export interface DefaultComponentPregnancyProps {
+  onWeeksPregnantChange?: (val: string) => void;
   newView?: boolean;
   darkMod?: SingleBooleanChoiceArg<"darkMod">;
   className?: string;
@@ -478,7 +483,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
       },
       {
         path: "weeksPregnant",
-        type: "private",
+        type: "readonly",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
@@ -504,7 +509,9 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
             } else {
               return 0;
             }
-          })()
+          })(),
+
+        onChangeProp: "onWeeksPregnantChange"
       },
       {
         path: "daysPregnant",
@@ -2545,32 +2552,22 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                             );
                             let hamyarsData = [];
                             console.log("7");
-                            for (
-                              let i = 0;
-                              i < $state.userInfo?.[0]?.result?.hamyars.length;
-                              i++
-                            ) {
+
+                            // safer: grab local ref (fallback to [] اگر هنوز undefined باشه)
+                            const hamyars =
+                              $state.userInfo?.[0]?.result?.hamyars ?? [];
+
+                            for (let i = 0; i < hamyars.length; i++) {
+                              const h = hamyars[i] ?? {};
                               hamyarsData.push({
-                                name: $state.userInfo?.[0]?.result?.hamyars[i]
-                                  .user.name,
-                                id: $state.userInfo?.[0]?.result?.hamyars[i]
-                                  .user.id,
-                                mobile:
-                                  $state.userInfo?.[0]?.result?.hamyars[i].user
-                                    .mobile,
-                                statusSms:
-                                  $state.userInfo?.[0]?.result?.result.hamyars[
-                                    i
-                                  ].rel.statusSms,
-                                hamyarStatus:
-                                  $state.userInfo?.[0]?.result?.hamyars[i].user
-                                    .hamyarStatus,
-                                hamyarTime:
-                                  $state.userInfo?.[0]?.result?.hamyars[i].user
-                                    .hamyarTime,
-                                email:
-                                  $state.userInfo?.[0]?.result?.hamyars[i].user
-                                    .email
+                                name: h.user?.name ?? "",
+                                id: h.user?.id ?? "",
+                                mobile: h.user?.mobile ?? "",
+                                // <-- FIXED: removed the extra ".result" typo here
+                                statusSms: h.rel?.statusSms ?? "",
+                                hamyarStatus: h.user?.hamyarStatus ?? "",
+                                hamyarTime: h.user?.hamyarTime ?? "",
+                                email: h.user?.email ?? ""
                               });
                             }
                             console.log("8");
@@ -2578,7 +2575,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                             for (
                               let i = 0;
                               i <
-                              $state.userInfo?.[0]?.result?.allowance.length;
+                              ($state.userInfo?.[0]?.result?.allowance ?? [])
+                                .length;
                               i++
                             ) {
                               allowance.push(
@@ -2586,6 +2584,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                               );
                             }
                             console.log("9");
+
                             fetch(
                               "https://n8n.staas.ir/webhook/pregnancyDate?token=" +
                                 token,

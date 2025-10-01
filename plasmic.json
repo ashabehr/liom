@@ -4634,6 +4634,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicSlider.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "MXLfJ3MXZIBx",
+          "name": "History2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicHistory2.tsx",
+          "importSpec": {
+            "modulePath": "History2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicHistory2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

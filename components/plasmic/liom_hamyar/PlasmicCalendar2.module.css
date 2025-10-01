@@ -2266,12 +2266,11 @@
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  justify-content: flex-start;
-  width: 100%;
+  justify-content: space-between;
+  width: auto;
   height: auto;
   max-width: 100%;
   column-gap: 8px;
-  min-width: 0;
   padding: 0px;
 }
 .text__e3FcD {
@@ -2291,6 +2290,33 @@
   white-space: pre-wrap;
   align-self: center;
   margin: 0px;
+}
+.button3:global(.__wab_instance) {
+  max-width: 100%;
+  display: none;
+}
+.svg___4Ix0X {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.text__gvnHl {
+  padding: var(--token-38wfsm-OP2Vm) var(--token-O5TjkXII_aat);
+}
+.svg__brm1C {
+  object-fit: cover;
+  max-width: 100%;
+  width: 40px;
+  height: 50px;
+  position: relative;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  color: var(--token-jgohepLVeKvh);
+  right: auto;
+  bottom: auto;
+  display: none;
 }
 .text__hdTas {
   width: auto;

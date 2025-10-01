@@ -120,6 +120,7 @@ export type PlasmicCalendar2__ArgsType = {
   editTime?: string;
   onEditTimeChange2?: (val: string) => void;
   editPage?: () => void;
+  fuchereCycle?: (event: any) => void;
 };
 type ArgPropType = keyof PlasmicCalendar2__ArgsType;
 export const PlasmicCalendar2__ArgProps = new Array<ArgPropType>(
@@ -130,7 +131,8 @@ export const PlasmicCalendar2__ArgProps = new Array<ArgPropType>(
   "setting",
   "editTime",
   "onEditTimeChange2",
-  "editPage"
+  "editPage",
+  "fuchereCycle"
 );
 
 export type PlasmicCalendar2__OverridesType = {
@@ -167,6 +169,7 @@ export type PlasmicCalendar2__OverridesType = {
   button22?: Flex__<typeof Button>;
   advicesLoading?: Flex__<"div">;
   collapseMother2?: Flex__<typeof AntdSingleCollapse>;
+  button3?: Flex__<typeof Button>;
   collapseMother3?: Flex__<typeof AntdSingleCollapse>;
   useful?: Flex__<typeof Useful>;
   harmful?: Flex__<typeof Harmful>;
@@ -189,6 +192,7 @@ export interface DefaultCalendar2Props {
   editTime?: string;
   onEditTimeChange2?: (val: string) => void;
   editPage?: () => void;
+  fuchereCycle?: (event: any) => void;
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
   className?: string;
 }
@@ -1787,6 +1791,24 @@ function PlasmicCalendar2__RenderFunc(props: {
       },
       {
         path: "button26.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button3.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button3.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button3.load",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
@@ -53951,6 +53973,85 @@ function PlasmicCalendar2__RenderFunc(props: {
                             "\u062f\u0648\u0631\u0647 \u0628\u0639\u062f\u06cc \u0634\u0645\u0627"
                           }
                         </div>
+                        <Button
+                          data-plasmic-name={"button3"}
+                          data-plasmic-override={overrides.button3}
+                          className={classNames("__wab_instance", sty.button3)}
+                          color={generateStateValueProp($state, [
+                            "button3",
+                            "color"
+                          ])}
+                          load={generateStateValueProp($state, [
+                            "button3",
+                            "load"
+                          ])}
+                          loading={generateStateValueProp($state, [
+                            "button3",
+                            "loading"
+                          ])}
+                          onClick={args.fuchereCycle}
+                          onColorChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button3",
+                                "color"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                          onLoadChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button3",
+                                "load"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                          onLoadingChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button3",
+                                "loading"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                          size={"minimal"}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__gvnHl
+                            )}
+                          >
+                            {
+                              "\u067e\u06cc\u0634 \u0628\u06cc\u0646\u06cc \u0686\u0631\u062e\u0647 "
+                            }
+                          </div>
+                        </Button>
                       </div>
                     ),
                     onChange: async (...eventArgs: any) => {
@@ -56486,6 +56587,7 @@ const PlasmicDescendants = {
     "button22",
     "advicesLoading",
     "collapseMother2",
+    "button3",
     "collapseMother3",
     "useful",
     "harmful",
@@ -56531,6 +56633,7 @@ const PlasmicDescendants = {
     "button22",
     "advicesLoading",
     "collapseMother2",
+    "button3",
     "collapseMother3",
     "useful",
     "harmful",
@@ -56562,7 +56665,8 @@ const PlasmicDescendants = {
   button17: ["button17"],
   button22: ["button22"],
   advicesLoading: ["advicesLoading"],
-  collapseMother2: ["collapseMother2"],
+  collapseMother2: ["collapseMother2", "button3"],
+  button3: ["button3"],
   collapseMother3: ["collapseMother3", "useful", "harmful"],
   useful: ["useful"],
   harmful: ["harmful"],
@@ -56612,6 +56716,7 @@ type NodeDefaultElementType = {
   button22: typeof Button;
   advicesLoading: "div";
   collapseMother2: typeof AntdSingleCollapse;
+  button3: typeof Button;
   collapseMother3: typeof AntdSingleCollapse;
   useful: typeof Useful;
   harmful: typeof Harmful;
@@ -56717,6 +56822,7 @@ export const PlasmicCalendar2 = Object.assign(
     button22: makeNodeComponent("button22"),
     advicesLoading: makeNodeComponent("advicesLoading"),
     collapseMother2: makeNodeComponent("collapseMother2"),
+    button3: makeNodeComponent("button3"),
     collapseMother3: makeNodeComponent("collapseMother3"),
     useful: makeNodeComponent("useful"),
     harmful: makeNodeComponent("harmful"),

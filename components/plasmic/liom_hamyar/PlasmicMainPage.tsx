@@ -89,6 +89,7 @@ export type PlasmicMainPage__ArgsType = {
   onUserInfoChange?: (val: string) => void;
   token?: string;
   onTokenChange?: (val: string) => void;
+  fuchereCycle?: (event: any) => void;
 };
 type ArgPropType = keyof PlasmicMainPage__ArgsType;
 export const PlasmicMainPage__ArgProps = new Array<ArgPropType>(
@@ -98,7 +99,8 @@ export const PlasmicMainPage__ArgProps = new Array<ArgPropType>(
   "userInfo",
   "onUserInfoChange",
   "token",
-  "onTokenChange"
+  "onTokenChange",
+  "fuchereCycle"
 );
 
 export type PlasmicMainPage__OverridesType = {
@@ -115,6 +117,7 @@ export interface DefaultMainPageProps {
   onUserInfoChange?: (val: string) => void;
   token?: string;
   onTokenChange?: (val: string) => void;
+  fuchereCycle?: (event: any) => void;
   page?: SingleChoiceArg<"calendar" | "self">;
   className?: string;
 }
@@ -287,6 +290,7 @@ function PlasmicMainPage__RenderFunc(props: {
             [sty.calendar2page_self]: hasVariant($state, "page", "self")
           })}
           editTime={generateStateValueProp($state, ["calendar2", "editTime"])}
+          fuchereCycle={args.fuchereCycle}
           onEditTimeChange2={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, ["calendar2", "editTime"]).apply(
               null,

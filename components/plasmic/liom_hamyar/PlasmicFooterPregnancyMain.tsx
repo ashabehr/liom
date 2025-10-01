@@ -71,16 +71,18 @@ import Icon138Icon from "./icons/PlasmicIcon__Icon138"; // plasmic-import: _v0Ca
 import Icon137Icon from "./icons/PlasmicIcon__Icon137"; // plasmic-import: DXdLIMYRuTVZ/icon
 import Icon213Icon from "./icons/PlasmicIcon__Icon213"; // plasmic-import: mG0VeezaR1mF/icon
 import Frame4SvgIcon from "./icons/PlasmicIcon__Frame4Svg"; // plasmic-import: C28-XR0RCuRG/icon
+import Icon202Icon from "./icons/PlasmicIcon__Icon202"; // plasmic-import: lD6NOJADOGZx/icon
+import Icon203Icon from "./icons/PlasmicIcon__Icon203"; // plasmic-import: j3RSrwNtLtoK/icon
 
 createPlasmicElementProxy;
 
 export type PlasmicFooterPregnancyMain__VariantMembers = {
   lackOfCourseInformation: "lackOfCourseInformation";
-  footer2: "calendar" | "tools";
+  footer2: "calendar" | "tools" | "chatBot";
 };
 export type PlasmicFooterPregnancyMain__VariantsArgs = {
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
-  footer2?: SingleChoiceArg<"calendar" | "tools">;
+  footer2?: SingleChoiceArg<"calendar" | "tools" | "chatBot">;
 };
 type VariantPropType = keyof PlasmicFooterPregnancyMain__VariantsArgs;
 export const PlasmicFooterPregnancyMain__VariantProps =
@@ -104,7 +106,7 @@ export interface DefaultFooterPregnancyMainProps {
   type?: string;
   onTypeChange?: (val: string) => void;
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
-  footer2?: SingleChoiceArg<"calendar" | "tools">;
+  footer2?: SingleChoiceArg<"calendar" | "tools" | "chatBot">;
   className?: string;
 }
 
@@ -210,7 +212,15 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
       )}
     >
       <div className={classNames(projectcss.all, sty.freeBox___0W1QG)}>
-        <div className={classNames(projectcss.all, sty.freeBox__berRq)}>
+        <div
+          className={classNames(projectcss.all, sty.freeBox__berRq, {
+            [sty.freeBoxfooter2_chatBot__berRq69Z61]: hasVariant(
+              $state,
+              "footer2",
+              "chatBot"
+            )
+          })}
+        >
           <div
             className={classNames(projectcss.all, sty.freeBox__fHxnq, {
               [sty.freeBoxfooter2_calendar__fHxnqp4EhE]: hasVariant(
@@ -456,6 +466,139 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
               )}
             >
               {"\u0627\u0628\u0632\u0627\u0631\u0647\u0627"}
+            </div>
+          </div>
+          <div
+            aria-pressed={undefined}
+            className={classNames(projectcss.all, sty.freeBox__lij, {
+              [sty.freeBoxfooter2_calendar__lijP4EhE]: hasVariant(
+                $state,
+                "footer2",
+                "calendar"
+              ),
+              [sty.freeBoxfooter2_chatBot__lij69Z61]: hasVariant(
+                $state,
+                "footer2",
+                "chatBot"
+              ),
+              [sty.freeBoxfooter2_tools__lijWWhUi]: hasVariant(
+                $state,
+                "footer2",
+                "tools"
+              )
+            })}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["updateType"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["type"]
+                      },
+                      operation: 0,
+                      value: "chatBot"
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateType"] != null &&
+                typeof $steps["updateType"] === "object" &&
+                typeof $steps["updateType"].then === "function"
+              ) {
+                $steps["updateType"] = await $steps["updateType"];
+              }
+
+              $steps["updateType2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          return window.sessionStorage.setItem(
+                            "footer",
+                            "chatBot"
+                          );
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateType2"] != null &&
+                typeof $steps["updateType2"] === "object" &&
+                typeof $steps["updateType2"].then === "function"
+              ) {
+                $steps["updateType2"] = await $steps["updateType2"];
+              }
+            }}
+          >
+            <PlasmicIcon__
+              PlasmicIconType={
+                hasVariant($state, "footer2", "chatBot")
+                  ? Icon203Icon
+                  : hasVariant(globalVariants, "screen", "mobile")
+                  ? Icon202Icon
+                  : Icon202Icon
+              }
+              className={classNames(projectcss.all, sty.svg__xrAqm, {
+                [sty.svgfooter2_chatBot__xrAqm69Z61]: hasVariant(
+                  $state,
+                  "footer2",
+                  "chatBot"
+                ),
+                [sty.svgfooter2_tools__xrAqMwWhUi]: hasVariant(
+                  $state,
+                  "footer2",
+                  "tools"
+                ),
+                [sty.svgglobal_newView_newView__xrAqm0DHva]: hasVariant(
+                  globalVariants,
+                  "newView",
+                  "newView"
+                ),
+                [sty.svgglobal_newView_newView_footer2_calendar__xrAqm0DHvaP4EhE]:
+                  hasVariant($state, "footer2", "calendar") &&
+                  hasVariant(globalVariants, "newView", "newView"),
+                [sty.svgglobal_newView_newView_footer2_tools__xrAqm0DHvaWWhUi]:
+                  hasVariant($state, "footer2", "tools") &&
+                  hasVariant(globalVariants, "newView", "newView")
+              })}
+              role={"img"}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__zXoiW,
+                {
+                  [sty.textfooter2_chatBot__zXoiW69Z61]: hasVariant(
+                    $state,
+                    "footer2",
+                    "chatBot"
+                  ),
+                  [sty.textfooter2_tools__zXoiWwWhUi]: hasVariant(
+                    $state,
+                    "footer2",
+                    "tools"
+                  )
+                }
+              )}
+            >
+              {"\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f"}
             </div>
           </div>
         </div>

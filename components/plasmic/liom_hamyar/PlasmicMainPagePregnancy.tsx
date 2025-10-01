@@ -62,6 +62,7 @@ import {
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import ComponentPregnancy from "../../ComponentPregnancy"; // plasmic-import: 8wHhlRtqpYtU/component
 import ToolsComponent from "../../ToolsComponent"; // plasmic-import: TGSOhksfnMdG/component
+import { Iframe } from "@plasmicpkgs/plasmic-basic-components";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -73,10 +74,10 @@ import sty from "./PlasmicMainPagePregnancy.module.css"; // plasmic-import: R1I9
 createPlasmicElementProxy;
 
 export type PlasmicMainPagePregnancy__VariantMembers = {
-  page: "calendar" | "tools";
+  page: "calendar" | "tools" | "chatBot";
 };
 export type PlasmicMainPagePregnancy__VariantsArgs = {
-  page?: SingleChoiceArg<"calendar" | "tools">;
+  page?: SingleChoiceArg<"calendar" | "tools" | "chatBot">;
 };
 type VariantPropType = keyof PlasmicMainPagePregnancy__VariantsArgs;
 export const PlasmicMainPagePregnancy__VariantProps =
@@ -106,6 +107,8 @@ export type PlasmicMainPagePregnancy__OverridesType = {
   root?: Flex__<"div">;
   componentPregnancy?: Flex__<typeof ComponentPregnancy>;
   toolsComponent?: Flex__<typeof ToolsComponent>;
+  section?: Flex__<"section">;
+  iframe?: Flex__<typeof Iframe>;
 };
 
 export interface DefaultMainPagePregnancyProps {
@@ -116,7 +119,7 @@ export interface DefaultMainPagePregnancyProps {
   onUserInfoChange?: (val: string) => void;
   token?: string;
   onTokenChange?: (val: string) => void;
-  page?: SingleChoiceArg<"calendar" | "tools">;
+  page?: SingleChoiceArg<"calendar" | "tools" | "chatBot">;
   className?: string;
 }
 
@@ -194,6 +197,12 @@ function PlasmicMainPagePregnancy__RenderFunc(props: {
 
         valueProp: "token",
         onChangeProp: "onTokenChange"
+      },
+      {
+        path: "componentPregnancy.weeksPregnant",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -222,6 +231,7 @@ function PlasmicMainPagePregnancy__RenderFunc(props: {
         sty.root,
         {
           [sty.rootpage_calendar]: hasVariant($state, "page", "calendar"),
+          [sty.rootpage_chatBot]: hasVariant($state, "page", "chatBot"),
           [sty.rootpage_tools]: hasVariant($state, "page", "tools")
         }
       )}
@@ -232,6 +242,11 @@ function PlasmicMainPagePregnancy__RenderFunc(props: {
             $state,
             "page",
             "calendar"
+          ),
+          [sty.revealpage_chatBot___6VEqveNavj]: hasVariant(
+            $state,
+            "page",
+            "chatBot"
           ),
           [sty.revealpage_tools___6VEqVwGbWf]: hasVariant(
             $state,
@@ -252,12 +267,31 @@ function PlasmicMainPagePregnancy__RenderFunc(props: {
               "page",
               "calendar"
             ),
+            [sty.componentPregnancypage_chatBot]: hasVariant(
+              $state,
+              "page",
+              "chatBot"
+            ),
             [sty.componentPregnancypage_tools]: hasVariant(
               $state,
               "page",
               "tools"
             )
           })}
+          onWeeksPregnantChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, [
+              "componentPregnancy",
+              "weeksPregnant"
+            ]).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
         />
       </Reveal>
       <Reveal
@@ -298,14 +332,73 @@ function PlasmicMainPagePregnancy__RenderFunc(props: {
           })()}
         />
       </Reveal>
+      <Reveal
+        className={classNames("__wab_instance", sty.reveal__zw29, {
+          [sty.revealpage_calendar__zw29U9P3]: hasVariant(
+            $state,
+            "page",
+            "calendar"
+          ),
+          [sty.revealpage_chatBot__zw29ENavj]: hasVariant(
+            $state,
+            "page",
+            "chatBot"
+          ),
+          [sty.revealpage_tools__zw29WGbWf]: hasVariant($state, "page", "tools")
+        })}
+        damping={0.2}
+        effect={"fade"}
+        triggerOnce={true}
+      >
+        <section
+          data-plasmic-name={"section"}
+          data-plasmic-override={overrides.section}
+          className={classNames(projectcss.all, sty.section, {
+            [sty.sectionpage_chatBot]: hasVariant($state, "page", "chatBot")
+          })}
+        >
+          <Iframe
+            data-plasmic-name={"iframe"}
+            data-plasmic-override={overrides.iframe}
+            className={classNames("__wab_instance", sty.iframe, {
+              [sty.iframepage_chatBot]: hasVariant($state, "page", "chatBot"),
+              [sty.iframepage_tools]: hasVariant($state, "page", "tools")
+            })}
+            src={(() => {
+              try {
+                return (
+                  "https://tools.liom.app/chat-bot/?origin_user_id=" +
+                  $state?.userInfo.id +
+                  "&topic=pregnancyWeek" +
+                  $state.componentPregnancy.weeksPregnant +
+                  "&token=" +
+                  $state.token
+                );
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            srcDoc={"<div><h3>Heading</h3><p>Example text...</p></div>"}
+            useHtml={false}
+          />
+        </section>
+      </Reveal>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "componentPregnancy", "toolsComponent"],
+  root: ["root", "componentPregnancy", "toolsComponent", "section", "iframe"],
   componentPregnancy: ["componentPregnancy"],
-  toolsComponent: ["toolsComponent"]
+  toolsComponent: ["toolsComponent"],
+  section: ["section", "iframe"],
+  iframe: ["iframe"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -314,6 +407,8 @@ type NodeDefaultElementType = {
   root: "div";
   componentPregnancy: typeof ComponentPregnancy;
   toolsComponent: typeof ToolsComponent;
+  section: "section";
+  iframe: typeof Iframe;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -378,6 +473,8 @@ export const PlasmicMainPagePregnancy = Object.assign(
     // Helper components rendering sub-elements
     componentPregnancy: makeNodeComponent("componentPregnancy"),
     toolsComponent: makeNodeComponent("toolsComponent"),
+    section: makeNodeComponent("section"),
+    iframe: makeNodeComponent("iframe"),
 
     // Metadata about props expected for PlasmicMainPagePregnancy
     internalVariantProps: PlasmicMainPagePregnancy__VariantProps,

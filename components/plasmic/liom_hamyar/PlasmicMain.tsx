@@ -91,17 +91,20 @@ export type PlasmicMain__VariantMembers = {
   setting: "setting";
   subItem: "subItem";
   edit: "edit";
+  cycle: "cycle";
 };
 export type PlasmicMain__VariantsArgs = {
   setting?: SingleBooleanChoiceArg<"setting">;
   subItem?: SingleBooleanChoiceArg<"subItem">;
   edit?: SingleBooleanChoiceArg<"edit">;
+  cycle?: SingleBooleanChoiceArg<"cycle">;
 };
 type VariantPropType = keyof PlasmicMain__VariantsArgs;
 export const PlasmicMain__VariantProps = new Array<VariantPropType>(
   "setting",
   "subItem",
-  "edit"
+  "edit",
+  "cycle"
 );
 
 export type PlasmicMain__ArgsType = {};
@@ -119,6 +122,7 @@ export type PlasmicMain__OverridesType = {
   lottie?: Flex__<typeof LottieWrapper>;
   footerMain?: Flex__<typeof FooterMain>;
   settingCycle4?: Flex__<typeof SettingCycle4>;
+  settingCycle5?: Flex__<typeof SettingCycle4>;
   subItemsComponnet?: Flex__<typeof SubItemsComponnet>;
   editProfile2?: Flex__<typeof EditProfile2>;
   backHandler?: Flex__<typeof BackHandler>;
@@ -351,6 +355,24 @@ function PlasmicMain__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ``
+      },
+      {
+        path: "cycle",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.cycle
+      },
+      {
+        path: "settingCycle5.token",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+      },
+      {
+        path: "settingCycle5.editTime",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "kjlkjkj"
       }
     ],
     [$props, $ctx, $refs]
@@ -1787,7 +1809,205 @@ function PlasmicMain__RenderFunc(props: {
             />
           </Reveal>
           <Reveal
+            className={classNames("__wab_instance", sty.reveal__tDpc, {
+              [sty.revealsetting__tDpcH13CE]: hasVariant(
+                $state,
+                "setting",
+                "setting"
+              ),
+              [sty.revealsubItem__tDpcAUdim]: hasVariant(
+                $state,
+                "subItem",
+                "subItem"
+              )
+            })}
+            damping={0.2}
+            effect={"fade"}
+            triggerOnce={true}
+          >
+            <SettingCycle4
+              data-plasmic-name={"settingCycle5"}
+              data-plasmic-override={overrides.settingCycle5}
+              active={(() => {
+                try {
+                  return $state.setting == true;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })()}
+              className={classNames("__wab_instance", sty.settingCycle5, {
+                [sty.settingCycle5setting]: hasVariant(
+                  $state,
+                  "setting",
+                  "setting"
+                )
+              })}
+              editTime={generateStateValueProp($state, [
+                "settingCycle5",
+                "editTime"
+              ])}
+              onBack={async event => {
+                const $steps = {};
+
+                $steps["updateSetting"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        vgroup: "setting",
+                        operation: 2,
+                        value: "setting"
+                      };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        const oldValue = $stateGet($state, vgroup);
+                        $stateSet($state, vgroup, !oldValue);
+                        return !oldValue;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateSetting"] != null &&
+                  typeof $steps["updateSetting"] === "object" &&
+                  typeof $steps["updateSetting"].then === "function"
+                ) {
+                  $steps["updateSetting"] = await $steps["updateSetting"];
+                }
+              }}
+              onEditTimeChange2={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "settingCycle5",
+                  "editTime"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+
+                (async val => {
+                  const $steps = {};
+
+                  $steps["updateMainPageEditTime"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["mainPage", "editTime"]
+                          },
+                          operation: 0,
+                          value: $state.settingCycle5.editTime
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateMainPageEditTime"] != null &&
+                    typeof $steps["updateMainPageEditTime"] === "object" &&
+                    typeof $steps["updateMainPageEditTime"].then === "function"
+                  ) {
+                    $steps["updateMainPageEditTime"] = await $steps[
+                      "updateMainPageEditTime"
+                    ];
+                  }
+
+                  $steps["updateMainHeaderDopen"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["mainHeader", "dopen"]
+                          },
+                          operation: 0,
+                          value: console.log($state.settingCycle5.editTime)
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateMainHeaderDopen"] != null &&
+                    typeof $steps["updateMainHeaderDopen"] === "object" &&
+                    typeof $steps["updateMainHeaderDopen"].then === "function"
+                  ) {
+                    $steps["updateMainHeaderDopen"] = await $steps[
+                      "updateMainHeaderDopen"
+                    ];
+                  }
+                }).apply(null, eventArgs);
+              }}
+              onTokenChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "settingCycle5",
+                  "token"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              token={generateStateValueProp($state, ["settingCycle5", "token"])}
+              userStatus={(() => {
+                try {
+                  return $state.mainPage.userInfo.result.userStatus;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+            />
+          </Reveal>
+          <Reveal
             className={classNames("__wab_instance", sty.reveal__xsDwA, {
+              [sty.revealcycle__xsDwAtRwEd]: hasVariant(
+                $state,
+                "cycle",
+                "cycle"
+              ),
               [sty.revealsetting__xsDwAh13CE]: hasVariant(
                 $state,
                 "setting",
@@ -2138,6 +2358,7 @@ const PlasmicDescendants = {
     "lottie",
     "footerMain",
     "settingCycle4",
+    "settingCycle5",
     "subItemsComponnet",
     "editProfile2",
     "backHandler",
@@ -2161,6 +2382,7 @@ const PlasmicDescendants = {
   lottie: ["lottie"],
   footerMain: ["footerMain"],
   settingCycle4: ["settingCycle4"],
+  settingCycle5: ["settingCycle5"],
   subItemsComponnet: ["subItemsComponnet"],
   editProfile2: ["editProfile2"],
   backHandler: ["backHandler"],
@@ -2180,6 +2402,7 @@ type NodeDefaultElementType = {
   lottie: typeof LottieWrapper;
   footerMain: typeof FooterMain;
   settingCycle4: typeof SettingCycle4;
+  settingCycle5: typeof SettingCycle4;
   subItemsComponnet: typeof SubItemsComponnet;
   editProfile2: typeof EditProfile2;
   backHandler: typeof BackHandler;
@@ -2280,6 +2503,7 @@ export const PlasmicMain = Object.assign(
     lottie: makeNodeComponent("lottie"),
     footerMain: makeNodeComponent("footerMain"),
     settingCycle4: makeNodeComponent("settingCycle4"),
+    settingCycle5: makeNodeComponent("settingCycle5"),
     subItemsComponnet: makeNodeComponent("subItemsComponnet"),
     editProfile2: makeNodeComponent("editProfile2"),
     backHandler: makeNodeComponent("backHandler"),

@@ -660,6 +660,12 @@ function PlasmicPregnancy__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "componentPregnancy.weeksPregnant",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -703,6 +709,20 @@ function PlasmicPregnancy__RenderFunc(props: {
             data-plasmic-name={"componentPregnancy"}
             data-plasmic-override={overrides.componentPregnancy}
             className={classNames("__wab_instance", sty.componentPregnancy)}
+            onWeeksPregnantChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "componentPregnancy",
+                "weeksPregnant"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
           />
         </div>
       </div>
