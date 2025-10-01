@@ -572,6 +572,9 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
                 [sty.svgglobal_newView_newView_footer2_calendar__xrAqm0DHvaP4EhE]:
                   hasVariant($state, "footer2", "calendar") &&
                   hasVariant(globalVariants, "newView", "newView"),
+                [sty.svgglobal_newView_newView_footer2_chatBot__xrAqm0DHva69Z61]:
+                  hasVariant($state, "footer2", "chatBot") &&
+                  hasVariant(globalVariants, "newView", "newView"),
                 [sty.svgglobal_newView_newView_footer2_tools__xrAqm0DHvaWWhUi]:
                   hasVariant($state, "footer2", "tools") &&
                   hasVariant(globalVariants, "newView", "newView")

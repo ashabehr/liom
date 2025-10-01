@@ -364,6 +364,7 @@ function PlasmicMainPagePregnancy__RenderFunc(props: {
               [sty.iframepage_chatBot]: hasVariant($state, "page", "chatBot"),
               [sty.iframepage_tools]: hasVariant($state, "page", "tools")
             })}
+            preview={true}
             src={(() => {
               try {
                 return (

@@ -803,6 +803,11 @@
   align-self: center;
   color: var(--token-2aHIw8xI62Xi);
 }
+@media (max-width: 640px) {
+  .text__pRlD7 {
+    text-align: justify;
+  }
+}
 .freeBox___1Go7U {
   background: #ecdaff;
   display: flex;

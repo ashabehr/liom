@@ -4982,6 +4982,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                             "__wab_instance",
                                             sty.lineClomp
                                           )}
+                                          numberOfLine={1}
                                           onLineChange={async (
                                             ...eventArgs: any
                                           ) => {
@@ -5109,6 +5110,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                             "__wab_instance",
                                             sty.lineClomp2
                                           )}
+                                          numberOfLine={1}
                                           onLineChange={async (
                                             ...eventArgs: any
                                           ) => {

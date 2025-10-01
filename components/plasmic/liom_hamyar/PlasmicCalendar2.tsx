@@ -53973,85 +53973,105 @@ function PlasmicCalendar2__RenderFunc(props: {
                             "\u062f\u0648\u0631\u0647 \u0628\u0639\u062f\u06cc \u0634\u0645\u0627"
                           }
                         </div>
-                        <Button
-                          data-plasmic-name={"button3"}
-                          data-plasmic-override={overrides.button3}
-                          className={classNames("__wab_instance", sty.button3)}
-                          color={generateStateValueProp($state, [
-                            "button3",
-                            "color"
-                          ])}
-                          load={generateStateValueProp($state, [
-                            "button3",
-                            "load"
-                          ])}
-                          loading={generateStateValueProp($state, [
-                            "button3",
-                            "loading"
-                          ])}
-                          onClick={args.fuchereCycle}
-                          onColorChange={async (...eventArgs: any) => {
-                            ((...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "button3",
-                                "color"
-                              ])(eventArgs[0]);
-                            }).apply(null, eventArgs);
-
+                        {(() => {
+                          try {
+                            return (
+                              $state.userInfo?.result?.user?.id ==
+                              "5916daaf-e7b3-44e9-85bd-5d5dfe00e2db"
+                            );
+                          } catch (e) {
                             if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              return;
+                              return true;
                             }
-                          }}
-                          onLoadChange={async (...eventArgs: any) => {
-                            ((...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "button3",
-                                "load"
-                              ])(eventArgs[0]);
-                            }).apply(null, eventArgs);
-
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          }}
-                          onLoadingChange={async (...eventArgs: any) => {
-                            ((...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "button3",
-                                "loading"
-                              ])(eventArgs[0]);
-                            }).apply(null, eventArgs);
-
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          }}
-                          size={"minimal"}
-                        >
-                          <div
+                            throw e;
+                          }
+                        })() ? (
+                          <Button
+                            data-plasmic-name={"button3"}
+                            data-plasmic-override={overrides.button3}
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__gvnHl
+                              "__wab_instance",
+                              sty.button3
                             )}
+                            color={generateStateValueProp($state, [
+                              "button3",
+                              "color"
+                            ])}
+                            load={generateStateValueProp($state, [
+                              "button3",
+                              "load"
+                            ])}
+                            loading={generateStateValueProp($state, [
+                              "button3",
+                              "loading"
+                            ])}
+                            onClick={args.fuchereCycle}
+                            onColorChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button3",
+                                  "color"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button3",
+                                  "load"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadingChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button3",
+                                  "loading"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            size={"minimal"}
                           >
-                            {
-                              "\u067e\u06cc\u0634 \u0628\u06cc\u0646\u06cc \u0686\u0631\u062e\u0647 "
-                            }
-                          </div>
-                        </Button>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__gvnHl
+                              )}
+                            >
+                              {
+                                "\u067e\u06cc\u0634 \u0628\u06cc\u0646\u06cc \u0686\u0631\u062e\u0647 "
+                              }
+                            </div>
+                          </Button>
+                        ) : null}
                       </div>
                     ),
                     onChange: async (...eventArgs: any) => {

@@ -71,6 +71,8 @@ import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import SettingCycle4 from "../../SettingCycle4"; // plasmic-import: C5hqeG28n8GP/component
 import SubItemsComponnet from "../../SubItemsComponnet"; // plasmic-import: b9qrgB2b1TrW/component
 import EditProfile2 from "../../EditProfile2"; // plasmic-import: BZ95kklWU6Jb/component
+import History from "../../History"; // plasmic-import: 5t5YNzyUHdtX/component
+import SliderThumb from "../../SliderThumb"; // plasmic-import: pmF7IoE0FUg-/component
 import { BackHandler } from "@/components/BackHandler"; // plasmic-import: wpIQCsQJqUoV/codeComponent
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
@@ -125,6 +127,7 @@ export type PlasmicMain__OverridesType = {
   settingCycle5?: Flex__<typeof SettingCycle4>;
   subItemsComponnet?: Flex__<typeof SubItemsComponnet>;
   editProfile2?: Flex__<typeof EditProfile2>;
+  history?: Flex__<typeof History>;
   backHandler?: Flex__<typeof BackHandler>;
   serviceWorker?: Flex__<typeof Embed>;
 };
@@ -410,6 +413,7 @@ function PlasmicMain__RenderFunc(props: {
             styleTokensClassNames,
             sty.root,
             {
+              [sty.rootcycle]: hasVariant($state, "cycle", "cycle"),
               [sty.rootedit]: hasVariant($state, "edit", "edit"),
               [sty.rootsetting]: hasVariant($state, "setting", "setting"),
               [sty.rootsubItem]: hasVariant($state, "subItem", "subItem")
@@ -420,6 +424,7 @@ function PlasmicMain__RenderFunc(props: {
             data-plasmic-name={"main"}
             data-plasmic-override={overrides.main}
             className={classNames(projectcss.all, sty.main, {
+              [sty.maincycle]: hasVariant($state, "cycle", "cycle"),
               [sty.mainedit]: hasVariant($state, "edit", "edit"),
               [sty.mainsetting]: hasVariant($state, "setting", "setting"),
               [sty.mainsubItem]: hasVariant($state, "subItem", "subItem")
@@ -436,6 +441,31 @@ function PlasmicMain__RenderFunc(props: {
                 "mainPage",
                 "editTime"
               ])}
+              fuchereCycle={async event => {
+                const $steps = {};
+
+                $steps["updateCycle"] = true
+                  ? (() => {
+                      const actionArgs = { vgroup: "cycle", operation: 2 };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        const oldValue = $stateGet($state, vgroup);
+                        $stateSet($state, vgroup, !oldValue);
+                        return !oldValue;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateCycle"] != null &&
+                  typeof $steps["updateCycle"] === "object" &&
+                  typeof $steps["updateCycle"].then === "function"
+                ) {
+                  $steps["updateCycle"] = await $steps["updateCycle"];
+                }
+              }}
               onEditTimeChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "mainPage",
@@ -531,7 +561,9 @@ function PlasmicMain__RenderFunc(props: {
               <MainHeader
                 data-plasmic-name={"mainHeader"}
                 data-plasmic-override={overrides.mainHeader}
-                className={classNames("__wab_instance", sty.mainHeader)}
+                className={classNames("__wab_instance", sty.mainHeader, {
+                  [sty.mainHeadercycle]: hasVariant($state, "cycle", "cycle")
+                })}
                 dopen={generateStateValueProp($state, ["mainHeader", "dopen"])}
                 onDopenChange2={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, [
@@ -2108,6 +2140,104 @@ function PlasmicMain__RenderFunc(props: {
               token={generateStateValueProp($state, ["editProfile2", "token"])}
             />
           </Reveal>
+          <Reveal
+            className={classNames("__wab_instance", sty.reveal__r47Ob, {
+              [sty.revealcycle__r47ObtRwEd]: hasVariant(
+                $state,
+                "cycle",
+                "cycle"
+              ),
+              [sty.revealedit__r47Ob0J1ZH]: hasVariant($state, "edit", "edit"),
+              [sty.revealsetting__r47ObH13CE]: hasVariant(
+                $state,
+                "setting",
+                "setting"
+              ),
+              [sty.revealsubItem__r47ObaUdim]: hasVariant(
+                $state,
+                "subItem",
+                "subItem"
+              )
+            })}
+            damping={0.2}
+            effect={"fade"}
+            triggerOnce={true}
+          >
+            <History
+              data-plasmic-name={"history"}
+              data-plasmic-override={overrides.history}
+              active={(() => {
+                try {
+                  return $state.cycle == true;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })()}
+              back={async event => {
+                const $steps = {};
+
+                $steps["updateCycle"] = true
+                  ? (() => {
+                      const actionArgs = { vgroup: "cycle", operation: 2 };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        const oldValue = $stateGet($state, vgroup);
+                        $stateSet($state, vgroup, !oldValue);
+                        return !oldValue;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateCycle"] != null &&
+                  typeof $steps["updateCycle"] === "object" &&
+                  typeof $steps["updateCycle"].then === "function"
+                ) {
+                  $steps["updateCycle"] = await $steps["updateCycle"];
+                }
+              }}
+              className={classNames("__wab_instance", sty.history)}
+              userStatus={(() => {
+                try {
+                  return JSON.parse(window.localStorage.getItem("userinfo"))
+                    .userStatus;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return {
+                      text: "\ud83d\udd34 Elahe is currently on their period. Day of bleeding.",
+                      periodStatus: "blood",
+                      pmsStart: "2025-10-15T00:00:00.000Z",
+                      pmsEnd: "2025-10-20T00:00:00.000Z",
+                      periodStart: "2025-09-29T00:00:00.000Z",
+                      periodEnd: "2025-10-04T00:00:00.000Z",
+                      fertilityStart: "2025-10-04T00:00:00.000Z",
+                      fertilityEnd: "2025-10-09T00:00:00.000Z",
+                      daysToStartPms: 15,
+                      daysOfFertility: 5,
+                      cycle: 21,
+                      length: 5,
+                      daysToEndPms: 20,
+                      daysToStartPeriod: -1,
+                      daysToEndPeriod: 4,
+                      daysToEndFertility: 9
+                    };
+                  }
+                  throw e;
+                }
+              })()}
+            />
+          </Reveal>
           <BackHandler
             data-plasmic-name={"backHandler"}
             data-plasmic-override={overrides.backHandler}
@@ -2361,6 +2491,7 @@ const PlasmicDescendants = {
     "settingCycle5",
     "subItemsComponnet",
     "editProfile2",
+    "history",
     "backHandler",
     "serviceWorker"
   ],
@@ -2385,6 +2516,7 @@ const PlasmicDescendants = {
   settingCycle5: ["settingCycle5"],
   subItemsComponnet: ["subItemsComponnet"],
   editProfile2: ["editProfile2"],
+  history: ["history"],
   backHandler: ["backHandler"],
   serviceWorker: ["serviceWorker"]
 } as const;
@@ -2405,6 +2537,7 @@ type NodeDefaultElementType = {
   settingCycle5: typeof SettingCycle4;
   subItemsComponnet: typeof SubItemsComponnet;
   editProfile2: typeof EditProfile2;
+  history: typeof History;
   backHandler: typeof BackHandler;
   serviceWorker: typeof Embed;
 };
@@ -2506,6 +2639,7 @@ export const PlasmicMain = Object.assign(
     settingCycle5: makeNodeComponent("settingCycle5"),
     subItemsComponnet: makeNodeComponent("subItemsComponnet"),
     editProfile2: makeNodeComponent("editProfile2"),
+    history: makeNodeComponent("history"),
     backHandler: makeNodeComponent("backHandler"),
     serviceWorker: makeNodeComponent("serviceWorker"),
 
