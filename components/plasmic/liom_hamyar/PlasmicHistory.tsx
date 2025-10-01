@@ -115,6 +115,7 @@ export type PlasmicHistory__OverridesType = {
   ariaSliderTrack?: Flex__<typeof BaseSliderTrack>;
   foreground?: Flex__<"div">;
   description?: Flex__<typeof Description>;
+  section?: Flex__<"section">;
   headerLiom?: Flex__<typeof HeaderLiom>;
   svg?: Flex__<"svg">;
   backHandler?: Flex__<typeof BackHandler>;
@@ -931,33 +932,39 @@ function PlasmicHistory__RenderFunc(props: {
           );
         })}
       </div>
-      <HeaderLiom
-        data-plasmic-name={"headerLiom"}
-        data-plasmic-override={overrides.headerLiom}
-        className={classNames("__wab_instance", sty.headerLiom)}
+      <section
+        data-plasmic-name={"section"}
+        data-plasmic-override={overrides.section}
+        className={classNames(projectcss.all, sty.section)}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__zjJik)}>
-          <XIcon
-            data-plasmic-name={"svg"}
-            data-plasmic-override={overrides.svg}
-            className={classNames(projectcss.all, sty.svg)}
-            onClick={args.back}
-            role={"img"}
-          />
+        <HeaderLiom
+          data-plasmic-name={"headerLiom"}
+          data-plasmic-override={overrides.headerLiom}
+          className={classNames("__wab_instance", sty.headerLiom)}
+        >
+          <div className={classNames(projectcss.all, sty.freeBox__zjJik)}>
+            <XIcon
+              data-plasmic-name={"svg"}
+              data-plasmic-override={overrides.svg}
+              className={classNames(projectcss.all, sty.svg)}
+              onClick={args.back}
+              role={"img"}
+            />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__c0TCm
-            )}
-          >
-            {
-              "\u067e\u06cc\u0634\u200c\u0628\u06cc\u0646\u06cc \u0686\u0631\u062e\u0647"
-            }
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__c0TCm
+              )}
+            >
+              {
+                "\u067e\u06cc\u0634\u200c\u0628\u06cc\u0646\u06cc \u0686\u0631\u062e\u0647"
+              }
+            </div>
           </div>
-        </div>
-      </HeaderLiom>
+        </HeaderLiom>
+      </section>
       <BackHandler
         data-plasmic-name={"backHandler"}
         data-plasmic-override={overrides.backHandler}
@@ -997,6 +1004,7 @@ const PlasmicDescendants = {
     "ariaSliderTrack",
     "foreground",
     "description",
+    "section",
     "headerLiom",
     "svg",
     "backHandler"
@@ -1016,6 +1024,7 @@ const PlasmicDescendants = {
   ariaSliderTrack: ["ariaSliderTrack", "foreground"],
   foreground: ["foreground"],
   description: ["description"],
+  section: ["section", "headerLiom", "svg"],
   headerLiom: ["headerLiom", "svg"],
   svg: ["svg"],
   backHandler: ["backHandler"]
@@ -1032,6 +1041,7 @@ type NodeDefaultElementType = {
   ariaSliderTrack: typeof BaseSliderTrack;
   foreground: "div";
   description: typeof Description;
+  section: "section";
   headerLiom: typeof HeaderLiom;
   svg: "svg";
   backHandler: typeof BackHandler;
@@ -1104,6 +1114,7 @@ export const PlasmicHistory = Object.assign(
     ariaSliderTrack: makeNodeComponent("ariaSliderTrack"),
     foreground: makeNodeComponent("foreground"),
     description: makeNodeComponent("description"),
+    section: makeNodeComponent("section"),
     headerLiom: makeNodeComponent("headerLiom"),
     svg: makeNodeComponent("svg"),
     backHandler: makeNodeComponent("backHandler"),

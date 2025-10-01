@@ -4604,164 +4604,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 key={dayIndex}
               >
                 <div
-                  className={classNames(projectcss.all, sty.freeBox___9UbqX)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__eVpMn
-                    )}
-                    style={(() => {
-                      try {
-                        return (() => {
-                          const style =
-                            currentday[0].schedule_type === "everyDay"
-                              ? { fontSize: "20px" }
-                              : {};
-                          return style;
-                        })();
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                  >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return (() => {
-                            try {
-                              var date = JSON.parse(currentday[0].dates)[0];
-                              if (date) {
-                                function parseISOToUTC(dateStr) {
-                                  let [y, m, d] = dateStr
-                                    .split("-")
-                                    .map(Number);
-                                  return new Date(Date.UTC(y, m - 1, d));
-                                }
-                                let d = parseISOToUTC(date);
-                                let formatter = new Intl.DateTimeFormat(
-                                  "fa-IR",
-                                  {
-                                    timeZone: "Asia/Tehran",
-                                    day: "numeric"
-                                  }
-                                );
-                                if (currentday[0].schedule_type == "everyDay") {
-                                  return "روزانه";
-                                } else {
-                                  return formatter.format(d);
-                                }
-                              } else {
-                                return currentday[0].schedule_type == "everyDay"
-                                  ? "روزانه"
-                                  : "?";
-                              }
-                            } catch {
-                              return currentday[0].schedule_type == "everyDay"
-                                ? "روزانه"
-                                : "?";
-                            }
-                          })();
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "17 ";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__b6GPk
-                    )}
-                  >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return (() => {
-                            try {
-                              var date = JSON.parse(currentday[0].dates)[0];
-                              if (date) {
-                                function parseISOToLocal(dateStr) {
-                                  let [y, m, d] = dateStr
-                                    .split("-")
-                                    .map(Number);
-                                  return new Date(y, m - 1, d);
-                                }
-                                let d = parseISOToLocal(date);
-                                let formatter = new Intl.DateTimeFormat(
-                                  "fa-IR",
-                                  {
-                                    timeZone: "Asia/Tehran",
-                                    month: "long"
-                                  }
-                                );
-                                if (currentday[0].schedule_type == "everyDay") {
-                                  return "";
-                                } else {
-                                  return formatter.format(d);
-                                }
-                              } else {
-                                return currentday[0].schedule_type == "everyDay"
-                                  ? ""
-                                  : "";
-                              }
-                            } catch {
-                              return currentday[0].schedule_type == "everyDay"
-                                ? ""
-                                : "";
-                            }
-                          })();
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u0634\u0647\u0631\u06cc\u0648\u0631";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  </div>
-                  {(() => {
-                    try {
-                      return currentday.length > 1;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return true;
-                      }
-                      throw e;
-                    }
-                  })() ? (
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__lQnbJ
-                      )}
-                    >
-                      {""}
-                    </div>
-                  ) : null}
-                </div>
-                <div
                   className={classNames(
                     projectcss.all,
                     sty.freeBox__laNy3,
@@ -4946,7 +4788,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           let times = JSON.parse(
                                             currentItem.times
                                           );
-                                          return times && times.length > 1;
+                                          return times && times.length > 0;
                                         })();
                                       } catch (e) {
                                         if (
@@ -5047,7 +4889,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                     try {
                                                       return JSON.parse(
                                                         currentItem.times
-                                                      ).join("  ,  ");
+                                                      ).join("   ,   ");
                                                     } catch {
                                                       return "";
                                                     }
@@ -5074,7 +4916,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           let dates = JSON.parse(
                                             currentItem.dates
                                           );
-                                          return dates && dates.length > 1;
+                                          return dates && dates.length > 0;
                                         })();
                                       } catch (e) {
                                         if (
@@ -5206,15 +5048,14 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                               day: "numeric"
                                                             }
                                                           );
-                                                        let faDates = dates
-                                                          .slice(1)
-                                                          .map(d =>
+                                                        let faDates = dates.map(
+                                                          d =>
                                                             formatter.format(
                                                               parseISOToUTC(d)
                                                             )
-                                                          );
+                                                        );
                                                         return ` ${faDates.join(
-                                                          " , "
+                                                          "  ,  "
                                                         )} `;
                                                       } else {
                                                         return "";

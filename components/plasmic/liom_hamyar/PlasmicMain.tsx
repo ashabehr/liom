@@ -434,6 +434,7 @@ function PlasmicMain__RenderFunc(props: {
               data-plasmic-name={"mainPage"}
               data-plasmic-override={overrides.mainPage}
               className={classNames("__wab_instance", sty.mainPage, {
+                [sty.mainPagecycle]: hasVariant($state, "cycle", "cycle"),
                 [sty.mainPageedit]: hasVariant($state, "edit", "edit"),
                 [sty.mainPagesubItem]: hasVariant($state, "subItem", "subItem")
               })}
@@ -2204,7 +2205,9 @@ function PlasmicMain__RenderFunc(props: {
                   $steps["updateCycle"] = await $steps["updateCycle"];
                 }
               }}
-              className={classNames("__wab_instance", sty.history)}
+              className={classNames("__wab_instance", sty.history, {
+                [sty.historycycle]: hasVariant($state, "cycle", "cycle")
+              })}
               userStatus={(() => {
                 try {
                   return JSON.parse(window.localStorage.getItem("userinfo"))

@@ -41,6 +41,11 @@
 .rootcycle > * {
   grid-column: 4;
 }
+@media (max-width: 640px) {
+  .rootcycle > * {
+    grid-column: 4;
+  }
+}
 .main {
   display: flex;
   flex-direction: column;
@@ -321,7 +326,18 @@
   }
 }
 .revealcycle__r47ObtRwEd:global(.__wab_instance) {
+  width: 100%;
+  justify-self: flex-start;
+  min-width: 0;
   display: flex;
+  padding: 0px var(--token-O5TjkXII_aat);
+}
+@media (max-width: 640px) {
+  .revealcycle__r47ObtRwEd:global(.__wab_instance) {
+    width: 100%;
+    min-width: 0;
+    padding: 0px;
+  }
 }
 .history:global(.__wab_instance) {
   max-width: 100%;
