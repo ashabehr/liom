@@ -149,6 +149,9 @@
 .svgfooter2_calendar__yiYn5P4EhE {
   color: var(--token-55cSeNPovQFh);
 }
+.svgglobal_newView_newView_footer2_calendar__yiYn50DHvaP4EhE {
+  color: var(--token-SX03PBUzWAqr);
+}
 .text__a7GmU {
   position: relative;
   width: 100%;
@@ -212,6 +215,9 @@
     color: var(--token-y50Rafqey4Ec);
     flex-shrink: 0;
   }
+}
+.svgfooter2_tools__abCaOwWhUi {
+  color: var(--token-55cSeNPovQFh);
 }
 .svgglobal_newView_newView_footer2_tools__abCaO0DHvaWWhUi {
   color: var(--token-55cSeNPovQFh);

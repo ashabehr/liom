@@ -70,7 +70,7 @@ import sty from "./PlasmicFooterPregnancyMain.module.css"; // plasmic-import: -k
 import Icon138Icon from "./icons/PlasmicIcon__Icon138"; // plasmic-import: _v0CaTT-8IBc/icon
 import Icon137Icon from "./icons/PlasmicIcon__Icon137"; // plasmic-import: DXdLIMYRuTVZ/icon
 import Icon213Icon from "./icons/PlasmicIcon__Icon213"; // plasmic-import: mG0VeezaR1mF/icon
-import Icon212Icon from "./icons/PlasmicIcon__Icon212"; // plasmic-import: EV8ARHn8m9ie/icon
+import Frame4SvgIcon from "./icons/PlasmicIcon__Frame4Svg"; // plasmic-import: C28-XR0RCuRG/icon
 
 createPlasmicElementProxy;
 
@@ -415,7 +415,7 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
             <PlasmicIcon__
               PlasmicIconType={
                 hasVariant($state, "footer2", "tools")
-                  ? Icon212Icon
+                  ? Frame4SvgIcon
                   : hasVariant(globalVariants, "screen", "mobile")
                   ? Icon213Icon
                   : Icon213Icon

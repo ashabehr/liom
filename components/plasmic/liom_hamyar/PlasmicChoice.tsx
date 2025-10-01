@@ -334,7 +334,7 @@ function PlasmicChoice__RenderFunc(props: {
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
                 try {
-                  return $state.info;
+                  return [3, 4, 5, 6, 7, 8];
                 } catch (e) {
                   if (
                     e instanceof TypeError ||

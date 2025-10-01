@@ -6666,6 +6666,21 @@
           "id": "lNuAAu8GY-nH",
           "name": "Icon311Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon311.tsx"
+        },
+        {
+          "id": "C4s6LDyyr2Vp",
+          "name": "Frame1SvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Frame1Svg.tsx"
+        },
+        {
+          "id": "RnrEDXByauZn",
+          "name": "Frame3SvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Frame3Svg.tsx"
+        },
+        {
+          "id": "C28-XR0RCuRG",
+          "name": "Frame4SvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Frame4Svg.tsx"
         }
       ],
       "images": [

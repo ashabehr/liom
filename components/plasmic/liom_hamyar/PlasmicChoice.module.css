@@ -123,12 +123,12 @@
   align-items: stretch;
   justify-content: flex-start;
   width: 100%;
-  height: 150px;
+  height: 231px;
   max-width: 100%;
   background: var(--token-R_Rsn0nP9oIv);
   min-width: 0;
   border-radius: 50px;
-  padding: 8px;
+  padding: 8px 0px 8px 8px;
   border-width: 2px;
   border-style: solid;
 }

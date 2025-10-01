@@ -59,7 +59,12 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import RangeSlider from "../../RangeSlider"; // plasmic-import: uJUDE33VkjVO/component
+import { BaseSlider } from "@plasmicpkgs/react-aria/skinny/registerSlider";
+import Label from "../../Label"; // plasmic-import: msVDJicWRQpz/component
+import { BaseSliderOutput } from "@plasmicpkgs/react-aria/skinny/registerSliderOutput";
+import { BaseSliderTrack } from "@plasmicpkgs/react-aria/skinny/registerSliderTrack";
+import SliderThumb from "../../SliderThumb"; // plasmic-import: pmF7IoE0FUg-/component
+import Description from "../../Description"; // plasmic-import: iwAkLYZK9Vrj/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -75,17 +80,42 @@ export type PlasmicHistory__VariantsArgs = {};
 type VariantPropType = keyof PlasmicHistory__VariantsArgs;
 export const PlasmicHistory__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicHistory__ArgsType = { userStatus?: any };
+export type PlasmicHistory__ArgsType = {
+  userStatus?: any;
+  label?: React.ReactNode;
+  thumbs?: React.ReactNode;
+  children?: React.ReactNode;
+  slot2?: React.ReactNode;
+  slot?: React.ReactNode;
+};
 type ArgPropType = keyof PlasmicHistory__ArgsType;
-export const PlasmicHistory__ArgProps = new Array<ArgPropType>("userStatus");
+export const PlasmicHistory__ArgProps = new Array<ArgPropType>(
+  "userStatus",
+  "label",
+  "thumbs",
+  "children",
+  "slot2",
+  "slot"
+);
 
 export type PlasmicHistory__OverridesType = {
   root?: Flex__<"div">;
-  rangeSlider?: Flex__<typeof RangeSlider>;
+  ariaRangeSlider?: Flex__<typeof BaseSlider>;
+  label?: Flex__<typeof Label>;
+  ariaSliderOutput?: Flex__<typeof BaseSliderOutput>;
+  background?: Flex__<"div">;
+  ariaSliderTrack?: Flex__<typeof BaseSliderTrack>;
+  foreground?: Flex__<"div">;
+  description?: Flex__<typeof Description>;
 };
 
 export interface DefaultHistoryProps {
   userStatus?: any;
+  label?: React.ReactNode;
+  thumbs?: React.ReactNode;
+  children?: React.ReactNode;
+  slot2?: React.ReactNode;
+  slot?: React.ReactNode;
   className?: string;
 }
 
@@ -154,7 +184,7 @@ function PlasmicHistory__RenderFunc(props: {
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: "rangeSlider[].value",
+        path: "ariaRangeSlider[][].value",
         type: "private",
         variableType: "array"
       }
@@ -200,24 +230,48 @@ function PlasmicHistory__RenderFunc(props: {
         (() => {
           try {
             return (() => {
-              function generatePeriods(info, count = 6) {
-                const result = [];
+              function generatePeriodsGroupedByMonthArray(info, count = 6) {
                 const cycle = info.cycle;
                 const length = info.length;
+                const pmsLength = 5;
                 let start = new Date(info.periodStart);
+                const monthsMap = {};
+                const formatter = new Intl.DateTimeFormat("fa-IR", {
+                  timeZone: "Asia/Tehran",
+                  month: "long"
+                });
                 for (let i = 0; i < count; i++) {
                   let end = new Date(start);
                   end.setDate(start.getDate() + length - 1);
-                  result.push({
+                  let nextStart = new Date(start);
+                  nextStart.setDate(start.getDate() + cycle);
+                  let pmsStart = new Date(nextStart);
+                  pmsStart.setDate(nextStart.getDate() - pmsLength);
+                  let pmsEnd = new Date(nextStart);
+                  pmsEnd.setDate(nextStart.getDate() - 1);
+                  const periodDays =
+                    Math.round((end - start) / (1000 * 60 * 60 * 24)) + 1;
+                  const pmsDays =
+                    Math.round((pmsEnd - pmsStart) / (1000 * 60 * 60 * 24)) + 1;
+                  const monthName = formatter.format(start);
+                  if (!monthsMap[monthName]) monthsMap[monthName] = [];
+                  monthsMap[monthName].push({
                     start: start.toISOString().split("T")[0],
-                    end: end.toISOString().split("T")[0]
+                    end: end.toISOString().split("T")[0],
+                    periodDays,
+                    pmsStart: pmsStart.toISOString().split("T")[0],
+                    pmsEnd: pmsEnd.toISOString().split("T")[0],
+                    pmsDays
                   });
-                  start = new Date(start);
-                  start.setDate(start.getDate() + cycle);
+                  start = nextStart;
                 }
-                return result;
+                const monthsArray = Object.keys(monthsMap).map(month => ({
+                  month,
+                  periods: monthsMap[month]
+                }));
+                return monthsArray;
               }
-              return generatePeriods($props.userStatus);
+              return generatePeriodsGroupedByMonthArray($props.userStatus);
             })();
           } catch (e) {
             if (
@@ -230,196 +284,567 @@ function PlasmicHistory__RenderFunc(props: {
           }
         })()
       ).map((__plasmic_item_0, __plasmic_idx_0) => {
-        const currentItem = __plasmic_item_0;
-        const currentIndex = __plasmic_idx_0;
+        const moon = __plasmic_item_0;
+        const moonIndex = __plasmic_idx_0;
         return (
           <div
             className={classNames(projectcss.all, sty.freeBox__b6Q1G)}
-            key={currentIndex}
-            style={(() => {
-              try {
-                return {
-                  opacity: currentIndex == 0 ? "1" : "0.6"
-                };
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
+            key={moonIndex}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__jolyL)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___5OSf3
-                )}
-              >
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return (() => {
-                        try {
-                          function parseISOToUTC(dateStr) {
-                            let [y, m, d] = dateStr.split("-").map(Number);
-                            return new Date(Date.UTC(y, m - 1, d));
-                          }
-                          const formatter = new Intl.DateTimeFormat("fa-IR", {
-                            timeZone: "Asia/Tehran",
-                            day: "numeric",
-                            month: "long"
-                          });
-                          let start = currentItem.start
-                            ? parseISOToUTC(currentItem.start)
-                            : null;
-                          let end = currentItem.end
-                            ? parseISOToUTC(currentItem.end)
-                            : null;
-                          let startStr = start ? formatter.format(start) : "?";
-                          let endStr = end ? formatter.format(end) : "?";
-                          return `${startStr}   -   ${endStr}`;
-                        } catch {}
-                      })();
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "";
-                      }
-                      throw e;
+            <div className={classNames(projectcss.all, sty.freeBox___2LX6W)} />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___6Or0Y
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return moon.month;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
                     }
-                  })()}
-                </React.Fragment>
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__noJuT
-                )}
-              >
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return currentIndex == 0
-                        ? `دوره جاری (${$props.userStatus.cycle} روز)`
-                        : `(${$props.userStatus.cycle} روز)`;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "";
-                      }
-                      throw e;
-                    }
-                  })()}
-                </React.Fragment>
-              </div>
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
             </div>
-            {(() => {
-              const child$Props = {
-                className: classNames("__wab_instance", sty.rangeSlider),
-                color: "red",
-                disabled: false,
-                filled: true,
-                initialValue: (() => {
+            <div className={classNames(projectcss.all, sty.freeBox__udBSs)}>
+              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                (() => {
                   try {
-                    return [
-                      $props.userStatus.cycle - $props.userStatus.length,
-                      $props.userStatus.cycle
-                    ];
+                    return moon.periods;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
                       e?.plasmicType === "PlasmicUndefinedDataError"
                     ) {
-                      return [20, 50];
+                      return [];
                     }
                     throw e;
                   }
-                })(),
-                label: null,
-                maxValue: (() => {
-                  try {
-                    return $props.userStatus.cycle;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })(),
-                onChange: async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "rangeSlider",
-                    __plasmic_idx_0,
-                    "value"
-                  ]).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                },
-                showLabel: false,
-                showOutputText: false,
-                thumbs: null,
-                value: generateStateValueProp($state, [
-                  "rangeSlider",
-                  __plasmic_idx_0,
-                  "value"
-                ])
-              };
-
-              initializePlasmicStates(
-                $state,
-                [
-                  {
-                    name: "rangeSlider[].value",
-                    initFunc: ({ $props, $state, $queries }) =>
-                      $props["initialValue"]
-                  }
-                ],
-                [__plasmic_idx_0]
-              );
-              return (
-                <RangeSlider
-                  data-plasmic-name={"rangeSlider"}
-                  data-plasmic-override={overrides.rangeSlider}
-                  {...child$Props}
-                >
-                  <React.Fragment>
-                    {(() => {
+                })()
+              ).map((__plasmic_item_1, __plasmic_idx_1) => {
+                const currentItem = __plasmic_item_1;
+                const currentIndex = __plasmic_idx_1;
+                return (() => {
+                  const child$Props = {
+                    className: classNames(
+                      "__wab_instance",
+                      sty.ariaRangeSlider
+                    ),
+                    defaultValue: (() => {
                       try {
-                        return $props.userStatus.length;
+                        return [
+                          $props.userStatus.cycle,
+                          $props.userStatus.cycle - currentItem.periodDays
+                        ];
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
                           e?.plasmicType === "PlasmicUndefinedDataError"
                         ) {
-                          return "";
+                          return [20, 50];
                         }
                         throw e;
                       }
-                    })()}
-                  </React.Fragment>
-                </RangeSlider>
-              );
-            })()}
-            <div className={classNames(projectcss.all, sty.freeBox___2LX6W)} />
+                    })(),
+                    key: currentIndex,
+                    maxValue: (() => {
+                      try {
+                        return $props.userStatus.cycle;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })(),
+                    minValue: 0,
+                    onChange: async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "ariaRangeSlider",
+                        __plasmic_idx_0,
+                        __plasmic_idx_1,
+                        "value"
+                      ]).apply(null, eventArgs);
+                    },
+                    orientation: "horizontal",
+                    value: generateStateValueProp($state, [
+                      "ariaRangeSlider",
+                      __plasmic_idx_0,
+                      __plasmic_idx_1,
+                      "value"
+                    ])
+                  };
+                  initializeCodeComponentStates(
+                    $state,
+                    [
+                      {
+                        name: "value",
+                        plasmicStateName: "ariaRangeSlider[][].value"
+                      }
+                    ],
+                    [__plasmic_idx_0, __plasmic_idx_1],
+                    undefined ?? {},
+                    child$Props
+                  );
+                  initializePlasmicStates(
+                    $state,
+                    [
+                      {
+                        name: "ariaRangeSlider[][].value",
+                        initFunc: ({ $props, $state, $queries }) =>
+                          (() => {
+                            try {
+                              return [
+                                $props.userStatus.cycle,
+                                $props.userStatus.cycle - currentItem.periodDays
+                              ];
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [20, 50];
+                              }
+                              throw e;
+                            }
+                          })()
+                      }
+                    ],
+                    [__plasmic_idx_0, __plasmic_idx_1]
+                  );
+                  return (
+                    <BaseSlider
+                      data-plasmic-name={"ariaRangeSlider"}
+                      data-plasmic-override={overrides.ariaRangeSlider}
+                      {...child$Props}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__mvuHw
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__noJuT
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (() => {
+                                  try {
+                                    function parseISOToUTC(dateStr) {
+                                      let [y, m, d] = dateStr
+                                        .split("-")
+                                        .map(Number);
+                                      return new Date(Date.UTC(y, m - 1, d));
+                                    }
+                                    const formatter = new Intl.DateTimeFormat(
+                                      "fa-IR",
+                                      {
+                                        timeZone: "Asia/Tehran",
+                                        day: "numeric",
+                                        month: "long"
+                                      }
+                                    );
+                                    let start = currentItem.start
+                                      ? parseISOToUTC(currentItem.pmsEnd)
+                                      : null;
+                                    let startStr = start
+                                      ? formatter.format(start)
+                                      : "?";
+                                    return `${startStr}`;
+                                  } catch {}
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                        <Label
+                          data-plasmic-name={"label"}
+                          data-plasmic-override={overrides.label}
+                          className={classNames("__wab_instance", sty.label)}
+                        >
+                          {renderPlasmicSlot({
+                            defaultContents: null,
+                            value: args.label
+                          })}
+                        </Label>
+                        {$props.showOutputText ? (
+                          <BaseSliderOutput
+                            data-plasmic-name={"ariaSliderOutput"}
+                            data-plasmic-override={overrides.ariaSliderOutput}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.ariaSliderOutput
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__btlKn
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return (
+                                      $props.outputText ??
+                                      `بیشترین: ${$state.ariaRangeSlider.value[1]}                کمترین : ${$state.ariaRangeSlider.value[0]} `
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          </BaseSliderOutput>
+                        ) : null}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___9DVrC
+                        )}
+                        style={(() => {
+                          try {
+                            return { direction: "ltr" };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                      >
+                        <div
+                          data-plasmic-name={"background"}
+                          data-plasmic-override={overrides.background}
+                          className={classNames(projectcss.all, sty.background)}
+                        >
+                          <BaseSliderTrack
+                            data-plasmic-name={"ariaSliderTrack"}
+                            data-plasmic-override={overrides.ariaSliderTrack}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.ariaSliderTrack
+                            )}
+                            progressBar={
+                              <div
+                                data-plasmic-name={"foreground"}
+                                data-plasmic-override={overrides.foreground}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.foreground
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__bhgoj
+                                  )}
+                                >
+                                  {renderPlasmicSlot({
+                                    defaultContents: (
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.__wab_text,
+                                          sty.text__hoNjs
+                                        )}
+                                      >
+                                        <React.Fragment>
+                                          {(() => {
+                                            try {
+                                              return currentItem.periodDays;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return "";
+                                              }
+                                              throw e;
+                                            }
+                                          })()}
+                                        </React.Fragment>
+                                      </div>
+                                    ),
+                                    value: args.children,
+                                    className: classNames(
+                                      sty.slotTargetChildren
+                                    )
+                                  })}
+                                </div>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox___3Rqoi
+                                  )}
+                                >
+                                  {renderPlasmicSlot({
+                                    defaultContents: (
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.__wab_text,
+                                          sty.text__eVDuM
+                                        )}
+                                      >
+                                        <React.Fragment>
+                                          {(() => {
+                                            try {
+                                              return (() => {
+                                                try {
+                                                  function parseISOToUTC(
+                                                    dateStr
+                                                  ) {
+                                                    let [y, m, d] = dateStr
+                                                      .split("-")
+                                                      .map(Number);
+                                                    return new Date(
+                                                      Date.UTC(y, m - 1, d)
+                                                    );
+                                                  }
+                                                  const formatter =
+                                                    new Intl.DateTimeFormat(
+                                                      "fa-IR",
+                                                      {
+                                                        timeZone: "Asia/Tehran",
+                                                        day: "numeric",
+                                                        month: "long"
+                                                      }
+                                                    );
+                                                  let start = currentItem.start
+                                                    ? parseISOToUTC(
+                                                        currentItem.start
+                                                      )
+                                                    : null;
+                                                  let end = currentItem.end
+                                                    ? parseISOToUTC(
+                                                        currentItem.end
+                                                      )
+                                                    : null;
+                                                  let startStr = start
+                                                    ? formatter.format(start)
+                                                    : "?";
+                                                  let endStr = end
+                                                    ? formatter.format(end)
+                                                    : "?";
+                                                  return `${endStr}`;
+                                                } catch {}
+                                              })();
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return "";
+                                              }
+                                              throw e;
+                                            }
+                                          })()}
+                                        </React.Fragment>
+                                      </div>
+                                    ),
+                                    value: args.slot2
+                                  })}
+                                </div>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox___9Cyu
+                                  )}
+                                >
+                                  {renderPlasmicSlot({
+                                    defaultContents: (
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.__wab_text,
+                                          sty.text__lwqDc
+                                        )}
+                                      >
+                                        <React.Fragment>
+                                          {(() => {
+                                            try {
+                                              return (() => {
+                                                try {
+                                                  function parseISOToUTC(
+                                                    dateStr
+                                                  ) {
+                                                    let [y, m, d] = dateStr
+                                                      .split("-")
+                                                      .map(Number);
+                                                    return new Date(
+                                                      Date.UTC(y, m - 1, d)
+                                                    );
+                                                  }
+                                                  const formatter =
+                                                    new Intl.DateTimeFormat(
+                                                      "fa-IR",
+                                                      {
+                                                        timeZone: "Asia/Tehran",
+                                                        day: "numeric",
+                                                        month: "long"
+                                                      }
+                                                    );
+                                                  let start = currentItem.start
+                                                    ? parseISOToUTC(
+                                                        currentItem.start
+                                                      )
+                                                    : null;
+                                                  let end = currentItem.end
+                                                    ? parseISOToUTC(
+                                                        currentItem.end
+                                                      )
+                                                    : null;
+                                                  let startStr = start
+                                                    ? formatter.format(start)
+                                                    : "?";
+                                                  let endStr = end
+                                                    ? formatter.format(end)
+                                                    : "?";
+                                                  return `${startStr}`;
+                                                } catch {}
+                                              })();
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return "";
+                                              }
+                                              throw e;
+                                            }
+                                          })()}
+                                        </React.Fragment>
+                                      </div>
+                                    ),
+                                    value: args.slot
+                                  })}
+                                </div>
+                              </div>
+                            }
+                          >
+                            {renderPlasmicSlot({
+                              defaultContents: (
+                                <SliderThumb
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.sliderThumb__pFejx
+                                  )}
+                                />
+                              ),
+
+                              value: args.thumbs
+                            })}
+                          </BaseSliderTrack>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__v5PS
+                            )}
+                            id={"max"}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return $state.ariaRangeSlider.value[1];
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__dHga4
+                            )}
+                            id={"min"}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return $state.ariaRangeSlider.value[0];
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </div>
+                      </div>
+                      {$props.showDescription ? (
+                        <Description
+                          data-plasmic-name={"description"}
+                          data-plasmic-override={overrides.description}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.description
+                          )}
+                        />
+                      ) : null}
+                    </BaseSlider>
+                  );
+                })();
+              })}
+            </div>
           </div>
         );
       })}
@@ -428,15 +853,44 @@ function PlasmicHistory__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "rangeSlider"],
-  rangeSlider: ["rangeSlider"]
+  root: [
+    "root",
+    "ariaRangeSlider",
+    "label",
+    "ariaSliderOutput",
+    "background",
+    "ariaSliderTrack",
+    "foreground",
+    "description"
+  ],
+  ariaRangeSlider: [
+    "ariaRangeSlider",
+    "label",
+    "ariaSliderOutput",
+    "background",
+    "ariaSliderTrack",
+    "foreground",
+    "description"
+  ],
+  label: ["label"],
+  ariaSliderOutput: ["ariaSliderOutput"],
+  background: ["background", "ariaSliderTrack", "foreground"],
+  ariaSliderTrack: ["ariaSliderTrack", "foreground"],
+  foreground: ["foreground"],
+  description: ["description"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  rangeSlider: typeof RangeSlider;
+  ariaRangeSlider: typeof BaseSlider;
+  label: typeof Label;
+  ariaSliderOutput: typeof BaseSliderOutput;
+  background: "div";
+  ariaSliderTrack: typeof BaseSliderTrack;
+  foreground: "div";
+  description: typeof Description;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -499,7 +953,13 @@ export const PlasmicHistory = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    rangeSlider: makeNodeComponent("rangeSlider"),
+    ariaRangeSlider: makeNodeComponent("ariaRangeSlider"),
+    label: makeNodeComponent("label"),
+    ariaSliderOutput: makeNodeComponent("ariaSliderOutput"),
+    background: makeNodeComponent("background"),
+    ariaSliderTrack: makeNodeComponent("ariaSliderTrack"),
+    foreground: makeNodeComponent("foreground"),
+    description: makeNodeComponent("description"),
 
     // Metadata about props expected for PlasmicHistory
     internalVariantProps: PlasmicHistory__VariantProps,

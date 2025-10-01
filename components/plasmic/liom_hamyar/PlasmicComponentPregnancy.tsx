@@ -2499,6 +2499,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                       customFunction: async () => {
                         return setTimeout(() => {
                           try {
+                            console.log($state.userInfo?.[0]?.result);
                             var token = $state.token;
                             var name =
                               $state.userInfo?.[0]?.result?.user?.name ?? "";
@@ -2506,27 +2507,33 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                               $state.userInfo?.[0]?.result?.user?.mobile ?? "";
                             var email =
                               $state.userInfo?.[0]?.result?.user?.email ?? "";
+                            console.log("1");
                             if (typeof mobile == "undefined") {
                               mobile = "";
                             }
+                            console.log("2");
                             if (typeof email == "undefined") {
                               email = "";
                             }
+                            console.log("3");
                             if (typeof name == "undefined") {
                               name = "";
                             }
+                            console.log("4");
                             if (
                               typeof $state.userInfo?.[0]?.result?.hamyars ==
                               "undefined"
                             ) {
                               $state.userInfo[0].result.hamyars = [];
                             }
+                            console.log("5");
                             if (
                               typeof $state.userInfo?.[0]?.result?.allowance ==
                               "undefined"
                             ) {
                               $state.userInfo[0].result.allowance = [];
                             }
+                            console.log("6");
                             var gy = parseInt(
                               $state.user?.[0]?.dueDate.split("-")[0]
                             );
@@ -2537,6 +2544,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                               $state.user?.[0]?.dueDate.split("-")[2]
                             );
                             let hamyarsData = [];
+                            console.log("7");
                             for (
                               let i = 0;
                               i < $state.userInfo?.[0]?.result?.hamyars.length;
@@ -2565,6 +2573,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                     .email
                               });
                             }
+                            console.log("8");
                             let allowance = [];
                             for (
                               let i = 0;
@@ -2576,6 +2585,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                 $state.userInfo?.[0]?.result?.allowance[i]
                               );
                             }
+                            console.log("9");
                             fetch(
                               "https://n8n.staas.ir/webhook/pregnancyDate?token=" +
                                 token,

@@ -103,6 +103,8 @@ export type PlasmicRangeSlider__ArgsType = {
   label?: React.ReactNode;
   thumbs?: React.ReactNode;
   children?: React.ReactNode;
+  slot2?: React.ReactNode;
+  slot?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicRangeSlider__ArgsType;
 export const PlasmicRangeSlider__ArgProps = new Array<ArgPropType>(
@@ -121,7 +123,9 @@ export const PlasmicRangeSlider__ArgProps = new Array<ArgPropType>(
   "initialValue",
   "label",
   "thumbs",
-  "children"
+  "children",
+  "slot2",
+  "slot"
 );
 
 export type PlasmicRangeSlider__OverridesType = {
@@ -151,6 +155,8 @@ export interface DefaultRangeSliderProps {
   label?: React.ReactNode;
   thumbs?: React.ReactNode;
   children?: React.ReactNode;
+  slot2?: React.ReactNode;
+  slot?: React.ReactNode;
   color?: SingleChoiceArg<"red">;
   className?: string;
 }
@@ -350,7 +356,24 @@ function PlasmicRangeSlider__RenderFunc(props: {
           </BaseSliderOutput>
         ) : null}
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__x9OdY)}>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__x9OdY, {
+          [sty.freeBoxcolor_red__x9OdYrSGqg]: hasVariant($state, "color", "red")
+        })}
+        style={(() => {
+          try {
+            return { direction: "ltr" };
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
+      >
         <div
           data-plasmic-name={"background"}
           data-plasmic-override={overrides.background}
@@ -396,6 +419,22 @@ function PlasmicRangeSlider__RenderFunc(props: {
                           "red"
                         )
                       })
+                    })}
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__sryFg)}
+                  >
+                    {renderPlasmicSlot({
+                      defaultContents: "0hghj",
+                      value: args.slot2
+                    })}
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__rHiqo)}
+                  >
+                    {renderPlasmicSlot({
+                      defaultContents: "0hghj",
+                      value: args.slot
                     })}
                   </div>
                 </div>
