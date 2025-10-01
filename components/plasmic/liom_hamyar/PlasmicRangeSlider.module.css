@@ -49,6 +49,9 @@
   min-width: 0;
   border-radius: 99px;
 }
+.backgroundcolor_red {
+  height: var(--token-B5WvIYiqPJW-);
+}
 .ariaSliderTrack:global(.__wab_instance) {
   cursor: pointer;
   opacity: 1;
@@ -58,15 +61,46 @@
   width: 100%;
   min-width: 0;
 }
+.ariaSliderTrackcolor_red:global(.__wab_instance) {
+  height: var(--token-B5WvIYiqPJW-);
+}
 .sliderThumb__qxsuv:global(.__wab_instance):global(.__wab_instance) {
   position: relative;
   margin-top: var(--token-F1vFjKNmAS8s);
+  display: none;
 }
 .foreground {
   display: block;
   background: var(--token-0xHMxyAHbOos);
   height: var(--token-ZvaN7zB_BbvY);
   border-radius: 99px 0rem 0rem 99px;
+}
+.foregroundcolor_red {
+  background: var(--token-4RAe7M2gInqR);
+  height: var(--token-B5WvIYiqPJW-);
+  border-radius: 100px;
+}
+.freeBox__xxQfs {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  left: 0px;
+  top: 0px;
+  flex-direction: row;
+  min-width: 0;
+  display: none;
+}
+.freeBoxcolor_red__xxQfsrSGqg {
+  width: 100%;
+  justify-content: center;
+  min-width: 0;
+  display: flex;
+}
+.slotTargetChildrencolor_red {
+  font-size: var(--token-ZuffvoxgS-gS);
+  color: var(--token-R_Rsn0nP9oIv);
+  text-align: center;
 }
 .text__wA06J {
   position: absolute;

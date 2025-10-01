@@ -222,7 +222,10 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
                 $state,
                 "footer2",
                 "tools"
-              )
+              ),
+              [sty.freeBoxglobal_newView_newView_footer2_calendar__fHxnq0DHvaP4EhE]:
+                hasVariant($state, "footer2", "calendar") &&
+                hasVariant(globalVariants, "newView", "newView")
             })}
             onClick={async event => {
               const $steps = {};
@@ -300,6 +303,17 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
                   "footer2",
                   "calendar"
                 ),
+                [sty.svgglobal_newView_newView__yiYn50DHva]: hasVariant(
+                  globalVariants,
+                  "newView",
+                  "newView"
+                ),
+                [sty.svgglobal_newView_newView_footer2_calendar__yiYn50DHvaP4EhE]:
+                  hasVariant($state, "footer2", "calendar") &&
+                  hasVariant(globalVariants, "newView", "newView"),
+                [sty.svgglobal_newView_newView_footer2_tools__yiYn50DHvaWWhUi]:
+                  hasVariant($state, "footer2", "tools") &&
+                  hasVariant(globalVariants, "newView", "newView"),
                 [sty.svglackOfCourseInformation__yiYn5Iy1On]: hasVariant(
                   $state,
                   "lackOfCourseInformation",
@@ -417,6 +431,9 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
                   "newView",
                   "newView"
                 ),
+                [sty.svgglobal_newView_newView_footer2_calendar__abCaO0DHvaP4EhE]:
+                  hasVariant($state, "footer2", "calendar") &&
+                  hasVariant(globalVariants, "newView", "newView"),
                 [sty.svgglobal_newView_newView_footer2_tools__abCaO0DHvaWWhUi]:
                   hasVariant($state, "footer2", "tools") &&
                   hasVariant(globalVariants, "newView", "newView")

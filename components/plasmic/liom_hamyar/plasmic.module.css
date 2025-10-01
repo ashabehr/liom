@@ -281,6 +281,8 @@
   --plasmic-token-unnamed-style-token-2: var(--token--ndO3flt15Mn);
   --token-AwpLXbw5AmtS: #b1b1b1;
   --plasmic-token-icon-color-gray: var(--token-AwpLXbw5AmtS);
+  --token-rjNyvhiWWn_F: 16px;
+  --plasmic-token-unnamed-style-token-3: var(--token-rjNyvhiWWn_F);
 }
 
 @media (max-width: 640px) {

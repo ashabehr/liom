@@ -2211,7 +2211,7 @@ function PlasmicHamyar__RenderFunc(props: {
           (() => {
             try {
               return (
-                $state.userdata?.result &&
+                $state.userdata?.result?.rel &&
                 !(
                   $state.userdata?.result?.rel?.active == true ||
                   $state.userdata?.result?.rel?.ignore == true
@@ -8528,23 +8528,44 @@ function PlasmicHamyar__RenderFunc(props: {
                           !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                           (() => {
                             try {
-                              return (
-                                $state.remind
-                                  .filter(i => i.schedule_type != "everyDay")
-                                  .flatMap(item => {
-                                    let dates = item.dates
-                                      ? JSON.parse(item.dates)
-                                      : [];
-                                    if (dates.length > 0) {
-                                      return dates.map(d => ({
-                                        ...item,
-                                        dates: d // فقط همون یک تاریخ
-                                      }));
-                                    }
-                                    return [item];
-                                  })
-                                  .slice(0, 2) ?? []
-                              );
+                              return (() => {
+                                try {
+                                  return (
+                                    $state.remind
+                                      .filter(
+                                        i => i.schedule_type != "everyDay"
+                                      )
+                                      .flatMap(item => {
+                                        let dates = item.dates
+                                          ? JSON.parse(item.dates)
+                                          : [];
+                                        if (dates.length > 0) {
+                                          const today = new Date();
+                                          today.setHours(0, 0, 0, 0);
+                                          return dates
+                                            .filter(d => {
+                                              const dt = new Date(d);
+                                              dt.setHours(0, 0, 0, 0);
+                                              return dt >= today;
+                                            })
+                                            .map(d => ({
+                                              ...item,
+                                              dates: d
+                                            }));
+                                        }
+                                        return [];
+                                      })
+                                      .sort((a, b) => {
+                                        const da = new Date(a.dates);
+                                        da.setHours(0, 0, 0, 0);
+                                        const db = new Date(b.dates);
+                                        db.setHours(0, 0, 0, 0);
+                                        return da - db;
+                                      })
+                                      .slice(0, 2) ?? []
+                                  );
+                                } catch {}
+                              })();
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||

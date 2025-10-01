@@ -85,6 +85,7 @@ import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-imp
 import Icon270Icon from "./icons/PlasmicIcon__Icon270"; // plasmic-import: Y171g_Z8ZZ84/icon
 import Oval3Icon from "./icons/PlasmicIcon__Oval3"; // plasmic-import: lOJpmSR7qOUd/icon
 import Icon295Icon from "./icons/PlasmicIcon__Icon295"; // plasmic-import: SfM64OkCrE9j/icon
+import Icon291Icon from "./icons/PlasmicIcon__Icon291"; // plasmic-import: U9F0Jow4owN9/icon
 import Icon283Icon from "./icons/PlasmicIcon__Icon283"; // plasmic-import: d6oFXeX9yzDi/icon
 
 createPlasmicElementProxy;
@@ -291,7 +292,7 @@ function PlasmicReminder__RenderFunc(props: {
               name: "\u062a\u0648\u0644\u062f \u0641\u0631\u0632\u0646\u062f",
               text: "birthdayBoyChild",
               token1: null,
-              dates: '["2025-11-21","2026-06-24"]',
+              dates: '["2025-9-21","2026-06-24"]',
               weekdays:
                 '["sunday","monday","tuesday","wednesday","friday","saturday"]',
               times: '["10:00"]',
@@ -1769,6 +1770,8 @@ function PlasmicReminder__RenderFunc(props: {
                   return `${year}-${month}-${day}`;
                 }
                 const todayISO = getIranISODate();
+                const today = new Date(todayISO);
+                today.setHours(0, 0, 0, 0);
                 $props.data.forEach(t => {
                   let parsedDates;
                   try {
@@ -1795,16 +1798,20 @@ function PlasmicReminder__RenderFunc(props: {
                     groupsMap.get(key).push(copy);
                   } else {
                     parsedDates.forEach(date => {
-                      const copy = {
-                        ...t,
-                        dates: [date],
-                        telegramId: $props.telegramId,
-                        phoneNumber: $props.phoneNumber,
-                        liomId: $props.manId
-                      };
-                      const key = date || "__noDate__";
-                      if (!groupsMap.has(key)) groupsMap.set(key, []);
-                      groupsMap.get(key).push(copy);
+                      const dt = new Date(date);
+                      dt.setHours(0, 0, 0, 0);
+                      if (dt >= today) {
+                        const copy = {
+                          ...t,
+                          dates: [date],
+                          telegramId: $props.telegramId,
+                          phoneNumber: $props.phoneNumber,
+                          liomId: $props.manId
+                        };
+                        const key = date || "__noDate__";
+                        if (!groupsMap.has(key)) groupsMap.set(key, []);
+                        groupsMap.get(key).push(copy);
+                      }
                     });
                   }
                 });
@@ -1814,6 +1821,8 @@ function PlasmicReminder__RenderFunc(props: {
                     if (b[0] === "__noDate__") return 1;
                     const dateA = new Date(a[0]);
                     const dateB = new Date(b[0]);
+                    dateA.setHours(0, 0, 0, 0);
+                    dateB.setHours(0, 0, 0, 0);
                     const timeA = dateA.getTime();
                     const timeB = dateB.getTime();
                     if (Number.isNaN(timeA)) return 1;
@@ -1889,6 +1898,8 @@ function PlasmicReminder__RenderFunc(props: {
                             return `${year}-${month}-${day}`;
                           }
                           const todayISO = getIranISODate();
+                          const today = new Date(todayISO);
+                          today.setHours(0, 0, 0, 0);
                           $props.data.forEach(t => {
                             let parsedDates;
                             try {
@@ -1915,16 +1926,21 @@ function PlasmicReminder__RenderFunc(props: {
                               groupsMap.get(key).push(copy);
                             } else {
                               parsedDates.forEach(date => {
-                                const copy = {
-                                  ...t,
-                                  dates: [date],
-                                  telegramId: $props.telegramId,
-                                  phoneNumber: $props.phoneNumber,
-                                  liomId: $props.manId
-                                };
-                                const key = date || "__noDate__";
-                                if (!groupsMap.has(key)) groupsMap.set(key, []);
-                                groupsMap.get(key).push(copy);
+                                const dt = new Date(date);
+                                dt.setHours(0, 0, 0, 0);
+                                if (dt >= today) {
+                                  const copy = {
+                                    ...t,
+                                    dates: [date],
+                                    telegramId: $props.telegramId,
+                                    phoneNumber: $props.phoneNumber,
+                                    liomId: $props.manId
+                                  };
+                                  const key = date || "__noDate__";
+                                  if (!groupsMap.has(key))
+                                    groupsMap.set(key, []);
+                                  groupsMap.get(key).push(copy);
+                                }
                               });
                             }
                           });
@@ -1934,6 +1950,8 @@ function PlasmicReminder__RenderFunc(props: {
                               if (b[0] === "__noDate__") return 1;
                               const dateA = new Date(a[0]);
                               const dateB = new Date(b[0]);
+                              dateA.setHours(0, 0, 0, 0);
+                              dateB.setHours(0, 0, 0, 0);
                               const timeA = dateA.getTime();
                               const timeB = dateB.getTime();
                               if (Number.isNaN(timeA)) return 1;
@@ -2494,6 +2512,14 @@ function PlasmicReminder__RenderFunc(props: {
                             sty.freeBox__e6Ao0
                           )}
                         >
+                          <Icon291Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__s9SIs
+                            )}
+                            role={"img"}
+                          />
+
                           <div
                             className={classNames(
                               projectcss.all,
@@ -2506,11 +2532,8 @@ function PlasmicReminder__RenderFunc(props: {
                                 try {
                                   return (() => {
                                     try {
-                                      return (
-                                        "ساعت ها: " +
-                                        JSON.parse(currentday.times).join(
-                                          "  ,  "
-                                        )
+                                      return JSON.parse(currentday.times).join(
+                                        "  ,  "
                                       );
                                     } catch {}
                                   })();

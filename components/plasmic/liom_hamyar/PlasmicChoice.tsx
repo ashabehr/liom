@@ -58,9 +58,6 @@ import {
   useDataEnv,
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
-import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
-
-import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import RadioGrop from "../../RadioGrop"; // plasmic-import: mcNKMbL_6N75/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
@@ -85,11 +82,13 @@ export const PlasmicChoice__ArgProps = new Array<ArgPropType>();
 export type PlasmicChoice__OverridesType = {
   root?: Flex__<"div">;
   title?: Flex__<"div">;
-  text?: Flex__<"div">;
   radioGrop?: Flex__<typeof RadioGrop>;
+  shimmer?: Flex__<"div">;
 };
 
-export interface DefaultChoiceProps {}
+export interface DefaultChoiceProps {
+  className?: string;
+}
 
 const $$ = {};
 
@@ -179,167 +178,220 @@ function PlasmicChoice__RenderFunc(props: {
   const styleTokensClassNames = _useStyleTokens();
 
   return (
-    <React.Fragment>
-      <Head></Head>
-
-      <style>{`
-        body {
-          margin: 0;
-        }
-      `}</style>
-
-      <div className={projectcss.plasmic_page_wrapper}>
+    <div
+      data-plasmic-name={"root"}
+      data-plasmic-override={overrides.root}
+      data-plasmic-root={true}
+      data-plasmic-for-node={forNode}
+      className={classNames(
+        projectcss.all,
+        projectcss.root_reset,
+        projectcss.plasmic_default_styles,
+        projectcss.plasmic_mixins,
+        styleTokensClassNames,
+        sty.root
+      )}
+    >
+      <div
+        data-plasmic-name={"title"}
+        data-plasmic-override={overrides.title}
+        className={classNames(projectcss.all, sty.title)}
+      >
         <div
-          data-plasmic-name={"root"}
-          data-plasmic-override={overrides.root}
-          data-plasmic-root={true}
-          data-plasmic-for-node={forNode}
           className={classNames(
             projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
-            styleTokensClassNames,
-            sty.root
+            projectcss.__wab_text,
+            sty.text__pH9L9
           )}
         >
-          <div
-            data-plasmic-name={"title"}
-            data-plasmic-override={overrides.title}
-            className={classNames(projectcss.all, sty.title)}
-          >
-            <div
-              data-plasmic-name={"text"}
-              data-plasmic-override={overrides.text}
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text
-              )}
-            >
-              {"title"}
-            </div>
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox__oRccG)}>
-            <div className={classNames(projectcss.all, sty.freeBox__l9Ojq)}>
-              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                (() => {
-                  try {
-                    return $state.info;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return [];
-                    }
-                    throw e;
-                  }
-                })()
-              ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                const currentItem = __plasmic_item_0;
-                const currentIndex = __plasmic_idx_0;
-                return (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__ps6IZ)}
-                    key={currentIndex}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__sz7WD)}
-                    >
-                      <RadioGrop
-                        data-plasmic-name={"radioGrop"}
-                        data-plasmic-override={overrides.radioGrop}
-                        choise={true}
-                        className={classNames("__wab_instance", sty.radioGrop)}
-                        onClick={async event => {
-                          const $steps = {};
-
-                          $steps["runCode"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return (() => {
-                                      if (
-                                        $state.newInfo.find(
-                                          i => i === currentItem.label
-                                        )
-                                      ) {
-                                        return ($state.newInfo =
-                                          $state.newInfo.filter(
-                                            i => i !== currentItem.label
-                                          ));
-                                      } else
-                                        return $state.newInfo.push(
-                                          currentItem.label
-                                        );
-                                    })();
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
-                          ) {
-                            $steps["runCode"] = await $steps["runCode"];
-                          }
-                        }}
-                        selected={(() => {
-                          try {
-                            return $state.newInfo.find(
-                              i => i == currentItem.label
-                            )
-                              ? true
-                              : false;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return [];
-                            }
-                            throw e;
-                          }
-                        })()}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return currentItem.label;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </RadioGrop>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+          {"title"}
         </div>
       </div>
-    </React.Fragment>
+      <div className={classNames(projectcss.all, sty.freeBox__oRccG)}>
+        <div className={classNames(projectcss.all, sty.freeBox__l9Ojq)}>
+          {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+            (() => {
+              try {
+                return $state.info;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return [];
+                }
+                throw e;
+              }
+            })()
+          ).map((__plasmic_item_0, __plasmic_idx_0) => {
+            const currentItem = __plasmic_item_0;
+            const currentIndex = __plasmic_idx_0;
+            return (
+              <div
+                className={classNames(projectcss.all, sty.freeBox__ps6IZ)}
+                key={currentIndex}
+              >
+                <div className={classNames(projectcss.all, sty.freeBox__sz7WD)}>
+                  <RadioGrop
+                    data-plasmic-name={"radioGrop"}
+                    data-plasmic-override={overrides.radioGrop}
+                    choise={true}
+                    className={classNames("__wab_instance", sty.radioGrop)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  if (
+                                    $state.newInfo.find(
+                                      i => i === currentItem.label
+                                    )
+                                  ) {
+                                    return ($state.newInfo =
+                                      $state.newInfo.filter(
+                                        i => i !== currentItem.label
+                                      ));
+                                  } else
+                                    return $state.newInfo.push(
+                                      currentItem.label
+                                    );
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    }}
+                    selected={(() => {
+                      try {
+                        return $state.newInfo.find(i => i == currentItem.label)
+                          ? true
+                          : false;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return currentItem.label;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </RadioGrop>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      {(() => {
+        try {
+          return true;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
+          }
+          throw e;
+        }
+      })() ? (
+        <div
+          data-plasmic-name={"shimmer"}
+          data-plasmic-override={overrides.shimmer}
+          className={classNames(projectcss.all, sty.shimmer)}
+        >
+          <div className={classNames(projectcss.all, sty.freeBox___2EzTp)}>
+            {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+              (() => {
+                try {
+                  return $state.info;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [];
+                  }
+                  throw e;
+                }
+              })()
+            ).map((__plasmic_item_0, __plasmic_idx_0) => {
+              const currentItem = __plasmic_item_0;
+              const currentIndex = __plasmic_idx_0;
+              return (
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___1NI5E)}
+                  key={currentIndex}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__mtyyI,
+                      "shimmer"
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return undefined;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "liom";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ) : null}
+    </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "title", "text", "radioGrop"],
-  title: ["title", "text"],
-  text: ["text"],
-  radioGrop: ["radioGrop"]
+  root: ["root", "title", "radioGrop", "shimmer"],
+  title: ["title"],
+  radioGrop: ["radioGrop"],
+  shimmer: ["shimmer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -347,8 +399,8 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   title: "div";
-  text: "div";
   radioGrop: typeof RadioGrop;
+  shimmer: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -406,51 +458,18 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
   return func;
 }
 
-function withUsePlasmicAuth<P extends object>(
-  WrappedComponent: React.ComponentType<P>
-) {
-  const WithUsePlasmicAuthComponent: React.FC<P> = props => {
-    const dataSourceCtx = usePlasmicDataSourceContext() ?? {};
-    const { isUserLoading, user, token } = plasmicAuth.usePlasmicAuth({
-      appId: "suVPi77vb6vv9K5rYJwyxC"
-    });
-
-    return (
-      <PlasmicDataSourceContextProvider__
-        value={{
-          ...dataSourceCtx,
-          isUserLoading,
-          userAuthToken: token,
-          user
-        }}
-      >
-        <WrappedComponent {...props} />
-      </PlasmicDataSourceContextProvider__>
-    );
-  };
-  return WithUsePlasmicAuthComponent;
-}
-
 export const PlasmicChoice = Object.assign(
   // Top-level PlasmicChoice renders the root element
-  withUsePlasmicAuth(makeNodeComponent("root")),
+  makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
     title: makeNodeComponent("title"),
-    text: makeNodeComponent("text"),
     radioGrop: makeNodeComponent("radioGrop"),
+    shimmer: makeNodeComponent("shimmer"),
 
     // Metadata about props expected for PlasmicChoice
     internalVariantProps: PlasmicChoice__VariantProps,
-    internalArgProps: PlasmicChoice__ArgProps,
-
-    // Page metadata
-    pageMetadata: {
-      title: "",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    internalArgProps: PlasmicChoice__ArgProps
   }
 );
 

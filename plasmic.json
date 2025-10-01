@@ -4606,8 +4606,34 @@
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicChoice.module.css",
           "scheme": "blackbox",
-          "componentType": "page",
+          "componentType": "component",
           "path": "/choice"
+        },
+        {
+          "id": "5t5YNzyUHdtX",
+          "name": "History",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicHistory.tsx",
+          "importSpec": {
+            "modulePath": "History.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicHistory.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "Uvd8t0bpG-Sn",
+          "name": "Slider",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSlider.tsx",
+          "importSpec": {
+            "modulePath": "Slider.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSlider.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

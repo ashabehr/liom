@@ -2761,6 +2761,16 @@
       }
     },
     {
+      "name": "Unnamed Style Token 3",
+      "type": "fontsize",
+      "value": "16px",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "rjNyvhiWWn_F"
+      }
+    },
+    {
       "name": "Warning/Warning",
       "type": "color",
       "value": "#FACC15",

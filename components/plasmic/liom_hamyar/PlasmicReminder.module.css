@@ -772,14 +772,22 @@
 .freeBox__e6Ao0 {
   display: flex;
   flex-direction: row;
-  align-items: stretch;
+  align-items: center;
   justify-content: flex-start;
   width: 100%;
   height: auto;
   max-width: 100%;
-  column-gap: var(--token-O5TjkXII_aat);
+  column-gap: var(--token-38wfsm-OP2Vm);
   min-width: 0;
   padding: 0px;
+}
+.svg__s9SIs {
+  object-fit: cover;
+  max-width: 100%;
+  width: 12px;
+  height: 12px;
+  color: var(--token-Le07ngBUPl2h);
+  flex-shrink: 0;
 }
 .text__pRlD7 {
   display: block;
