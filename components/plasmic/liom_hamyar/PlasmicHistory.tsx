@@ -1179,7 +1179,7 @@ function PlasmicHistory__RenderFunc(props: {
               )}
             >
               {
-                "\u067e\u06cc\u0634\u200c\u0628\u06cc\u0646\u06cc \u0686\u0631\u062e\u0647"
+                "\u067e\u06cc\u0634\u200c\u0628\u06cc\u0646\u06cc \u062f\u0648\u0631\u0647\u200c\u0647\u0627\u06cc \u0628\u0639\u062f\u06cc"
               }
             </div>
           </div>

@@ -125,7 +125,6 @@ export type PlasmicMain__OverridesType = {
   lottie?: Flex__<typeof LottieWrapper>;
   footerMain?: Flex__<typeof FooterMain>;
   settingCycle4?: Flex__<typeof SettingCycle4>;
-  settingCycle5?: Flex__<typeof SettingCycle4>;
   subItemsComponnet?: Flex__<typeof SubItemsComponnet>;
   editProfile2?: Flex__<typeof EditProfile2>;
   history?: Flex__<typeof History>;
@@ -365,18 +364,6 @@ function PlasmicMain__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.cycle
-      },
-      {
-        path: "settingCycle5.token",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
-      },
-      {
-        path: "settingCycle5.editTime",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "kjlkjkj"
       }
     ],
     [$props, $ctx, $refs]
@@ -1839,197 +1826,6 @@ function PlasmicMain__RenderFunc(props: {
             />
           </Reveal>
           <Reveal
-            className={classNames("__wab_instance", sty.reveal__tDpc, {
-              [sty.revealsetting__tDpcH13CE]: hasVariant(
-                $state,
-                "setting",
-                "setting"
-              ),
-              [sty.revealsubItem__tDpcAUdim]: hasVariant(
-                $state,
-                "subItem",
-                "subItem"
-              )
-            })}
-            damping={0.2}
-            effect={"fade"}
-            triggerOnce={true}
-          >
-            <SettingCycle4
-              data-plasmic-name={"settingCycle5"}
-              data-plasmic-override={overrides.settingCycle5}
-              active={(() => {
-                try {
-                  return $state.setting == true;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })()}
-              className={classNames("__wab_instance", sty.settingCycle5, {
-                [sty.settingCycle5setting]: hasVariant(
-                  $state,
-                  "setting",
-                  "setting"
-                )
-              })}
-              editTime={generateStateValueProp($state, [
-                "settingCycle5",
-                "editTime"
-              ])}
-              onBack={async event => {
-                const $steps = {};
-
-                $steps["updateSetting"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        vgroup: "setting",
-                        operation: 2,
-                        value: "setting"
-                      };
-                      return (({ vgroup, value }) => {
-                        if (typeof value === "string") {
-                          value = [value];
-                        }
-
-                        const oldValue = $stateGet($state, vgroup);
-                        $stateSet($state, vgroup, !oldValue);
-                        return !oldValue;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateSetting"] != null &&
-                  typeof $steps["updateSetting"] === "object" &&
-                  typeof $steps["updateSetting"].then === "function"
-                ) {
-                  $steps["updateSetting"] = await $steps["updateSetting"];
-                }
-              }}
-              onEditTimeChange2={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "settingCycle5",
-                  "editTime"
-                ]).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-
-                (async val => {
-                  const $steps = {};
-
-                  $steps["updateMainPageEditTime"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["mainPage", "editTime"]
-                          },
-                          operation: 0,
-                          value: $state.settingCycle5.editTime
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateMainPageEditTime"] != null &&
-                    typeof $steps["updateMainPageEditTime"] === "object" &&
-                    typeof $steps["updateMainPageEditTime"].then === "function"
-                  ) {
-                    $steps["updateMainPageEditTime"] =
-                      await $steps["updateMainPageEditTime"];
-                  }
-
-                  $steps["updateMainHeaderDopen"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["mainHeader", "dopen"]
-                          },
-                          operation: 0,
-                          value: console.log($state.settingCycle5.editTime)
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateMainHeaderDopen"] != null &&
-                    typeof $steps["updateMainHeaderDopen"] === "object" &&
-                    typeof $steps["updateMainHeaderDopen"].then === "function"
-                  ) {
-                    $steps["updateMainHeaderDopen"] =
-                      await $steps["updateMainHeaderDopen"];
-                  }
-                }).apply(null, eventArgs);
-              }}
-              onTokenChange={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "settingCycle5",
-                  "token"
-                ]).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              token={generateStateValueProp($state, ["settingCycle5", "token"])}
-              userStatus={(() => {
-                try {
-                  return $state.mainPage.userInfo.result.userStatus;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-            />
-          </Reveal>
-          <Reveal
             className={classNames("__wab_instance", sty.reveal__xsDwA, {
               [sty.revealcycle__xsDwAtRwEd]: hasVariant(
                 $state,
@@ -2201,7 +1997,8 @@ function PlasmicMain__RenderFunc(props: {
                 }
               }}
               className={classNames("__wab_instance", sty.history, {
-                [sty.historycycle]: hasVariant($state, "cycle", "cycle")
+                [sty.historycycle]: hasVariant($state, "cycle", "cycle"),
+                [sty.historysetting]: hasVariant($state, "setting", "setting")
               })}
               userStatus={(() => {
                 try {
@@ -2461,7 +2258,13 @@ function PlasmicMain__RenderFunc(props: {
           <Embed
             data-plasmic-name={"serviceWorker"}
             data-plasmic-override={overrides.serviceWorker}
-            className={classNames("__wab_instance", sty.serviceWorker)}
+            className={classNames("__wab_instance", sty.serviceWorker, {
+              [sty.serviceWorkersetting]: hasVariant(
+                $state,
+                "setting",
+                "setting"
+              )
+            })}
             code={
               '<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>\r\n<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging-compat.js"></script>\r\n\r\n<script>\r\n  // \u062a\u0646\u0638\u06cc\u0645\u0627\u062a Firebase\r\n  var firebaseConfig = {\r\n    apiKey: "AIzaSyBVtKyIzcD0xVEMOjeMYjDdNRozFVVrmRo",\r\n    authDomain: "liom-31952.firebaseapp.com",\r\n    databaseURL: "https://liom-31952.firebaseio.com",\r\n    projectId: "liom-31952",\r\n    storageBucket: "liom-31952.appspot.com",\r\n    messagingSenderId: "518322220404",\r\n    appId: "1:518322220404:web:09527c8a42f2f017d89021",\r\n    measurementId: "G-TVWYWYEH1D"\r\n  };\r\n\r\n  // \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u0627\u0632 initialize \u062f\u0648\u0628\u0627\u0631\u0647\r\n  if (!firebase.apps.length) {\r\n    firebase.initializeApp(firebaseConfig);\r\n  }\r\n\r\n  // \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u0627\u0632 \u062a\u0639\u0631\u06cc\u0641 \u062f\u0648\u0628\u0627\u0631\u0647 messaging\r\n  var messaging = window.messaging || firebase.messaging();\r\n  window.messaging = messaging;\r\n\r\n  // \u06af\u0631\u0641\u062a\u0646 \u06a9\u0648\u06a9\u06cc\r\n  function getCookie(name) {\r\n    var cookies = document.cookie.split("; ");\r\n    for (let cookie of cookies) {\r\n      var [key, value] = cookie.split("=");\r\n      if (key === name) {\r\n        try {\r\n          return JSON.parse(value)[0];\r\n        } catch (e) {\r\n          return value;\r\n        }\r\n      }\r\n    }\r\n    return "";\r\n  }\r\n\r\n  // \u0627\u0631\u0633\u0627\u0644 \u062a\u0648\u06a9\u0646 \u0628\u0647 \u0633\u0631\u0648\u0631 \u0641\u0642\u0637 \u0648\u0642\u062a\u06cc \u062a\u063a\u06cc\u06cc\u0631 \u06a9\u0631\u062f\u0647\r\n  function sendTokenToServer(token) {\r\n    var savedToken = window.localStorage.getItem("fcmToken");\r\n    if (savedToken === token) {\r\n      console.log("\u062a\u0648\u06a9\u0646 \u0642\u0628\u0644\u06cc \u0647\u0646\u0648\u0632 \u0645\u0639\u062a\u0628\u0631 \u0627\u0633\u062a\u060c \u0627\u0631\u0633\u0627\u0644 \u0628\u0647 \u0633\u0631\u0648\u0631 \u0644\u0627\u0632\u0645 \u0646\u06cc\u0633\u062a.");\r\n      // return;\r\n    }\r\n\r\n    var authToken = getCookie("token");\r\n    if (!authToken) {\r\n      console.warn("\u274c \u062a\u0648\u06a9\u0646 \u06a9\u0627\u0631\u0628\u0631 \u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a\u060c \u0627\u0631\u0633\u0627\u0644 FCM \u0644\u063a\u0648 \u0634\u062f.");\r\n      return;\r\n    }\r\n\r\n    window.localStorage.setItem("fcmToken", token);\r\n    console.log("\ud83d\udce1 \u0627\u0631\u0633\u0627\u0644 \u062a\u0648\u06a9\u0646 FCM \u0628\u0647 \u0633\u0631\u0648\u0631...", token);\r\n\r\n    fetch("https://n8n.staas.ir/webhook/rest/user/setFcm", {\r\n      method: "POST",\r\n      headers: {\r\n        "Content-Type": "application/json"\r\n      },\r\n      body: JSON.stringify({\r\n        fcm: token,\r\n        Authorization: authToken\r\n      })\r\n    })\r\n      .then(res => {\r\n        if (!res.ok) throw new Error("\u062e\u0637\u0627 \u062f\u0631 \u0627\u0631\u0633\u0627\u0644 \u062a\u0648\u06a9\u0646");\r\n        return res.json();\r\n      })\r\n      .then(data => console.log("\u2705 \u062a\u0648\u06a9\u0646 FCM \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0628\u0647 \u0633\u0631\u0648\u0631 \u0627\u0631\u0633\u0627\u0644 \u0634\u062f:", data))\r\n      .catch(err => console.error("\u274c \u062e\u0637\u0627 \u062f\u0631 \u0627\u0631\u0633\u0627\u0644 \u062a\u0648\u06a9\u0646 FCM:", err));\r\n  }\r\n\r\n  // \u062f\u0631\u062e\u0648\u0627\u0633\u062a \u062f\u0633\u062a\u0631\u0633\u06cc \u0628\u0647 Notification\r\n  function requestPermission() {\r\n    return new Promise((resolve) => {\r\n      if (!("Notification" in window)) {\r\n        return resolve({ ok: false, message: "\u0645\u0631\u0648\u0631\u06af\u0631 \u0634\u0645\u0627 Notification \u0631\u0627 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc \u0646\u0645\u06cc\u200c\u06a9\u0646\u062f." });\r\n      }\r\n\r\n      Notification.requestPermission().then(permission => {\r\n        if (permission === "granted") {\r\n          var savedToken = window.localStorage.getItem("fcmToken");\r\n          if (savedToken) {\r\n            sendTokenToServer(savedToken);\r\n            return resolve({ ok: true, message: " Notification \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0641\u0639\u0627\u0644 \u0634\u062f." });\r\n          }\r\n\r\n          messaging.getToken({\r\n            vapidKey: "BDroVn6KRs9iN1laogFt-J47xc9WsWIfblgIBCi2QllonFT-PAu9up26gRlL-9uL7R1FSllN7I13eTR6IZiH72g"\r\n          })\r\n          .then(currentToken => {\r\n            if (currentToken) {\r\n              sendTokenToServer(currentToken);\r\n              return resolve({ ok: true, message: " Notification \u0641\u0639\u0627\u0644 \u0634\u062f \u0648 \u062a\u0648\u06a9\u0646 \u062f\u0631\u06cc\u0627\u0641\u062a \u0634\u062f." });\r\n            } else {\r\n              return resolve({ ok: false, message: " \u062f\u0633\u062a\u0631\u0633\u06cc \u0641\u0639\u0627\u0644 \u0646\u0634\u062f\u060c \u0645\u062c\u062f\u062f\u0627\u064b \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f." });\r\n            }\r\n          })\r\n          .catch(err => {\r\n            console.error("\u274c \u062e\u0637\u0627 \u062f\u0631 \u06af\u0631\u0641\u062a\u0646 \u062a\u0648\u06a9\u0646:", err);\r\n            return resolve({ ok: false, message: "\u062e\u0637\u0627 \u062f\u0631 \u0641\u0639\u0627\u0644\u200c\u0633\u0627\u0632\u06cc Notification." });\r\n          });\r\n\r\n        } else if (permission === "denied") {\r\n          return resolve({ ok: false, message: " \u062f\u0633\u062a\u0631\u0633\u06cc Notification \u0631\u062f \u0634\u062f." });\r\n        } else {\r\n          return resolve({ ok: false, message: "\u062f\u0633\u062a\u0631\u0633\u06cc Notification \u0647\u0646\u0648\u0632 \u062f\u0627\u062f\u0647 \u0646\u0634\u062f\u0647." });\r\n        }\r\n      });\r\n    });\r\n  }\r\n</script>    '
             }
@@ -2484,7 +2287,6 @@ const PlasmicDescendants = {
     "lottie",
     "footerMain",
     "settingCycle4",
-    "settingCycle5",
     "subItemsComponnet",
     "editProfile2",
     "history",
@@ -2509,7 +2311,6 @@ const PlasmicDescendants = {
   lottie: ["lottie"],
   footerMain: ["footerMain"],
   settingCycle4: ["settingCycle4"],
-  settingCycle5: ["settingCycle5"],
   subItemsComponnet: ["subItemsComponnet"],
   editProfile2: ["editProfile2"],
   history: ["history"],
@@ -2530,7 +2331,6 @@ type NodeDefaultElementType = {
   lottie: typeof LottieWrapper;
   footerMain: typeof FooterMain;
   settingCycle4: typeof SettingCycle4;
-  settingCycle5: typeof SettingCycle4;
   subItemsComponnet: typeof SubItemsComponnet;
   editProfile2: typeof EditProfile2;
   history: typeof History;
@@ -2634,7 +2434,6 @@ export const PlasmicMain = Object.assign(
     lottie: makeNodeComponent("lottie"),
     footerMain: makeNodeComponent("footerMain"),
     settingCycle4: makeNodeComponent("settingCycle4"),
-    settingCycle5: makeNodeComponent("settingCycle5"),
     subItemsComponnet: makeNodeComponent("subItemsComponnet"),
     editProfile2: makeNodeComponent("editProfile2"),
     history: makeNodeComponent("history"),

@@ -1740,12 +1740,12 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["updateLoadbtn"] = true
+                  $steps["updateButton3Loading"] = true
                     ? (() => {
                         const actionArgs = {
                           variable: {
                             objRoot: $state,
-                            variablePath: ["loadbtn"]
+                            variablePath: ["button3", "loading"]
                           },
                           operation: 0,
                           value: true
@@ -1767,11 +1767,12 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                       })()
                     : undefined;
                   if (
-                    $steps["updateLoadbtn"] != null &&
-                    typeof $steps["updateLoadbtn"] === "object" &&
-                    typeof $steps["updateLoadbtn"].then === "function"
+                    $steps["updateButton3Loading"] != null &&
+                    typeof $steps["updateButton3Loading"] === "object" &&
+                    typeof $steps["updateButton3Loading"].then === "function"
                   ) {
-                    $steps["updateLoadbtn"] = await $steps["updateLoadbtn"];
+                    $steps["updateButton3Loading"] =
+                      await $steps["updateButton3Loading"];
                   }
 
                   $steps["add"] = true
@@ -1953,6 +1954,22 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                     $steps["updateEditTime"] = await $steps["updateEditTime"];
                   }
 
+                  $steps["runClick"] = true
+                    ? (() => {
+                        const actionArgs = { eventRef: $props["click"] };
+                        return (({ eventRef, args }) => {
+                          return eventRef?.(...(args ?? []));
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runClick"] != null &&
+                    typeof $steps["runClick"] === "object" &&
+                    typeof $steps["runClick"].then === "function"
+                  ) {
+                    $steps["runClick"] = await $steps["runClick"];
+                  }
+
                   $steps["runOnBack"] =
                     $steps.add?.data?.success || $steps.edit?.data?.success
                       ? (() => {
@@ -1975,7 +1992,7 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                         const actionArgs = {
                           variable: {
                             objRoot: $state,
-                            variablePath: ["loadbtn"]
+                            variablePath: ["button3", "loading"]
                           },
                           operation: 0,
                           value: false
@@ -2002,22 +2019,6 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                     typeof $steps["updateLoadbtn2"].then === "function"
                   ) {
                     $steps["updateLoadbtn2"] = await $steps["updateLoadbtn2"];
-                  }
-
-                  $steps["runClick"] = true
-                    ? (() => {
-                        const actionArgs = { eventRef: $props["click"] };
-                        return (({ eventRef, args }) => {
-                          return eventRef?.(...(args ?? []));
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runClick"] != null &&
-                    typeof $steps["runClick"] === "object" &&
-                    typeof $steps["runClick"].then === "function"
-                  ) {
-                    $steps["runClick"] = await $steps["runClick"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {

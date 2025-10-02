@@ -67,6 +67,7 @@
   padding: 8px 8px 8px 0px;
 }
 .freeBox___2LX6W {
+  display: block;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -76,7 +77,6 @@
   z-index: 4;
   min-width: 0;
   min-height: 0;
-  display: none;
   padding: 8px;
 }
 .text___6Or0Y {
@@ -363,7 +363,7 @@
   max-width: 100%;
   left: auto;
   top: auto;
-  z-index: 1;
+  z-index: 5;
   position: relative;
   right: auto;
 }

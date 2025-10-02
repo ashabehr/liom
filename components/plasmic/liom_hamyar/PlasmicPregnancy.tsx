@@ -702,13 +702,26 @@ function PlasmicPregnancy__RenderFunc(props: {
             projectcss.plasmic_mixins,
             styleTokensClassNames,
             sty.root,
-            { [sty.rootdarkMod]: hasVariant($state, "darkMod", "darkMod") }
+            {
+              [sty.rootdarkMod]: hasVariant($state, "darkMod", "darkMod"),
+              [sty.rootglobal_newView_newView]: hasVariant(
+                globalVariants,
+                "newView",
+                "newView"
+              )
+            }
           )}
         >
           <ComponentPregnancy
             data-plasmic-name={"componentPregnancy"}
             data-plasmic-override={overrides.componentPregnancy}
-            className={classNames("__wab_instance", sty.componentPregnancy)}
+            className={classNames("__wab_instance", sty.componentPregnancy, {
+              [sty.componentPregnancyglobal_newView_newView]: hasVariant(
+                globalVariants,
+                "newView",
+                "newView"
+              )
+            })}
             onWeeksPregnantChange={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, [
                 "componentPregnancy",
@@ -753,7 +766,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicPregnancy__VariantsArgs;
     args?: PlasmicPregnancy__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicPregnancy__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicPregnancy__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicPregnancy__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

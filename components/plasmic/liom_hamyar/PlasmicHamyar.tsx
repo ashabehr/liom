@@ -2210,13 +2210,24 @@ function PlasmicHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return (
-                $state.userdata?.result?.rel &&
-                !(
-                  $state.userdata?.result?.rel?.active == true ||
-                  $state.userdata?.result?.rel?.ignore == true
-                )
-              );
+              return (() => {
+                const rel = $state.userdata?.result?.rel;
+                const manId = $state.userdata?.result?.man?.id;
+                const refCode = $state.userdata?.result?.man?.refCode;
+                const username = $state.userdata?.result?.user?.username;
+                if (rel && !(rel.active === true || rel.ignore === true)) {
+                  try {
+                    if (manId && username) {
+                      const cleanId =
+                        manId.replace(/[^a-zA-Z]/g, "") + (refCode ?? "");
+                      return cleanId !== username;
+                    }
+                    return true;
+                  } catch (e) {
+                    return true;
+                  }
+                }
+              })();
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -7567,7 +7578,9 @@ function PlasmicHamyar__RenderFunc(props: {
                             $state.userdata?.result?.user?.username;
                           try {
                             if (manId && username) {
-                              const cleanId = manId.replace(/[^a-zA-Z]/g, "");
+                              const cleanId =
+                                manId.replace(/[^a-zA-Z]/g, "") +
+                                $state.userdata.result?.man?.refCode;
                               return cleanId === username;
                             }
                             return false;

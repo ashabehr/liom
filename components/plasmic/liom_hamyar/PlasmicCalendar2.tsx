@@ -54019,9 +54019,9 @@ function PlasmicCalendar2__RenderFunc(props: {
                               sty.text__gvnHl
                             )}
                           >
-                            {
-                              "\u062f\u0648\u0631\u0647 \u0647\u0627\u06cc \u0628\u0639\u062f\u06cc"
-                            }
+                            {hasVariant(globalVariants, "screen", "mobile")
+                              ? "\u0645\u0627\u0647 \u0647\u0627\u06cc \u0628\u0639\u062f\u06cc"
+                              : "\u062f\u0648\u0631\u0647 \u0647\u0627\u06cc \u0628\u0639\u062f\u06cc"}
                           </div>
                         </Button>
                       </div>

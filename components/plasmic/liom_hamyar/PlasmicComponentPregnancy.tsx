@@ -1364,7 +1364,13 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
               <Button
                 data-plasmic-name={"button"}
                 data-plasmic-override={overrides.button}
-                className={classNames("__wab_instance", sty.button)}
+                className={classNames("__wab_instance", sty.button, {
+                  [sty.buttonglobal_newView_newView]: hasVariant(
+                    globalVariants,
+                    "newView",
+                    "newView"
+                  )
+                })}
                 color={generateStateValueProp($state, ["button", "color"])}
                 load={generateStateValueProp($state, ["button", "load"])}
                 loading={generateStateValueProp($state, ["button", "loading"])}
@@ -2141,7 +2147,13 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
           <Timer
             data-plasmic-name={"timer"}
             data-plasmic-override={overrides.timer}
-            className={classNames("__wab_instance", sty.timer)}
+            className={classNames("__wab_instance", sty.timer, {
+              [sty.timerglobal_newView_newView]: hasVariant(
+                globalVariants,
+                "newView",
+                "newView"
+              )
+            })}
             intervalSeconds={1}
             isRunning={(() => {
               try {
