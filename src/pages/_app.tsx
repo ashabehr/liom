@@ -8,6 +8,28 @@ import { useEffect, useState } from "react";
 import NotificationToast from "../../components/NotificationToast";
 import { initFcm } from "../firebase/fcm";
 
+import React from "react";
+
+class ErrorCatcher extends React.Component<{children:any}> {
+  componentDidCatch(error:any, info:any) {
+    console.error("💥 Error caught by boundary:", error, info);
+    
+    // 🟢 لاگ فرستادن به سرور
+    fetch("https://n7n.staas.ir/webhook/error/log", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        msg: error.message,
+        stack: error.stack,
+        info
+      })
+    });
+  }
+
+  render() {
+    return this.props.children;
+  }
+}
 
 import { NewViewContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__NewView";
 export default function MyApp({ Component, pageProps }: AppProps) {
@@ -17,6 +39,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     body: string;
     action?: string | null;
   } | null>(null);
+
 
   useEffect(() => {
     // if ("serviceWorker" in navigator) {
@@ -46,7 +69,25 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     //     }
     //   });
     // }
-
+      
+    // window.onerror send to bot
+    if (typeof window !== "undefined") {
+        window.onerror = (msg, src, line, col, err) => {
+          console.error("🔥 Global error:", msg, src, line, col, err);
+          fetch("https://n7n.staas.ir/webhook/error/log", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              msg,
+              src,
+              line,
+              col,
+              stack: err?.stack
+            })
+          });
+        };
+    }
+      
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("newView");
       if (saved === "true") {
@@ -91,6 +132,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
       <PlasmicRootProvider Head={Head}>
         <NewViewContextProvider value={newView}>
+         <ErrorCatcher>
           <Component {...pageProps} />
           {modalData && (
             <NotificationToast
@@ -101,6 +143,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
               onClose={() => setModalData(null)}
             />
           )}
+         </ErrorCatcher>
         </NewViewContextProvider>
       </PlasmicRootProvider>
     </>
