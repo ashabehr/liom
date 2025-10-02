@@ -176,7 +176,8 @@ function PlasmicMainPregnancy__RenderFunc(props: {
             try {
               return [
                 { name: "calendar", namefa: "بارداری" },
-                { name: "tools", namefa: "ابزارها" }
+                { name: "tools", namefa: "ابزارها" },
+                { name: "chatBot", namefa: "پزشک هوشمند" }
               ];
             } catch (e) {
               if (

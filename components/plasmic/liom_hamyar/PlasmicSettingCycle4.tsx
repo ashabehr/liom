@@ -708,8 +708,9 @@ function PlasmicSettingCycle4__RenderFunc(props: {
 
                 const updatedPeriods = [
                   {
-                    label:
-                      "نمیدونم کی پریود میشم\u060C دوره قبلی و وارد میکنم.",
+                    label: !$state.hamyar
+                      ? "نمیدونم کی پریود میشم\u060C دوره قبلی و وارد میکنم."
+                      : "نمیدونم کی پریود میشه\u060C دوره قبلی و وارد میکنم.",
                     value: -1
                   },
                   (() => {
@@ -1144,9 +1145,8 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                     typeof $steps["updateSlideinModalClick"] === "object" &&
                     typeof $steps["updateSlideinModalClick"].then === "function"
                   ) {
-                    $steps["updateSlideinModalClick"] = await $steps[
-                      "updateSlideinModalClick"
-                    ];
+                    $steps["updateSlideinModalClick"] =
+                      await $steps["updateSlideinModalClick"];
                   }
                 }}
               >
@@ -1282,9 +1282,8 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                     typeof $steps["updateSlideinModalClick"] === "object" &&
                     typeof $steps["updateSlideinModalClick"].then === "function"
                   ) {
-                    $steps["updateSlideinModalClick"] = await $steps[
-                      "updateSlideinModalClick"
-                    ];
+                    $steps["updateSlideinModalClick"] =
+                      await $steps["updateSlideinModalClick"];
                   }
                 }}
               >
@@ -1432,9 +1431,8 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                     typeof $steps["updateSlideinModalClick"] === "object" &&
                     typeof $steps["updateSlideinModalClick"].then === "function"
                   ) {
-                    $steps["updateSlideinModalClick"] = await $steps[
-                      "updateSlideinModalClick"
-                    ];
+                    $steps["updateSlideinModalClick"] =
+                      await $steps["updateSlideinModalClick"];
                   }
 
                   $steps["invokeGlobalAction"] =
@@ -1459,9 +1457,8 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                     typeof $steps["invokeGlobalAction"] === "object" &&
                     typeof $steps["invokeGlobalAction"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
+                    $steps["invokeGlobalAction"] =
+                      await $steps["invokeGlobalAction"];
                   }
                 }}
               >
@@ -1615,9 +1612,8 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                       typeof $steps["updateSlideinModalClick"].then ===
                         "function"
                     ) {
-                      $steps["updateSlideinModalClick"] = await $steps[
-                        "updateSlideinModalClick"
-                      ];
+                      $steps["updateSlideinModalClick"] =
+                        await $steps["updateSlideinModalClick"];
                     }
 
                     $steps["invokeGlobalAction"] =
@@ -1642,9 +1638,8 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
                   }}
                 >
@@ -1791,11 +1786,7 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                                 return {
                                   cycle: $state.cycle,
                                   length: $state.lengh,
-                                  last_time: `${$state.lastTime.gy}-${String(
-                                    $state.lastTime.gm
-                                  ).padStart(2, "0")}-${String(
-                                    $state.lastTime.gd
-                                  ).padStart(2, "0")}`,
+                                  last_time: `${$state.lastTime.gy}-${String($state.lastTime.gm).padStart(2, "0")}-${String($state.lastTime.gd).padStart(2, "0")}`,
                                   type: "add",
                                   authorization: $state.token
                                 };
@@ -1895,9 +1886,8 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                     typeof $steps["invokeGlobalAction2"] === "object" &&
                     typeof $steps["invokeGlobalAction2"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction2"] = await $steps[
-                      "invokeGlobalAction2"
-                    ];
+                    $steps["invokeGlobalAction2"] =
+                      await $steps["invokeGlobalAction2"];
                   }
 
                   $steps["invokeGlobalAction"] =
@@ -1922,9 +1912,8 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                     typeof $steps["invokeGlobalAction"] === "object" &&
                     typeof $steps["invokeGlobalAction"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
+                    $steps["invokeGlobalAction"] =
+                      await $steps["invokeGlobalAction"];
                   }
 
                   $steps["updateEditTime"] =
@@ -2259,9 +2248,8 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                 typeof $steps["updateSlideinModalClick"] === "object" &&
                 typeof $steps["updateSlideinModalClick"].then === "function"
               ) {
-                $steps["updateSlideinModalClick"] = await $steps[
-                  "updateSlideinModalClick"
-                ];
+                $steps["updateSlideinModalClick"] =
+                  await $steps["updateSlideinModalClick"];
               }
             }}
             onColorChange={async (...eventArgs: any) => {
@@ -2343,9 +2331,8 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                 typeof $steps["updateSlideinModalClick"] === "object" &&
                 typeof $steps["updateSlideinModalClick"].then === "function"
               ) {
-                $steps["updateSlideinModalClick"] = await $steps[
-                  "updateSlideinModalClick"
-                ];
+                $steps["updateSlideinModalClick"] =
+                  await $steps["updateSlideinModalClick"];
               }
             }}
           >
@@ -2364,7 +2351,9 @@ function PlasmicSettingCycle4__RenderFunc(props: {
       <Dialog
         data-plasmic-name={"dialog2"}
         data-plasmic-override={overrides.dialog2}
-        className={classNames("__wab_instance", sty.dialog2)}
+        className={classNames("__wab_instance", sty.dialog2, {
+          [sty.dialog2hamyar]: hasVariant($state, "hamyar", "hamyar")
+        })}
         onOpendialogChange={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, ["dialog2", "opendialog"]).apply(
             null,
@@ -2385,12 +2374,49 @@ function PlasmicSettingCycle4__RenderFunc(props: {
           className={classNames(
             projectcss.all,
             projectcss.__wab_text,
-            sty.text___4Y9Cx
+            sty.text___4Y9Cx,
+            {
+              [sty.texthamyar___4Y9CxAa3Ay]: hasVariant(
+                $state,
+                "hamyar",
+                "hamyar"
+              )
+            }
           )}
         >
-          {
-            "\u0641\u0627\u0635\u0644\u0647 \u0627\u0648\u0644\u06cc\u0646 \u0631\u0648\u0632 \u0642\u0627\u0639\u062f\u06af\u06cc \u062a\u0627 \u0634\u0631\u0648\u0639 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0639\u062f\u06cc\u062a \u0627\u0633\u062a.\n(\u062d\u0648\u0627\u0633\u062a \u0628\u0627\u0634\u0647 \u06a9\u0647 \u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u067e\u0631\u06cc\u0648\u062f\u062a(\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc) \u0631\u0648 \u0647\u0645 \u062d\u0633\u0627\u0628 \u06a9\u0646\u06cc)"
-          }
+          {hasVariant($state, "hamyar", "hamyar") ? (
+            <React.Fragment>
+              <React.Fragment>
+                {
+                  "\u0641\u0627\u0635\u0644\u0647 \u0627\u0648\u0644\u06cc\u0646 \u0631\u0648\u0632 \u0642\u0627\u0639\u062f\u06af\u06cc \u062a\u0627 \u0634\u0631\u0648\u0639 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0639\u062f\u06cc \u0627\u0633\u062a.\n"
+                }
+              </React.Fragment>
+              <span
+                className={"plasmic_default__all plasmic_default__span"}
+                style={{ fontWeight: 400 }}
+              >
+                {
+                  "(\u062d\u0648\u0627\u0633\u062a \u0628\u0627\u0634\u0647 \u06a9\u0647 \u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u067e\u0631\u06cc\u0648\u062f(\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc) \u0631\u0648 \u0647\u0645 \u062d\u0633\u0627\u0628 \u06a9\u0646\u06cc)"
+                }
+              </span>
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+              <React.Fragment>
+                {
+                  "\u0641\u0627\u0635\u0644\u0647 \u0627\u0648\u0644\u06cc\u0646 \u0631\u0648\u0632 \u0642\u0627\u0639\u062f\u06af\u06cc \u062a\u0627 \u0634\u0631\u0648\u0639 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0639\u062f\u06cc\u062a \u0627\u0633\u062a.\n"
+                }
+              </React.Fragment>
+              <span
+                className={"plasmic_default__all plasmic_default__span"}
+                style={{ fontWeight: 500 }}
+              >
+                {
+                  "(\u062d\u0648\u0627\u0633\u062a \u0628\u0627\u0634\u0647 \u06a9\u0647 \u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u067e\u0631\u06cc\u0648\u062f\u062a(\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc) \u0631\u0648 \u0647\u0645 \u062d\u0633\u0627\u0628 \u06a9\u0646\u06cc)"
+                }
+              </span>
+            </React.Fragment>
+          )}
         </div>
         {(() => {
           const child$Props = {
@@ -2532,9 +2558,8 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                 typeof $steps["updateSlideinModalClick"] === "object" &&
                 typeof $steps["updateSlideinModalClick"].then === "function"
               ) {
-                $steps["updateSlideinModalClick"] = await $steps[
-                  "updateSlideinModalClick"
-                ];
+                $steps["updateSlideinModalClick"] =
+                  await $steps["updateSlideinModalClick"];
               }
             }}
             onColorChange={async (...eventArgs: any) => {
@@ -2616,9 +2641,8 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                 typeof $steps["updateSlideinModalClick"] === "object" &&
                 typeof $steps["updateSlideinModalClick"].then === "function"
               ) {
-                $steps["updateSlideinModalClick"] = await $steps[
-                  "updateSlideinModalClick"
-                ];
+                $steps["updateSlideinModalClick"] =
+                  await $steps["updateSlideinModalClick"];
               }
             }}
           >
@@ -2658,18 +2682,26 @@ function PlasmicSettingCycle4__RenderFunc(props: {
           className={classNames(
             projectcss.all,
             projectcss.__wab_text,
-            sty.text__vawji
+            sty.text__vawji,
+            {
+              [sty.texthamyar__vawjiAa3Ay]: hasVariant(
+                $state,
+                "hamyar",
+                "hamyar"
+              )
+            }
           )}
         >
-          {
-            "\u062a\u0627\u0631\u06cc\u062e \u0634\u0631\u0648\u0639 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0639\u062f\u06cc\u062a"
-          }
+          {hasVariant($state, "hamyar", "hamyar")
+            ? "\u062a\u0627\u0631\u06cc\u062e \u0634\u0631\u0648\u0639 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0639\u062f\u06cc"
+            : "\u062a\u0627\u0631\u06cc\u062e \u0634\u0631\u0648\u0639 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0639\u062f\u06cc\u062a"}
         </div>
         <Pickers
           data-plasmic-name={"pickers3"}
           data-plasmic-override={overrides.pickers3}
           className={classNames("__wab_instance", sty.pickers3, {
-            [sty.pickers3dark]: hasVariant($state, "dark", "dark")
+            [sty.pickers3dark]: hasVariant($state, "dark", "dark"),
+            [sty.pickers3hamyar]: hasVariant($state, "hamyar", "hamyar")
           })}
           data={
             hasVariant(globalVariants, "screen", "mobile")
@@ -2775,9 +2807,8 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                 typeof $steps["updateSlideinModalClick"] === "object" &&
                 typeof $steps["updateSlideinModalClick"].then === "function"
               ) {
-                $steps["updateSlideinModalClick"] = await $steps[
-                  "updateSlideinModalClick"
-                ];
+                $steps["updateSlideinModalClick"] =
+                  await $steps["updateSlideinModalClick"];
               }
 
               $steps["updateNex"] =
@@ -2974,9 +3005,8 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                 typeof $steps["updateSlideinModalClick"] === "object" &&
                 typeof $steps["updateSlideinModalClick"].then === "function"
               ) {
-                $steps["updateSlideinModalClick"] = await $steps[
-                  "updateSlideinModalClick"
-                ];
+                $steps["updateSlideinModalClick"] =
+                  await $steps["updateSlideinModalClick"];
               }
             }}
           >
@@ -3131,9 +3161,8 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                 typeof $steps["updateDialog4Opendialog"] === "object" &&
                 typeof $steps["updateDialog4Opendialog"].then === "function"
               ) {
-                $steps["updateDialog4Opendialog"] = await $steps[
-                  "updateDialog4Opendialog"
-                ];
+                $steps["updateDialog4Opendialog"] =
+                  await $steps["updateDialog4Opendialog"];
               }
 
               $steps["updateLastTime"] = true
@@ -3255,9 +3284,8 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                 typeof $steps["updateSlideinModalClick"] === "object" &&
                 typeof $steps["updateSlideinModalClick"].then === "function"
               ) {
-                $steps["updateSlideinModalClick"] = await $steps[
-                  "updateSlideinModalClick"
-                ];
+                $steps["updateSlideinModalClick"] =
+                  await $steps["updateSlideinModalClick"];
               }
             }}
           >
@@ -3391,7 +3419,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSettingCycle4__VariantsArgs;
     args?: PlasmicSettingCycle4__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSettingCycle4__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSettingCycle4__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSettingCycle4__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

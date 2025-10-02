@@ -2489,13 +2489,56 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 $steps["tools"] = await $steps["tools"];
               }
 
+              $steps["updateDayCounter"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["dayCounter"]
+                      },
+                      operation: 0,
+                      value: (() => {
+                        const list = [
+                          "نی نی کوچولوت تو بغلته :)",
+                          "فرشته کوچولوت به دنیا میاد :)"
+                        ];
+
+                        return (
+                          $state.daysPregnant +
+                          " روز دیگه " +
+                          list[
+                            Math.floor(
+                              Math.random() * (list.length - 1) - 0 + 1
+                            ) + 0
+                          ]
+                        );
+                      })()
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateDayCounter"] != null &&
+                typeof $steps["updateDayCounter"] === "object" &&
+                typeof $steps["updateDayCounter"].then === "function"
+              ) {
+                $steps["updateDayCounter"] = await $steps["updateDayCounter"];
+              }
+
               $steps["setUser"] = !$state.isNoData
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
                         return setTimeout(() => {
                           try {
-                            console.log($state.userInfo?.[0]?.result);
                             var token = $state.token;
                             var name =
                               $state.userInfo?.[0]?.result?.user?.name ?? "";
@@ -2503,33 +2546,27 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                               $state.userInfo?.[0]?.result?.user?.mobile ?? "";
                             var email =
                               $state.userInfo?.[0]?.result?.user?.email ?? "";
-                            console.log("1");
                             if (typeof mobile == "undefined") {
                               mobile = "";
                             }
-                            console.log("2");
                             if (typeof email == "undefined") {
                               email = "";
                             }
-                            console.log("3");
                             if (typeof name == "undefined") {
                               name = "";
                             }
-                            console.log("4");
                             if (
                               typeof $state.userInfo?.[0]?.result?.hamyars ==
                               "undefined"
                             ) {
                               $state.userInfo[0].result.hamyars = [];
                             }
-                            console.log("5");
                             if (
                               typeof $state.userInfo?.[0]?.result?.allowance ==
                               "undefined"
                             ) {
                               $state.userInfo[0].result.allowance = [];
                             }
-                            console.log("6");
                             var gy = parseInt(
                               $state.user?.[0]?.dueDate.split("-")[0]
                             );
@@ -2540,7 +2577,6 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                               $state.user?.[0]?.dueDate.split("-")[2]
                             );
                             let hamyarsData = [];
-                            console.log("7");
                             const hamyars =
                               $state.userInfo?.[0]?.result?.hamyars ?? [];
                             for (let i = 0; i < hamyars.length; i++) {
@@ -2555,7 +2591,6 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                 email: h.user?.email ?? ""
                               });
                             }
-                            console.log("8");
                             let allowance = [];
                             for (
                               let i = 0;
@@ -2568,7 +2603,6 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                 $state.userInfo?.[0]?.result?.allowance[i]
                               );
                             }
-                            console.log("9");
                             fetch(
                               "https://n8n.staas.ir/webhook/pregnancyDate?token=" +
                                 token,
@@ -2756,50 +2790,6 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 typeof $steps["log"].then === "function"
               ) {
                 $steps["log"] = await $steps["log"];
-              }
-
-              $steps["updateDayCounter"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["dayCounter"]
-                      },
-                      operation: 0,
-                      value: (() => {
-                        const list = [
-                          "نی نی کوچولوت تو بغلته :)",
-                          "فرشته کوچولوت به دنیا میاد :)"
-                        ];
-
-                        return (
-                          $state.daysPregnant +
-                          " روز دیگه " +
-                          list[
-                            Math.floor(
-                              Math.random() * (list.length - 1) - 0 + 1
-                            ) + 0
-                          ]
-                        );
-                      })()
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateDayCounter"] != null &&
-                typeof $steps["updateDayCounter"] === "object" &&
-                typeof $steps["updateDayCounter"].then === "function"
-              ) {
-                $steps["updateDayCounter"] = await $steps["updateDayCounter"];
               }
             }}
             runWhileEditing={true}
@@ -9602,15 +9592,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                               )}
                             >
                               <React.Fragment>
-                                {
-                                  // (($state.weeksPregnant - 1) <= 0 ? "" : ($state.weeksPregnant - 1) + " هفته") +
-                                  // ((($state.weeksPregnant - 1 > 0) && ((280 - $state.daysPregnant - (($state.weeksPregnant - 1) * 7) - 1) >= 0)) ? " و "  : '') +
-                                  // (((280 - $state.daysPregnant - (($state.weeksPregnant - 1) * 7) - 1) >= 0) ? ( (280 - $state.daysPregnant - (($state.weeksPregnant - 1) * 7) - 1) + ' روز ') : '')
-                                  // + " از بارداریت رو سپری کردی و " +
-                                  // ($state.daysPregnant) + " روز دیگه " +
-                                  // $state.randomText[Math.floor(Math.random() * (($state.randomText.length - 1) - 0 + 1)) + 0]
-                                  ""
-                                }
+                                {$state.dayCounter}
                               </React.Fragment>
                             </div>
                           ) : null}
@@ -9667,7 +9649,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                           ) : null}
                           {(() => {
                             try {
-                              return $state.loading;
+                              return $state.loading && $state.dayCounter == "";
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||

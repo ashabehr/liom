@@ -2383,7 +2383,9 @@ function PlasmicToolsComponent__RenderFunc(props: {
                     try {
                       return {
                         "background-color":
-                          $state.index == 1 ? "#8254C6" : "#8254C600",
+                          $state.index == 1
+                            ? "var(--plasmic-token-primary)"
+                            : "#00000000",
                         color: $state.index == 1 ? "#ffffff" : "#535353"
                       };
                     } catch (e) {

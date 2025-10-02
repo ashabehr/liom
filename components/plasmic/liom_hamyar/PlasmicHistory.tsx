@@ -498,17 +498,8 @@ function PlasmicHistory__RenderFunc(props: {
                                             month: "long"
                                           });
                                         let start = currentItem.start
-                                          ? parseISOToUTC(currentItem.start)
+                                          ? parseISOToUTC(currentItem.pmsEnd)
                                           : null;
-                                        let end = currentItem.end
-                                          ? parseISOToUTC(currentItem.end)
-                                          : null;
-                                        let startStr = start
-                                          ? formatter.format(start)
-                                          : "?";
-                                        let endStr = end
-                                          ? formatter.format(end)
-                                          : "?";
                                         const formatDateWithSmallMonth =
                                           date => {
                                             const parts =

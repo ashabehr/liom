@@ -36,7 +36,7 @@
   border-bottom-width: 1px;
   border-bottom-style: solid;
   min-width: 0;
-  padding: 0px 70px 0px 8px;
+  padding: 0px 70px 0px 0px;
 }
 .text__i6GdK {
   width: 100%;
@@ -133,6 +133,7 @@
   font-size: var(--token-Wa5tmrNKVUYF);
   font-weight: 400;
   margin-bottom: -8px;
+  margin-left: 2px;
   min-width: 0;
 }
 .label:global(.__wab_instance):global(.__wab_instance) {
@@ -331,6 +332,7 @@
   flex-shrink: 0;
 }
 .section {
+  display: grid;
   position: fixed;
   align-content: flex-start;
   justify-items: center;
@@ -341,7 +343,6 @@
   top: 0px;
   z-index: 1;
   right: 0;
-  display: none;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
     min(
