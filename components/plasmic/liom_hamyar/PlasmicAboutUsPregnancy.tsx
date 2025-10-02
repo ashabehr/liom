@@ -346,9 +346,8 @@ function PlasmicAboutUsPregnancy__RenderFunc(props: {
                       typeof $steps["goToHttpsTMeLiomSupport"].then ===
                         "function"
                     ) {
-                      $steps["goToHttpsTMeLiomSupport"] = await $steps[
-                        "goToHttpsTMeLiomSupport"
-                      ];
+                      $steps["goToHttpsTMeLiomSupport"] =
+                        await $steps["goToHttpsTMeLiomSupport"];
                     }
                   }}
                 >
@@ -401,7 +400,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicAboutUsPregnancy__VariantsArgs;
     args?: PlasmicAboutUsPregnancy__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicAboutUsPregnancy__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicAboutUsPregnancy__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicAboutUsPregnancy__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -372,7 +372,6 @@
   flex-shrink: 0;
 }
 .freeBox__eNyRe {
-  display: flex;
   flex-direction: row;
   position: relative;
   align-items: center;
@@ -383,6 +382,7 @@
   cursor: pointer;
   column-gap: 16px;
   min-width: 0;
+  display: none;
   padding: 0px;
 }
 .svg__gE2Ka {

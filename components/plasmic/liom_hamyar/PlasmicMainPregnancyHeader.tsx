@@ -504,9 +504,8 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction2"] === "object" &&
                       typeof $steps["invokeGlobalAction2"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction2"] = await $steps[
-                        "invokeGlobalAction2"
-                      ];
+                      $steps["invokeGlobalAction2"] =
+                        await $steps["invokeGlobalAction2"];
                     }
 
                     $steps["updateDopen"] = true
@@ -604,9 +603,8 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
                   }}
                 >
@@ -837,9 +835,8 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
                   typeof $steps["invokeGlobalAction"] === "object" &&
                   typeof $steps["invokeGlobalAction"].then === "function"
                 ) {
-                  $steps["invokeGlobalAction"] = await $steps[
-                    "invokeGlobalAction"
-                  ];
+                  $steps["invokeGlobalAction"] =
+                    await $steps["invokeGlobalAction"];
                 }
 
                 $steps["updateDopen"] = true
@@ -1136,9 +1133,9 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
                       const actionArgs = {
                         customFunction: async () => {
                           return (() => {
-                            console.log($props.userInfo);
+                            console.log($props.userinfo);
                             return window.open(
-                              `https://apps.liom.app/setting-pregnancy/?token=${$props.token}&userId=${$props.userInfo.user.id}`,
+                              `https://apps.liom.app/setting-pregnancy/?token=${$props.token}&userId=${$props.userinfo.id}`,
                               "_self"
                             );
                           })();
@@ -1795,7 +1792,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicMainPregnancyHeader__VariantsArgs;
     args?: PlasmicMainPregnancyHeader__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicMainPregnancyHeader__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicMainPregnancyHeader__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicMainPregnancyHeader__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

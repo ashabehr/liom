@@ -102,6 +102,7 @@ export const PlasmicSettingPregnancy__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicSettingPregnancy__OverridesType = {
   root?: Flex__<"div">;
+  embedHtml?: Flex__<typeof Embed>;
   sideEffect?: Flex__<typeof SideEffect>;
   img?: Flex__<typeof PlasmicImg__>;
   dateModal?: Flex__<typeof SlideinModal>;
@@ -453,16 +454,11 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
           )}
         >
           <Embed
-            className={classNames("__wab_instance", sty.embedHtml__yX7Lg)}
+            data-plasmic-name={"embedHtml"}
+            data-plasmic-override={overrides.embedHtml}
+            className={classNames("__wab_instance", sty.embedHtml)}
             code={
               "<!-- Hotjar Tracking Code for setting-pregnancy -->\n<script>\n    (function(h,o,t,j,a,r){\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\n        h._hjSettings={hjid:5226515,hjsv:6};\n        a=o.getElementsByTagName('head')[0];\n        r=o.createElement('script');r.async=1;\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\n        a.appendChild(r);\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\n</script>\n<script src=\"https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js\"></script>"
-            }
-          />
-
-          <Embed
-            className={classNames("__wab_instance", sty.embedHtml__cayoB)}
-            code={
-              "<script>\n  let isBlocked = false; // \u0645\u062a\u063a\u06cc\u0631 \u0628\u0631\u0627\u06cc \u06a9\u0646\u062a\u0631\u0644 \u0645\u0633\u062f\u0648\u062f \u0634\u062f\u0646 \u062f\u06a9\u0645\u0647\n  let shouldBlockBackButton; // \u0645\u062a\u063a\u06cc\u0631 \u0628\u0631\u0627\u06cc \u0648\u0636\u0639\u06cc\u062a \u0628\u0644\u0648\u06a9\u0647 \u0628\u0648\u062f\u0646 \u062f\u06a9\u0645\u0647\n\n  document.addEventListener('DOMContentLoaded', function() {\n    // \u0628\u0631\u0631\u0633\u06cc \u0627\u06cc\u0646\u06a9\u0647 window.plasmicParent \u0648 window.plasmicParent.state \u0645\u0648\u062c\u0648\u062f \u0647\u0633\u062a\u0646\u062f\n    if (window.plasmicParent && window.plasmicParent.state) {\n      // \u0645\u0642\u062f\u0627\u0631\u062f\u0647\u06cc \u0628\u0647 \u0645\u062a\u063a\u06cc\u0631 \u0641\u0642\u0637 \u0627\u06af\u0631 \u0645\u0642\u062f\u0627\u0631\u062f\u0647\u06cc \u0646\u0634\u062f\u0647 \u0628\u0627\u0634\u062f\n      // if (shouldBlockBackButton === undefined) {\n        shouldBlockBackButton = window.plasmicParent.state.shouldBlockBackButton;\n        console.log(\"value\u06f2: \" + shouldBlockBackButton);\n      // }\n    } else {\n      console.log(\"window.plasmicParent \u06cc\u0627 state \u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a.\");\n    }\n  });\n\n  window.addEventListener('popstate', function(event) {\n    // \u0627\u06af\u0631 \u0642\u0628\u0644\u0627\u064b \u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u0645\u0633\u062f\u0648\u062f \u0634\u062f\u0647 \u0628\u0627\u0634\u062f\u060c \u0627\u062c\u0627\u0632\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u0645\u06cc\u200c\u062f\u0647\u06cc\u0645\n    if (isBlocked) {\n      console.log('\u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u062f\u0648\u0628\u0627\u0631\u0647 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a.');\n      isBlocked = false; // \u0628\u0627\u0632\u06af\u0634\u062a \u0628\u0647 \u062d\u0627\u0644\u062a \u0639\u0627\u062f\u06cc\n      return; // \u0628\u0627\u0632\u06af\u0634\u062a \u0628\u0647 \u0639\u0642\u0628\n    }\n\n    // \u0627\u06af\u0631 \u0628\u0627\u06cc\u062f \u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u0645\u0633\u062f\u0648\u062f \u0634\u0648\u062f\n    if (shouldBlockBackButton) {\n      console.log('\u0634\u0631\u0637 \u0628\u0631\u0642\u0631\u0627\u0631 \u0627\u0633\u062a! \u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u0645\u0633\u062f\u0648\u062f \u0645\u06cc\u200c\u0634\u0648\u062f.');\n      event.preventDefault(); // \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0628\u0627\u0632\u06af\u0634\u062a\n      isBlocked = true; // \u0645\u0633\u062f\u0648\u062f \u06a9\u0631\u062f\u0646 \u062f\u06a9\u0645\u0647 \u0628\u0631\u0627\u06cc \u06cc\u06a9 \u0628\u0627\u0631\n    } else {\n      console.log('\u0634\u0631\u0637 \u0628\u0631\u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a\u060c \u0628\u0627\u0632\u06af\u0634\u062a \u0627\u0646\u062c\u0627\u0645 \u0645\u06cc\u200c\u0634\u0648\u062f.');\n    }\n  });\n</script>\n"
             }
           />
 
@@ -512,9 +508,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           searchParams.delete("userId");
                           searchParams.delete("user_id");
                           searchParams.delete("origin_user_id");
-                          const newUrl = `${
-                            window.location.pathname
-                          }?${searchParams.toString()}`;
+                          const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                           return window.history.replaceState(null, "", newUrl);
                         })();
                       }
@@ -1004,9 +998,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                             typeof $steps["updateDateOfBirth"].then ===
                               "function"
                           ) {
-                            $steps["updateDateOfBirth"] = await $steps[
-                              "updateDateOfBirth"
-                            ];
+                            $steps["updateDateOfBirth"] =
+                              await $steps["updateDateOfBirth"];
                           }
 
                           $steps["updateLastTime2"] =
@@ -1041,9 +1034,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                             typeof $steps["updateLastTime2"] === "object" &&
                             typeof $steps["updateLastTime2"].then === "function"
                           ) {
-                            $steps["updateLastTime2"] = await $steps[
-                              "updateLastTime2"
-                            ];
+                            $steps["updateLastTime2"] =
+                              await $steps["updateLastTime2"];
                           }
 
                           $steps["updateLastTime"] =
@@ -1102,9 +1094,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                             typeof $steps["updateLastTime"] === "object" &&
                             typeof $steps["updateLastTime"].then === "function"
                           ) {
-                            $steps["updateLastTime"] = await $steps[
-                              "updateLastTime"
-                            ];
+                            $steps["updateLastTime"] =
+                              await $steps["updateLastTime"];
                           }
 
                           $steps["updateDateOfBirth2"] =
@@ -1164,9 +1155,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                             typeof $steps["updateDateOfBirth2"].then ===
                               "function"
                           ) {
-                            $steps["updateDateOfBirth2"] = await $steps[
-                              "updateDateOfBirth2"
-                            ];
+                            $steps["updateDateOfBirth2"] =
+                              await $steps["updateDateOfBirth2"];
                           }
 
                           $steps["updateDateOfBirth3"] =
@@ -1229,9 +1219,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                             typeof $steps["updateDateOfBirth3"].then ===
                               "function"
                           ) {
-                            $steps["updateDateOfBirth3"] = await $steps[
-                              "updateDateOfBirth3"
-                            ];
+                            $steps["updateDateOfBirth3"] =
+                              await $steps["updateDateOfBirth3"];
                           }
 
                           $steps["updateLastTime3"] =
@@ -1293,9 +1282,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                             typeof $steps["updateLastTime3"] === "object" &&
                             typeof $steps["updateLastTime3"].then === "function"
                           ) {
-                            $steps["updateLastTime3"] = await $steps[
-                              "updateLastTime3"
-                            ];
+                            $steps["updateLastTime3"] =
+                              await $steps["updateLastTime3"];
                           }
 
                           $steps["updateDay"] =
@@ -1507,9 +1495,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                             typeof $steps["updateSlideinModalClick"].then ===
                               "function"
                           ) {
-                            $steps["updateSlideinModalClick"] = await $steps[
-                              "updateSlideinModalClick"
-                            ];
+                            $steps["updateSlideinModalClick"] =
+                              await $steps["updateSlideinModalClick"];
                           }
 
                           $steps["updateDuDate"] = true
@@ -1558,9 +1545,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                             typeof $steps["updateDuDate"] === "object" &&
                             typeof $steps["updateDuDate"].then === "function"
                           ) {
-                            $steps["updateDuDate"] = await $steps[
-                              "updateDuDate"
-                            ];
+                            $steps["updateDuDate"] =
+                              await $steps["updateDuDate"];
                           }
                         }}
                         onColorChange={async (...eventArgs: any) => {
@@ -1655,9 +1641,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                             typeof $steps["updateSlideinModalClick"].then ===
                               "function"
                           ) {
-                            $steps["updateSlideinModalClick"] = await $steps[
-                              "updateSlideinModalClick"
-                            ];
+                            $steps["updateSlideinModalClick"] =
+                              await $steps["updateSlideinModalClick"];
                           }
                         }}
                       >
@@ -1761,9 +1746,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           typeof $steps["updateTypeInterDate"].then ===
                             "function"
                         ) {
-                          $steps["updateTypeInterDate"] = await $steps[
-                            "updateTypeInterDate"
-                          ];
+                          $steps["updateTypeInterDate"] =
+                            await $steps["updateTypeInterDate"];
                         }
                       }}
                     >
@@ -1873,9 +1857,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           typeof $steps["updateTypeInterDate"].then ===
                             "function"
                         ) {
-                          $steps["updateTypeInterDate"] = await $steps[
-                            "updateTypeInterDate"
-                          ];
+                          $steps["updateTypeInterDate"] =
+                            await $steps["updateTypeInterDate"];
                         }
                       }}
                     >
@@ -1961,9 +1944,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           typeof $steps["updateTypeInterDate"].then ===
                             "function"
                         ) {
-                          $steps["updateTypeInterDate"] = await $steps[
-                            "updateTypeInterDate"
-                          ];
+                          $steps["updateTypeInterDate"] =
+                            await $steps["updateTypeInterDate"];
                         }
                       }}
                     >
@@ -2102,9 +2084,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                             typeof $steps["updateSlideinModalClick"].then ===
                               "function"
                           ) {
-                            $steps["updateSlideinModalClick"] = await $steps[
-                              "updateSlideinModalClick"
-                            ];
+                            $steps["updateSlideinModalClick"] =
+                              await $steps["updateSlideinModalClick"];
                           }
 
                           $steps["updateTypeDate"] = true
@@ -2138,9 +2119,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                             typeof $steps["updateTypeDate"] === "object" &&
                             typeof $steps["updateTypeDate"].then === "function"
                           ) {
-                            $steps["updateTypeDate"] = await $steps[
-                              "updateTypeDate"
-                            ];
+                            $steps["updateTypeDate"] =
+                              await $steps["updateTypeDate"];
                           }
                         }}
                       >
@@ -2320,9 +2300,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                             typeof $steps["updateSlideinModalClick"].then ===
                               "function"
                           ) {
-                            $steps["updateSlideinModalClick"] = await $steps[
-                              "updateSlideinModalClick"
-                            ];
+                            $steps["updateSlideinModalClick"] =
+                              await $steps["updateSlideinModalClick"];
                           }
 
                           $steps["updateTypeDate"] = true
@@ -2356,9 +2335,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                             typeof $steps["updateTypeDate"] === "object" &&
                             typeof $steps["updateTypeDate"].then === "function"
                           ) {
-                            $steps["updateTypeDate"] = await $steps[
-                              "updateTypeDate"
-                            ];
+                            $steps["updateTypeDate"] =
+                              await $steps["updateTypeDate"];
                           }
                         }}
                       >
@@ -2472,9 +2450,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           typeof $steps["updateDateModalClick"].then ===
                             "function"
                         ) {
-                          $steps["updateDateModalClick"] = await $steps[
-                            "updateDateModalClick"
-                          ];
+                          $steps["updateDateModalClick"] =
+                            await $steps["updateDateModalClick"];
                         }
                       }}
                     >
@@ -2648,9 +2625,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction2"] === "object" &&
                         typeof $steps["invokeGlobalAction2"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction2"] = await $steps[
-                          "invokeGlobalAction2"
-                        ];
+                        $steps["invokeGlobalAction2"] =
+                          await $steps["invokeGlobalAction2"];
                       }
 
                       $steps["invokeGlobalAction"] = (() => {
@@ -2752,9 +2728,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["invokeGlobalAction3"] = (() => {
@@ -2819,9 +2794,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction3"] === "object" &&
                         typeof $steps["invokeGlobalAction3"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction3"] = await $steps[
-                          "invokeGlobalAction3"
-                        ];
+                        $steps["invokeGlobalAction3"] =
+                          await $steps["invokeGlobalAction3"];
                       }
 
                       $steps["runCode"] = (() => {
@@ -2986,9 +2960,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction4"] === "object" &&
                         typeof $steps["invokeGlobalAction4"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction4"] = await $steps[
-                          "invokeGlobalAction4"
-                        ];
+                        $steps["invokeGlobalAction4"] =
+                          await $steps["invokeGlobalAction4"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -3578,6 +3551,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "embedHtml",
     "sideEffect",
     "img",
     "dateModal",
@@ -3590,6 +3564,7 @@ const PlasmicDescendants = {
     "button3",
     "lottie"
   ],
+  embedHtml: ["embedHtml"],
   sideEffect: ["sideEffect"],
   img: ["img"],
   dateModal: ["dateModal", "week2", "day2", "datePickers", "button"],
@@ -3607,6 +3582,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  embedHtml: typeof Embed;
   sideEffect: typeof SideEffect;
   img: typeof PlasmicImg__;
   dateModal: typeof SlideinModal;
@@ -3631,7 +3607,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSettingPregnancy__VariantsArgs;
     args?: PlasmicSettingPregnancy__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSettingPregnancy__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSettingPregnancy__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSettingPregnancy__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
@@ -3705,6 +3683,7 @@ export const PlasmicSettingPregnancy = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    embedHtml: makeNodeComponent("embedHtml"),
     sideEffect: makeNodeComponent("sideEffect"),
     img: makeNodeComponent("img"),
     dateModal: makeNodeComponent("dateModal"),
