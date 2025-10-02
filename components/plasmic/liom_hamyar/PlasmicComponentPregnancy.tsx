@@ -1435,7 +1435,13 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
             </div>
           ) : null}
           <SideEffect
-            className={classNames("__wab_instance", sty.sideEffect__vZvKk)}
+            className={classNames("__wab_instance", sty.sideEffect__vZvKk, {
+              [sty.sideEffectglobal_newView_newView__vZvKk0DHva]: hasVariant(
+                globalVariants,
+                "newView",
+                "newView"
+              )
+            })}
             onMount={async () => {
               const $steps = {};
 

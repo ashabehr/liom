@@ -3375,6 +3375,9 @@ function PlasmicHamyar__RenderFunc(props: {
                   "noPartner",
                   "noPartner"
                 ),
+                [sty.mainnoPartner_editCycle]:
+                  hasVariant($state, "editCycle", "editCycle") &&
+                  hasVariant($state, "noPartner", "noPartner"),
                 [sty.mainpage_reminder]: hasVariant($state, "page", "reminder"),
                 [sty.mainremindersetting]: hasVariant(
                   $state,
@@ -5179,7 +5182,8 @@ function PlasmicHamyar__RenderFunc(props: {
                             ? (() => {
                                 try {
                                   return (
-                                    $state.userdata?.result?.man?.id == "1" ||
+                                    $state.userdata?.result?.man?.id ==
+                                      "9bffa951-22ad-4d40-97ba-8bf3ee6b0d56" ||
                                     $state.userdata?.result?.man?.id ==
                                       "379fbd33-bd8c-45c6-9f9f-c7ff941196a0"
                                   );
@@ -7368,6 +7372,11 @@ function PlasmicHamyar__RenderFunc(props: {
                     data-plasmic-name={"cyclebox"}
                     data-plasmic-override={overrides.cyclebox}
                     className={classNames("__wab_instance", sty.cyclebox, {
+                      [sty.cycleboxeditCycle]: hasVariant(
+                        $state,
+                        "editCycle",
+                        "editCycle"
+                      ),
                       [sty.cycleboxlackOfCourseInformation]: hasVariant(
                         $state,
                         "lackOfCourseInformation",
@@ -7377,7 +7386,10 @@ function PlasmicHamyar__RenderFunc(props: {
                         $state,
                         "noPartner",
                         "noPartner"
-                      )
+                      ),
+                      [sty.cycleboxnoPartner_editCycle]:
+                        hasVariant($state, "editCycle", "editCycle") &&
+                        hasVariant($state, "noPartner", "noPartner")
                     })}
                     cycle={generateStateValueProp($state, [
                       "cyclebox",
