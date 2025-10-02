@@ -197,7 +197,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicUpDonw__VariantsArgs;
     args?: PlasmicUpDonw__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicUpDonw__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicUpDonw__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicUpDonw__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

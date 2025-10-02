@@ -1034,9 +1034,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                   var daysRemaining = Math.ceil(
                     timeDifference / (1000 * 60 * 60 * 24)
                   );
-                  return `${dayOfWeek} ${jalaaliDate} B(${
-                    daysRemaining - 1
-                  } روز مانده)`;
+                  return `${dayOfWeek} ${jalaaliDate} B(${daysRemaining - 1} روز مانده)`;
                 }
                 var periodStart =
                   $state.userInfo?.result?.userStatus?.periodStart?.split(
@@ -1138,9 +1136,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                     return [
                       `<div style="display: flex; align-items: center; gap: 8px;">
         <span style="width: 10px; height: 10px; border-radius: 50%; background-color: #EB464A; display: inline-block;"></span>
-        <span>${
-          $state.userInfo.result.userStatus.daysToEndPms + 1
-        } روز تا شروع خونریزی</span>
+        <span>${$state.userInfo.result.userStatus.daysToEndPms + 1} روز تا شروع خونریزی</span>
       </div>`
                     ];
                   case "blood":
@@ -1161,9 +1157,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                         : "",
                       `<div style="display: flex; align-items: center; gap: 8px;">
         <span style="width: 10px; height: 10px; border-radius: 50%; background-color: #7444BC; display: inline-block;"></span>
-        <span>${
-          $state.userInfo.result.userStatus.daysToStartPms - 1
-        } روز تا شروع PMS</span>
+        <span>${$state.userInfo.result.userStatus.daysToStartPms - 1} روز تا شروع PMS</span>
       </div>`
                     ].filter(Boolean);
                   default:
@@ -2284,9 +2278,8 @@ function PlasmicCalendar2__RenderFunc(props: {
             typeof $steps["updateLackOfCourseInformation"] === "object" &&
             typeof $steps["updateLackOfCourseInformation"].then === "function"
           ) {
-            $steps["updateLackOfCourseInformation"] = await $steps[
-              "updateLackOfCourseInformation"
-            ];
+            $steps["updateLackOfCourseInformation"] =
+              await $steps["updateLackOfCourseInformation"];
           }
 
           $steps["goToExpired"] = (
@@ -2559,10 +2552,10 @@ function PlasmicCalendar2__RenderFunc(props: {
                               $state.status === "blood"
                                 ? "period"
                                 : $state.status === "fertility"
-                                ? "pregnancy"
-                                : $state.status == "pms"
-                                ? "pms"
-                                : "white" || "white",
+                                  ? "pregnancy"
+                                  : $state.status == "pms"
+                                    ? "pms"
+                                    : "white" || "white",
                             maritalStatus: "single",
                             education: "",
                             job: "",
@@ -2778,8 +2771,8 @@ function PlasmicCalendar2__RenderFunc(props: {
             $steps.userinfo?.data?.success
               ? $steps.userinfo?.data?.success
               : false && $steps.advices?.data
-              ? true
-              : false
+                ? true
+                : false
           )
             ? (() => {
                 const actionArgs = {
@@ -3768,9 +3761,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                 typeof $steps["updateDialog3Opendialog"] === "object" &&
                 typeof $steps["updateDialog3Opendialog"].then === "function"
               ) {
-                $steps["updateDialog3Opendialog"] = await $steps[
-                  "updateDialog3Opendialog"
-                ];
+                $steps["updateDialog3Opendialog"] =
+                  await $steps["updateDialog3Opendialog"];
               }
             }}
             onColorChange={async (...eventArgs: any) => {
@@ -3992,9 +3984,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                               typeof $steps["updateEditOpendialog"].then ===
                                 "function"
                             ) {
-                              $steps["updateEditOpendialog"] = await $steps[
-                                "updateEditOpendialog"
-                              ];
+                              $steps["updateEditOpendialog"] =
+                                await $steps["updateEditOpendialog"];
                             }
 
                             $steps["updateWarningOpen"] =
@@ -4031,9 +4022,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                               typeof $steps["updateWarningOpen"].then ===
                                 "function"
                             ) {
-                              $steps["updateWarningOpen"] = await $steps[
-                                "updateWarningOpen"
-                              ];
+                              $steps["updateWarningOpen"] =
+                                await $steps["updateWarningOpen"];
                             }
 
                             $steps["runSetting"] =
@@ -4298,9 +4288,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                     typeof $steps["updateButton20Loading"] === "object" &&
                     typeof $steps["updateButton20Loading"].then === "function"
                   ) {
-                    $steps["updateButton20Loading"] = await $steps[
-                      "updateButton20Loading"
-                    ];
+                    $steps["updateButton20Loading"] =
+                      await $steps["updateButton20Loading"];
                   }
 
                   $steps["invokeGlobalAction"] = true
@@ -4314,7 +4303,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                               try {
                                 return (() => {
                                   const data =
-                                    $state.userInfo?.result?.calender?.[0];
+                                    $state.userInfo?.result?.lastCalender?.[0];
                                   function getIranToday() {
                                     const nowIran = new Date(
                                       new Date().toLocaleString("en-US", {
@@ -4385,9 +4374,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                     typeof $steps["invokeGlobalAction"] === "object" &&
                     typeof $steps["invokeGlobalAction"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
+                    $steps["invokeGlobalAction"] =
+                      await $steps["invokeGlobalAction"];
                   }
 
                   $steps["updateEditTime"] = true
@@ -4457,9 +4445,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                     typeof $steps["updateWarningOpen"] === "object" &&
                     typeof $steps["updateWarningOpen"].then === "function"
                   ) {
-                    $steps["updateWarningOpen"] = await $steps[
-                      "updateWarningOpen"
-                    ];
+                    $steps["updateWarningOpen"] =
+                      await $steps["updateWarningOpen"];
                   }
 
                   $steps["updateButton25Loading2"] = true
@@ -4493,9 +4480,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                     typeof $steps["updateButton25Loading2"] === "object" &&
                     typeof $steps["updateButton25Loading2"].then === "function"
                   ) {
-                    $steps["updateButton25Loading2"] = await $steps[
-                      "updateButton25Loading2"
-                    ];
+                    $steps["updateButton25Loading2"] =
+                      await $steps["updateButton25Loading2"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
@@ -4603,9 +4589,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                   typeof $steps["updateWarningOpen"] === "object" &&
                   typeof $steps["updateWarningOpen"].then === "function"
                 ) {
-                  $steps["updateWarningOpen"] = await $steps[
-                    "updateWarningOpen"
-                  ];
+                  $steps["updateWarningOpen"] =
+                    await $steps["updateWarningOpen"];
                 }
               }}
               onColorChange={async (...eventArgs: any) => {
@@ -4776,9 +4761,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                     typeof $steps["updateWarningOpen"] === "object" &&
                     typeof $steps["updateWarningOpen"].then === "function"
                   ) {
-                    $steps["updateWarningOpen"] = await $steps[
-                      "updateWarningOpen"
-                    ];
+                    $steps["updateWarningOpen"] =
+                      await $steps["updateWarningOpen"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
@@ -4886,9 +4870,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                   typeof $steps["updateWarningOpen"] === "object" &&
                   typeof $steps["updateWarningOpen"].then === "function"
                 ) {
-                  $steps["updateWarningOpen"] = await $steps[
-                    "updateWarningOpen"
-                  ];
+                  $steps["updateWarningOpen"] =
+                    await $steps["updateWarningOpen"];
                 }
               }}
               onColorChange={async (...eventArgs: any) => {
@@ -5083,38 +5066,38 @@ function PlasmicCalendar2__RenderFunc(props: {
         hasVariant($state, "lackOfCourseInformation", "lackOfCourseInformation")
           ? true
           : hasVariant(globalVariants, "screen", "mobile")
-          ? (() => {
-              try {
-                return (
-                  $state.userInfo?.result?.userStatus == null &&
-                  $state.userInfo.success == true
-                );
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
+            ? (() => {
+                try {
+                  return (
+                    $state.userInfo?.result?.userStatus == null &&
+                    $state.userInfo.success == true
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
                 }
-                throw e;
-              }
-            })()
-          : (() => {
-              try {
-                return (
-                  $state.userInfo?.result?.userStatus == null &&
-                  $state.userInfo.success == true
-                );
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
+              })()
+            : (() => {
+                try {
+                  return (
+                    $state.userInfo?.result?.userStatus == null &&
+                    $state.userInfo.success == true
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
                 }
-                throw e;
-              }
-            })()
+              })()
       ) ? (
         <div
           className={classNames(projectcss.all, sty.freeBox__v0Dkh, {
@@ -12794,9 +12777,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                 typeof $steps["goToSettingPregnancy2"] === "object" &&
                 typeof $steps["goToSettingPregnancy2"].then === "function"
               ) {
-                $steps["goToSettingPregnancy2"] = await $steps[
-                  "goToSettingPregnancy2"
-                ];
+                $steps["goToSettingPregnancy2"] =
+                  await $steps["goToSettingPregnancy2"];
               }
             }}
             onColorChange={async (...eventArgs: any) => {
@@ -12921,38 +12903,38 @@ function PlasmicCalendar2__RenderFunc(props: {
         hasVariant($state, "lackOfCourseInformation", "lackOfCourseInformation")
           ? true
           : hasVariant(globalVariants, "screen", "mobile")
-          ? (() => {
-              try {
-                return (
-                  $state.userInfo?.success == true &&
-                  $state.userInfo?.result?.userStatus != null
-                );
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
+            ? (() => {
+                try {
+                  return (
+                    $state.userInfo?.success == true &&
+                    $state.userInfo?.result?.userStatus != null
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
                 }
-                throw e;
-              }
-            })()
-          : (() => {
-              try {
-                return (
-                  $state.userInfo?.success == true &&
-                  $state.userInfo?.result?.userStatus != null
-                );
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
+              })()
+            : (() => {
+                try {
+                  return (
+                    $state.userInfo?.success == true &&
+                    $state.userInfo?.result?.userStatus != null
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
                 }
-                throw e;
-              }
-            })()
+              })()
       ) ? (
         <div
           data-plasmic-name={"main"}
@@ -13188,15 +13170,12 @@ function PlasmicCalendar2__RenderFunc(props: {
                                               reg.installing?.scriptURL ||
                                               reg.waiting?.scriptURL ||
                                               "\u274C فایل اسکریپت پیدا نشد";
-                                            statusText += `\n🔹 Service Worker شماره ${
-                                              i + 1
-                                            }\n`;
+                                            statusText += `\n🔹 Service Worker شماره ${i + 1}\n`;
                                             statusText += `   ➡️ Scope: ${reg.scope}\n`;
                                             statusText += `   ➡️ Script URL: ${scriptURL}\n`;
                                             try {
-                                              const res = await fetch(
-                                                scriptURL
-                                              );
+                                              const res =
+                                                await fetch(scriptURL);
                                               const code = await res.text();
                                               statusText += `📜 کد Service Worker:\n${code}\n\n`;
                                             } catch (e) {
@@ -14056,22 +14035,27 @@ function PlasmicCalendar2__RenderFunc(props: {
                                                   "white"
                                                     ? [0, 0.764, 0.443, 1]
                                                     : $state.userInfo.result
-                                                        .userStatus
-                                                        .periodStatus ==
-                                                      "fertility"
-                                                    ? [0.98, 0.678, 0.078, 1]
-                                                    : $state.userInfo.result
-                                                        .userStatus
-                                                        .periodStatus == "blood"
-                                                    ? [0.922, 0.271, 0.29, 1]
-                                                    : $state.userInfo.result
-                                                        .userStatus
-                                                        .periodStatus == "pms"
-                                                    ? [
-                                                        0.4549, 0.2667, 0.7373,
-                                                        1
-                                                      ]
-                                                    : [1, 1, 1, 1],
+                                                          .userStatus
+                                                          .periodStatus ==
+                                                        "fertility"
+                                                      ? [0.98, 0.678, 0.078, 1]
+                                                      : $state.userInfo.result
+                                                            .userStatus
+                                                            .periodStatus ==
+                                                          "blood"
+                                                        ? [
+                                                            0.922, 0.271, 0.29,
+                                                            1
+                                                          ]
+                                                        : $state.userInfo.result
+                                                              .userStatus
+                                                              .periodStatus ==
+                                                            "pms"
+                                                          ? [
+                                                              0.4549, 0.2667,
+                                                              0.7373, 1
+                                                            ]
+                                                          : [1, 1, 1, 1],
                                                 ix: 4
                                               },
                                               r: 1,
@@ -17981,10 +17965,10 @@ function PlasmicCalendar2__RenderFunc(props: {
                                       return dayInFertility === peakDay
                                         ? "بیشترین میزان تخمک‌گذاری"
                                         : dayInFertility < peakDay
-                                        ? peakDay -
-                                          dayInFertility +
-                                          " روز تا بیشترین میزان تخمک‌گذاری"
-                                        : "تخمک‌گذاری";
+                                          ? peakDay -
+                                            dayInFertility +
+                                            " روز تا بیشترین میزان تخمک‌گذاری"
+                                          : "تخمک‌گذاری";
                                     }
                                     break;
                                   case "pms":
@@ -18098,9 +18082,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                             typeof $steps["goToSettingPregnancy2"].then ===
                               "function"
                           ) {
-                            $steps["goToSettingPregnancy2"] = await $steps[
-                              "goToSettingPregnancy2"
-                            ];
+                            $steps["goToSettingPregnancy2"] =
+                              await $steps["goToSettingPregnancy2"];
                           }
 
                           $steps["runCode"] = true
@@ -18164,9 +18147,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                             typeof $steps["updateEditOpendialog"].then ===
                               "function"
                           ) {
-                            $steps["updateEditOpendialog"] = await $steps[
-                              "updateEditOpendialog"
-                            ];
+                            $steps["updateEditOpendialog"] =
+                              await $steps["updateEditOpendialog"];
                           }
 
                           $steps["invokeGlobalAction"] = true
@@ -18223,9 +18205,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
                         }}
                         onColorChange={async (...eventArgs: any) => {
@@ -18371,14 +18352,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                           hasVariant(globalVariants, "screen", "mobile")
                             ? (() => {
                                 try {
-                                  return `<svg viewBox='${
-                                    $state.toolAdvertising[$state.indextool]
-                                      .viowBox
-                                  }' fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d='${$state.toolAdvertising[$state.indextool].icon}' fill='${
-                                    $state.toolAdvertising[$state.indextool]
-                                      .coloricon
-                                  }'/>
+                                  return `<svg viewBox='${$state.toolAdvertising[$state.indextool].viowBox}' fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d='${$state.toolAdvertising[$state.indextool].icon}' fill='${$state.toolAdvertising[$state.indextool].coloricon}'/>
 </svg>
 `;
                                 } catch (e) {
@@ -18394,14 +18369,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                               })()
                             : (() => {
                                 try {
-                                  return `<svg viewBox='${
-                                    $state.toolAdvertising[$state.indextool]
-                                      .viowBox
-                                  }' fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d='${$state.toolAdvertising[$state.indextool].icon}' fill='${
-                                    $state.toolAdvertising[$state.indextool]
-                                      .coloricon
-                                  }'/>
+                                  return `<svg viewBox='${$state.toolAdvertising[$state.indextool].viowBox}' fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d='${$state.toolAdvertising[$state.indextool].icon}' fill='${$state.toolAdvertising[$state.indextool].coloricon}'/>
 </svg>
 `;
                                 } catch (e) {
@@ -18571,9 +18540,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
                       }}
                     >
@@ -18660,9 +18628,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
                         }}
                         onColorChange={async (...eventArgs: any) => {
@@ -27108,9 +27075,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
                     }}
                   >
@@ -27396,9 +27362,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
                       }).apply(null, eventArgs);
                     },
@@ -54137,9 +54102,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
                       }).apply(null, eventArgs);
                     },
@@ -54707,9 +54671,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
                         }).apply(null, eventArgs);
                       },
@@ -54827,8 +54790,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                                   !_par
                                     ? []
                                     : Array.isArray(_par)
-                                    ? _par
-                                    : [_par])(
+                                      ? _par
+                                      : [_par])(
                                   (() => {
                                     try {
                                       return $state.userInfo.result
@@ -55146,13 +55109,14 @@ function PlasmicCalendar2__RenderFunc(props: {
                                                   ($state.status === "white"
                                                     ? "عادی"
                                                     : $state.status ===
-                                                      "fertility"
-                                                    ? "تخمک گذاری"
-                                                    : $state.status === "pms"
-                                                    ? "pms"
-                                                    : $state.status === "blood"
-                                                    ? "پریود"
-                                                    : "-")
+                                                        "fertility"
+                                                      ? "تخمک گذاری"
+                                                      : $state.status === "pms"
+                                                        ? "pms"
+                                                        : $state.status ===
+                                                            "blood"
+                                                          ? "پریود"
+                                                          : "-")
                                                 );
                                               } catch (e) {
                                                 if (
@@ -55198,40 +55162,42 @@ function PlasmicCalendar2__RenderFunc(props: {
                             )
                               ? true
                               : hasVariant(globalVariants, "screen", "mobile")
-                              ? (() => {
-                                  try {
-                                    return (
-                                      $state.userInfo?.result?.todoNotTodoLists
-                                        ?.notToDo?.length != 0
-                                    );
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return true;
+                                ? (() => {
+                                    try {
+                                      return (
+                                        $state.userInfo?.result
+                                          ?.todoNotTodoLists?.notToDo?.length !=
+                                        0
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return true;
+                                      }
+                                      throw e;
                                     }
-                                    throw e;
-                                  }
-                                })()
-                              : (() => {
-                                  try {
-                                    return (
-                                      $state.userInfo?.result?.todoNotTodoLists
-                                        ?.notToDo?.length != 0
-                                    );
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return true;
+                                  })()
+                                : (() => {
+                                    try {
+                                      return (
+                                        $state.userInfo?.result
+                                          ?.todoNotTodoLists?.notToDo?.length !=
+                                        0
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return true;
+                                      }
+                                      throw e;
                                     }
-                                    throw e;
-                                  }
-                                })()
+                                  })()
                           ) ? (
                             <div
                               className={classNames(
@@ -55303,8 +55269,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                                     !_par
                                       ? []
                                       : Array.isArray(_par)
-                                      ? _par
-                                      : [_par])(
+                                        ? _par
+                                        : [_par])(
                                     (() => {
                                       try {
                                         return $state.userInfo.result
@@ -55668,14 +55634,15 @@ function PlasmicCalendar2__RenderFunc(props: {
                                                     ($state.status === "white"
                                                       ? "عادی"
                                                       : $state.status ===
-                                                        "fertility"
-                                                      ? "تخمک گذاری"
-                                                      : $state.status === "pms"
-                                                      ? "pms"
-                                                      : $state.status ===
-                                                        "blood"
-                                                      ? "پریود"
-                                                      : "_")
+                                                          "fertility"
+                                                        ? "تخمک گذاری"
+                                                        : $state.status ===
+                                                            "pms"
+                                                          ? "pms"
+                                                          : $state.status ===
+                                                              "blood"
+                                                            ? "پریود"
+                                                            : "_")
                                                   );
                                                 } catch (e) {
                                                   if (
@@ -56761,7 +56728,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicCalendar2__VariantsArgs;
     args?: PlasmicCalendar2__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicCalendar2__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicCalendar2__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicCalendar2__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

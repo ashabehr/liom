@@ -65,6 +65,7 @@ import { BaseSliderOutput } from "@plasmicpkgs/react-aria/skinny/registerSliderO
 import { BaseSliderTrack } from "@plasmicpkgs/react-aria/skinny/registerSliderTrack";
 import SliderThumb from "../../SliderThumb"; // plasmic-import: pmF7IoE0FUg-/component
 import Description from "../../Description"; // plasmic-import: iwAkLYZK9Vrj/component
+import TabWeek2 from "../../TabWeek2"; // plasmic-import: -tuOknPDFuNb/component
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import { BackHandler } from "@/components/BackHandler"; // plasmic-import: wpIQCsQJqUoV/codeComponent
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
@@ -75,6 +76,7 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicHistory.module.css"; // plasmic-import: 5t5YNzyUHdtX/css
 
+import Icon312Icon from "./icons/PlasmicIcon__Icon312"; // plasmic-import: aEjpSnTnJP7A/icon
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 
 createPlasmicElementProxy;
@@ -115,6 +117,7 @@ export type PlasmicHistory__OverridesType = {
   ariaSliderTrack?: Flex__<typeof BaseSliderTrack>;
   foreground?: Flex__<"div">;
   description?: Flex__<typeof Description>;
+  tabWeek2?: Flex__<typeof TabWeek2>;
   section?: Flex__<"section">;
   headerLiom?: Flex__<typeof HeaderLiom>;
   svg?: Flex__<"svg">;
@@ -231,6 +234,26 @@ function PlasmicHistory__RenderFunc(props: {
       )}
     >
       <div className={classNames(projectcss.all, sty.freeBox__jcaHo)}>
+        <div className={classNames(projectcss.all, sty.freeBox__jlkcL)}>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__i6GdK
+            )}
+          >
+            {"\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f"}
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__aBdco
+            )}
+          >
+            {"\u067e\u0627\u06cc\u0627\u0646 \u062f\u0648\u0631\u0647"}
+          </div>
+        </div>
         {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
           (() => {
             try {
@@ -619,31 +642,15 @@ function PlasmicHistory__RenderFunc(props: {
                                   >
                                     {renderPlasmicSlot({
                                       defaultContents: (
-                                        <div
+                                        <Icon312Icon
                                           className={classNames(
                                             projectcss.all,
-                                            projectcss.__wab_text,
-                                            sty.text__hoNjs
+                                            sty.svg___2UTb9
                                           )}
-                                        >
-                                          <React.Fragment>
-                                            {(() => {
-                                              try {
-                                                return currentItem.periodDays;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return "";
-                                                }
-                                                throw e;
-                                              }
-                                            })()}
-                                          </React.Fragment>
-                                        </div>
+                                          role={"img"}
+                                        />
                                       ),
+
                                       value: args.children,
                                       className: classNames(
                                         sty.slotTargetChildren
@@ -927,6 +934,228 @@ function PlasmicHistory__RenderFunc(props: {
                     );
                   })();
                 })}
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return moon.periods;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_1, __plasmic_idx_1) => {
+                  const cycle = __plasmic_item_1;
+                  const cycleIndex = __plasmic_idx_1;
+                  return (
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__aO0Z8)}
+                      key={cycleIndex}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__oh7UM
+                        )}
+                      >
+                        <div
+                          className={projectcss.__wab_expr_html_text}
+                          dangerouslySetInnerHTML={{
+                            __html: (() => {
+                              try {
+                                return (() => {
+                                  try {
+                                    function parseISOToUTC(dateStr) {
+                                      let [y, m, d] = dateStr
+                                        .split("-")
+                                        .map(Number);
+                                      return new Date(Date.UTC(y, m - 1, d));
+                                    }
+                                    const formatter = new Intl.DateTimeFormat(
+                                      "fa-IR",
+                                      {
+                                        timeZone: "Asia/Tehran",
+                                        day: "numeric",
+                                        month: "long"
+                                      }
+                                    );
+                                    let end = cycle.start
+                                      ? parseISOToUTC(cycle.start)
+                                      : null;
+                                    const formatWithTinyMonth = date => {
+                                      if (!date) return "?";
+                                      const parts =
+                                        formatter.formatToParts(date);
+                                      let day =
+                                        parts.find(p => p.type === "day")
+                                          ?.value || "";
+                                      let month =
+                                        parts.find(p => p.type === "month")
+                                          ?.value || "";
+                                      return `<small style="font-size:0.6em">شروع پریود ${day} ${month}</small>`;
+                                    };
+                                    const endStr = formatWithTinyMonth(end);
+                                    return endStr;
+                                  } catch (e) {
+                                    return console.error(e);
+                                  }
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__wGtJj
+                        )}
+                      >
+                        {(_par =>
+                          !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                          (() => {
+                            try {
+                              return (() => {
+                                function parseISOToUTC(dateStr) {
+                                  let [y, m, d] = dateStr
+                                    .split("-")
+                                    .map(Number);
+                                  return new Date(Date.UTC(y, m - 1, d));
+                                }
+                                function getCycleDays(
+                                  startStr,
+                                  endStr,
+                                  periodLength = 7
+                                ) {
+                                  const start = parseISOToUTC(startStr);
+                                  const end = parseISOToUTC(endStr);
+                                  const days = [];
+                                  let current = new Date(start);
+                                  const formatter = new Intl.DateTimeFormat(
+                                    "fa-IR",
+                                    {
+                                      timeZone: "Asia/Tehran",
+                                      day: "numeric"
+                                    }
+                                  );
+                                  let dayIndex = 0;
+                                  while (current <= end) {
+                                    const label = formatter.format(current);
+                                    const inPeriod = dayIndex < periodLength;
+                                    let mark = "";
+                                    if (dayIndex === 0) mark = "start";
+                                    else if (dayIndex === periodLength - 1)
+                                      mark = "end";
+                                    days.push({
+                                      label,
+                                      status: inPeriod ? "period" : "pms",
+                                      mark
+                                    });
+                                    current.setUTCDate(
+                                      current.getUTCDate() + 1
+                                    );
+                                    dayIndex++;
+                                  }
+                                  return days;
+                                }
+                                const result = getCycleDays(
+                                  cycle.start,
+                                  cycle.pmsEnd,
+                                  7
+                                );
+                                return result;
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                        ).map((__plasmic_item_2, __plasmic_idx_2) => {
+                          const currentItem = __plasmic_item_2;
+                          const currentIndex = __plasmic_idx_2;
+                          return (
+                            <TabWeek2
+                              data-plasmic-name={"tabWeek2"}
+                              data-plasmic-override={overrides.tabWeek2}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.tabWeek2
+                              )}
+                              color={(() => {
+                                try {
+                                  return currentItem.status == "period"
+                                    ? "red"
+                                    : "";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "red";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                              key={currentIndex}
+                              size={"small"}
+                              slot={null}
+                              startend={(() => {
+                                try {
+                                  return currentItem.mark;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "start";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return currentItem.label;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u0647\u0641\u062a\u0647";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </TabWeek2>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           );
@@ -1004,6 +1233,7 @@ const PlasmicDescendants = {
     "ariaSliderTrack",
     "foreground",
     "description",
+    "tabWeek2",
     "section",
     "headerLiom",
     "svg",
@@ -1024,6 +1254,7 @@ const PlasmicDescendants = {
   ariaSliderTrack: ["ariaSliderTrack", "foreground"],
   foreground: ["foreground"],
   description: ["description"],
+  tabWeek2: ["tabWeek2"],
   section: ["section", "headerLiom", "svg"],
   headerLiom: ["headerLiom", "svg"],
   svg: ["svg"],
@@ -1041,6 +1272,7 @@ type NodeDefaultElementType = {
   ariaSliderTrack: typeof BaseSliderTrack;
   foreground: "div";
   description: typeof Description;
+  tabWeek2: typeof TabWeek2;
   section: "section";
   headerLiom: typeof HeaderLiom;
   svg: "svg";
@@ -1058,7 +1290,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicHistory__VariantsArgs;
     args?: PlasmicHistory__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicHistory__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicHistory__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicHistory__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
@@ -1114,6 +1348,7 @@ export const PlasmicHistory = Object.assign(
     ariaSliderTrack: makeNodeComponent("ariaSliderTrack"),
     foreground: makeNodeComponent("foreground"),
     description: makeNodeComponent("description"),
+    tabWeek2: makeNodeComponent("tabWeek2"),
     section: makeNodeComponent("section"),
     headerLiom: makeNodeComponent("headerLiom"),
     svg: makeNodeComponent("svg"),

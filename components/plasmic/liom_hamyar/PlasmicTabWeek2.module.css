@@ -29,6 +29,9 @@
   background: none;
   min-width: 0;
 }
+.freeBoxsize_small__zg8BKyQij9 {
+  display: none;
+}
 .slotTargetSlot {
   text-align: center;
   font-size: 12px;
@@ -119,6 +122,9 @@
 }
 .freeBoxcolor_pms__z7MRqkTqgi {
   background: none;
+}
+.freeBoxsize_small__z7MRqyQij9 {
+  padding: 2px;
 }
 .freeBoxcurrentWeek_selected__z7MRqMNoLjBlp4 {
   border-top-right-radius: 100px;

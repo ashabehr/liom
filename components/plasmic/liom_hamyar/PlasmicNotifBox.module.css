@@ -230,10 +230,10 @@
   height: auto;
   max-width: 30%;
   font-weight: 500;
-  font-size: var(--token-moKolTKrMXup);
   color: var(--token-TpmbTrq5hCAj);
   left: 16px;
   top: 8px;
+  font-size: 13px;
   min-width: 0;
 }
 @media (max-width: 640px) {

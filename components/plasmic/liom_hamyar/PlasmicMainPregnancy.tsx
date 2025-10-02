@@ -80,7 +80,7 @@ import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K
 import sty from "./PlasmicMainPregnancy.module.css"; // plasmic-import: x3lX8YdIXcEA/css
 
 import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: 3QmHdQOUm1zK/icon
-import Icon37Icon from "./icons/PlasmicIcon__Icon37"; // plasmic-import: LIjpTvvD6DcR/icon
+import Icons8NotificationSvgIcon from "./icons/PlasmicIcon__Icons8NotificationSvg"; // plasmic-import: uQSfUo_9mVxb/icon
 
 createPlasmicElementProxy;
 
@@ -688,9 +688,8 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                           typeof $steps["updateMainHeaderDopen"].then ===
                             "function"
                         ) {
-                          $steps["updateMainHeaderDopen"] = await $steps[
-                            "updateMainHeaderDopen"
-                          ];
+                          $steps["updateMainHeaderDopen"] =
+                            await $steps["updateMainHeaderDopen"];
                         }
                       }}
                       role={"img"}
@@ -776,7 +775,7 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                         })()}
                       </React.Fragment>
                     </div>
-                    <Icon37Icon
+                    <Icons8NotificationSvgIcon
                       className={classNames(projectcss.all, sty.svg__eZlFs)}
                       role={"img"}
                     />
@@ -983,9 +982,8 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                     typeof $steps["updateMainPageEditTime"] === "object" &&
                     typeof $steps["updateMainPageEditTime"].then === "function"
                   ) {
-                    $steps["updateMainPageEditTime"] = await $steps[
-                      "updateMainPageEditTime"
-                    ];
+                    $steps["updateMainPageEditTime"] =
+                      await $steps["updateMainPageEditTime"];
                   }
 
                   $steps["updateMainHeaderDopen"] = true
@@ -1019,9 +1017,8 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                     typeof $steps["updateMainHeaderDopen"] === "object" &&
                     typeof $steps["updateMainHeaderDopen"].then === "function"
                   ) {
-                    $steps["updateMainHeaderDopen"] = await $steps[
-                      "updateMainHeaderDopen"
-                    ];
+                    $steps["updateMainHeaderDopen"] =
+                      await $steps["updateMainHeaderDopen"];
                   }
                 }).apply(null, eventArgs);
               }}
@@ -1188,9 +1185,8 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction"] === "object" &&
                 typeof $steps["invokeGlobalAction"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
               }
             }}
           />
@@ -1250,7 +1246,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicMainPregnancy__VariantsArgs;
     args?: PlasmicMainPregnancy__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicMainPregnancy__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicMainPregnancy__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicMainPregnancy__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -88,6 +88,7 @@ import Icon291Icon from "./icons/PlasmicIcon__Icon291"; // plasmic-import: U9F0J
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon283Icon from "./icons/PlasmicIcon__Icon283"; // plasmic-import: d6oFXeX9yzDi/icon
+import Icon313Icon from "./icons/PlasmicIcon__Icon313"; // plasmic-import: 2foIFDF7T4zN/icon
 
 createPlasmicElementProxy;
 
@@ -175,6 +176,7 @@ export type PlasmicReminderSetting__OverridesType = {
   frame29?: Flex__<"div">;
   frame30?: Flex__<"div">;
   lineClomp?: Flex__<typeof LineClomp>;
+  lineClomp3?: Flex__<typeof LineClomp>;
   lineClomp2?: Flex__<typeof LineClomp>;
   editItem?: Flex__<typeof Button>;
   switchSetting?: Flex__<typeof Switchbest>;
@@ -859,6 +861,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
         path: "lineClomp2[][].line",
         type: "private",
         variableType: "boolean"
+      },
+      {
+        path: "lineClomp3[][].line",
+        type: "private",
+        variableType: "boolean"
       }
     ],
     [$props, $ctx, $refs]
@@ -1287,9 +1294,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           typeof $steps["updateDialog3Opendialog"].then ===
                             "function"
                         ) {
-                          $steps["updateDialog3Opendialog"] = await $steps[
-                            "updateDialog3Opendialog"
-                          ];
+                          $steps["updateDialog3Opendialog"] =
+                            await $steps["updateDialog3Opendialog"];
                         }
                       }}
                       selected={(() => {
@@ -1408,9 +1414,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           typeof $steps["updateDateIndex"] === "object" &&
                           typeof $steps["updateDateIndex"].then === "function"
                         ) {
-                          $steps["updateDateIndex"] = await $steps[
-                            "updateDateIndex"
-                          ];
+                          $steps["updateDateIndex"] =
+                            await $steps["updateDateIndex"];
                         }
 
                         $steps["updateDialog2Opendialog"] = true
@@ -1446,9 +1451,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           typeof $steps["updateDialog2Opendialog"].then ===
                             "function"
                         ) {
-                          $steps["updateDialog2Opendialog"] = await $steps[
-                            "updateDialog2Opendialog"
-                          ];
+                          $steps["updateDialog2Opendialog"] =
+                            await $steps["updateDialog2Opendialog"];
                         }
 
                         $steps["updateDateType"] = true
@@ -1482,9 +1486,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           typeof $steps["updateDateType"] === "object" &&
                           typeof $steps["updateDateType"].then === "function"
                         ) {
-                          $steps["updateDateType"] = await $steps[
-                            "updateDateType"
-                          ];
+                          $steps["updateDateType"] =
+                            await $steps["updateDateType"];
                         }
                       }}
                     >
@@ -1659,9 +1662,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     typeof $steps["updateDateIndex"].then ===
                                       "function"
                                   ) {
-                                    $steps["updateDateIndex"] = await $steps[
-                                      "updateDateIndex"
-                                    ];
+                                    $steps["updateDateIndex"] =
+                                      await $steps["updateDateIndex"];
                                   }
 
                                   $steps["updateDateDiologOpendialog"] = true
@@ -1854,9 +1856,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           typeof $steps["updateDateType"] === "object" &&
                           typeof $steps["updateDateType"].then === "function"
                         ) {
-                          $steps["updateDateType"] = await $steps[
-                            "updateDateType"
-                          ];
+                          $steps["updateDateType"] =
+                            await $steps["updateDateType"];
                         }
 
                         $steps["updateDialog2Opendialog"] = true
@@ -1892,9 +1893,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           typeof $steps["updateDialog2Opendialog"].then ===
                             "function"
                         ) {
-                          $steps["updateDialog2Opendialog"] = await $steps[
-                            "updateDialog2Opendialog"
-                          ];
+                          $steps["updateDialog2Opendialog"] =
+                            await $steps["updateDialog2Opendialog"];
                         }
                       }}
                     >
@@ -1978,9 +1978,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       typeof $steps["updateTimeOpendialog"] === "object" &&
                       typeof $steps["updateTimeOpendialog"].then === "function"
                     ) {
-                      $steps["updateTimeOpendialog"] = await $steps[
-                        "updateTimeOpendialog"
-                      ];
+                      $steps["updateTimeOpendialog"] =
+                        await $steps["updateTimeOpendialog"];
                     }
                   }}
                 >
@@ -1999,13 +1998,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                     <React.Fragment>
                       {(() => {
                         try {
-                          return `${String($state.time2[0].minute).padStart(
-                            2,
-                            "0"
-                          )} : ${String($state.time2[0].hour).padStart(
-                            2,
-                            "0"
-                          )}`;
+                          return `${String($state.time2[0].minute).padStart(2, "0")} : ${String($state.time2[0].hour).padStart(2, "0")}`;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -2068,9 +2061,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       typeof $steps["updateTimeIndex"] === "object" &&
                       typeof $steps["updateTimeIndex"].then === "function"
                     ) {
-                      $steps["updateTimeIndex"] = await $steps[
-                        "updateTimeIndex"
-                      ];
+                      $steps["updateTimeIndex"] =
+                        await $steps["updateTimeIndex"];
                     }
 
                     $steps["updateTimeOpendialog"] = true
@@ -2104,9 +2096,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       typeof $steps["updateTimeOpendialog"] === "object" &&
                       typeof $steps["updateTimeOpendialog"].then === "function"
                     ) {
-                      $steps["updateTimeOpendialog"] = await $steps[
-                        "updateTimeOpendialog"
-                      ];
+                      $steps["updateTimeOpendialog"] =
+                        await $steps["updateTimeOpendialog"];
                     }
                   }}
                 >
@@ -2138,13 +2129,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       <React.Fragment>
                         {(() => {
                           try {
-                            return `${String($state.time2[0].minute).padStart(
-                              2,
-                              "0"
-                            )} : ${String($state.time2[0].hour).padStart(
-                              2,
-                              "0"
-                            )}`;
+                            return `${String($state.time2[0].minute).padStart(2, "0")} : ${String($state.time2[0].hour).padStart(2, "0")}`;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -2181,13 +2166,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       <React.Fragment>
                         {(() => {
                           try {
-                            return `${String($state.time2[0].minute).padStart(
-                              2,
-                              "0"
-                            )} : ${String($state.time2[0].hour).padStart(
-                              2,
-                              "0"
-                            )}`;
+                            return `${String($state.time2[0].minute).padStart(2, "0")} : ${String($state.time2[0].hour).padStart(2, "0")}`;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -2285,9 +2264,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                 typeof $steps["updateTimeIndex"].then ===
                                   "function"
                               ) {
-                                $steps["updateTimeIndex"] = await $steps[
-                                  "updateTimeIndex"
-                                ];
+                                $steps["updateTimeIndex"] =
+                                  await $steps["updateTimeIndex"];
                               }
 
                               $steps["updateTimeOpendialog"] = true
@@ -2324,9 +2302,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                 typeof $steps["updateTimeOpendialog"].then ===
                                   "function"
                               ) {
-                                $steps["updateTimeOpendialog"] = await $steps[
-                                  "updateTimeOpendialog"
-                                ];
+                                $steps["updateTimeOpendialog"] =
+                                  await $steps["updateTimeOpendialog"];
                               }
                             }}
                           >
@@ -2340,11 +2317,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               <React.Fragment>
                                 {(() => {
                                   try {
-                                    return `${String(
-                                      currentItem.minute
-                                    ).padStart(2, "0")} : ${String(
-                                      currentItem.hour
-                                    ).padStart(2, "0")}`;
+                                    return `${String(currentItem.minute).padStart(2, "0")} : ${String(currentItem.hour).padStart(2, "0")}`;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -2475,9 +2448,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                     typeof $steps["updateButton5Loading"] === "object" &&
                     typeof $steps["updateButton5Loading"].then === "function"
                   ) {
-                    $steps["updateButton5Loading"] = await $steps[
-                      "updateButton5Loading"
-                    ];
+                    $steps["updateButton5Loading"] =
+                      await $steps["updateButton5Loading"];
                   }
 
                   $steps["insert"] = !$state.select2.id
@@ -2504,13 +2476,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   }
                                   $state.select2.dates = JSON.stringify(dates);
                                   $state.select2.times = JSON.stringify([
-                                    `${String($state.time2.hour).padStart(
-                                      2,
-                                      "0"
-                                    )}:${String($state.time2.minute).padStart(
-                                      2,
-                                      "0"
-                                    )}`
+                                    `${String($state.time2.hour).padStart(2, "0")}:${String($state.time2.minute).padStart(2, "0")}`
                                   ]);
                                   $state.select2.name = $state.input.value;
                                   return $state.select2;
@@ -2571,10 +2537,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   $state.select2.times = JSON.stringify(
                                     $state.time2.map(
                                       t =>
-                                        `${String(t.hour).padStart(
-                                          2,
-                                          "0"
-                                        )}:${String(t.minute).padStart(2, "0")}`
+                                        `${String(t.hour).padStart(2, "0")}:${String(t.minute).padStart(2, "0")}`
                                     )
                                   );
                                   $state.select2.name = $state.input.value;
@@ -2629,9 +2592,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                     typeof $steps["invokeGlobalAction2"] === "object" &&
                     typeof $steps["invokeGlobalAction2"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction2"] = await $steps[
-                      "invokeGlobalAction2"
-                    ];
+                    $steps["invokeGlobalAction2"] =
+                      await $steps["invokeGlobalAction2"];
                   }
 
                   $steps["runCode"] =
@@ -2714,9 +2676,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                     typeof $steps["updateButton5Load2"] === "object" &&
                     typeof $steps["updateButton5Load2"].then === "function"
                   ) {
-                    $steps["updateButton5Load2"] = await $steps[
-                      "updateButton5Load2"
-                    ];
+                    $steps["updateButton5Load2"] =
+                      await $steps["updateButton5Load2"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
@@ -2818,9 +2779,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                     typeof $steps["updateDialogOpendialog"] === "object" &&
                     typeof $steps["updateDialogOpendialog"].then === "function"
                   ) {
-                    $steps["updateDialogOpendialog"] = await $steps[
-                      "updateDialogOpendialog"
-                    ];
+                    $steps["updateDialogOpendialog"] =
+                      await $steps["updateDialogOpendialog"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
@@ -3191,9 +3151,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   typeof $steps["updateDialog2Opendialog"] === "object" &&
                   typeof $steps["updateDialog2Opendialog"].then === "function"
                 ) {
-                  $steps["updateDialog2Opendialog"] = await $steps[
-                    "updateDialog2Opendialog"
-                  ];
+                  $steps["updateDialog2Opendialog"] =
+                    await $steps["updateDialog2Opendialog"];
                 }
               }}
               onColorChange={async (...eventArgs: any) => {
@@ -3421,9 +3380,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   typeof $steps["updateDialog2Opendialog"] === "object" &&
                   typeof $steps["updateDialog2Opendialog"].then === "function"
                 ) {
-                  $steps["updateDialog2Opendialog"] = await $steps[
-                    "updateDialog2Opendialog"
-                  ];
+                  $steps["updateDialog2Opendialog"] =
+                    await $steps["updateDialog2Opendialog"];
                 }
 
                 $steps["updateTimeOpendialog"] = true
@@ -3457,9 +3415,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   typeof $steps["updateTimeOpendialog"] === "object" &&
                   typeof $steps["updateTimeOpendialog"].then === "function"
                 ) {
-                  $steps["updateTimeOpendialog"] = await $steps[
-                    "updateTimeOpendialog"
-                  ];
+                  $steps["updateTimeOpendialog"] =
+                    await $steps["updateTimeOpendialog"];
                 }
               }}
               onColorChange={async (...eventArgs: any) => {
@@ -4463,9 +4420,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       typeof $steps["updateDialogOpendialog"].then ===
                         "function"
                     ) {
-                      $steps["updateDialogOpendialog"] = await $steps[
-                        "updateDialogOpendialog"
-                      ];
+                      $steps["updateDialogOpendialog"] =
+                        await $steps["updateDialogOpendialog"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
@@ -4753,9 +4709,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                         typeof $steps["runCode"].then ===
                                           "function"
                                       ) {
-                                        $steps["runCode"] = await $steps[
-                                          "runCode"
-                                        ];
+                                        $steps["runCode"] =
+                                          await $steps["runCode"];
                                       }
                                     }}
                                   >
@@ -4913,6 +4868,118 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     {(() => {
                                       try {
                                         return (() => {
+                                          let week = JSON.parse(
+                                            currentItem.weekdays
+                                          );
+                                          let dates = JSON.parse(
+                                            currentItem.dates
+                                          );
+                                          return (
+                                            week &&
+                                            week.length > 0 &&
+                                            dates.length == 0
+                                          );
+                                        })();
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return true;
+                                        }
+                                        throw e;
+                                      }
+                                    })() ? (
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.freeBox__rz1Xl
+                                        )}
+                                      >
+                                        <Icon313Icon
+                                          className={classNames(
+                                            projectcss.all,
+                                            sty.svg___51OeD
+                                          )}
+                                          role={"img"}
+                                        />
+
+                                        <LineClomp
+                                          data-plasmic-name={"lineClomp3"}
+                                          data-plasmic-override={
+                                            overrides.lineClomp3
+                                          }
+                                          className={classNames(
+                                            "__wab_instance",
+                                            sty.lineClomp3
+                                          )}
+                                          numberOfLine={1}
+                                          onLineChange={async (
+                                            ...eventArgs: any
+                                          ) => {
+                                            generateStateOnChangeProp($state, [
+                                              "lineClomp3",
+                                              __plasmic_idx_0,
+                                              __plasmic_idx_1,
+                                              "line"
+                                            ]).apply(null, eventArgs);
+
+                                            if (
+                                              eventArgs.length > 1 &&
+                                              eventArgs[1] &&
+                                              eventArgs[1]._plasmic_state_init_
+                                            ) {
+                                              return;
+                                            }
+                                          }}
+                                        >
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text__sRf
+                                            )}
+                                            onClick={async event => {
+                                              const $steps = {};
+
+                                              $steps["runCode"] = true
+                                                ? (() => {
+                                                    const actionArgs = {
+                                                      customFunction:
+                                                        async () => {
+                                                          return undefined;
+                                                        }
+                                                    };
+                                                    return (({
+                                                      customFunction
+                                                    }) => {
+                                                      return customFunction();
+                                                    })?.apply(null, [
+                                                      actionArgs
+                                                    ]);
+                                                  })()
+                                                : undefined;
+                                              if (
+                                                $steps["runCode"] != null &&
+                                                typeof $steps["runCode"] ===
+                                                  "object" &&
+                                                typeof $steps["runCode"]
+                                                  .then === "function"
+                                              ) {
+                                                $steps["runCode"] =
+                                                  await $steps["runCode"];
+                                              }
+                                            }}
+                                          >
+                                            {"\u0647\u0631 \u0631\u0648\u0632"}
+                                          </div>
+                                        </LineClomp>
+                                      </div>
+                                    ) : null}
+                                    {(() => {
+                                      try {
+                                        return (() => {
                                           let dates = JSON.parse(
                                             currentItem.dates
                                           );
@@ -5020,7 +5087,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                       );
                                                       if (
                                                         dates &&
-                                                        dates.length > 1
+                                                        dates.length > 0
                                                       ) {
                                                         function parseISOToUTC(
                                                           dateStr
@@ -5054,9 +5121,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                               parseISOToUTC(d)
                                                             )
                                                         );
-                                                        return ` ${faDates.join(
-                                                          "  ,  "
-                                                        )} `;
+                                                        return ` ${faDates.join("  ,  ")} `;
                                                       } else {
                                                         return "";
                                                       }
@@ -5179,9 +5244,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                         typeof $steps["updateSelect2"].then ===
                                           "function"
                                       ) {
-                                        $steps["updateSelect2"] = await $steps[
-                                          "updateSelect2"
-                                        ];
+                                        $steps["updateSelect2"] =
+                                          await $steps["updateSelect2"];
                                       }
 
                                       $steps["updateDialogOpendialog"] = true
@@ -5411,9 +5475,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                         typeof $steps["runCode"].then ===
                                           "function"
                                       ) {
-                                        $steps["runCode"] = await $steps[
-                                          "runCode"
-                                        ];
+                                        $steps["runCode"] =
+                                          await $steps["runCode"];
                                       }
                                     },
                                     onColorChange: async (
@@ -5617,9 +5680,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           typeof $steps["runCode3"].then ===
                                             "function"
                                         ) {
-                                          $steps["runCode3"] = await $steps[
-                                            "runCode3"
-                                          ];
+                                          $steps["runCode3"] =
+                                            await $steps["runCode3"];
                                         }
 
                                         $steps["runCode"] = !$props.subscription
@@ -5644,9 +5706,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           typeof $steps["runCode"].then ===
                                             "function"
                                         ) {
-                                          $steps["runCode"] = await $steps[
-                                            "runCode"
-                                          ];
+                                          $steps["runCode"] =
+                                            await $steps["runCode"];
                                         }
 
                                         $steps["add"] = false
@@ -5753,9 +5814,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           typeof $steps["remove"].then ===
                                             "function"
                                         ) {
-                                          $steps["remove"] = await $steps[
-                                            "remove"
-                                          ];
+                                          $steps["remove"] =
+                                            await $steps["remove"];
                                         }
 
                                         $steps["runCode2"] =
@@ -5781,9 +5841,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           typeof $steps["runCode2"].then ===
                                             "function"
                                         ) {
-                                          $steps["runCode2"] = await $steps[
-                                            "runCode2"
-                                          ];
+                                          $steps["runCode2"] =
+                                            await $steps["runCode2"];
                                         }
                                       }).apply(null, eventArgs);
                                     }
@@ -5912,9 +5971,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                         typeof $steps["updateSelect2"].then ===
                                           "function"
                                       ) {
-                                        $steps["updateSelect2"] = await $steps[
-                                          "updateSelect2"
-                                        ];
+                                        $steps["updateSelect2"] =
+                                          await $steps["updateSelect2"];
                                       }
 
                                       $steps["updateDialogOpendialog"] = true
@@ -6139,6 +6197,7 @@ const PlasmicDescendants = {
     "frame29",
     "frame30",
     "lineClomp",
+    "lineClomp3",
     "lineClomp2",
     "editItem",
     "switchSetting",
@@ -6198,6 +6257,7 @@ const PlasmicDescendants = {
     "frame29",
     "frame30",
     "lineClomp",
+    "lineClomp3",
     "lineClomp2",
     "editItem",
     "switchSetting",
@@ -6210,6 +6270,7 @@ const PlasmicDescendants = {
     "frame29",
     "frame30",
     "lineClomp",
+    "lineClomp3",
     "lineClomp2",
     "editItem",
     "switchSetting",
@@ -6221,15 +6282,24 @@ const PlasmicDescendants = {
     "frame29",
     "frame30",
     "lineClomp",
+    "lineClomp3",
     "lineClomp2",
     "editItem",
     "switchSetting",
     "button2"
   ],
-  frame28: ["frame28", "frame29", "frame30", "lineClomp", "lineClomp2"],
-  frame29: ["frame29", "frame30", "lineClomp", "lineClomp2"],
-  frame30: ["frame30", "lineClomp", "lineClomp2"],
+  frame28: [
+    "frame28",
+    "frame29",
+    "frame30",
+    "lineClomp",
+    "lineClomp3",
+    "lineClomp2"
+  ],
+  frame29: ["frame29", "frame30", "lineClomp", "lineClomp3", "lineClomp2"],
+  frame30: ["frame30", "lineClomp", "lineClomp3", "lineClomp2"],
   lineClomp: ["lineClomp"],
+  lineClomp3: ["lineClomp3"],
   lineClomp2: ["lineClomp2"],
   editItem: ["editItem"],
   switchSetting: ["switchSetting"],
@@ -6273,6 +6343,7 @@ type NodeDefaultElementType = {
   frame29: "div";
   frame30: "div";
   lineClomp: typeof LineClomp;
+  lineClomp3: typeof LineClomp;
   lineClomp2: typeof LineClomp;
   editItem: typeof Button;
   switchSetting: typeof Switchbest;
@@ -6290,7 +6361,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicReminderSetting__VariantsArgs;
     args?: PlasmicReminderSetting__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicReminderSetting__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicReminderSetting__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicReminderSetting__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
@@ -6372,6 +6445,7 @@ export const PlasmicReminderSetting = Object.assign(
     frame29: makeNodeComponent("frame29"),
     frame30: makeNodeComponent("frame30"),
     lineClomp: makeNodeComponent("lineClomp"),
+    lineClomp3: makeNodeComponent("lineClomp3"),
     lineClomp2: makeNodeComponent("lineClomp2"),
     editItem: makeNodeComponent("editItem"),
     switchSetting: makeNodeComponent("switchSetting"),

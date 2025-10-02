@@ -86,6 +86,7 @@ import sty from "./PlasmicMain.module.css"; // plasmic-import: j_hR0f0gqi6e/css
 
 import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: 3QmHdQOUm1zK/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon312Icon from "./icons/PlasmicIcon__Icon312"; // plasmic-import: aEjpSnTnJP7A/icon
 
 createPlasmicElementProxy;
 
@@ -1366,9 +1367,8 @@ function PlasmicMain__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
 
                         $steps["updateNotif"] = true
@@ -1542,9 +1542,8 @@ function PlasmicMain__RenderFunc(props: {
                         typeof $steps["updateMainHeaderDopen"].then ===
                           "function"
                       ) {
-                        $steps["updateMainHeaderDopen"] = await $steps[
-                          "updateMainHeaderDopen"
-                        ];
+                        $steps["updateMainHeaderDopen"] =
+                          await $steps["updateMainHeaderDopen"];
                       }
                     }}
                     role={"img"}
@@ -1769,9 +1768,8 @@ function PlasmicMain__RenderFunc(props: {
                     typeof $steps["updateMainPageEditTime"] === "object" &&
                     typeof $steps["updateMainPageEditTime"].then === "function"
                   ) {
-                    $steps["updateMainPageEditTime"] = await $steps[
-                      "updateMainPageEditTime"
-                    ];
+                    $steps["updateMainPageEditTime"] =
+                      await $steps["updateMainPageEditTime"];
                   }
 
                   $steps["updateMainHeaderDopen"] = true
@@ -1805,9 +1803,8 @@ function PlasmicMain__RenderFunc(props: {
                     typeof $steps["updateMainHeaderDopen"] === "object" &&
                     typeof $steps["updateMainHeaderDopen"].then === "function"
                   ) {
-                    $steps["updateMainHeaderDopen"] = await $steps[
-                      "updateMainHeaderDopen"
-                    ];
+                    $steps["updateMainHeaderDopen"] =
+                      await $steps["updateMainHeaderDopen"];
                   }
                 }).apply(null, eventArgs);
               }}
@@ -1962,9 +1959,8 @@ function PlasmicMain__RenderFunc(props: {
                     typeof $steps["updateMainPageEditTime"] === "object" &&
                     typeof $steps["updateMainPageEditTime"].then === "function"
                   ) {
-                    $steps["updateMainPageEditTime"] = await $steps[
-                      "updateMainPageEditTime"
-                    ];
+                    $steps["updateMainPageEditTime"] =
+                      await $steps["updateMainPageEditTime"];
                   }
 
                   $steps["updateMainHeaderDopen"] = true
@@ -1998,9 +1994,8 @@ function PlasmicMain__RenderFunc(props: {
                     typeof $steps["updateMainHeaderDopen"] === "object" &&
                     typeof $steps["updateMainHeaderDopen"].then === "function"
                   ) {
-                    $steps["updateMainHeaderDopen"] = await $steps[
-                      "updateMainHeaderDopen"
-                    ];
+                    $steps["updateMainHeaderDopen"] =
+                      await $steps["updateMainHeaderDopen"];
                   }
                 }).apply(null, eventArgs);
               }}
@@ -2274,9 +2269,8 @@ function PlasmicMain__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction"] === "object" &&
                 typeof $steps["invokeGlobalAction"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
               }
             }}
           />
@@ -2458,9 +2452,8 @@ function PlasmicMain__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction"] === "object" &&
                 typeof $steps["invokeGlobalAction"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
               }
             }}
           />
@@ -2556,7 +2549,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicMain__VariantsArgs;
     args?: PlasmicMain__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicMain__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicMain__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicMain__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

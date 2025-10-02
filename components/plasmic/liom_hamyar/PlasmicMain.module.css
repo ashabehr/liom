@@ -347,13 +347,10 @@
   margin-top: var(--token-F1vFjKNmAS8s);
   display: none;
 }
-.text___0Qsau {
-  position: relative;
-  width: 100%;
-  height: auto;
+.svg___7Xq6D {
+  object-fit: cover;
   max-width: 100%;
-  font-size: var(--token-OuIr9F3wieyv);
-  min-width: 0;
+  height: 1em;
 }
 .text__kpuaR {
   position: relative;

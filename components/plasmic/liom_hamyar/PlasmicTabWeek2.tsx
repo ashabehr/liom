@@ -77,6 +77,7 @@ export type PlasmicTabWeek2__VariantMembers = {
   haveData: "haveData";
   color: "_null" | "red" | "yellow" | "pms";
   startend: "start" | "end";
+  size: "small";
 };
 export type PlasmicTabWeek2__VariantsArgs = {
   selected?: SingleBooleanChoiceArg<"selected">;
@@ -86,6 +87,7 @@ export type PlasmicTabWeek2__VariantsArgs = {
   haveData?: SingleBooleanChoiceArg<"haveData">;
   color?: SingleChoiceArg<"_null" | "red" | "yellow" | "pms">;
   startend?: SingleChoiceArg<"start" | "end">;
+  size?: SingleChoiceArg<"small">;
 };
 type VariantPropType = keyof PlasmicTabWeek2__VariantsArgs;
 export const PlasmicTabWeek2__VariantProps = new Array<VariantPropType>(
@@ -95,7 +97,8 @@ export const PlasmicTabWeek2__VariantProps = new Array<VariantPropType>(
   "currentWeek",
   "haveData",
   "color",
-  "startend"
+  "startend",
+  "size"
 );
 
 export type PlasmicTabWeek2__ArgsType = {
@@ -128,6 +131,7 @@ export interface DefaultTabWeek2Props {
   haveData?: SingleBooleanChoiceArg<"haveData">;
   color?: SingleChoiceArg<"_null" | "red" | "yellow" | "pms">;
   startend?: SingleChoiceArg<"start" | "end">;
+  size?: SingleChoiceArg<"small">;
   className?: string;
 }
 
@@ -217,6 +221,12 @@ function PlasmicTabWeek2__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.startend
+      },
+      {
+        path: "size",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.size
       }
     ],
     [$props, $ctx, $refs]
@@ -262,7 +272,8 @@ function PlasmicTabWeek2__RenderFunc(props: {
           ),
           [sty.rootdark]: hasVariant($state, "dark", "dark"),
           [sty.roothaveData]: hasVariant($state, "haveData", "haveData"),
-          [sty.rootselected]: hasVariant($state, "selected", "selected")
+          [sty.rootselected]: hasVariant($state, "selected", "selected"),
+          [sty.rootsize_small]: hasVariant($state, "size", "small")
         }
       )}
     >
@@ -272,6 +283,11 @@ function PlasmicTabWeek2__RenderFunc(props: {
             $state,
             "color",
             "yellow"
+          ),
+          [sty.freeBoxsize_small__zg8BKyQij9]: hasVariant(
+            $state,
+            "size",
+            "small"
           )
         })}
       >
@@ -286,6 +302,7 @@ function PlasmicTabWeek2__RenderFunc(props: {
               "color",
               "yellow"
             ),
+            [sty.slotTargetSlotsize_small]: hasVariant($state, "size", "small"),
             [sty.slotTargetSlotstartend_start]: hasVariant(
               $state,
               "startend",
@@ -356,6 +373,11 @@ function PlasmicTabWeek2__RenderFunc(props: {
           [sty.freeBoxselected_dark__cxVucBlp4WBfVe]:
             hasVariant($state, "selected", "selected") &&
             hasVariant($state, "dark", "dark"),
+          [sty.freeBoxsize_small__cxVucyQij9]: hasVariant(
+            $state,
+            "size",
+            "small"
+          ),
           [sty.freeBoxstartend_end__cxVuc8Tetb]: hasVariant(
             $state,
             "startend",
@@ -418,6 +440,11 @@ function PlasmicTabWeek2__RenderFunc(props: {
             [sty.freeBoxselected_color_pms__z7MRqBlp4KTqgi]:
               hasVariant($state, "selected", "selected") &&
               hasVariant($state, "color", "pms"),
+            [sty.freeBoxsize_small__z7MRqyQij9]: hasVariant(
+              $state,
+              "size",
+              "small"
+            ),
             [sty.freeBoxstartend_end__z7MRq8Tetb]: hasVariant(
               $state,
               "startend",
@@ -497,6 +524,11 @@ function PlasmicTabWeek2__RenderFunc(props: {
                 $state,
                 "selected",
                 "selected"
+              ),
+              [sty.freeBoxsize_small__xlwI1YQij9]: hasVariant(
+                $state,
+                "size",
+                "small"
               )
             })}
           >
@@ -539,6 +571,11 @@ function PlasmicTabWeek2__RenderFunc(props: {
                   $state,
                   "selected",
                   "selected"
+                ),
+                [sty.slotTargetChildrensize_small]: hasVariant(
+                  $state,
+                  "size",
+                  "small"
                 ),
                 [sty.slotTargetChildrenstartend_start]: hasVariant(
                   $state,
@@ -602,7 +639,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicTabWeek2__VariantsArgs;
     args?: PlasmicTabWeek2__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicTabWeek2__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicTabWeek2__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicTabWeek2__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -169,10 +169,11 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  background: var(--token-qvl81LxkOSoe);
+  background: none;
   column-gap: 8px;
-  border-radius: 16px;
+  border-radius: 100px;
   padding: 8px;
+  border: 1px solid var(--token-SX03PBUzWAqr);
 }
 .text__g7Glx {
   position: relative;
@@ -181,11 +182,12 @@
   max-width: 100%;
   color: var(--token-R_Rsn0nP9oIv);
   min-width: 0;
+  display: none;
 }
 .svg__eZlFs {
   object-fit: cover;
   max-width: 100%;
-  color: var(--token-R_Rsn0nP9oIv);
+  color: var(--token-qvl81LxkOSoe);
   width: 20px;
   height: 20px;
   flex-shrink: 0;
