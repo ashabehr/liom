@@ -19589,7 +19589,13 @@ function PlasmicHamyar__RenderFunc(props: {
                   })}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__iHtHu)}
+                    className={classNames(projectcss.all, sty.freeBox__iHtHu, {
+                      [sty.freeBoxnoPartner__iHtHuc7PeD]: hasVariant(
+                        $state,
+                        "noPartner",
+                        "noPartner"
+                      )
+                    })}
                   >
                     <div
                       className={classNames(
