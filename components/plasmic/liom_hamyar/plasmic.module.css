@@ -303,7 +303,7 @@
   --plasmic-token-primary: var(--token-SX03PBUzWAqr);
   --token-RfhqiwT2YAVo: #d1e5ff;
   --plasmic-token-serface: var(--token-RfhqiwT2YAVo);
-  --token-AupbASVTnAsv: #fafcff;
+  --token-AupbASVTnAsv: #eef2fa;
   --plasmic-token-bg-liom: var(--token-AupbASVTnAsv);
   --token-qvl81LxkOSoe: var(--token-0xHMxyAHbOos);
   --plasmic-token-basic-border: var(--token-qvl81LxkOSoe);
@@ -353,14 +353,14 @@
 
 .plasmic_default_styles,
 .plasmic_default_styles:where(
-    .global_unnamedGlobalGroupOfVariants4_unnamedVariant
-  ),
+  .global_unnamedGlobalGroupOfVariants4_unnamedVariant
+),
 .plasmic_default_styles:where(
-    .global_unnamedGlobalGroupOfVariants5_unnamedVariant
-  ),
+  .global_unnamedGlobalGroupOfVariants5_unnamedVariant
+),
 .plasmic_default_styles:where(
-    .global_unnamedGlobalGroupOfVariants6_unnamedVariant
-  ),
+  .global_unnamedGlobalGroupOfVariants6_unnamedVariant
+),
 .plasmic_default_styles:where(.global_newView_newView) {
   --mixin-WzkLzR3lM3YC_font-family: "Roboto", sans-serif;
   --mixin-WzkLzR3lM3YC_font-size: 14px;

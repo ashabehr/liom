@@ -1474,9 +1474,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                           searchParams.delete("userId");
                           searchParams.delete("user_id");
                           searchParams.delete("origin_user_id");
-                          const newUrl = `${
-                            window.location.pathname
-                          }?${searchParams.toString()}`;
+                          const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                           return window.history.replaceState(null, "", newUrl);
                         })();
                       }
@@ -1673,10 +1671,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                     if (
                                       /Mac OS X (\d+[\._]\d+)/.test(userAgent)
                                     )
-                                      return `macOS ${RegExp.$1.replace(
-                                        "_",
-                                        "."
-                                      )}`;
+                                      return `macOS ${RegExp.$1.replace("_", ".")}`;
                                     if (/Android (\d+(\.\d+)?)/.test(userAgent))
                                       return `Android ${RegExp.$1}`;
                                     if (
@@ -1684,10 +1679,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                         userAgent
                                       )
                                     )
-                                      return `iOS ${RegExp.$2.replace(
-                                        "_",
-                                        "."
-                                      )}`;
+                                      return `iOS ${RegExp.$2.replace("_", ".")}`;
                                     return "Unknown Version";
                                   })(),
                                   sex: $state.gender || "",
@@ -1745,7 +1737,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
               }
 
               $steps["setCookie2"] =
-                $steps.userGuest?.data?.success ?? false
+                ($steps.userGuest?.data?.success ?? false)
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
@@ -3031,9 +3023,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
                         }}
                       >
@@ -8028,9 +8019,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
                         }}
                       >
@@ -8251,9 +8241,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
                         }}
                       >
@@ -8946,9 +8935,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                               typeof $steps["updateCollapseAdviceOpen"].then ===
                                 "function"
                             ) {
-                              $steps["updateCollapseAdviceOpen"] = await $steps[
-                                "updateCollapseAdviceOpen"
-                              ];
+                              $steps["updateCollapseAdviceOpen"] =
+                                await $steps["updateCollapseAdviceOpen"];
                             }
                           }}
                         >
@@ -10007,9 +9995,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                           typeof $steps["updateTypeBuy"] === "object" &&
                           typeof $steps["updateTypeBuy"].then === "function"
                         ) {
-                          $steps["updateTypeBuy"] = await $steps[
-                            "updateTypeBuy"
-                          ];
+                          $steps["updateTypeBuy"] =
+                            await $steps["updateTypeBuy"];
                         }
 
                         $steps["updateDirectDialog2Open"] = (() => {
@@ -10081,9 +10068,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                           typeof $steps["updateDirectDialog2Open"].then ===
                             "function"
                         ) {
-                          $steps["updateDirectDialog2Open"] = await $steps[
-                            "updateDirectDialog2Open"
-                          ];
+                          $steps["updateDirectDialog2Open"] =
+                            await $steps["updateDirectDialog2Open"];
                         }
                       }}
                       onClickBtn2={async event => {
@@ -10413,8 +10399,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                                           behavior: "smooth",
                                                           block: "start"
                                                         });
-                                                      $state.collapseDanger.open =
-                                                        true;
+                                                      $state.collapseDanger.open = true;
                                                       window.FlutterChannel.postMessage(
                                                         "#healthSubscription"
                                                       );
@@ -10423,11 +10408,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                                   break;
                                                 case "adhd":
                                                   {
-                                                    var link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
-                                                      window.location.href
-                                                    )}&inApp=${
-                                                      $ctx.query.inApp
-                                                    }&userId=${$state.userId}`;
+                                                    var link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(window.location.href)}&inApp=${$ctx.query.inApp}&userId=${$state.userId}`;
                                                     window.FlutterChannel.postMessage(
                                                       "#inAppWebView**@@**" +
                                                         "تست ADHD" +
@@ -10568,8 +10549,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                                   else {
                                                     $state.typeBuy =
                                                       "pregnancySub";
-                                                    $state.directDialog2.open =
-                                                      true;
+                                                    $state.directDialog2.open = true;
                                                   }
                                                   break;
                                                 case "statusToday":
@@ -10592,8 +10572,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                                   else {
                                                     $state.typeBuy =
                                                       "pregnancySub";
-                                                    $state.directDialog2.open =
-                                                      true;
+                                                    $state.directDialog2.open = true;
                                                   }
                                                   break;
                                                 case "danger":
@@ -10605,21 +10584,15 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                                       behavior: "smooth",
                                                       block: "start"
                                                     });
-                                                  $state.collapseDanger.open =
-                                                    true;
+                                                  $state.collapseDanger.open = true;
                                                   if (!active) {
                                                     $state.typeBuy =
                                                       "pregnancySub";
-                                                    $state.directDialog2.open =
-                                                      true;
+                                                    $state.directDialog2.open = true;
                                                   }
                                                   break;
                                                 case "adhd":
-                                                  `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
-                                                    window.location.href
-                                                  )}&inApp=${
-                                                    $ctx.query.inApp
-                                                  }&userId=${$state.userId}`;
+                                                  `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(window.location.href)}&inApp=${$ctx.query.inApp}&userId=${$state.userId}`;
                                                   break;
                                               }
                                             })();
@@ -11077,9 +11050,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                     typeof $steps["deepLink"].then ===
                                       "function"
                                   ) {
-                                    $steps["deepLink"] = await $steps[
-                                      "deepLink"
-                                    ];
+                                    $steps["deepLink"] =
+                                      await $steps["deepLink"];
                                   }
 
                                   $steps["runCode"] = true
@@ -11108,8 +11080,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                                 ) {
                                                   $state.typeBuy =
                                                     "pregnancySub";
-                                                  return ($state.directDialog2.open =
-                                                    true);
+                                                  return ($state.directDialog2.open = true);
                                                 } else {
                                                   return window.FlutterChannel.postMessage(
                                                     "#healthSubscription"
@@ -11148,8 +11119,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                                     behavior: "smooth",
                                                     block: "start"
                                                   });
-                                                return ($state.collapseDanger.open =
-                                                  true);
+                                                return ($state.collapseDanger.open = true);
                                               }
                                             })();
                                           }
@@ -11165,9 +11135,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                     typeof $steps["runCode2"].then ===
                                       "function"
                                   ) {
-                                    $steps["runCode2"] = await $steps[
-                                      "runCode2"
-                                    ];
+                                    $steps["runCode2"] =
+                                      await $steps["runCode2"];
                                   }
 
                                   $steps["log"] = true
@@ -11561,8 +11530,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                                 else {
                                                   $state.typeBuy =
                                                     "skin_care_sub";
-                                                  $state.directDialog2.open =
-                                                    true;
+                                                  $state.directDialog2.open = true;
                                                 }
                                                 break;
                                               case "stretch_marks":
@@ -11579,8 +11547,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                                 else {
                                                   $state.typeBuy =
                                                     "stretch_marks_sub";
-                                                  $state.directDialog2.open =
-                                                    true;
+                                                  $state.directDialog2.open = true;
                                                 }
                                                 break;
                                               case "danger":
@@ -11592,24 +11559,15 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                                     behavior: "smooth",
                                                     block: "start"
                                                   });
-                                                $state.collapseDanger.open =
-                                                  true;
+                                                $state.collapseDanger.open = true;
                                                 if (!active) {
                                                   $state.typeBuy =
                                                     "pregnancy_danger_sub";
-                                                  $state.directDialog2.open =
-                                                    true;
+                                                  $state.directDialog2.open = true;
                                                 }
                                                 break;
                                               case "adhd":
-                                                `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
-                                                  window.location.href
-                                                )}&inApp=${
-                                                  $ctx.query.inApp
-                                                }&userId=${$ctx.query.userId.slice(
-                                                  4,
-                                                  $ctx.query.userId.length - 4
-                                                )}`;
+                                                `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(window.location.href)}&inApp=${$ctx.query.inApp}&userId=${$ctx.query.userId.slice(4, $ctx.query.userId.length - 4)}`;
                                                 break;
                                             }
                                           })();
@@ -12513,8 +12471,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                   !_par
                                     ? []
                                     : Array.isArray(_par)
-                                    ? _par
-                                    : [_par])(
+                                      ? _par
+                                      : [_par])(
                                   (() => {
                                     try {
                                       return $state.getAdvice2.length > 0
@@ -12689,8 +12647,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                                                       "start"
                                                                   }
                                                                 );
-                                                              $state.collapseDanger.open =
-                                                                true;
+                                                              $state.collapseDanger.open = true;
                                                               window.FlutterChannel.postMessage(
                                                                 "#healthSubscription"
                                                               );
@@ -12699,14 +12656,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                                           break;
                                                         case "adhd":
                                                           {
-                                                            var link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
-                                                              window.location
-                                                                .href
-                                                            )}&inApp=${
-                                                              $ctx.query.inApp
-                                                            }&userId=${
-                                                              $state.userId
-                                                            }`;
+                                                            var link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(window.location.href)}&inApp=${$ctx.query.inApp}&userId=${$state.userId}`;
                                                             window.FlutterChannel.postMessage(
                                                               "#inAppWebView**@@**" +
                                                                 "تست ADHD" +
@@ -12759,9 +12709,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                           typeof $steps["runCode"].then ===
                                             "function"
                                         ) {
-                                          $steps["runCode"] = await $steps[
-                                            "runCode"
-                                          ];
+                                          $steps["runCode"] =
+                                            await $steps["runCode"];
                                         }
 
                                         $steps["runCode2"] =
@@ -12867,8 +12816,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                                           else {
                                                             $state.typeBuy =
                                                               "pregnancySub";
-                                                            $state.directDialog2.open =
-                                                              true;
+                                                            $state.directDialog2.open = true;
                                                           }
                                                           break;
                                                         case "statusToday":
@@ -12892,8 +12840,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                                           else {
                                                             $state.typeBuy =
                                                               "pregnancySub";
-                                                            $state.directDialog2.open =
-                                                              true;
+                                                            $state.directDialog2.open = true;
                                                           }
                                                           break;
                                                         case "danger":
@@ -12906,23 +12853,15 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                                                 "smooth",
                                                               block: "start"
                                                             });
-                                                          $state.collapseDanger.open =
-                                                            true;
+                                                          $state.collapseDanger.open = true;
                                                           if (!active) {
                                                             $state.typeBuy =
                                                               "pregnancySub";
-                                                            $state.directDialog2.open =
-                                                              true;
+                                                            $state.directDialog2.open = true;
                                                           }
                                                           break;
                                                         case "adhd":
-                                                          `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
-                                                            window.location.href
-                                                          )}&inApp=${
-                                                            $ctx.query.inApp
-                                                          }&userId=${
-                                                            $state.userId
-                                                          }`;
+                                                          `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(window.location.href)}&inApp=${$ctx.query.inApp}&userId=${$state.userId}`;
                                                           break;
                                                       }
                                                     })();
@@ -12942,9 +12881,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                           typeof $steps["runCode2"].then ===
                                             "function"
                                         ) {
-                                          $steps["runCode2"] = await $steps[
-                                            "runCode2"
-                                          ];
+                                          $steps["runCode2"] =
+                                            await $steps["runCode2"];
                                         }
 
                                         $steps["toast"] =
@@ -12971,9 +12909,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                           typeof $steps["toast"].then ===
                                             "function"
                                         ) {
-                                          $steps["toast"] = await $steps[
-                                            "toast"
-                                          ];
+                                          $steps["toast"] =
+                                            await $steps["toast"];
                                         }
 
                                         $steps["log"] = true
@@ -13199,8 +13136,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                                           return (() => {
                                                             $state.typeBuy =
                                                               "special_advice";
-                                                            return ($state.directDialog2.open =
-                                                              true);
+                                                            return ($state.directDialog2.open = true);
                                                           })();
                                                         }
                                                     };
@@ -13220,9 +13156,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                               typeof $steps["runCode"].then ===
                                                 "function"
                                             ) {
-                                              $steps["runCode"] = await $steps[
-                                                "runCode"
-                                              ];
+                                              $steps["runCode"] =
+                                                await $steps["runCode"];
                                             }
                                           }}
                                         >
@@ -13527,9 +13462,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                               typeof $steps["runCode"].then ===
                                                 "function"
                                             ) {
-                                              $steps["runCode"] = await $steps[
-                                                "runCode"
-                                              ];
+                                              $steps["runCode"] =
+                                                await $steps["runCode"];
                                             }
                                           }}
                                         >
@@ -13759,14 +13693,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                             break;
                                           case "adhd":
                                             {
-                                              var link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
-                                                window.location.href
-                                              )}&inApp=${
-                                                $ctx.query.inApp
-                                              }&userId=${$ctx.query.userId.slice(
-                                                4,
-                                                $ctx.query.userId.length - 4
-                                              )}`;
+                                              var link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(window.location.href)}&inApp=${$ctx.query.inApp}&userId=${$ctx.query.userId.slice(4, $ctx.query.userId.length - 4)}`;
                                               window.FlutterChannel.postMessage(
                                                 "#inAppWebView**@@**" +
                                                   "تست ADHD" +
@@ -13897,14 +13824,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                             }
                                             break;
                                           case "adhd":
-                                            `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
-                                              window.location.href
-                                            )}&inApp=${
-                                              $ctx.query.inApp
-                                            }&userId=${$ctx.query.userId.slice(
-                                              4,
-                                              $ctx.query.userId.length - 4
-                                            )}`;
+                                            `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(window.location.href)}&inApp=${$ctx.query.inApp}&userId=${$ctx.query.userId.slice(4, $ctx.query.userId.length - 4)}`;
                                             break;
                                         }
                                       })();
@@ -14237,9 +14157,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                           typeof $steps["updateDirectDialog2Open"].then ===
                             "function"
                         ) {
-                          $steps["updateDirectDialog2Open"] = await $steps[
-                            "updateDirectDialog2Open"
-                          ];
+                          $steps["updateDirectDialog2Open"] =
+                            await $steps["updateDirectDialog2Open"];
                         }
 
                         $steps["runCode"] = (() => {
@@ -14336,9 +14255,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
                       }}
                     >
@@ -14586,9 +14504,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                   typeof $steps["updateSelectedWeek"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateSelectedWeek"] = await $steps[
-                                    "updateSelectedWeek"
-                                  ];
+                                  $steps["updateSelectedWeek"] =
+                                    await $steps["updateSelectedWeek"];
                                 }
 
                                 $steps["runCode3"] = true
@@ -14896,9 +14813,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
 
                           $steps["runCode"] =
@@ -15539,9 +15455,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                               typeof $steps["invokeGlobalAction"].then ===
                                 "function"
                             ) {
-                              $steps["invokeGlobalAction"] = await $steps[
-                                "invokeGlobalAction"
-                              ];
+                              $steps["invokeGlobalAction"] =
+                                await $steps["invokeGlobalAction"];
                             }
                           }}
                         >
@@ -15796,14 +15711,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                             token.length - 3
                                           );
                                         }
-                                        return `https://tools.liom.app/self-test/?token=${token}&app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
-                                          window.location.href
-                                        )}&inApp=${
-                                          $ctx.query.inApp
-                                        }&userId=${$ctx.query.userId.slice(
-                                          4,
-                                          $ctx.query.userId.length - 4
-                                        )}`;
+                                        return `https://tools.liom.app/self-test/?token=${token}&app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(window.location.href)}&inApp=${$ctx.query.inApp}&userId=${$ctx.query.userId.slice(4, $ctx.query.userId.length - 4)}`;
                                       })();
                                     } catch (e) {
                                       if (
@@ -15845,14 +15753,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                 const actionArgs = {
                                   customFunction: async () => {
                                     return (() => {
-                                      var link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
-                                        window.location.href
-                                      )}&inApp=${
-                                        $ctx.query.inApp
-                                      }&userId=${$ctx.query.userId.slice(
-                                        4,
-                                        $ctx.query.userId.length - 4
-                                      )}`;
+                                      var link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(window.location.href)}&inApp=${$ctx.query.inApp}&userId=${$ctx.query.userId.slice(4, $ctx.query.userId.length - 4)}`;
                                       return window.FlutterChannel.postMessage(
                                         "#inAppWebView**@@**" +
                                           "تست ADHD" +
@@ -15937,9 +15838,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
                       }}
                     >
@@ -16315,9 +16215,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
                       }}
                     >
@@ -20268,9 +20167,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
                       }}
                     >
@@ -20548,9 +20446,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                   typeof $steps["invokeGlobalAction"].then ===
                                     "function"
                                 ) {
-                                  $steps["invokeGlobalAction"] = await $steps[
-                                    "invokeGlobalAction"
-                                  ];
+                                  $steps["invokeGlobalAction"] =
+                                    await $steps["invokeGlobalAction"];
                                 }
                               }).apply(null, eventArgs);
                             },
@@ -20621,8 +20518,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                       !_par
                                         ? []
                                         : Array.isArray(_par)
-                                        ? _par
-                                        : [_par])(
+                                          ? _par
+                                          : [_par])(
                                       (() => {
                                         try {
                                           return $state?.getDangerItem?.length >
@@ -22129,9 +22026,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                   typeof $steps["updateTypeBuy"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateTypeBuy"] = await $steps[
-                                    "updateTypeBuy"
-                                  ];
+                                  $steps["updateTypeBuy"] =
+                                    await $steps["updateTypeBuy"];
                                 }
 
                                 $steps["updateDirectDialog2Open"] = (() => {
@@ -22283,9 +22179,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                   typeof $steps["invokeGlobalAction"].then ===
                                     "function"
                                 ) {
-                                  $steps["invokeGlobalAction"] = await $steps[
-                                    "invokeGlobalAction"
-                                  ];
+                                  $steps["invokeGlobalAction"] =
+                                    await $steps["invokeGlobalAction"];
                                 }
 
                                 $steps["invokeGlobalAction2"] = (() => {
@@ -22367,9 +22262,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                   typeof $steps["invokeGlobalAction2"].then ===
                                     "function"
                                 ) {
-                                  $steps["invokeGlobalAction2"] = await $steps[
-                                    "invokeGlobalAction2"
-                                  ];
+                                  $steps["invokeGlobalAction2"] =
+                                    await $steps["invokeGlobalAction2"];
                                 }
                               }).apply(null, eventArgs);
                             },
@@ -23289,9 +23183,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                       typeof $steps["updateTypeBuy"].then ===
                                         "function"
                                     ) {
-                                      $steps["updateTypeBuy"] = await $steps[
-                                        "updateTypeBuy"
-                                      ];
+                                      $steps["updateTypeBuy"] =
+                                        await $steps["updateTypeBuy"];
                                     }
 
                                     $steps["runCode"] =
@@ -23315,9 +23208,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                       typeof $steps["runCode"].then ===
                                         "function"
                                     ) {
-                                      $steps["runCode"] = await $steps[
-                                        "runCode"
-                                      ];
+                                      $steps["runCode"] =
+                                        await $steps["runCode"];
                                     }
 
                                     $steps["updateDirectDialog2Open"] =
@@ -23712,9 +23604,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                   typeof $steps["updateTypeBuy"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateTypeBuy"] = await $steps[
-                                    "updateTypeBuy"
-                                  ];
+                                  $steps["updateTypeBuy"] =
+                                    await $steps["updateTypeBuy"];
                                 }
 
                                 $steps["updateDirectDialog2Open"] = (() => {
@@ -23863,9 +23754,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                   typeof $steps["invokeGlobalAction"].then ===
                                     "function"
                                 ) {
-                                  $steps["invokeGlobalAction"] = await $steps[
-                                    "invokeGlobalAction"
-                                  ];
+                                  $steps["invokeGlobalAction"] =
+                                    await $steps["invokeGlobalAction"];
                                 }
 
                                 $steps["invokeGlobalAction2"] = (() => {
@@ -23943,9 +23833,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                   typeof $steps["invokeGlobalAction2"].then ===
                                     "function"
                                 ) {
-                                  $steps["invokeGlobalAction2"] = await $steps[
-                                    "invokeGlobalAction2"
-                                  ];
+                                  $steps["invokeGlobalAction2"] =
+                                    await $steps["invokeGlobalAction2"];
                                 }
                               }).apply(null, eventArgs);
                             },
@@ -24782,9 +24671,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                       typeof $steps["updateTypeBuy"].then ===
                                         "function"
                                     ) {
-                                      $steps["updateTypeBuy"] = await $steps[
-                                        "updateTypeBuy"
-                                      ];
+                                      $steps["updateTypeBuy"] =
+                                        await $steps["updateTypeBuy"];
                                     }
 
                                     $steps["runCode"] =
@@ -24808,9 +24696,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                       typeof $steps["runCode"].then ===
                                         "function"
                                     ) {
-                                      $steps["runCode"] = await $steps[
-                                        "runCode"
-                                      ];
+                                      $steps["runCode"] =
+                                        await $steps["runCode"];
                                     }
 
                                     $steps["updateDirectDialog2Open"] =
@@ -25193,9 +25080,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                 typeof $steps["invokeGlobalAction"].then ===
                                   "function"
                               ) {
-                                $steps["invokeGlobalAction"] = await $steps[
-                                  "invokeGlobalAction"
-                                ];
+                                $steps["invokeGlobalAction"] =
+                                  await $steps["invokeGlobalAction"];
                               }
                             }).apply(null, eventArgs);
                           },
@@ -26160,9 +26046,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                 typeof $steps["invokeGlobalAction"].then ===
                                   "function"
                               ) {
-                                $steps["invokeGlobalAction"] = await $steps[
-                                  "invokeGlobalAction"
-                                ];
+                                $steps["invokeGlobalAction"] =
+                                  await $steps["invokeGlobalAction"];
                               }
                             }).apply(null, eventArgs);
                           },
@@ -27042,9 +26927,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                           typeof $steps["runCode"].then ===
                                             "function"
                                         ) {
-                                          $steps["runCode"] = await $steps[
-                                            "runCode"
-                                          ];
+                                          $steps["runCode"] =
+                                            await $steps["runCode"];
                                         }
                                       }}
                                     >
@@ -27486,9 +27370,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                 typeof $steps["invokeGlobalAction"].then ===
                                   "function"
                               ) {
-                                $steps["invokeGlobalAction"] = await $steps[
-                                  "invokeGlobalAction"
-                                ];
+                                $steps["invokeGlobalAction"] =
+                                  await $steps["invokeGlobalAction"];
                               }
                             }).apply(null, eventArgs);
                           },
@@ -28399,9 +28282,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
                   }}
                 >
@@ -29759,11 +29641,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
           open={generateStateValueProp($state, ["directDialog2", "open"])}
           redirectUrl={(() => {
             try {
-              return `https://tools.liom.app/shopResult?buyId=${
-                $state.directDialog2.selectShop.id
-              }&?offCode=&token=${
-                $state.token
-              }&redirectUrl=${encodeURIComponent(window.location.href)}`;
+              return `https://tools.liom.app/shopResult?buyId=${$state.directDialog2.selectShop.id}&?offCode=&token=${$state.token}&redirectUrl=${encodeURIComponent(window.location.href)}`;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -30000,7 +29878,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicComponentPregnancy__VariantsArgs;
     args?: PlasmicComponentPregnancy__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicComponentPregnancy__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicComponentPregnancy__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicComponentPregnancy__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

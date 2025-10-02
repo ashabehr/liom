@@ -5313,7 +5313,6 @@ function PlasmicHamyar__RenderFunc(props: {
                                                   window.localStorage.getItem(
                                                     "fcmToken"
                                                   ) || " ",
-
                                                 os: (() => {
                                                   const userAgent =
                                                     window.navigator.userAgent;
@@ -5587,6 +5586,31 @@ function PlasmicHamyar__RenderFunc(props: {
                                   await $steps["invokeGlobalAction"];
                               }
 
+                              $steps["invokeGlobalAction4"] = $steps
+                                .invokeGlobalAction?.data?.success
+                                ? (() => {
+                                    const actionArgs = {
+                                      args: [
+                                        undefined,
+                                        "\u06a9\u0627\u0631\u0628\u0631 \u062e\u0627\u0646\u0645 \u0627\u0636\u0627\u0641\u0647 \u0634\u062f"
+                                      ]
+                                    };
+                                    return $globalActions[
+                                      "Fragment.showToast"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["invokeGlobalAction4"] != null &&
+                                typeof $steps["invokeGlobalAction4"] ===
+                                  "object" &&
+                                typeof $steps["invokeGlobalAction4"].then ===
+                                  "function"
+                              ) {
+                                $steps["invokeGlobalAction4"] =
+                                  await $steps["invokeGlobalAction4"];
+                              }
+
                               $steps["runCode"] =
                                 $steps.invokeGlobalAction?.data?.result ||
                                 $steps.invokeGlobalAction3?.data?.result
@@ -5677,6 +5701,31 @@ function PlasmicHamyar__RenderFunc(props: {
                               ) {
                                 $steps["invokeGlobalAction2"] =
                                   await $steps["invokeGlobalAction2"];
+                              }
+
+                              $steps["invokeGlobalAction5"] = $steps
+                                .invokeGlobalAction2?.data?.success
+                                ? (() => {
+                                    const actionArgs = {
+                                      args: [
+                                        undefined,
+                                        "\u062e\u0627\u0646\u0645 \u0628\u0647 \u0639\u0646\u0648\u0627\u0646 \u0647\u0645\u06cc\u0627\u0631 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0631\u062f."
+                                      ]
+                                    };
+                                    return $globalActions[
+                                      "Fragment.showToast"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["invokeGlobalAction5"] != null &&
+                                typeof $steps["invokeGlobalAction5"] ===
+                                  "object" &&
+                                typeof $steps["invokeGlobalAction5"].then ===
+                                  "function"
+                              ) {
+                                $steps["invokeGlobalAction5"] =
+                                  await $steps["invokeGlobalAction5"];
                               }
 
                               $steps["updateEditCycle"] =
@@ -19552,7 +19601,18 @@ function PlasmicHamyar__RenderFunc(props: {
                             $state,
                             "noPartner",
                             "noPartner"
-                          )
+                          ),
+                          [sty.freeBoxremindersetting___1II5UHqpO]: hasVariant(
+                            $state,
+                            "remindersetting",
+                            "remindersetting"
+                          ),
+                          [sty.freeBoxremindersetting_noPartner___1II5UHqpOC7PeD]:
+                            hasVariant(
+                              $state,
+                              "remindersetting",
+                              "remindersetting"
+                            ) && hasVariant($state, "noPartner", "noPartner")
                         }
                       )}
                     />

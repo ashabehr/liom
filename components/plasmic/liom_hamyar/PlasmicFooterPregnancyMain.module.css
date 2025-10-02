@@ -34,6 +34,9 @@
     grid-column: 4;
   }
 }
+.footerglobal_newView_newView > * {
+  grid-column: 4;
+}
 .footerfooter2_calendar > * {
   grid-column: 4;
 }
@@ -121,6 +124,11 @@
     align-self: center;
     border-radius: 50px;
     padding: 5px;
+  }
+}
+@media (max-width: 640px) {
+  .freeBoxglobal_newView_newView__fHxnq0DHva {
+    background: none;
   }
 }
 .freeBoxfooter2_calendar__fHxnqp4EhE {

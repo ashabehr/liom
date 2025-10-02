@@ -373,7 +373,8 @@ function PlasmicMainPagePregnancy__RenderFunc(props: {
                   "&topic=pregnancyWeek" +
                   $state.componentPregnancy.weeksPregnant +
                   "&token=" +
-                  $state.token
+                  $state.token +
+                  "&origin=aghosh"
                 );
               } catch (e) {
                 if (
@@ -423,7 +424,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicMainPagePregnancy__VariantsArgs;
     args?: PlasmicMainPagePregnancy__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicMainPagePregnancy__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicMainPagePregnancy__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicMainPagePregnancy__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

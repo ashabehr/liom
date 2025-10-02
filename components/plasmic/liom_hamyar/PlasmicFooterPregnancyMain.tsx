@@ -207,7 +207,12 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
             "footer2",
             "calendar"
           ),
-          [sty.footerfooter2_tools]: hasVariant($state, "footer2", "tools")
+          [sty.footerfooter2_tools]: hasVariant($state, "footer2", "tools"),
+          [sty.footerglobal_newView_newView]: hasVariant(
+            globalVariants,
+            "newView",
+            "newView"
+          )
         }
       )}
     >
@@ -232,6 +237,11 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
                 $state,
                 "footer2",
                 "tools"
+              ),
+              [sty.freeBoxglobal_newView_newView__fHxnq0DHva]: hasVariant(
+                globalVariants,
+                "newView",
+                "newView"
               ),
               [sty.freeBoxglobal_newView_newView_footer2_calendar__fHxnq0DHvaP4EhE]:
                 hasVariant($state, "footer2", "calendar") &&
@@ -300,12 +310,12 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
                 hasVariant($state, "footer2", "calendar")
                   ? Icon137Icon
                   : hasVariant(
-                      $state,
-                      "lackOfCourseInformation",
-                      "lackOfCourseInformation"
-                    )
-                  ? Icon137Icon
-                  : Icon138Icon
+                        $state,
+                        "lackOfCourseInformation",
+                        "lackOfCourseInformation"
+                      )
+                    ? Icon137Icon
+                    : Icon138Icon
               }
               className={classNames(projectcss.all, sty.svg__yiYn5, {
                 [sty.svgfooter2_calendar__yiYn5P4EhE]: hasVariant(
@@ -427,8 +437,8 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
                 hasVariant($state, "footer2", "tools")
                   ? Frame4SvgIcon
                   : hasVariant(globalVariants, "screen", "mobile")
-                  ? Icon213Icon
-                  : Icon213Icon
+                    ? Icon213Icon
+                    : Icon213Icon
               }
               className={classNames(projectcss.all, sty.svg__abCaO, {
                 [sty.svgfooter2_tools__abCaOwWhUi]: hasVariant(
@@ -550,8 +560,8 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
                 hasVariant($state, "footer2", "chatBot")
                   ? Icon203Icon
                   : hasVariant(globalVariants, "screen", "mobile")
-                  ? Icon202Icon
-                  : Icon202Icon
+                    ? Icon202Icon
+                    : Icon202Icon
               }
               className={classNames(projectcss.all, sty.svg__xrAqm, {
                 [sty.svgfooter2_chatBot__xrAqm69Z61]: hasVariant(
@@ -631,7 +641,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicFooterPregnancyMain__VariantsArgs;
     args?: PlasmicFooterPregnancyMain__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicFooterPregnancyMain__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicFooterPregnancyMain__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicFooterPregnancyMain__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
