@@ -409,9 +409,9 @@
   height: auto;
   max-width: 100%;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   min-width: 0;
-  padding: 0px;
+  padding: 0px var(--token-O5TjkXII_aat) 0px 0px;
 }
 .text__kHgMi {
   width: auto;
@@ -419,7 +419,7 @@
   max-width: 100%;
   text-align: right;
   font-size: var(--token-Wa5tmrNKVUYF);
-  font-weight: 700;
+  font-weight: 400;
   flex-shrink: 0;
 }
 .svg__lzsVl {
@@ -638,9 +638,9 @@
   height: auto;
   max-width: 100%;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   min-width: 0;
-  padding: 0px;
+  padding: 0px var(--token-O5TjkXII_aat) 0px 0px;
 }
 .text__i286M {
   width: auto;
@@ -648,7 +648,7 @@
   max-width: 100%;
   text-align: right;
   font-size: var(--token-Wa5tmrNKVUYF);
-  font-weight: 700;
+  font-weight: 400;
   flex-shrink: 0;
 }
 .svg__uzFx4 {
