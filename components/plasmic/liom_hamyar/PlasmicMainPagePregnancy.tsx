@@ -108,6 +108,7 @@ export type PlasmicMainPagePregnancy__OverridesType = {
   componentPregnancy?: Flex__<typeof ComponentPregnancy>;
   toolsComponent?: Flex__<typeof ToolsComponent>;
   section?: Flex__<"section">;
+  freeBox?: Flex__<"div">;
   iframe?: Flex__<typeof Iframe>;
 };
 
@@ -230,6 +231,9 @@ function PlasmicMainPagePregnancy__RenderFunc(props: {
         styleTokensClassNames,
         sty.root,
         {
+          [sty.rootglobal_newView_newView_page_chatBot]:
+            hasVariant($state, "page", "chatBot") &&
+            hasVariant(globalVariants, "newView", "newView"),
           [sty.rootpage_calendar]: hasVariant($state, "page", "calendar"),
           [sty.rootpage_chatBot]: hasVariant($state, "page", "chatBot"),
           [sty.rootpage_tools]: hasVariant($state, "page", "tools")
@@ -354,41 +358,53 @@ function PlasmicMainPagePregnancy__RenderFunc(props: {
           data-plasmic-name={"section"}
           data-plasmic-override={overrides.section}
           className={classNames(projectcss.all, sty.section, {
+            [sty.sectionglobal_newView_newView_page_chatBot]:
+              hasVariant($state, "page", "chatBot") &&
+              hasVariant(globalVariants, "newView", "newView"),
             [sty.sectionpage_chatBot]: hasVariant($state, "page", "chatBot")
           })}
         >
-          <Iframe
-            data-plasmic-name={"iframe"}
-            data-plasmic-override={overrides.iframe}
-            className={classNames("__wab_instance", sty.iframe, {
-              [sty.iframepage_chatBot]: hasVariant($state, "page", "chatBot"),
-              [sty.iframepage_tools]: hasVariant($state, "page", "tools")
-            })}
-            preview={true}
-            src={(() => {
-              try {
-                return (
-                  "https://tools.liom.app/chat-bot/?origin_user_id=" +
-                  $state?.userInfo.id +
-                  "&topic=pregnancyWeek" +
-                  $state.componentPregnancy.weeksPregnant +
-                  "&token=" +
-                  $state.token +
-                  "&origin=aghosh"
-                );
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
+          <div
+            data-plasmic-name={"freeBox"}
+            data-plasmic-override={overrides.freeBox}
+            className={classNames(projectcss.all, sty.freeBox)}
+          >
+            <Iframe
+              data-plasmic-name={"iframe"}
+              data-plasmic-override={overrides.iframe}
+              className={classNames("__wab_instance", sty.iframe, {
+                [sty.iframeglobal_newView_newView_page_chatBot]:
+                  hasVariant($state, "page", "chatBot") &&
+                  hasVariant(globalVariants, "newView", "newView"),
+                [sty.iframepage_chatBot]: hasVariant($state, "page", "chatBot"),
+                [sty.iframepage_tools]: hasVariant($state, "page", "tools")
+              })}
+              preview={true}
+              src={(() => {
+                try {
+                  return (
+                    "https://tools.liom.app/chat-bot/?origin_user_id=" +
+                    $state?.userInfo.id +
+                    "&topic=pregnancyWeek" +
+                    $state.componentPregnancy.weeksPregnant +
+                    "&token=" +
+                    $state.token +
+                    "&origin=aghosh"
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
                 }
-                throw e;
-              }
-            })()}
-            srcDoc={"<div><h3>Heading</h3><p>Example text...</p></div>"}
-            useHtml={false}
-          />
+              })()}
+              srcDoc={"<div><h3>Heading</h3><p>Example text...</p></div>"}
+              useHtml={false}
+            />
+          </div>
         </section>
       </Reveal>
     </div>
@@ -396,10 +412,18 @@ function PlasmicMainPagePregnancy__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "componentPregnancy", "toolsComponent", "section", "iframe"],
+  root: [
+    "root",
+    "componentPregnancy",
+    "toolsComponent",
+    "section",
+    "freeBox",
+    "iframe"
+  ],
   componentPregnancy: ["componentPregnancy"],
   toolsComponent: ["toolsComponent"],
-  section: ["section", "iframe"],
+  section: ["section", "freeBox", "iframe"],
+  freeBox: ["freeBox", "iframe"],
   iframe: ["iframe"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -410,6 +434,7 @@ type NodeDefaultElementType = {
   componentPregnancy: typeof ComponentPregnancy;
   toolsComponent: typeof ToolsComponent;
   section: "section";
+  freeBox: "div";
   iframe: typeof Iframe;
 };
 
@@ -478,6 +503,7 @@ export const PlasmicMainPagePregnancy = Object.assign(
     componentPregnancy: makeNodeComponent("componentPregnancy"),
     toolsComponent: makeNodeComponent("toolsComponent"),
     section: makeNodeComponent("section"),
+    freeBox: makeNodeComponent("freeBox"),
     iframe: makeNodeComponent("iframe"),
 
     // Metadata about props expected for PlasmicMainPagePregnancy

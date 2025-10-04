@@ -2383,11 +2383,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["runCode2"] = (
-                    $state.switchSms.isChecked
-                      ? false
-                      : true && $props.subscription
-                  )
+                  $steps["runCode2"] = false
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
@@ -4587,7 +4583,13 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       <div
                         data-plasmic-name={"frame26"}
                         data-plasmic-override={overrides.frame26}
-                        className={classNames(projectcss.all, sty.frame26, ``)}
+                        className={classNames(projectcss.all, sty.frame26, ``, {
+                          [sty.frame26slide__1]: hasVariant(
+                            $state,
+                            "slide",
+                            "_1"
+                          )
+                        })}
                         key={currentIndex}
                         onClick={async event => {
                           const $steps = {};
@@ -4596,16 +4598,28 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         <div
                           data-plasmic-name={"frame27"}
                           data-plasmic-override={overrides.frame27}
-                          className={classNames(projectcss.all, sty.frame27)}
+                          className={classNames(projectcss.all, sty.frame27, {
+                            [sty.frame27slide__1]: hasVariant(
+                              $state,
+                              "slide",
+                              "_1"
+                            )
+                          })}
                         >
                           <div
                             data-plasmic-name={"frame28"}
                             data-plasmic-override={overrides.frame28}
-                            className={classNames(projectcss.all, sty.frame28)}
+                            className={classNames(projectcss.all, sty.frame28, {
+                              [sty.frame28slide__1]: hasVariant(
+                                $state,
+                                "slide",
+                                "_1"
+                              )
+                            })}
                             onClick={async event => {
                               const $steps = {};
 
-                              $steps["runCode"] = true
+                              $steps["runCode"] = false
                                 ? (() => {
                                     const actionArgs = {
                                       customFunction: async () => {
@@ -4686,7 +4700,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     className={classNames(
                                       projectcss.all,
                                       projectcss.__wab_text,
-                                      sty.text__yZzHx
+                                      sty.text__yZzHx,
+                                      {
+                                        [sty.textslide__1__yZzHXedcqc]:
+                                          hasVariant($state, "slide", "_1")
+                                      }
                                     )}
                                     onClick={async event => {
                                       const $steps = {};
@@ -4734,32 +4752,46 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   <div
                                     className={classNames(
                                       projectcss.all,
-                                      sty.freeBox__fdVF
+                                      sty.freeBox__fdVF,
+                                      {
+                                        [sty.freeBoxslide__1__fdVFedcqc]:
+                                          hasVariant($state, "slide", "_1")
+                                      }
                                     )}
                                   >
-                                    {(() => {
-                                      try {
-                                        return (() => {
-                                          let times = JSON.parse(
-                                            currentItem.times
-                                          );
-                                          return times && times.length > 0;
-                                        })();
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return true;
-                                        }
-                                        throw e;
-                                      }
-                                    })() ? (
+                                    {(
+                                      hasVariant($state, "slide", "_1")
+                                        ? true
+                                        : (() => {
+                                            try {
+                                              return (() => {
+                                                let times = JSON.parse(
+                                                  currentItem.times
+                                                );
+                                                return (
+                                                  times && times.length > 0
+                                                );
+                                              })();
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return true;
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                    ) ? (
                                       <div
                                         className={classNames(
                                           projectcss.all,
-                                          sty.freeBox__dk6G
+                                          sty.freeBox__dk6G,
+                                          {
+                                            [sty.freeBoxslide__1__dk6Gedcqc]:
+                                              hasVariant($state, "slide", "_1")
+                                          }
                                         )}
                                       >
                                         <Icon291Icon
@@ -4894,13 +4926,25 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                       <div
                                         className={classNames(
                                           projectcss.all,
-                                          sty.freeBox__rz1Xl
+                                          sty.freeBox__rz1Xl,
+                                          {
+                                            [sty.freeBoxslide__1__rz1XLedcqc]:
+                                              hasVariant($state, "slide", "_1")
+                                          }
                                         )}
                                       >
                                         <Icon313Icon
                                           className={classNames(
                                             projectcss.all,
-                                            sty.svg___51OeD
+                                            sty.svg___51OeD,
+                                            {
+                                              [sty.svgslide__1___51OeDedcqc]:
+                                                hasVariant(
+                                                  $state,
+                                                  "slide",
+                                                  "_1"
+                                                )
+                                            }
                                           )}
                                           role={"img"}
                                         />
@@ -4999,7 +5043,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                       <div
                                         className={classNames(
                                           projectcss.all,
-                                          sty.freeBox__tPVjj
+                                          sty.freeBox__tPVjj,
+                                          {
+                                            [sty.freeBoxslide__1__tPVjjedcqc]:
+                                              hasVariant($state, "slide", "_1")
+                                          }
                                         )}
                                       >
                                         <Icon290Icon
@@ -5153,7 +5201,14 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           <div
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox___0V7N
+                              sty.freeBox___0V7N,
+                              {
+                                [sty.freeBoxslide__1___0V7Nedcqc]: hasVariant(
+                                  $state,
+                                  "slide",
+                                  "_1"
+                                )
+                              }
                             )}
                           >
                             {(() => {
@@ -5183,7 +5238,14 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   const child$Props = {
                                     className: classNames(
                                       "__wab_instance",
-                                      sty.editItem
+                                      sty.editItem,
+                                      {
+                                        [sty.editItemslide__1]: hasVariant(
+                                          $state,
+                                          "slide",
+                                          "_1"
+                                        )
+                                      }
                                     ),
                                     color: generateStateValueProp($state, [
                                       "editItem",
@@ -5589,32 +5651,64 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   );
                                 })()
                               : null}
-                            {(() => {
-                              try {
-                                return (
-                                  // const datesStr = currentItem.dates || "[]";
-                                  // const parsed = JSON.parse(datesStr || "[]");
-                                  //  parsed.length > 0;
+                            {(
+                              hasVariant($state, "slide", "_1")
+                                ? (() => {
+                                    try {
+                                      return (() => {
+                                        const datesStr =
+                                          currentItem.dates || "[]";
+                                        const parsed = JSON.parse(
+                                          datesStr || "[]"
+                                        );
+                                        return parsed.length > 0;
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return true;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                : (() => {
+                                    try {
+                                      return (
+                                        // const datesStr = currentItem.dates || "[]";
+                                        // const parsed = JSON.parse(datesStr || "[]");
+                                        //  parsed.length > 0;
 
-                                  false
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return true;
-                                }
-                                throw e;
-                              }
-                            })()
+                                        false
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return true;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                            )
                               ? (() => {
                                   const child$Props = {
                                     "aria-label": "Switchbest",
                                     children: null,
                                     className: classNames(
                                       "__wab_instance",
-                                      sty.switchSetting
+                                      sty.switchSetting,
+                                      {
+                                        [sty.switchSettingslide__1]: hasVariant(
+                                          $state,
+                                          "slide",
+                                          "_1"
+                                        )
+                                      }
                                     ),
                                     isChecked:
                                       generateStateValueProp($state, [
@@ -5645,11 +5739,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                       (async isChecked => {
                                         const $steps = {};
 
-                                        $steps["runCode3"] = (
-                                          $state.switchSms.isChecked
-                                            ? false
-                                            : true
-                                        )
+                                        $steps["runCode3"] = false
                                           ? (() => {
                                               const actionArgs = {
                                                 customFunction: async () => {
@@ -5684,7 +5774,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                             await $steps["runCode3"];
                                         }
 
-                                        $steps["runCode"] = !$props.subscription
+                                        $steps["runCode"] = false
                                           ? (() => {
                                               const actionArgs = {
                                                 customFunction: async () => {
@@ -5710,52 +5800,53 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                             await $steps["runCode"];
                                         }
 
-                                        $steps["add"] = false
-                                          ? (() => {
-                                              const actionArgs = {
-                                                args: [
-                                                  "POST",
-                                                  "https://n8n.staas.ir/webhook/user/task/add",
-                                                  undefined,
-                                                  (() => {
-                                                    try {
-                                                      return (() => {
-                                                        currentItem.liomId =
-                                                          $props.manId;
-                                                        currentItem.active = 1;
-                                                        currentItem.telegramId =
-                                                          $props.telegramId;
-                                                        currentItem.phoneNumber =
-                                                          $props.phoneNumber;
-                                                        currentItem.token1 =
-                                                          $props.token;
-                                                        currentItem.times = [
-                                                          "09:00"
-                                                        ];
-                                                        return currentItem;
-                                                      })();
-                                                    } catch (e) {
-                                                      if (
-                                                        e instanceof
-                                                          TypeError ||
-                                                        e?.plasmicType ===
-                                                          "PlasmicUndefinedDataError"
-                                                      ) {
-                                                        return undefined;
+                                        $steps["add"] =
+                                          !currentItem.id && $props.subscription
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  args: [
+                                                    "POST",
+                                                    "https://n8n.staas.ir/webhook/user/task/add",
+                                                    undefined,
+                                                    (() => {
+                                                      try {
+                                                        return (() => {
+                                                          currentItem.liomId =
+                                                            $props.manId;
+                                                          currentItem.active = 1;
+                                                          currentItem.telegramId =
+                                                            $props.telegramId;
+                                                          currentItem.phoneNumber =
+                                                            $props.phoneNumber;
+                                                          currentItem.token1 =
+                                                            $props.token;
+                                                          currentItem.times = [
+                                                            "09:00"
+                                                          ];
+                                                          return currentItem;
+                                                        })();
+                                                      } catch (e) {
+                                                        if (
+                                                          e instanceof
+                                                            TypeError ||
+                                                          e?.plasmicType ===
+                                                            "PlasmicUndefinedDataError"
+                                                        ) {
+                                                          return undefined;
+                                                        }
+                                                        throw e;
                                                       }
-                                                      throw e;
-                                                    }
-                                                  })(),
-                                                  undefined
-                                                ]
-                                              };
-                                              return $globalActions[
-                                                "Fragment.apiRequest"
-                                              ]?.apply(null, [
-                                                ...actionArgs.args
-                                              ]);
-                                            })()
-                                          : undefined;
+                                                    })(),
+                                                    undefined
+                                                  ]
+                                                };
+                                                return $globalActions[
+                                                  "Fragment.apiRequest"
+                                                ]?.apply(null, [
+                                                  ...actionArgs.args
+                                                ]);
+                                              })()
+                                            : undefined;
                                         if (
                                           $steps["add"] != null &&
                                           typeof $steps["add"] === "object" &&
@@ -5818,22 +5909,19 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                             await $steps["remove"];
                                         }
 
-                                        $steps["runCode2"] =
-                                          $steps.add?.data?.success == true
-                                            ? (() => {
-                                                const actionArgs = {
-                                                  customFunction: async () => {
-                                                    return (currentItem.id =
-                                                      $steps.add.data.result);
-                                                  }
-                                                };
-                                                return (({
-                                                  customFunction
-                                                }) => {
-                                                  return customFunction();
-                                                })?.apply(null, [actionArgs]);
-                                              })()
-                                            : undefined;
+                                        $steps["runCode2"] = false
+                                          ? (() => {
+                                              const actionArgs = {
+                                                customFunction: async () => {
+                                                  return (currentItem.id =
+                                                    $steps.add.data.result);
+                                                }
+                                              };
+                                              return (({ customFunction }) => {
+                                                return customFunction();
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
                                         if (
                                           $steps["runCode2"] != null &&
                                           typeof $steps["runCode2"] ===
@@ -5910,7 +5998,14 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   const child$Props = {
                                     className: classNames(
                                       "__wab_instance",
-                                      sty.button2
+                                      sty.button2,
+                                      {
+                                        [sty.button2slide__1]: hasVariant(
+                                          $state,
+                                          "slide",
+                                          "_1"
+                                        )
+                                      }
                                     ),
                                     color: generateStateValueProp($state, [
                                       "button2",
@@ -5975,40 +6070,43 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           await $steps["updateSelect2"];
                                       }
 
-                                      $steps["updateDialogOpendialog"] = true
-                                        ? (() => {
-                                            const actionArgs = {
-                                              variable: {
-                                                objRoot: $state,
-                                                variablePath: [
-                                                  "dialog",
-                                                  "opendialog"
-                                                ]
-                                              },
-                                              operation: 0,
-                                              value: true
-                                            };
-                                            return (({
-                                              variable,
-                                              value,
-                                              startIndex,
-                                              deleteCount
-                                            }) => {
-                                              if (!variable) {
-                                                return;
-                                              }
-                                              const { objRoot, variablePath } =
-                                                variable;
+                                      $steps["updateDialogOpendialog"] =
+                                        currentItem.text != "none"
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: [
+                                                    "dialog",
+                                                    "opendialog"
+                                                  ]
+                                                },
+                                                operation: 0,
+                                                value: true
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
 
-                                              $stateSet(
-                                                objRoot,
-                                                variablePath,
-                                                value
-                                              );
-                                              return value;
-                                            })?.apply(null, [actionArgs]);
-                                          })()
-                                        : undefined;
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
+                                                );
+                                                return value;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
                                       if (
                                         $steps["updateDialogOpendialog"] !=
                                           null &&
@@ -6022,6 +6120,34 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           await $steps[
                                             "updateDialogOpendialog"
                                           ];
+                                      }
+
+                                      $steps["invokeGlobalAction"] =
+                                        currentItem.text == "none"
+                                          ? (() => {
+                                              const actionArgs = {
+                                                args: [
+                                                  "custom",
+                                                  "\u0628\u0647 \u0632\u0648\u062f\u06cc \u062f\u0631 \u062f\u0633\u062a\u0631\u0633 \u062e\u0648\u0627\u0647\u062f \u0628\u0648\u062f.",
+                                                  "bottom-center"
+                                                ]
+                                              };
+                                              return $globalActions[
+                                                "Fragment.showToast"
+                                              ]?.apply(null, [
+                                                ...actionArgs.args
+                                              ]);
+                                            })()
+                                          : undefined;
+                                      if (
+                                        $steps["invokeGlobalAction"] != null &&
+                                        typeof $steps["invokeGlobalAction"] ===
+                                          "object" &&
+                                        typeof $steps["invokeGlobalAction"]
+                                          .then === "function"
+                                      ) {
+                                        $steps["invokeGlobalAction"] =
+                                          await $steps["invokeGlobalAction"];
                                       }
                                     },
                                     onColorChange: async (

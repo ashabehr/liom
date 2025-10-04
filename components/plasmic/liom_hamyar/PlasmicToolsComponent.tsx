@@ -176,6 +176,13 @@ function PlasmicToolsComponent__RenderFunc(props: {
                           title: "",
                           items: [
                             {
+                              text: "وضعیت امروز",
+                              description: "",
+                              action: "#statusToday",
+                              shopType: "",
+                              icon: "https://liom.storage.c2.liara.space/tools/mainPage/today_status.png"
+                            },
+                            {
                               text: "ویدیو آموزشی",
                               description:
                                 "مجموعه ویدیوهای آموزشی مرتبط با بارداری و مراقبت‌ها.",

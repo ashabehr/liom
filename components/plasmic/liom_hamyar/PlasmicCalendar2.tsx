@@ -4341,7 +4341,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                                       (todayDate - endDate) /
                                         (1000 * 60 * 60 * 24)
                                     );
-                                    endDate.setDate(endDate.getDate() - 1);
+                                    endDate.setDate(todayDate.getDate() + 1);
                                     data.end = {
                                       year: endDate.getFullYear(),
                                       month: endDate.getMonth() + 1,

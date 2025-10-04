@@ -465,6 +465,11 @@ function PlasmicMainPregnancy__RenderFunc(props: {
             data-plasmic-override={overrides.main}
             className={classNames(projectcss.all, sty.main, {
               [sty.mainedit]: hasVariant($state, "edit", "edit"),
+              [sty.mainglobal_newView_newView]: hasVariant(
+                globalVariants,
+                "newView",
+                "newView"
+              ),
               [sty.mainsetting]: hasVariant($state, "setting", "setting"),
               [sty.mainsubItem]: hasVariant($state, "subItem", "subItem")
             })}
