@@ -2089,8 +2089,12 @@ function PlasmicStatusDay__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return JSON.parse(window.localStorage.getItem("userinfo"))
-                .userStatus;
+              return (() => {
+                try {
+                  return JSON.parse(window.localStorage.getItem("userinfo"))
+                    .userStatus;
+                } catch {}
+              })();
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -3101,6 +3105,35 @@ function PlasmicStatusDay__RenderFunc(props: {
               ) {
                 $steps["updateHealthStatus"] =
                   await $steps["updateHealthStatus"];
+              }
+
+              $steps["updateHealthStatus2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["healthStatus"]
+                      },
+                      operation: 0
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateHealthStatus2"] != null &&
+                typeof $steps["updateHealthStatus2"] === "object" &&
+                typeof $steps["updateHealthStatus2"].then === "function"
+              ) {
+                $steps["updateHealthStatus2"] =
+                  await $steps["updateHealthStatus2"];
               }
             }}
           />

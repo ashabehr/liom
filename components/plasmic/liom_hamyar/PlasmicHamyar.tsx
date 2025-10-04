@@ -5177,128 +5177,245 @@ function PlasmicHamyar__RenderFunc(props: {
                             ? "\u0627\u0632 \u0647\u0645\u0633\u0631\u062a \u0628\u062e\u0648\u0627\u0647 \u062a\u0648\u06cc \u0627\u067e \u0644\u06cc\u0648\u0645 \u062a\u0648 \u0631\u0648 \u0628\u0647\u200c\u0639\u0646\u0648\u0627\u0646 \u0647\u0645\u06cc\u0627\u0631 \u0627\u0636\u0627\u0641\u0647 \u06a9\u0646\u0647\u060c \u06cc\u0627 \u062e\u0648\u062f\u062a \u0628\u0627 \u062f\u06a9\u0645\u0647 \u0632\u06cc\u0631 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0642\u0627\u0639\u062f\u06af\u06cc \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646."
                             : "Enter some text"}
                         </div>
-                        {(
-                          hasVariant($state, "noPartner", "noPartner")
-                            ? (() => {
-                                try {
-                                  return (
-                                    $state.userdata?.result?.man?.id ==
-                                      "9bffa951-22ad-4d40-97ba-8bf3ee6b0d56" ||
-                                    $state.userdata?.result?.man?.id ==
-                                      "379fbd33-bd8c-45c6-9f9f-c7ff941196a0"
-                                  );
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return true;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            : true
-                        ) ? (
-                          <Button
-                            data-plasmic-name={"createWife"}
-                            data-plasmic-override={overrides.createWife}
-                            className={classNames(
-                              "__wab_instance",
-                              sty.createWife,
-                              {
-                                [sty.createWifeeditCycle]: hasVariant(
-                                  $state,
-                                  "editCycle",
-                                  "editCycle"
-                                ),
-                                [sty.createWifenoPartner]: hasVariant(
-                                  $state,
-                                  "noPartner",
-                                  "noPartner"
-                                ),
-                                [sty.createWifepage_unnamedVariant]: hasVariant(
-                                  $state,
-                                  "page",
-                                  "unnamedVariant"
-                                )
-                              }
-                            )}
-                            color={generateStateValueProp($state, [
-                              "createWife",
-                              "color"
-                            ])}
-                            load={generateStateValueProp($state, [
-                              "createWife",
-                              "load"
-                            ])}
-                            loading={generateStateValueProp($state, [
-                              "createWife",
-                              "loading"
-                            ])}
-                            onClick={async event => {
-                              const $steps = {};
+                        <Button
+                          data-plasmic-name={"createWife"}
+                          data-plasmic-override={overrides.createWife}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.createWife,
+                            {
+                              [sty.createWifeeditCycle]: hasVariant(
+                                $state,
+                                "editCycle",
+                                "editCycle"
+                              ),
+                              [sty.createWifenoPartner]: hasVariant(
+                                $state,
+                                "noPartner",
+                                "noPartner"
+                              ),
+                              [sty.createWifepage_unnamedVariant]: hasVariant(
+                                $state,
+                                "page",
+                                "unnamedVariant"
+                              )
+                            }
+                          )}
+                          color={generateStateValueProp($state, [
+                            "createWife",
+                            "color"
+                          ])}
+                          load={generateStateValueProp($state, [
+                            "createWife",
+                            "load"
+                          ])}
+                          loading={generateStateValueProp($state, [
+                            "createWife",
+                            "loading"
+                          ])}
+                          onClick={async event => {
+                            const $steps = {};
 
-                              $steps["updateButton22Loading"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["createWife", "loading"]
-                                      },
-                                      operation: 4
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
+                            $steps["updateButton22Loading"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["createWife", "loading"]
+                                    },
+                                    operation: 4
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
 
-                                      const oldValue = $stateGet(
-                                        objRoot,
-                                        variablePath
-                                      );
-                                      $stateSet(
-                                        objRoot,
-                                        variablePath,
-                                        !oldValue
-                                      );
-                                      return !oldValue;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["updateButton22Loading"] != null &&
-                                typeof $steps["updateButton22Loading"] ===
-                                  "object" &&
-                                typeof $steps["updateButton22Loading"].then ===
-                                  "function"
-                              ) {
-                                $steps["updateButton22Loading"] =
-                                  await $steps["updateButton22Loading"];
-                              }
+                                    const oldValue = $stateGet(
+                                      objRoot,
+                                      variablePath
+                                    );
+                                    $stateSet(objRoot, variablePath, !oldValue);
+                                    return !oldValue;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateButton22Loading"] != null &&
+                              typeof $steps["updateButton22Loading"] ===
+                                "object" &&
+                              typeof $steps["updateButton22Loading"].then ===
+                                "function"
+                            ) {
+                              $steps["updateButton22Loading"] =
+                                await $steps["updateButton22Loading"];
+                            }
 
-                              $steps["invokeGlobalAction3"] = true
+                            $steps["invokeGlobalAction3"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://api.liom.app/auth/signin",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            password:
+                                              $state.userdata?.result?.man?.id +
+                                              $state.userdata.result?.man
+                                                ?.refCode,
+                                            username:
+                                              $state.userdata?.result?.man?.id.replace(
+                                                /[^a-zA-Z]/g,
+                                                ""
+                                              ) +
+                                                $state.userdata.result?.man
+                                                  ?.refCode || "",
+                                            gateway: "hamyarGuest",
+                                            data: "",
+                                            target: "calendar",
+                                            version: "",
+                                            device: (() => {
+                                              const userAgent =
+                                                window.navigator.userAgent;
+                                              if (
+                                                /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                                  userAgent
+                                                )
+                                              ) {
+                                                return "Mobile";
+                                              } else if (
+                                                /Tablet|iPad/i.test(userAgent)
+                                              ) {
+                                                return "Tablet";
+                                              } else {
+                                                return "Desktop";
+                                              }
+                                            })(),
+                                            uniqueId: $$.uuid.v4(),
+                                            fcm:
+                                              window.localStorage.getItem(
+                                                "fcmToken"
+                                              ) || " ",
+                                            os: (() => {
+                                              const userAgent =
+                                                window.navigator.userAgent;
+                                              const platform =
+                                                window.navigator.userAgent;
+                                              if (/Windows/i.test(platform))
+                                                return "Windows";
+                                              if (/Mac/i.test(platform))
+                                                return "macOS";
+                                              if (/Linux/i.test(platform))
+                                                return "Linux";
+                                              if (/Android/i.test(userAgent))
+                                                return "Android";
+                                              if (
+                                                /iPhone|iPad|iPod/i.test(
+                                                  userAgent
+                                                )
+                                              )
+                                                return "iOS";
+                                              return "Unknown OS";
+                                            })(),
+                                            osVersion: (() => {
+                                              const userAgent =
+                                                window.navigator.userAgent;
+                                              if (
+                                                /Windows NT 10.0/.test(
+                                                  userAgent
+                                                )
+                                              )
+                                                return "Windows 10";
+                                              if (
+                                                /Windows NT 6.3/.test(userAgent)
+                                              )
+                                                return "Windows 8.1";
+                                              if (
+                                                /Windows NT 6.2/.test(userAgent)
+                                              )
+                                                return "Windows 8";
+                                              if (
+                                                /Windows NT 6.1/.test(userAgent)
+                                              )
+                                                return "Windows 7";
+                                              if (
+                                                /Mac OS X (\d+[\._]\d+)/.test(
+                                                  userAgent
+                                                )
+                                              )
+                                                return `macOS ${RegExp.$1.replace("_", ".")}`;
+                                              if (
+                                                /Android (\d+(\.\d+)?)/.test(
+                                                  userAgent
+                                                )
+                                              )
+                                                return `Android ${RegExp.$1}`;
+                                              if (
+                                                /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                                  userAgent
+                                                )
+                                              )
+                                                return `iOS ${RegExp.$2.replace("_", ".")}`;
+                                              return "Unknown Version";
+                                            })(),
+                                            additionalData: {
+                                              ip: "132465",
+                                              name: "test1"
+                                            },
+                                            device_type:
+                                              window.navigator.platform
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["invokeGlobalAction3"] != null &&
+                              typeof $steps["invokeGlobalAction3"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction3"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction3"] =
+                                await $steps["invokeGlobalAction3"];
+                            }
+
+                            $steps["invokeGlobalAction"] =
+                              $steps.invokeGlobalAction3.data.success == false
                                 ? (() => {
                                     const actionArgs = {
                                       args: [
                                         "POST",
-                                        "https://api.liom.app/auth/signin",
+                                        "https://api.liom.app/auth/signup",
                                         undefined,
                                         (() => {
                                           try {
                                             return {
-                                              password:
-                                                $state.userdata?.result?.man
-                                                  ?.id +
-                                                $state.userdata.result?.man
-                                                  ?.refCode,
+                                              type: "username",
+                                              name: "همسرم",
+                                              gateway: "hamyarGuest",
+                                              data: "",
                                               username:
                                                 $state.userdata?.result?.man?.id.replace(
                                                   /[^a-zA-Z]/g,
@@ -5306,10 +5423,13 @@ function PlasmicHamyar__RenderFunc(props: {
                                                 ) +
                                                   $state.userdata.result?.man
                                                     ?.refCode || "",
-                                              gateway: "hamyarGuest",
-                                              data: "",
                                               target: "calendar",
+                                              sex: "female",
+                                              token: "",
                                               version: "",
+                                              lang: "fa",
+                                              country: "98",
+                                              anotherLang: "fa",
                                               device: (() => {
                                                 const userAgent =
                                                   window.navigator.userAgent;
@@ -5328,10 +5448,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                                 }
                                               })(),
                                               uniqueId: $$.uuid.v4(),
-                                              fcm:
-                                                window.localStorage.getItem(
-                                                  "fcmToken"
-                                                ) || " ",
+                                              fcm: " ",
                                               os: (() => {
                                                 const userAgent =
                                                   window.navigator.userAgent;
@@ -5400,12 +5517,24 @@ function PlasmicHamyar__RenderFunc(props: {
                                                   return `iOS ${RegExp.$2.replace("_", ".")}`;
                                                 return "Unknown Version";
                                               })(),
+                                              password:
+                                                $state.userdata?.result?.man
+                                                  ?.id +
+                                                $state.userdata.result?.man
+                                                  ?.refCode,
+                                              postLang: "fa",
+                                              refCode: "",
+                                              isCountryPending: false,
+                                              device_type:
+                                                window.navigator.platform,
                                               additionalData: {
                                                 ip: "132465",
                                                 name: "test1"
                                               },
-                                              device_type:
-                                                window.navigator.platform
+                                              city: null,
+                                              state: null,
+                                              birthYear: null,
+                                              religious: 0
                                             };
                                           } catch (e) {
                                             if (
@@ -5425,310 +5554,25 @@ function PlasmicHamyar__RenderFunc(props: {
                                     ]?.apply(null, [...actionArgs.args]);
                                   })()
                                 : undefined;
-                              if (
-                                $steps["invokeGlobalAction3"] != null &&
-                                typeof $steps["invokeGlobalAction3"] ===
-                                  "object" &&
-                                typeof $steps["invokeGlobalAction3"].then ===
-                                  "function"
-                              ) {
-                                $steps["invokeGlobalAction3"] =
-                                  await $steps["invokeGlobalAction3"];
-                              }
-
+                            if (
+                              $steps["invokeGlobalAction"] != null &&
+                              typeof $steps["invokeGlobalAction"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction"].then ===
+                                "function"
+                            ) {
                               $steps["invokeGlobalAction"] =
-                                $steps.invokeGlobalAction3.data.success == false
-                                  ? (() => {
-                                      const actionArgs = {
-                                        args: [
-                                          "POST",
-                                          "https://api.liom.app/auth/signup",
-                                          undefined,
-                                          (() => {
-                                            try {
-                                              return {
-                                                type: "username",
-                                                name: "همسرم",
-                                                gateway: "hamyarGuest",
-                                                data: "",
-                                                username:
-                                                  $state.userdata?.result?.man?.id.replace(
-                                                    /[^a-zA-Z]/g,
-                                                    ""
-                                                  ) +
-                                                    $state.userdata.result?.man
-                                                      ?.refCode || "",
-                                                target: "calendar",
-                                                sex: "female",
-                                                token: "",
-                                                version: "",
-                                                lang: "fa",
-                                                country: "98",
-                                                anotherLang: "fa",
-                                                device: (() => {
-                                                  const userAgent =
-                                                    window.navigator.userAgent;
-                                                  if (
-                                                    /Mobi|Android|iPhone|iPad|iPod/i.test(
-                                                      userAgent
-                                                    )
-                                                  ) {
-                                                    return "Mobile";
-                                                  } else if (
-                                                    /Tablet|iPad/i.test(
-                                                      userAgent
-                                                    )
-                                                  ) {
-                                                    return "Tablet";
-                                                  } else {
-                                                    return "Desktop";
-                                                  }
-                                                })(),
-                                                uniqueId: $$.uuid.v4(),
-                                                fcm: " ",
-                                                os: (() => {
-                                                  const userAgent =
-                                                    window.navigator.userAgent;
-                                                  const platform =
-                                                    window.navigator.userAgent;
-                                                  if (/Windows/i.test(platform))
-                                                    return "Windows";
-                                                  if (/Mac/i.test(platform))
-                                                    return "macOS";
-                                                  if (/Linux/i.test(platform))
-                                                    return "Linux";
-                                                  if (
-                                                    /Android/i.test(userAgent)
-                                                  )
-                                                    return "Android";
-                                                  if (
-                                                    /iPhone|iPad|iPod/i.test(
-                                                      userAgent
-                                                    )
-                                                  )
-                                                    return "iOS";
-                                                  return "Unknown OS";
-                                                })(),
-                                                osVersion: (() => {
-                                                  const userAgent =
-                                                    window.navigator.userAgent;
-                                                  if (
-                                                    /Windows NT 10.0/.test(
-                                                      userAgent
-                                                    )
-                                                  )
-                                                    return "Windows 10";
-                                                  if (
-                                                    /Windows NT 6.3/.test(
-                                                      userAgent
-                                                    )
-                                                  )
-                                                    return "Windows 8.1";
-                                                  if (
-                                                    /Windows NT 6.2/.test(
-                                                      userAgent
-                                                    )
-                                                  )
-                                                    return "Windows 8";
-                                                  if (
-                                                    /Windows NT 6.1/.test(
-                                                      userAgent
-                                                    )
-                                                  )
-                                                    return "Windows 7";
-                                                  if (
-                                                    /Mac OS X (\d+[\._]\d+)/.test(
-                                                      userAgent
-                                                    )
-                                                  )
-                                                    return `macOS ${RegExp.$1.replace("_", ".")}`;
-                                                  if (
-                                                    /Android (\d+(\.\d+)?)/.test(
-                                                      userAgent
-                                                    )
-                                                  )
-                                                    return `Android ${RegExp.$1}`;
-                                                  if (
-                                                    /CPU (iPhone )?OS (\d+_\d+)/.test(
-                                                      userAgent
-                                                    )
-                                                  )
-                                                    return `iOS ${RegExp.$2.replace("_", ".")}`;
-                                                  return "Unknown Version";
-                                                })(),
-                                                password:
-                                                  $state.userdata?.result?.man
-                                                    ?.id +
-                                                  $state.userdata.result?.man
-                                                    ?.refCode,
-                                                postLang: "fa",
-                                                refCode: "",
-                                                isCountryPending: false,
-                                                device_type:
-                                                  window.navigator.platform,
-                                                additionalData: {
-                                                  ip: "132465",
-                                                  name: "test1"
-                                                },
-                                                city: null,
-                                                state: null,
-                                                birthYear: null,
-                                                religious: 0
-                                              };
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return undefined;
-                                              }
-                                              throw e;
-                                            }
-                                          })()
-                                        ]
-                                      };
-                                      return $globalActions[
-                                        "Fragment.apiRequest"
-                                      ]?.apply(null, [...actionArgs.args]);
-                                    })()
-                                  : undefined;
-                              if (
-                                $steps["invokeGlobalAction"] != null &&
-                                typeof $steps["invokeGlobalAction"] ===
-                                  "object" &&
-                                typeof $steps["invokeGlobalAction"].then ===
-                                  "function"
-                              ) {
-                                $steps["invokeGlobalAction"] =
-                                  await $steps["invokeGlobalAction"];
-                              }
+                                await $steps["invokeGlobalAction"];
+                            }
 
-                              $steps["invokeGlobalAction4"] =
-                                $steps.invokeGlobalAction?.data?.success ||
-                                $steps.invokeGlobalAction3?.data?.success
-                                  ? (() => {
-                                      const actionArgs = {
-                                        args: [
-                                          undefined,
-                                          "\u06a9\u0627\u0631\u0628\u0631 \u062e\u0627\u0646\u0645 \u0627\u0636\u0627\u0641\u0647 \u0634\u062f"
-                                        ]
-                                      };
-                                      return $globalActions[
-                                        "Fragment.showToast"
-                                      ]?.apply(null, [...actionArgs.args]);
-                                    })()
-                                  : undefined;
-                              if (
-                                $steps["invokeGlobalAction4"] != null &&
-                                typeof $steps["invokeGlobalAction4"] ===
-                                  "object" &&
-                                typeof $steps["invokeGlobalAction4"].then ===
-                                  "function"
-                              ) {
-                                $steps["invokeGlobalAction4"] =
-                                  await $steps["invokeGlobalAction4"];
-                              }
-
-                              $steps["runCode"] =
-                                $steps.invokeGlobalAction?.data?.result ||
-                                $steps.invokeGlobalAction3?.data?.result
-                                  ? (() => {
-                                      const actionArgs = {
-                                        customFunction: async () => {
-                                          return (() => {
-                                            const wifeInfo =
-                                              $steps.invokeGlobalAction?.data
-                                                ?.result ||
-                                              $steps.invokeGlobalAction3?.data
-                                                ?.result;
-                                            if (wifeInfo) {
-                                              return window.localStorage.setItem(
-                                                "wifeInfo",
-                                                JSON.stringify(wifeInfo)
-                                              );
-                                            }
-                                          })();
-                                        }
-                                      };
-                                      return (({ customFunction }) => {
-                                        return customFunction();
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                              if (
-                                $steps["runCode"] != null &&
-                                typeof $steps["runCode"] === "object" &&
-                                typeof $steps["runCode"].then === "function"
-                              ) {
-                                $steps["runCode"] = await $steps["runCode"];
-                              }
-
-                              $steps["invokeGlobalAction2"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      args: [
-                                        "PUT",
-                                        "https://n8n.staas.ir/webhook/rest/user/hamyar/add",
-                                        undefined,
-                                        (() => {
-                                          try {
-                                            return (() => {
-                                              const wifeInfoRaw =
-                                                window.localStorage.getItem(
-                                                  "wifeInfo"
-                                                );
-                                              const wifeInfo = wifeInfoRaw
-                                                ? JSON.parse(wifeInfoRaw)
-                                                : {};
-                                              const token =
-                                                wifeInfo.token || "";
-                                              return {
-                                                authorization: token,
-                                                mobile: $state.mobile,
-                                                name:
-                                                  $state.userdata?.result?.man
-                                                    ?.name || "",
-                                                type: "hamyar",
-                                                relation: "husband"
-                                              };
-                                            })();
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return undefined;
-                                            }
-                                            throw e;
-                                          }
-                                        })()
-                                      ]
-                                    };
-                                    return $globalActions[
-                                      "Fragment.apiRequest"
-                                    ]?.apply(null, [...actionArgs.args]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["invokeGlobalAction2"] != null &&
-                                typeof $steps["invokeGlobalAction2"] ===
-                                  "object" &&
-                                typeof $steps["invokeGlobalAction2"].then ===
-                                  "function"
-                              ) {
-                                $steps["invokeGlobalAction2"] =
-                                  await $steps["invokeGlobalAction2"];
-                              }
-
-                              $steps["invokeGlobalAction5"] = $steps
-                                .invokeGlobalAction2?.data?.success
+                            $steps["invokeGlobalAction4"] =
+                              $steps.invokeGlobalAction?.data?.success ||
+                              $steps.invokeGlobalAction3?.data?.success
                                 ? (() => {
                                     const actionArgs = {
                                       args: [
                                         undefined,
-                                        "\u062e\u0627\u0646\u0645 \u0628\u0647 \u0639\u0646\u0648\u0627\u0646 \u0647\u0645\u06cc\u0627\u0631 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0631\u062f."
+                                        "\u06a9\u0627\u0631\u0628\u0631 \u062e\u0627\u0646\u0645 \u0627\u0636\u0627\u0641\u0647 \u0634\u062f"
                                       ]
                                     };
                                     return $globalActions[
@@ -5736,147 +5580,257 @@ function PlasmicHamyar__RenderFunc(props: {
                                     ]?.apply(null, [...actionArgs.args]);
                                   })()
                                 : undefined;
-                              if (
-                                $steps["invokeGlobalAction5"] != null &&
-                                typeof $steps["invokeGlobalAction5"] ===
-                                  "object" &&
-                                typeof $steps["invokeGlobalAction5"].then ===
-                                  "function"
-                              ) {
-                                $steps["invokeGlobalAction5"] =
-                                  await $steps["invokeGlobalAction5"];
-                              }
+                            if (
+                              $steps["invokeGlobalAction4"] != null &&
+                              typeof $steps["invokeGlobalAction4"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction4"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction4"] =
+                                await $steps["invokeGlobalAction4"];
+                            }
 
-                              $steps["updateEditCycle"] =
-                                window.localStorage.getItem("wifeInfo")
-                                  ? (() => {
-                                      const actionArgs = {
-                                        vgroup: "editCycle",
-                                        operation: 2
-                                      };
-                                      return (({ vgroup, value }) => {
-                                        if (typeof value === "string") {
-                                          value = [value];
-                                        }
-
-                                        const oldValue = $stateGet(
-                                          $state,
-                                          vgroup
-                                        );
-                                        $stateSet($state, vgroup, !oldValue);
-                                        return !oldValue;
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                              if (
-                                $steps["updateEditCycle"] != null &&
-                                typeof $steps["updateEditCycle"] === "object" &&
-                                typeof $steps["updateEditCycle"].then ===
-                                  "function"
-                              ) {
-                                $steps["updateEditCycle"] =
-                                  await $steps["updateEditCycle"];
-                              }
-
-                              $steps["updateButton22Loading2"] = true
+                            $steps["runCode"] =
+                              $steps.invokeGlobalAction?.data?.result ||
+                              $steps.invokeGlobalAction3?.data?.result
                                 ? (() => {
                                     const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["createWife", "loading"]
-                                      },
-                                      operation: 4
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
+                                      customFunction: async () => {
+                                        return (() => {
+                                          const wifeInfo =
+                                            $steps.invokeGlobalAction?.data
+                                              ?.result ||
+                                            $steps.invokeGlobalAction3?.data
+                                              ?.result;
+                                          if (wifeInfo) {
+                                            return window.localStorage.setItem(
+                                              "wifeInfo",
+                                              JSON.stringify(wifeInfo)
+                                            );
+                                          }
+                                        })();
                                       }
-                                      const { objRoot, variablePath } =
-                                        variable;
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+
+                            $steps["invokeGlobalAction2"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "PUT",
+                                      "https://n8n.staas.ir/webhook/rest/user/hamyar/add",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return (() => {
+                                            const wifeInfoRaw =
+                                              window.localStorage.getItem(
+                                                "wifeInfo"
+                                              );
+                                            const wifeInfo = wifeInfoRaw
+                                              ? JSON.parse(wifeInfoRaw)
+                                              : {};
+                                            const token = wifeInfo.token || "";
+                                            return {
+                                              authorization: token,
+                                              mobile: $state.mobile,
+                                              name:
+                                                $state.userdata?.result?.man
+                                                  ?.name || "",
+                                              type: "hamyar",
+                                              relation: "husband"
+                                            };
+                                          })();
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["invokeGlobalAction2"] != null &&
+                              typeof $steps["invokeGlobalAction2"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction2"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction2"] =
+                                await $steps["invokeGlobalAction2"];
+                            }
+
+                            $steps["invokeGlobalAction5"] = $steps
+                              .invokeGlobalAction2?.data?.success
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      undefined,
+                                      "\u062e\u0627\u0646\u0645 \u0628\u0647 \u0639\u0646\u0648\u0627\u0646 \u0647\u0645\u06cc\u0627\u0631 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0631\u062f."
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.showToast"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["invokeGlobalAction5"] != null &&
+                              typeof $steps["invokeGlobalAction5"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction5"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction5"] =
+                                await $steps["invokeGlobalAction5"];
+                            }
+
+                            $steps["updateEditCycle"] =
+                              window.localStorage.getItem("wifeInfo")
+                                ? (() => {
+                                    const actionArgs = {
+                                      vgroup: "editCycle",
+                                      operation: 2
+                                    };
+                                    return (({ vgroup, value }) => {
+                                      if (typeof value === "string") {
+                                        value = [value];
+                                      }
 
                                       const oldValue = $stateGet(
-                                        objRoot,
-                                        variablePath
+                                        $state,
+                                        vgroup
                                       );
-                                      $stateSet(
-                                        objRoot,
-                                        variablePath,
-                                        !oldValue
-                                      );
+                                      $stateSet($state, vgroup, !oldValue);
                                       return !oldValue;
                                     })?.apply(null, [actionArgs]);
                                   })()
                                 : undefined;
-                              if (
-                                $steps["updateButton22Loading2"] != null &&
-                                typeof $steps["updateButton22Loading2"] ===
-                                  "object" &&
-                                typeof $steps["updateButton22Loading2"].then ===
-                                  "function"
-                              ) {
-                                $steps["updateButton22Loading2"] =
-                                  await $steps["updateButton22Loading2"];
-                              }
-                            }}
-                            onColorChange={async (...eventArgs: any) => {
-                              ((...eventArgs) => {
-                                generateStateOnChangeProp($state, [
-                                  "createWife",
-                                  "color"
-                                ])(eventArgs[0]);
-                              }).apply(null, eventArgs);
+                            if (
+                              $steps["updateEditCycle"] != null &&
+                              typeof $steps["updateEditCycle"] === "object" &&
+                              typeof $steps["updateEditCycle"].then ===
+                                "function"
+                            ) {
+                              $steps["updateEditCycle"] =
+                                await $steps["updateEditCycle"];
+                            }
 
-                              if (
-                                eventArgs.length > 1 &&
-                                eventArgs[1] &&
-                                eventArgs[1]._plasmic_state_init_
-                              ) {
-                                return;
-                              }
-                            }}
-                            onLoadChange={async (...eventArgs: any) => {
-                              ((...eventArgs) => {
-                                generateStateOnChangeProp($state, [
-                                  "createWife",
-                                  "load"
-                                ])(eventArgs[0]);
-                              }).apply(null, eventArgs);
+                            $steps["updateButton22Loading2"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["createWife", "loading"]
+                                    },
+                                    operation: 4
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
 
-                              if (
-                                eventArgs.length > 1 &&
-                                eventArgs[1] &&
-                                eventArgs[1]._plasmic_state_init_
-                              ) {
-                                return;
-                              }
-                            }}
-                            onLoadingChange={async (...eventArgs: any) => {
-                              ((...eventArgs) => {
-                                generateStateOnChangeProp($state, [
-                                  "createWife",
-                                  "loading"
-                                ])(eventArgs[0]);
-                              }).apply(null, eventArgs);
+                                    const oldValue = $stateGet(
+                                      objRoot,
+                                      variablePath
+                                    );
+                                    $stateSet(objRoot, variablePath, !oldValue);
+                                    return !oldValue;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateButton22Loading2"] != null &&
+                              typeof $steps["updateButton22Loading2"] ===
+                                "object" &&
+                              typeof $steps["updateButton22Loading2"].then ===
+                                "function"
+                            ) {
+                              $steps["updateButton22Loading2"] =
+                                await $steps["updateButton22Loading2"];
+                            }
+                          }}
+                          onColorChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "createWife",
+                                "color"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
 
-                              if (
-                                eventArgs.length > 1 &&
-                                eventArgs[1] &&
-                                eventArgs[1]._plasmic_state_init_
-                              ) {
-                                return;
-                              }
-                            }}
-                          >
-                            {hasVariant($state, "noPartner", "noPartner")
-                              ? "\u0627\u0641\u0632\u0648\u062f\u0646 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0642\u0627\u0639\u062f\u06af\u06cc"
-                              : " "}
-                          </Button>
-                        ) : null}
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                          onLoadChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "createWife",
+                                "load"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                          onLoadingChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "createWife",
+                                "loading"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                        >
+                          {hasVariant($state, "noPartner", "noPartner")
+                            ? "\u0627\u0641\u0632\u0648\u062f\u0646 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0642\u0627\u0639\u062f\u06af\u06cc"
+                            : " "}
+                        </Button>
                         <div
                           className={classNames(
                             projectcss.all,
