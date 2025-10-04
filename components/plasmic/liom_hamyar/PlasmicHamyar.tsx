@@ -5207,6 +5207,11 @@ function PlasmicHamyar__RenderFunc(props: {
                               "__wab_instance",
                               sty.createWife,
                               {
+                                [sty.createWifeeditCycle]: hasVariant(
+                                  $state,
+                                  "editCycle",
+                                  "editCycle"
+                                ),
                                 [sty.createWifenoPartner]: hasVariant(
                                   $state,
                                   "noPartner",
@@ -5599,20 +5604,21 @@ function PlasmicHamyar__RenderFunc(props: {
                                   await $steps["invokeGlobalAction"];
                               }
 
-                              $steps["invokeGlobalAction4"] = $steps
-                                .invokeGlobalAction?.data?.success
-                                ? (() => {
-                                    const actionArgs = {
-                                      args: [
-                                        undefined,
-                                        "\u06a9\u0627\u0631\u0628\u0631 \u062e\u0627\u0646\u0645 \u0627\u0636\u0627\u0641\u0647 \u0634\u062f"
-                                      ]
-                                    };
-                                    return $globalActions[
-                                      "Fragment.showToast"
-                                    ]?.apply(null, [...actionArgs.args]);
-                                  })()
-                                : undefined;
+                              $steps["invokeGlobalAction4"] =
+                                $steps.invokeGlobalAction?.data?.success ||
+                                $steps.invokeGlobalAction3?.data?.success
+                                  ? (() => {
+                                      const actionArgs = {
+                                        args: [
+                                          undefined,
+                                          "\u06a9\u0627\u0631\u0628\u0631 \u062e\u0627\u0646\u0645 \u0627\u0636\u0627\u0641\u0647 \u0634\u062f"
+                                        ]
+                                      };
+                                      return $globalActions[
+                                        "Fragment.showToast"
+                                      ]?.apply(null, [...actionArgs.args]);
+                                    })()
+                                  : undefined;
                               if (
                                 $steps["invokeGlobalAction4"] != null &&
                                 typeof $steps["invokeGlobalAction4"] ===

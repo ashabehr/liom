@@ -2719,12 +2719,10 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                           try {
                             const list =
                               document.getElementById("my-scroll-list");
-                            const list2 = list.children[0];
                             const fourthItem =
-                              list2.children[$state.selectedWeek];
-                            console.log(list2);
+                              list.children[$state.selectedWeek];
+                            console.log(list.children);
                             console.log(fourthItem);
-                            console.log($state.selectedWeek);
                             if (fourthItem) {
                               const itemPosition =
                                 fourthItem.offsetLeft -
