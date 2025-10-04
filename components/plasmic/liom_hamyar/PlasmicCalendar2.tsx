@@ -4327,16 +4327,9 @@ function PlasmicCalendar2__RenderFunc(props: {
                                     const todayDate = getIranToday();
                                     let endDate = new Date(
                                       data.end.year,
-                                      data.end.month - 1,
+                                      data.end.month,
                                       data.end.day
                                     );
-                                    if (endDate > todayDate) {
-                                      endDate.setDate(
-                                        endDate.getDate() -
-                                          $state.userInfo?.result?.userStatus
-                                            ?.cycle
-                                      );
-                                    }
                                     let diffDays = Math.floor(
                                       (todayDate - endDate) /
                                         (1000 * 60 * 60 * 24)
@@ -4347,8 +4340,9 @@ function PlasmicCalendar2__RenderFunc(props: {
                                       month: endDate.getMonth() + 1,
                                       day: endDate.getDate()
                                     };
-                                    data.addCycle = diffDays;
                                     data.cycleValue = diffDays;
+                                    data.addValue = diffDays;
+                                    data.isNormal = false;
                                     return data;
                                   }
                                   const updated = updateCycleValue();
