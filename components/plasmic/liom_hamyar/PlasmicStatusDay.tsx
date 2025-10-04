@@ -3114,7 +3114,11 @@ function PlasmicStatusDay__RenderFunc(props: {
                         objRoot: $state,
                         variablePath: ["healthStatus"]
                       },
-                      operation: 0
+                      operation: 0,
+                      value:
+                        $ctx.query.healtStatus == "pregnancy"
+                          ? "pregnancy"
+                          : $steps.invokeGlobalAction?.data?.healthStatus
                     };
                     return (({ variable, value, startIndex, deleteCount }) => {
                       if (!variable) {
