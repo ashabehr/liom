@@ -89,13 +89,15 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     }
       
     if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("newView");
-      if (saved === "true") {
-        setNewView("newView"); // مقداردهی به Context
-      } else {
-        setNewView(undefined);
-      }
-    }
+          const exists = document.cookie.includes("newView=");
+          if (exists) {
+            localStorage.setItem("newView","true");
+            setNewView("newView");
+          } else {
+            setNewView(undefined);
+          }
+        }
+
     // if (typeof window !== "undefined" && "serviceWorker" in navigator) {
 
     //   import("../firebase/fcm").then(
