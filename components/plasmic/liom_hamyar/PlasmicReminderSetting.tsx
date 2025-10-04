@@ -2458,22 +2458,28 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             (() => {
                               try {
                                 return (() => {
-                                  $state.select2.active = $props.subscription
-                                    ? 1
-                                    : 0;
-                                  if ($state.week.length > 0)
-                                    $state.select2.weekdays = $state.week;
-                                  let dates = [$state.date.start.f];
-                                  if ($state.date.end) {
+                                  $state.select2.weekdays = $state.week?.length
+                                    ? JSON.stringify($state.week)
+                                    : undefined;
+                                  if ($state.date.length > 0) {
+                                    let dates = $state.date.map(i => i.start.f);
+                                    $state.select2.dates =
+                                      JSON.stringify(dates);
+                                  } else {
+                                    $state.select2.dates = undefined;
+                                  }
+                                  if ($state.finishDate?.f) {
                                     $state.select2.finishTime =
-                                      $state.date.end.f;
+                                      $state.finishDate.f;
                                   } else {
                                     $state.select2.finishTime = undefined;
                                   }
-                                  $state.select2.dates = JSON.stringify(dates);
-                                  $state.select2.times = JSON.stringify([
-                                    `${String($state.time2.hour).padStart(2, "0")}:${String($state.time2.minute).padStart(2, "0")}`
-                                  ]);
+                                  $state.select2.times = JSON.stringify(
+                                    $state.time2.map(
+                                      t =>
+                                        `${String(t.hour).padStart(2, "0")}:${String(t.minute).padStart(2, "0")}`
+                                    )
+                                  );
                                   $state.select2.name = $state.input.value;
                                   return $state.select2;
                                 })();
@@ -4922,17 +4928,19 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     {(() => {
                                       try {
                                         return (() => {
-                                          let week = JSON.parse(
-                                            currentItem.weekdays
-                                          );
-                                          let dates = JSON.parse(
-                                            currentItem.dates
-                                          );
-                                          return (
-                                            week &&
-                                            week.length > 0 &&
-                                            dates.length == 0
-                                          );
+                                          try {
+                                            let week = JSON.parse(
+                                              currentItem.weekdays
+                                            );
+                                            let dates = JSON.parse(
+                                              currentItem.dates
+                                            );
+                                            return (
+                                              week &&
+                                              week.length > 0 &&
+                                              dates.length == 0
+                                            );
+                                          } catch {}
                                         })();
                                       } catch (e) {
                                         if (
@@ -6192,6 +6200,188 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                       ) {
                                         $steps["invokeGlobalAction"] =
                                           await $steps["invokeGlobalAction"];
+                                      }
+
+                                      $steps["runCode"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              customFunction: async () => {
+                                                return (() => {
+                                                  try {
+                                                    const dates = JSON.parse(
+                                                      $state.select2.dates
+                                                    );
+                                                    function faToEnDigits(str) {
+                                                      return str.replace(
+                                                        /[۰-۹]/g,
+                                                        d =>
+                                                          "۰۱۲۳۴۵۶۷۸۹".indexOf(
+                                                            d
+                                                          )
+                                                      );
+                                                    }
+                                                    $state.date = dates.map(
+                                                      m => {
+                                                        const today = new Date(
+                                                          m
+                                                        );
+                                                        const f = today
+                                                          .toISOString()
+                                                          .split("T")[0];
+                                                        const g =
+                                                          new Intl.DateTimeFormat(
+                                                            "fa-IR",
+                                                            {
+                                                              year: "numeric",
+                                                              month: "long",
+                                                              day: "numeric"
+                                                            }
+                                                          ).format(today);
+                                                        const jy = Number(
+                                                          faToEnDigits(
+                                                            new Intl.DateTimeFormat(
+                                                              "fa-IR",
+                                                              {
+                                                                year: "numeric"
+                                                              }
+                                                            ).format(today)
+                                                          )
+                                                        );
+                                                        const jm = Number(
+                                                          faToEnDigits(
+                                                            new Intl.DateTimeFormat(
+                                                              "fa-IR",
+                                                              {
+                                                                month: "numeric"
+                                                              }
+                                                            ).format(today)
+                                                          )
+                                                        );
+                                                        const jd = Number(
+                                                          faToEnDigits(
+                                                            new Intl.DateTimeFormat(
+                                                              "fa-IR",
+                                                              { day: "numeric" }
+                                                            ).format(today)
+                                                          )
+                                                        );
+                                                        return {
+                                                          start: {
+                                                            f,
+                                                            g,
+                                                            year: jy,
+                                                            month: jm,
+                                                            day: jd
+                                                          }
+                                                        };
+                                                      }
+                                                    );
+                                                  } catch {
+                                                    $state.date = [];
+                                                  }
+                                                  try {
+                                                    $state.week = JSON.parse(
+                                                      currentItem.weekdays
+                                                    );
+                                                  } catch {}
+                                                  try {
+                                                    function formatTimeString(
+                                                      value
+                                                    ) {
+                                                      if (!value)
+                                                        return ["0", "0"];
+
+                                                      return value.split(":");
+                                                    }
+                                                    const times = JSON.parse(
+                                                      $state.select2.times
+                                                    );
+                                                    $state.time2 = times.map(
+                                                      t => {
+                                                        const [hh, mm] =
+                                                          formatTimeString(t);
+                                                        return {
+                                                          hour: parseInt(hh),
+                                                          minute: parseInt(mm)
+                                                        };
+                                                      }
+                                                    );
+                                                  } catch {
+                                                    $state.time2 = [];
+                                                  }
+                                                  try {
+                                                    function arraysEqualIgnoreOrder(
+                                                      a,
+                                                      b
+                                                    ) {
+                                                      if (a.length !== b.length)
+                                                        return false;
+                                                      return [...a]
+                                                        .sort()
+                                                        .every(
+                                                          (val, index) =>
+                                                            val ===
+                                                            [...b].sort()[index]
+                                                        );
+                                                    }
+                                                    if (
+                                                      $state.week.length === 0
+                                                    ) {
+                                                      return ($state.repead.selected =
+                                                        "once");
+                                                    } else if (
+                                                      arraysEqualIgnoreOrder(
+                                                        $state.week,
+                                                        [
+                                                          "saturday",
+                                                          "sunday",
+                                                          "monday",
+                                                          "tuesday",
+                                                          "wednesday",
+                                                          "thursday",
+                                                          "friday"
+                                                        ]
+                                                      )
+                                                    ) {
+                                                      return ($state.repead.selected =
+                                                        "daily");
+                                                    } else if (
+                                                      arraysEqualIgnoreOrder(
+                                                        $state.week,
+                                                        [
+                                                          "saturday",
+                                                          "sunday",
+                                                          "monday",
+                                                          "tuesday",
+                                                          "wednesday"
+                                                        ]
+                                                      )
+                                                    ) {
+                                                      return ($state.repead.selected =
+                                                        "sat_to_wed");
+                                                    } else {
+                                                      return ($state.repead.selected =
+                                                        "custom");
+                                                    }
+                                                  } catch {
+                                                    return ($state.week = []);
+                                                  }
+                                                })();
+                                              }
+                                            };
+                                            return (({ customFunction }) => {
+                                              return customFunction();
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["runCode"] != null &&
+                                        typeof $steps["runCode"] === "object" &&
+                                        typeof $steps["runCode"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["runCode"] =
+                                          await $steps["runCode"];
                                       }
                                     },
                                     onColorChange: async (
