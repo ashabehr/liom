@@ -807,7 +807,7 @@ function PlasmicReminder__RenderFunc(props: {
             token1: null,
             dates: null,
             weekdays: null,
-            times: '["09:30"]',
+            times: '["10:00"]',
             finishTime: null,
             active: 0
           },
@@ -821,7 +821,7 @@ function PlasmicReminder__RenderFunc(props: {
             token1: null,
             dates: '["2025-12-11"]',
             weekdays: null,
-            times: '["09:30"]',
+            times: '["10:00"]',
             finishTime: null,
             active: 0
           },
@@ -835,7 +835,7 @@ function PlasmicReminder__RenderFunc(props: {
             token1: null,
             dates: '["2026-04-19"]',
             weekdays: null,
-            times: '["09:30"]',
+            times: '["10:00"]',
             finishTime: null,
             active: 0
           },
@@ -849,7 +849,7 @@ function PlasmicReminder__RenderFunc(props: {
             token1: null,
             dates: '["2026-03-08"]',
             weekdays: null,
-            times: '["09:30"]',
+            times: '["10:00"]',
             finishTime: null,
             active: 0
           },
@@ -863,7 +863,7 @@ function PlasmicReminder__RenderFunc(props: {
             token1: null,
             dates: '["2026-02-14"]',
             weekdays: null,
-            times: '["09:30"]',
+            times: '["10:00"]',
             finishTime: null,
             active: 0
           },
@@ -877,7 +877,7 @@ function PlasmicReminder__RenderFunc(props: {
             token1: null,
             dates: '["2026-02-18"]',
             weekdays: null,
-            times: '["09:30"]',
+            times: '["10:00"]',
             finishTime: null,
             active: 0
           },
@@ -891,7 +891,7 @@ function PlasmicReminder__RenderFunc(props: {
             token1: null,
             dates: '["2025-10-11"]',
             weekdays: null,
-            times: '["09:30"]',
+            times: '["10:00"]',
             finishTime: null,
             active: 0
           },
@@ -905,7 +905,7 @@ function PlasmicReminder__RenderFunc(props: {
             token1: null,
             dates: null,
             weekdays: null,
-            times: '["09:30"]',
+            times: '["10:00"]',
             finishTime: null,
             active: 0
           },
@@ -919,7 +919,7 @@ function PlasmicReminder__RenderFunc(props: {
             token1: null,
             dates: null,
             weekdays: null,
-            times: '["09:30"]',
+            times: '["10:00"]',
             finishTime: null,
             active: 0
           },
@@ -933,7 +933,7 @@ function PlasmicReminder__RenderFunc(props: {
             token1: null,
             dates: null,
             weekdays: null,
-            times: '["09:30"]',
+            times: '["10:00"]',
             finishTime: null,
             active: 0
           },
@@ -947,7 +947,7 @@ function PlasmicReminder__RenderFunc(props: {
             token1: null,
             dates: null,
             weekdays: null,
-            times: '["09:30"]',
+            times: '["10:00"]',
             finishTime: null,
             active: 0
           }

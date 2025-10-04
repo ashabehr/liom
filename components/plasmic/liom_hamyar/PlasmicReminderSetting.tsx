@@ -4785,12 +4785,14 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                         : (() => {
                                             try {
                                               return (() => {
-                                                let times = JSON.parse(
-                                                  currentItem.times
-                                                );
-                                                return (
-                                                  times && times.length > 0
-                                                );
+                                                try {
+                                                  let times = JSON.parse(
+                                                    currentItem.times
+                                                  );
+                                                  return (
+                                                    times && times.length > 0
+                                                  );
+                                                } catch {}
                                               })();
                                             } catch (e) {
                                               if (
@@ -5838,12 +5840,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                             $props.telegramId;
                                                           currentItem.phoneNumber =
                                                             $props.phoneNumber;
-                                                          currentItem.token1 =
-                                                            $props.token;
-                                                          currentItem.times = [
-                                                            "09:00"
-                                                          ];
-                                                          return currentItem;
+                                                          return (
+                                                            (currentItem.times =
+                                                              '["09:00"]'),
+                                                            currentItem
+                                                          );
                                                         })();
                                                       } catch (e) {
                                                         if (
