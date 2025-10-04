@@ -2675,6 +2675,26 @@ function PlasmicReminderSetting__RenderFunc(props: {
                     $steps["updateButton5Load2"] =
                       await $steps["updateButton5Load2"];
                   }
+
+                  $steps["runCode4"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return ($state.refresh += 1);
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode4"] != null &&
+                    typeof $steps["runCode4"] === "object" &&
+                    typeof $steps["runCode4"].then === "function"
+                  ) {
+                    $steps["runCode4"] = await $steps["runCode4"];
+                  }
                 }}
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
@@ -5931,6 +5951,29 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                         ) {
                                           $steps["runCode2"] =
                                             await $steps["runCode2"];
+                                        }
+
+                                        $steps["runCode4"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                customFunction: async () => {
+                                                  return ($state.refresh += 1);
+                                                }
+                                              };
+                                              return (({ customFunction }) => {
+                                                return customFunction();
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["runCode4"] != null &&
+                                          typeof $steps["runCode4"] ===
+                                            "object" &&
+                                          typeof $steps["runCode4"].then ===
+                                            "function"
+                                        ) {
+                                          $steps["runCode4"] =
+                                            await $steps["runCode4"];
                                         }
                                       }).apply(null, eventArgs);
                                     }
