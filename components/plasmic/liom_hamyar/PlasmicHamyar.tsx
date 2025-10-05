@@ -2213,13 +2213,11 @@ function PlasmicHamyar__RenderFunc(props: {
               return (() => {
                 const rel = $state.userdata?.result?.rel;
                 const manId = $state.userdata?.result?.man?.id;
-                const refCode = $state.userdata?.result?.man?.refCode;
                 const username = $state.userdata?.result?.user?.username;
                 if (rel && !(rel.active === true || rel.ignore === true)) {
                   try {
                     if (manId && username) {
-                      const cleanId =
-                        manId.replace(/[^a-zA-Z]/g, "") + (refCode ?? "");
+                      const cleanId = manId.replace(/[^a-zA-Z]/g, "");
                       return cleanId !== username;
                     }
                     return true;
@@ -5267,9 +5265,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                         try {
                                           return {
                                             password:
-                                              $state.userdata?.result?.man?.id +
-                                              $state.userdata.result?.man
-                                                ?.refCode,
+                                              $state.userdata?.result?.man?.id,
                                             username:
                                               $state.userdata?.result?.man?.id.replace(
                                                 /[^a-zA-Z]/g,
@@ -5420,9 +5416,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                                 $state.userdata?.result?.man?.id.replace(
                                                   /[^a-zA-Z]/g,
                                                   ""
-                                                ) +
-                                                  $state.userdata.result?.man
-                                                    ?.refCode || "",
+                                                ) || "",
                                               target: "calendar",
                                               sex: "female",
                                               token: "",
@@ -7370,8 +7364,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                     try {
                                       return {
                                         password:
-                                          $state.userdata?.result?.man?.id +
-                                          $state.userdata.result?.man?.refCode,
+                                          $state.userdata?.result?.man?.id,
                                         username:
                                           $state.userdata?.result?.man?.id.replace(
                                             /[^a-zA-Z]/g,
@@ -7550,9 +7543,7 @@ function PlasmicHamyar__RenderFunc(props: {
                             $state.userdata?.result?.user?.username;
                           try {
                             if (manId && username) {
-                              const cleanId =
-                                manId.replace(/[^a-zA-Z]/g, "") +
-                                $state.userdata.result?.man?.refCode;
+                              const cleanId = manId.replace(/[^a-zA-Z]/g, "");
                               return cleanId === username;
                             }
                             return false;

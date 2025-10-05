@@ -1281,6 +1281,19 @@
   max-width: 100%;
   object-fit: cover;
 }
+.freeBox__dIgSy {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: 0px 4px 16px 0px #0000004d;
+  border-radius: 50%;
+  padding: 0px;
+}
 .button7:global(.__wab_instance) {
   max-width: 100%;
 }
@@ -1289,7 +1302,7 @@
     width: auto;
   }
 }
-.svg__igRHv {
+.svg__zpfYo {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -1301,7 +1314,7 @@
   width: 25px;
   height: 25px;
 }
-.svg__nyf5O {
+.svg__cEs7Q {
   object-fit: cover;
   max-width: 100%;
   width: 40px;

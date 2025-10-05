@@ -2619,17 +2619,11 @@ function PlasmicToolsComponent__RenderFunc(props: {
                                         undefined,
                                         (() => {
                                           try {
-                                            return (() => {
-                                              if (
-                                                currentItem.action == "#selfSms"
-                                              ) {
-                                                return { status: "pregnancy" };
-                                              } else {
-                                                return {
-                                                  origin: "liomSelfCare"
-                                                };
-                                              }
-                                            })();
+                                            return {
+                                              origin: "liomSelfCare",
+                                              healthStatus: "pregnancy",
+                                              status: "pregnancy"
+                                            };
                                           } catch (e) {
                                             if (
                                               e instanceof TypeError ||

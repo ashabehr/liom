@@ -582,11 +582,7 @@ function PlasmicShop__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return `https://apps.liom.app/shopResult?buyId=${
-                $state.selectShop.id
-              }&?offCode=${$state.discountCode}&token=${localStorage.getItem(
-                "token"
-              )}&redirectUrl=${window.document.referrer}`;
+              return `https://apps.liom.app/shopResult?buyId=${$state.selectShop.id}&?offCode=${$state.discountCode}&token=${localStorage.getItem("token")}&redirectUrl=${window.document.referrer}`;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -857,9 +853,7 @@ function PlasmicShop__RenderFunc(props: {
                           searchParams.delete("token");
                           searchParams.delete("userId");
                           searchParams.delete("user_id");
-                          const newUrl = `${
-                            window.location.pathname
-                          }?${searchParams.toString()}`;
+                          const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                           return window.history.replaceState(null, "", newUrl);
                         })();
                       }
@@ -1000,10 +994,7 @@ function PlasmicShop__RenderFunc(props: {
                                     if (
                                       /Mac OS X (\d+[\._]\d+)/.test(userAgent)
                                     )
-                                      return `macOS ${RegExp.$1.replace(
-                                        "_",
-                                        "."
-                                      )}`;
+                                      return `macOS ${RegExp.$1.replace("_", ".")}`;
                                     if (/Android (\d+(\.\d+)?)/.test(userAgent))
                                       return `Android ${RegExp.$1}`;
                                     if (
@@ -1011,10 +1002,7 @@ function PlasmicShop__RenderFunc(props: {
                                         userAgent
                                       )
                                     )
-                                      return `iOS ${RegExp.$2.replace(
-                                        "_",
-                                        "."
-                                      )}`;
+                                      return `iOS ${RegExp.$2.replace("_", ".")}`;
                                     return "Unknown Version";
                                   })(),
                                   sex: $state.gender || "",
@@ -1072,7 +1060,7 @@ function PlasmicShop__RenderFunc(props: {
               }
 
               $steps["runCode"] =
-                $steps.userGuset?.data?.success ?? false
+                ($steps.userGuset?.data?.success ?? false)
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
@@ -1383,7 +1371,8 @@ function PlasmicShop__RenderFunc(props: {
                     return {
                       section: "hamyarSub",
                       type: "drawn",
-                      authorization: $state.token
+                      authorization: $state.token,
+                      app: localStorage.getItem("appName") || "liom"
                     };
                   } catch (e) {
                     if (
@@ -1969,9 +1958,8 @@ function PlasmicShop__RenderFunc(props: {
                                     typeof $steps["updateLoadingBtn"].then ===
                                       "function"
                                   ) {
-                                    $steps["updateLoadingBtn"] = await $steps[
-                                      "updateLoadingBtn"
-                                    ];
+                                    $steps["updateLoadingBtn"] =
+                                      await $steps["updateLoadingBtn"];
                                   }
 
                                   $steps["invokeGlobalAction"] = true
@@ -2015,9 +2003,8 @@ function PlasmicShop__RenderFunc(props: {
                                     typeof $steps["invokeGlobalAction"].then ===
                                       "function"
                                   ) {
-                                    $steps["invokeGlobalAction"] = await $steps[
-                                      "invokeGlobalAction"
-                                    ];
+                                    $steps["invokeGlobalAction"] =
+                                      await $steps["invokeGlobalAction"];
                                   }
 
                                   $steps["goToPage"] =
@@ -2067,9 +2054,8 @@ function PlasmicShop__RenderFunc(props: {
                                     typeof $steps["goToPage"].then ===
                                       "function"
                                   ) {
-                                    $steps["goToPage"] = await $steps[
-                                      "goToPage"
-                                    ];
+                                    $steps["goToPage"] =
+                                      await $steps["goToPage"];
                                   }
 
                                   $steps["invokeGlobalAction2"] =
@@ -2139,9 +2125,8 @@ function PlasmicShop__RenderFunc(props: {
                                     typeof $steps["updateLoadingBtn2"].then ===
                                       "function"
                                   ) {
-                                    $steps["updateLoadingBtn2"] = await $steps[
-                                      "updateLoadingBtn2"
-                                    ];
+                                    $steps["updateLoadingBtn2"] =
+                                      await $steps["updateLoadingBtn2"];
                                   }
 
                                   $steps["updateName"] = true
@@ -2180,9 +2165,8 @@ function PlasmicShop__RenderFunc(props: {
                                     typeof $steps["updateName"].then ===
                                       "function"
                                   ) {
-                                    $steps["updateName"] = await $steps[
-                                      "updateName"
-                                    ];
+                                    $steps["updateName"] =
+                                      await $steps["updateName"];
                                   }
                                 }}
                                 onColorChange={async (...eventArgs: any) => {
@@ -2315,9 +2299,8 @@ function PlasmicShop__RenderFunc(props: {
                                     typeof $steps["updateDiscount"].then ===
                                       "function"
                                   ) {
-                                    $steps["updateDiscount"] = await $steps[
-                                      "updateDiscount"
-                                    ];
+                                    $steps["updateDiscount"] =
+                                      await $steps["updateDiscount"];
                                   }
                                 }}
                                 onColorChange={async (...eventArgs: any) => {
@@ -2580,9 +2563,8 @@ function PlasmicShop__RenderFunc(props: {
                                     typeof $steps["updateSelectShop"].then ===
                                       "function"
                                   ) {
-                                    $steps["updateSelectShop"] = await $steps[
-                                      "updateSelectShop"
-                                    ];
+                                    $steps["updateSelectShop"] =
+                                      await $steps["updateSelectShop"];
                                   }
                                 },
                                 onClickitemChange: async (
@@ -2943,9 +2925,8 @@ function PlasmicShop__RenderFunc(props: {
                                 typeof $steps["updateLoadingBtn"].then ===
                                   "function"
                               ) {
-                                $steps["updateLoadingBtn"] = await $steps[
-                                  "updateLoadingBtn"
-                                ];
+                                $steps["updateLoadingBtn"] =
+                                  await $steps["updateLoadingBtn"];
                               }
 
                               $steps["invokeGlobalAction"] = true
@@ -2988,9 +2969,8 @@ function PlasmicShop__RenderFunc(props: {
                                 typeof $steps["invokeGlobalAction"].then ===
                                   "function"
                               ) {
-                                $steps["invokeGlobalAction"] = await $steps[
-                                  "invokeGlobalAction"
-                                ];
+                                $steps["invokeGlobalAction"] =
+                                  await $steps["invokeGlobalAction"];
                               }
 
                               $steps["goToPage"] =
@@ -3065,9 +3045,8 @@ function PlasmicShop__RenderFunc(props: {
                                 typeof $steps["invokeGlobalAction2"].then ===
                                   "function"
                               ) {
-                                $steps["invokeGlobalAction2"] = await $steps[
-                                  "invokeGlobalAction2"
-                                ];
+                                $steps["invokeGlobalAction2"] =
+                                  await $steps["invokeGlobalAction2"];
                               }
 
                               $steps["updateLoadingBtn2"] = true
@@ -3104,9 +3083,8 @@ function PlasmicShop__RenderFunc(props: {
                                 typeof $steps["updateLoadingBtn2"].then ===
                                   "function"
                               ) {
-                                $steps["updateLoadingBtn2"] = await $steps[
-                                  "updateLoadingBtn2"
-                                ];
+                                $steps["updateLoadingBtn2"] =
+                                  await $steps["updateLoadingBtn2"];
                               }
                             }}
                             onColorChange={async (...eventArgs: any) => {
@@ -3249,9 +3227,8 @@ function PlasmicShop__RenderFunc(props: {
                                 typeof $steps["updateDiscount"].then ===
                                   "function"
                               ) {
-                                $steps["updateDiscount"] = await $steps[
-                                  "updateDiscount"
-                                ];
+                                $steps["updateDiscount"] =
+                                  await $steps["updateDiscount"];
                               }
                             }}
                             onColorChange={async (...eventArgs: any) => {
@@ -3502,9 +3479,8 @@ function PlasmicShop__RenderFunc(props: {
                                   typeof $steps["updateDiscountCode"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateDiscountCode"] = await $steps[
-                                    "updateDiscountCode"
-                                  ];
+                                  $steps["updateDiscountCode"] =
+                                    await $steps["updateDiscountCode"];
                                 }
                               }}
                               onColorChange={async (...eventArgs: any) => {
@@ -3820,9 +3796,8 @@ function PlasmicShop__RenderFunc(props: {
                                     typeof $steps["updateModalData"].then ===
                                       "function"
                                   ) {
-                                    $steps["updateModalData"] = await $steps[
-                                      "updateModalData"
-                                    ];
+                                    $steps["updateModalData"] =
+                                      await $steps["updateModalData"];
                                   }
 
                                   $steps["updateModalOpen"] = (() => {
@@ -3867,9 +3842,8 @@ function PlasmicShop__RenderFunc(props: {
                                     typeof $steps["updateModalOpen"].then ===
                                       "function"
                                   ) {
-                                    $steps["updateModalOpen"] = await $steps[
-                                      "updateModalOpen"
-                                    ];
+                                    $steps["updateModalOpen"] =
+                                      await $steps["updateModalOpen"];
                                   }
 
                                   $steps["runCode"] = (() => {
@@ -3888,30 +3862,18 @@ function PlasmicShop__RenderFunc(props: {
                                                   break;
                                                 case "#carePartner-1":
                                                   window.open(
-                                                    `/hamyar-add?token=${window.localStorage.getItem(
-                                                      "token"
-                                                    )}`
+                                                    `/hamyar-add?token=${window.localStorage.getItem("token")}`
                                                   );
                                                   break;
                                                 case "#irregularPage-1":
-                                                  link = `https://tools.liom.app/self-medication/?type=irregular&token=KOlmhp${localStorage.getItem(
-                                                    "token"
-                                                  )}khn&userId=mjgf${
-                                                    JSON.parse(
-                                                      window.localStorage.getItem(
-                                                        "userinfo"
-                                                      )
-                                                    ).user.id
-                                                  }kpm&inApp=false`;
+                                                  link = `https://tools.liom.app/self-medication/?type=irregular&token=KOlmhp${localStorage.getItem("token")}khn&userId=mjgf${JSON.parse(window.localStorage.getItem("userinfo")).user.id}kpm&inApp=false`;
                                                   break;
                                                 case "#pcos-1":
                                                   window.open(`/Self-care/`);
                                                   break;
                                                 case "#notifSettings-1":
                                                   window.open(
-                                                    `/self-sms-page?token=${localStorage.getItem(
-                                                      "token"
-                                                    )}&inApp=false`
+                                                    `/self-sms-page?token=${localStorage.getItem("token")}&inApp=false`
                                                   );
                                                   break;
                                                 case "#main-1":
@@ -3930,9 +3892,7 @@ function PlasmicShop__RenderFunc(props: {
                                               }
                                               if (link != "")
                                                 return window.open(
-                                                  `/web-viow/?link=${encodeURIComponent(
-                                                    link
-                                                  )}`
+                                                  `/web-viow/?link=${encodeURIComponent(link)}`
                                                 );
                                             })();
                                           }
@@ -4178,9 +4138,8 @@ function PlasmicShop__RenderFunc(props: {
                                     typeof $steps["updateModalData"].then ===
                                       "function"
                                   ) {
-                                    $steps["updateModalData"] = await $steps[
-                                      "updateModalData"
-                                    ];
+                                    $steps["updateModalData"] =
+                                      await $steps["updateModalData"];
                                   }
 
                                   $steps["updateModalOpen"] = (() => {
@@ -4225,9 +4184,8 @@ function PlasmicShop__RenderFunc(props: {
                                     typeof $steps["updateModalOpen"].then ===
                                       "function"
                                   ) {
-                                    $steps["updateModalOpen"] = await $steps[
-                                      "updateModalOpen"
-                                    ];
+                                    $steps["updateModalOpen"] =
+                                      await $steps["updateModalOpen"];
                                   }
 
                                   $steps["runCode"] = (() => {
@@ -4246,45 +4204,25 @@ function PlasmicShop__RenderFunc(props: {
                                                   break;
                                                 case "#carePartner-1":
                                                   window.open(
-                                                    `/hamyar-add?token=${window.localStorage.getItem(
-                                                      "token"
-                                                    )}`
+                                                    `/hamyar-add?token=${window.localStorage.getItem("token")}`
                                                   );
                                                   break;
                                                 case "#irregularPage-1":
-                                                  link = `https://tools.liom.app/self-medication/?type=irregular&token=KOlmhp${localStorage.getItem(
-                                                    "token"
-                                                  )}khn&userId=mjgf${
-                                                    JSON.parse(
-                                                      window.localStorage.getItem(
-                                                        "userinfo"
-                                                      )
-                                                    ).user.id
-                                                  }kpm&inApp=false`;
+                                                  link = `https://tools.liom.app/self-medication/?type=irregular&token=KOlmhp${localStorage.getItem("token")}khn&userId=mjgf${JSON.parse(window.localStorage.getItem("userinfo")).user.id}kpm&inApp=false`;
                                                   break;
                                                 case "#pcos-1":
                                                   window.open(`/Self-care/`);
                                                   break;
                                                 case "#notifSettings-1":
                                                   window.open(
-                                                    `/self-sms-page?token=${localStorage.getItem(
-                                                      "token"
-                                                    )}&inApp=false`
+                                                    `/self-sms-page?token=${localStorage.getItem("token")}&inApp=false`
                                                   );
                                                   break;
                                                 case "#main-1":
                                                   window.open("/calendar/");
                                                   break;
                                                 case "#skin_care":
-                                                  link = `https://tools.liom.app/self-medication/?type=skinCare&token=KOlmhp${localStorage.getItem(
-                                                    "token"
-                                                  )}khn&userId=mjgf${
-                                                    JSON.parse(
-                                                      window.localStorage.getItem(
-                                                        "userinfo"
-                                                      )
-                                                    ).user.id
-                                                  }kpmf&inApp=false`;
+                                                  link = `https://tools.liom.app/self-medication/?type=skinCare&token=KOlmhp${localStorage.getItem("token")}khn&userId=mjgf${JSON.parse(window.localStorage.getItem("userinfo")).user.id}kpmf&inApp=false`;
                                                   break;
                                                 case "":
                                                   console.log(
@@ -4299,9 +4237,7 @@ function PlasmicShop__RenderFunc(props: {
                                               }
                                               if (link != "")
                                                 return window.open(
-                                                  `/web-viow/?link=${encodeURIComponent(
-                                                    link
-                                                  )}`
+                                                  `/web-viow/?link=${encodeURIComponent(link)}`
                                                 );
                                             })();
                                           }
@@ -4658,9 +4594,8 @@ function PlasmicShop__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["updateTimer"] = true
@@ -4836,9 +4771,8 @@ function PlasmicShop__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
 
                           $steps["runCode"] = true
@@ -5529,9 +5463,8 @@ function PlasmicShop__RenderFunc(props: {
                           typeof $steps["goToCommonError"] === "object" &&
                           typeof $steps["goToCommonError"].then === "function"
                         ) {
-                          $steps["goToCommonError"] = await $steps[
-                            "goToCommonError"
-                          ];
+                          $steps["goToCommonError"] =
+                            await $steps["goToCommonError"];
                         }
                       }}
                     >
@@ -5846,9 +5779,8 @@ function PlasmicShop__RenderFunc(props: {
                         typeof $steps["updateShopPage"] === "object" &&
                         typeof $steps["updateShopPage"].then === "function"
                       ) {
-                        $steps["updateShopPage"] = await $steps[
-                          "updateShopPage"
-                        ];
+                        $steps["updateShopPage"] =
+                          await $steps["updateShopPage"];
                       }
                     }}
                     role={"img"}
@@ -5982,7 +5914,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicShop__VariantsArgs;
     args?: PlasmicShop__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicShop__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicShop__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicShop__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
