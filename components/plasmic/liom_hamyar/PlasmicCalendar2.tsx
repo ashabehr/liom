@@ -4737,8 +4737,6 @@ function PlasmicCalendar2__RenderFunc(props: {
                             (() => {
                               try {
                                 return (() => {
-                                  const data =
-                                    $state.userInfo?.result?.lastCalender?.[0];
                                   function getIranToday() {
                                     const nowIran = new Date(
                                       new Date().toLocaleString("en-US", {
@@ -4751,26 +4749,118 @@ function PlasmicCalendar2__RenderFunc(props: {
                                       nowIran.getDate()
                                     );
                                   }
+                                  const cycleLength =
+                                    $state.userInfo?.result?.userStatus?.cycle;
+                                  function toDate(obj) {
+                                    return new Date(
+                                      obj.year,
+                                      obj.month - 1,
+                                      obj.day - 1
+                                    );
+                                  }
+                                  function prevDate(d, days) {
+                                    const newD = new Date(d);
+                                    newD.setDate(newD.getDate() - days);
+                                    return newD;
+                                  }
+                                  function toJSONDate(d) {
+                                    return {
+                                      year: d.getFullYear(),
+                                      month: d.getMonth() + 1,
+                                      day: d.getDate()
+                                    };
+                                  }
+                                  function calculatePreviousCycle(item) {
+                                    return {
+                                      id: "prev-" + item.id,
+                                      userId: item.userId,
+                                      start: toJSONDate(
+                                        prevDate(
+                                          toDate(item.start),
+                                          cycleLength
+                                        )
+                                      ),
+                                      end: toJSONDate(
+                                        prevDate(toDate(item.end), cycleLength)
+                                      ),
+                                      period: {
+                                        start: toJSONDate(
+                                          prevDate(
+                                            toDate(item.period.start),
+                                            cycleLength
+                                          )
+                                        ),
+                                        end: toJSONDate(
+                                          prevDate(
+                                            toDate(item.period.end),
+                                            cycleLength
+                                          )
+                                        )
+                                      },
+                                      pms: {
+                                        start: toJSONDate(
+                                          prevDate(
+                                            toDate(item.pms.start),
+                                            cycleLength
+                                          )
+                                        ),
+                                        end: toJSONDate(
+                                          prevDate(
+                                            toDate(item.pms.end),
+                                            cycleLength
+                                          )
+                                        )
+                                      },
+                                      fertility: {
+                                        start: toJSONDate(
+                                          prevDate(
+                                            toDate(item.fertility.start),
+                                            cycleLength
+                                          )
+                                        ),
+                                        end: toJSONDate(
+                                          prevDate(
+                                            toDate(item.fertility.end),
+                                            cycleLength
+                                          )
+                                        )
+                                      },
+                                      fertilityNum: item.fertilityNum,
+                                      fertility100: item.fertility100,
+                                      approximateData: item.approximateData,
+                                      addCycle: item.addCycle,
+                                      addLength: item.addLength,
+                                      isNormal: item.isNormal,
+                                      wbf: item.wbf,
+                                      isFinished: item.isFinished,
+                                      isVisible: item.isVisible,
+                                      createdAt: getIranToday().toISOString(),
+                                      updatedAt: getIranToday().toISOString()
+                                    };
+                                  }
+                                  const previousCycle = calculatePreviousCycle(
+                                    $state.userInfo?.result?.calender?.[0]
+                                  );
                                   function updateCycleValue() {
                                     const todayDate = getIranToday();
                                     let endDate = new Date(
-                                      data.end.year,
-                                      data.end.month,
-                                      data.end.day
+                                      previousCycle.end.year,
+                                      previousCycle.end.month - 1,
+                                      previousCycle.end.day
                                     );
                                     let diffDays = Math.floor(
                                       (todayDate - endDate) /
                                         (1000 * 60 * 60 * 24)
                                     );
-                                    endDate.setDate(todayDate.getDate() + 1);
-                                    data.end = {
+                                    endDate.setDate(todayDate.getDate());
+                                    previousCycle.end = {
                                       year: endDate.getFullYear(),
                                       month: endDate.getMonth() + 1,
                                       day: endDate.getDate()
                                     };
-                                    data.addCycle = diffDays;
-                                    data.isNormal = false;
-                                    return data;
+                                    previousCycle.addCycle = diffDays;
+                                    previousCycle.isNormal = false;
+                                    return previousCycle;
                                   }
                                   const updated = updateCycleValue();
                                   return {
