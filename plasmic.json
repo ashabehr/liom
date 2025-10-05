@@ -4647,6 +4647,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicHistory2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "seESvdNdvKDg",
+          "name": "Steps",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSteps.tsx",
+          "importSpec": {
+            "modulePath": "Steps.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSteps.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
