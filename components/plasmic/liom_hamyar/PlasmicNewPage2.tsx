@@ -393,7 +393,7 @@ function PlasmicNewPage2__RenderFunc(props: {
                 })()}
                 refcode={(() => {
                   try {
-                    return $ctx.query.refcode;
+                    return $ctx.query.r;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -705,7 +705,7 @@ function PlasmicNewPage2__RenderFunc(props: {
                         (() => {
                           try {
                             return {
-                              type: $state.paramsObject["shop_type"]
+                              type: $state.paramsObject["type"]
                             };
                           } catch (e) {
                             if (
