@@ -544,7 +544,8 @@ function PlasmicNewPage2__RenderFunc(props: {
                           const queryString = window.location.search;
                           const urlParams = new URLSearchParams(queryString);
                           return urlParams.forEach((value, key) => {
-                            $state.paramsObject[key] = value;
+                            const cleanValue = value.split("?")[0];
+                            $state.paramsObject[key] = cleanValue;
                           });
                         })();
                       }
@@ -736,7 +737,8 @@ function PlasmicNewPage2__RenderFunc(props: {
                         args: [
                           undefined,
                           "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0634\u0645\u0627 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u062a\u0645\u062f\u06cc\u062f \u0634\u062f.",
-                          "bottom-center"
+                          "bottom-center",
+                          5000
                         ]
                       };
                       return $globalActions["Fragment.showToast"]?.apply(null, [
@@ -787,7 +789,8 @@ function PlasmicNewPage2__RenderFunc(props: {
                         args: [
                           "error",
                           "\u0645\u062a\u0627\u0633\u0641\u0627\u0646\u0647 \u062e\u0631\u06cc\u062f \u0634\u0645\u0627 \u0646\u0627\u0645\u0648\u0641\u0642 \u0628\u0648\u062f.",
-                          "bottom-center"
+                          "bottom-center",
+                          5000
                         ]
                       };
                       return $globalActions["Fragment.showToast"]?.apply(null, [
