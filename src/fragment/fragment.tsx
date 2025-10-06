@@ -272,7 +272,7 @@ export const Fragment = ({
             case "#events": {
               const queryString = buildQueryString(params);
               if(queryString.includes("status=pregnancy")){
-                  let link = `https://apps.liom.app/status-day/`;
+                  let link = `https://apps.liom.app/status-day/?${queryString}`;
                   sendMessage("وضعیت امروز", link,inWebViow);
               }else{
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
