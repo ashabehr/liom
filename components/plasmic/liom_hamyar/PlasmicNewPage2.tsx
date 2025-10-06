@@ -345,86 +345,9 @@ function PlasmicNewPage2__RenderFunc(props: {
                   })()}
                 </React.Fragment>
               </div>
-              <ShopBoxRef
-                data-plasmic-name={"shopBoxRef"}
-                data-plasmic-override={overrides.shopBoxRef}
-                className={classNames("__wab_instance", sty.shopBoxRef)}
-                onOpenChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "shopBoxRef",
-                    "open"
-                  ]).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onSelectShopChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "shopBoxRef",
-                    "selectShop"
-                  ]).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                open={generateStateValueProp($state, ["shopBoxRef", "open"])}
-                redirectUrl={(() => {
-                  try {
-                    return window.location.href;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-                refcode={(() => {
-                  try {
-                    return $ctx.query.r;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-                token={
-                  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1OTczNDkyNH0.uE_xxp96Onf7yRU7aUFJAu4en-SbQPuqc9mz9tMbT_U"
-                }
-                type={(() => {
-                  try {
-                    return $state.shopItem;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-              />
-
               {(() => {
                 try {
-                  return $state.shop;
+                  return !$state.shop;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -435,49 +358,15 @@ function PlasmicNewPage2__RenderFunc(props: {
                   throw e;
                 }
               })() ? (
-                <Button
-                  data-plasmic-name={"button"}
-                  data-plasmic-override={overrides.button}
-                  className={classNames("__wab_instance", sty.button)}
-                  color={generateStateValueProp($state, ["button", "color"])}
-                  load={generateStateValueProp($state, ["button", "load"])}
-                  loading={generateStateValueProp($state, [
-                    "button",
-                    "loading"
-                  ])}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                return location.replace(
-                                  `https://tools.liom.app/self-test/?app=liom&inApp=true&type=${$state.type}&origin=liomSelfCare&token=${$state.token}`
-                                );
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-                  }}
-                  onColorChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button", "color"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
+                <ShopBoxRef
+                  data-plasmic-name={"shopBoxRef"}
+                  data-plasmic-override={overrides.shopBoxRef}
+                  className={classNames("__wab_instance", sty.shopBoxRef)}
+                  onOpenChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "shopBoxRef",
+                      "open"
+                    ]).apply(null, eventArgs);
 
                     if (
                       eventArgs.length > 1 &&
@@ -487,12 +376,11 @@ function PlasmicNewPage2__RenderFunc(props: {
                       return;
                     }
                   }}
-                  onLoadChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button", "load"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
+                  onSelectShopChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "shopBoxRef",
+                      "selectShop"
+                    ]).apply(null, eventArgs);
 
                     if (
                       eventArgs.length > 1 &&
@@ -502,35 +390,143 @@ function PlasmicNewPage2__RenderFunc(props: {
                       return;
                     }
                   }}
-                  onLoadingChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button", "loading"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
+                  open={generateStateValueProp($state, ["shopBoxRef", "open"])}
+                  redirectUrl={(() => {
+                    try {
+                      return window.location.href;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
                     }
-                  }}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__l9MFq
-                    )}
-                  >
-                    {
-                      "\u0648\u0631\u0648\u062f \u0628\u0647 \u067e\u0631\u0633\u0634\u0646\u0627\u0645\u0647"
+                  })()}
+                  refcode={(() => {
+                    try {
+                      return $ctx.query.r;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
                     }
-                  </div>
-                </Button>
+                  })()}
+                  token={
+                    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1OTczNDkyNH0.uE_xxp96Onf7yRU7aUFJAu4en-SbQPuqc9mz9tMbT_U"
+                  }
+                  type={(() => {
+                    try {
+                      return $state.shopItem;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                />
               ) : null}
+              <Button
+                data-plasmic-name={"button"}
+                data-plasmic-override={overrides.button}
+                className={classNames("__wab_instance", sty.button)}
+                color={generateStateValueProp($state, ["button", "color"])}
+                load={generateStateValueProp($state, ["button", "load"])}
+                loading={generateStateValueProp($state, ["button", "loading"])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              return location.replace(
+                                `https://tools.liom.app/self-test/?app=liom&inApp=true&type=${$state.type}&origin=liomSelfCare&token=${$state.token}`
+                              );
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "loading"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__l9MFq
+                  )}
+                >
+                  {
+                    "\u0648\u0631\u0648\u062f \u0628\u0647 \u067e\u0631\u0633\u0634\u0646\u0627\u0645\u0647"
+                  }
+                </div>
+              </Button>
             </div>
           ) : null}
           <SideEffect
@@ -739,7 +735,7 @@ function PlasmicNewPage2__RenderFunc(props: {
                       const actionArgs = {
                         args: [
                           undefined,
-                          "\u062e\u0631\u06cc\u062f \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0627\u0646\u062c\u0627\u0645 \u0634\u062f.",
+                          "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0634\u0645\u0627 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u062a\u0645\u062f\u06cc\u062f \u0634\u062f.",
                           "bottom-center"
                         ]
                       };
@@ -790,7 +786,7 @@ function PlasmicNewPage2__RenderFunc(props: {
                       const actionArgs = {
                         args: [
                           "error",
-                          "\u0645\u062a\u0627\u0633\u0641\u0627\u0646\u0647 \u062e\u0631\u06cc\u062f \u0634\u0645\u0627 \u0646\u0627\u0645\u0648\u0641\u0642 \u0628\u0648\u062f ",
+                          "\u0645\u062a\u0627\u0633\u0641\u0627\u0646\u0647 \u062e\u0631\u06cc\u062f \u0634\u0645\u0627 \u0646\u0627\u0645\u0648\u0641\u0642 \u0628\u0648\u062f.",
                           "bottom-center"
                         ]
                       };

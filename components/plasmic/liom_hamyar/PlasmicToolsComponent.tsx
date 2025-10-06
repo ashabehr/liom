@@ -178,7 +178,7 @@ function PlasmicToolsComponent__RenderFunc(props: {
                             {
                               text: "وضعیت امروز",
                               description: "",
-                              action: "#statusToday",
+                              action: "#events",
                               shopType: "",
                               icon: "https://liom.storage.c2.liara.space/tools/mainPage/today_status.png"
                             },
@@ -2621,7 +2621,6 @@ function PlasmicToolsComponent__RenderFunc(props: {
                                           try {
                                             return {
                                               origin: "liomSelfCare",
-                                              healthStatus: "pregnancy",
                                               status: "pregnancy"
                                             };
                                           } catch (e) {
