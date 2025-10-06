@@ -393,7 +393,7 @@ function PlasmicNewPage2__RenderFunc(props: {
                 })()}
                 ref={(() => {
                   try {
-                    return $state.paramsObject.ref;
+                    return $state.paramsObject.refcode;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
