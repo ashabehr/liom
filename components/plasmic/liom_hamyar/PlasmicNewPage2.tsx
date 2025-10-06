@@ -198,7 +198,7 @@ function PlasmicNewPage2__RenderFunc(props: {
         path: "shopItem",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "shop",
@@ -391,9 +391,9 @@ function PlasmicNewPage2__RenderFunc(props: {
                     throw e;
                   }
                 })()}
-                ref={(() => {
+                refcode={(() => {
                   try {
-                    return $state.paramsObject.refcode;
+                    return $ctx.query.refcode;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||

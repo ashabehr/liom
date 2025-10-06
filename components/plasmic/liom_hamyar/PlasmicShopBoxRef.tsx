@@ -94,7 +94,7 @@ export type PlasmicShopBoxRef__ArgsType = {
   open?: boolean;
   onOpenChange?: (val: string) => void;
   userId?: string;
-  ref?: string;
+  refcode?: string;
 };
 type ArgPropType = keyof PlasmicShopBoxRef__ArgsType;
 export const PlasmicShopBoxRef__ArgProps = new Array<ArgPropType>(
@@ -106,7 +106,7 @@ export const PlasmicShopBoxRef__ArgProps = new Array<ArgPropType>(
   "open",
   "onOpenChange",
   "userId",
-  "ref"
+  "refcode"
 );
 
 export type PlasmicShopBoxRef__OverridesType = {
@@ -132,7 +132,7 @@ export interface DefaultShopBoxRefProps {
   open?: boolean;
   onOpenChange?: (val: string) => void;
   userId?: string;
-  ref?: string;
+  refcode?: string;
   className?: string;
 }
 
@@ -1341,7 +1341,7 @@ function PlasmicShopBoxRef__RenderFunc(props: {
                           const actionArgs = {
                             destination: (() => {
                               try {
-                                return `https://pay.liom.app/p/${$props.ref}_${$state.topShop.int_id}`;
+                                return `https://pay.liom.app/p/${$props.refcode}_${$state.topShop.int_id}`;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -2079,7 +2079,7 @@ function PlasmicShopBoxRef__RenderFunc(props: {
                       const actionArgs = {
                         destination: (() => {
                           try {
-                            return `https://pay.liom.app/p/${$props.ref}_${$state.selectShop.int_id}`;
+                            return `https://pay.liom.app/p/${$props.refcode}_${$state.selectShop.int_id}`;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
