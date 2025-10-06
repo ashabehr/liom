@@ -1341,7 +1341,7 @@ function PlasmicShopBoxRef__RenderFunc(props: {
                           const actionArgs = {
                             destination: (() => {
                               try {
-                                return `https://pay.liom.app/p/${$props.refcode}_${$state.topShop.int_id}`;
+                                return `https://pay.liom.app/p/${$props.refcode}_${$state.topShop.int_id}?redirectUrl=${$props.redirectUrl}`;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -2079,7 +2079,7 @@ function PlasmicShopBoxRef__RenderFunc(props: {
                       const actionArgs = {
                         destination: (() => {
                           try {
-                            return `https://pay.liom.app/p/${$props.refcode}_${$state.selectShop.int_id}`;
+                            return `https://pay.liom.app/p/${$props.refcode}_${$state.selectShop.int_id}?redirectUrl=${$props.redirectUrl}`;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||

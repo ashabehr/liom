@@ -2686,27 +2686,6 @@ function PlasmicStatusDay__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "newView",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (() => {
-                return localStorage.getItem("newView") || "false";
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -2755,7 +2734,13 @@ function PlasmicStatusDay__RenderFunc(props: {
           <SideEffect
             data-plasmic-name={"sideEffect"}
             data-plasmic-override={overrides.sideEffect}
-            className={classNames("__wab_instance", sty.sideEffect)}
+            className={classNames("__wab_instance", sty.sideEffect, {
+              [sty.sideEffectglobal_newView_newView]: hasVariant(
+                globalVariants,
+                "newView",
+                "newView"
+              )
+            })}
             onMount={async () => {
               const $steps = {};
 
@@ -7473,7 +7458,13 @@ function PlasmicStatusDay__RenderFunc(props: {
                         }
                       })()}
                       circl={true}
-                      className={classNames("__wab_instance", sty.discharge)}
+                      className={classNames("__wab_instance", sty.discharge, {
+                        [sty.dischargeglobal_newView_newView]: hasVariant(
+                          globalVariants,
+                          "newView",
+                          "newView"
+                        )
+                      })}
                       html={(() => {
                         try {
                           return undefined;
