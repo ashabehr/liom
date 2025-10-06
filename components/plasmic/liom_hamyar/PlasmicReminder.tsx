@@ -232,7 +232,7 @@ function PlasmicReminder__RenderFunc(props: {
               telegramId: "573538820",
               phoneNumber: "",
               schedule_type: "everyDay",
-              name: "\u0642\u0631\u0635 \u0645\u0641\u0646\u0627\u0646\u06cc\u06a9 \u0627\u0633\u06cc\u062f",
+              name: "\u0642\u0631\u0635",
               text: "pill",
               token1:
                 "\u0645\u0641\u0646\u0627\u0646\u06cc\u06a9 \u0627\u0633\u06cc\u062f",
@@ -326,68 +326,19 @@ function PlasmicReminder__RenderFunc(props: {
               active: 1
             },
             {
-              id: 265,
+              id: 279,
               liomId: "1",
               telegramId: "5384384618",
-              phoneNumber: "null",
-              schedule_type: "everyYear",
-              name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
-              text: "occasion",
-              token1:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
-              dates: '["2026-02-14"]',
-              weekdays: null,
-              times: "09:00",
-              finishTime: "2025-10-04 12:58:14",
-              active: 1
-            },
-            {
-              id: 266,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "null",
-              schedule_type: "everyYear",
-              name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
-              text: "occasion",
-              token1:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
-              dates: '["2026-02-14"]',
-              weekdays: null,
-              times: "09:00",
-              finishTime: "2025-10-04 12:59:26",
-              active: 1
-            },
-            {
-              id: 267,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "null",
+              phoneNumber: "",
               schedule_type: "everyYear",
               name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
               text: "occasion",
-              token1:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
+              token1: null,
               dates: '["2026-03-08"]',
               weekdays: null,
-              times: "09:00",
-              finishTime: "2025-10-04 13:19:47",
+              times: '["09:00"]',
+              finishTime: "2025-10-04 15:04:26",
               active: 1
-            },
-            {
-              id: 241,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "null",
-              schedule_type: "everyYear",
-              name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631\u0645",
-              text: "birthday_child",
-              token1:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1ODk2MDI4N30._Tp-wZXlukWoGyta2f-pCjVqGASV2wPp5eSWFhUPLj4",
-              dates: '["2026-03-11"]',
-              weekdays: null,
-              times: '["12:00"]',
-              finishTime: "2025-09-23 15:55:12",
-              active: 0
             },
             {
               id: 257,
@@ -395,7 +346,7 @@ function PlasmicReminder__RenderFunc(props: {
               telegramId: "33263188",
               phoneNumber: "",
               schedule_type: "everyYear",
-              name: "\u062a\u0648\u0644\u062f \u062d\u0644\u0645\u0627",
+              name: "\u062a\u0648\u0644\u062f",
               text: "birthday",
               token1: "\u062d\u0644\u0645\u0627",
               dates: '["2026-03-29"]',
@@ -887,7 +838,7 @@ function PlasmicReminder__RenderFunc(props: {
             phoneNumber: null,
             schedule_type: "everyYear",
             name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631\u0645",
-            text: "birthday",
+            text: "wife_birthday",
             token1: null,
             dates: null,
             weekdays: null,
@@ -3763,7 +3714,7 @@ function PlasmicReminder__RenderFunc(props: {
                             const merged = $state.ofline.map(i => {
                               const found = $props.data.find(a =>
                                 i.text !== "occasion"
-                                  ? a.name === i.name
+                                  ? a.text === i.text
                                   : a.name === i.name
                               );
                               return found ? found : i;

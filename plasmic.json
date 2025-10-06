@@ -4660,6 +4660,33 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicSteps.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "Rc1GMzt6eVJi",
+          "name": "NewPage2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicNewPage2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/shop-item-2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicNewPage2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/shop-item-2"
+        },
+        {
+          "id": "9y_uQdLH_4vd",
+          "name": "ShopBoxRef",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicShopBoxRef.tsx",
+          "importSpec": {
+            "modulePath": "ShopBoxRef.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicShopBoxRef.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
