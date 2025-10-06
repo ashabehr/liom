@@ -8622,7 +8622,9 @@ function PlasmicHamyar__RenderFunc(props: {
                                       try {
                                         return (() => {
                                           try {
-                                            return currentItem.name + ":";
+                                            return currentItem.token1
+                                              ? `${currentItem.name} ${currentItem.token1}`
+                                              : currentItem.name + ":";
                                           } catch {}
                                         })();
                                       } catch (e) {

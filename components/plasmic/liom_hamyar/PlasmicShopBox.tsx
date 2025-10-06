@@ -1225,9 +1225,8 @@ function PlasmicShopBox__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
 
                     $steps["updateDialogOpendialog2"] =
@@ -1270,9 +1269,8 @@ function PlasmicShopBox__RenderFunc(props: {
                       typeof $steps["updateDialogOpendialog2"].then ===
                         "function"
                     ) {
-                      $steps["updateDialogOpendialog2"] = await $steps[
-                        "updateDialogOpendialog2"
-                      ];
+                      $steps["updateDialogOpendialog2"] =
+                        await $steps["updateDialogOpendialog2"];
                     }
 
                     $steps["invokeGlobalAction2"] =
@@ -1297,9 +1295,8 @@ function PlasmicShopBox__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction2"] === "object" &&
                       typeof $steps["invokeGlobalAction2"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction2"] = await $steps[
-                        "invokeGlobalAction2"
-                      ];
+                      $steps["invokeGlobalAction2"] =
+                        await $steps["invokeGlobalAction2"];
                     }
 
                     $steps["updateLoading2"] = true
@@ -1442,60 +1439,73 @@ function PlasmicShopBox__RenderFunc(props: {
                     {"\u067e\u0631\u062f\u0627\u062e\u062a"}
                   </div>
                 </Button>
-                <p
-                  data-plasmic-name={"p"}
-                  data-plasmic-override={overrides.p}
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.p,
-                    projectcss.__wab_text,
-                    sty.p
-                  )}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["updateDialog2Opendialog"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["dialog2", "opendialog"]
-                            },
-                            operation: 0,
-                            value: true
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
+                {(() => {
+                  try {
+                    return $state.shopDialog?.data?.result?.shopList.length > 1;
+                  } catch (e) {
                     if (
-                      $steps["updateDialog2Opendialog"] != null &&
-                      typeof $steps["updateDialog2Opendialog"] === "object" &&
-                      typeof $steps["updateDialog2Opendialog"].then ===
-                        "function"
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
                     ) {
-                      $steps["updateDialog2Opendialog"] = await $steps[
-                        "updateDialog2Opendialog"
-                      ];
+                      return true;
                     }
-                  }}
-                >
-                  {
-                    "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
+                    throw e;
                   }
-                </p>
+                })() ? (
+                  <p
+                    data-plasmic-name={"p"}
+                    data-plasmic-override={overrides.p}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.p,
+                      projectcss.__wab_text,
+                      sty.p
+                    )}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateDialog2Opendialog"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["dialog2", "opendialog"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateDialog2Opendialog"] != null &&
+                        typeof $steps["updateDialog2Opendialog"] === "object" &&
+                        typeof $steps["updateDialog2Opendialog"].then ===
+                          "function"
+                      ) {
+                        $steps["updateDialog2Opendialog"] =
+                          await $steps["updateDialog2Opendialog"];
+                      }
+                    }}
+                  >
+                    {
+                      "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
+                    }
+                  </p>
+                ) : null}
               </div>
             </div>
           </div>
@@ -1592,9 +1602,8 @@ function PlasmicShopBox__RenderFunc(props: {
                         typeof $steps["updateSelectShop"] === "object" &&
                         typeof $steps["updateSelectShop"].then === "function"
                       ) {
-                        $steps["updateSelectShop"] = await $steps[
-                          "updateSelectShop"
-                        ];
+                        $steps["updateSelectShop"] =
+                          await $steps["updateSelectShop"];
                       }
                     },
                     onClickitemChange: async (...eventArgs: any) => {
@@ -1860,6 +1869,30 @@ function PlasmicShopBox__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
+                $steps["updateLoading4"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            const url = new URL($props.redirectUrl);
+                            url.searchParams.set("buyId", $state.topShop.id);
+                            return ($props.redirectUrl = url.toString());
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateLoading4"] != null &&
+                  typeof $steps["updateLoading4"] === "object" &&
+                  typeof $steps["updateLoading4"].then === "function"
+                ) {
+                  $steps["updateLoading4"] = await $steps["updateLoading4"];
+                }
+
                 $steps["updateLoading3"] = true
                   ? (() => {
                       const actionArgs = {
@@ -1956,9 +1989,8 @@ function PlasmicShopBox__RenderFunc(props: {
                   typeof $steps["invokeGlobalAction"] === "object" &&
                   typeof $steps["invokeGlobalAction"].then === "function"
                 ) {
-                  $steps["invokeGlobalAction"] = await $steps[
-                    "invokeGlobalAction"
-                  ];
+                  $steps["invokeGlobalAction"] =
+                    await $steps["invokeGlobalAction"];
                 }
 
                 $steps["updateDialogOpendialog2"] =
@@ -1999,9 +2031,8 @@ function PlasmicShopBox__RenderFunc(props: {
                   typeof $steps["updateDialogOpendialog2"] === "object" &&
                   typeof $steps["updateDialogOpendialog2"].then === "function"
                 ) {
-                  $steps["updateDialogOpendialog2"] = await $steps[
-                    "updateDialogOpendialog2"
-                  ];
+                  $steps["updateDialogOpendialog2"] =
+                    await $steps["updateDialogOpendialog2"];
                 }
 
                 $steps["invokeGlobalAction2"] =
@@ -2026,9 +2057,8 @@ function PlasmicShopBox__RenderFunc(props: {
                   typeof $steps["invokeGlobalAction2"] === "object" &&
                   typeof $steps["invokeGlobalAction2"].then === "function"
                 ) {
-                  $steps["invokeGlobalAction2"] = await $steps[
-                    "invokeGlobalAction2"
-                  ];
+                  $steps["invokeGlobalAction2"] =
+                    await $steps["invokeGlobalAction2"];
                 }
 
                 $steps["updateLoading2"] = true
@@ -2192,7 +2222,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicShopBox__VariantsArgs;
     args?: PlasmicShopBox__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicShopBox__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicShopBox__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicShopBox__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

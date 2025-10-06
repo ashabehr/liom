@@ -4761,7 +4761,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     <React.Fragment>
                                       {(() => {
                                         try {
-                                          return currentItem.name;
+                                          return currentItem.token1
+                                            ? `${currentItem.name} ${currentItem.token1}`
+                                            : currentItem.name;
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||

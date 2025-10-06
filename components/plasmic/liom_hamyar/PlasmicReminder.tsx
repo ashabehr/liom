@@ -2310,7 +2310,9 @@ function PlasmicReminder__RenderFunc(props: {
                                             <React.Fragment>
                                               {(() => {
                                                 try {
-                                                  return currentItem.name;
+                                                  return currentItem.token1
+                                                    ? `${currentItem.name} ${currentItem.token1}`
+                                                    : currentItem.name;
                                                 } catch (e) {
                                                   if (
                                                     e instanceof TypeError ||
@@ -2629,7 +2631,9 @@ function PlasmicReminder__RenderFunc(props: {
                             <React.Fragment>
                               {(() => {
                                 try {
-                                  return currentday.name;
+                                  return currentday.token1
+                                    ? `${currentday.name} ${currentday.token1}`
+                                    : currentday.name;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||

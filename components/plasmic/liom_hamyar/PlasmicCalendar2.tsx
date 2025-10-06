@@ -57449,8 +57449,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                                 try {
                                   return (() => {
                                     const data =
-                                      $state.userInfo?.result
-                                        ?.lastCalender?.[0];
+                                      $state.userInfo?.result?.calender?.[0];
                                     function getIranToday() {
                                       const nowIran = new Date(
                                         new Date().toLocaleString("en-US", {
@@ -57465,24 +57464,15 @@ function PlasmicCalendar2__RenderFunc(props: {
                                     }
                                     function updateCycleValue() {
                                       const todayDate = getIranToday();
-                                      let endDate = new Date(
-                                        data.end.year,
-                                        data.end.month,
-                                        data.end.day
+                                      let startdate = new Date(
+                                        data.start.year,
+                                        data.start.month - 1,
+                                        data.start.day
                                       );
                                       let diffDays = Math.floor(
-                                        (todayDate - endDate) /
+                                        (startdate - todayDate) /
                                           (1000 * 60 * 60 * 24)
                                       );
-                                      endDate.setDate(
-                                        todayDate.getDate() -
-                                          $state.pickers.value
-                                      );
-                                      data.end = {
-                                        year: endDate.getFullYear(),
-                                        month: endDate.getMonth() + 1,
-                                        day: endDate.getDate()
-                                      };
                                       data.addCycle =
                                         diffDays - $state.pickers.value;
                                       data.isNormal = false;
@@ -57762,7 +57752,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                             try {
                               return (() => {
                                 const data =
-                                  $state.userInfo?.result?.lastCalender?.[0];
+                                  $state.userInfo?.result?.calender?.[0];
                                 function getIranToday() {
                                   const nowIran = new Date(
                                     new Date().toLocaleString("en-US", {
@@ -57777,22 +57767,16 @@ function PlasmicCalendar2__RenderFunc(props: {
                                 }
                                 function updateCycleValue() {
                                   const todayDate = getIranToday();
-                                  let endDate = new Date(
-                                    data.end.year,
-                                    data.end.month,
-                                    data.end.day
+                                  let startdate = new Date(
+                                    data.start.year,
+                                    data.start.month - 1,
+                                    data.start.day
                                   );
                                   let diffDays = Math.floor(
-                                    (todayDate - endDate) /
+                                    (startdate - todayDate) /
                                       (1000 * 60 * 60 * 24)
                                   );
-                                  endDate.setDate(todayDate.getDate() - 1);
-                                  data.end = {
-                                    year: endDate.getFullYear(),
-                                    month: endDate.getMonth() + 1,
-                                    day: endDate.getDate()
-                                  };
-                                  data.addCycle = diffDays;
+                                  data.addCycle = diffDays - 1;
                                   data.isNormal = false;
                                   return data;
                                 }
@@ -58332,8 +58316,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                                 try {
                                   return (() => {
                                     const data =
-                                      $state.userInfo?.result
-                                        ?.lastCalender?.[0];
+                                      $state.userInfo?.result?.calender?.[0];
                                     function getIranToday() {
                                       const nowIran = new Date(
                                         new Date().toLocaleString("en-US", {
@@ -58350,7 +58333,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                                       const todayDate = getIranToday();
                                       let endDate = new Date(
                                         data.period.end.year,
-                                        data.period.end.month,
+                                        data.period.end.month - 1,
                                         data.period.end.day
                                       );
                                       let diffDays = Math.floor(
@@ -58636,7 +58619,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                             try {
                               return (() => {
                                 const data =
-                                  $state.userInfo?.result?.lastCalender?.[0];
+                                  $state.userInfo?.result?.calender?.[0];
                                 function getIranToday() {
                                   const nowIran = new Date(
                                     new Date().toLocaleString("en-US", {
@@ -58653,7 +58636,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                                   const todayDate = getIranToday();
                                   let endDate = new Date(
                                     data.period.end.year,
-                                    data.period.end.month,
+                                    data.period.end.month - 1,
                                     data.period.end.day
                                   );
                                   let diffDays = Math.floor(

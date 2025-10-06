@@ -541,7 +541,6 @@
   text-overflow: clip;
   cursor: pointer;
   font-family: "Roboto", sans-serif;
-  display: none;
   padding: 8px 8px 0px;
 }
 .dialog2:global(.__wab_instance):global(.__wab_instance) {
