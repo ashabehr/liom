@@ -701,7 +701,7 @@ function PlasmicNewPage2__RenderFunc(props: {
                         (() => {
                           try {
                             return {
-                              type: $state.paramsObject["type"]
+                              type: $state.paramsObject["t"]
                             };
                           } catch (e) {
                             if (
