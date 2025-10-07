@@ -97,7 +97,17 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             setNewView(undefined);
           }
         }
-
+        if (document.cookie.includes("loading=true")) {
+            const hideLoading = () => {
+              document.cookie = "loading=false; path=/; domain=.liom.app; secure; SameSite=Lax";
+            };
+        
+            if (document.readyState !== "complete") {
+              window.addEventListener("load", hideLoading, { once: true });
+            } else {
+              hideLoading();
+            }
+          }
     // if (typeof window !== "undefined" && "serviceWorker" in navigator) {
 
     //   import("../firebase/fcm").then(
