@@ -96,7 +96,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           } else {
             setNewView(undefined);
           }
-        }
+        
         if (document.cookie.includes("loading=true")) {
             const hideLoading = () => {
               document.cookie = "loading=false; path=/; domain=.liom.app; secure; SameSite=Lax";
@@ -108,6 +108,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
               hideLoading();
             }
           }
+    }
     // if (typeof window !== "undefined" && "serviceWorker" in navigator) {
 
     //   import("../firebase/fcm").then(
