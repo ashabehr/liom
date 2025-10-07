@@ -103,6 +103,7 @@ export type PlasmicSendnotif__ArgsType = {
   selectedTab?: number;
   onSelectedTabChange?: (val: string) => void;
   onFilessChange?: (val: string) => void;
+  onDatapickerboolChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicSendnotif__ArgsType;
 export const PlasmicSendnotif__ArgProps = new Array<ArgPropType>(
@@ -113,7 +114,8 @@ export const PlasmicSendnotif__ArgProps = new Array<ArgPropType>(
   "onTabListChange",
   "selectedTab",
   "onSelectedTabChange",
-  "onFilessChange"
+  "onFilessChange",
+  "onDatapickerboolChange"
 );
 
 export type PlasmicSendnotif__OverridesType = {
@@ -156,6 +158,7 @@ export interface DefaultSendnotifProps {
   selectedTab?: number;
   onSelectedTabChange?: (val: string) => void;
   onFilessChange?: (val: string) => void;
+  onDatapickerboolChange?: (val: string) => void;
   className?: string;
 }
 
@@ -473,6 +476,37 @@ function PlasmicSendnotif__RenderFunc(props: {
         path: "datePicker[].values",
         type: "private",
         variableType: "array"
+      },
+      {
+        path: "datapic",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                return $state.datePicker.forEach(
+                  item => ($state.date += item.values.join("/"))
+                );
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "datapickerbool",
+        type: "readonly",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false,
+
+        onChangeProp: "onDatapickerboolChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -602,9 +636,8 @@ function PlasmicSendnotif__RenderFunc(props: {
                           typeof $steps["updateSelectstep"] === "object" &&
                           typeof $steps["updateSelectstep"].then === "function"
                         ) {
-                          $steps["updateSelectstep"] = await $steps[
-                            "updateSelectstep"
-                          ];
+                          $steps["updateSelectstep"] =
+                            await $steps["updateSelectstep"];
                         }
                       }}
                       style={(() => {
@@ -1401,6 +1434,51 @@ function PlasmicSendnotif__RenderFunc(props: {
                                     ) {
                                       return;
                                     }
+
+                                    (async event => {
+                                      const $steps = {};
+
+                                      $steps["updateTitre"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              variable: {
+                                                objRoot: $state,
+                                                variablePath: ["titre"]
+                                              },
+                                              operation: 0
+                                            };
+                                            return (({
+                                              variable,
+                                              value,
+                                              startIndex,
+                                              deleteCount
+                                            }) => {
+                                              if (!variable) {
+                                                return;
+                                              }
+                                              const { objRoot, variablePath } =
+                                                variable;
+
+                                              $stateSet(
+                                                objRoot,
+                                                variablePath,
+                                                value
+                                              );
+                                              return value;
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["updateTitre"] != null &&
+                                        typeof $steps["updateTitre"] ===
+                                          "object" &&
+                                        typeof $steps["updateTitre"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["updateTitre"] =
+                                          await $steps["updateTitre"];
+                                      }
+                                    }).apply(null, eventArgs);
                                   },
                                   onClick: async event => {
                                     const $steps = {};
@@ -1442,9 +1520,54 @@ function PlasmicSendnotif__RenderFunc(props: {
                                       typeof $steps["updateTitre"].then ===
                                         "function"
                                     ) {
-                                      $steps["updateTitre"] = await $steps[
-                                        "updateTitre"
-                                      ];
+                                      $steps["updateTitre"] =
+                                        await $steps["updateTitre"];
+                                    }
+
+                                    $steps["updateTitre2"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["datapickerbool"]
+                                            },
+                                            operation: 4,
+                                            value: true
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            const oldValue = $stateGet(
+                                              objRoot,
+                                              variablePath
+                                            );
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              !oldValue
+                                            );
+                                            return !oldValue;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updateTitre2"] != null &&
+                                      typeof $steps["updateTitre2"] ===
+                                        "object" &&
+                                      typeof $steps["updateTitre2"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["updateTitre2"] =
+                                        await $steps["updateTitre2"];
                                     }
                                   },
                                   placeholder:
@@ -1490,92 +1613,108 @@ function PlasmicSendnotif__RenderFunc(props: {
                                   />
                                 );
                               })()}
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__ovUfd
-                                )}
-                              >
-                                {(() => {
-                                  const child$Props = {
-                                    className: classNames(
-                                      "__wab_instance",
-                                      sty.datePicker
-                                    ),
-                                    holidays: [],
-                                    locale: "fa",
-                                    onChange: async (...eventArgs: any) => {
-                                      generateStateOnChangeProp($state, [
+                              {(() => {
+                                try {
+                                  return $state.datapickerbool ? true : false;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__ovUfd
+                                  )}
+                                >
+                                  {(() => {
+                                    const child$Props = {
+                                      className: classNames(
+                                        "__wab_instance",
+                                        sty.datePicker
+                                      ),
+                                      holidays: [],
+                                      locale: "fa",
+                                      onChange: async (...eventArgs: any) => {
+                                        generateStateOnChangeProp($state, [
+                                          "datePicker",
+                                          __plasmic_idx_0,
+                                          "value"
+                                        ]).apply(null, eventArgs);
+                                        generateStateOnChangeProp($state, [
+                                          "datePicker",
+                                          __plasmic_idx_0,
+                                          "values"
+                                        ]).apply(null, eventArgs);
+                                      },
+                                      value: generateStateValueProp($state, [
                                         "datePicker",
                                         __plasmic_idx_0,
                                         "value"
-                                      ]).apply(null, eventArgs);
-                                      generateStateOnChangeProp($state, [
+                                      ]),
+                                      values: generateStateValueProp($state, [
                                         "datePicker",
                                         __plasmic_idx_0,
                                         "values"
-                                      ]).apply(null, eventArgs);
-                                    },
-                                    value: generateStateValueProp($state, [
-                                      "datePicker",
-                                      __plasmic_idx_0,
-                                      "value"
-                                    ]),
-                                    values: generateStateValueProp($state, [
-                                      "datePicker",
-                                      __plasmic_idx_0,
-                                      "values"
-                                    ])
-                                  };
-                                  initializeCodeComponentStates(
-                                    $state,
-                                    [
-                                      {
-                                        name: "value",
-                                        plasmicStateName: "datePicker[].value"
-                                      },
-                                      {
-                                        name: "values",
-                                        plasmicStateName: "datePicker[].values"
-                                      }
-                                    ],
-                                    [__plasmic_idx_0],
-                                    undefined ?? {},
-                                    child$Props
-                                  );
-                                  initializePlasmicStates(
-                                    $state,
-                                    [
-                                      {
-                                        name: "datePicker[].value",
-                                        initFunc: ({
-                                          $props,
-                                          $state,
-                                          $queries
-                                        }) => undefined
-                                      },
-                                      {
-                                        name: "datePicker[].values",
-                                        initFunc: ({
-                                          $props,
-                                          $state,
-                                          $queries
-                                        }) => []
-                                      }
-                                    ],
-                                    [__plasmic_idx_0]
-                                  );
-                                  return (
-                                    <DatePicker
-                                      data-plasmic-name={"datePicker"}
-                                      data-plasmic-override={
-                                        overrides.datePicker
-                                      }
-                                      {...child$Props}
-                                    />
-                                  );
-                                })()}
-                              </div>
+                                      ])
+                                    };
+                                    initializeCodeComponentStates(
+                                      $state,
+                                      [
+                                        {
+                                          name: "value",
+                                          plasmicStateName: "datePicker[].value"
+                                        },
+                                        {
+                                          name: "values",
+                                          plasmicStateName:
+                                            "datePicker[].values"
+                                        }
+                                      ],
+                                      [__plasmic_idx_0],
+                                      undefined ?? {},
+                                      child$Props
+                                    );
+                                    initializePlasmicStates(
+                                      $state,
+                                      [
+                                        {
+                                          name: "datePicker[].value",
+                                          initFunc: ({
+                                            $props,
+                                            $state,
+                                            $queries
+                                          }) => undefined
+                                        },
+                                        {
+                                          name: "datePicker[].values",
+                                          initFunc: ({
+                                            $props,
+                                            $state,
+                                            $queries
+                                          }) => []
+                                        }
+                                      ],
+                                      [__plasmic_idx_0]
+                                    );
+                                    return (
+                                      <DatePicker
+                                        data-plasmic-name={"datePicker"}
+                                        data-plasmic-override={
+                                          overrides.datePicker
+                                        }
+                                        {...child$Props}
+                                      />
+                                    );
+                                  })()}
+                                </div>
+                              ) : null}
                             </div>
                             <div
                               className={classNames(
@@ -1681,9 +1820,8 @@ function PlasmicSendnotif__RenderFunc(props: {
                                       typeof $steps["updateTitre"].then ===
                                         "function"
                                     ) {
-                                      $steps["updateTitre"] = await $steps[
-                                        "updateTitre"
-                                      ];
+                                      $steps["updateTitre"] =
+                                        await $steps["updateTitre"];
                                     }
                                   },
                                   placeholder:
@@ -1981,9 +2119,8 @@ function PlasmicSendnotif__RenderFunc(props: {
                                         typeof $steps["runCode"].then ===
                                           "function"
                                       ) {
-                                        $steps["runCode"] = await $steps[
-                                          "runCode"
-                                        ];
+                                        $steps["runCode"] =
+                                          await $steps["runCode"];
                                       }
                                     }}
                                     role={"img"}
@@ -2581,9 +2718,8 @@ function PlasmicSendnotif__RenderFunc(props: {
                                         typeof $steps["runCode"].then ===
                                           "function"
                                       ) {
-                                        $steps["runCode"] = await $steps[
-                                          "runCode"
-                                        ];
+                                        $steps["runCode"] =
+                                          await $steps["runCode"];
                                       }
                                     }}
                                     role={"img"}
@@ -3152,7 +3288,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSendnotif__VariantsArgs;
     args?: PlasmicSendnotif__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSendnotif__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSendnotif__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSendnotif__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

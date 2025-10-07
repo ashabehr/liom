@@ -282,21 +282,19 @@ function PlasmicMain__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant($state, "edit", "edit")
-            ? (() => {
-                try {
-                  return $state.mainPage.token;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()
-            : ``
+          (() => {
+            try {
+              return $state.mainPage.token;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "mainPage.token",
@@ -1876,13 +1874,13 @@ function PlasmicMain__RenderFunc(props: {
               data-plasmic-override={overrides.editProfile2}
               active={(() => {
                 try {
-                  return $state.edit == true;
+                  return $state.edit == "true";
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
                     e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    return true;
+                    return false;
                   }
                   throw e;
                 }
@@ -1892,15 +1890,14 @@ function PlasmicMain__RenderFunc(props: {
 
                 $steps["updateEdit"] = true
                   ? (() => {
-                      const actionArgs = { vgroup: "edit", operation: 2 };
+                      const actionArgs = { vgroup: "edit", operation: 4 };
                       return (({ vgroup, value }) => {
                         if (typeof value === "string") {
                           value = [value];
                         }
 
-                        const oldValue = $stateGet($state, vgroup);
-                        $stateSet($state, vgroup, !oldValue);
-                        return !oldValue;
+                        $stateSet($state, vgroup, true);
+                        return true;
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;

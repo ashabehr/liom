@@ -86,10 +86,16 @@ import Icon157Icon from "./icons/PlasmicIcon__Icon157"; // plasmic-import: pYMHt
 
 createPlasmicElementProxy;
 
-export type PlasmicMainHeader__VariantMembers = {};
-export type PlasmicMainHeader__VariantsArgs = {};
+export type PlasmicMainHeader__VariantMembers = {
+  hamyar: "hamyar";
+};
+export type PlasmicMainHeader__VariantsArgs = {
+  hamyar?: SingleBooleanChoiceArg<"hamyar">;
+};
 type VariantPropType = keyof PlasmicMainHeader__VariantsArgs;
-export const PlasmicMainHeader__VariantProps = new Array<VariantPropType>();
+export const PlasmicMainHeader__VariantProps = new Array<VariantPropType>(
+  "hamyar"
+);
 
 export type PlasmicMainHeader__ArgsType = {
   userinfo?: any;
@@ -128,6 +134,7 @@ export interface DefaultMainHeaderProps {
   openEdit?: () => void;
   children?: React.ReactNode;
   slot?: React.ReactNode;
+  hamyar?: SingleBooleanChoiceArg<"hamyar">;
   className?: string;
 }
 
@@ -293,6 +300,12 @@ function PlasmicMainHeader__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "hamyar",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.hamyar
       }
     ],
     [$props, $ctx, $refs]
@@ -347,7 +360,15 @@ function PlasmicMainHeader__RenderFunc(props: {
         ),
         value: args.children
       })}
-      <div className={classNames(projectcss.all, sty.freeBox__t17Fm)}>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__t17Fm, {
+          [sty.freeBoxhamyar__t17Fms1T6S]: hasVariant(
+            $state,
+            "hamyar",
+            "hamyar"
+          )
+        })}
+      >
         {renderPlasmicSlot({
           defaultContents: null,
           value: args.slot
@@ -356,7 +377,9 @@ function PlasmicMainHeader__RenderFunc(props: {
       <AntdDrawer
         data-plasmic-name={"drawer"}
         data-plasmic-override={overrides.drawer}
-        className={classNames("__wab_instance", sty.drawer)}
+        className={classNames("__wab_instance", sty.drawer, {
+          [sty.drawerhamyar]: hasVariant($state, "hamyar", "hamyar")
+        })}
         closeButtonClassName={classNames({ [sty["pcls_lqSQHfqD67bF"]]: true })}
         defaultStylesClassName={classNames(
           projectcss.root_reset,
@@ -419,7 +442,14 @@ function PlasmicMainHeader__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__yvPVb
+                      sty.text__yvPVb,
+                      {
+                        [sty.texthamyar__yvPVbs1T6S]: hasVariant(
+                          $state,
+                          "hamyar",
+                          "hamyar"
+                        )
+                      }
                     )}
                   >
                     <React.Fragment>
@@ -514,9 +544,8 @@ function PlasmicMainHeader__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction2"] === "object" &&
                       typeof $steps["invokeGlobalAction2"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction2"] = await $steps[
-                        "invokeGlobalAction2"
-                      ];
+                      $steps["invokeGlobalAction2"] =
+                        await $steps["invokeGlobalAction2"];
                     }
 
                     $steps["invokeGlobalAction"] = true
@@ -580,9 +609,8 @@ function PlasmicMainHeader__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
                   }}
                 >
@@ -727,10 +755,32 @@ function PlasmicMainHeader__RenderFunc(props: {
           </div>
         }
       >
-        <div className={classNames(projectcss.all, sty.freeBox__kyVHq)}>
-          <div className={classNames(projectcss.all, sty.freeBox__b3Xdd)}>
+        <div
+          className={classNames(projectcss.all, sty.freeBox__kyVHq, {
+            [sty.freeBoxhamyar__kyVHqs1T6S]: hasVariant(
+              $state,
+              "hamyar",
+              "hamyar"
+            )
+          })}
+        >
+          <div
+            className={classNames(projectcss.all, sty.freeBox__b3Xdd, {
+              [sty.freeBoxhamyar__b3Xdds1T6S]: hasVariant(
+                $state,
+                "hamyar",
+                "hamyar"
+              )
+            })}
+          >
             <div
-              className={classNames(projectcss.all, sty.freeBox__v9VFd)}
+              className={classNames(projectcss.all, sty.freeBox__v9VFd, {
+                [sty.freeBoxhamyar__v9VFds1T6S]: hasVariant(
+                  $state,
+                  "hamyar",
+                  "hamyar"
+                )
+              })}
               onClick={async event => {
                 const $steps = {};
 
@@ -813,9 +863,8 @@ function PlasmicMainHeader__RenderFunc(props: {
                   typeof $steps["invokeGlobalAction"] === "object" &&
                   typeof $steps["invokeGlobalAction"].then === "function"
                 ) {
-                  $steps["invokeGlobalAction"] = await $steps[
-                    "invokeGlobalAction"
-                  ];
+                  $steps["invokeGlobalAction"] =
+                    await $steps["invokeGlobalAction"];
                 }
 
                 $steps["updateDopen"] = true
@@ -937,7 +986,13 @@ function PlasmicMainHeader__RenderFunc(props: {
               </Button>
             </div>
             <div
-              className={classNames(projectcss.all, sty.freeBox__uiHmz)}
+              className={classNames(projectcss.all, sty.freeBox__uiHmz, {
+                [sty.freeBoxhamyar__uiHmzs1T6S]: hasVariant(
+                  $state,
+                  "hamyar",
+                  "hamyar"
+                )
+              })}
               onClick={async event => {
                 const $steps = {};
 
@@ -1021,7 +1076,13 @@ function PlasmicMainHeader__RenderFunc(props: {
               />
             </div>
             <div
-              className={classNames(projectcss.all, sty.freeBox__nngrk)}
+              className={classNames(projectcss.all, sty.freeBox__nngrk, {
+                [sty.freeBoxhamyar__nngrks1T6S]: hasVariant(
+                  $state,
+                  "hamyar",
+                  "hamyar"
+                )
+              })}
               onClick={async event => {
                 const $steps = {};
 
@@ -1110,7 +1171,13 @@ function PlasmicMainHeader__RenderFunc(props: {
             />
 
             <div
-              className={classNames(projectcss.all, sty.freeBox__pk8S)}
+              className={classNames(projectcss.all, sty.freeBox__pk8S, {
+                [sty.freeBoxhamyar__pk8SS1T6S]: hasVariant(
+                  $state,
+                  "hamyar",
+                  "hamyar"
+                )
+              })}
               onClick={async event => {
                 const $steps = {};
 
@@ -1189,7 +1256,13 @@ function PlasmicMainHeader__RenderFunc(props: {
               />
             </div>
             <div
-              className={classNames(projectcss.all, sty.freeBox__sLwd)}
+              className={classNames(projectcss.all, sty.freeBox__sLwd, {
+                [sty.freeBoxhamyar__sLwdS1T6S]: hasVariant(
+                  $state,
+                  "hamyar",
+                  "hamyar"
+                )
+              })}
               onClick={async event => {
                 const $steps = {};
 
@@ -1270,14 +1343,28 @@ function PlasmicMainHeader__RenderFunc(props: {
               />
             </div>
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__yGyS)}>
+          <div
+            className={classNames(projectcss.all, sty.freeBox__yGyS, {
+              [sty.freeBoxhamyar__yGySs1T6S]: hasVariant(
+                $state,
+                "hamyar",
+                "hamyar"
+              )
+            })}
+          >
             <Embed
               className={classNames("__wab_instance", sty.embedHtml___3Onig)}
               code={"<hr></hr>"}
             />
 
             <div
-              className={classNames(projectcss.all, sty.freeBox___0Wkzo)}
+              className={classNames(projectcss.all, sty.freeBox___0Wkzo, {
+                [sty.freeBoxhamyar___0WkzOs1T6S]: hasVariant(
+                  $state,
+                  "hamyar",
+                  "hamyar"
+                )
+              })}
               onClick={async event => {
                 const $steps = {};
 
@@ -1688,7 +1775,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicMainHeader__VariantsArgs;
     args?: PlasmicMainHeader__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicMainHeader__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicMainHeader__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicMainHeader__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

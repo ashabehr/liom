@@ -4487,20 +4487,6 @@
           "path": "/pregnancy"
         },
         {
-          "id": "RNnuQ6N0Um_C",
-          "name": "Hamyar2",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicHamyar2.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/hamyar-2.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicHamyar2.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/hamyar-2"
-        },
-        {
           "id": "uUHjvITgF605",
           "name": "NoNet",
           "type": "managed",
@@ -4673,6 +4659,46 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/s"
+        },
+        {
+          "id": "lqbda80vTmgo",
+          "name": "Hamyar2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicHamyar2.tsx",
+          "importSpec": {
+            "modulePath": "Hamyar2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicHamyar2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "cnAAvxWM15-_",
+          "name": "Hamyar3",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicHamyar3.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/hamyar-2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicHamyar3.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/hamyar-2"
+        },
+        {
+          "id": "dfIi25835BgX",
+          "name": "MainHamyar",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMainHamyar.tsx",
+          "importSpec": {
+            "modulePath": "MainHamyar.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicMainHamyar.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -6730,6 +6756,36 @@
           "id": "2foIFDF7T4zN",
           "name": "Icon313Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon313.tsx"
+        },
+        {
+          "id": "fOMDsiNEQBOb",
+          "name": "Icon314Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon314.tsx"
+        },
+        {
+          "id": "NN9rG0boKpcL",
+          "name": "Icon315Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon315.tsx"
+        },
+        {
+          "id": "0cmpPg7jI64F",
+          "name": "Icon316Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon316.tsx"
+        },
+        {
+          "id": "A8wb-T8GiE4Q",
+          "name": "Icon317Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon317.tsx"
+        },
+        {
+          "id": "LgkeupPgZrI7",
+          "name": "Icon318Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon318.tsx"
+        },
+        {
+          "id": "aWqRVbwtYjuq",
+          "name": "Icon319Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon319.tsx"
         }
       ],
       "images": [

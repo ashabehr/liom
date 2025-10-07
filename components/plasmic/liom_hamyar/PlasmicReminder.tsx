@@ -1993,15 +1993,14 @@ function PlasmicReminder__RenderFunc(props: {
                             let parsedDates;
                             try {
                               parsedDates = t.dates ? JSON.parse(t.dates) : [];
-                            } catch (e) {
+                            } catch {
                               parsedDates = [];
                             }
                             if (
                               t.schedule_type === "everyDay" ||
                               parsedDates.includes(todayISO)
-                            ) {
+                            )
                               return;
-                            }
                             if (parsedDates.length === 0) {
                               const copy = {
                                 ...t,
@@ -2033,21 +2032,37 @@ function PlasmicReminder__RenderFunc(props: {
                               });
                             }
                           });
-                          const groups = Array.from(groupsMap.entries())
-                            .sort((a, b) => {
-                              if (a[0] === "__noDate__") return -1;
-                              if (b[0] === "__noDate__") return 1;
-                              const dateA = new Date(a[0]);
-                              const dateB = new Date(b[0]);
-                              dateA.setHours(0, 0, 0, 0);
-                              dateB.setHours(0, 0, 0, 0);
-                              const timeA = dateA.getTime();
-                              const timeB = dateB.getTime();
-                              if (Number.isNaN(timeA)) return 1;
-                              if (Number.isNaN(timeB)) return -1;
-                              return timeA - timeB;
-                            })
-                            .map(entry => entry[1]);
+                          const groupsEntries = Array.from(
+                            groupsMap.entries()
+                          ).sort((a, b) => {
+                            if (a[0] === "__noDate__") return -1;
+                            if (b[0] === "__noDate__") return 1;
+                            const dateA = new Date(a[0]);
+                            const dateB = new Date(b[0]);
+                            dateA.setHours(0, 0, 0, 0);
+                            dateB.setHours(0, 0, 0, 0);
+                            const timeA = dateA.getTime();
+                            const timeB = dateB.getTime();
+                            if (Number.isNaN(timeA)) return 1;
+                            if (Number.isNaN(timeB)) return -1;
+                            return timeA - timeB;
+                          });
+                          const groups = [];
+                          let lastPersianYear = null;
+                          groupsEntries.forEach(([key, value]) => {
+                            if (key !== "__noDate__") {
+                              const persianYear = new Date(
+                                key
+                              ).toLocaleDateString("fa-IR", {
+                                year: "numeric"
+                              });
+                              if (persianYear !== lastPersianYear) {
+                                groups.push([{ year: persianYear }]);
+                                lastPersianYear = persianYear;
+                              }
+                            }
+                            groups.push(value);
+                          });
                           return groups;
                         } catch {
                           return [];
@@ -2073,249 +2088,326 @@ function PlasmicReminder__RenderFunc(props: {
                       className={classNames(projectcss.all, sty.frame22)}
                       key={currentIndex}
                     >
-                      <div
-                        data-plasmic-name={"frame23"}
-                        data-plasmic-override={overrides.frame23}
-                        className={classNames(projectcss.all, sty.frame23)}
-                      >
+                      {(() => {
+                        try {
+                          return !currentday[0].year;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })() ? (
                         <div
-                          data-plasmic-name={"frame24"}
-                          data-plasmic-override={overrides.frame24}
-                          className={classNames(projectcss.all, sty.frame24)}
+                          data-plasmic-name={"frame23"}
+                          data-plasmic-override={overrides.frame23}
+                          className={classNames(projectcss.all, sty.frame23)}
                         >
                           <div
-                            data-plasmic-name={"frame25"}
-                            data-plasmic-override={overrides.frame25}
-                            className={classNames(projectcss.all, sty.frame25)}
+                            data-plasmic-name={"frame24"}
+                            data-plasmic-override={overrides.frame24}
+                            className={classNames(projectcss.all, sty.frame24)}
                           >
                             <div
-                              data-plasmic-name={"frame26"}
-                              data-plasmic-override={overrides.frame26}
+                              data-plasmic-name={"frame25"}
+                              data-plasmic-override={overrides.frame25}
                               className={classNames(
                                 projectcss.all,
-                                sty.frame26
+                                sty.frame25
                               )}
                             >
                               <div
+                                data-plasmic-name={"frame26"}
+                                data-plasmic-override={overrides.frame26}
                                 className={classNames(
                                   projectcss.all,
-                                  sty.freeBox__xyX1M
+                                  sty.frame26
                                 )}
                               >
                                 <div
                                   className={classNames(
                                     projectcss.all,
-                                    sty.freeBox___3Gkze
+                                    sty.freeBox__xyX1M
                                   )}
                                 >
                                   <div
                                     className={classNames(
                                       projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text___6Fi2N
+                                      sty.freeBox___3Gkze
                                     )}
                                   >
-                                    <React.Fragment>
-                                      {(() => {
-                                        try {
-                                          return (() => {
-                                            try {
-                                              var date = currentday[0].dates[0];
-                                              if (date) {
-                                                function parseISOToUTC(
-                                                  dateStr
-                                                ) {
-                                                  let [y, m, d] = dateStr
-                                                    .split("-")
-                                                    .map(Number);
-                                                  return new Date(
-                                                    Date.UTC(y, m - 1, d)
-                                                  );
-                                                }
-                                                let d = parseISOToUTC(date);
-                                                let formatter =
-                                                  new Intl.DateTimeFormat(
-                                                    "fa-IR",
-                                                    {
-                                                      timeZone: "Asia/Tehran",
-                                                      day: "2-digit"
-                                                    }
-                                                  );
-                                                return formatter.format(d);
-                                              } else {
-                                                return "?";
-                                              }
-                                            } catch {
-                                              return "?";
-                                            }
-                                          })();
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return "Townhall Meeting";
-                                          }
-                                          throw e;
-                                        }
-                                      })()}
-                                    </React.Fragment>
-                                  </div>
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__kf8Ml
-                                    )}
-                                  >
-                                    <React.Fragment>
-                                      {(() => {
-                                        try {
-                                          return (() => {
-                                            try {
-                                              var date = currentday[0].dates[0];
-                                              if (date)
-                                                return new Date(
-                                                  date
-                                                ).toLocaleDateString("fa-IR", {
-                                                  month: "long"
-                                                });
-                                              else return "";
-                                            } catch {
-                                              return "";
-                                            }
-                                          })();
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return "Townhall Meeting";
-                                          }
-                                          throw e;
-                                        }
-                                      })()}
-                                    </React.Fragment>
-                                  </div>
-                                </div>
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox___03FqS
-                                  )}
-                                >
-                                  {(_par =>
-                                    !_par
-                                      ? []
-                                      : Array.isArray(_par)
-                                        ? _par
-                                        : [_par])(
-                                    (() => {
-                                      try {
-                                        return currentday;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return [];
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                  ).map((__plasmic_item_1, __plasmic_idx_1) => {
-                                    const currentItem = __plasmic_item_1;
-                                    const currentIndex = __plasmic_idx_1;
-                                    return (
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          sty.freeBox__s65D5
-                                        )}
-                                        key={currentIndex}
-                                      >
-                                        <div
-                                          className={classNames(
-                                            projectcss.all,
-                                            sty.freeBox__iOGk
-                                          )}
-                                        >
-                                          <Oval3Icon
-                                            className={classNames(
-                                              projectcss.all,
-                                              sty.svg__c0H1J
-                                            )}
-                                            role={"img"}
-                                          />
-
-                                          <div
-                                            className={classNames(
-                                              projectcss.all,
-                                              projectcss.__wab_text,
-                                              sty.text___3JjUn
-                                            )}
-                                          >
-                                            <React.Fragment>
-                                              {(() => {
-                                                try {
-                                                  return currentItem.token1
-                                                    ? `${currentItem.name} ${currentItem.token1}`
-                                                    : currentItem.name;
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return "";
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()}
-                                            </React.Fragment>
-                                          </div>
-                                        </div>
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text___6Fi2N
+                                      )}
+                                    >
+                                      <React.Fragment>
                                         {(() => {
                                           try {
-                                            return !currentItem.active;
+                                            return (() => {
+                                              try {
+                                                var date =
+                                                  currentday[0].dates[0];
+                                                if (date) {
+                                                  function parseISOToUTC(
+                                                    dateStr
+                                                  ) {
+                                                    let [y, m, d] = dateStr
+                                                      .split("-")
+                                                      .map(Number);
+                                                    return new Date(
+                                                      Date.UTC(y, m - 1, d)
+                                                    );
+                                                  }
+                                                  let d = parseISOToUTC(date);
+                                                  let formatter =
+                                                    new Intl.DateTimeFormat(
+                                                      "fa-IR",
+                                                      {
+                                                        timeZone: "Asia/Tehran",
+                                                        day: "2-digit"
+                                                      }
+                                                    );
+                                                  return formatter.format(d);
+                                                } else {
+                                                  return "?";
+                                                }
+                                              } catch {
+                                                return "?";
+                                              }
+                                            })();
                                           } catch (e) {
                                             if (
                                               e instanceof TypeError ||
                                               e?.plasmicType ===
                                                 "PlasmicUndefinedDataError"
                                             ) {
-                                              return true;
+                                              return "Townhall Meeting";
                                             }
                                             throw e;
                                           }
-                                        })() ? (
+                                        })()}
+                                      </React.Fragment>
+                                    </div>
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__kf8Ml
+                                      )}
+                                    >
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return (() => {
+                                              try {
+                                                var date =
+                                                  currentday[0].dates[0];
+                                                if (date)
+                                                  return new Date(
+                                                    date
+                                                  ).toLocaleDateString(
+                                                    "fa-IR",
+                                                    { month: "long" }
+                                                  );
+                                                else return "";
+                                              } catch {
+                                                return "";
+                                              }
+                                            })();
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "Townhall Meeting";
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                      </React.Fragment>
+                                    </div>
+                                  </div>
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox___03FqS
+                                    )}
+                                  >
+                                    {(_par =>
+                                      !_par
+                                        ? []
+                                        : Array.isArray(_par)
+                                          ? _par
+                                          : [_par])(
+                                      (() => {
+                                        try {
+                                          return currentday;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return [];
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ).map(
+                                      (__plasmic_item_1, __plasmic_idx_1) => {
+                                        const currentItem = __plasmic_item_1;
+                                        const currentIndex = __plasmic_idx_1;
+                                        return (
                                           <div
                                             className={classNames(
                                               projectcss.all,
-                                              sty.freeBox__qeK7
+                                              sty.freeBox__s65D5
                                             )}
+                                            key={currentIndex}
                                           >
-                                            <Icon295Icon
+                                            <div
                                               className={classNames(
                                                 projectcss.all,
-                                                sty.svg__dlIv8
+                                                sty.freeBox__iOGk
                                               )}
-                                              role={"img"}
-                                            />
+                                            >
+                                              <Oval3Icon
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.svg__c0H1J
+                                                )}
+                                                role={"img"}
+                                              />
+
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  projectcss.__wab_text,
+                                                  sty.text___3JjUn
+                                                )}
+                                              >
+                                                <React.Fragment>
+                                                  {(() => {
+                                                    try {
+                                                      return currentItem.token1
+                                                        ? `${currentItem.name} ${currentItem.token1}`
+                                                        : currentItem.name;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return "";
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}
+                                                </React.Fragment>
+                                              </div>
+                                            </div>
+                                            {(() => {
+                                              try {
+                                                return !currentItem.active;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return true;
+                                                }
+                                                throw e;
+                                              }
+                                            })() ? (
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.freeBox__qeK7
+                                                )}
+                                              >
+                                                <Icon295Icon
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    sty.svg__dlIv8
+                                                  )}
+                                                  role={"img"}
+                                                />
+                                              </div>
+                                            ) : null}
                                           </div>
-                                        ) : null}
-                                      </div>
-                                    );
-                                  })}
+                                        );
+                                      }
+                                    )}
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
+                      ) : null}
+                      {(() => {
+                        try {
+                          return currentday[0].year;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__ezLq
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__xqFq1
+                            )}
+                          >
+                            {"."}
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__poj8Y
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentday[0].year;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </div>
+                      ) : null}
                     </div>
                   );
                 })}

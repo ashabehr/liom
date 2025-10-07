@@ -637,6 +637,7 @@
   background: none;
   height: 200px;
   width: 200px;
+  display: none;
 }
 .lottiefailed:global(.__wab_instance) {
   display: none;
@@ -648,8 +649,8 @@
   object-fit: cover;
   max-width: 100%;
   color: var(--token-qvl81LxkOSoe);
-  width: 70px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
 }
 .button4:global(.__wab_instance) {
   max-width: 100%;

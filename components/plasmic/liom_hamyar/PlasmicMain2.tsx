@@ -525,6 +525,12 @@ function PlasmicMain2__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "sendMessage.datapickerbool",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -987,9 +993,7 @@ function PlasmicMain2__RenderFunc(props: {
         shouldFetch={true}
         url={(() => {
           try {
-            return `https://n8n.staas.ir/webhook/panel/${
-              $state.reports.reportsSelect.api.split("-")[0]
-            }`;
+            return `https://n8n.staas.ir/webhook/panel/${$state.reports.reportsSelect.api.split("-")[0]}`;
           } catch (e) {
             if (
               e instanceof TypeError ||
@@ -1330,6 +1334,20 @@ function PlasmicMain2__RenderFunc(props: {
         className={classNames("__wab_instance", sty.sendMessage, {
           [sty.sendMessagepage_notifs]: hasVariant($state, "page", "notifs")
         })}
+        onDatapickerboolChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, [
+            "sendMessage",
+            "datapickerbool"
+          ]).apply(null, eventArgs);
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
         onFilessChange={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, ["sendMessage", "filess"]).apply(
             null,
@@ -1841,7 +1859,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicMain2__VariantsArgs;
     args?: PlasmicMain2__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicMain2__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicMain2__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicMain2__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
