@@ -85,15 +85,18 @@ createPlasmicElementProxy;
 export type PlasmicSettingCycle4__VariantMembers = {
   dark: "dark";
   hamyar: "hamyar";
+  hamyar2: "hamyar2";
 };
 export type PlasmicSettingCycle4__VariantsArgs = {
   dark?: SingleBooleanChoiceArg<"dark">;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
+  hamyar2?: SingleBooleanChoiceArg<"hamyar2">;
 };
 type VariantPropType = keyof PlasmicSettingCycle4__VariantsArgs;
 export const PlasmicSettingCycle4__VariantProps = new Array<VariantPropType>(
   "dark",
-  "hamyar"
+  "hamyar",
+  "hamyar2"
 );
 
 export type PlasmicSettingCycle4__ArgsType = {
@@ -155,6 +158,7 @@ export interface DefaultSettingCycle4Props {
   click?: () => void;
   dark?: SingleBooleanChoiceArg<"dark">;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
+  hamyar2?: SingleBooleanChoiceArg<"hamyar2">;
   className?: string;
 }
 
@@ -918,6 +922,12 @@ function PlasmicSettingCycle4__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.hamyar
+      },
+      {
+        path: "hamyar2",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.hamyar2
       }
     ],
     [$props, $ctx, $refs]
@@ -946,6 +956,7 @@ function PlasmicSettingCycle4__RenderFunc(props: {
         sty.root,
         {
           [sty.rootdark]: hasVariant($state, "dark", "dark"),
+          [sty.roothamyar2]: hasVariant($state, "hamyar2", "hamyar2"),
           [sty.roothamyar]: hasVariant($state, "hamyar", "hamyar")
         }
       )}

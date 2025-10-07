@@ -159,6 +159,7 @@ export type PlasmicHamyar2__ArgsType = {
   onRemindChange?: (val: string) => void;
   reminderOpen?: (event: any) => void;
   editCycle2?: () => void;
+  headershow?: boolean;
 };
 type ArgPropType = keyof PlasmicHamyar2__ArgsType;
 export const PlasmicHamyar2__ArgProps = new Array<ArgPropType>(
@@ -169,7 +170,8 @@ export const PlasmicHamyar2__ArgProps = new Array<ArgPropType>(
   "remind",
   "onRemindChange",
   "reminderOpen",
-  "editCycle2"
+  "editCycle2",
+  "headershow"
 );
 
 export type PlasmicHamyar2__OverridesType = {
@@ -252,6 +254,7 @@ export interface DefaultHamyar2Props {
   onRemindChange?: (val: string) => void;
   reminderOpen?: (event: any) => void;
   editCycle2?: () => void;
+  headershow?: boolean;
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
   noPartner?: SingleBooleanChoiceArg<"noPartner">;
   remindersetting?: SingleBooleanChoiceArg<"remindersetting">;
@@ -285,7 +288,9 @@ function PlasmicHamyar2__RenderFunc(props: {
   const args = React.useMemo(
     () =>
       Object.assign(
-        {},
+        {
+          headershow: true
+        },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
         )
@@ -3365,194 +3370,220 @@ function PlasmicHamyar2__RenderFunc(props: {
               )
             })}
           >
-            <div
-              className={classNames(projectcss.all, sty.freeBox__dowdn, {
-                [sty.freeBoxlackOfCourseInformation__dowdnMyTcU]: hasVariant(
-                  $state,
-                  "lackOfCourseInformation",
-                  "lackOfCourseInformation"
-                ),
-                [sty.freeBoxnoPartner__dowdnmzwVj]: hasVariant(
-                  $state,
-                  "noPartner",
-                  "noPartner"
-                )
-              })}
-            >
+            {(
+              hasVariant(
+                $state,
+                "lackOfCourseInformation",
+                "lackOfCourseInformation"
+              )
+                ? true
+                : (() => {
+                    try {
+                      return $props.headershow;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })()
+            ) ? (
               <div
-                className={classNames(projectcss.all, sty.freeBox__pfvJh, {
-                  [sty.freeBoxlackOfCourseInformation__pfvJhmyTcU]: hasVariant(
+                className={classNames(projectcss.all, sty.freeBox__dowdn, {
+                  [sty.freeBoxlackOfCourseInformation__dowdnMyTcU]: hasVariant(
                     $state,
                     "lackOfCourseInformation",
                     "lackOfCourseInformation"
+                  ),
+                  [sty.freeBoxnoPartner__dowdnmzwVj]: hasVariant(
+                    $state,
+                    "noPartner",
+                    "noPartner"
                   )
                 })}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__kf1Ya
-                  )}
-                  onClick={async event => {
-                    const $steps = {};
-                  }}
+                  className={classNames(projectcss.all, sty.freeBox__pfvJh, {
+                    [sty.freeBoxlackOfCourseInformation__pfvJhmyTcU]:
+                      hasVariant(
+                        $state,
+                        "lackOfCourseInformation",
+                        "lackOfCourseInformation"
+                      )
+                  })}
                 >
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return (
-                          $state.userdata?.result?.man?.name + " خوش آمدید! "
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "-";
-                        }
-                        throw e;
-                      }
-                    })()}
-                  </React.Fragment>
-                </div>
-                {(() => {
-                  try {
-                    return $state.userdata?.result?.man?.telegramId;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <Button
-                    data-plasmic-name={"telegram2"}
-                    data-plasmic-override={overrides.telegram2}
-                    className={classNames("__wab_instance", sty.telegram2)}
-                    color={generateStateValueProp($state, [
-                      "telegram2",
-                      "color"
-                    ])}
-                    load={generateStateValueProp($state, ["telegram2", "load"])}
-                    loading={generateStateValueProp($state, [
-                      "telegram2",
-                      "loading"
-                    ])}
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__kf1Ya
+                    )}
                     onClick={async event => {
                       const $steps = {};
-
-                      $steps["runCode"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return (() => {
-                                  if (
-                                    typeof window !== "undefined" &&
-                                    window.FlutterChannel &&
-                                    typeof window.FlutterChannel.postMessage ===
-                                      "function"
-                                  ) {
-                                    return window.FlutterChannel.postMessage(
-                                      "https://t.me/liomApp_bot"
-                                    );
-                                  } else if (typeof window !== "undefined") {
-                                    return window.open(
-                                      "https://t.me/liomApp_bot",
-                                      "_blank"
-                                    );
-                                  }
-                                })();
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
-                      }
                     }}
-                    onColorChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, [
-                          "telegram2",
-                          "color"
-                        ])(eventArgs[0]);
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                    onLoadChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, [
-                          "telegram2",
-                          "load"
-                        ])(eventArgs[0]);
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                    onLoadingChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, [
-                          "telegram2",
-                          "loading"
-                        ])(eventArgs[0]);
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                    showStartIcon={true}
-                    size={"compact"}
-                    startIcon={
-                      <Icon271Icon
-                        className={classNames(projectcss.all, sty.svg__jQsho)}
-                        role={"img"}
-                      />
-                    }
                   >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___8IqIw
-                      )}
-                    >
-                      {
-                        "\u0648\u0631\u0648\u062f \u0628\u0647 \u0631\u0628\u0627\u062a \u062a\u0644\u06af\u0631\u0627\u0645"
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return (
+                            $state.userdata?.result?.man?.name + " خوش آمدید! "
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "-";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                  {(() => {
+                    try {
+                      return $state.userdata?.result?.man?.telegramId;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
                       }
-                    </div>
-                  </Button>
-                ) : null}
+                      throw e;
+                    }
+                  })() ? (
+                    <Button
+                      data-plasmic-name={"telegram2"}
+                      data-plasmic-override={overrides.telegram2}
+                      className={classNames("__wab_instance", sty.telegram2)}
+                      color={generateStateValueProp($state, [
+                        "telegram2",
+                        "color"
+                      ])}
+                      load={generateStateValueProp($state, [
+                        "telegram2",
+                        "load"
+                      ])}
+                      loading={generateStateValueProp($state, [
+                        "telegram2",
+                        "loading"
+                      ])}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    if (
+                                      typeof window !== "undefined" &&
+                                      window.FlutterChannel &&
+                                      typeof window.FlutterChannel
+                                        .postMessage === "function"
+                                    ) {
+                                      return window.FlutterChannel.postMessage(
+                                        "https://t.me/liomApp_bot"
+                                      );
+                                    } else if (typeof window !== "undefined") {
+                                      return window.open(
+                                        "https://t.me/liomApp_bot",
+                                        "_blank"
+                                      );
+                                    }
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      }}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "telegram2",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "telegram2",
+                            "load"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadingChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "telegram2",
+                            "loading"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      showStartIcon={true}
+                      size={"compact"}
+                      startIcon={
+                        <Icon271Icon
+                          className={classNames(projectcss.all, sty.svg__jQsho)}
+                          role={"img"}
+                        />
+                      }
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___8IqIw
+                        )}
+                      >
+                        {
+                          "\u0648\u0631\u0648\u062f \u0628\u0647 \u0631\u0628\u0627\u062a \u062a\u0644\u06af\u0631\u0627\u0645"
+                        }
+                      </div>
+                    </Button>
+                  ) : null}
+                </div>
               </div>
-            </div>
+            ) : null}
             {(
               hasVariant(globalVariants, "screen", "mobile")
                 ? (() => {

@@ -94,13 +94,16 @@ createPlasmicElementProxy;
 
 export type PlasmicReminderSetting__VariantMembers = {
   slide: "_1" | "_2";
+  hamyar: "hamyar";
 };
 export type PlasmicReminderSetting__VariantsArgs = {
   slide?: SingleChoiceArg<"_1" | "_2">;
+  hamyar?: SingleBooleanChoiceArg<"hamyar">;
 };
 type VariantPropType = keyof PlasmicReminderSetting__VariantsArgs;
 export const PlasmicReminderSetting__VariantProps = new Array<VariantPropType>(
-  "slide"
+  "slide",
+  "hamyar"
 );
 
 export type PlasmicReminderSetting__ArgsType = {
@@ -201,6 +204,7 @@ export interface DefaultReminderSettingProps {
   sms?: boolean;
   onSmsChange?: (val: string) => void;
   slide?: SingleChoiceArg<"_1" | "_2">;
+  hamyar?: SingleBooleanChoiceArg<"hamyar">;
   className?: string;
 }
 
@@ -866,6 +870,12 @@ function PlasmicReminderSetting__RenderFunc(props: {
         path: "lineClomp3[][].line",
         type: "private",
         variableType: "boolean"
+      },
+      {
+        path: "hamyar",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.hamyar
       }
     ],
     [$props, $ctx, $refs]
@@ -3786,6 +3796,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
       </section>
       <div
         className={classNames(projectcss.all, sty.freeBox__roMeM, {
+          [sty.freeBoxhamyar__roMeMYj8LV]: hasVariant(
+            $state,
+            "hamyar",
+            "hamyar"
+          ),
           [sty.freeBoxslide__1__roMeMedcqc]: hasVariant($state, "slide", "_1"),
           [sty.freeBoxslide__2__roMeMvJmCw]: hasVariant($state, "slide", "_2")
         })}

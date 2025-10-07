@@ -642,6 +642,9 @@
   min-width: 0;
   padding: 0px;
 }
+.verticalForProbabilityOfGettingPregnanthamyar {
+  display: none;
+}
 .freeBox__hatS {
   display: flex;
   flex-direction: column;
@@ -736,6 +739,9 @@
   min-height: 0;
   border-radius: 8px;
   padding: 8px;
+}
+.verticalForMenstrualCyclehamyar {
+  display: none;
 }
 .text__rx2NG {
   position: relative;

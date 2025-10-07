@@ -92,6 +92,7 @@ export type PlasmicMainHamyar__ArgsType = {
   userData?: any;
   onUserDataChange?: (val: string) => void;
   editCycle2?: () => void;
+  headershow?: boolean;
 };
 type ArgPropType = keyof PlasmicMainHamyar__ArgsType;
 export const PlasmicMainHamyar__ArgProps = new Array<ArgPropType>(
@@ -101,7 +102,8 @@ export const PlasmicMainHamyar__ArgProps = new Array<ArgPropType>(
   "remind",
   "userData",
   "onUserDataChange",
-  "editCycle2"
+  "editCycle2",
+  "headershow"
 );
 
 export type PlasmicMainHamyar__OverridesType = {
@@ -119,6 +121,7 @@ export interface DefaultMainHamyarProps {
   userData?: any;
   onUserDataChange?: (val: string) => void;
   editCycle2?: () => void;
+  headershow?: boolean;
   page?: SingleChoiceArg<"hamyar" | "self" | "bot">;
   className?: string;
 }
@@ -144,7 +147,8 @@ function PlasmicMainHamyar__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          remind: []
+          remind: [],
+          headershow: true
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -255,6 +259,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
           [sty.hamyar2page_hamyar]: hasVariant($state, "page", "hamyar")
         })}
         editCycle2={args.editCycle2}
+        headershow={args.headershow}
         onRemindChange={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, ["hamyar2", "remind"]).apply(
             null,

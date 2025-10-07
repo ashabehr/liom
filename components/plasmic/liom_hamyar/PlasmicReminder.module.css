@@ -360,7 +360,7 @@
   justify-content: flex-start;
   align-items: center;
   row-gap: var(--token-uOLZE7OyOW-J);
-  background: var(--token-DbGdjBpQ6R_X);
+  background: #f8f8f8;
   grid-column-start: 1 !important;
   grid-column-end: -1 !important;
   padding: 5rem 12px;
@@ -376,6 +376,10 @@
 }
 .freeBoxslide3__xMddUWyFt {
   display: none;
+}
+.freeBoxhamyar__xMddUxX8Tw {
+  padding-top: 0rem;
+  padding-bottom: 0rem;
 }
 .freeBox___8U23F {
   display: flex;
@@ -620,44 +624,65 @@
 .freeBox__ezLq {
   display: flex;
   flex-direction: row;
-  position: absolute;
+  position: relative;
   width: auto;
-  height: auto;
+  height: 100%;
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
-  left: -12px;
-  top: -2px;
-  column-gap: var(--token-O5TjkXII_aat);
-  background: #f7f7f7;
-  padding: 0px;
-}
-.text__xqFq1 {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  font-weight: 700;
-  font-size: 12px;
-  transform: none;
-  letter-spacing: 0px;
-  text-align: center;
-  color: var(--token-fn6i10-y5r1L);
-  position: relative;
   left: auto;
   top: auto;
-  min-width: 0;
-  border-right: 3px solid var(--token-qvl81LxkOSoe);
+  column-gap: var(--token-O5TjkXII_aat);
+  background: #f7f7f7;
+  min-height: 0;
+  padding: 0px;
+}
+.freeBox__r5JEo {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 50px;
+  height: auto;
+  max-width: none;
+  justify-content: space-between;
+  align-items: center;
+  top: auto;
+  left: auto;
+  z-index: 2;
+  background: var(--token-55cSeNPovQFh);
+  min-width: auto;
+  min-height: 160px;
+  box-shadow: 0px 4px 16px 0px #c0bcbc14;
+  opacity: 1;
+  row-gap: var(--token-1KusGK5GePTh);
+  flex-shrink: 0;
+  border-radius: 12px;
+  padding: 12px;
 }
 .text__poj8Y {
-  position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
-  color: var(--token-fn6i10-y5r1L);
-  font-weight: 700;
-  font-size: var(--token-tjteaUKFnUfH);
-  background: #f7f7f7;
+  color: var(--token-olZbNvsx1COf);
+  font-weight: 900;
+  font-size: var(--token-bucIARGmMoc6);
+  background: none;
+  text-align: center;
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(90deg);
+  line-height: 0.5;
   min-width: 0;
+}
+.freeBox__zaVQn {
+  display: block;
+  position: relative;
+  width: 1px;
+  height: 100%;
+  max-width: 100%;
+  opacity: 0.4;
+  flex-shrink: 0;
+  min-height: 0;
+  padding: 0px;
+  border-left: 2px solid var(--token-AwpLXbw5AmtS);
 }
 .text__o4PAk {
   position: relative;

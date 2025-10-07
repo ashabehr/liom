@@ -94,13 +94,16 @@ createPlasmicElementProxy;
 
 export type PlasmicReminder__VariantMembers = {
   slide3: "slide3";
+  hamyar: "hamyar";
 };
 export type PlasmicReminder__VariantsArgs = {
   slide3?: SingleBooleanChoiceArg<"slide3">;
+  hamyar?: SingleBooleanChoiceArg<"hamyar">;
 };
 type VariantPropType = keyof PlasmicReminder__VariantsArgs;
 export const PlasmicReminder__VariantProps = new Array<VariantPropType>(
-  "slide3"
+  "slide3",
+  "hamyar"
 );
 
 export type PlasmicReminder__ArgsType = {
@@ -201,6 +204,7 @@ export interface DefaultReminderProps {
   tel?: boolean;
   onTelChange?: (val: string) => void;
   slide3?: SingleBooleanChoiceArg<"slide3">;
+  hamyar?: SingleBooleanChoiceArg<"hamyar">;
   className?: string;
 }
 
@@ -914,6 +918,12 @@ function PlasmicReminder__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.slide3
+      },
+      {
+        path: "hamyar",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.hamyar
       }
     ],
     [$props, $ctx, $refs]
@@ -1839,6 +1849,11 @@ function PlasmicReminder__RenderFunc(props: {
       </section>
       <div
         className={classNames(projectcss.all, sty.freeBox__xMddU, {
+          [sty.freeBoxhamyar__xMddUxX8Tw]: hasVariant(
+            $state,
+            "hamyar",
+            "hamyar"
+          ),
           [sty.freeBoxslide3__xMddUWyFt]: hasVariant($state, "slide3", "slide3")
         })}
       >
@@ -2356,7 +2371,7 @@ function PlasmicReminder__RenderFunc(props: {
                       ) : null}
                       {(() => {
                         try {
-                          return currentday[0].year;
+                          return currentIndex != 0 && currentday[0].year;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -2376,36 +2391,63 @@ function PlasmicReminder__RenderFunc(props: {
                           <div
                             className={classNames(
                               projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__xqFq1
+                              sty.freeBox__r5JEo
                             )}
                           >
-                            {"."}
-                          </div>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__poj8Y
-                            )}
-                          >
-                            <React.Fragment>
-                              {(() => {
+                            {(_par =>
+                              !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                              (() => {
                                 try {
-                                  return currentday[0].year;
+                                  return [0, 1, 2, 3];
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
                                     e?.plasmicType ===
                                       "PlasmicUndefinedDataError"
                                   ) {
-                                    return "";
+                                    return [];
                                   }
                                   throw e;
                                 }
-                              })()}
-                            </React.Fragment>
+                              })()
+                            ).map((__plasmic_item_1, __plasmic_idx_1) => {
+                              const currentItem = __plasmic_item_1;
+                              const currentIndex = __plasmic_idx_1;
+                              return (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__poj8Y
+                                  )}
+                                  key={currentIndex}
+                                >
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return currentday[0].year[currentIndex];
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                </div>
+                              );
+                            })}
                           </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__zaVQn
+                            )}
+                          />
                         </div>
                       ) : null}
                     </div>
