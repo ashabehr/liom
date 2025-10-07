@@ -109,6 +109,15 @@ export const Fragment = ({
       
       deepLink: (action: string, token: string, userId: string, inApp: string, theme : string ,inWebViow : boolean =false, params: Record<string, string | string[]> = {},) => { 
         
+            if (typeof window !== "undefined") {
+              const setCookie = (name: string, value: any, days: number) => {
+                const expires = new Date(Date.now() + days * 86400000).toUTCString();
+                document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+              };
+          
+              setCookie("loading", true, 1); // 👈 فعال‌سازی لودینگ
+            }
+        
           const sendMessage = (title: string, link: string,inWebViow:boolean) => {
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage(`#inAppWebView**@@**${title}**@@**${link}`);
