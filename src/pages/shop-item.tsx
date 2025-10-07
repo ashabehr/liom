@@ -6,42 +6,48 @@ import GlobalContextsProvider from "../../components/plasmic/liom_hamyar/Plasmic
 
 import { UnnamedGlobalGroupOfVariants4ContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants4";
 import { UnnamedGlobalGroupOfVariants5ContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants5";
-import { PlasmicNewPage } from "../../components/plasmic/liom_hamyar/PlasmicNewPage";
+import { UnnamedGlobalGroupOfVariants6ContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants6";
+import { NewViewContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__NewView";
+import { PlasmicShopItem2 } from "../../components/plasmic/liom_hamyar/PlasmicShopItem2";
 import { useRouter } from "next/router";
 
-function NewPage() {
-  // Use PlasmicNewPage to render this component as it was
+function ShopItem2() {
+  // Use PlasmicShopItem2 to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
   // can also install whatever React hooks you need here to manage state or
   // fetch data.
   //
-  // Props you can pass into PlasmicNewPage are:
+  // Props you can pass into PlasmicShopItem2 are:
   // 1. Variants you want to activate,
   // 2. Contents for slots you want to fill,
   // 3. Overrides for any named node in the component to attach behavior and data,
   // 4. Props to set on the root node.
   //
-  // By default, PlasmicNewPage is wrapped by your project's global
+  // By default, PlasmicShopItem2 is wrapped by your project's global
   // variant context providers. These wrappers may be moved to
   // Next.js Custom App component
   // (https://nextjs.org/docs/advanced-features/custom-app).
 
   return (
-    <UnnamedGlobalGroupOfVariants5ContextProvider value={undefined}>
-      <UnnamedGlobalGroupOfVariants4ContextProvider value={undefined}>
-        <GlobalContextsProvider>
-          <PageParamsProvider__
-            route={useRouter()?.pathname}
-            params={useRouter()?.query}
-            query={useRouter()?.query}
-          >
-            <PlasmicNewPage />
-          </PageParamsProvider__>
-        </GlobalContextsProvider>
-      </UnnamedGlobalGroupOfVariants4ContextProvider>
-    </UnnamedGlobalGroupOfVariants5ContextProvider>
+    <NewViewContextProvider value={undefined}>
+      <UnnamedGlobalGroupOfVariants6ContextProvider value={undefined}>
+        <UnnamedGlobalGroupOfVariants5ContextProvider value={undefined}>
+          <UnnamedGlobalGroupOfVariants4ContextProvider value={undefined}>
+            <GlobalContextsProvider>
+              <PageParamsProvider__
+                route={useRouter()?.pathname}
+                params={useRouter()?.query}
+                query={useRouter()?.query}
+              >
+                <PlasmicShopItem2 />
+              </PageParamsProvider__>
+            </GlobalContextsProvider>
+          </UnnamedGlobalGroupOfVariants4ContextProvider>
+        </UnnamedGlobalGroupOfVariants5ContextProvider>
+      </UnnamedGlobalGroupOfVariants6ContextProvider>
+    </NewViewContextProvider>
   );
 }
 
-export default NewPage;
+export default ShopItem2;

@@ -366,7 +366,30 @@ function PlasmicToolsComponent__RenderFunc(props: {
         path: "loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                var getCookie = name => {
+                  const cookies = document.cookie.split("; ");
+                  for (let cookie of cookies) {
+                    const [key, value] = cookie.split("=");
+                    if (key === name) return JSON.parse(value);
+                  }
+                  return "false";
+                };
+                return getCookie("loading");
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "typeBuy",
@@ -433,42 +456,10 @@ function PlasmicToolsComponent__RenderFunc(props: {
         styleTokensClassNames,
         sty.root
       )}
-      onLoad={async event => {
-        const $steps = {};
-
-        $steps["updateLoading"] = true
-          ? (() => {
-              const actionArgs = {
-                variable: {
-                  objRoot: $state,
-                  variablePath: ["loading"]
-                },
-                operation: 0,
-                value: false
-              };
-              return (({ variable, value, startIndex, deleteCount }) => {
-                if (!variable) {
-                  return;
-                }
-                const { objRoot, variablePath } = variable;
-
-                $stateSet(objRoot, variablePath, value);
-                return value;
-              })?.apply(null, [actionArgs]);
-            })()
-          : undefined;
-        if (
-          $steps["updateLoading"] != null &&
-          typeof $steps["updateLoading"] === "object" &&
-          typeof $steps["updateLoading"].then === "function"
-        ) {
-          $steps["updateLoading"] = await $steps["updateLoading"];
-        }
-      }}
     >
       {(() => {
         try {
-          return $state.loading;
+          return $state.loading == "true";
         } catch (e) {
           if (
             e instanceof TypeError ||
@@ -2531,7 +2522,7 @@ function PlasmicToolsComponent__RenderFunc(props: {
                                   await $steps["updateLoading"];
                               }
 
-                              $steps["invokeGlobalAction"] = (() => {
+                              $steps["openTools"] = (() => {
                                 const allowance =
                                   $state?.getUserInfo?.data?.[0]?.result
                                     ?.allowance || [];
@@ -2642,17 +2633,14 @@ function PlasmicToolsComponent__RenderFunc(props: {
                                   })()
                                 : undefined;
                               if (
-                                $steps["invokeGlobalAction"] != null &&
-                                typeof $steps["invokeGlobalAction"] ===
-                                  "object" &&
-                                typeof $steps["invokeGlobalAction"].then ===
-                                  "function"
+                                $steps["openTools"] != null &&
+                                typeof $steps["openTools"] === "object" &&
+                                typeof $steps["openTools"].then === "function"
                               ) {
-                                $steps["invokeGlobalAction"] =
-                                  await $steps["invokeGlobalAction"];
+                                $steps["openTools"] = await $steps["openTools"];
                               }
 
-                              $steps["runCode"] = true
+                              $steps["shopDialog"] = true
                                 ? (() => {
                                     const actionArgs = {
                                       customFunction: async () => {
@@ -2692,11 +2680,12 @@ function PlasmicToolsComponent__RenderFunc(props: {
                                   })()
                                 : undefined;
                               if (
-                                $steps["runCode"] != null &&
-                                typeof $steps["runCode"] === "object" &&
-                                typeof $steps["runCode"].then === "function"
+                                $steps["shopDialog"] != null &&
+                                typeof $steps["shopDialog"] === "object" &&
+                                typeof $steps["shopDialog"].then === "function"
                               ) {
-                                $steps["runCode"] = await $steps["runCode"];
+                                $steps["shopDialog"] =
+                                  await $steps["shopDialog"];
                               }
                             }}
                             style={(() => {

@@ -8,23 +8,23 @@ import { UnnamedGlobalGroupOfVariants4ContextProvider } from "../../components/p
 import { UnnamedGlobalGroupOfVariants5ContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants5";
 import { UnnamedGlobalGroupOfVariants6ContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants6";
 import { NewViewContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__NewView";
-import { PlasmicNewPage2 } from "../../components/plasmic/liom_hamyar/PlasmicNewPage2";
+import { PlasmicSShopItem } from "../../components/plasmic/liom_hamyar/PlasmicSShopItem";
 import { useRouter } from "next/router";
 
-function NewPage2() {
-  // Use PlasmicNewPage2 to render this component as it was
+function SShopItem() {
+  // Use PlasmicSShopItem to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
   // can also install whatever React hooks you need here to manage state or
   // fetch data.
   //
-  // Props you can pass into PlasmicNewPage2 are:
+  // Props you can pass into PlasmicSShopItem are:
   // 1. Variants you want to activate,
   // 2. Contents for slots you want to fill,
   // 3. Overrides for any named node in the component to attach behavior and data,
   // 4. Props to set on the root node.
   //
-  // By default, PlasmicNewPage2 is wrapped by your project's global
+  // By default, PlasmicSShopItem is wrapped by your project's global
   // variant context providers. These wrappers may be moved to
   // Next.js Custom App component
   // (https://nextjs.org/docs/advanced-features/custom-app).
@@ -40,7 +40,7 @@ function NewPage2() {
                 params={useRouter()?.query}
                 query={useRouter()?.query}
               >
-                <PlasmicNewPage2 />
+                <PlasmicSShopItem />
               </PageParamsProvider__>
             </GlobalContextsProvider>
           </UnnamedGlobalGroupOfVariants4ContextProvider>
@@ -50,4 +50,4 @@ function NewPage2() {
   );
 }
 
-export default NewPage2;
+export default SShopItem;

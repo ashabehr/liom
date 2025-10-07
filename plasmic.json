@@ -1903,20 +1903,6 @@
           "path": "/404"
         },
         {
-          "id": "tYS7qTEXu2fL",
-          "name": "ShopItem",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicShopItem.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/new-page.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicShopItem.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/new-page"
-        },
-        {
           "id": "ICEDCae_eByz",
           "name": "Header2",
           "type": "managed",
@@ -3907,20 +3893,6 @@
           "componentType": "component"
         },
         {
-          "id": "EyzHeiLL2pPI",
-          "name": "NewPage",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicNewPage.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/shop-item.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicNewPage.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/shop-item"
-        },
-        {
           "id": "3zHG5W2BDVZ9",
           "name": "ShopBox",
           "type": "managed",
@@ -4662,20 +4634,6 @@
           "componentType": "component"
         },
         {
-          "id": "Rc1GMzt6eVJi",
-          "name": "NewPage2",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicNewPage2.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/s.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicNewPage2.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/shop-item-2"
-        },
-        {
           "id": "9y_uQdLH_4vd",
           "name": "ShopBoxRef",
           "type": "managed",
@@ -4687,6 +4645,34 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicShopBoxRef.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "EyzHeiLL2pPI",
+          "name": "ShopItem2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicShopItem2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/shop-item.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicShopItem2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/shop-item"
+        },
+        {
+          "id": "Rc1GMzt6eVJi",
+          "name": "SShopItem",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSShopItem.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/s.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSShopItem.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/s"
         }
       ],
       "icons": [
@@ -7714,6 +7700,6 @@
   "nextjsConfig": {
     "pagesDir": "../src/pages"
   },
-  "cliVersion": "0.1.346",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.346/dist/plasmic.schema.json"
+  "cliVersion": "0.1.347",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.347/dist/plasmic.schema.json"
 }

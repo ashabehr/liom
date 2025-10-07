@@ -256,8 +256,8 @@ function PlasmicShopResult__RenderFunc(props: {
           hasVariant(globalVariants, "screen", "mobile")
             ? false
             : hasVariant($state, "failed", "failed")
-            ? false
-            : undefined
+              ? false
+              : undefined
       },
       {
         path: "button5.color",
@@ -646,20 +646,20 @@ function PlasmicShopResult__RenderFunc(props: {
                       }
                     })()
                   : hasVariant($state, "successful", "successful")
-                  ? (() => {
-                      try {
-                        return $state.disable;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
+                    ? (() => {
+                        try {
+                          return $state.disable;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()
-                  : undefined
+                      })()
+                    : undefined
               }
               load={generateStateValueProp($state, ["button", "load"])}
               loading={generateStateValueProp($state, ["button", "loading"])}
@@ -787,9 +787,8 @@ function PlasmicShopResult__RenderFunc(props: {
                   typeof $steps["invokeGlobalAction"] === "object" &&
                   typeof $steps["invokeGlobalAction"].then === "function"
                 ) {
-                  $steps["invokeGlobalAction"] = await $steps[
-                    "invokeGlobalAction"
-                  ];
+                  $steps["invokeGlobalAction"] =
+                    await $steps["invokeGlobalAction"];
                 }
 
                 $steps["runCode"] = true
@@ -1058,9 +1057,8 @@ function PlasmicShopResult__RenderFunc(props: {
                       typeof $steps["updateLoadingbtn"] === "object" &&
                       typeof $steps["updateLoadingbtn"].then === "function"
                     ) {
-                      $steps["updateLoadingbtn"] = await $steps[
-                        "updateLoadingbtn"
-                      ];
+                      $steps["updateLoadingbtn"] =
+                        await $steps["updateLoadingbtn"];
                     }
 
                     $steps["invokeGlobalAction"] = true
@@ -1134,9 +1132,8 @@ function PlasmicShopResult__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
 
                     $steps["updateLoadingbtn2"] = true
@@ -1170,9 +1167,8 @@ function PlasmicShopResult__RenderFunc(props: {
                       typeof $steps["updateLoadingbtn2"] === "object" &&
                       typeof $steps["updateLoadingbtn2"].then === "function"
                     ) {
-                      $steps["updateLoadingbtn2"] = await $steps[
-                        "updateLoadingbtn2"
-                      ];
+                      $steps["updateLoadingbtn2"] =
+                        await $steps["updateLoadingbtn2"];
                     }
 
                     $steps["goToPage"] =
@@ -1278,20 +1274,20 @@ function PlasmicShopResult__RenderFunc(props: {
                           }
                         })()
                       : hasVariant($state, "failed", "failed")
-                      ? (() => {
-                          try {
-                            return $state.loadingbtn;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return [];
+                        ? (() => {
+                            try {
+                              return $state.loadingbtn;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
                             }
-                            throw e;
-                          }
-                        })()
-                      : undefined
+                          })()
+                        : undefined
                   }
                 >
                   <div
@@ -1345,20 +1341,20 @@ function PlasmicShopResult__RenderFunc(props: {
                           }
                         })()
                       : hasVariant($state, "failed", "failed")
-                      ? (() => {
-                          try {
-                            return $state.disable;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return [];
+                        ? (() => {
+                            try {
+                              return $state.disable;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
                             }
-                            throw e;
-                          }
-                        })()
-                      : undefined
+                          })()
+                        : undefined
                   }
                   load={generateStateValueProp($state, ["button3", "load"])}
                   loading={generateStateValueProp($state, [
@@ -1490,9 +1486,8 @@ function PlasmicShopResult__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
 
                     $steps["runCode"] = true
@@ -4104,6 +4099,11 @@ function PlasmicShopResult__RenderFunc(props: {
             preview={false}
           />
 
+          <Icon115Icon
+            className={classNames(projectcss.all, sty.svg__acKmp)}
+            role={"img"}
+          />
+
           <Button
             data-plasmic-name={"button4"}
             data-plasmic-override={overrides.button4}
@@ -4547,9 +4547,8 @@ function PlasmicShopResult__RenderFunc(props: {
                           typeof $steps["goToHttpsTMeLiomSupport"].then ===
                             "function"
                         ) {
-                          $steps["goToHttpsTMeLiomSupport"] = await $steps[
-                            "goToHttpsTMeLiomSupport"
-                          ];
+                          $steps["goToHttpsTMeLiomSupport"] =
+                            await $steps["goToHttpsTMeLiomSupport"];
                         }
                       }}
                       onColorChange={async (...eventArgs: any) => {
@@ -4811,7 +4810,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicShopResult__VariantsArgs;
     args?: PlasmicShopResult__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicShopResult__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicShopResult__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicShopResult__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -644,6 +644,13 @@
 .lottiesuccessful:global(.__wab_instance) {
   display: none;
 }
+.svg__acKmp {
+  object-fit: cover;
+  max-width: 100%;
+  color: var(--token-qvl81LxkOSoe);
+  width: 70px;
+  height: 60px;
+}
 .button4:global(.__wab_instance) {
   max-width: 100%;
   display: none;
