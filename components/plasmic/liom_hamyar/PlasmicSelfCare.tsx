@@ -262,9 +262,7 @@ function PlasmicSelfCare__RenderFunc(props: {
               return [
                 {
                   type: "#inAppWebView",
-                  action: `/self-sms-page?token=${localStorage.getItem(
-                    "token"
-                  )}&inApp=false`
+                  action: `/self-sms-page?token=${localStorage.getItem("token")}&inApp=false`
                 },
                 {
                   type: "#hamyarInfo",
@@ -276,11 +274,7 @@ function PlasmicSelfCare__RenderFunc(props: {
                 },
                 {
                   type: "#appoinment",
-                  action: `/clinic/?token=${localStorage.getItem(
-                    "token"
-                  )}&userId=${
-                    JSON.parse(window.localStorage.getItem("userinfo")).user.id
-                  }`
+                  action: `/clinic/?token=${localStorage.getItem("token")}&userId=${JSON.parse(window.localStorage.getItem("userinfo")).user.id}`
                 }
               ];
             } catch (e) {
@@ -495,9 +489,8 @@ function PlasmicSelfCare__RenderFunc(props: {
                         typeof $steps["updateMainHeaderDopen"].then ===
                           "function"
                       ) {
-                        $steps["updateMainHeaderDopen"] = await $steps[
-                          "updateMainHeaderDopen"
-                        ];
+                        $steps["updateMainHeaderDopen"] =
+                          await $steps["updateMainHeaderDopen"];
                       }
                     }}
                     role={"img"}
@@ -562,9 +555,7 @@ function PlasmicSelfCare__RenderFunc(props: {
                           searchParams.delete("token");
                           searchParams.delete("userId");
                           searchParams.delete("user_id");
-                          const newUrl = `${
-                            window.location.pathname
-                          }?${searchParams.toString()}`;
+                          const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                           return window.history.replaceState(null, "", newUrl);
                         })();
                       }
@@ -705,10 +696,7 @@ function PlasmicSelfCare__RenderFunc(props: {
                                     if (
                                       /Mac OS X (\d+[\._]\d+)/.test(userAgent)
                                     )
-                                      return `macOS ${RegExp.$1.replace(
-                                        "_",
-                                        "."
-                                      )}`;
+                                      return `macOS ${RegExp.$1.replace("_", ".")}`;
                                     if (/Android (\d+(\.\d+)?)/.test(userAgent))
                                       return `Android ${RegExp.$1}`;
                                     if (
@@ -716,10 +704,7 @@ function PlasmicSelfCare__RenderFunc(props: {
                                         userAgent
                                       )
                                     )
-                                      return `iOS ${RegExp.$2.replace(
-                                        "_",
-                                        "."
-                                      )}`;
+                                      return `iOS ${RegExp.$2.replace("_", ".")}`;
                                     return "Unknown Version";
                                   })(),
                                   sex: $state.gender || "",
@@ -777,7 +762,7 @@ function PlasmicSelfCare__RenderFunc(props: {
               }
 
               $steps["setCookieGust"] =
-                $steps.userGuset?.data?.success ?? false
+                ($steps.userGuset?.data?.success ?? false)
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
@@ -846,9 +831,8 @@ function PlasmicSelfCare__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction"] === "object" &&
                 typeof $steps["invokeGlobalAction"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
               }
 
               $steps["invokeGlobalAction3"] =
@@ -885,9 +869,8 @@ function PlasmicSelfCare__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction3"] === "object" &&
                 typeof $steps["invokeGlobalAction3"].then === "function"
               ) {
-                $steps["invokeGlobalAction3"] = await $steps[
-                  "invokeGlobalAction3"
-                ];
+                $steps["invokeGlobalAction3"] =
+                  await $steps["invokeGlobalAction3"];
               }
 
               $steps["updateSelfCare2"] =
@@ -978,9 +961,8 @@ function PlasmicSelfCare__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction2"] === "object" &&
                 typeof $steps["invokeGlobalAction2"].then === "function"
               ) {
-                $steps["invokeGlobalAction2"] = await $steps[
-                  "invokeGlobalAction2"
-                ];
+                $steps["invokeGlobalAction2"] =
+                  await $steps["invokeGlobalAction2"];
               }
             }}
           />
@@ -1077,9 +1059,8 @@ function PlasmicSelfCare__RenderFunc(props: {
                           typeof $steps["updateLoadLoading"] === "object" &&
                           typeof $steps["updateLoadLoading"].then === "function"
                         ) {
-                          $steps["updateLoadLoading"] = await $steps[
-                            "updateLoadLoading"
-                          ];
+                          $steps["updateLoadLoading"] =
+                            await $steps["updateLoadLoading"];
                         }
 
                         $steps["runCode"] = true
@@ -1157,9 +1138,8 @@ function PlasmicSelfCare__RenderFunc(props: {
                           typeof $steps["updateLoadLoading2"].then ===
                             "function"
                         ) {
-                          $steps["updateLoadLoading2"] = await $steps[
-                            "updateLoadLoading2"
-                          ];
+                          $steps["updateLoadLoading2"] =
+                            await $steps["updateLoadLoading2"];
                         }
 
                         $steps["invokeGlobalAction"] = true
@@ -1218,9 +1198,8 @@ function PlasmicSelfCare__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
                       }}
                       style={(() => {
@@ -1550,9 +1529,8 @@ function PlasmicSelfCare__RenderFunc(props: {
                           typeof $steps["updateLoadLoading"] === "object" &&
                           typeof $steps["updateLoadLoading"].then === "function"
                         ) {
-                          $steps["updateLoadLoading"] = await $steps[
-                            "updateLoadLoading"
-                          ];
+                          $steps["updateLoadLoading"] =
+                            await $steps["updateLoadLoading"];
                         }
 
                         $steps["invokeGlobalAction"] = true
@@ -1644,9 +1622,8 @@ function PlasmicSelfCare__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
 
                         $steps["updateLoadLoading2"] = true
@@ -1681,9 +1658,8 @@ function PlasmicSelfCare__RenderFunc(props: {
                           typeof $steps["updateLoadLoading2"].then ===
                             "function"
                         ) {
-                          $steps["updateLoadLoading2"] = await $steps[
-                            "updateLoadLoading2"
-                          ];
+                          $steps["updateLoadLoading2"] =
+                            await $steps["updateLoadLoading2"];
                         }
                       }}
                     >
@@ -2058,7 +2034,7 @@ function PlasmicSelfCare__RenderFunc(props: {
 
                         $steps["goToHamyar"] = true
                           ? (() => {
-                              const actionArgs = { destination: `/hamyar` };
+                              const actionArgs = { destination: `/hamyar-3` };
                               return (({ destination }) => {
                                 if (
                                   typeof destination === "string" &&
@@ -2314,7 +2290,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSelfCare__VariantsArgs;
     args?: PlasmicSelfCare__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSelfCare__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSelfCare__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSelfCare__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

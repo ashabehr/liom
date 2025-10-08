@@ -5072,157 +5072,136 @@ function PlasmicReminder__RenderFunc(props: {
           </Button>
         </div>
       </div>
-      {(
-        hasVariant($state, "slide3", "slide3")
-          ? true
-          : (() => {
-              try {
-                return $props.manId == "1";
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
-                }
-                throw e;
-              }
-            })()
-      ) ? (
-        <section
-          className={classNames(projectcss.all, sty.section__wBpwR, {
-            [sty.sectionhamyar__wBpwRxX8Tw]: hasVariant(
-              $state,
-              "hamyar",
-              "hamyar"
-            ),
-            [sty.sectionslide3__wBpwRWyFt]: hasVariant(
-              $state,
-              "slide3",
-              "slide3"
-            ),
-            [sty.sectionslide3_hamyar__wBpwRWyFtXX8Tw]:
-              hasVariant($state, "hamyar", "hamyar") &&
-              hasVariant($state, "slide3", "slide3")
-          })}
-        >
-          <div className={classNames(projectcss.all, sty.freeBox__nYlDo)}>
-            <AntdTooltip
-              data-plasmic-name={"tooltip"}
-              data-plasmic-override={overrides.tooltip}
-              className={classNames("__wab_instance", sty.tooltip)}
-              placement={"left"}
-              titleText={
-                "\u0627\u0641\u0632\u0648\u062f\u0646 \u0631\u0648\u06cc\u062f\u0627\u062f \u062c\u062f\u06cc\u062f"
-              }
+      <section
+        className={classNames(projectcss.all, sty.section__wBpwR, {
+          [sty.sectionhamyar__wBpwRxX8Tw]: hasVariant(
+            $state,
+            "hamyar",
+            "hamyar"
+          ),
+          [sty.sectionslide3__wBpwRWyFt]: hasVariant(
+            $state,
+            "slide3",
+            "slide3"
+          ),
+          [sty.sectionslide3_hamyar__wBpwRWyFtXX8Tw]:
+            hasVariant($state, "hamyar", "hamyar") &&
+            hasVariant($state, "slide3", "slide3")
+        })}
+      >
+        <div className={classNames(projectcss.all, sty.freeBox__nYlDo)}>
+          <AntdTooltip
+            data-plasmic-name={"tooltip"}
+            data-plasmic-override={overrides.tooltip}
+            className={classNames("__wab_instance", sty.tooltip)}
+            placement={"left"}
+            titleText={
+              "\u0627\u0641\u0632\u0648\u062f\u0646 \u0631\u0648\u06cc\u062f\u0627\u062f \u062c\u062f\u06cc\u062f"
+            }
+          >
+            <div
+              className={classNames(projectcss.all, sty.freeBox__dIgSy, {
+                [sty.freeBoxslide3__dIgSyWyFt]: hasVariant(
+                  $state,
+                  "slide3",
+                  "slide3"
+                )
+              })}
             >
-              <div
-                className={classNames(projectcss.all, sty.freeBox__dIgSy, {
-                  [sty.freeBoxslide3__dIgSyWyFt]: hasVariant(
-                    $state,
-                    "slide3",
-                    "slide3"
-                  )
+              <Button
+                data-plasmic-name={"button7"}
+                data-plasmic-override={overrides.button7}
+                className={classNames("__wab_instance", sty.button7, {
+                  [sty.button7slide3]: hasVariant($state, "slide3", "slide3")
                 })}
+                color={generateStateValueProp($state, ["button7", "color"])}
+                load={generateStateValueProp($state, ["button7", "load"])}
+                loading={generateStateValueProp($state, ["button7", "loading"])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateSlide3"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          vgroup: "slide3",
+                          operation: 2,
+                          value: "slide3"
+                        };
+                        return (({ vgroup, value }) => {
+                          if (typeof value === "string") {
+                            value = [value];
+                          }
+
+                          const oldValue = $stateGet($state, vgroup);
+                          $stateSet($state, vgroup, !oldValue);
+                          return !oldValue;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateSlide3"] != null &&
+                    typeof $steps["updateSlide3"] === "object" &&
+                    typeof $steps["updateSlide3"].then === "function"
+                  ) {
+                    $steps["updateSlide3"] = await $steps["updateSlide3"];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button7", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button7", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button7", "loading"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                shape={"round"}
               >
-                <Button
-                  data-plasmic-name={"button7"}
-                  data-plasmic-override={overrides.button7}
-                  className={classNames("__wab_instance", sty.button7, {
-                    [sty.button7slide3]: hasVariant($state, "slide3", "slide3")
-                  })}
-                  color={generateStateValueProp($state, ["button7", "color"])}
-                  load={generateStateValueProp($state, ["button7", "load"])}
-                  loading={generateStateValueProp($state, [
-                    "button7",
-                    "loading"
-                  ])}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["updateSlide3"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            vgroup: "slide3",
-                            operation: 2,
-                            value: "slide3"
-                          };
-                          return (({ vgroup, value }) => {
-                            if (typeof value === "string") {
-                              value = [value];
-                            }
-
-                            const oldValue = $stateGet($state, vgroup);
-                            $stateSet($state, vgroup, !oldValue);
-                            return !oldValue;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateSlide3"] != null &&
-                      typeof $steps["updateSlide3"] === "object" &&
-                      typeof $steps["updateSlide3"].then === "function"
-                    ) {
-                      $steps["updateSlide3"] = await $steps["updateSlide3"];
-                    }
-                  }}
-                  onColorChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button7", "color"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  onLoadChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button7", "load"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  onLoadingChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button7", "loading"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  shape={"round"}
-                >
-                  <Icon50Icon
-                    className={classNames(projectcss.all, sty.svg__kmnTy)}
-                    role={"img"}
-                  />
-                </Button>
-              </div>
-            </AntdTooltip>
-          </div>
-        </section>
-      ) : null}
+                <Icon50Icon
+                  className={classNames(projectcss.all, sty.svg__kmnTy)}
+                  role={"img"}
+                />
+              </Button>
+            </div>
+          </AntdTooltip>
+        </div>
+      </section>
     </div>
   ) as React.ReactElement | null;
 }

@@ -1676,10 +1676,7 @@ function PlasmicHamyar3__RenderFunc(props: {
               ])}
               headershow={(() => {
                 try {
-                  return !(
-                    window.FlutterChannel &&
-                    typeof window.FlutterChannel.postMessage === "function"
-                  );
+                  return window.FlutterChannel;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -1888,10 +1885,7 @@ function PlasmicHamyar3__RenderFunc(props: {
             ) : null}
             {(() => {
               try {
-                return !(
-                  window.FlutterChannel &&
-                  typeof window.FlutterChannel.postMessage === "function"
-                );
+                return !window.FlutterChannel;
               } catch (e) {
                 if (
                   e instanceof TypeError ||

@@ -75,13 +75,16 @@ createPlasmicElementProxy;
 
 export type PlasmicMainHamyar__VariantMembers = {
   page: "hamyar" | "self" | "bot";
+  haader: "haader";
 };
 export type PlasmicMainHamyar__VariantsArgs = {
   page?: SingleChoiceArg<"hamyar" | "self" | "bot">;
+  haader?: SingleBooleanChoiceArg<"haader">;
 };
 type VariantPropType = keyof PlasmicMainHamyar__VariantsArgs;
 export const PlasmicMainHamyar__VariantProps = new Array<VariantPropType>(
-  "page"
+  "page",
+  "haader"
 );
 
 export type PlasmicMainHamyar__ArgsType = {
@@ -131,6 +134,7 @@ export interface DefaultMainHamyarProps {
   hamyar2PlasmicAntd5ModalOpen?: boolean;
   onHamyar2PlasmicAntd5ModalOpenChange?: (val: boolean) => void;
   page?: SingleChoiceArg<"hamyar" | "self" | "bot">;
+  haader?: SingleBooleanChoiceArg<"haader">;
   className?: string;
 }
 
@@ -235,6 +239,25 @@ function PlasmicMainHamyar__RenderFunc(props: {
 
         valueProp: "hamyar2PlasmicAntd5ModalOpen",
         onChangeProp: "onHamyar2PlasmicAntd5ModalOpenChange"
+      },
+      {
+        path: "haader",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.headershow;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })() ?? $props.haader
       }
     ],
     [$props, $ctx, $refs]
@@ -272,6 +295,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
         data-plasmic-name={"hamyar2"}
         data-plasmic-override={overrides.hamyar2}
         className={classNames("__wab_instance", sty.hamyar2, {
+          [sty.hamyar2haader]: hasVariant($state, "haader", "haader"),
           [sty.hamyar2page_hamyar]: hasVariant($state, "page", "hamyar")
         })}
         editCycle2={args.editCycle2}
@@ -412,13 +436,16 @@ function PlasmicMainHamyar__RenderFunc(props: {
         data-plasmic-name={"section"}
         data-plasmic-override={overrides.section}
         className={classNames(projectcss.all, sty.section, {
+          [sty.sectionhaader]: hasVariant($state, "haader", "haader"),
           [sty.sectionpage_bot]: hasVariant($state, "page", "bot")
         })}
       >
         <div
           data-plasmic-name={"freeBox"}
           data-plasmic-override={overrides.freeBox}
-          className={classNames(projectcss.all, sty.freeBox)}
+          className={classNames(projectcss.all, sty.freeBox, {
+            [sty.freeBoxpage_bot]: hasVariant($state, "page", "bot")
+          })}
           style={(() => {
             try {
               return {
@@ -439,6 +466,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
             data-plasmic-name={"iframe"}
             data-plasmic-override={overrides.iframe}
             className={classNames("__wab_instance", sty.iframe, {
+              [sty.iframehaader]: hasVariant($state, "haader", "haader"),
               [sty.iframepage_bot]: hasVariant($state, "page", "bot"),
               [sty.iframepage_hamyar]: hasVariant($state, "page", "hamyar")
             })}

@@ -62,6 +62,9 @@
 .sectionpage_bot > * {
   grid-column: 4;
 }
+.sectionhaader > * {
+  grid-column: 4;
+}
 .freeBox {
   display: flex;
   flex-direction: column;
@@ -107,6 +110,9 @@
     width: 100%;
     min-width: 0;
   }
+}
+.iframehaader:global(.__wab_instance) {
+  padding-top: 0rem;
 }
 .selfCare2:global(.__wab_instance) {
   max-width: 100%;

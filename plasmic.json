@@ -1789,7 +1789,7 @@
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
           "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicHamyar.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/hamyar.tsx"
+            "modulePath": "../src/pages/hamyar-3.tsx"
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicHamyar.module.css",
           "scheme": "blackbox",
@@ -4680,7 +4680,7 @@
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
           "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicHamyar3.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/hamyar-2.tsx"
+            "modulePath": "../src/pages/hamyar.tsx"
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicHamyar3.module.css",
           "scheme": "blackbox",
