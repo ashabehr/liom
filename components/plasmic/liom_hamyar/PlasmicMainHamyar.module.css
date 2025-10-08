@@ -33,6 +33,9 @@
 .hamyar2page_hamyar:global(.__wab_instance) {
   display: grid;
 }
+.hamyar2haader_page_hamyar:global(.__wab_instance) {
+  margin: -55px 0px 0px;
+}
 .section {
   position: fixed;
   align-content: flex-start;
@@ -120,4 +123,7 @@
 }
 .selfCare2page_self:global(.__wab_instance) {
   display: grid;
+}
+.selfCare2haader_page_self:global(.__wab_instance) {
+  margin-top: -55px;
 }

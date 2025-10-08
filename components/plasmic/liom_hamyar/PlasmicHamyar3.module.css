@@ -287,6 +287,12 @@
   bottom: auto;
   display: none;
 }
+.svg__jyTiE {
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20px;
+}
 .embedHtml:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;

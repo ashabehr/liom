@@ -296,10 +296,33 @@ function PlasmicMainHamyar__RenderFunc(props: {
         data-plasmic-override={overrides.hamyar2}
         className={classNames("__wab_instance", sty.hamyar2, {
           [sty.hamyar2haader]: hasVariant($state, "haader", "haader"),
+          [sty.hamyar2haader_page_hamyar]:
+            hasVariant($state, "haader", "haader") &&
+            hasVariant($state, "page", "hamyar"),
+          [sty.hamyar2haader_page_self]:
+            hasVariant($state, "haader", "haader") &&
+            hasVariant($state, "page", "self"),
           [sty.hamyar2page_hamyar]: hasVariant($state, "page", "hamyar")
         })}
         editCycle2={args.editCycle2}
-        headershow={args.headershow}
+        headershow={(() => {
+          try {
+            return (() => {
+              const urlParams = new window.URLSearchParams(
+                window.location.search
+              );
+              return urlParams.get("inApp") == "true" ? true : false;
+            })();
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return true;
+            }
+            throw e;
+          }
+        })()}
         onPlasmicAntd5ModalOpenChange={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, [
             "hamyar2",
@@ -481,6 +504,9 @@ function PlasmicMainHamyar__RenderFunc(props: {
         data-plasmic-name={"selfCare2"}
         data-plasmic-override={overrides.selfCare2}
         className={classNames("__wab_instance", sty.selfCare2, {
+          [sty.selfCare2haader_page_self]:
+            hasVariant($state, "haader", "haader") &&
+            hasVariant($state, "page", "self"),
           [sty.selfCare2page_hamyar]: hasVariant($state, "page", "hamyar"),
           [sty.selfCare2page_self]: hasVariant($state, "page", "self")
         })}

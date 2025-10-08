@@ -95,6 +95,7 @@ import sty from "./PlasmicHamyar3.module.css"; // plasmic-import: cnAAvxWM15-_/c
 import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: 3QmHdQOUm1zK/icon
 import Icon271Icon from "./icons/PlasmicIcon__Icon271"; // plasmic-import: vZy72Clr16kL/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
@@ -1981,150 +1982,170 @@ function PlasmicHamyar3__RenderFunc(props: {
                     }
                   }}
                   slot={
-                    (() => {
-                      try {
-                        return $state.userdata?.result?.man?.telegramId;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $state.userdata?.result?.man?.telegramId;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })() ? (
-                      <Button
-                        data-plasmic-name={"button"}
-                        data-plasmic-override={overrides.button}
-                        className={classNames("__wab_instance", sty.button)}
-                        color={generateStateValueProp($state, [
-                          "button",
-                          "color"
-                        ])}
-                        load={generateStateValueProp($state, [
-                          "button",
-                          "load"
-                        ])}
-                        loading={generateStateValueProp($state, [
-                          "button",
-                          "loading"
-                        ])}
-                        onClick={async event => {
-                          const $steps = {};
+                      })() ? (
+                        <Button
+                          data-plasmic-name={"button"}
+                          data-plasmic-override={overrides.button}
+                          className={classNames("__wab_instance", sty.button)}
+                          color={generateStateValueProp($state, [
+                            "button",
+                            "color"
+                          ])}
+                          load={generateStateValueProp($state, [
+                            "button",
+                            "load"
+                          ])}
+                          loading={generateStateValueProp($state, [
+                            "button",
+                            "loading"
+                          ])}
+                          onClick={async event => {
+                            const $steps = {};
 
-                          $steps["runCode"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return (() => {
-                                      if (
-                                        typeof window !== "undefined" &&
-                                        window.FlutterChannel &&
-                                        typeof window.FlutterChannel
-                                          .postMessage === "function"
-                                      ) {
-                                        return window.FlutterChannel.postMessage(
-                                          "https://t.me/liomApp_bot"
-                                        );
-                                      } else if (
-                                        typeof window !== "undefined"
-                                      ) {
-                                        return window.open(
-                                          "https://t.me/liomApp_bot",
-                                          "_blank"
-                                        );
-                                      }
-                                    })();
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
-                          ) {
-                            $steps["runCode"] = await $steps["runCode"];
-                          }
-                        }}
-                        onColorChange={async (...eventArgs: any) => {
-                          ((...eventArgs) => {
-                            generateStateOnChangeProp($state, [
-                              "button",
-                              "color"
-                            ])(eventArgs[0]);
-                          }).apply(null, eventArgs);
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        if (
+                                          typeof window !== "undefined" &&
+                                          window.FlutterChannel &&
+                                          typeof window.FlutterChannel
+                                            .postMessage === "function"
+                                        ) {
+                                          return window.FlutterChannel.postMessage(
+                                            "https://t.me/liomApp_bot"
+                                          );
+                                        } else if (
+                                          typeof window !== "undefined"
+                                        ) {
+                                          return window.open(
+                                            "https://t.me/liomApp_bot",
+                                            "_blank"
+                                          );
+                                        }
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+                          }}
+                          onColorChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button",
+                                "color"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
 
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        }}
-                        onLoadChange={async (...eventArgs: any) => {
-                          ((...eventArgs) => {
-                            generateStateOnChangeProp($state, [
-                              "button",
-                              "load"
-                            ])(eventArgs[0]);
-                          }).apply(null, eventArgs);
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                          onLoadChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button",
+                                "load"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
 
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        }}
-                        onLoadingChange={async (...eventArgs: any) => {
-                          ((...eventArgs) => {
-                            generateStateOnChangeProp($state, [
-                              "button",
-                              "loading"
-                            ])(eventArgs[0]);
-                          }).apply(null, eventArgs);
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                          onLoadingChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button",
+                                "loading"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
 
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                          shape={"rounded"}
+                          showStartIcon={true}
+                          size={"compact"}
+                          startIcon={
+                            <Icon271Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__uHPq7
+                              )}
+                              role={"img"}
+                            />
                           }
-                        }}
-                        shape={"rounded"}
-                        showStartIcon={true}
-                        size={"compact"}
-                        startIcon={
-                          <Icon271Icon
+                        >
+                          <div
                             className={classNames(
                               projectcss.all,
-                              sty.svg__uHPq7
+                              projectcss.__wab_text,
+                              sty.text__nufXu
                             )}
-                            role={"img"}
-                          />
-                        }
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__nufXu
-                          )}
-                        >
-                          {
-                            "\u0648\u0631\u0648\u062f \u0628\u0647 \u0631\u0628\u0627\u062a \u062a\u0644\u06af\u0631\u0627\u0645"
+                          >
+                            {
+                              "\u0648\u0631\u0648\u062f \u0628\u0647 \u0631\u0628\u0627\u062a \u062a\u0644\u06af\u0631\u0627\u0645"
+                            }
+                          </div>
+                        </Button>
+                      ) : null}
+                      {(() => {
+                        try {
+                          return window.FlutterChannel ? true : false;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
                           }
-                        </div>
-                      </Button>
-                    ) : null
+                          throw e;
+                        }
+                      })() ? (
+                        <SearchSvgIcon
+                          className={classNames(projectcss.all, sty.svg__jyTiE)}
+                          role={"img"}
+                        />
+                      ) : null}
+                    </React.Fragment>
                   }
                   token={(() => {
                     try {
