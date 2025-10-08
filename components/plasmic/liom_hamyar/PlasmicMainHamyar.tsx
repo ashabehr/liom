@@ -109,6 +109,7 @@ export const PlasmicMainHamyar__ArgProps = new Array<ArgPropType>(
 export type PlasmicMainHamyar__OverridesType = {
   root?: Flex__<"div">;
   hamyar2?: Flex__<typeof Hamyar2>;
+  section?: Flex__<"section">;
   iframe?: Flex__<typeof Iframe>;
   selfCare2?: Flex__<typeof SelfCare2>;
 };
@@ -374,18 +375,26 @@ function PlasmicMainHamyar__RenderFunc(props: {
         userdata={generateStateValueProp($state, ["hamyar2", "userdata"])}
       />
 
-      <Iframe
-        data-plasmic-name={"iframe"}
-        data-plasmic-override={overrides.iframe}
-        className={classNames("__wab_instance", sty.iframe, {
-          [sty.iframepage_bot]: hasVariant($state, "page", "bot")
+      <section
+        data-plasmic-name={"section"}
+        data-plasmic-override={overrides.section}
+        className={classNames(projectcss.all, sty.section, {
+          [sty.sectionpage_bot]: hasVariant($state, "page", "bot")
         })}
-        preview={true}
-        src={"https://tools.liom.app/chat-bot/"}
-        srcDoc={"<div><h3>Heading</h3><p>Example text...</p></div>"}
-        useHtml={false}
-      />
-
+      >
+        <Iframe
+          data-plasmic-name={"iframe"}
+          data-plasmic-override={overrides.iframe}
+          className={classNames("__wab_instance", sty.iframe, {
+            [sty.iframepage_bot]: hasVariant($state, "page", "bot"),
+            [sty.iframepage_hamyar]: hasVariant($state, "page", "hamyar")
+          })}
+          preview={true}
+          src={"https://tools.liom.app/chat-bot/"}
+          srcDoc={"<div><h3>Heading</h3><p>Example text...</p></div>"}
+          useHtml={false}
+        />
+      </section>
       <SelfCare2
         data-plasmic-name={"selfCare2"}
         data-plasmic-override={overrides.selfCare2}
@@ -414,8 +423,9 @@ function PlasmicMainHamyar__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "hamyar2", "iframe", "selfCare2"],
+  root: ["root", "hamyar2", "section", "iframe", "selfCare2"],
   hamyar2: ["hamyar2"],
+  section: ["section", "iframe"],
   iframe: ["iframe"],
   selfCare2: ["selfCare2"]
 } as const;
@@ -425,6 +435,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   hamyar2: typeof Hamyar2;
+  section: "section";
   iframe: typeof Iframe;
   selfCare2: typeof SelfCare2;
 };
@@ -492,6 +503,7 @@ export const PlasmicMainHamyar = Object.assign(
   {
     // Helper components rendering sub-elements
     hamyar2: makeNodeComponent("hamyar2"),
+    section: makeNodeComponent("section"),
     iframe: makeNodeComponent("iframe"),
     selfCare2: makeNodeComponent("selfCare2"),
 

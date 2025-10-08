@@ -108,13 +108,15 @@ export type PlasmicEditProfile2__ArgsType = {
   onTokenChange?: (val: string) => void;
   back?: () => void;
   active?: boolean;
+  onedit?: () => void;
 };
 type ArgPropType = keyof PlasmicEditProfile2__ArgsType;
 export const PlasmicEditProfile2__ArgProps = new Array<ArgPropType>(
   "token",
   "onTokenChange",
   "back",
-  "active"
+  "active",
+  "onedit"
 );
 
 export type PlasmicEditProfile2__OverridesType = {
@@ -191,6 +193,7 @@ export interface DefaultEditProfile2Props {
   onTokenChange?: (val: string) => void;
   back?: () => void;
   active?: boolean;
+  onedit?: () => void;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
   className?: string;
 }
@@ -2992,6 +2995,38 @@ function PlasmicEditProfile2__RenderFunc(props: {
                   ) {
                     $steps["updateBtnLoading2"] =
                       await $steps["updateBtnLoading2"];
+                  }
+
+                  $steps["runBack"] = true
+                    ? (() => {
+                        const actionArgs = { eventRef: $props["back"] };
+                        return (({ eventRef, args }) => {
+                          return eventRef?.(...(args ?? []));
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runBack"] != null &&
+                    typeof $steps["runBack"] === "object" &&
+                    typeof $steps["runBack"].then === "function"
+                  ) {
+                    $steps["runBack"] = await $steps["runBack"];
+                  }
+
+                  $steps["runOnedit"] = true
+                    ? (() => {
+                        const actionArgs = { eventRef: $props["onedit"] };
+                        return (({ eventRef, args }) => {
+                          return eventRef?.(...(args ?? []));
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runOnedit"] != null &&
+                    typeof $steps["runOnedit"] === "object" &&
+                    typeof $steps["runOnedit"].then === "function"
+                  ) {
+                    $steps["runOnedit"] = await $steps["runOnedit"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {

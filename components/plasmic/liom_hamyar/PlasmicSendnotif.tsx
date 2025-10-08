@@ -64,7 +64,7 @@ import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
 import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
-import { DatePicker } from "@/fragment/components/date-picker"; // plasmic-import: HO9mbwRxSwnJ/codeComponent
+import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
 import RadioGroupLiom from "../../RadioGroupLiom"; // plasmic-import: tXN0uQ-uT9R3/component
 import CheckboxGroup from "../../CheckboxGroup"; // plasmic-import: AhgoIztCTzjf/component
 import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
@@ -133,7 +133,7 @@ export type PlasmicSendnotif__OverridesType = {
   antdInput3?: Flex__<typeof Input>;
   switchbest?: Flex__<typeof Switchbest>;
   title2?: Flex__<typeof TextInput>;
-  datePicker?: Flex__<typeof DatePicker>;
+  datePickers?: Flex__<typeof DatePickers>;
   title3?: Flex__<typeof TextInput>;
   radioGroupLiom?: Flex__<typeof RadioGroupLiom>;
   fcm2?: Flex__<typeof TextInput>;
@@ -468,45 +468,36 @@ function PlasmicSendnotif__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
       },
       {
-        path: "datePicker[].value",
-        type: "private",
-        variableType: "number"
-      },
-      {
-        path: "datePicker[].values",
-        type: "private",
-        variableType: "array"
-      },
-      {
-        path: "datapic",
-        type: "private",
-        variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (() => {
-                return $state.datePicker.forEach(
-                  item => ($state.date += item.values.join("/"))
-                );
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return [];
-              }
-              throw e;
-            }
-          })()
-      },
-      {
         path: "datapickerbool",
         type: "readonly",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false,
 
         onChangeProp: "onDatapickerboolChange"
+      },
+      {
+        path: "datepic",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return {};
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "datePickers[].value",
+        type: "private",
+        variableType: "object"
       }
     ],
     [$props, $ctx, $refs]
@@ -1633,86 +1624,76 @@ function PlasmicSendnotif__RenderFunc(props: {
                                     sty.freeBox__ovUfd
                                   )}
                                 >
-                                  {(() => {
-                                    const child$Props = {
-                                      className: classNames(
-                                        "__wab_instance",
-                                        sty.datePicker
-                                      ),
-                                      holidays: [],
-                                      locale: "fa",
-                                      onChange: async (...eventArgs: any) => {
-                                        generateStateOnChangeProp($state, [
-                                          "datePicker",
-                                          __plasmic_idx_0,
-                                          "value"
-                                        ]).apply(null, eventArgs);
-                                        generateStateOnChangeProp($state, [
-                                          "datePicker",
-                                          __plasmic_idx_0,
-                                          "values"
-                                        ]).apply(null, eventArgs);
-                                      },
-                                      value: generateStateValueProp($state, [
-                                        "datePicker",
-                                        __plasmic_idx_0,
-                                        "value"
-                                      ]),
-                                      values: generateStateValueProp($state, [
-                                        "datePicker",
-                                        __plasmic_idx_0,
-                                        "values"
-                                      ])
-                                    };
-                                    initializeCodeComponentStates(
-                                      $state,
-                                      [
-                                        {
-                                          name: "value",
-                                          plasmicStateName: "datePicker[].value"
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__hshzG
+                                    )}
+                                  >
+                                    {(() => {
+                                      const child$Props = {
+                                        SelectedDay: 10,
+                                        SelectedMonth: 10,
+                                        SelectedYear: 1379,
+                                        className: classNames(
+                                          "__wab_instance",
+                                          sty.datePickers
+                                        ),
+                                        customYears: [],
+                                        onChange: async (...eventArgs: any) => {
+                                          generateStateOnChangeProp($state, [
+                                            "datePickers",
+                                            __plasmic_idx_0,
+                                            "value"
+                                          ]).apply(null, eventArgs);
                                         },
-                                        {
-                                          name: "values",
-                                          plasmicStateName:
-                                            "datePicker[].values"
-                                        }
-                                      ],
-                                      [__plasmic_idx_0],
-                                      undefined ?? {},
-                                      child$Props
-                                    );
-                                    initializePlasmicStates(
-                                      $state,
-                                      [
-                                        {
-                                          name: "datePicker[].value",
-                                          initFunc: ({
-                                            $props,
-                                            $state,
-                                            $queries
-                                          }) => undefined
-                                        },
-                                        {
-                                          name: "datePicker[].values",
-                                          initFunc: ({
-                                            $props,
-                                            $state,
-                                            $queries
-                                          }) => []
-                                        }
-                                      ],
-                                      [__plasmic_idx_0]
-                                    );
-                                    return (
-                                      <DatePicker
-                                        data-plasmic-name={"datePicker"}
-                                        data-plasmic-override={
-                                          overrides.datePicker
-                                        }
-                                        {...child$Props}
-                                      />
-                                    );
-                                  })()}
+                                        selectedValues: generateStateValueProp(
+                                          $state,
+                                          [
+                                            "datePickers",
+                                            __plasmic_idx_0,
+                                            "value"
+                                          ]
+                                        )
+                                      };
+                                      initializeCodeComponentStates(
+                                        $state,
+                                        [
+                                          {
+                                            name: "value",
+                                            plasmicStateName:
+                                              "datePickers[].value"
+                                          }
+                                        ],
+                                        [__plasmic_idx_0],
+                                        undefined ?? {},
+                                        child$Props
+                                      );
+                                      initializePlasmicStates(
+                                        $state,
+                                        [
+                                          {
+                                            name: "datePickers[].value",
+                                            initFunc: ({
+                                              $props,
+                                              $state,
+                                              $queries
+                                            }) => ({})
+                                          }
+                                        ],
+                                        [__plasmic_idx_0]
+                                      );
+                                      return (
+                                        <DatePickers
+                                          data-plasmic-name={"datePickers"}
+                                          data-plasmic-override={
+                                            overrides.datePickers
+                                          }
+                                          {...child$Props}
+                                        />
+                                      );
+                                    })()}
+                                  </div>
                                 </div>
                               ) : null}
                             </div>
@@ -3175,7 +3156,7 @@ const PlasmicDescendants = {
     "antdInput3",
     "switchbest",
     "title2",
-    "datePicker",
+    "datePickers",
     "title3",
     "radioGroupLiom",
     "fcm2",
@@ -3204,7 +3185,7 @@ const PlasmicDescendants = {
     "antdInput3",
     "switchbest",
     "title2",
-    "datePicker",
+    "datePickers",
     "title3",
     "radioGroupLiom",
     "fcm2",
@@ -3228,7 +3209,7 @@ const PlasmicDescendants = {
   antdInput3: ["antdInput3"],
   switchbest: ["switchbest"],
   title2: ["title2"],
-  datePicker: ["datePicker"],
+  datePickers: ["datePickers"],
   title3: ["title3"],
   radioGroupLiom: ["radioGroupLiom"],
   fcm2: ["fcm2", "antdInput6"],
@@ -3261,7 +3242,7 @@ type NodeDefaultElementType = {
   antdInput3: typeof Input;
   switchbest: typeof Switchbest;
   title2: typeof TextInput;
-  datePicker: typeof DatePicker;
+  datePickers: typeof DatePickers;
   title3: typeof TextInput;
   radioGroupLiom: typeof RadioGroupLiom;
   fcm2: typeof TextInput;
@@ -3352,7 +3333,7 @@ export const PlasmicSendnotif = Object.assign(
     antdInput3: makeNodeComponent("antdInput3"),
     switchbest: makeNodeComponent("switchbest"),
     title2: makeNodeComponent("title2"),
-    datePicker: makeNodeComponent("datePicker"),
+    datePickers: makeNodeComponent("datePickers"),
     title3: makeNodeComponent("title3"),
     radioGroupLiom: makeNodeComponent("radioGroupLiom"),
     fcm2: makeNodeComponent("fcm2"),

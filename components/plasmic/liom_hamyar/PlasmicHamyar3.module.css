@@ -104,9 +104,10 @@
   display: none;
 }
 .mainHamyar:global(.__wab_instance) {
-  height: 80vh;
+  height: 100%;
   flex-grow: 0;
   flex-shrink: 1;
+  min-height: 0;
 }
 .section__roUh {
   display: grid;

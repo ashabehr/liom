@@ -2043,16 +2043,7 @@ function PlasmicHamyar3__RenderFunc(props: {
                 })()}
                 userinfo={(() => {
                   try {
-                    return (() => {
-                      try {
-                        const a = JSON.parse(
-                          window.localStorage.getItem("userinfo")
-                        );
-                        return a.man;
-                      } catch {
-                        return "";
-                      }
-                    })();
+                    return $state.userdata?.result?.man;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -8626,6 +8617,31 @@ function PlasmicHamyar3__RenderFunc(props: {
                   eventArgs[1]._plasmic_state_init_
                 ) {
                   return;
+                }
+              }}
+              onedit={async () => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            return window.location.reload();
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
                 }
               }}
               token={generateStateValueProp($state, ["editProfile2", "token"])}
