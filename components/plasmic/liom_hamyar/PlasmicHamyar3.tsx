@@ -1676,7 +1676,12 @@ function PlasmicHamyar3__RenderFunc(props: {
               ])}
               headershow={(() => {
                 try {
-                  return window.FlutterChannel;
+                  return (() => {
+                    const urlParams = new window.URLSearchParams(
+                      window.location.search
+                    );
+                    return urlParams.get("inApp") == "true" ? true : false;
+                  })();
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -1885,7 +1890,12 @@ function PlasmicHamyar3__RenderFunc(props: {
             ) : null}
             {(() => {
               try {
-                return !window.FlutterChannel;
+                return (() => {
+                  const urlParams = new window.URLSearchParams(
+                    window.location.search
+                  );
+                  return urlParams.get("inApp") == "true" ? false : true;
+                })();
               } catch (e) {
                 if (
                   e instanceof TypeError ||
