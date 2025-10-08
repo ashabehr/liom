@@ -1532,6 +1532,12 @@ function PlasmicHamyar3__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "mainHamyar.hamyar2PlasmicAntd5ModalOpen",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1664,7 +1670,27 @@ function PlasmicHamyar3__RenderFunc(props: {
                   $steps["updateEditCycle"] = await $steps["updateEditCycle"];
                 }
               }}
+              hamyar2PlasmicAntd5ModalOpen={generateStateValueProp($state, [
+                "mainHamyar",
+                "hamyar2PlasmicAntd5ModalOpen"
+              ])}
               headershow={false}
+              onHamyar2PlasmicAntd5ModalOpenChange={async (
+                ...eventArgs: any
+              ) => {
+                generateStateOnChangeProp($state, [
+                  "mainHamyar",
+                  "hamyar2PlasmicAntd5ModalOpen"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
               onTokenChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "mainHamyar",
@@ -1852,6 +1878,29 @@ function PlasmicHamyar3__RenderFunc(props: {
                 className={classNames("__wab_instance", sty.mainHeader)}
                 dopen={generateStateValueProp($state, ["mainHeader", "dopen"])}
                 hamyar={true}
+                hamyarshop={async () => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return ($state.mainHamyar.hamyar2PlasmicAntd5ModalOpen = true);
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
                 onDopenChange2={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, [
                     "mainHeader",
@@ -2145,7 +2194,7 @@ function PlasmicHamyar3__RenderFunc(props: {
             data-plasmic-override={overrides.embedHtml}
             className={classNames("__wab_instance", sty.embedHtml)}
             code={
-              "<!-- Hotjar Tracking Code for Site 5171830 (name missing) -->\r\n<script>\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:5171830,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n</script>"
+              "<script>\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:6541232,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n</script>"
             }
           />
 

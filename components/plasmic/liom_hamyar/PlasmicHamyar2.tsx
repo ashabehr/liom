@@ -153,6 +153,8 @@ export const PlasmicHamyar2__VariantProps = new Array<VariantPropType>(
 export type PlasmicHamyar2__ArgsType = {
   tokenUser?: string;
   onTokenUserChange?: (val: string) => void;
+  plasmicAntd5ModalOpen?: boolean;
+  onPlasmicAntd5ModalOpenChange?: (val: boolean) => void;
   userdata?: any;
   onUserdataChange?: (val: string) => void;
   remind?: any;
@@ -165,6 +167,8 @@ type ArgPropType = keyof PlasmicHamyar2__ArgsType;
 export const PlasmicHamyar2__ArgProps = new Array<ArgPropType>(
   "tokenUser",
   "onTokenUserChange",
+  "plasmicAntd5ModalOpen",
+  "onPlasmicAntd5ModalOpenChange",
   "userdata",
   "onUserdataChange",
   "remind",
@@ -212,7 +216,6 @@ export type PlasmicHamyar2__OverridesType = {
   loading?: Flex__<"div">;
   favicon?: Flex__<typeof Embed>;
   button19?: Flex__<typeof Button>;
-  embedHtml?: Flex__<typeof Embed>;
   dialog?: Flex__<typeof Dialog>;
   shopDialog?: Flex__<typeof ApiRequest>;
   dialogTitle?: Flex__<typeof DialogTitle>;
@@ -248,6 +251,8 @@ export type PlasmicHamyar2__OverridesType = {
 export interface DefaultHamyar2Props {
   tokenUser?: string;
   onTokenUserChange?: (val: string) => void;
+  plasmicAntd5ModalOpen?: boolean;
+  onPlasmicAntd5ModalOpenChange?: (val: boolean) => void;
   userdata?: any;
   onUserdataChange?: (val: string) => void;
   remind?: any;
@@ -757,9 +762,11 @@ function PlasmicHamyar2__RenderFunc(props: {
       },
       {
         path: "shopPage.open",
-        type: "private",
+        type: "writable",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+
+        valueProp: "plasmicAntd5ModalOpen",
+        onChangeProp: "onPlasmicAntd5ModalOpenChange"
       },
       {
         path: "variable",
@@ -19011,15 +19018,6 @@ function PlasmicHamyar2__RenderFunc(props: {
           </Button>
         </div>
       ) : null}
-      <Embed
-        data-plasmic-name={"embedHtml"}
-        data-plasmic-override={overrides.embedHtml}
-        className={classNames("__wab_instance", sty.embedHtml)}
-        code={
-          "<!-- Hotjar Tracking Code for Site 5171830 (name missing) -->\r\n<script>\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:5171830,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n</script>"
-        }
-      />
-
       <Dialog
         data-plasmic-name={"dialog"}
         data-plasmic-override={overrides.dialog}
@@ -23727,9 +23725,23 @@ function PlasmicHamyar2__RenderFunc(props: {
                   sty.text___9ZpGf
                 )}
               >
-                {
-                  "\u062a\u0645\u062f\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9"
-                }
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $state.userdata?.result?.man?.hamyarStatus
+                        ? "تمدید اشتراک"
+                        : "اشتراک ویژه";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "\u062a\u0645\u062f\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
               </div>
             </div>
           </HeaderLiom>
@@ -23749,223 +23761,243 @@ function PlasmicHamyar2__RenderFunc(props: {
       >
         <section className={classNames(projectcss.all, sty.section___4P66A)}>
           <div className={classNames(projectcss.all, sty.freeBox__b8Xsz)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___7HO6F
-              )}
-            >
-              {
-                "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0634\u0645\u0627 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a  \u062a\u0627:"
+            {(() => {
+              try {
+                return $state.userdata?.result?.man?.hamyarStatus;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
               }
-            </div>
-            <div className={classNames(projectcss.all, sty.freeBox__u3PoF)}>
-              <section
-                className={classNames(
-                  projectcss.all,
-                  sty.section__mu2Ct,
-                  "wrapper"
-                )}
-              >
+            })() ? (
+              <div className={classNames(projectcss.all, sty.freeBox__idRSd)}>
                 <div
                   className={classNames(
                     projectcss.all,
-                    sty.freeBox__sRtA5,
-                    "seconds"
+                    projectcss.__wab_text,
+                    sty.text___7HO6F
                   )}
-                  style={(() => {
-                    try {
-                      return (() => {
-                        return $state.userdata?.result?.man?.timeToEndHamyarTime
-                          ?.days > 3
-                          ? { background: "var(--plasmic-token-green)" }
-                          : {
-                              background: "var(--plasmic-token-system-warning)"
-                            };
-                      })();
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
                 >
-                  <h2
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h2,
-                      projectcss.__wab_text,
-                      sty.h2__kdOtg
-                    )}
-                    id={"seconds"}
-                  >
-                    {"SS"}
-                  </h2>
-                  <span
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.span,
-                      projectcss.__wab_text,
-                      sty.span__qTMiB
-                    )}
-                  >
-                    {"\u062b\u0627\u0646\u06cc\u0647"}
-                  </span>
+                  {
+                    "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0634\u0645\u0627 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a  \u062a\u0627:"
+                  }
                 </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__wBOqt,
-                    "minutes"
-                  )}
-                  style={(() => {
-                    try {
-                      return (() => {
-                        return $state.userdata?.result?.man?.timeToEndHamyarTime
-                          ?.days > 3
-                          ? { background: "var(--plasmic-token-green)" }
-                          : {
-                              background: "var(--plasmic-token-system-warning)"
-                            };
-                      })();
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                >
-                  <h2
+                <div className={classNames(projectcss.all, sty.freeBox__u3PoF)}>
+                  <section
                     className={classNames(
                       projectcss.all,
-                      projectcss.h2,
-                      projectcss.__wab_text,
-                      sty.h2__w6Gi
-                    )}
-                    id={"minutes"}
-                  >
-                    {"MM"}
-                  </h2>
-                  <span
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.span,
-                      projectcss.__wab_text,
-                      sty.span__w5NHa
+                      sty.section__mu2Ct,
+                      "wrapper"
                     )}
                   >
-                    {"\u062f\u0642\u06cc\u0642\u0647"}
-                  </span>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__sRtA5,
+                        "seconds"
+                      )}
+                      style={(() => {
+                        try {
+                          return (() => {
+                            return $state.userdata?.result?.man
+                              ?.timeToEndHamyarTime?.days > 3
+                              ? { background: "var(--plasmic-token-green)" }
+                              : {
+                                  background:
+                                    "var(--plasmic-token-system-warning)"
+                                };
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                    >
+                      <h2
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.h2,
+                          projectcss.__wab_text,
+                          sty.h2__kdOtg
+                        )}
+                        id={"seconds"}
+                      >
+                        {"SS"}
+                      </h2>
+                      <span
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.span,
+                          projectcss.__wab_text,
+                          sty.span__qTMiB
+                        )}
+                      >
+                        {"\u062b\u0627\u0646\u06cc\u0647"}
+                      </span>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__wBOqt,
+                        "minutes"
+                      )}
+                      style={(() => {
+                        try {
+                          return (() => {
+                            return $state.userdata?.result?.man
+                              ?.timeToEndHamyarTime?.days > 3
+                              ? { background: "var(--plasmic-token-green)" }
+                              : {
+                                  background:
+                                    "var(--plasmic-token-system-warning)"
+                                };
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                    >
+                      <h2
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.h2,
+                          projectcss.__wab_text,
+                          sty.h2__w6Gi
+                        )}
+                        id={"minutes"}
+                      >
+                        {"MM"}
+                      </h2>
+                      <span
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.span,
+                          projectcss.__wab_text,
+                          sty.span__w5NHa
+                        )}
+                      >
+                        {"\u062f\u0642\u06cc\u0642\u0647"}
+                      </span>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__wj4C9,
+                        "hours"
+                      )}
+                      style={(() => {
+                        try {
+                          return (() => {
+                            return $state.userdata?.result?.man
+                              ?.timeToEndHamyarTime?.days > 3
+                              ? { background: "var(--plasmic-token-green)" }
+                              : {
+                                  background:
+                                    "var(--plasmic-token-system-warning)"
+                                };
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                    >
+                      <h2
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.h2,
+                          projectcss.__wab_text,
+                          sty.h2__mLhpy
+                        )}
+                        id={"hours"}
+                      >
+                        {"HH"}
+                      </h2>
+                      <span
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.span,
+                          projectcss.__wab_text,
+                          sty.span__uCnSz
+                        )}
+                      >
+                        {"\u0633\u0627\u0639\u062a"}
+                      </span>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__wmcqS,
+                        "days"
+                      )}
+                      style={(() => {
+                        try {
+                          return (() => {
+                            return $state.userdata?.result?.man
+                              ?.timeToEndHamyarTime?.days > 3
+                              ? { background: "var(--plasmic-token-green)" }
+                              : {
+                                  background:
+                                    "var(--plasmic-token-system-warning)"
+                                };
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                    >
+                      <h2
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.h2,
+                          projectcss.__wab_text,
+                          sty.h2___9W0P3
+                        )}
+                        id={"days"}
+                      >
+                        {"DD"}
+                      </h2>
+                      <span
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.span,
+                          projectcss.__wab_text,
+                          sty.span__gwi4H
+                        )}
+                      >
+                        {"\u0631\u0648\u0632"}
+                      </span>
+                    </div>
+                  </section>
                 </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__wj4C9,
-                    "hours"
-                  )}
-                  style={(() => {
-                    try {
-                      return (() => {
-                        return $state.userdata?.result?.man?.timeToEndHamyarTime
-                          ?.days > 3
-                          ? { background: "var(--plasmic-token-green)" }
-                          : {
-                              background: "var(--plasmic-token-system-warning)"
-                            };
-                      })();
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                >
-                  <h2
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h2,
-                      projectcss.__wab_text,
-                      sty.h2__mLhpy
-                    )}
-                    id={"hours"}
-                  >
-                    {"HH"}
-                  </h2>
-                  <span
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.span,
-                      projectcss.__wab_text,
-                      sty.span__uCnSz
-                    )}
-                  >
-                    {"\u0633\u0627\u0639\u062a"}
-                  </span>
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__wmcqS,
-                    "days"
-                  )}
-                  style={(() => {
-                    try {
-                      return (() => {
-                        return $state.userdata?.result?.man?.timeToEndHamyarTime
-                          ?.days > 3
-                          ? { background: "var(--plasmic-token-green)" }
-                          : {
-                              background: "var(--plasmic-token-system-warning)"
-                            };
-                      })();
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                >
-                  <h2
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h2,
-                      projectcss.__wab_text,
-                      sty.h2___9W0P3
-                    )}
-                    id={"days"}
-                  >
-                    {"DD"}
-                  </h2>
-                  <span
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.span,
-                      projectcss.__wab_text,
-                      sty.span__gwi4H
-                    )}
-                  >
-                    {"\u0631\u0648\u0632"}
-                  </span>
-                </div>
-              </section>
-            </div>
+              </div>
+            ) : null}
             <div
               className={classNames(projectcss.all, sty.freeBox__xXM6, {
                 [sty.freeBoxlackOfCourseInformation__xXM6MyTcU]: hasVariant(
@@ -26757,7 +26789,6 @@ const PlasmicDescendants = {
     "loading",
     "favicon",
     "button19",
-    "embedHtml",
     "dialog",
     "shopDialog",
     "dialogTitle",
@@ -26858,7 +26889,6 @@ const PlasmicDescendants = {
   loading: ["loading"],
   favicon: ["favicon"],
   button19: ["button19"],
-  embedHtml: ["embedHtml"],
   dialog: [
     "dialog",
     "shopDialog",
@@ -26960,7 +26990,6 @@ type NodeDefaultElementType = {
   loading: "div";
   favicon: typeof Embed;
   button19: typeof Button;
-  embedHtml: typeof Embed;
   dialog: typeof Dialog;
   shopDialog: typeof ApiRequest;
   dialogTitle: typeof DialogTitle;
@@ -27091,7 +27120,6 @@ export const PlasmicHamyar2 = Object.assign(
     loading: makeNodeComponent("loading"),
     favicon: makeNodeComponent("favicon"),
     button19: makeNodeComponent("button19"),
-    embedHtml: makeNodeComponent("embedHtml"),
     dialog: makeNodeComponent("dialog"),
     shopDialog: makeNodeComponent("shopDialog"),
     dialogTitle: makeNodeComponent("dialogTitle"),

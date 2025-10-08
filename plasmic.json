@@ -6810,6 +6810,11 @@
           "id": "2DTMB3SiHIW4",
           "name": "Icon321Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon321.tsx"
+        },
+        {
+          "id": "YXpo7oAohDig",
+          "name": "Icon322Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon322.tsx"
         }
       ],
       "images": [

@@ -93,6 +93,8 @@ export type PlasmicMainHamyar__ArgsType = {
   onUserDataChange?: (val: string) => void;
   editCycle2?: () => void;
   headershow?: boolean;
+  hamyar2PlasmicAntd5ModalOpen?: boolean;
+  onHamyar2PlasmicAntd5ModalOpenChange?: (val: boolean) => void;
 };
 type ArgPropType = keyof PlasmicMainHamyar__ArgsType;
 export const PlasmicMainHamyar__ArgProps = new Array<ArgPropType>(
@@ -103,7 +105,9 @@ export const PlasmicMainHamyar__ArgProps = new Array<ArgPropType>(
   "userData",
   "onUserDataChange",
   "editCycle2",
-  "headershow"
+  "headershow",
+  "hamyar2PlasmicAntd5ModalOpen",
+  "onHamyar2PlasmicAntd5ModalOpenChange"
 );
 
 export type PlasmicMainHamyar__OverridesType = {
@@ -124,6 +128,8 @@ export interface DefaultMainHamyarProps {
   onUserDataChange?: (val: string) => void;
   editCycle2?: () => void;
   headershow?: boolean;
+  hamyar2PlasmicAntd5ModalOpen?: boolean;
+  onHamyar2PlasmicAntd5ModalOpenChange?: (val: boolean) => void;
   page?: SingleChoiceArg<"hamyar" | "self" | "bot">;
   className?: string;
 }
@@ -221,6 +227,14 @@ function PlasmicMainHamyar__RenderFunc(props: {
 
         valueProp: "userData",
         onChangeProp: "onUserDataChange"
+      },
+      {
+        path: "hamyar2.plasmicAntd5ModalOpen",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "hamyar2PlasmicAntd5ModalOpen",
+        onChangeProp: "onHamyar2PlasmicAntd5ModalOpenChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -262,6 +276,20 @@ function PlasmicMainHamyar__RenderFunc(props: {
         })}
         editCycle2={args.editCycle2}
         headershow={args.headershow}
+        onPlasmicAntd5ModalOpenChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, [
+            "hamyar2",
+            "plasmicAntd5ModalOpen"
+          ]).apply(null, eventArgs);
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
         onRemindChange={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, ["hamyar2", "remind"]).apply(
             null,
@@ -370,6 +398,10 @@ function PlasmicMainHamyar__RenderFunc(props: {
             }
           }).apply(null, eventArgs);
         }}
+        plasmicAntd5ModalOpen={generateStateValueProp($state, [
+          "hamyar2",
+          "plasmicAntd5ModalOpen"
+        ])}
         remind={generateStateValueProp($state, ["hamyar2", "remind"])}
         reminderOpen={args.reminderOpen}
         tokenUser={generateStateValueProp($state, ["hamyar2", "tokenUser"])}

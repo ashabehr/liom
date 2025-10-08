@@ -86,7 +86,7 @@ import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-imp
 import Icon270Icon from "./icons/PlasmicIcon__Icon270"; // plasmic-import: Y171g_Z8ZZ84/icon
 import Oval3Icon from "./icons/PlasmicIcon__Oval3"; // plasmic-import: lOJpmSR7qOUd/icon
 import Icon295Icon from "./icons/PlasmicIcon__Icon295"; // plasmic-import: SfM64OkCrE9j/icon
-import Icon321Icon from "./icons/PlasmicIcon__Icon321"; // plasmic-import: 2DTMB3SiHIW4/icon
+import Icon322Icon from "./icons/PlasmicIcon__Icon322"; // plasmic-import: YXpo7oAohDig/icon
 import Icon291Icon from "./icons/PlasmicIcon__Icon291"; // plasmic-import: U9F0Jow4owN9/icon
 import Icon283Icon from "./icons/PlasmicIcon__Icon283"; // plasmic-import: d6oFXeX9yzDi/icon
 import Icon50Icon from "./icons/PlasmicIcon__Icon50"; // plasmic-import: OWul-aq2fF6T/icon
@@ -2402,54 +2402,67 @@ function PlasmicReminder__RenderFunc(props: {
                               sty.freeBox__r5JEo
                             )}
                           >
-                            {(_par =>
-                              !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                              (() => {
-                                try {
-                                  return [0, 1, 2, 3];
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return [];
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox___3V3Xh
+                              )}
+                            >
+                              {(_par =>
+                                !_par
+                                  ? []
+                                  : Array.isArray(_par)
+                                    ? _par
+                                    : [_par])(
+                                (() => {
+                                  try {
+                                    return [0, 1, 2, 3];
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [];
+                                    }
+                                    throw e;
                                   }
-                                  throw e;
-                                }
-                              })()
-                            ).map((__plasmic_item_1, __plasmic_idx_1) => {
-                              const currentItem = __plasmic_item_1;
-                              const currentIndex = __plasmic_idx_1;
-                              return (
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__poj8Y
-                                  )}
-                                  key={currentIndex}
-                                >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return currentday[0].year[currentIndex];
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "";
+                                })()
+                              ).map((__plasmic_item_1, __plasmic_idx_1) => {
+                                const currentItem = __plasmic_item_1;
+                                const currentIndex = __plasmic_idx_1;
+                                return (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__poj8Y
+                                    )}
+                                    key={currentIndex}
+                                  >
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return currentday[0].year[
+                                            currentIndex
+                                          ];
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "";
+                                          }
+                                          throw e;
                                         }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
-                                </div>
-                              );
-                            })}
-                            <Icon321Icon
+                                      })()}
+                                    </React.Fragment>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                            <Icon322Icon
                               className={classNames(
                                 projectcss.all,
                                 sty.svg___1Ke
@@ -3525,7 +3538,10 @@ function PlasmicReminder__RenderFunc(props: {
       </div>
       <div
         className={classNames(projectcss.all, sty.freeBox__x6OL, {
-          [sty.freeBoxslide3__x6OLWyFt]: hasVariant($state, "slide3", "slide3")
+          [sty.freeBoxslide3__x6OLWyFt]: hasVariant($state, "slide3", "slide3"),
+          [sty.freeBoxslide3_hamyar__x6OLWyFtXX8Tw]:
+            hasVariant($state, "hamyar", "hamyar") &&
+            hasVariant($state, "slide3", "slide3")
         })}
       >
         <div
@@ -3656,7 +3672,10 @@ function PlasmicReminder__RenderFunc(props: {
           data-plasmic-name={"slide1"}
           data-plasmic-override={overrides.slide1}
           className={classNames(projectcss.all, sty.slide1, {
-            [sty.slide1slide3]: hasVariant($state, "slide3", "slide3")
+            [sty.slide1slide3]: hasVariant($state, "slide3", "slide3"),
+            [sty.slide1slide3_hamyar]:
+              hasVariant($state, "hamyar", "hamyar") &&
+              hasVariant($state, "slide3", "slide3")
           })}
         >
           <div
@@ -5072,11 +5091,19 @@ function PlasmicReminder__RenderFunc(props: {
       ) ? (
         <section
           className={classNames(projectcss.all, sty.section__wBpwR, {
+            [sty.sectionhamyar__wBpwRxX8Tw]: hasVariant(
+              $state,
+              "hamyar",
+              "hamyar"
+            ),
             [sty.sectionslide3__wBpwRWyFt]: hasVariant(
               $state,
               "slide3",
               "slide3"
-            )
+            ),
+            [sty.sectionslide3_hamyar__wBpwRWyFtXX8Tw]:
+              hasVariant($state, "hamyar", "hamyar") &&
+              hasVariant($state, "slide3", "slide3")
           })}
         >
           <div className={classNames(projectcss.all, sty.freeBox__nYlDo)}>
