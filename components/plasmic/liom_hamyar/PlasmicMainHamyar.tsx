@@ -110,6 +110,7 @@ export type PlasmicMainHamyar__OverridesType = {
   root?: Flex__<"div">;
   hamyar2?: Flex__<typeof Hamyar2>;
   section?: Flex__<"section">;
+  freeBox?: Flex__<"div">;
   iframe?: Flex__<typeof Iframe>;
   selfCare2?: Flex__<typeof SelfCare2>;
 };
@@ -382,18 +383,39 @@ function PlasmicMainHamyar__RenderFunc(props: {
           [sty.sectionpage_bot]: hasVariant($state, "page", "bot")
         })}
       >
-        <Iframe
-          data-plasmic-name={"iframe"}
-          data-plasmic-override={overrides.iframe}
-          className={classNames("__wab_instance", sty.iframe, {
-            [sty.iframepage_bot]: hasVariant($state, "page", "bot"),
-            [sty.iframepage_hamyar]: hasVariant($state, "page", "hamyar")
-          })}
-          preview={true}
-          src={"https://tools.liom.app/chat-bot/"}
-          srcDoc={"<div><h3>Heading</h3><p>Example text...</p></div>"}
-          useHtml={false}
-        />
+        <div
+          data-plasmic-name={"freeBox"}
+          data-plasmic-override={overrides.freeBox}
+          className={classNames(projectcss.all, sty.freeBox)}
+          style={(() => {
+            try {
+              return {
+                height: "100dvh"
+              };
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+        >
+          <Iframe
+            data-plasmic-name={"iframe"}
+            data-plasmic-override={overrides.iframe}
+            className={classNames("__wab_instance", sty.iframe, {
+              [sty.iframepage_bot]: hasVariant($state, "page", "bot"),
+              [sty.iframepage_hamyar]: hasVariant($state, "page", "hamyar")
+            })}
+            preview={true}
+            src={"https://tools.liom.app/chat-bot/"}
+            srcDoc={"<div><h3>Heading</h3><p>Example text...</p></div>"}
+            useHtml={false}
+          />
+        </div>
       </section>
       <SelfCare2
         data-plasmic-name={"selfCare2"}
@@ -423,9 +445,10 @@ function PlasmicMainHamyar__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "hamyar2", "section", "iframe", "selfCare2"],
+  root: ["root", "hamyar2", "section", "freeBox", "iframe", "selfCare2"],
   hamyar2: ["hamyar2"],
-  section: ["section", "iframe"],
+  section: ["section", "freeBox", "iframe"],
+  freeBox: ["freeBox", "iframe"],
   iframe: ["iframe"],
   selfCare2: ["selfCare2"]
 } as const;
@@ -436,6 +459,7 @@ type NodeDefaultElementType = {
   root: "div";
   hamyar2: typeof Hamyar2;
   section: "section";
+  freeBox: "div";
   iframe: typeof Iframe;
   selfCare2: typeof SelfCare2;
 };
@@ -504,6 +528,7 @@ export const PlasmicMainHamyar = Object.assign(
     // Helper components rendering sub-elements
     hamyar2: makeNodeComponent("hamyar2"),
     section: makeNodeComponent("section"),
+    freeBox: makeNodeComponent("freeBox"),
     iframe: makeNodeComponent("iframe"),
     selfCare2: makeNodeComponent("selfCare2"),
 

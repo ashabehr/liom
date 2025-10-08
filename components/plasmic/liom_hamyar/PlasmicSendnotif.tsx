@@ -1646,6 +1646,57 @@ function PlasmicSendnotif__RenderFunc(props: {
                                             __plasmic_idx_0,
                                             "value"
                                           ]).apply(null, eventArgs);
+
+                                          (async selectedValues => {
+                                            const $steps = {};
+
+                                            $steps["updateDatepic"] = true
+                                              ? (() => {
+                                                  const actionArgs = {
+                                                    variable: {
+                                                      objRoot: $state,
+                                                      variablePath: ["datepic"]
+                                                    },
+                                                    operation: 0,
+                                                    value:
+                                                      $state.datePickers[
+                                                        stepIndex
+                                                      ].value
+                                                  };
+                                                  return (({
+                                                    variable,
+                                                    value,
+                                                    startIndex,
+                                                    deleteCount
+                                                  }) => {
+                                                    if (!variable) {
+                                                      return;
+                                                    }
+                                                    const {
+                                                      objRoot,
+                                                      variablePath
+                                                    } = variable;
+
+                                                    $stateSet(
+                                                      objRoot,
+                                                      variablePath,
+                                                      value
+                                                    );
+                                                    return value;
+                                                  })?.apply(null, [actionArgs]);
+                                                })()
+                                              : undefined;
+                                            if (
+                                              $steps["updateDatepic"] != null &&
+                                              typeof $steps["updateDatepic"] ===
+                                                "object" &&
+                                              typeof $steps["updateDatepic"]
+                                                .then === "function"
+                                            ) {
+                                              $steps["updateDatepic"] =
+                                                await $steps["updateDatepic"];
+                                            }
+                                          }).apply(null, eventArgs);
                                         },
                                         selectedValues: generateStateValueProp(
                                           $state,

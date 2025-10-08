@@ -86,6 +86,7 @@ import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-imp
 import Icon270Icon from "./icons/PlasmicIcon__Icon270"; // plasmic-import: Y171g_Z8ZZ84/icon
 import Oval3Icon from "./icons/PlasmicIcon__Oval3"; // plasmic-import: lOJpmSR7qOUd/icon
 import Icon295Icon from "./icons/PlasmicIcon__Icon295"; // plasmic-import: SfM64OkCrE9j/icon
+import Icon321Icon from "./icons/PlasmicIcon__Icon321"; // plasmic-import: 2DTMB3SiHIW4/icon
 import Icon291Icon from "./icons/PlasmicIcon__Icon291"; // plasmic-import: U9F0Jow4owN9/icon
 import Icon283Icon from "./icons/PlasmicIcon__Icon283"; // plasmic-import: d6oFXeX9yzDi/icon
 import Icon50Icon from "./icons/PlasmicIcon__Icon50"; // plasmic-import: OWul-aq2fF6T/icon
@@ -2391,6 +2392,13 @@ function PlasmicReminder__RenderFunc(props: {
                           <div
                             className={classNames(
                               projectcss.all,
+                              sty.freeBox__zaVQn
+                            )}
+                          />
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
                               sty.freeBox__r5JEo
                             )}
                           >
@@ -2441,13 +2449,14 @@ function PlasmicReminder__RenderFunc(props: {
                                 </div>
                               );
                             })}
+                            <Icon321Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg___1Ke
+                              )}
+                              role={"img"}
+                            />
                           </div>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__zaVQn
-                            )}
-                          />
                         </div>
                       ) : null}
                     </div>
