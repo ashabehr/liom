@@ -1918,6 +1918,45 @@ function PlasmicHamyar3__RenderFunc(props: {
                         "button",
                         "loading"
                       ])}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    if (
+                                      typeof window !== "undefined" &&
+                                      window.FlutterChannel &&
+                                      typeof window.FlutterChannel
+                                        .postMessage === "function"
+                                    ) {
+                                      return window.FlutterChannel.postMessage(
+                                        "https://t.me/liomApp_bot"
+                                      );
+                                    } else if (typeof window !== "undefined") {
+                                      return window.open(
+                                        "https://t.me/liomApp_bot",
+                                        "_blank"
+                                      );
+                                    }
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      }}
                       onColorChange={async (...eventArgs: any) => {
                         ((...eventArgs) => {
                           generateStateOnChangeProp($state, [

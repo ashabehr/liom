@@ -4699,6 +4699,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicMainHamyar.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "2mtQtODsUXKm",
+          "name": "Nazarian",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicNazarian.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/nazarian.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicNazarian.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/nazarian"
         }
       ],
       "icons": [
