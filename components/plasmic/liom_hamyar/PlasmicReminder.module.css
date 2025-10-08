@@ -662,15 +662,15 @@
   top: auto;
   left: auto;
   z-index: 2;
-  background: #53535354;
+  background: #53535340;
   min-width: auto;
   min-height: 160px;
   box-shadow: 0px 4px 16px 0px #c0bcbc14;
   opacity: 1;
-  column-gap: var(--token-O5TjkXII_aat);
+  column-gap: 0px;
   align-self: stretch;
   border-radius: 12px;
-  padding: 8px 16px 8px 8px;
+  padding: 8px 16px 8px 4px;
 }
 .freeBox___3V3Xh {
   display: flex;
@@ -703,7 +703,7 @@
   max-width: 100%;
   color: var(--token-R_Rsn0nP9oIv);
   width: 25px;
-  height: 35px;
+  height: 25px;
   flex-shrink: 0;
 }
 .text__o4PAk {

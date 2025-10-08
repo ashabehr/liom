@@ -22,6 +22,9 @@
 .root > * {
   grid-column: 4;
 }
+.roothamyar > * {
+  grid-column: 4;
+}
 .section {
   display: grid;
   position: fixed;
@@ -43,6 +46,9 @@
     minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
 }
 .section > * {
+  grid-column: 4;
+}
+.sectionhamyar > * {
   grid-column: 4;
 }
 .headerLiom:global(.__wab_instance) {
@@ -109,6 +115,9 @@
     grid-column-start: 1 !important;
     grid-column-end: -1 !important;
   }
+}
+.freeBoxhamyar__jESdY5Rcqy {
+  padding-top: 70px;
 }
 .freeBox__sw0Vf {
   display: flex;

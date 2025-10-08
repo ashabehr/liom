@@ -1674,7 +1674,22 @@ function PlasmicHamyar3__RenderFunc(props: {
                 "mainHamyar",
                 "hamyar2PlasmicAntd5ModalOpen"
               ])}
-              headershow={false}
+              headershow={(() => {
+                try {
+                  return !(
+                    window.FlutterChannel &&
+                    typeof window.FlutterChannel.postMessage === "function"
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })()}
               onHamyar2PlasmicAntd5ModalOpenChange={async (
                 ...eventArgs: any
               ) => {
@@ -1871,323 +1886,357 @@ function PlasmicHamyar3__RenderFunc(props: {
                 />
               </section>
             ) : null}
-            <section className={classNames(projectcss.all, sty.section__k5A4W)}>
-              <MainHeader
-                data-plasmic-name={"mainHeader"}
-                data-plasmic-override={overrides.mainHeader}
-                className={classNames("__wab_instance", sty.mainHeader)}
-                dopen={generateStateValueProp($state, ["mainHeader", "dopen"])}
-                hamyar={true}
-                hamyarshop={async () => {
-                  const $steps = {};
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return ($state.mainHamyar.hamyar2PlasmicAntd5ModalOpen = true);
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
-                }}
-                onDopenChange2={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
+            {(() => {
+              try {
+                return !(
+                  window.FlutterChannel &&
+                  typeof window.FlutterChannel.postMessage === "function"
+                );
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <section
+                className={classNames(projectcss.all, sty.section__k5A4W)}
+              >
+                <MainHeader
+                  data-plasmic-name={"mainHeader"}
+                  data-plasmic-override={overrides.mainHeader}
+                  className={classNames("__wab_instance", sty.mainHeader)}
+                  dopen={generateStateValueProp($state, [
                     "mainHeader",
                     "dopen"
-                  ]).apply(null, eventArgs);
+                  ])}
+                  hamyar={true}
+                  hamyarshop={async () => {
+                    const $steps = {};
 
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                openEdit={async () => {
-                  const $steps = {};
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return ($state.mainHamyar.hamyar2PlasmicAntd5ModalOpen = true);
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }}
+                  onDopenChange2={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "mainHeader",
+                      "dopen"
+                    ]).apply(null, eventArgs);
 
-                  $steps["updateEdit"] = true
-                    ? (() => {
-                        const actionArgs = { vgroup: "edit", operation: 2 };
-                        return (({ vgroup, value }) => {
-                          if (typeof value === "string") {
-                            value = [value];
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  openEdit={async () => {
+                    const $steps = {};
+
+                    $steps["updateEdit"] = true
+                      ? (() => {
+                          const actionArgs = { vgroup: "edit", operation: 2 };
+                          return (({ vgroup, value }) => {
+                            if (typeof value === "string") {
+                              value = [value];
+                            }
+
+                            const oldValue = $stateGet($state, vgroup);
+                            $stateSet($state, vgroup, !oldValue);
+                            return !oldValue;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateEdit"] != null &&
+                      typeof $steps["updateEdit"] === "object" &&
+                      typeof $steps["updateEdit"].then === "function"
+                    ) {
+                      $steps["updateEdit"] = await $steps["updateEdit"];
+                    }
+                  }}
+                  slot={
+                    (() => {
+                      try {
+                        return $state.userdata?.result?.man?.telegramId;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <Button
+                        data-plasmic-name={"button"}
+                        data-plasmic-override={overrides.button}
+                        className={classNames("__wab_instance", sty.button)}
+                        color={generateStateValueProp($state, [
+                          "button",
+                          "color"
+                        ])}
+                        load={generateStateValueProp($state, [
+                          "button",
+                          "load"
+                        ])}
+                        loading={generateStateValueProp($state, [
+                          "button",
+                          "loading"
+                        ])}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["runCode"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      if (
+                                        typeof window !== "undefined" &&
+                                        window.FlutterChannel &&
+                                        typeof window.FlutterChannel
+                                          .postMessage === "function"
+                                      ) {
+                                        return window.FlutterChannel.postMessage(
+                                          "https://t.me/liomApp_bot"
+                                        );
+                                      } else if (
+                                        typeof window !== "undefined"
+                                      ) {
+                                        return window.open(
+                                          "https://t.me/liomApp_bot",
+                                          "_blank"
+                                        );
+                                      }
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
                           }
+                        }}
+                        onColorChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button",
+                              "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
 
-                          const oldValue = $stateGet($state, vgroup);
-                          $stateSet($state, vgroup, !oldValue);
-                          return !oldValue;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateEdit"] != null &&
-                    typeof $steps["updateEdit"] === "object" &&
-                    typeof $steps["updateEdit"].then === "function"
-                  ) {
-                    $steps["updateEdit"] = await $steps["updateEdit"];
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onLoadChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button",
+                              "load"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onLoadingChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button",
+                              "loading"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        shape={"rounded"}
+                        showStartIcon={true}
+                        size={"compact"}
+                        startIcon={
+                          <Icon271Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__uHPq7
+                            )}
+                            role={"img"}
+                          />
+                        }
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__nufXu
+                          )}
+                        >
+                          {
+                            "\u0648\u0631\u0648\u062f \u0628\u0647 \u0631\u0628\u0627\u062a \u062a\u0644\u06af\u0631\u0627\u0645"
+                          }
+                        </div>
+                      </Button>
+                    ) : null
                   }
-                }}
-                slot={
-                  (() => {
+                  token={(() => {
                     try {
-                      return $state.userdata?.result?.man?.telegramId;
+                      return $state.tokenUser;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
                         e?.plasmicType === "PlasmicUndefinedDataError"
                       ) {
-                        return true;
+                        return undefined;
                       }
                       throw e;
                     }
-                  })() ? (
-                    <Button
-                      data-plasmic-name={"button"}
-                      data-plasmic-override={overrides.button}
-                      className={classNames("__wab_instance", sty.button)}
-                      color={generateStateValueProp($state, [
-                        "button",
-                        "color"
-                      ])}
-                      load={generateStateValueProp($state, ["button", "load"])}
-                      loading={generateStateValueProp($state, [
-                        "button",
-                        "loading"
-                      ])}
+                  })()}
+                  userinfo={(() => {
+                    try {
+                      return $state.userdata?.result?.man;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return {};
+                      }
+                      throw e;
+                    }
+                  })()}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___4ONko)}
+                  >
+                    <Icon185Icon
+                      className={classNames(projectcss.all, sty.svg__dRjkX)}
                       onClick={async event => {
                         const $steps = {};
 
-                        $steps["runCode"] = true
+                        $steps["updateMainHeaderDopen"] = true
                           ? (() => {
                               const actionArgs = {
-                                customFunction: async () => {
-                                  return (() => {
-                                    if (
-                                      typeof window !== "undefined" &&
-                                      window.FlutterChannel &&
-                                      typeof window.FlutterChannel
-                                        .postMessage === "function"
-                                    ) {
-                                      return window.FlutterChannel.postMessage(
-                                        "https://t.me/liomApp_bot"
-                                      );
-                                    } else if (typeof window !== "undefined") {
-                                      return window.open(
-                                        "https://t.me/liomApp_bot",
-                                        "_blank"
-                                      );
-                                    }
-                                  })();
-                                }
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["mainHeader", "dopen"]
+                                },
+                                operation: 4
                               };
-                              return (({ customFunction }) => {
-                                return customFunction();
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                const oldValue = $stateGet(
+                                  objRoot,
+                                  variablePath
+                                );
+                                $stateSet(objRoot, variablePath, !oldValue);
+                                return !oldValue;
                               })?.apply(null, [actionArgs]);
                             })()
                           : undefined;
                         if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
+                          $steps["updateMainHeaderDopen"] != null &&
+                          typeof $steps["updateMainHeaderDopen"] === "object" &&
+                          typeof $steps["updateMainHeaderDopen"].then ===
+                            "function"
                         ) {
-                          $steps["runCode"] = await $steps["runCode"];
+                          $steps["updateMainHeaderDopen"] =
+                            await $steps["updateMainHeaderDopen"];
                         }
                       }}
-                      onColorChange={async (...eventArgs: any) => {
-                        ((...eventArgs) => {
-                          generateStateOnChangeProp($state, [
-                            "button",
-                            "color"
-                          ])(eventArgs[0]);
-                        }).apply(null, eventArgs);
+                      role={"img"}
+                    />
 
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
-                        }
-                      }}
-                      onLoadChange={async (...eventArgs: any) => {
-                        ((...eventArgs) => {
-                          generateStateOnChangeProp($state, ["button", "load"])(
-                            eventArgs[0]
-                          );
-                        }).apply(null, eventArgs);
-
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
-                        }
-                      }}
-                      onLoadingChange={async (...eventArgs: any) => {
-                        ((...eventArgs) => {
-                          generateStateOnChangeProp($state, [
-                            "button",
-                            "loading"
-                          ])(eventArgs[0]);
-                        }).apply(null, eventArgs);
-
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
-                        }
-                      }}
-                      shape={"rounded"}
-                      showStartIcon={true}
-                      size={"compact"}
-                      startIcon={
-                        <Icon271Icon
-                          className={classNames(projectcss.all, sty.svg__uHPq7)}
-                          role={"img"}
-                        />
-                      }
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__w6K9E
+                      )}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__nufXu
-                        )}
-                      >
-                        {
-                          "\u0648\u0631\u0648\u062f \u0628\u0647 \u0631\u0628\u0627\u062a \u062a\u0644\u06af\u0631\u0627\u0645"
-                        }
-                      </div>
-                    </Button>
-                  ) : null
-                }
-                token={(() => {
-                  try {
-                    return $state.tokenUser;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-                userinfo={(() => {
-                  try {
-                    return $state.userdata?.result?.man;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return {};
-                    }
-                    throw e;
-                  }
-                })()}
-              >
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___4ONko)}
-                >
-                  <Icon185Icon
-                    className={classNames(projectcss.all, sty.svg__dRjkX)}
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["updateMainHeaderDopen"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["mainHeader", "dopen"]
-                              },
-                              operation: 4
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return (() => {
+                              switch ($state.footerMain.type) {
+                                case "hamyar":
+                                  return "همیار قاعدگی";
+                                case "bot":
+                                  return "عَلاّمه";
+                                case "self":
+                                  return "مراقبت از خود";
+                                default:
+                                  return "";
                               }
-                              const { objRoot, variablePath } = variable;
-
-                              const oldValue = $stateGet(objRoot, variablePath);
-                              $stateSet(objRoot, variablePath, !oldValue);
-                              return !oldValue;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateMainHeaderDopen"] != null &&
-                        typeof $steps["updateMainHeaderDopen"] === "object" &&
-                        typeof $steps["updateMainHeaderDopen"].then ===
-                          "function"
-                      ) {
-                        $steps["updateMainHeaderDopen"] =
-                          await $steps["updateMainHeaderDopen"];
-                      }
-                    }}
-                    role={"img"}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__w6K9E
-                    )}
-                  >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return (() => {
-                            switch ($state.footerMain.type) {
-                              case "hamyar":
-                                return "همیار قاعدگی";
-                              case "bot":
-                                return "عَلاّمه";
-                              case "self":
-                                return "مراقبت از خود";
-                              default:
-                                return "";
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u0647\u0645\u06cc\u0627\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc";
                             }
-                          })();
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u0647\u0645\u06cc\u0627\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc";
+                            throw e;
                           }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
+                        })()}
+                      </React.Fragment>
+                    </div>
                   </div>
-                </div>
-              </MainHeader>
-            </section>
+                </MainHeader>
+              </section>
+            ) : null}
           </div>
           <Embed
             data-plasmic-name={"embedHtml"}

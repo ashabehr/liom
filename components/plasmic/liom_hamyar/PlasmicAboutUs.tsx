@@ -77,10 +77,16 @@ import Icon192Icon from "./icons/PlasmicIcon__Icon192"; // plasmic-import: 4j3Nx
 
 createPlasmicElementProxy;
 
-export type PlasmicAboutUs__VariantMembers = {};
-export type PlasmicAboutUs__VariantsArgs = {};
+export type PlasmicAboutUs__VariantMembers = {
+  hamyar: "hamyar";
+};
+export type PlasmicAboutUs__VariantsArgs = {
+  hamyar?: SingleBooleanChoiceArg<"hamyar">;
+};
 type VariantPropType = keyof PlasmicAboutUs__VariantsArgs;
-export const PlasmicAboutUs__VariantProps = new Array<VariantPropType>();
+export const PlasmicAboutUs__VariantProps = new Array<VariantPropType>(
+  "hamyar"
+);
 
 export type PlasmicAboutUs__ArgsType = {};
 type ArgPropType = keyof PlasmicAboutUs__ArgsType;
@@ -137,6 +143,37 @@ function PlasmicAboutUs__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "hamyar",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return window.document.referrer.includes("hamyar");
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })() ?? $props.hamyar
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
+
   const styleTokensClassNames = _useStyleTokens();
 
   return (
@@ -161,18 +198,23 @@ function PlasmicAboutUs__RenderFunc(props: {
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
             styleTokensClassNames,
-            sty.root
+            sty.root,
+            { [sty.roothamyar]: hasVariant($state, "hamyar", "hamyar") }
           )}
         >
           <section
             data-plasmic-name={"section"}
             data-plasmic-override={overrides.section}
-            className={classNames(projectcss.all, sty.section)}
+            className={classNames(projectcss.all, sty.section, {
+              [sty.sectionhamyar]: hasVariant($state, "hamyar", "hamyar")
+            })}
           >
             <HeaderLiom
               data-plasmic-name={"headerLiom"}
               data-plasmic-override={overrides.headerLiom}
-              className={classNames("__wab_instance", sty.headerLiom)}
+              className={classNames("__wab_instance", sty.headerLiom, {
+                [sty.headerLiomhamyar]: hasVariant($state, "hamyar", "hamyar")
+              })}
             >
               <div className={classNames(projectcss.all, sty.freeBox__xt3Vz)}>
                 <XIcon
@@ -217,7 +259,15 @@ function PlasmicAboutUs__RenderFunc(props: {
               </div>
             </HeaderLiom>
           </section>
-          <div className={classNames(projectcss.all, sty.freeBox__jESdY)}>
+          <div
+            className={classNames(projectcss.all, sty.freeBox__jESdY, {
+              [sty.freeBoxhamyar__jESdY5Rcqy]: hasVariant(
+                $state,
+                "hamyar",
+                "hamyar"
+              )
+            })}
+          >
             <div className={classNames(projectcss.all, sty.freeBox__sw0Vf)}>
               <div
                 className={classNames(
@@ -232,12 +282,19 @@ function PlasmicAboutUs__RenderFunc(props: {
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text___98M6Q
+                  sty.text___98M6Q,
+                  {
+                    [sty.texthamyar___98M6Q5Rcqy]: hasVariant(
+                      $state,
+                      "hamyar",
+                      "hamyar"
+                    )
+                  }
                 )}
               >
-                {
-                  "\u0644\u06cc\u0648\u0645 \u06cc\u06a9 \u0647\u0645\u0631\u0627\u0647 \u0647\u0648\u0634\u0645\u0646\u062f \u0628\u0631\u0627\u06cc \u0634\u0645\u0627\u0633\u062a \u062a\u0627 \u0628\u062a\u0648\u0627\u0646\u06cc\u062f \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u062e\u0648\u062f \u0631\u0627 \u0628\u0647\u062a\u0631 \u0645\u062f\u06cc\u0631\u06cc\u062a \u06a9\u0646\u06cc\u062f \u0648 \u0628\u0627 \u0622\u06af\u0627\u0647\u06cc \u0628\u06cc\u0634\u062a\u0631\u06cc \u0627\u0632 \u0628\u062f\u0646 \u0648 \u0633\u0644\u0627\u0645\u062a \u062e\u0648\u062f \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc\u062f \u0627\u06cc\u0646 \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0628\u0647 \u0634\u0645\u0627 \u0627\u0645\u06a9\u0627\u0646 \u0645\u06cc\u062f\u0647\u062f \u062a\u0627 \u062a\u0627\u0631\u06cc\u062e\u0647\u0627\u060c \u0639\u0644\u0627\u0626\u0645 \u0648 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0628\u062f\u0646\u062a\u0627\u0646 \u0631\u0627 \u0628\u0647 \u062f\u0642\u062a \u0631\u062f\u06cc\u0627\u0628\u06cc \u06a9\u0646\u06cc\u062f \u0648 \u062f\u0631 \u0647\u0631 \u0645\u0631\u062d\u0644\u0647 \u0627\u0632 \u0686\u0631\u062e\u0647 \u062e\u0648\u062f \u062a\u0648\u0635\u06cc\u0647 \u0647\u0627\u06cc \u0628\u0647\u062f\u0627\u0634\u062a\u06cc \u0648 \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0646\u06cc\u062f. \n\r\n\u0647\u062f\u0641 \u0645\u0627 \u062f\u0631 \u0644\u06cc\u0648\u0645 \u0627\u06cc\u0646 \u0627\u0633\u062a \u06a9\u0647 \u062a\u062c\u0631\u0628\u0647 \u0627\u06cc \u0631\u0627\u062d\u062a \u062a\u0631 \u0648 \u0628\u0627 \u0622\u0631\u0627\u0645\u0634 \u0628\u06cc\u0634\u062a\u0631\u06cc \u0628\u0631\u0627\u06cc \u0634\u0645\u0627 \u0641\u0631\u0627\u0647\u0645 \u06a9\u0646\u06cc\u0645 \u062a\u0627 \u0628\u062a\u0648\u0627\u0646\u06cc\u062f \u0628\u0627 \u0634\u0646\u0627\u062e\u062a \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0628\u062f\u0646\u062a\u0627\u0646 \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0645\u062e\u062a\u0644\u0641 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0647 \u0633\u0644\u0627\u0645\u062a \u0648 \u0622\u0631\u0627\u0645\u0634 \u062e\u0648\u062f \u0627\u0647\u0645\u06cc\u062a \u062f\u0647\u06cc\u062f. \u0644\u06cc\u0648\u0645 \u0647\u0645\u06cc\u0634\u0647 \u062f\u0631 \u06a9\u0646\u0627\u0631 \u0634\u0645\u0627\u0633\u062a \u062a\u0627 \u0627\u06cc\u0646 \u0645\u0633\u06cc\u0631 \u0631\u0627 \u0628\u0627 \u0627\u0637\u0645\u06cc\u0646\u0627\u0646 \u0628\u06cc\u0634\u062a\u0631\u06cc \u0637\u06cc \u06a9\u0646\u06cc\u062f."
-                }
+                {hasVariant($state, "hamyar", "hamyar")
+                  ? "\u0644\u06cc\u0648\u0645 \u0647\u0645\u0631\u0627\u0647 \u0647\u0648\u0634\u0645\u0646\u062f \u0634\u0645\u0627\u0633\u062a \u062a\u0627 \u0628\u062a\u0648\u0627\u0646\u06cc\u062f \u0647\u0645\u0633\u0631\u062a\u0627\u0646 \u0631\u0627 \u062f\u0631 \u0637\u0648\u0644 \u0686\u0631\u062e\u0647\u200c\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u0648 \u0647\u0645\u0631\u0627\u0647\u06cc \u06a9\u0646\u06cc\u062f.\n\u0627\u06cc\u0646 \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0628\u0647 \u0634\u0645\u0627 \u06a9\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u062f \u062a\u0627 \u0628\u0627 \u0622\u06af\u0627\u0647\u06cc \u0627\u0632 \u0645\u0631\u0627\u062d\u0644 \u0645\u062e\u062a\u0644\u0641 \u0686\u0631\u062e\u0647\u060c \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062c\u0633\u0645\u06cc \u0648 \u0627\u062d\u0633\u0627\u0633\u06cc \u0627\u0648 \u0631\u0627 \u0628\u0647\u062a\u0631 \u0628\u0634\u0646\u0627\u0633\u06cc\u062f \u0648 \u0628\u062f\u0627\u0646\u06cc\u062f \u062f\u0631 \u0647\u0631 \u0632\u0645\u0627\u0646 \u0686\u0647 \u0631\u0641\u062a\u0627\u0631 \u06cc\u0627 \u0645\u0631\u0627\u0642\u0628\u062a\u06cc \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u062f \u0628\u0647 \u0622\u0631\u0627\u0645\u0634 \u0648 \u062d\u0645\u0627\u06cc\u062a \u0628\u06cc\u0634\u062a\u0631 \u06a9\u0645\u06a9 \u06a9\u0646\u062f.\n\u062f\u0631 \u0647\u0645\u06cc\u0627\u0631\u060c \u0647\u062f\u0641 \u0645\u0627 \u0627\u06cc\u062c\u0627\u062f \u062f\u0631\u06a9\u060c \u0627\u062d\u062a\u0631\u0627\u0645 \u0648 \u0627\u0631\u062a\u0628\u0627\u0637 \u0639\u0645\u06cc\u0642\u200c\u062a\u0631 \u0645\u06cc\u0627\u0646 \u0632\u0648\u062c\u200c\u0647\u0627\u0633\u062a. \u0628\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0639\u0644\u0645\u06cc \u0633\u0627\u062f\u0647 \u0648 \u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627\u06cc \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc\u060c \u06cc\u0627\u062f \u0645\u06cc\u200c\u06af\u06cc\u0631\u06cc\u062f \u0686\u0637\u0648\u0631 \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0645\u062e\u062a\u0644\u0641 \u0686\u0631\u062e\u0647 \u062f\u0631 \u06a9\u0646\u0627\u0631 \u0647\u0645\u0633\u0631\u062a\u0627\u0646 \u0628\u0627\u0634\u06cc\u062f \u2014 \u0628\u0627 \u0645\u0647\u0631\u0628\u0627\u0646\u06cc\u060c \u062f\u0631\u06a9 \u0648 \u0647\u0645\u0631\u0627\u0647\u06cc \u0648\u0627\u0642\u0639\u06cc.\n\u0644\u06cc\u0648\u0645 \u0633\u0627\u062e\u062a\u0647 \u0634\u062f\u0647 \u062a\u0627 \u0631\u0627\u0628\u0637\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645\u200c\u062a\u0631\u060c \u0622\u06af\u0627\u0647\u0627\u0646\u0647\u200c\u062a\u0631 \u0648 \u0635\u0645\u06cc\u0645\u06cc\u200c\u062a\u0631 \u0645\u06cc\u0627\u0646 \u0634\u0645\u0627 \u0648 \u0647\u0645\u0633\u0631\u062a\u0627\u0646 \u0634\u06a9\u0644 \u0628\u06af\u06cc\u0631\u062f. \u2764\ufe0f"
+                  : "\u0644\u06cc\u0648\u0645 \u06cc\u06a9 \u0647\u0645\u0631\u0627\u0647 \u0647\u0648\u0634\u0645\u0646\u062f \u0628\u0631\u0627\u06cc \u0634\u0645\u0627\u0633\u062a \u062a\u0627 \u0628\u062a\u0648\u0627\u0646\u06cc\u062f \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u062e\u0648\u062f \u0631\u0627 \u0628\u0647\u062a\u0631 \u0645\u062f\u06cc\u0631\u06cc\u062a \u06a9\u0646\u06cc\u062f \u0648 \u0628\u0627 \u0622\u06af\u0627\u0647\u06cc \u0628\u06cc\u0634\u062a\u0631\u06cc \u0627\u0632 \u0628\u062f\u0646 \u0648 \u0633\u0644\u0627\u0645\u062a \u062e\u0648\u062f \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc\u062f \u0627\u06cc\u0646 \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0628\u0647 \u0634\u0645\u0627 \u0627\u0645\u06a9\u0627\u0646 \u0645\u06cc\u062f\u0647\u062f \u062a\u0627 \u062a\u0627\u0631\u06cc\u062e\u0647\u0627\u060c \u0639\u0644\u0627\u0626\u0645 \u0648 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0628\u062f\u0646\u062a\u0627\u0646 \u0631\u0627 \u0628\u0647 \u062f\u0642\u062a \u0631\u062f\u06cc\u0627\u0628\u06cc \u06a9\u0646\u06cc\u062f \u0648 \u062f\u0631 \u0647\u0631 \u0645\u0631\u062d\u0644\u0647 \u0627\u0632 \u0686\u0631\u062e\u0647 \u062e\u0648\u062f \u062a\u0648\u0635\u06cc\u0647 \u0647\u0627\u06cc \u0628\u0647\u062f\u0627\u0634\u062a\u06cc \u0648 \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0646\u06cc\u062f. \n\r\n\u0647\u062f\u0641 \u0645\u0627 \u062f\u0631 \u0644\u06cc\u0648\u0645 \u0627\u06cc\u0646 \u0627\u0633\u062a \u06a9\u0647 \u062a\u062c\u0631\u0628\u0647 \u0627\u06cc \u0631\u0627\u062d\u062a \u062a\u0631 \u0648 \u0628\u0627 \u0622\u0631\u0627\u0645\u0634 \u0628\u06cc\u0634\u062a\u0631\u06cc \u0628\u0631\u0627\u06cc \u0634\u0645\u0627 \u0641\u0631\u0627\u0647\u0645 \u06a9\u0646\u06cc\u0645 \u062a\u0627 \u0628\u062a\u0648\u0627\u0646\u06cc\u062f \u0628\u0627 \u0634\u0646\u0627\u062e\u062a \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0628\u062f\u0646\u062a\u0627\u0646 \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0645\u062e\u062a\u0644\u0641 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0647 \u0633\u0644\u0627\u0645\u062a \u0648 \u0622\u0631\u0627\u0645\u0634 \u062e\u0648\u062f \u0627\u0647\u0645\u06cc\u062a \u062f\u0647\u06cc\u062f. \u0644\u06cc\u0648\u0645 \u0647\u0645\u06cc\u0634\u0647 \u062f\u0631 \u06a9\u0646\u0627\u0631 \u0634\u0645\u0627\u0633\u062a \u062a\u0627 \u0627\u06cc\u0646 \u0645\u0633\u06cc\u0631 \u0631\u0627 \u0628\u0627 \u0627\u0637\u0645\u06cc\u0646\u0627\u0646 \u0628\u06cc\u0634\u062a\u0631\u06cc \u0637\u06cc \u06a9\u0646\u06cc\u062f."}
               </div>
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__me8Ew)}>
@@ -345,9 +402,8 @@ function PlasmicAboutUs__RenderFunc(props: {
                       typeof $steps["goToHttpsTMeLiomSupport"].then ===
                         "function"
                     ) {
-                      $steps["goToHttpsTMeLiomSupport"] = await $steps[
-                        "goToHttpsTMeLiomSupport"
-                      ];
+                      $steps["goToHttpsTMeLiomSupport"] =
+                        await $steps["goToHttpsTMeLiomSupport"];
                     }
                   }}
                 >
@@ -400,7 +456,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicAboutUs__VariantsArgs;
     args?: PlasmicAboutUs__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicAboutUs__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicAboutUs__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicAboutUs__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
