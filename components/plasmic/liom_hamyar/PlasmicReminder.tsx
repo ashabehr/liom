@@ -125,6 +125,9 @@ export type PlasmicReminder__ArgsType = {
   onSmsChange?: (val: string) => void;
   tel?: boolean;
   onTelChange?: (val: string) => void;
+  ferst?: boolean;
+  first?: boolean;
+  onFirstChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicReminder__ArgsType;
 export const PlasmicReminder__ArgProps = new Array<ArgPropType>(
@@ -144,7 +147,10 @@ export const PlasmicReminder__ArgProps = new Array<ArgPropType>(
   "sms",
   "onSmsChange",
   "tel",
-  "onTelChange"
+  "onTelChange",
+  "ferst",
+  "first",
+  "onFirstChange"
 );
 
 export type PlasmicReminder__OverridesType = {
@@ -181,6 +187,7 @@ export type PlasmicReminder__OverridesType = {
   swiperSlider?: Flex__<typeof SwiperSlider>;
   slide2?: Flex__<"div">;
   reminderSetting2?: Flex__<typeof ReminderSetting>;
+  button8?: Flex__<typeof Button>;
   button?: Flex__<typeof Button>;
   tooltip?: Flex__<typeof AntdTooltip>;
   button7?: Flex__<typeof Button>;
@@ -204,6 +211,9 @@ export interface DefaultReminderProps {
   onSmsChange?: (val: string) => void;
   tel?: boolean;
   onTelChange?: (val: string) => void;
+  ferst?: boolean;
+  first?: boolean;
+  onFirstChange?: (val: string) => void;
   slide3?: SingleBooleanChoiceArg<"slide3">;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
   className?: string;
@@ -364,7 +374,8 @@ function PlasmicReminder__RenderFunc(props: {
           ],
           subscription: true,
           telegram: false,
-          activeSmsNotif: false
+          activeSmsNotif: false,
+          ferst: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -619,7 +630,8 @@ function PlasmicReminder__RenderFunc(props: {
         path: "button.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "slide3", "slide3") ? "perper" : undefined
       },
       {
         path: "button.loading",
@@ -921,7 +933,7 @@ function PlasmicReminder__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.data.length == 0;
+              return $state.first;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -938,6 +950,32 @@ function PlasmicReminder__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.hamyar
+      },
+      {
+        path: "button8.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button8.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button8.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "first",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "first",
+        onChangeProp: "onFirstChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -964,7 +1002,13 @@ function PlasmicReminder__RenderFunc(props: {
         projectcss.plasmic_mixins,
         styleTokensClassNames,
         sty.root,
-        { [sty.rootslide3]: hasVariant($state, "slide3", "slide3") }
+        {
+          [sty.roothamyar]: hasVariant($state, "hamyar", "hamyar"),
+          [sty.rootslide3]: hasVariant($state, "slide3", "slide3"),
+          [sty.rootslide3_hamyar]:
+            hasVariant($state, "hamyar", "hamyar") &&
+            hasVariant($state, "slide3", "slide3")
+        }
       )}
     >
       <section
@@ -4920,170 +4964,367 @@ function PlasmicReminder__RenderFunc(props: {
             />
           </div>
         </SwiperSlider>
-        <div className={classNames(projectcss.all, sty.freeBox___1Ccif)}>
-          <Button
-            data-plasmic-name={"button"}
-            data-plasmic-override={overrides.button}
-            className={classNames("__wab_instance", sty.button)}
-            color={generateStateValueProp($state, ["button", "color"])}
-            load={generateStateValueProp($state, ["button", "load"])}
-            loading={generateStateValueProp($state, ["button", "loading"])}
-            onClick={async event => {
-              const $steps = {};
-
-              $steps["runCode"] = false
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          if ($state.swiperSlider.activeSlideIndex < 1) {
-                            return ($state.swiperSlider.activeSlideIndex += 1);
-                          } else {
-                            $state.slide = true;
-                            window.localStorage.setItem(
-                              "reminder_slide",
-                              "true"
-                            );
-                            return fetch(
-                              "https://n8n.staas.ir/webhook/user/task/start",
-                              {
-                                method: "POST",
-                                headers: { "Content-Type": "application/json" },
-                                body: JSON.stringify({
-                                  liomId: $props.manId,
-                                  telegramId: $props.telegramId,
-                                  phoneNumber: $props.phone
-                                })
-                              }
-                            )
-                              .then(res => res.json())
-                              .then(data => {
-                                console.log("Response:", data);
-                                $state.refresh = 1;
-                              })
-                              .catch(err => {
-                                console.error("Error:", err);
-                                $state.refresh = 1;
-                              });
-                          }
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
-              }
-
-              $steps["updateSlide3"] = true
-                ? (() => {
-                    const actionArgs = {
-                      vgroup: "slide3",
-                      operation: 6,
-                      value: "slide3"
-                    };
-                    return (({ vgroup, value }) => {
-                      if (typeof value === "string") {
-                        value = [value];
-                      }
-
-                      $stateSet($state, vgroup, false);
-                      return false;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateSlide3"] != null &&
-                typeof $steps["updateSlide3"] === "object" &&
-                typeof $steps["updateSlide3"].then === "function"
-              ) {
-                $steps["updateSlide3"] = await $steps["updateSlide3"];
-              }
-
-              $steps["runCode2"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return ($state.refresh += 1);
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode2"] != null &&
-                typeof $steps["runCode2"] === "object" &&
-                typeof $steps["runCode2"].then === "function"
-              ) {
-                $steps["runCode2"] = await $steps["runCode2"];
-              }
-            }}
-            onColorChange={async (...eventArgs: any) => {
-              ((...eventArgs) => {
-                generateStateOnChangeProp($state, ["button", "color"])(
-                  eventArgs[0]
-                );
-              }).apply(null, eventArgs);
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            onLoadChange={async (...eventArgs: any) => {
-              ((...eventArgs) => {
-                generateStateOnChangeProp($state, ["button", "load"])(
-                  eventArgs[0]
-                );
-              }).apply(null, eventArgs);
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            onLoadingChange={async (...eventArgs: any) => {
-              ((...eventArgs) => {
-                generateStateOnChangeProp($state, ["button", "loading"])(
-                  eventArgs[0]
-                );
-              }).apply(null, eventArgs);
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
+        <section
+          className={classNames(projectcss.all, sty.section__vMhpT, {
+            [sty.sectionslide3__vMhpTWyFt]: hasVariant(
+              $state,
+              "slide3",
+              "slide3"
+            )
+          })}
+        >
+          <div
+            className={classNames(projectcss.all, sty.freeBox___1Ccif, {
+              [sty.freeBoxslide3___1CcifWyFt]: hasVariant(
+                $state,
+                "slide3",
+                "slide3"
+              )
+            })}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__esSew
-              )}
+            <Button
+              data-plasmic-name={"button8"}
+              data-plasmic-override={overrides.button8}
+              className={classNames("__wab_instance", sty.button8, {
+                [sty.button8slide3]: hasVariant($state, "slide3", "slide3")
+              })}
+              color={generateStateValueProp($state, ["button8", "color"])}
+              load={generateStateValueProp($state, ["button8", "load"])}
+              loading={generateStateValueProp($state, ["button8", "loading"])}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["runCode"] = false
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            if ($state.swiperSlider.activeSlideIndex < 1) {
+                              return ($state.swiperSlider.activeSlideIndex += 1);
+                            } else {
+                              $state.slide = true;
+                              window.localStorage.setItem(
+                                "reminder_slide",
+                                "true"
+                              );
+                              return fetch(
+                                "https://n8n.staas.ir/webhook/user/task/start",
+                                {
+                                  method: "POST",
+                                  headers: {
+                                    "Content-Type": "application/json"
+                                  },
+                                  body: JSON.stringify({
+                                    liomId: $props.manId,
+                                    telegramId: $props.telegramId,
+                                    phoneNumber: $props.phone
+                                  })
+                                }
+                              )
+                                .then(res => res.json())
+                                .then(data => {
+                                  console.log("Response:", data);
+                                  $state.refresh = 1;
+                                })
+                                .catch(err => {
+                                  console.error("Error:", err);
+                                  $state.refresh = 1;
+                                });
+                            }
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+
+                $steps["updateSlide3"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        vgroup: "slide3",
+                        operation: 6,
+                        value: "slide3"
+                      };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        $stateSet($state, vgroup, false);
+                        return false;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateSlide3"] != null &&
+                  typeof $steps["updateSlide3"] === "object" &&
+                  typeof $steps["updateSlide3"].then === "function"
+                ) {
+                  $steps["updateSlide3"] = await $steps["updateSlide3"];
+                }
+
+                $steps["runCode2"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return ($state.refresh += 1);
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode2"] != null &&
+                  typeof $steps["runCode2"] === "object" &&
+                  typeof $steps["runCode2"].then === "function"
+                ) {
+                  $steps["runCode2"] = await $steps["runCode2"];
+                }
+              }}
+              onColorChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button8", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onLoadChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button8", "load"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onLoadingChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button8", "loading"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
             >
-              {"\u062a\u0627\u06cc\u06cc\u062f"}
-            </div>
-          </Button>
-        </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__vXmLi
+                )}
+              >
+                {"\u062a\u0627\u06cc\u06cc\u062f"}
+              </div>
+            </Button>
+            <Button
+              data-plasmic-name={"button"}
+              data-plasmic-override={overrides.button}
+              className={classNames("__wab_instance", sty.button, {
+                [sty.buttonslide3]: hasVariant($state, "slide3", "slide3")
+              })}
+              color={generateStateValueProp($state, ["button", "color"])}
+              load={generateStateValueProp($state, ["button", "load"])}
+              loading={generateStateValueProp($state, ["button", "loading"])}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["runCode"] = false
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            if ($state.swiperSlider.activeSlideIndex < 1) {
+                              return ($state.swiperSlider.activeSlideIndex += 1);
+                            } else {
+                              $state.slide = true;
+                              window.localStorage.setItem(
+                                "reminder_slide",
+                                "true"
+                              );
+                              return fetch(
+                                "https://n8n.staas.ir/webhook/user/task/start",
+                                {
+                                  method: "POST",
+                                  headers: {
+                                    "Content-Type": "application/json"
+                                  },
+                                  body: JSON.stringify({
+                                    liomId: $props.manId,
+                                    telegramId: $props.telegramId,
+                                    phoneNumber: $props.phone
+                                  })
+                                }
+                              )
+                                .then(res => res.json())
+                                .then(data => {
+                                  console.log("Response:", data);
+                                  $state.refresh = 1;
+                                })
+                                .catch(err => {
+                                  console.error("Error:", err);
+                                  $state.refresh = 1;
+                                });
+                            }
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+
+                $steps["updateSlide3"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        vgroup: "slide3",
+                        operation: 6,
+                        value: "slide3"
+                      };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        $stateSet($state, vgroup, false);
+                        return false;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateSlide3"] != null &&
+                  typeof $steps["updateSlide3"] === "object" &&
+                  typeof $steps["updateSlide3"].then === "function"
+                ) {
+                  $steps["updateSlide3"] = await $steps["updateSlide3"];
+                }
+
+                $steps["runCode2"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return ($state.refresh += 1);
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode2"] != null &&
+                  typeof $steps["runCode2"] === "object" &&
+                  typeof $steps["runCode2"].then === "function"
+                ) {
+                  $steps["runCode2"] = await $steps["runCode2"];
+                }
+              }}
+              onColorChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onLoadChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button", "load"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onLoadingChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button", "loading"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__esSew,
+                  {
+                    [sty.textslide3__esSewWyFt]: hasVariant(
+                      $state,
+                      "slide3",
+                      "slide3"
+                    )
+                  }
+                )}
+              >
+                {hasVariant($state, "slide3", "slide3")
+                  ? "\u0628\u0633\u062a\u0646"
+                  : "\u062a\u0627\u06cc\u06cc\u062f"}
+              </div>
+            </Button>
+          </div>
+        </section>
       </div>
       <section
         className={classNames(projectcss.all, sty.section__wBpwR, {
@@ -5254,6 +5495,7 @@ const PlasmicDescendants = {
     "swiperSlider",
     "slide2",
     "reminderSetting2",
+    "button8",
     "button",
     "tooltip",
     "button7"
@@ -5297,6 +5539,7 @@ const PlasmicDescendants = {
   swiperSlider: ["swiperSlider", "slide2", "reminderSetting2"],
   slide2: ["slide2", "reminderSetting2"],
   reminderSetting2: ["reminderSetting2"],
+  button8: ["button8"],
   button: ["button"],
   tooltip: ["tooltip", "button7"],
   button7: ["button7"]
@@ -5338,6 +5581,7 @@ type NodeDefaultElementType = {
   swiperSlider: typeof SwiperSlider;
   slide2: "div";
   reminderSetting2: typeof ReminderSetting;
+  button8: typeof Button;
   button: typeof Button;
   tooltip: typeof AntdTooltip;
   button7: typeof Button;
@@ -5437,6 +5681,7 @@ export const PlasmicReminder = Object.assign(
     swiperSlider: makeNodeComponent("swiperSlider"),
     slide2: makeNodeComponent("slide2"),
     reminderSetting2: makeNodeComponent("reminderSetting2"),
+    button8: makeNodeComponent("button8"),
     button: makeNodeComponent("button"),
     tooltip: makeNodeComponent("tooltip"),
     button7: makeNodeComponent("button7"),

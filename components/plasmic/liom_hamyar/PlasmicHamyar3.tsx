@@ -1558,6 +1558,12 @@ function PlasmicHamyar3__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "reminder2.first",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -5484,6 +5490,7 @@ function PlasmicHamyar3__RenderFunc(props: {
                   throw e;
                 }
               })()}
+              first={generateStateValueProp($state, ["reminder2", "first"])}
               hamyar={hasVariant($state, "page", "reminder") ? true : undefined}
               manId={(() => {
                 try {
@@ -5498,6 +5505,20 @@ function PlasmicHamyar3__RenderFunc(props: {
                   throw e;
                 }
               })()}
+              onFirstChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["reminder2", "first"]).apply(
+                  null,
+                  eventArgs
+                );
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
               onRefreshChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "reminder2",
@@ -8956,6 +8977,42 @@ function PlasmicHamyar3__RenderFunc(props: {
                   typeof $steps["updateRemind"].then === "function"
                 ) {
                   $steps["updateRemind"] = await $steps["updateRemind"];
+                }
+
+                $steps["updateReminder2First"] =
+                  $state.remind.length == 0
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["reminder2", "first"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["updateReminder2First"] != null &&
+                  typeof $steps["updateReminder2First"] === "object" &&
+                  typeof $steps["updateReminder2First"].then === "function"
+                ) {
+                  $steps["updateReminder2First"] =
+                    await $steps["updateReminder2First"];
                 }
               }).apply(null, eventArgs);
             }}

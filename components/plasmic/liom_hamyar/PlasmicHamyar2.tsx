@@ -2216,6 +2216,12 @@ function PlasmicHamyar2__RenderFunc(props: {
 
         valueProp: "shopPage2Open",
         onChangeProp: "onShopPage2OpenChange"
+      },
+      {
+        path: "reminder2.first",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -21103,6 +21109,7 @@ function PlasmicHamyar2__RenderFunc(props: {
               throw e;
             }
           })()}
+          first={generateStateValueProp($state, ["reminder2", "first"])}
           manId={(() => {
             try {
               return $state.userdata?.result?.man?.id;
@@ -21116,6 +21123,20 @@ function PlasmicHamyar2__RenderFunc(props: {
               throw e;
             }
           })()}
+          onFirstChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["reminder2", "first"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
           onRefreshChange={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, ["reminder2", "refresh"]).apply(
               null,
