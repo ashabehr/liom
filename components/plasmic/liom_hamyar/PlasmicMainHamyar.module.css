@@ -27,14 +27,17 @@
 }
 .hamyar2:global(.__wab_instance) {
   max-width: 100%;
-  margin-bottom: 244px;
   display: none;
+  margin: 0px;
 }
 .hamyar2page_hamyar:global(.__wab_instance) {
   display: grid;
 }
+.hamyar2page_self:global(.__wab_instance) {
+  margin: 0px;
+}
 .hamyar2haader_page_hamyar:global(.__wab_instance) {
-  margin: -55px 0px 0px;
+  margin: -60px 0px 0px;
 }
 .section {
   position: fixed;
@@ -125,5 +128,5 @@
   display: grid;
 }
 .selfCare2haader_page_self:global(.__wab_instance) {
-  margin-top: -55px;
+  margin-top: -60px;
 }

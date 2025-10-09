@@ -285,6 +285,9 @@ function PlasmicMainHamyar__RenderFunc(props: {
         styleTokensClassNames,
         sty.root,
         {
+          [sty.roothaader_page_self]:
+            hasVariant($state, "haader", "haader") &&
+            hasVariant($state, "page", "self"),
           [sty.rootpage_bot]: hasVariant($state, "page", "bot"),
           [sty.rootpage_hamyar]: hasVariant($state, "page", "hamyar"),
           [sty.rootpage_self]: hasVariant($state, "page", "self")
@@ -302,7 +305,8 @@ function PlasmicMainHamyar__RenderFunc(props: {
           [sty.hamyar2haader_page_self]:
             hasVariant($state, "haader", "haader") &&
             hasVariant($state, "page", "self"),
-          [sty.hamyar2page_hamyar]: hasVariant($state, "page", "hamyar")
+          [sty.hamyar2page_hamyar]: hasVariant($state, "page", "hamyar"),
+          [sty.hamyar2page_self]: hasVariant($state, "page", "self")
         })}
         editCycle2={args.editCycle2}
         headershow={(() => {

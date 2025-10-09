@@ -1859,7 +1859,10 @@ function PlasmicHamyar3__RenderFunc(props: {
                   className={classNames("__wab_instance", sty.footerMain)}
                   footer2={(() => {
                     try {
-                      return $state.footerMain.type;
+                      return (
+                        window.sessionStorage.getItem("footer") ||
+                        $state.footerMain.type
+                      );
                     } catch (e) {
                       if (
                         e instanceof TypeError ||

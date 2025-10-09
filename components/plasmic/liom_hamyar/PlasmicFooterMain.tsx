@@ -568,10 +568,7 @@ function PlasmicFooterMain__RenderFunc(props: {
                     const actionArgs = {
                       customFunction: async () => {
                         return (() => {
-                          return window.sessionStorage.setItem(
-                            "footer",
-                            "calendar"
-                          );
+                          return window.sessionStorage.setItem("footer", "bot");
                         })();
                       }
                     };

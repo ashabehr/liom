@@ -491,9 +491,9 @@
 .svg__nwVtZ {
   object-fit: cover;
   max-width: 100%;
-  color: #1d1b1e;
-  width: 30px;
-  height: 30px;
+  color: var(--token-AwpLXbw5AmtS);
+  width: 25px;
+  height: 25px;
   flex-shrink: 0;
 }
 .verticalForSelection {
@@ -1078,9 +1078,9 @@
 .svg__innD9 {
   object-fit: cover;
   max-width: 100%;
-  color: #1d1b1e;
-  width: 30px;
-  height: 30px;
+  color: var(--token-AwpLXbw5AmtS);
+  width: 25px;
+  height: 25px;
   flex-shrink: 0;
 }
 .weight {
@@ -1145,9 +1145,9 @@
 .svg__zZkBo {
   object-fit: cover;
   max-width: 100%;
-  width: 30px;
-  height: 30px;
-  color: #1d1b1e;
+  width: 25px;
+  height: 25px;
+  color: var(--token-AwpLXbw5AmtS);
   flex-shrink: 0;
 }
 .section__qOrM {

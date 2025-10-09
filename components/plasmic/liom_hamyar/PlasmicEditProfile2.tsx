@@ -415,7 +415,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return "";
+              return $state.getInfo.data?.result?.user?.height;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -437,7 +437,20 @@ function PlasmicEditProfile2__RenderFunc(props: {
         path: "pickersForHeight.value",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 155
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.height || 165;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 155;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "button12.color",
@@ -458,7 +471,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return "";
+              return $state.getInfo.data?.result?.user?.weight;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -474,7 +487,20 @@ function PlasmicEditProfile2__RenderFunc(props: {
         path: "pickersForWeight.value",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 55
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.weight3 || 60;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 55;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "button15.color",
