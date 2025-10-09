@@ -22086,7 +22086,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                           variablePath: ["shopPage", "open"]
                         },
                         operation: 0,
-                        value: true
+                        value: false
                       };
                       return (({
                         variable,

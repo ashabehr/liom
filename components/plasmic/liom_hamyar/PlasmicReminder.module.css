@@ -1306,6 +1306,29 @@
     grid-column: 4;
   }
 }
+.sectionslide3_hamyar__vMhpTWyFtXX8Tw {
+  top: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+}
+.sectionslide3_hamyar__vMhpTWyFtXX8Tw > * {
+  grid-column: 4;
+}
+@media (max-width: 640px) {
+  .sectionslide3_hamyar__vMhpTWyFtXX8Tw {
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+  }
+}
+@media (max-width: 640px) {
+  .sectionslide3_hamyar__vMhpTWyFtXX8Tw > * {
+    grid-column: 4;
+  }
+}
 .freeBox___1Ccif {
   display: flex;
   flex-direction: row;

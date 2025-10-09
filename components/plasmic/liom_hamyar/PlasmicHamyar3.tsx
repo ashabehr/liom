@@ -8979,33 +8979,36 @@ function PlasmicHamyar3__RenderFunc(props: {
                   $steps["updateRemind"] = await $steps["updateRemind"];
                 }
 
-                $steps["updateReminder2First"] =
-                  $state.remind.length == 0
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["reminder2", "first"]
-                          },
-                          operation: 0,
-                          value: true
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
+                $steps["updateReminder2First"] = (
+                  $state.remind.length == 0 && $state.remember?.data
+                    ? true
+                    : false
+                )
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["reminder2", "first"]
+                        },
+                        operation: 0,
+                        value: true
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
 
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
                 if (
                   $steps["updateReminder2First"] != null &&
                   typeof $steps["updateReminder2First"] === "object" &&

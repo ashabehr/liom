@@ -4970,7 +4970,10 @@ function PlasmicReminder__RenderFunc(props: {
               $state,
               "slide3",
               "slide3"
-            )
+            ),
+            [sty.sectionslide3_hamyar__vMhpTWyFtXX8Tw]:
+              hasVariant($state, "slide3", "slide3") &&
+              hasVariant($state, "hamyar", "hamyar")
           })}
         >
           <div
@@ -4979,7 +4982,10 @@ function PlasmicReminder__RenderFunc(props: {
                 $state,
                 "slide3",
                 "slide3"
-              )
+              ),
+              [sty.freeBoxslide3_hamyar___1CcifWyFtXX8Tw]:
+                hasVariant($state, "slide3", "slide3") &&
+                hasVariant($state, "hamyar", "hamyar")
             })}
           >
             <Button
