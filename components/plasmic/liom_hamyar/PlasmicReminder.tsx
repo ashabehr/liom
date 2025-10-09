@@ -125,6 +125,7 @@ export type PlasmicReminder__ArgsType = {
   onSmsChange?: (val: string) => void;
   tel?: boolean;
   onTelChange?: (val: string) => void;
+  onSlide3Change?: (val: any) => void;
   ferst?: boolean;
   first?: boolean;
   onFirstChange?: (val: string) => void;
@@ -148,6 +149,7 @@ export const PlasmicReminder__ArgProps = new Array<ArgPropType>(
   "onSmsChange",
   "tel",
   "onTelChange",
+  "onSlide3Change",
   "ferst",
   "first",
   "onFirstChange"
@@ -211,6 +213,7 @@ export interface DefaultReminderProps {
   onSmsChange?: (val: string) => void;
   tel?: boolean;
   onTelChange?: (val: string) => void;
+  onSlide3Change?: (val: any) => void;
   ferst?: boolean;
   first?: boolean;
   onFirstChange?: (val: string) => void;
@@ -928,22 +931,11 @@ function PlasmicReminder__RenderFunc(props: {
       },
       {
         path: "slide3",
-        type: "private",
+        type: "writable",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.first;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })() ?? $props.slide3
+
+        valueProp: "slide3",
+        onChangeProp: "onSlide3Change"
       },
       {
         path: "hamyar",

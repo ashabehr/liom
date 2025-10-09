@@ -2242,6 +2242,12 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "reminder2.slide3",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -24596,6 +24602,20 @@ function PlasmicHamyar__RenderFunc(props: {
                   }
                 }).apply(null, eventArgs);
               }}
+              onSlide3Change={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminder2",
+                  "slide3"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
               onSmsChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, ["reminder2", "sms"]).apply(
                   null,
@@ -24729,6 +24749,7 @@ function PlasmicHamyar__RenderFunc(props: {
                   $steps["runCode"] = await $steps["runCode"];
                 }
               }}
+              slide3={generateStateValueProp($state, ["reminder2", "slide3"])}
               sms={generateStateValueProp($state, ["reminder2", "sms"])}
               subscription={(() => {
                 try {
