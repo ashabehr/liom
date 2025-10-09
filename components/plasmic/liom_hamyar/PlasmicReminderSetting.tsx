@@ -2484,6 +2484,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   } else {
                                     $state.select2.finishTime = undefined;
                                   }
+                                  $state.select2.active = 1;
                                   $state.select2.times = JSON.stringify(
                                     $state.time2.map(
                                       t =>
@@ -2546,6 +2547,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   } else {
                                     $state.select2.finishTime = undefined;
                                   }
+                                  $state.select2.active = 1;
                                   $state.select2.times = JSON.stringify(
                                     $state.time2.map(
                                       t =>

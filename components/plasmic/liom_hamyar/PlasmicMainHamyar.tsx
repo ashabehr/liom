@@ -98,6 +98,8 @@ export type PlasmicMainHamyar__ArgsType = {
   headershow?: boolean;
   hamyar2PlasmicAntd5ModalOpen?: boolean;
   onHamyar2PlasmicAntd5ModalOpenChange?: (val: boolean) => void;
+  hamyar2ShopPage2Open?: boolean;
+  onHamyar2ShopPage2OpenChange?: (val: boolean) => void;
 };
 type ArgPropType = keyof PlasmicMainHamyar__ArgsType;
 export const PlasmicMainHamyar__ArgProps = new Array<ArgPropType>(
@@ -110,7 +112,9 @@ export const PlasmicMainHamyar__ArgProps = new Array<ArgPropType>(
   "editCycle2",
   "headershow",
   "hamyar2PlasmicAntd5ModalOpen",
-  "onHamyar2PlasmicAntd5ModalOpenChange"
+  "onHamyar2PlasmicAntd5ModalOpenChange",
+  "hamyar2ShopPage2Open",
+  "onHamyar2ShopPage2OpenChange"
 );
 
 export type PlasmicMainHamyar__OverridesType = {
@@ -133,6 +137,8 @@ export interface DefaultMainHamyarProps {
   headershow?: boolean;
   hamyar2PlasmicAntd5ModalOpen?: boolean;
   onHamyar2PlasmicAntd5ModalOpenChange?: (val: boolean) => void;
+  hamyar2ShopPage2Open?: boolean;
+  onHamyar2ShopPage2OpenChange?: (val: boolean) => void;
   page?: SingleChoiceArg<"hamyar" | "self" | "bot">;
   haader?: SingleBooleanChoiceArg<"haader">;
   className?: string;
@@ -258,6 +264,14 @@ function PlasmicMainHamyar__RenderFunc(props: {
               throw e;
             }
           })() ?? $props.haader
+      },
+      {
+        path: "hamyar2.shopPage2Open",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "hamyar2ShopPage2Open",
+        onChangeProp: "onHamyar2ShopPage2OpenChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -343,6 +357,20 @@ function PlasmicMainHamyar__RenderFunc(props: {
         }}
         onRemindChange={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, ["hamyar2", "remind"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        onShopPage2OpenChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["hamyar2", "shopPage2Open"]).apply(
             null,
             eventArgs
           );
@@ -455,6 +483,10 @@ function PlasmicMainHamyar__RenderFunc(props: {
         ])}
         remind={generateStateValueProp($state, ["hamyar2", "remind"])}
         reminderOpen={args.reminderOpen}
+        shopPage2Open={generateStateValueProp($state, [
+          "hamyar2",
+          "shopPage2Open"
+        ])}
         tokenUser={generateStateValueProp($state, ["hamyar2", "tokenUser"])}
         userdata={generateStateValueProp($state, ["hamyar2", "userdata"])}
       />

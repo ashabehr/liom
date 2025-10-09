@@ -362,7 +362,7 @@ function PlasmicReminder__RenderFunc(props: {
               active: 1
             }
           ],
-          subscription: false,
+          subscription: true,
           telegram: false,
           activeSmsNotif: false
         },
@@ -918,7 +918,20 @@ function PlasmicReminder__RenderFunc(props: {
         path: "slide3",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.slide3
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.data.length == 0;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })() ?? $props.slide3
       },
       {
         path: "hamyar",

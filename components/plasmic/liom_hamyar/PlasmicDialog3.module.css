@@ -15,6 +15,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  position: relative;
+  z-index: 1000;
   outline: none;
 }
 @media (max-width: 640px) {

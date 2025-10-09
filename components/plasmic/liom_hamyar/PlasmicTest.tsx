@@ -62,10 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
-import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
-import { Input } from "@/fragment/components/input"; // plasmic-import: zZH7vV9pXyf8/codeComponent
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
-import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -73,10 +70,6 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 
 import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicTest.module.css"; // plasmic-import: sfemSfmG6qsw/css
-
-import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
-import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
-import Icon235Icon from "./icons/PlasmicIcon__Icon235"; // plasmic-import: 5FkrBtoVdaZJ/icon
 
 createPlasmicElementProxy;
 
@@ -91,11 +84,8 @@ export const PlasmicTest__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicTest__OverridesType = {
   root?: Flex__<"div">;
-  button?: Flex__<typeof Button>;
-  input?: Flex__<typeof Input>;
-  svg?: Flex__<"svg">;
   apiRequest?: Flex__<typeof ApiRequest>;
-  datePickers?: Flex__<typeof DatePickers>;
+  freeBox?: Flex__<"div">;
 };
 
 export interface DefaultTestProps {}
@@ -152,18 +142,6 @@ function PlasmicTest__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "button.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "input.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
         path: "apiRequest.data",
         type: "private",
         variableType: "object",
@@ -177,24 +155,6 @@ function PlasmicTest__RenderFunc(props: {
       },
       {
         path: "apiRequest.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "datePickers.value",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
-      },
-      {
-        path: "button.load",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "button.loading",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -236,179 +196,6 @@ function PlasmicTest__RenderFunc(props: {
             sty.root
           )}
         >
-          <Button
-            data-plasmic-name={"button"}
-            data-plasmic-override={overrides.button}
-            className={classNames("__wab_instance", sty.button)}
-            color={generateStateValueProp($state, ["button", "color"])}
-            load={generateStateValueProp($state, ["button", "load"])}
-            loading={generateStateValueProp($state, ["button", "loading"])}
-            onClick={async event => {
-              const $steps = {};
-
-              $steps["updateIntro"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["intro"]
-                      },
-                      operation: 4
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      const oldValue = $stateGet(objRoot, variablePath);
-                      $stateSet(objRoot, variablePath, !oldValue);
-                      return !oldValue;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateIntro"] != null &&
-                typeof $steps["updateIntro"] === "object" &&
-                typeof $steps["updateIntro"].then === "function"
-              ) {
-                $steps["updateIntro"] = await $steps["updateIntro"];
-              }
-            }}
-            onColorChange={async (...eventArgs: any) => {
-              ((...eventArgs) => {
-                generateStateOnChangeProp($state, ["button", "color"])(
-                  eventArgs[0]
-                );
-              }).apply(null, eventArgs);
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            onLoadChange={async (...eventArgs: any) => {
-              ((...eventArgs) => {
-                generateStateOnChangeProp($state, ["button", "load"])(
-                  eventArgs[0]
-                );
-              }).apply(null, eventArgs);
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            onLoadingChange={async (...eventArgs: any) => {
-              ((...eventArgs) => {
-                generateStateOnChangeProp($state, ["button", "loading"])(
-                  eventArgs[0]
-                );
-              }).apply(null, eventArgs);
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__hvQeb
-              )}
-            >
-              {" "}
-            </div>
-          </Button>
-          <Input
-            data-plasmic-name={"input"}
-            data-plasmic-override={overrides.input}
-            className={classNames("__wab_instance", sty.input)}
-            onChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["input", "value"]).apply(
-                null,
-                eventArgs
-              );
-
-              (async value => {
-                const $steps = {};
-
-                $steps["updateInputValue"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["input", "value"]
-                        },
-                        operation: 0,
-                        value: parseInt($state.input.value)
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateInputValue"] != null &&
-                  typeof $steps["updateInputValue"] === "object" &&
-                  typeof $steps["updateInputValue"].then === "function"
-                ) {
-                  $steps["updateInputValue"] = await $steps["updateInputValue"];
-                }
-              }).apply(null, eventArgs);
-            }}
-            type={"text"}
-            value={generateStateValueProp($state, ["input", "value"])}
-          />
-
-          <div className={classNames(projectcss.all, sty.freeBox__qdYpo)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__pAv0W
-              )}
-            >
-              {"\u06a9\u062f \u0645\u0644\u06cc:"}
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__k3J53
-              )}
-            >
-              {""}
-            </div>
-            <Icon235Icon
-              data-plasmic-name={"svg"}
-              data-plasmic-override={overrides.svg}
-              className={classNames(projectcss.all, sty.svg)}
-              role={"img"}
-            />
-          </div>
           <ApiRequest
             data-plasmic-name={"apiRequest"}
             data-plasmic-override={overrides.apiRequest}
@@ -455,30 +242,14 @@ function PlasmicTest__RenderFunc(props: {
               );
             }}
             shouldFetch={true}
-            url={"https://pnldev.com/api/calender"}
+            url={"https://dev.rentamon.com/webhook/test-cors"}
           />
 
-          <div className={classNames(projectcss.all, sty.freeBox__aGbj)}>
-            <DatePickers
-              data-plasmic-name={"datePickers"}
-              data-plasmic-override={overrides.datePickers}
-              SelectedDay={10}
-              SelectedMonth={10}
-              SelectedYear={1379}
-              className={classNames("__wab_instance", sty.datePickers)}
-              customYears={[]}
-              onChange={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "datePickers",
-                  "value"
-                ]).apply(null, eventArgs);
-              }}
-              selectedValues={generateStateValueProp($state, [
-                "datePickers",
-                "value"
-              ])}
-            />
-          </div>
+          <div
+            data-plasmic-name={"freeBox"}
+            data-plasmic-override={overrides.freeBox}
+            className={classNames(projectcss.all, sty.freeBox)}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -486,23 +257,17 @@ function PlasmicTest__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "button", "input", "svg", "apiRequest", "datePickers"],
-  button: ["button"],
-  input: ["input"],
-  svg: ["svg"],
+  root: ["root", "apiRequest", "freeBox"],
   apiRequest: ["apiRequest"],
-  datePickers: ["datePickers"]
+  freeBox: ["freeBox"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  button: typeof Button;
-  input: typeof Input;
-  svg: "svg";
   apiRequest: typeof ApiRequest;
-  datePickers: typeof DatePickers;
+  freeBox: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -516,7 +281,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicTest__VariantsArgs;
     args?: PlasmicTest__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicTest__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicTest__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicTest__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
@@ -590,11 +357,8 @@ export const PlasmicTest = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    button: makeNodeComponent("button"),
-    input: makeNodeComponent("input"),
-    svg: makeNodeComponent("svg"),
     apiRequest: makeNodeComponent("apiRequest"),
-    datePickers: makeNodeComponent("datePickers"),
+    freeBox: makeNodeComponent("freeBox"),
 
     // Metadata about props expected for PlasmicTest
     internalVariantProps: PlasmicTest__VariantProps,

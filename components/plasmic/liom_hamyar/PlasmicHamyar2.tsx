@@ -81,12 +81,11 @@ import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdTooltip } from "@plasmicpkgs/antd5/skinny/registerTooltip";
 import Heart from "../../Heart"; // plasmic-import: OuOhJXUpgiRr/component
-import Dialog3 from "../../Dialog3"; // plasmic-import: j5op3vcM_4hJ/component
-import Subscription from "../../Subscription"; // plasmic-import: RkqUeSl2AMb8/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { DialogTitle } from "@plasmicpkgs/radix-ui";
+import Subscription from "../../Subscription"; // plasmic-import: RkqUeSl2AMb8/component
 import { Iframe } from "@plasmicpkgs/plasmic-basic-components";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import MobileDialog from "../../MobileDialog"; // plasmic-import: h7ceF9lBthFF/component
@@ -95,6 +94,8 @@ import { BackHandler } from "@/components/BackHandler"; // plasmic-import: wpIQC
 import ReminderSetting from "../../ReminderSetting"; // plasmic-import: VZcPBQBUFNbT/component
 import SettingCycle4 from "../../SettingCycle4"; // plasmic-import: C5hqeG28n8GP/component
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
+import Dialog3 from "../../Dialog3"; // plasmic-import: j5op3vcM_4hJ/component
+import ShopPage from "../../ShopPage"; // plasmic-import: FPGJbvAWDoeU/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -162,6 +163,8 @@ export type PlasmicHamyar2__ArgsType = {
   reminderOpen?: (event: any) => void;
   editCycle2?: () => void;
   headershow?: boolean;
+  shopPage2Open?: boolean;
+  onShopPage2OpenChange?: (val: boolean) => void;
 };
 type ArgPropType = keyof PlasmicHamyar2__ArgsType;
 export const PlasmicHamyar2__ArgProps = new Array<ArgPropType>(
@@ -175,7 +178,9 @@ export const PlasmicHamyar2__ArgProps = new Array<ArgPropType>(
   "onRemindChange",
   "reminderOpen",
   "editCycle2",
-  "headershow"
+  "headershow",
+  "shopPage2Open",
+  "onShopPage2OpenChange"
 );
 
 export type PlasmicHamyar2__OverridesType = {
@@ -207,9 +212,6 @@ export type PlasmicHamyar2__OverridesType = {
   button7?: Flex__<typeof Button>;
   tooltip?: Flex__<typeof AntdTooltip>;
   heart?: Flex__<typeof Heart>;
-  moreShop?: Flex__<typeof Dialog3>;
-  subscription2?: Flex__<typeof Subscription>;
-  button4?: Flex__<typeof Button>;
   loading?: Flex__<"div">;
   favicon?: Flex__<typeof Embed>;
   button19?: Flex__<typeof Button>;
@@ -240,9 +242,13 @@ export type PlasmicHamyar2__OverridesType = {
   button6?: Flex__<typeof Button>;
   button10?: Flex__<typeof Button>;
   headerLiom?: Flex__<typeof HeaderLiom>;
+  moreShop?: Flex__<typeof Dialog3>;
+  subscription2?: Flex__<typeof Subscription>;
+  button4?: Flex__<typeof Button>;
   warning?: Flex__<typeof AntdModal>;
   button22?: Flex__<typeof Button>;
   button24?: Flex__<typeof Button>;
+  shopPage2?: Flex__<typeof ShopPage>;
 };
 
 export interface DefaultHamyar2Props {
@@ -257,6 +263,8 @@ export interface DefaultHamyar2Props {
   reminderOpen?: (event: any) => void;
   editCycle2?: () => void;
   headershow?: boolean;
+  shopPage2Open?: boolean;
+  onShopPage2OpenChange?: (val: boolean) => void;
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
   noPartner?: SingleBooleanChoiceArg<"noPartner">;
   remindersetting?: SingleBooleanChoiceArg<"remindersetting">;
@@ -2200,6 +2208,14 @@ function PlasmicHamyar2__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "shopPage2.open",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "shopPage2Open",
+        onChangeProp: "onShopPage2OpenChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -8468,124 +8484,108 @@ function PlasmicHamyar2__RenderFunc(props: {
                       );
                     })}
                   </div>
-                  {(() => {
-                    try {
-                      return $state.remind.length > 0;
-                    } catch (e) {
+                  <Button
+                    data-plasmic-name={"button21"}
+                    data-plasmic-override={overrides.button21}
+                    className={classNames("__wab_instance", sty.button21, {
+                      [sty.button21page_reminder]: hasVariant(
+                        $state,
+                        "page",
+                        "reminder"
+                      )
+                    })}
+                    color={generateStateValueProp($state, [
+                      "button21",
+                      "color"
+                    ])}
+                    load={generateStateValueProp($state, ["button21", "load"])}
+                    loading={generateStateValueProp($state, [
+                      "button21",
+                      "loading"
+                    ])}
+                    onClick={args.reminderOpen}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button21",
+                          "color"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
                       if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
                       ) {
-                        return true;
+                        return;
                       }
-                      throw e;
+                    }}
+                    onLoadChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button21", "load"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadingChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button21",
+                          "loading"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    showStartIcon={true}
+                    size={"compact"}
+                    startIcon={
+                      <Icon304Icon
+                        className={classNames(projectcss.all, sty.svg__gr4NZ)}
+                        role={"img"}
+                      />
                     }
-                  })() ? (
-                    <Button
-                      data-plasmic-name={"button21"}
-                      data-plasmic-override={overrides.button21}
-                      className={classNames("__wab_instance", sty.button21, {
-                        [sty.button21page_reminder]: hasVariant(
-                          $state,
-                          "page",
-                          "reminder"
-                        )
-                      })}
-                      color={generateStateValueProp($state, [
-                        "button21",
-                        "color"
-                      ])}
-                      load={generateStateValueProp($state, [
-                        "button21",
-                        "load"
-                      ])}
-                      loading={generateStateValueProp($state, [
-                        "button21",
-                        "loading"
-                      ])}
-                      onClick={args.reminderOpen}
-                      onColorChange={async (...eventArgs: any) => {
-                        ((...eventArgs) => {
-                          generateStateOnChangeProp($state, [
-                            "button21",
-                            "color"
-                          ])(eventArgs[0]);
-                        }).apply(null, eventArgs);
-
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
-                        }
-                      }}
-                      onLoadChange={async (...eventArgs: any) => {
-                        ((...eventArgs) => {
-                          generateStateOnChangeProp($state, [
-                            "button21",
-                            "load"
-                          ])(eventArgs[0]);
-                        }).apply(null, eventArgs);
-
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
-                        }
-                      }}
-                      onLoadingChange={async (...eventArgs: any) => {
-                        ((...eventArgs) => {
-                          generateStateOnChangeProp($state, [
-                            "button21",
-                            "loading"
-                          ])(eventArgs[0]);
-                        }).apply(null, eventArgs);
-
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
-                        }
-                      }}
-                      showStartIcon={true}
-                      size={"compact"}
-                      startIcon={
-                        <Icon304Icon
-                          className={classNames(projectcss.all, sty.svg__gr4NZ)}
-                          role={"img"}
-                        />
-                      }
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__vzqck
+                      )}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__vzqck
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return "لیست رویدادها";
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "\u0644\u06cc\u0633\u062a \u0645\u0647\u0645 \u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627";
-                              }
-                              throw e;
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.remind.length > 0
+                              ? "رویدادهای من"
+                              : "افزودن رویداد جدید";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u0644\u06cc\u0633\u062a \u0645\u0647\u0645 \u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627";
                             }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                    </Button>
-                  ) : null}
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </Button>
                 </div>
               </div>
             </div>
@@ -17038,767 +17038,6 @@ function PlasmicHamyar2__RenderFunc(props: {
               </div>
             </div>
           </AntdTooltip>
-          <Dialog3
-            data-plasmic-name={"moreShop"}
-            data-plasmic-override={overrides.moreShop}
-            className={classNames("__wab_instance", sty.moreShop)}
-            onOpendialogChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, [
-                "moreShop",
-                "opendialog"
-              ]).apply(null, eventArgs);
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            opendialog={generateStateValueProp($state, [
-              "moreShop",
-              "opendialog"
-            ])}
-          >
-            <div className={classNames(projectcss.all, sty.freeBox__ng0Rn)}>
-              {(
-                hasVariant(globalVariants, "screen", "mobile") ? true : false
-              ) ? (
-                <div className={classNames(projectcss.all, sty.freeBox__btybG)}>
-                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                    (() => {
-                      try {
-                        return $state.shapData.result;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })()
-                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                    const currentItem = __plasmic_item_0;
-                    const currentIndex = __plasmic_idx_0;
-                    return (() => {
-                      const child$Props = {
-                        className: classNames(
-                          "__wab_instance",
-                          sty.subscription2
-                        ),
-                        clickitem: generateStateValueProp($state, [
-                          "subscription2",
-                          __plasmic_idx_0,
-                          "clickitem"
-                        ]),
-                        discount: generateStateValueProp($state, [
-                          "subscription2",
-                          __plasmic_idx_0,
-                          "discount"
-                        ]),
-                        fullprice: generateStateValueProp($state, [
-                          "subscription2",
-                          __plasmic_idx_0,
-                          "fullprice"
-                        ]),
-                        key: currentIndex,
-                        onClick: async event => {
-                          const $steps = {};
-
-                          $steps["runCode"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return (() => {
-                                      for (
-                                        let i = 0;
-                                        i < $state.subscription2.length;
-                                        i++
-                                      ) {
-                                        $state.subscription2[i].clickitem =
-                                          false;
-                                      }
-                                      $state.subscription2[
-                                        currentIndex
-                                      ].clickitem = true;
-                                      $state.subscriptionCurrentIndex = [
-                                        currentIndex
-                                      ];
-                                      return ($state.buyId = currentItem.id);
-                                    })();
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
-                          ) {
-                            $steps["runCode"] = await $steps["runCode"];
-                          }
-                        },
-                        onClickitemChange: async (...eventArgs: any) => {
-                          generateStateOnChangeProp($state, [
-                            "subscription2",
-                            __plasmic_idx_0,
-                            "clickitem"
-                          ]).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        },
-                        onDiscountChange: async (...eventArgs: any) => {
-                          generateStateOnChangeProp($state, [
-                            "subscription2",
-                            __plasmic_idx_0,
-                            "discount"
-                          ]).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        },
-                        onFullpriceChange: async (...eventArgs: any) => {
-                          generateStateOnChangeProp($state, [
-                            "subscription2",
-                            __plasmic_idx_0,
-                            "fullprice"
-                          ]).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        },
-                        onPriceChange: async (...eventArgs: any) => {
-                          generateStateOnChangeProp($state, [
-                            "subscription2",
-                            __plasmic_idx_0,
-                            "price"
-                          ]).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        },
-                        onTitleChange: async (...eventArgs: any) => {
-                          generateStateOnChangeProp($state, [
-                            "subscription2",
-                            __plasmic_idx_0,
-                            "title"
-                          ]).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        },
-                        price: generateStateValueProp($state, [
-                          "subscription2",
-                          __plasmic_idx_0,
-                          "price"
-                        ]),
-                        title: generateStateValueProp($state, [
-                          "subscription2",
-                          __plasmic_idx_0,
-                          "title"
-                        ])
-                      };
-
-                      initializePlasmicStates(
-                        $state,
-                        [
-                          {
-                            name: "subscription2[].clickitem",
-                            initFunc: ({ $props, $state, $queries }) => false
-                          },
-                          {
-                            name: "subscription2[].title",
-                            initFunc: ({ $props, $state, $queries }) =>
-                              (() => {
-                                try {
-                                  return currentItem.title;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                          },
-                          {
-                            name: "subscription2[].price",
-                            initFunc: ({ $props, $state, $queries }) =>
-                              (() => {
-                                try {
-                                  return currentItem.price.toLocaleString(
-                                    "en-US"
-                                  );
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return 120000;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                          },
-                          {
-                            name: "subscription2[].discount",
-                            initFunc: ({ $props, $state, $queries }) =>
-                              (() => {
-                                try {
-                                  return currentItem.badge
-                                    ? currentItem.badge
-                                    : "";
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "-";
-                                  }
-                                  throw e;
-                                }
-                              })()
-                          },
-                          {
-                            name: "subscription2[].fullprice",
-                            initFunc: ({ $props, $state, $queries }) =>
-                              (() => {
-                                try {
-                                  return currentItem.fullPrice
-                                    ? currentItem.fullPrice.toLocaleString(
-                                        "en-US"
-                                      )
-                                    : currentItem.price.toLocaleString("en-US");
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return 0;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                          }
-                        ],
-                        [__plasmic_idx_0]
-                      );
-                      return (
-                        <Subscription
-                          data-plasmic-name={"subscription2"}
-                          data-plasmic-override={overrides.subscription2}
-                          {...child$Props}
-                        >
-                          {(
-                            hasVariant(globalVariants, "screen", "mobile")
-                              ? (() => {
-                                  try {
-                                    return currentItem.topBadge ? true : false;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return true;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              : (() => {
-                                  try {
-                                    return currentItem.topBadge ? true : false;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return true;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                          ) ? (
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__k5FMj
-                              )}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__jggM
-                                )}
-                              >
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return currentItem.topBadge;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "\ud83c\udf39 \u0628\u0647 \u0635\u0631\u0641\u0647 \u062a\u0631\u06cc\u0646 \ud83c\udf39";
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                </React.Fragment>
-                              </div>
-                            </div>
-                          ) : null}
-                        </Subscription>
-                      );
-                    })();
-                  })}
-                </div>
-              ) : null}
-              <Button
-                data-plasmic-name={"button4"}
-                data-plasmic-override={overrides.button4}
-                className={classNames("__wab_instance", sty.button4)}
-                color={generateStateValueProp($state, ["button4", "color"])}
-                endIcon={
-                  <PlasmicIcon__
-                    PlasmicIconType={
-                      hasVariant(globalVariants, "screen", "mobile")
-                        ? Icon12Icon
-                        : Icon12Icon
-                    }
-                    className={classNames(projectcss.all, sty.svg___4HNqw)}
-                    role={"img"}
-                  />
-                }
-                isDisabled={
-                  hasVariant(globalVariants, "screen", "mobile")
-                    ? (() => {
-                        try {
-                          return $state.loadingshop;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
-                        }
-                      })()
-                    : undefined
-                }
-                load={generateStateValueProp($state, ["button4", "load"])}
-                loading={generateStateValueProp($state, ["button4", "loading"])}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["updateLoadingshop"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["loadingshop"]
-                          },
-                          operation: 0,
-                          value: true
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateLoadingshop"] != null &&
-                    typeof $steps["updateLoadingshop"] === "object" &&
-                    typeof $steps["updateLoadingshop"].then === "function"
-                  ) {
-                    $steps["updateLoadingshop"] =
-                      await $steps["updateLoadingshop"];
-                  }
-
-                  $steps["invokeGlobalAction"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          args: [
-                            "POST",
-                            "https://n8n.staas.ir/webhook/hamyar/shopBuy",
-                            undefined,
-                            (() => {
-                              try {
-                                return {
-                                  id: $state.buyId,
-                                  offCode: $state.discountCode,
-                                  refCode: $state.userdata.result.man.refCode,
-                                  redirectUrl:
-                                    "https://apps.liom.app/shop-result?r=" +
-                                    $state.userdata.result.man.refCode +
-                                    "&buyId=" +
-                                    $state.buyId +
-                                    "&offCode=" +
-                                    $state.discountCode +
-                                    "&valueShop=" +
-                                    $state.shapData.result[
-                                      $state.subscriptionCurrentIndex
-                                    ].type +
-                                    "-" +
-                                    $state.shapData.result[
-                                      $state.subscriptionCurrentIndex
-                                    ].value +
-                                    "&price=" +
-                                    $state.shapData.result[
-                                      $state.subscriptionCurrentIndex
-                                    ].price +
-                                    "&manId=" +
-                                    $state.userdata.result.man.id
-                                };
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })(),
-                            (() => {
-                              try {
-                                return {
-                                  headers: {
-                                    "Content-Type": "application/json",
-                                    Authorization: $state.tokenUser
-                                  }
-                                };
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          ]
-                        };
-                        return $globalActions["Fragment.apiRequest"]?.apply(
-                          null,
-                          [...actionArgs.args]
-                        );
-                      })()
-                    : undefined;
-                  if (
-                    $steps["invokeGlobalAction"] != null &&
-                    typeof $steps["invokeGlobalAction"] === "object" &&
-                    typeof $steps["invokeGlobalAction"].then === "function"
-                  ) {
-                    $steps["invokeGlobalAction"] =
-                      await $steps["invokeGlobalAction"];
-                  }
-
-                  $steps["goToPage"] =
-                    $steps.invokeGlobalAction?.data?.success == true &&
-                    $steps.invokeGlobalAction?.data?.result != false
-                      ? (() => {
-                          const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return $steps.invokeGlobalAction?.data?.result;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                  if (
-                    $steps["goToPage"] != null &&
-                    typeof $steps["goToPage"] === "object" &&
-                    typeof $steps["goToPage"].then === "function"
-                  ) {
-                    $steps["goToPage"] = await $steps["goToPage"];
-                  }
-
-                  $steps["updateLoadingshop2"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["loadingshop"]
-                          },
-                          operation: 0,
-                          value: false
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateLoadingshop2"] != null &&
-                    typeof $steps["updateLoadingshop2"] === "object" &&
-                    typeof $steps["updateLoadingshop2"].then === "function"
-                  ) {
-                    $steps["updateLoadingshop2"] =
-                      await $steps["updateLoadingshop2"];
-                  }
-
-                  $steps["updateMoreShopOpendialog"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["moreShop", "opendialog"]
-                          },
-                          operation: 0,
-                          value: false
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateMoreShopOpendialog"] != null &&
-                    typeof $steps["updateMoreShopOpendialog"] === "object" &&
-                    typeof $steps["updateMoreShopOpendialog"].then ===
-                      "function"
-                  ) {
-                    $steps["updateMoreShopOpendialog"] =
-                      await $steps["updateMoreShopOpendialog"];
-                  }
-
-                  $steps["invokeGlobalAction2"] =
-                    $steps.invokeGlobalAction.data.success == false ||
-                    $steps.invokeGlobalAction.data.result == false
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              "error",
-                              "\u0645\u062a\u0623\u0633\u0641\u0627\u0646\u0647 \u062e\u0637\u0627\u06cc\u06cc \u0631\u062e \u062f\u0627\u062f\u0647 \u0627\u0633\u062a. \u0644\u0637\u0641\u0627\u064b \u0645\u062c\u062f\u062f\u0627\u064b \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f.",
-                              "top-left"
-                            ]
-                          };
-                          return $globalActions["Fragment.showToast"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                  if (
-                    $steps["invokeGlobalAction2"] != null &&
-                    typeof $steps["invokeGlobalAction2"] === "object" &&
-                    typeof $steps["invokeGlobalAction2"].then === "function"
-                  ) {
-                    $steps["invokeGlobalAction2"] =
-                      await $steps["invokeGlobalAction2"];
-                  }
-                }}
-                onColorChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button4", "color"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onLoadChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button4", "load"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onLoadingChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button4", "loading"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                showEndIcon={(() => {
-                  try {
-                    return $state.loadingshop;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "showEndIcon";
-                    }
-                    throw e;
-                  }
-                })()}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__neoLn
-                  )}
-                >
-                  {hasVariant(globalVariants, "screen", "mobile") ? (
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return (
-                            "فعال سازی " +
-                            $state.subscription2[
-                              $state.subscriptionCurrentIndex
-                            ].title
-                          );
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "--";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  ) : (
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return (
-                            "فعال سازی " +
-                            $state.subscription[$state.subscriptionCurrentIndex]
-                              .title
-                          );
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "--";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  )}
-                </div>
-              </Button>
-            </div>
-          </Dialog3>
         </div>
       ) : null}
       {(
@@ -22823,7 +22062,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return ($state.shopPage.open = false);
+                            return ($state.shopPage2.open = false);
                           }
                         };
                         return (({ customFunction }) => {
@@ -25266,6 +24505,722 @@ function PlasmicHamyar2__RenderFunc(props: {
           />
         </section>
       </AntdModal>
+      <Dialog3
+        data-plasmic-name={"moreShop"}
+        data-plasmic-override={overrides.moreShop}
+        className={classNames("__wab_instance", sty.moreShop)}
+        onOpendialogChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["moreShop", "opendialog"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        opendialog={generateStateValueProp($state, ["moreShop", "opendialog"])}
+      >
+        <div className={classNames(projectcss.all, sty.freeBox__ng0Rn)}>
+          <div className={classNames(projectcss.all, sty.freeBox__btybG)}>
+            {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+              (() => {
+                try {
+                  return $state.shapData.result;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [];
+                  }
+                  throw e;
+                }
+              })()
+            ).map((__plasmic_item_0, __plasmic_idx_0) => {
+              const currentItem = __plasmic_item_0;
+              const currentIndex = __plasmic_idx_0;
+              return (() => {
+                const child$Props = {
+                  className: classNames("__wab_instance", sty.subscription2),
+                  clickitem: generateStateValueProp($state, [
+                    "subscription2",
+                    __plasmic_idx_0,
+                    "clickitem"
+                  ]),
+                  discount: generateStateValueProp($state, [
+                    "subscription2",
+                    __plasmic_idx_0,
+                    "discount"
+                  ]),
+                  fullprice: generateStateValueProp($state, [
+                    "subscription2",
+                    __plasmic_idx_0,
+                    "fullprice"
+                  ]),
+                  key: currentIndex,
+                  onClick: async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                for (
+                                  let i = 0;
+                                  i < $state.subscription2.length;
+                                  i++
+                                ) {
+                                  $state.subscription2[i].clickitem = false;
+                                }
+                                $state.subscription2[currentIndex].clickitem =
+                                  true;
+                                $state.subscriptionCurrentIndex = [
+                                  currentIndex
+                                ];
+                                return ($state.buyId = currentItem.id);
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  },
+                  onClickitemChange: async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "subscription2",
+                      __plasmic_idx_0,
+                      "clickitem"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  },
+                  onDiscountChange: async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "subscription2",
+                      __plasmic_idx_0,
+                      "discount"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  },
+                  onFullpriceChange: async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "subscription2",
+                      __plasmic_idx_0,
+                      "fullprice"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  },
+                  onPriceChange: async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "subscription2",
+                      __plasmic_idx_0,
+                      "price"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  },
+                  onTitleChange: async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "subscription2",
+                      __plasmic_idx_0,
+                      "title"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  },
+                  price: generateStateValueProp($state, [
+                    "subscription2",
+                    __plasmic_idx_0,
+                    "price"
+                  ]),
+                  title: generateStateValueProp($state, [
+                    "subscription2",
+                    __plasmic_idx_0,
+                    "title"
+                  ])
+                };
+
+                initializePlasmicStates(
+                  $state,
+                  [
+                    {
+                      name: "subscription2[].clickitem",
+                      initFunc: ({ $props, $state, $queries }) => false
+                    },
+                    {
+                      name: "subscription2[].title",
+                      initFunc: ({ $props, $state, $queries }) =>
+                        (() => {
+                          try {
+                            return currentItem.title;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                    },
+                    {
+                      name: "subscription2[].price",
+                      initFunc: ({ $props, $state, $queries }) =>
+                        (() => {
+                          try {
+                            return currentItem.price.toLocaleString("en-US");
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return 120000;
+                            }
+                            throw e;
+                          }
+                        })()
+                    },
+                    {
+                      name: "subscription2[].discount",
+                      initFunc: ({ $props, $state, $queries }) =>
+                        (() => {
+                          try {
+                            return currentItem.badge ? currentItem.badge : "";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "-";
+                            }
+                            throw e;
+                          }
+                        })()
+                    },
+                    {
+                      name: "subscription2[].fullprice",
+                      initFunc: ({ $props, $state, $queries }) =>
+                        (() => {
+                          try {
+                            return currentItem.fullPrice
+                              ? currentItem.fullPrice.toLocaleString("en-US")
+                              : currentItem.price.toLocaleString("en-US");
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return 0;
+                            }
+                            throw e;
+                          }
+                        })()
+                    }
+                  ],
+                  [__plasmic_idx_0]
+                );
+                return (
+                  <Subscription
+                    data-plasmic-name={"subscription2"}
+                    data-plasmic-override={overrides.subscription2}
+                    {...child$Props}
+                  >
+                    {(
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? (() => {
+                            try {
+                              return currentItem.topBadge ? true : false;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })()
+                        : (() => {
+                            try {
+                              return currentItem.topBadge ? true : false;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })()
+                    ) ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__k5FMj
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__jggM
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem.topBadge;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "\ud83c\udf39 \u0628\u0647 \u0635\u0631\u0641\u0647 \u062a\u0631\u06cc\u0646 \ud83c\udf39";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      </div>
+                    ) : null}
+                  </Subscription>
+                );
+              })();
+            })}
+          </div>
+          <Button
+            data-plasmic-name={"button4"}
+            data-plasmic-override={overrides.button4}
+            className={classNames("__wab_instance", sty.button4)}
+            color={generateStateValueProp($state, ["button4", "color"])}
+            endIcon={
+              <PlasmicIcon__
+                PlasmicIconType={
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? Icon12Icon
+                    : Icon12Icon
+                }
+                className={classNames(projectcss.all, sty.svg___4HNqw)}
+                role={"img"}
+              />
+            }
+            isDisabled={
+              hasVariant(globalVariants, "screen", "mobile")
+                ? (() => {
+                    try {
+                      return $state.loadingshop;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                : undefined
+            }
+            load={generateStateValueProp($state, ["button4", "load"])}
+            loading={generateStateValueProp($state, ["button4", "loading"])}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["updateLoadingshop"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["loadingshop"]
+                      },
+                      operation: 0,
+                      value: true
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateLoadingshop"] != null &&
+                typeof $steps["updateLoadingshop"] === "object" &&
+                typeof $steps["updateLoadingshop"].then === "function"
+              ) {
+                $steps["updateLoadingshop"] = await $steps["updateLoadingshop"];
+              }
+
+              $steps["invokeGlobalAction"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://n8n.staas.ir/webhook/hamyar/shopBuy",
+                        undefined,
+                        (() => {
+                          try {
+                            return {
+                              id: $state.buyId,
+                              offCode: $state.discountCode,
+                              refCode: $state.userdata.result.man.refCode,
+                              redirectUrl:
+                                "https://apps.liom.app/shop-result?r=" +
+                                $state.userdata.result.man.refCode +
+                                "&buyId=" +
+                                $state.buyId +
+                                "&offCode=" +
+                                $state.discountCode +
+                                "&valueShop=" +
+                                $state.shapData.result[
+                                  $state.subscriptionCurrentIndex
+                                ].type +
+                                "-" +
+                                $state.shapData.result[
+                                  $state.subscriptionCurrentIndex
+                                ].value +
+                                "&price=" +
+                                $state.shapData.result[
+                                  $state.subscriptionCurrentIndex
+                                ].price +
+                                "&manId=" +
+                                $state.userdata.result.man.id
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        (() => {
+                          try {
+                            return {
+                              headers: {
+                                "Content-Type": "application/json",
+                                Authorization: $state.tokenUser
+                              }
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
+              }
+
+              $steps["goToPage"] =
+                $steps.invokeGlobalAction?.data?.success == true &&
+                $steps.invokeGlobalAction?.data?.result != false
+                  ? (() => {
+                      const actionArgs = {
+                        destination: (() => {
+                          try {
+                            return $steps.invokeGlobalAction?.data?.result;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["goToPage"] != null &&
+                typeof $steps["goToPage"] === "object" &&
+                typeof $steps["goToPage"].then === "function"
+              ) {
+                $steps["goToPage"] = await $steps["goToPage"];
+              }
+
+              $steps["updateLoadingshop2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["loadingshop"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateLoadingshop2"] != null &&
+                typeof $steps["updateLoadingshop2"] === "object" &&
+                typeof $steps["updateLoadingshop2"].then === "function"
+              ) {
+                $steps["updateLoadingshop2"] =
+                  await $steps["updateLoadingshop2"];
+              }
+
+              $steps["updateMoreShopOpendialog"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["moreShop", "opendialog"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateMoreShopOpendialog"] != null &&
+                typeof $steps["updateMoreShopOpendialog"] === "object" &&
+                typeof $steps["updateMoreShopOpendialog"].then === "function"
+              ) {
+                $steps["updateMoreShopOpendialog"] =
+                  await $steps["updateMoreShopOpendialog"];
+              }
+
+              $steps["invokeGlobalAction2"] =
+                $steps.invokeGlobalAction.data.success == false ||
+                $steps.invokeGlobalAction.data.result == false
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "error",
+                          "\u0645\u062a\u0623\u0633\u0641\u0627\u0646\u0647 \u062e\u0637\u0627\u06cc\u06cc \u0631\u062e \u062f\u0627\u062f\u0647 \u0627\u0633\u062a. \u0644\u0637\u0641\u0627\u064b \u0645\u062c\u062f\u062f\u0627\u064b \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f.",
+                          "top-left"
+                        ]
+                      };
+                      return $globalActions["Fragment.showToast"]?.apply(null, [
+                        ...actionArgs.args
+                      ]);
+                    })()
+                  : undefined;
+              if (
+                $steps["invokeGlobalAction2"] != null &&
+                typeof $steps["invokeGlobalAction2"] === "object" &&
+                typeof $steps["invokeGlobalAction2"].then === "function"
+              ) {
+                $steps["invokeGlobalAction2"] =
+                  await $steps["invokeGlobalAction2"];
+              }
+            }}
+            onColorChange={async (...eventArgs: any) => {
+              ((...eventArgs) => {
+                generateStateOnChangeProp($state, ["button4", "color"])(
+                  eventArgs[0]
+                );
+              }).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onLoadChange={async (...eventArgs: any) => {
+              ((...eventArgs) => {
+                generateStateOnChangeProp($state, ["button4", "load"])(
+                  eventArgs[0]
+                );
+              }).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onLoadingChange={async (...eventArgs: any) => {
+              ((...eventArgs) => {
+                generateStateOnChangeProp($state, ["button4", "loading"])(
+                  eventArgs[0]
+                );
+              }).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            showEndIcon={(() => {
+              try {
+                return $state.loadingshop;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "showEndIcon";
+                }
+                throw e;
+              }
+            })()}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__neoLn
+              )}
+            >
+              {hasVariant(globalVariants, "screen", "mobile") ? (
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return (
+                        "فعال سازی " +
+                        $state.subscription2[$state.subscriptionCurrentIndex]
+                          .title
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "--";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              ) : (
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return (
+                        "فعال سازی " +
+                        $state.subscription[$state.subscriptionCurrentIndex]
+                          .title
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "--";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              )}
+            </div>
+          </Button>
+        </div>
+      </Dialog3>
       <AntdModal
         data-plasmic-name={"warning"}
         data-plasmic-override={overrides.warning}
@@ -25870,6 +25825,41 @@ function PlasmicHamyar2__RenderFunc(props: {
           </div>
         </div>
       </AntdModal>
+      {(() => {
+        try {
+          return $state.shopPage2.open;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
+          }
+          throw e;
+        }
+      })() ? (
+        <ShopPage
+          data-plasmic-name={"shopPage2"}
+          data-plasmic-override={overrides.shopPage2}
+          children={null}
+          className={classNames("__wab_instance", sty.shopPage2)}
+          onOpenChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["shopPage2", "open"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          open={generateStateValueProp($state, ["shopPage2", "open"])}
+        />
+      ) : null}
     </div>
   ) as React.ReactElement | null;
 }
@@ -25904,9 +25894,6 @@ const PlasmicDescendants = {
     "button7",
     "tooltip",
     "heart",
-    "moreShop",
-    "subscription2",
-    "button4",
     "loading",
     "favicon",
     "button19",
@@ -25937,9 +25924,13 @@ const PlasmicDescendants = {
     "button6",
     "button10",
     "headerLiom",
+    "moreShop",
+    "subscription2",
+    "button4",
     "warning",
     "button22",
-    "button24"
+    "button24",
+    "shopPage2"
   ],
   sideEffect: ["sideEffect"],
   main: [
@@ -25968,10 +25959,7 @@ const PlasmicDescendants = {
     "button2",
     "button7",
     "tooltip",
-    "heart",
-    "moreShop",
-    "subscription2",
-    "button4"
+    "heart"
   ],
   telegram2: ["telegram2"],
   nopartner: ["nopartner", "createWife", "button17"],
@@ -25998,9 +25986,6 @@ const PlasmicDescendants = {
   button7: ["button7"],
   tooltip: ["tooltip", "heart"],
   heart: ["heart"],
-  moreShop: ["moreShop", "subscription2", "button4"],
-  subscription2: ["subscription2"],
-  button4: ["button4"],
   loading: ["loading"],
   favicon: ["favicon"],
   button19: ["button19"],
@@ -26060,9 +26045,13 @@ const PlasmicDescendants = {
   button6: ["button6"],
   button10: ["button10"],
   headerLiom: ["headerLiom"],
+  moreShop: ["moreShop", "subscription2", "button4"],
+  subscription2: ["subscription2"],
+  button4: ["button4"],
   warning: ["warning", "button22", "button24"],
   button22: ["button22"],
-  button24: ["button24"]
+  button24: ["button24"],
+  shopPage2: ["shopPage2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -26096,9 +26085,6 @@ type NodeDefaultElementType = {
   button7: typeof Button;
   tooltip: typeof AntdTooltip;
   heart: typeof Heart;
-  moreShop: typeof Dialog3;
-  subscription2: typeof Subscription;
-  button4: typeof Button;
   loading: "div";
   favicon: typeof Embed;
   button19: typeof Button;
@@ -26129,9 +26115,13 @@ type NodeDefaultElementType = {
   button6: typeof Button;
   button10: typeof Button;
   headerLiom: typeof HeaderLiom;
+  moreShop: typeof Dialog3;
+  subscription2: typeof Subscription;
+  button4: typeof Button;
   warning: typeof AntdModal;
   button22: typeof Button;
   button24: typeof Button;
+  shopPage2: typeof ShopPage;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -26223,9 +26213,6 @@ export const PlasmicHamyar2 = Object.assign(
     button7: makeNodeComponent("button7"),
     tooltip: makeNodeComponent("tooltip"),
     heart: makeNodeComponent("heart"),
-    moreShop: makeNodeComponent("moreShop"),
-    subscription2: makeNodeComponent("subscription2"),
-    button4: makeNodeComponent("button4"),
     loading: makeNodeComponent("loading"),
     favicon: makeNodeComponent("favicon"),
     button19: makeNodeComponent("button19"),
@@ -26256,9 +26243,13 @@ export const PlasmicHamyar2 = Object.assign(
     button6: makeNodeComponent("button6"),
     button10: makeNodeComponent("button10"),
     headerLiom: makeNodeComponent("headerLiom"),
+    moreShop: makeNodeComponent("moreShop"),
+    subscription2: makeNodeComponent("subscription2"),
+    button4: makeNodeComponent("button4"),
     warning: makeNodeComponent("warning"),
     button22: makeNodeComponent("button22"),
     button24: makeNodeComponent("button24"),
+    shopPage2: makeNodeComponent("shopPage2"),
 
     // Metadata about props expected for PlasmicHamyar2
     internalVariantProps: PlasmicHamyar2__VariantProps,

@@ -1477,7 +1477,20 @@ function PlasmicHamyar3__RenderFunc(props: {
         path: "footerMain.type",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "hamyar"
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return window.sessionStorage.getItem("footer") || "hamyar";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "editProfile2.token",
@@ -1536,6 +1549,12 @@ function PlasmicHamyar3__RenderFunc(props: {
       },
       {
         path: "mainHamyar.hamyar2PlasmicAntd5ModalOpen",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "mainHamyar.hamyar2ShopPage2Open",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
@@ -1675,6 +1694,10 @@ function PlasmicHamyar3__RenderFunc(props: {
                 "mainHamyar",
                 "hamyar2PlasmicAntd5ModalOpen"
               ])}
+              hamyar2ShopPage2Open={generateStateValueProp($state, [
+                "mainHamyar",
+                "hamyar2ShopPage2Open"
+              ])}
               headershow={(() => {
                 try {
                   return (() => {
@@ -1699,6 +1722,20 @@ function PlasmicHamyar3__RenderFunc(props: {
                 generateStateOnChangeProp($state, [
                   "mainHamyar",
                   "hamyar2PlasmicAntd5ModalOpen"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onHamyar2ShopPage2OpenChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "mainHamyar",
+                  "hamyar2ShopPage2Open"
                 ]).apply(null, eventArgs);
 
                 if (
@@ -1853,43 +1890,74 @@ function PlasmicHamyar3__RenderFunc(props: {
                     hasVariant($state, "remindersetting", "remindersetting")
                 })}
               >
-                <FooterMain
-                  data-plasmic-name={"footerMain"}
-                  data-plasmic-override={overrides.footerMain}
-                  className={classNames("__wab_instance", sty.footerMain)}
-                  footer2={(() => {
-                    try {
-                      return (
-                        window.sessionStorage.getItem("footer") ||
-                        $state.footerMain.type
-                      );
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "bot";
+                {(() => {
+                  const child$Props = {
+                    className: classNames("__wab_instance", sty.footerMain),
+                    footer2: (() => {
+                      try {
+                        return $state.footerMain.type;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "bot";
+                        }
+                        throw e;
                       }
-                      throw e;
-                    }
-                  })()}
-                  hamyar={true}
-                  onTypeChange={async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
-                      "footerMain",
-                      "type"
-                    ]).apply(null, eventArgs);
+                    })(),
+                    hamyar: true,
+                    onTypeChange: async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "footerMain",
+                        "type"
+                      ]).apply(null, eventArgs);
 
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  type={generateStateValueProp($state, ["footerMain", "type"])}
-                />
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    },
+                    type: generateStateValueProp($state, ["footerMain", "type"])
+                  };
+
+                  initializePlasmicStates(
+                    $state,
+                    [
+                      {
+                        name: "footerMain.type",
+                        initFunc: ({ $props, $state, $queries }) =>
+                          (() => {
+                            try {
+                              return (
+                                window.sessionStorage.getItem("footer") ||
+                                "hamyar"
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                      }
+                    ],
+                    []
+                  );
+                  return (
+                    <FooterMain
+                      data-plasmic-name={"footerMain"}
+                      data-plasmic-override={overrides.footerMain}
+                      {...child$Props}
+                    />
+                  );
+                })()}
               </section>
             ) : null}
             {(() => {

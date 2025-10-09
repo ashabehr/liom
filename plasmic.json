@@ -4713,6 +4713,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/nazarian"
+        },
+        {
+          "id": "FPGJbvAWDoeU",
+          "name": "ShopPage",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicShopPage.tsx",
+          "importSpec": {
+            "modulePath": "ShopPage.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicShopPage.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
