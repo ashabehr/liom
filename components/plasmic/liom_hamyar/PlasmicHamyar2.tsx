@@ -398,7 +398,7 @@ function PlasmicHamyar2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.shop.data.result.findIndex(
+              return $state.shapData.result.findIndex(
                 item => item.selected === 1
               );
             } catch (e) {
@@ -445,7 +445,7 @@ function PlasmicHamyar2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.shop.data.result.findIndex(
+              return $state.shapData.result.findIndex(
                 item => item.selected === 1
               );
             } catch (e) {
@@ -22052,32 +22052,49 @@ function PlasmicHamyar2__RenderFunc(props: {
             data-plasmic-override={overrides.headerLiom}
             className={classNames("__wab_instance", sty.headerLiom)}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__cZz0X)}>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__cZz0X)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["updateShopPageOpen"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["shopPage", "open"]
+                        },
+                        operation: 0,
+                        value: true
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateShopPageOpen"] != null &&
+                  typeof $steps["updateShopPageOpen"] === "object" &&
+                  typeof $steps["updateShopPageOpen"].then === "function"
+                ) {
+                  $steps["updateShopPageOpen"] =
+                    await $steps["updateShopPageOpen"];
+                }
+              }}
+            >
               <XIcon
                 className={classNames(projectcss.all, sty.svg__kOlyy)}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return ($state.shopPage2.open = false);
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
-                }}
                 role={"img"}
               />
 
@@ -25202,7 +25219,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                     try {
                       return (
                         "فعال سازی " +
-                        $state.subscription[$state.subscriptionCurrentIndex]
+                        $state.subscription2[$state.subscriptionCurrentIndex]
                           .title
                       );
                     } catch (e) {
