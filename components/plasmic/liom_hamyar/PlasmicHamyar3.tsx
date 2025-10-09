@@ -8979,9 +8979,7 @@ function PlasmicHamyar3__RenderFunc(props: {
                   $steps["updateRemind"] = await $steps["updateRemind"];
                 }
 
-                $steps["updateReminder2First"] = (
-                  $state.remember?.data ? false : true
-                )
+                $steps["updateReminder2First"] = false
                   ? (() => {
                       const actionArgs = {
                         variable: {
