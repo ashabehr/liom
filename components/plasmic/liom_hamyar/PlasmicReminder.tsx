@@ -1762,14 +1762,15 @@ function PlasmicReminder__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["runSetting"] = true
-                  ? (() => {
-                      const actionArgs = { eventRef: $props["setting"] };
-                      return (({ eventRef, args }) => {
-                        return eventRef?.(...(args ?? []));
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
+                $steps["runSetting"] =
+                  $props.data.length > 0
+                    ? (() => {
+                        const actionArgs = { eventRef: $props["setting"] };
+                        return (({ eventRef, args }) => {
+                          return eventRef?.(...(args ?? []));
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
                 if (
                   $steps["runSetting"] != null &&
                   typeof $steps["runSetting"] === "object" &&
@@ -1796,6 +1797,33 @@ function PlasmicReminder__RenderFunc(props: {
                   typeof $steps["runCode"].then === "function"
                 ) {
                   $steps["runCode"] = await $steps["runCode"];
+                }
+
+                $steps["updateSlide3"] =
+                  $props.data.length == 0
+                    ? (() => {
+                        const actionArgs = {
+                          vgroup: "slide3",
+                          operation: 2,
+                          value: "slide3"
+                        };
+                        return (({ vgroup, value }) => {
+                          if (typeof value === "string") {
+                            value = [value];
+                          }
+
+                          const oldValue = $stateGet($state, vgroup);
+                          $stateSet($state, vgroup, !oldValue);
+                          return !oldValue;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["updateSlide3"] != null &&
+                  typeof $steps["updateSlide3"] === "object" &&
+                  typeof $steps["updateSlide3"].then === "function"
+                ) {
+                  $steps["updateSlide3"] = await $steps["updateSlide3"];
                 }
               }}
               onColorChange={async (...eventArgs: any) => {

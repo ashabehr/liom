@@ -2034,7 +2034,7 @@ function PlasmicSelfCare__RenderFunc(props: {
 
                         $steps["goToHamyar"] = true
                           ? (() => {
-                              const actionArgs = { destination: `/hamyar-3` };
+                              const actionArgs = {};
                               return (({ destination }) => {
                                 if (
                                   typeof destination === "string" &&

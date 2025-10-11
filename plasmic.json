@@ -1783,20 +1783,6 @@
           "componentType": "component"
         },
         {
-          "id": "TOxGOz1ONYz_",
-          "name": "Hamyar",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicHamyar.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/hamyar-3.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicHamyar.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/hamyar"
-        },
-        {
           "id": "ofUp1AS5glz5",
           "name": "Switchbest",
           "type": "managed",
@@ -4674,20 +4660,6 @@
           "componentType": "component"
         },
         {
-          "id": "cnAAvxWM15-_",
-          "name": "Hamyar3",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicHamyar3.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/hamyar.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicHamyar3.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/hamyar-2"
-        },
-        {
           "id": "dfIi25835BgX",
           "name": "MainHamyar",
           "type": "managed",
@@ -4726,6 +4698,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicShopPage.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "cnAAvxWM15-_",
+          "name": "Hamyar",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicHamyar.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/hamyar.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicHamyar.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/hamyar"
         }
       ],
       "icons": [

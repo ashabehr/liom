@@ -119,7 +119,6 @@ import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzm
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
 import Icon144Icon from "./icons/PlasmicIcon__Icon144"; // plasmic-import: 1DQk0pCQHybZ/icon
-import Icon242Icon from "./icons/PlasmicIcon__Icon242"; // plasmic-import: rdGNS3m3zs7z/icon
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 import Icon140Icon from "./icons/PlasmicIcon__Icon140"; // plasmic-import: KzO15XHeI3j-/icon
 
@@ -230,8 +229,6 @@ export type PlasmicHamyar2__OverridesType = {
   button13?: Flex__<typeof Button>;
   button16?: Flex__<typeof Button>;
   mobileDialog?: Flex__<typeof MobileDialog>;
-  telegram?: Flex__<typeof Dialog>;
-  button18?: Flex__<typeof Button>;
   reminder2?: Flex__<typeof Reminder>;
   reminderSetting?: Flex__<typeof ReminderSetting>;
   settingCycle4?: Flex__<typeof SettingCycle4>;
@@ -1541,35 +1538,6 @@ function PlasmicHamyar2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "telegram.opendialog",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (
-                !window.localStorage.getItem("telegram") &&
-                $state.userdata.result &&
-                !$state.userdata?.result?.man?.telegramId
-              );
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })()
-      },
-      {
-        path: "button18.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "blue"
-      },
-      {
         path: "button19.color",
         type: "private",
         variableType: "text",
@@ -1631,12 +1599,6 @@ function PlasmicHamyar2__RenderFunc(props: {
       },
       {
         path: "button16.load",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "button18.load",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
@@ -1729,12 +1691,6 @@ function PlasmicHamyar2__RenderFunc(props: {
       },
       {
         path: "button16.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button18.loading",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -20489,401 +20445,6 @@ function PlasmicHamyar2__RenderFunc(props: {
         })()}
       />
 
-      {(() => {
-        const child$Props = {
-          className: classNames("__wab_instance", sty.telegram),
-          onOpendialogChange: async (...eventArgs: any) => {
-            generateStateOnChangeProp($state, ["telegram", "opendialog"]).apply(
-              null,
-              eventArgs
-            );
-
-            if (
-              eventArgs.length > 1 &&
-              eventArgs[1] &&
-              eventArgs[1]._plasmic_state_init_
-            ) {
-              return;
-            }
-
-            (async val => {
-              const $steps = {};
-
-              $steps["runCode"] =
-                $state.telegram.opendialog == false
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            return window.localStorage.setItem(
-                              "telegram",
-                              true
-                            );
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
-              }
-            }).apply(null, eventArgs);
-          },
-          opendialog: generateStateValueProp($state, ["telegram", "opendialog"])
-        };
-
-        initializePlasmicStates(
-          $state,
-          [
-            {
-              name: "telegram.opendialog",
-              initFunc: ({ $props, $state, $queries }) =>
-                (() => {
-                  try {
-                    return (
-                      !window.localStorage.getItem("telegram") &&
-                      $state.userdata.result &&
-                      !$state.userdata?.result?.man?.telegramId
-                    );
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return false;
-                    }
-                    throw e;
-                  }
-                })()
-            }
-          ],
-          []
-        );
-        return (
-          <Dialog
-            data-plasmic-name={"telegram"}
-            data-plasmic-override={overrides.telegram}
-            {...child$Props}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                sty.freeBox__bjh,
-                "fixed-object"
-              )}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__dE11
-                )}
-              >
-                {
-                  "\u067e\u06cc\u0627\u0645\u06a9\u200c\u0647\u0627 \u0631\u0648 \u062f\u0631 \u062a\u0644\u06af\u0631\u0627\u0645 \u0647\u0645 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634!"
-                }
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__vNL6
-                )}
-              >
-                {
-                  "\u0628\u0627 \u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0631\u0628\u0627\u062a \u062a\u0644\u06af\u0631\u0627\u0645 \u061b \u0645\u0637\u0645\u0626\u0646 \u0628\u0627\u0634 \u0647\u06cc\u0686 \u067e\u06cc\u0627\u0645\u06cc \u0631\u0648 \u0627\u0632 \u062f\u0633\u062a \u0646\u0645\u06cc\u200c\u062f\u06cc \u0648 \u062f\u06cc\u06af\u0647 \u0628\u06cc\u0646 \u067e\u06cc\u0627\u0645\u06a9\u200c\u0647\u0627 \u06af\u0645 \u0646\u0645\u06cc\u200c\u0634\u0646\r\n\r\n\u067e\u06cc\u0627\u0645\u200c\u0647\u0627\u06cc \u0645\u062a\u0646\u0648\u0639\u200c\u062a\u0631 \u0648 \u0628\u06cc\u0634\u062a\u0631\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u0645\u06cc\u06a9\u0646\u06cc ! "
-                }
-              </div>
-            </div>
-            <Button
-              data-plasmic-name={"button18"}
-              data-plasmic-override={overrides.button18}
-              className={classNames("__wab_instance", sty.button18)}
-              color={generateStateValueProp($state, ["button18", "color"])}
-              load={generateStateValueProp($state, ["button18", "load"])}
-              loading={generateStateValueProp($state, ["button18", "loading"])}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["runCode"] =
-                  $state.userdata.result.user.hamyarStatus ||
-                  $state.userdata.result.user.husbandSmsSubStatus ||
-                  $state.userdata.result.user.motherSmsSubStatus ||
-                  $state.userdata.result.man.hamyarStatus
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              if (
-                                typeof window !== "undefined" &&
-                                window.FlutterChannel &&
-                                typeof window.FlutterChannel.postMessage ===
-                                  "function"
-                              ) {
-                                window.FlutterChannel.postMessage(
-                                  "https://t.me/liomApp_bot"
-                                );
-                              } else if (typeof window !== "undefined") {
-                                window.open(
-                                  "https://t.me/liomApp_bot",
-                                  "_blank"
-                                );
-                              }
-                              return window.localStorage.setItem(
-                                "telegram",
-                                true
-                              );
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
-                ) {
-                  $steps["runCode"] = await $steps["runCode"];
-                }
-
-                $steps["updateDialogOpendialog"] = !(
-                  $state.userdata.result.user.hamyarStatus ||
-                  $state.userdata.result.user.husbandSmsSubStatus ||
-                  $state.userdata.result.user.motherSmsSubStatus ||
-                  $state.userdata.result.man.hamyarStatus
-                )
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["dialog", "opendialog"]
-                        },
-                        operation: 0,
-                        value: true
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateDialogOpendialog"] != null &&
-                  typeof $steps["updateDialogOpendialog"] === "object" &&
-                  typeof $steps["updateDialogOpendialog"].then === "function"
-                ) {
-                  $steps["updateDialogOpendialog"] =
-                    await $steps["updateDialogOpendialog"];
-                }
-
-                $steps["updateTelegramOpendialog"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["telegram", "opendialog"]
-                        },
-                        operation: 0,
-                        value: false
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateTelegramOpendialog"] != null &&
-                  typeof $steps["updateTelegramOpendialog"] === "object" &&
-                  typeof $steps["updateTelegramOpendialog"].then === "function"
-                ) {
-                  $steps["updateTelegramOpendialog"] =
-                    await $steps["updateTelegramOpendialog"];
-                }
-              }}
-              onColorChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button18", "color"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              onLoadChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button18", "load"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              onLoadingChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button18", "loading"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              showStartIcon={true}
-              startIcon={
-                <Icon242Icon
-                  className={classNames(projectcss.all, sty.svg__twb0W)}
-                  role={"img"}
-                />
-              }
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__gBv03
-                )}
-              >
-                {
-                  " \u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0631\u0628\u0627\u062a \u062a\u0644\u06af\u0631\u0627\u0645"
-                }
-              </div>
-            </Button>
-            <div
-              className={classNames(projectcss.all, sty.freeBox__h6D4V)}
-              style={(() => {
-                try {
-                  return (() => {
-                    const element =
-                      window.document.querySelector(".fixed-object");
-                    return { top: element?.offsetTop || 20 };
-                  })();
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-            />
-
-            <div
-              className={classNames(projectcss.all, sty.freeBox__toSh3)}
-              style={
-                hasVariant(globalVariants, "screen", "mobile")
-                  ? (() => {
-                      try {
-                        return (() => {
-                          const element =
-                            window.document.querySelector(".fixed-object");
-                          const absoluteTop =
-                            element.getBoundingClientRect().top +
-                            window.scrollY;
-                          return { top: absoluteTop - 50 || "" };
-                        })();
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()
-                  : (() => {
-                      try {
-                        return (() => {
-                          const element =
-                            window.document.querySelector(".fixed-object");
-                          const absoluteTop =
-                            element.getBoundingClientRect().top +
-                            window.scrollY;
-                          return { top: absoluteTop - 50 || "" };
-                        })();
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()
-              }
-            >
-              <PlasmicImg__
-                alt={""}
-                className={classNames(sty.img___9RxNm)}
-                displayHeight={"80px"}
-                displayMaxHeight={"none"}
-                displayMaxWidth={"100%"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={"80px"}
-                loading={"lazy"}
-                src={{
-                  src: "/plasmic/liom_hamyar/images/image106.svg",
-                  fullWidth: 32,
-                  fullHeight: 32,
-                  aspectRatio: 1
-                }}
-              />
-            </div>
-          </Dialog>
-        );
-      })()}
       <Reveal
         className={classNames("__wab_instance", sty.reveal__iGgXh, {
           [sty.revealpage_reminder__iGgXhoYwi]: hasVariant(
@@ -25971,8 +25532,6 @@ const PlasmicDescendants = {
     "button13",
     "button16",
     "mobileDialog",
-    "telegram",
-    "button18",
     "reminder2",
     "reminderSetting",
     "settingCycle4",
@@ -26084,8 +25643,6 @@ const PlasmicDescendants = {
   button13: ["button13"],
   button16: ["button16"],
   mobileDialog: ["mobileDialog"],
-  telegram: ["telegram", "button18"],
-  button18: ["button18"],
   reminder2: ["reminder2"],
   reminderSetting: ["reminderSetting"],
   settingCycle4: ["settingCycle4"],
@@ -26162,8 +25719,6 @@ type NodeDefaultElementType = {
   button13: typeof Button;
   button16: typeof Button;
   mobileDialog: typeof MobileDialog;
-  telegram: typeof Dialog;
-  button18: typeof Button;
   reminder2: typeof Reminder;
   reminderSetting: typeof ReminderSetting;
   settingCycle4: typeof SettingCycle4;
@@ -26290,8 +25845,6 @@ export const PlasmicHamyar2 = Object.assign(
     button13: makeNodeComponent("button13"),
     button16: makeNodeComponent("button16"),
     mobileDialog: makeNodeComponent("mobileDialog"),
-    telegram: makeNodeComponent("telegram"),
-    button18: makeNodeComponent("button18"),
     reminder2: makeNodeComponent("reminder2"),
     reminderSetting: makeNodeComponent("reminderSetting"),
     settingCycle4: makeNodeComponent("settingCycle4"),
