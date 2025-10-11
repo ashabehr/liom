@@ -5437,32 +5437,33 @@ function PlasmicHamyar__RenderFunc(props: {
                 (async val => {
                   const $steps = {};
 
-                  $steps["updateReminder2Slide3"] = false
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["reminder2", "slide3"]
-                          },
-                          operation: 0,
-                          value: true
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
+                  $steps["updateReminder2Slide3"] =
+                    $state.reminder2.first == true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["reminder2", "slide3"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
 
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
                   if (
                     $steps["updateReminder2Slide3"] != null &&
                     typeof $steps["updateReminder2Slide3"] === "object" &&
@@ -5470,6 +5471,43 @@ function PlasmicHamyar__RenderFunc(props: {
                   ) {
                     $steps["updateReminder2Slide3"] =
                       await $steps["updateReminder2Slide3"];
+                  }
+
+                  $steps["updateReminder2Slide32"] =
+                    $state.reminder2.first == false &&
+                    $state.reminder2.slide3 != true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["reminder2", "slide3"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                  if (
+                    $steps["updateReminder2Slide32"] != null &&
+                    typeof $steps["updateReminder2Slide32"] === "object" &&
+                    typeof $steps["updateReminder2Slide32"].then === "function"
+                  ) {
+                    $steps["updateReminder2Slide32"] =
+                      await $steps["updateReminder2Slide32"];
                   }
                 }).apply(null, eventArgs);
               }}
@@ -6592,6 +6630,42 @@ function PlasmicHamyar__RenderFunc(props: {
                 ) {
                   $steps["updateReminder2First"] =
                     await $steps["updateReminder2First"];
+                }
+
+                $steps["updateReminder2First2"] =
+                  $state.reminder2.first > 0
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["reminder2", "first"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["updateReminder2First2"] != null &&
+                  typeof $steps["updateReminder2First2"] === "object" &&
+                  typeof $steps["updateReminder2First2"].then === "function"
+                ) {
+                  $steps["updateReminder2First2"] =
+                    await $steps["updateReminder2First2"];
                 }
               }).apply(null, eventArgs);
             }}
