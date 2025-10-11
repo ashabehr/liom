@@ -6633,7 +6633,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 }
 
                 $steps["updateReminder2First2"] =
-                  $state.reminder2.first > 0
+                  $state.remind.length > 0
                     ? (() => {
                         const actionArgs = {
                           variable: {

@@ -4712,6 +4712,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/hamyar"
+        },
+        {
+          "id": "ndgNxvaF00At",
+          "name": "ReminderCategory",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicReminderCategory.tsx",
+          "importSpec": {
+            "modulePath": "ReminderCategory.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicReminderCategory.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
