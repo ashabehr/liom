@@ -140,13 +140,39 @@ function PlasmicReminderCategory__RenderFunc(props: {
         path: "radioGroupLiom.selected",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "radioGroupLiom.list",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.apiRequest.data.category;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "apiRequest.data",
@@ -278,6 +304,7 @@ function PlasmicReminderCategory__RenderFunc(props: {
           );
         }}
         shouldFetch={true}
+        url={"https://n8n.staas.ir/webhook/reminders/category"}
       />
     </div>
   ) as React.ReactElement | null;
