@@ -88,7 +88,6 @@ import Icon311Icon from "./icons/PlasmicIcon__Icon311"; // plasmic-import: lNuAA
 import Icon291Icon from "./icons/PlasmicIcon__Icon291"; // plasmic-import: U9F0Jow4owN9/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
-import Icon323Icon from "./icons/PlasmicIcon__Icon323"; // plasmic-import: JmbyEWKrEXXu/icon
 import Icon214Icon from "./icons/PlasmicIcon__Icon214"; // plasmic-import: gfITgruAsqTI/icon
 import Icon283Icon from "./icons/PlasmicIcon__Icon283"; // plasmic-import: d6oFXeX9yzDi/icon
 import Icon313Icon from "./icons/PlasmicIcon__Icon313"; // plasmic-import: 2foIFDF7T4zN/icon
@@ -4310,9 +4309,22 @@ function PlasmicReminderSetting__RenderFunc(props: {
           })}
         >
           <div className={classNames(projectcss.all, sty.freeBox__mco7M)}>
-            <Icon323Icon
-              className={classNames(projectcss.all, sty.svg__gtWHz)}
-              role={"img"}
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img___2Ze26)}
+              displayHeight={"50px"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={"50px"}
+              loading={"lazy"}
+              src={{
+                src: "/plasmic/liom_hamyar/images/image121.svg",
+                fullWidth: 32,
+                fullHeight: 32,
+                aspectRatio: 1
+              }}
             />
 
             <div className={classNames(projectcss.all, sty.freeBox__jphvW)}>
@@ -6372,11 +6384,45 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                           $props.telegramId;
                                                         currentItem.phoneNumber =
                                                           $props.phoneNumber;
-                                                        return (
-                                                          (currentItem.times =
-                                                            '["09:00"]'),
-                                                          currentItem
-                                                        );
+                                                        let dates = [];
+                                                        if (
+                                                          currentItem.schedule_type ===
+                                                          "everyYear"
+                                                        ) {
+                                                          const parsedDates =
+                                                            JSON.parse(
+                                                              currentItem.dates
+                                                            );
+                                                          dates =
+                                                            parsedDates.map(
+                                                              dateStr => {
+                                                                let parts =
+                                                                  dateStr.split(
+                                                                    /[-/]/
+                                                                  );
+                                                                parts[0] =
+                                                                  "0000";
+                                                                return dateStr.includes(
+                                                                  "-"
+                                                                )
+                                                                  ? parts.join(
+                                                                      "-"
+                                                                    )
+                                                                  : parts.join(
+                                                                      "/"
+                                                                    );
+                                                              }
+                                                            );
+                                                          currentItem.dates =
+                                                            JSON.stringify(
+                                                              dates
+                                                            );
+                                                        }
+                                                        currentItem.times =
+                                                          JSON.stringify([
+                                                            "09:00"
+                                                          ]);
+                                                        return currentItem;
                                                       })();
                                                     } catch (e) {
                                                       if (
