@@ -17,6 +17,7 @@ type DatePickersProps = {
   selectedValues?: { day: number; month: number; year: number };
   customYears?: { value: number; label: string }[];
   className?: string;
+  hideYear?: boolean; // ✅ اضافه شد
 };
 
 export const DatePickers = (props: DatePickersProps) => {
@@ -28,6 +29,7 @@ export const DatePickers = (props: DatePickersProps) => {
     selectedValues = {},
     customYears = [],
     className,
+    hideYear = false, // ✅ مقدار پیش‌فرض false
   } = props;
 
   const [selectedDay, setSelectedDay] = useState<number>(SelectedDay);
@@ -62,7 +64,7 @@ export const DatePickers = (props: DatePickersProps) => {
     { value: 10, label: 'دی' },
     { value: 11, label: 'بهمن' },
     { value: 12, label: 'اسفند' },
-  ].map((month) => ({ ...month, label: toPersianDigits(month.label) }));
+  ].map((month) => ({ ...month, label: month.label }));
 
   const years =
     customYears.length > 0
@@ -84,12 +86,11 @@ export const DatePickers = (props: DatePickersProps) => {
       day: selectedDay, 
       month: selectedMonth, 
       year: selectedYear,
-        gregorian: {
-    day: gregorian.gd,
-    month: gregorian.gm,
-    year: gregorian.gy
-  }
-
+      gregorian: {
+        day: gregorian.gd,
+        month: gregorian.gm,
+        year: gregorian.gy
+      }
     };
     if (onChangeRef.current) {
       onChangeRef.current(values);
@@ -131,6 +132,7 @@ export const DatePickers = (props: DatePickersProps) => {
 
   return (
     <div className={className}>
+      {/* 👇 انتخاب روز */}
       <Picker selectedValue={selectedDay} onValueChange={handleChangeDay}>
         {getDaysOfMonth(selectedMonth, selectedYear).map((day) => (
           <Picker.Item key={day.value} value={day.value}>
@@ -139,6 +141,7 @@ export const DatePickers = (props: DatePickersProps) => {
         ))}
       </Picker>
 
+      {/* 👇 انتخاب ماه */}
       <Picker selectedValue={selectedMonth} onValueChange={handleChangeMonth}>
         {months.map((month) => (
           <Picker.Item key={month.value} value={month.value}>
@@ -147,17 +150,19 @@ export const DatePickers = (props: DatePickersProps) => {
         ))}
       </Picker>
 
-      <Picker selectedValue={selectedYear} onValueChange={handleChangeYear}>
-        {years.map((year) => (
-          <Picker.Item key={year.value} value={year.value}>
-            {year.label}
-          </Picker.Item>
-        ))}
-      </Picker>
+      {/* 👇 فقط اگر hideYear=false باشد نمایش داده می‌شود */}
+      {!hideYear && (
+        <Picker selectedValue={selectedYear} onValueChange={handleChangeYear}>
+          {years.map((year) => (
+            <Picker.Item key={year.value} value={year.value}>
+              {year.label}
+            </Picker.Item>
+          ))}
+        </Picker>
+      )}
     </div>
   );
 };
-
 
 export const DatePickersMeta: CodeComponentMeta<DatePickersProps> = {
   name: 'DatePickers',
@@ -194,6 +199,11 @@ export const DatePickersMeta: CodeComponentMeta<DatePickersProps> = {
       defaultValue: [],
       description: 'Custom years array to override the default generated years.',
     },
+    hideYear: {
+      type: 'boolean',
+      defaultValue: false,
+      description: 'اگر true باشد، انتخابگر سال نمایش داده نمی‌شود.', // ✅ اضافه شد
+    },
   },
   states: {
     value: {
@@ -204,7 +214,3 @@ export const DatePickersMeta: CodeComponentMeta<DatePickersProps> = {
     },
   },
 };
-
-
-
-
