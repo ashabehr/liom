@@ -104,6 +104,8 @@ export type PlasmicMainHamyar__ArgsType = {
   onHamyarShopChange?: (val: boolean) => void;
   hamyar2MobileDialogOpen?: boolean;
   onHamyar2MobileDialogOpenChange?: (val: boolean) => void;
+  hamyar2Refresh?: string;
+  onHamyar2RefreshChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicMainHamyar__ArgsType;
 export const PlasmicMainHamyar__ArgProps = new Array<ArgPropType>(
@@ -122,7 +124,9 @@ export const PlasmicMainHamyar__ArgProps = new Array<ArgPropType>(
   "hamyarShop",
   "onHamyarShopChange",
   "hamyar2MobileDialogOpen",
-  "onHamyar2MobileDialogOpenChange"
+  "onHamyar2MobileDialogOpenChange",
+  "hamyar2Refresh",
+  "onHamyar2RefreshChange"
 );
 
 export type PlasmicMainHamyar__OverridesType = {
@@ -151,6 +155,8 @@ export interface DefaultMainHamyarProps {
   onHamyarShopChange?: (val: boolean) => void;
   hamyar2MobileDialogOpen?: boolean;
   onHamyar2MobileDialogOpenChange?: (val: boolean) => void;
+  hamyar2Refresh?: string;
+  onHamyar2RefreshChange?: (val: string) => void;
   page?: SingleChoiceArg<"hamyar" | "self" | "bot">;
   haader?: SingleBooleanChoiceArg<"haader">;
   className?: string;
@@ -300,6 +306,14 @@ function PlasmicMainHamyar__RenderFunc(props: {
 
         valueProp: "hamyar2MobileDialogOpen",
         onChangeProp: "onHamyar2MobileDialogOpenChange"
+      },
+      {
+        path: "hamyar2.refresh",
+        type: "writable",
+        variableType: "text",
+
+        valueProp: "hamyar2Refresh",
+        onChangeProp: "onHamyar2RefreshChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -392,6 +406,20 @@ function PlasmicMainHamyar__RenderFunc(props: {
             "hamyar2",
             "plasmicAntd5ModalOpen"
           ]).apply(null, eventArgs);
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        onRefreshChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["hamyar2", "refresh"]).apply(
+            null,
+            eventArgs
+          );
 
           if (
             eventArgs.length > 1 &&
@@ -541,6 +569,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
           "hamyar2",
           "plasmicAntd5ModalOpen"
         ])}
+        refresh={generateStateValueProp($state, ["hamyar2", "refresh"])}
         remind={generateStateValueProp($state, ["hamyar2", "remind"])}
         reminderOpen={args.reminderOpen}
         shop={generateStateValueProp($state, ["hamyar2", "shop"])}

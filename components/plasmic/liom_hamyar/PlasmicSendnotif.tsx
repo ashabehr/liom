@@ -498,6 +498,11 @@ function PlasmicSendnotif__RenderFunc(props: {
         path: "datePickers[].value",
         type: "private",
         variableType: "object"
+      },
+      {
+        path: "radioGroupLiom[].selects",
+        type: "private",
+        variableType: "array"
       }
     ],
     [$props, $ctx, $refs]
@@ -1640,6 +1645,7 @@ function PlasmicSendnotif__RenderFunc(props: {
                                           sty.datePickers
                                         ),
                                         customYears: [],
+                                        hideYear: false,
                                         onChange: async (...eventArgs: any) => {
                                           generateStateOnChangeProp($state, [
                                             "datePickers",
@@ -1967,10 +1973,30 @@ function PlasmicSendnotif__RenderFunc(props: {
                                 return;
                               }
                             },
+                            onSelectsChange: async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "radioGroupLiom",
+                                __plasmic_idx_0,
+                                "selects"
+                              ]).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            },
                             selected: generateStateValueProp($state, [
                               "radioGroupLiom",
                               __plasmic_idx_0,
                               "selected"
+                            ]),
+                            selects: generateStateValueProp($state, [
+                              "radioGroupLiom",
+                              __plasmic_idx_0,
+                              "selects"
                             ])
                           };
 
@@ -1989,6 +2015,10 @@ function PlasmicSendnotif__RenderFunc(props: {
                                   { label: "user id", value: "userId" },
                                   { label: "topic", value: "topic" }
                                 ]
+                              },
+                              {
+                                name: "radioGroupLiom[].selects",
+                                initFunc: ({ $props, $state, $queries }) => []
                               }
                             ],
                             [__plasmic_idx_0]

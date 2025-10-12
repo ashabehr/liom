@@ -64,6 +64,7 @@ import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { Input } from "@/fragment/components/input"; // plasmic-import: zZH7vV9pXyf8/codeComponent
 import Repead from "../../Repead"; // plasmic-import: bTRB9n2MQ7IL/component
 import RadioGrop from "../../RadioGrop"; // plasmic-import: mcNKMbL_6N75/component
+import RadioGroupLiom from "../../RadioGroupLiom"; // plasmic-import: tXN0uQ-uT9R3/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
 import { Pickers } from "@/components/Pickers"; // plasmic-import: htE-oGSeNx82/codeComponent
@@ -87,6 +88,7 @@ import Icon311Icon from "./icons/PlasmicIcon__Icon311"; // plasmic-import: lNuAA
 import Icon291Icon from "./icons/PlasmicIcon__Icon291"; // plasmic-import: U9F0Jow4owN9/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+import Icon323Icon from "./icons/PlasmicIcon__Icon323"; // plasmic-import: JmbyEWKrEXXu/icon
 import Icon214Icon from "./icons/PlasmicIcon__Icon214"; // plasmic-import: gfITgruAsqTI/icon
 import Icon283Icon from "./icons/PlasmicIcon__Icon283"; // plasmic-import: d6oFXeX9yzDi/icon
 import Icon313Icon from "./icons/PlasmicIcon__Icon313"; // plasmic-import: 2foIFDF7T4zN/icon
@@ -125,6 +127,8 @@ export type PlasmicReminderSetting__ArgsType = {
   sms?: boolean;
   onSmsChange?: (val: string) => void;
   setMobile?: () => void;
+  refreshTime?: string;
+  onRefreshTimeChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicReminderSetting__ArgsType;
 export const PlasmicReminderSetting__ArgProps = new Array<ArgPropType>(
@@ -144,7 +148,9 @@ export const PlasmicReminderSetting__ArgProps = new Array<ArgPropType>(
   "onTelChange",
   "sms",
   "onSmsChange",
-  "setMobile"
+  "setMobile",
+  "refreshTime",
+  "onRefreshTimeChange"
 );
 
 export type PlasmicReminderSetting__OverridesType = {
@@ -155,6 +161,7 @@ export type PlasmicReminderSetting__OverridesType = {
   input?: Flex__<typeof Input>;
   repead?: Flex__<typeof Repead>;
   radioGrop?: Flex__<typeof RadioGrop>;
+  radioGroupLiom?: Flex__<typeof RadioGroupLiom>;
   button5?: Flex__<typeof Button>;
   button8?: Flex__<typeof Button>;
   dateDiolog?: Flex__<typeof Dialog>;
@@ -206,6 +213,8 @@ export interface DefaultReminderSettingProps {
   sms?: boolean;
   onSmsChange?: (val: string) => void;
   setMobile?: () => void;
+  refreshTime?: string;
+  onRefreshTimeChange?: (val: string) => void;
   slide?: SingleChoiceArg<"_1" | "_2">;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
   className?: string;
@@ -234,70 +243,68 @@ function PlasmicReminderSetting__RenderFunc(props: {
         {
           data: [
             {
-              id: 256,
-              liomId: "1",
-              telegramId: "573538820",
+              id: 361,
+              liomId: "1ce6e0a9-217c-4c9e-9b59-2faefdc51487",
+              telegramId: null,
               phoneNumber: "",
-              schedule_type: "everyDay",
-              name: "\u0642\u0631\u0635 \u0645\u0641\u0646\u0627\u0646\u06cc\u06a9 \u0627\u0633\u06cc\u062f",
-              text: "pill",
-              token1:
-                "\u0645\u0641\u0646\u0627\u0646\u06cc\u06a9 \u0627\u0633\u06cc\u062f",
-              dates: null,
-              weekdays:
-                '["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]',
-              times: '["10:00","18:00","02:00"]',
-              finishTime: "2025-09-30 23:59:59",
-              active: 1
-            },
-            {
-              id: 243,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "null",
-              schedule_type: "everyDay",
-              name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628",
-              text: "drinkWater",
+              schedule_type: "everyYear",
+              name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c",
+              text: "wedding_anniversary",
               token1: null,
-              dates: null,
-              weekdays:
-                '["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]',
-              times:
-                '["08:00","10:00","12:00","15:20","18:00","20:00","22:00","00:30"]',
-              finishTime: "2025-12-31 00:00:00",
+              dates: '["2025-12-31"]',
+              weekdays: null,
+              times: '["10:00"]',
+              finishTime: null,
+              channels: '["notification","telegram"]',
               active: 1
             },
             {
-              id: 255,
-              liomId: "1",
-              telegramId: "1901110800",
+              id: 358,
+              liomId: "1ce6e0a9-217c-4c9e-9b59-2faefdc51487",
+              telegramId: null,
               phoneNumber: "",
               schedule_type: "everyYear",
-              name: "\u062a\u0648\u0644\u062f \u0641\u0631\u0632\u0646\u062f",
-              text: "birthdayBoyChild",
-              token1: "",
-              dates: '["2025-11-21","2026-06-24"]',
-              weekdays:
-                '["sunday","monday","tuesday","wednesday","friday","saturday"]',
-              times: '["10:00"]',
-              finishTime: "2025-12-11 23:59:02",
+              name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
+              text: "occasion",
+              token1: null,
+              dates: '["2026-02-14"]',
+              weekdays: null,
+              times: '["09:00"]',
+              finishTime: null,
+              chanels: "{",
               active: 1
             },
             {
-              id: 241,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "null",
+              id: 359,
+              liomId: "1ce6e0a9-217c-4c9e-9b59-2faefdc51487",
+              telegramId: null,
+              phoneNumber: "",
               schedule_type: "everyYear",
-              name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631\u0645",
-              text: "birthday_child",
-              token1:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1ODk2MDI4N30._Tp-wZXlukWoGyta2f-pCjVqGASV2wPp5eSWFhUPLj4",
-              dates: '["2026-03-11"]',
+              name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
+              text: "occasion",
+              token1: null,
+              dates: '["2026-02-18"]',
               weekdays: null,
-              times: '["12:00"]',
-              finishTime: "2025-09-23 15:55:12",
+              times: '["09:00"]',
+              finishTime: null,
+              chanels: "{",
               active: 0
+            },
+            {
+              id: 360,
+              liomId: "1ce6e0a9-217c-4c9e-9b59-2faefdc51487",
+              telegramId: null,
+              phoneNumber: "",
+              schedule_type: "everyYear",
+              name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
+              text: "occasion",
+              token1: null,
+              dates: '["2026-02-18"]',
+              weekdays: null,
+              times: '["09:00"]',
+              finishTime: null,
+              chanels: "{",
+              active: 1
             }
           ],
           subscription: false,
@@ -511,7 +518,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         path: "button9.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "blue"
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       },
       {
         path: "button9.loading",
@@ -689,7 +696,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       weekdays: r.weekdays || existing.weekdays,
                       times: r.times || existing.times,
                       finishTime: r.finishTime || existing.finishTime,
-                      active: r.active ?? existing.active
+                      active: r.active ?? existing.active,
+                      channels: r.chanels ?? existing.chanels
                     };
                     offlineMap.set(key, updated);
                     const index = updatedList.indexOf(existing);
@@ -708,7 +716,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       weekdays: r.weekdays || null,
                       times: r.times || null,
                       finishTime: r.finishTime || null,
-                      active: r.active ?? 0
+                      active: r.active ?? 0,
+                      channels:
+                        r.channels == "{" ? '["notification"]' : r.channels
                     };
                     updatedList.push(newEvent);
                     offlineMap.set(key, newEvent);
@@ -857,6 +867,92 @@ function PlasmicReminderSetting__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "radioGroupLiom.selected",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "radioGroupLiom.list",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                const notifications = [
+                  {
+                    label: "نوتیفیکیشن",
+                    value: "notification",
+                    paid: false
+                  },
+                  {
+                    label: "تلگرام",
+                    value: "telegram",
+                    paid: false
+                  },
+                  {
+                    label: "پیامک",
+                    value: "sms",
+                    paid: true
+                  },
+                  {
+                    label: "تماس",
+                    value: "call",
+                    paid: true
+                  }
+                ];
+
+                notifications.forEach(i => {
+                  i.access = i.paid ? $props.subscription : true;
+                });
+                return notifications;
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "radioGroupLiom.selects",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                try {
+                  return JSON.parse($state.select2.channels);
+                } catch {
+                  return [];
+                }
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "refreshTime",
+        type: "writable",
+        variableType: "text",
+
+        valueProp: "refreshTime",
+        onChangeProp: "onRefreshTimeChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -1543,7 +1639,10 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           <React.Fragment>
                             {(() => {
                               try {
-                                return $state.date[0].start.g;
+                                return $state.select2.schedule_type !=
+                                  "everyYear"
+                                  ? $state.date[0].start.g
+                                  : $state.date[0].start.g.slice(0, -4);
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -1952,6 +2051,23 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       </div>
                     </div>
                   </div>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.select2.text == "occasion";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__vpcxq)}
+                  />
                 ) : null}
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__mcNrt)}>
@@ -2395,6 +2511,326 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   </div>
                 ) : null}
               </div>
+              <div className={classNames(projectcss.all, sty.freeBox__aVHvs)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__xaJcm
+                  )}
+                >
+                  {
+                    "\u0627\u0632 \u0686\u0647 \u0637\u0631\u06cc\u0642\u06cc \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0627\u0646\u062c\u0627\u0645 \u0634\u0648\u062f\u061f"
+                  }
+                </div>
+                {(() => {
+                  const child$Props = {
+                    accessclicke: async () => {
+                      const $steps = {};
+
+                      $steps["runShop"] = true
+                        ? (() => {
+                            const actionArgs = { eventRef: $props["shop"] };
+                            return (({ eventRef, args }) => {
+                              return eventRef?.(...(args ?? []));
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runShop"] != null &&
+                        typeof $steps["runShop"] === "object" &&
+                        typeof $steps["runShop"].then === "function"
+                      ) {
+                        $steps["runShop"] = await $steps["runShop"];
+                      }
+                    },
+                    className: classNames("__wab_instance", sty.radioGroupLiom),
+                    list: generateStateValueProp($state, [
+                      "radioGroupLiom",
+                      "list"
+                    ]),
+                    moulty: true,
+                    onListChange: async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "radioGroupLiom",
+                        "list"
+                      ]).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    },
+                    onSelectedChange: async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "radioGroupLiom",
+                        "selected"
+                      ]).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    },
+                    onSelectsChange: async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "radioGroupLiom",
+                        "selects"
+                      ]).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    },
+                    selected: generateStateValueProp($state, [
+                      "radioGroupLiom",
+                      "selected"
+                    ]),
+                    selects: generateStateValueProp($state, [
+                      "radioGroupLiom",
+                      "selects"
+                    ]),
+                    size: "small",
+                    unnamedVariant: true
+                  };
+
+                  initializePlasmicStates(
+                    $state,
+                    [
+                      {
+                        name: "radioGroupLiom.selects",
+                        initFunc: ({ $props, $state, $queries }) =>
+                          (() => {
+                            try {
+                              return (() => {
+                                try {
+                                  return JSON.parse($state.select2.channels);
+                                } catch {
+                                  return [];
+                                }
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                      }
+                    ],
+                    []
+                  );
+                  return (
+                    <RadioGroupLiom
+                      data-plasmic-name={"radioGroupLiom"}
+                      data-plasmic-override={overrides.radioGroupLiom}
+                      {...child$Props}
+                    />
+                  );
+                })()}
+                {(() => {
+                  try {
+                    return $state.time2.length > 1;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__u0Uwl)}
+                  >
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return $state.time2;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox___5Yr4M
+                          )}
+                          key={currentIndex}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__cnHxd
+                            )}
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["updateTimeIndex"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["timeIndex"]
+                                      },
+                                      operation: 0,
+                                      value: currentIndex
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateTimeIndex"] != null &&
+                                typeof $steps["updateTimeIndex"] === "object" &&
+                                typeof $steps["updateTimeIndex"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateTimeIndex"] =
+                                  await $steps["updateTimeIndex"];
+                              }
+
+                              $steps["updateTimeOpendialog"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["time", "opendialog"]
+                                      },
+                                      operation: 0,
+                                      value: true
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateTimeOpendialog"] != null &&
+                                typeof $steps["updateTimeOpendialog"] ===
+                                  "object" &&
+                                typeof $steps["updateTimeOpendialog"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateTimeOpendialog"] =
+                                  await $steps["updateTimeOpendialog"];
+                              }
+                            }}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text___63ZP
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return `${String(currentItem.minute).padStart(2, "0")} : ${String(currentItem.hour).padStart(2, "0")}`;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u0628\u0631\u0627\u06cc \u0645\u062b\u0627\u0644 1404/1/1";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          </div>
+                          <Icon311Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__w5Xe
+                            )}
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["runCode"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return $state.time2.splice(
+                                          currentIndex,
+                                          1
+                                        );
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+                            }}
+                            role={"img"}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                ) : null}
+              </div>
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__wxPm)}>
               <Button
@@ -2458,6 +2894,18 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     : undefined;
                                   if ($state.date.length > 0) {
                                     let dates = $state.date.map(i => i.start.f);
+                                    if (
+                                      $state.select2.schedule_type ===
+                                      "everyYear"
+                                    ) {
+                                      dates = $state.date.map(i => {
+                                        let parts = i.start.f.split(/[-/]/);
+                                        parts[0] = "0000";
+                                        return i.start.f.includes("-")
+                                          ? parts.join("-")
+                                          : parts.join("/");
+                                      });
+                                    }
                                     $state.select2.dates =
                                       JSON.stringify(dates);
                                   } else {
@@ -2477,6 +2925,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     )
                                   );
                                   $state.select2.name = $state.input.value;
+                                  $state.select2.channels = JSON.stringify(
+                                    $state.radioGroupLiom.selects
+                                  );
                                   return $state.select2;
                                 })();
                               } catch (e) {
@@ -2521,6 +2972,18 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     : undefined;
                                   if ($state.date.length > 0) {
                                     let dates = $state.date.map(i => i.start.f);
+                                    if (
+                                      $state.select2.schedule_type ===
+                                      "everyYear"
+                                    ) {
+                                      dates = $state.date.map(i => {
+                                        let parts = i.start.f.split(/[-/]/);
+                                        parts[0] = "0000";
+                                        return i.start.f.includes("-")
+                                          ? parts.join("-")
+                                          : parts.join("/");
+                                      });
+                                    }
                                     $state.select2.dates =
                                       JSON.stringify(dates);
                                   } else {
@@ -2540,6 +3003,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     )
                                   );
                                   $state.select2.name = $state.input.value;
+                                  $state.select2.channels = JSON.stringify(
+                                    $state.radioGroupLiom.selects
+                                  );
                                   return $state.select2;
                                 })();
                               } catch (e) {
@@ -2941,6 +3407,19 @@ function PlasmicReminderSetting__RenderFunc(props: {
               })()}
               className={classNames("__wab_instance", sty.datePickers)}
               customYears={[]}
+              hideYear={(() => {
+                try {
+                  return $state.select2.schedule_type == "everyYear";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })()}
               onChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "datePickers",
@@ -3818,7 +4297,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
             )}
           >
             {
-              "\u0627\u0631\u0633\u0627\u0644 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc "
+              "\u0645\u0633\u06cc\u0631 \u0647\u0627\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627"
             }
           </div>
         </div>
@@ -3831,6 +4310,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
           })}
         >
           <div className={classNames(projectcss.all, sty.freeBox__mco7M)}>
+            <Icon323Icon
+              className={classNames(projectcss.all, sty.svg__gtWHz)}
+              role={"img"}
+            />
+
             <div className={classNames(projectcss.all, sty.freeBox__jphvW)}>
               <div
                 className={classNames(
@@ -3840,7 +4324,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 )}
               >
                 {
-                  "\u06cc\u0627\u062f \u0622\u0648\u0631\u06cc \u0627\u0632 \u0637\u0631\u06cc\u0642 \u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646"
+                  " \u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646"
                 }
               </div>
             </div>
@@ -3861,6 +4345,30 @@ function PlasmicReminderSetting__RenderFunc(props: {
             </div>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__lD35S)}>
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img__ge09I)}
+              displayHeight={
+                hasVariant(globalVariants, "screen", "mobile") ? "40px" : "50px"
+              }
+              displayMaxHeight={"none"}
+              displayMaxWidth={
+                hasVariant(globalVariants, "screen", "mobile") ? "100%" : "100%"
+              }
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={
+                hasVariant(globalVariants, "screen", "mobile") ? "40px" : "50px"
+              }
+              loading={"lazy"}
+              src={{
+                src: "/plasmic/liom_hamyar/images/image119.svg",
+                fullWidth: 32,
+                fullHeight: 32,
+                aspectRatio: 1
+              }}
+            />
+
             <div className={classNames(projectcss.all, sty.freeBox__nyFlb)}>
               <div
                 className={classNames(
@@ -3870,7 +4378,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 )}
               >
                 {
-                  "\u06cc\u0627\u062f \u0622\u0648\u0631\u06cc \u0627\u0632 \u0637\u0631\u06cc\u0642 \u062a\u0644\u06af\u0631\u0627\u0645"
+                  "\u0631\u0628\u0627\u062a \u062a\u0644\u06af\u0631\u0627\u0645"
                 }
               </div>
             </div>
@@ -3939,6 +4447,43 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   ) {
                     $steps["runCode"] = await $steps["runCode"];
                   }
+
+                  $steps["updateRefreshTime"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["refreshTime"]
+                          },
+                          operation: 0,
+                          value: new Date().toLocaleString("fa-IR", {
+                            timeZone: "Asia/Tehran"
+                          })
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateRefreshTime"] != null &&
+                    typeof $steps["updateRefreshTime"] === "object" &&
+                    typeof $steps["updateRefreshTime"].then === "function"
+                  ) {
+                    $steps["updateRefreshTime"] =
+                      await $steps["updateRefreshTime"];
+                  }
                 }}
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
@@ -4003,18 +4548,18 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 throw e;
               }
             })() ? (
-              <div className={classNames(projectcss.all, sty.freeBox__apXmg)}>
+              <div className={classNames(projectcss.all, sty.freeBox__of6QH)}>
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__tt72S
+                    sty.text__shHvk
                   )}
                 >
                   {"\u0641\u0639\u0627\u0644"}
                 </div>
                 <Icon214Icon
-                  className={classNames(projectcss.all, sty.svg__fua6)}
+                  className={classNames(projectcss.all, sty.svg__gclh)}
                   role={"img"}
                 />
               </div>
@@ -4024,6 +4569,28 @@ function PlasmicReminderSetting__RenderFunc(props: {
             className={classNames(projectcss.all, sty.freeBox__h31Sa)}
             id={"sms-tag"}
           >
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img___1Jflj)}
+              displayHeight={
+                hasVariant(globalVariants, "screen", "mobile") ? "40px" : "50px"
+              }
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={
+                hasVariant(globalVariants, "screen", "mobile") ? "40px" : "50px"
+              }
+              loading={"lazy"}
+              src={{
+                src: "/plasmic/liom_hamyar/images/image120.svg",
+                fullWidth: 34,
+                fullHeight: 34,
+                aspectRatio: 1
+              }}
+            />
+
             <div className={classNames(projectcss.all, sty.freeBox__ljiiw)}>
               <div
                 className={classNames(
@@ -4033,7 +4600,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 )}
               >
                 {
-                  "\u06cc\u0627\u062f \u0622\u0648\u0631\u06cc \u0628\u0627 \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9 \u06cc\u0627 \u062a\u0645\u0627\u0633"
+                  " \u067e\u06cc\u0627\u0645\u06a9 \u0648 \u062a\u0645\u0627\u0633"
                 }
               </div>
             </div>
@@ -4095,6 +4662,43 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   ) {
                     $steps["runInteractionProp"] =
                       await $steps["runInteractionProp"];
+                  }
+
+                  $steps["updateRefreshTime"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["refreshTime"]
+                          },
+                          operation: 0,
+                          value: new Date().toLocaleString("fa-IR", {
+                            timeZone: "Asia/Tehran"
+                          })
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateRefreshTime"] != null &&
+                    typeof $steps["updateRefreshTime"] === "object" &&
+                    typeof $steps["updateRefreshTime"].then === "function"
+                  ) {
+                    $steps["updateRefreshTime"] =
+                      await $steps["updateRefreshTime"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
@@ -4160,18 +4764,18 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 throw e;
               }
             })() ? (
-              <div className={classNames(projectcss.all, sty.freeBox__zNeZt)}>
+              <div className={classNames(projectcss.all, sty.freeBox__lEgr6)}>
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__ugo5M
+                    sty.text__xnAhg
                   )}
                 >
                   {"\u0641\u0639\u0627\u0644"}
                 </div>
                 <Icon214Icon
-                  className={classNames(projectcss.all, sty.svg__vdJmv)}
+                  className={classNames(projectcss.all, sty.svg__yFzrA)}
                   role={"img"}
                 />
               </div>
@@ -5025,53 +5629,105 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                               {(() => {
                                                 try {
                                                   return (() => {
-                                                    try {
-                                                      let dates = JSON.parse(
-                                                        currentItem.dates
-                                                      );
-                                                      if (
-                                                        dates &&
-                                                        dates.length > 0
-                                                      ) {
-                                                        function parseISOToUTC(
-                                                          dateStr
-                                                        ) {
-                                                          let [y, m, d] =
-                                                            dateStr
-                                                              .split("-")
-                                                              .map(Number);
-                                                          return new Date(
-                                                            Date.UTC(
-                                                              y,
-                                                              m - 1,
-                                                              d
-                                                            )
-                                                          );
-                                                        }
-                                                        let formatter =
-                                                          new Intl.DateTimeFormat(
-                                                            "fa-IR",
-                                                            {
-                                                              timeZone:
-                                                                "Asia/Tehran",
-                                                              year: "numeric",
-                                                              month: "numeric",
-                                                              day: "numeric"
-                                                            }
-                                                          );
-                                                        let faDates = dates.map(
-                                                          d =>
-                                                            formatter.format(
-                                                              parseISOToUTC(d)
-                                                            )
+                                                    if (
+                                                      currentItem.schedule_type ==
+                                                      "everyYear"
+                                                    )
+                                                      try {
+                                                        let dates = JSON.parse(
+                                                          currentItem.dates
                                                         );
-                                                        return ` ${faDates.join("  ,  ")} `;
-                                                      } else {
+                                                        if (
+                                                          dates &&
+                                                          dates.length > 0
+                                                        ) {
+                                                          function parseISOToUTC(
+                                                            dateStr
+                                                          ) {
+                                                            let [y, m, d] =
+                                                              dateStr
+                                                                .split("-")
+                                                                .map(Number);
+                                                            return new Date(
+                                                              Date.UTC(
+                                                                y,
+                                                                m - 1,
+                                                                d
+                                                              )
+                                                            );
+                                                          }
+                                                          let formatter =
+                                                            new Intl.DateTimeFormat(
+                                                              "fa-IR",
+                                                              {
+                                                                timeZone:
+                                                                  "Asia/Tehran",
+                                                                month: "long",
+                                                                day: "numeric"
+                                                              }
+                                                            );
+                                                          let faDates =
+                                                            dates.map(d =>
+                                                              formatter.format(
+                                                                parseISOToUTC(d)
+                                                              )
+                                                            );
+                                                          return ` ${faDates.join("  ,  ")} `;
+                                                        } else {
+                                                          return "";
+                                                        }
+                                                      } catch {
                                                         return "";
                                                       }
-                                                    } catch {
-                                                      return "";
-                                                    }
+                                                    else
+                                                      try {
+                                                        let dates = JSON.parse(
+                                                          currentItem.dates
+                                                        );
+                                                        if (
+                                                          dates &&
+                                                          dates.length > 0
+                                                        ) {
+                                                          function parseISOToUTC(
+                                                            dateStr
+                                                          ) {
+                                                            let [y, m, d] =
+                                                              dateStr
+                                                                .split("-")
+                                                                .map(Number);
+                                                            return new Date(
+                                                              Date.UTC(
+                                                                y,
+                                                                m - 1,
+                                                                d
+                                                              )
+                                                            );
+                                                          }
+                                                          let formatter =
+                                                            new Intl.DateTimeFormat(
+                                                              "fa-IR",
+                                                              {
+                                                                timeZone:
+                                                                  "Asia/Tehran",
+                                                                year: "numeric",
+                                                                month:
+                                                                  "numeric",
+                                                                day: "numeric"
+                                                              }
+                                                            );
+                                                          let faDates =
+                                                            dates.map(d =>
+                                                              formatter.format(
+                                                                parseISOToUTC(d)
+                                                              )
+                                                            );
+                                                          return ` ${faDates.join("  ,  ")} `;
+                                                        } else {
+                                                          return "";
+                                                        }
+                                                      } catch {
+                                                        return "";
+                                                      }
                                                   })();
                                                 } catch (e) {
                                                   if (
@@ -5129,20 +5785,14 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             >
                               {(() => {
                                 try {
-                                  return (
-                                    currentItem.text != "occasion" &&
-                                    (() => {
-                                      const datesStr =
-                                        currentItem.dates || "[]";
-                                      const parsed = JSON.parse(
-                                        datesStr || "[]"
-                                      );
-                                      return (
-                                        parsed.length != 0 ||
-                                        currentItem.id != null
-                                      );
-                                    })()
-                                  );
+                                  return (() => {
+                                    const datesStr = currentItem.dates || "[]";
+                                    const parsed = JSON.parse(datesStr || "[]");
+                                    return (
+                                      parsed.length != 0 ||
+                                      currentItem.id != null
+                                    );
+                                  })();
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -5615,13 +6265,14 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   })()
                                 : (() => {
                                     try {
-                                      return (
-                                        // const datesStr = currentItem.dates || "[]";
-                                        // const parsed = JSON.parse(datesStr || "[]");
-                                        //  parsed.length > 0;
-
-                                        false
-                                      );
+                                      return (() => {
+                                        const datesStr =
+                                          currentItem.dates || "[]";
+                                        const parsed = JSON.parse(
+                                          datesStr || "[]"
+                                        );
+                                        return parsed.length > 0;
+                                      })();
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -6405,6 +7056,7 @@ const PlasmicDescendants = {
     "input",
     "repead",
     "radioGrop",
+    "radioGroupLiom",
     "button5",
     "button8",
     "dateDiolog",
@@ -6444,6 +7096,7 @@ const PlasmicDescendants = {
     "input",
     "repead",
     "radioGrop",
+    "radioGroupLiom",
     "button5",
     "button8",
     "dateDiolog",
@@ -6459,10 +7112,19 @@ const PlasmicDescendants = {
     "checkbox"
   ],
   headerLiom: ["headerLiom"],
-  dialog: ["dialog", "input", "repead", "radioGrop", "button5", "button8"],
+  dialog: [
+    "dialog",
+    "input",
+    "repead",
+    "radioGrop",
+    "radioGroupLiom",
+    "button5",
+    "button8"
+  ],
   input: ["input"],
   repead: ["repead"],
   radioGrop: ["radioGrop"],
+  radioGroupLiom: ["radioGroupLiom"],
   button5: ["button5"],
   button8: ["button8"],
   dateDiolog: ["dateDiolog", "datePickers", "button4"],
@@ -6549,6 +7211,7 @@ type NodeDefaultElementType = {
   input: typeof Input;
   repead: typeof Repead;
   radioGrop: typeof RadioGrop;
+  radioGroupLiom: typeof RadioGroupLiom;
   button5: typeof Button;
   button8: typeof Button;
   dateDiolog: typeof Dialog;
@@ -6650,6 +7313,7 @@ export const PlasmicReminderSetting = Object.assign(
     input: makeNodeComponent("input"),
     repead: makeNodeComponent("repead"),
     radioGrop: makeNodeComponent("radioGrop"),
+    radioGroupLiom: makeNodeComponent("radioGroupLiom"),
     button5: makeNodeComponent("button5"),
     button8: makeNodeComponent("button8"),
     dateDiolog: makeNodeComponent("dateDiolog"),

@@ -72,13 +72,19 @@ createPlasmicElementProxy;
 
 export type PlasmicRadioGroupLiom__VariantMembers = {
   unnamedVariant: "unnamedVariant";
+  size: "small";
+  moulty: "moulty";
 };
 export type PlasmicRadioGroupLiom__VariantsArgs = {
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
+  size?: SingleChoiceArg<"small">;
+  moulty?: SingleBooleanChoiceArg<"moulty">;
 };
 type VariantPropType = keyof PlasmicRadioGroupLiom__VariantsArgs;
 export const PlasmicRadioGroupLiom__VariantProps = new Array<VariantPropType>(
-  "unnamedVariant"
+  "unnamedVariant",
+  "size",
+  "moulty"
 );
 
 export type PlasmicRadioGroupLiom__ArgsType = {
@@ -86,18 +92,23 @@ export type PlasmicRadioGroupLiom__ArgsType = {
   onSelectedChange?: (val: string) => void;
   list?: any;
   onListChange?: (val: string) => void;
+  selects?: any;
+  onSelectsChange?: (val: string) => void;
+  accessclicke?: () => void;
 };
 type ArgPropType = keyof PlasmicRadioGroupLiom__ArgsType;
 export const PlasmicRadioGroupLiom__ArgProps = new Array<ArgPropType>(
   "selected",
   "onSelectedChange",
   "list",
-  "onListChange"
+  "onListChange",
+  "selects",
+  "onSelectsChange",
+  "accessclicke"
 );
 
 export type PlasmicRadioGroupLiom__OverridesType = {
   root?: Flex__<"div">;
-  radioGrop?: Flex__<typeof RadioGrop>;
 };
 
 export interface DefaultRadioGroupLiomProps {
@@ -105,7 +116,12 @@ export interface DefaultRadioGroupLiomProps {
   onSelectedChange?: (val: string) => void;
   list?: any;
   onListChange?: (val: string) => void;
+  selects?: any;
+  onSelectsChange?: (val: string) => void;
+  accessclicke?: () => void;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
+  size?: SingleChoiceArg<"small">;
+  moulty?: SingleBooleanChoiceArg<"moulty">;
   className?: string;
 }
 
@@ -175,6 +191,26 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
 
         valueProp: "list",
         onChangeProp: "onListChange"
+      },
+      {
+        path: "size",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.size
+      },
+      {
+        path: "selects",
+        type: "writable",
+        variableType: "array",
+
+        valueProp: "selects",
+        onChangeProp: "onSelectsChange"
+      },
+      {
+        path: "moulty",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.moulty
       }
     ],
     [$props, $ctx, $refs]
@@ -202,6 +238,8 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
         styleTokensClassNames,
         sty.root,
         {
+          [sty.rootmoulty]: hasVariant($state, "moulty", "moulty"),
+          [sty.rootsize_small]: hasVariant($state, "size", "small"),
           [sty.rootunnamedVariant]: hasVariant(
             $state,
             "unnamedVariant",
@@ -229,10 +267,18 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
         const currentIndex = __plasmic_idx_0;
         return (
           <RadioGrop
-            data-plasmic-name={"radioGrop"}
-            data-plasmic-override={overrides.radioGrop}
-            className={classNames("__wab_instance", sty.radioGrop, {
-              [sty.radioGropunnamedVariant]: hasVariant(
+            className={classNames("__wab_instance", sty.radioGrop__xDgqn, {
+              [sty.radioGropmoulty__xDgqnQublj]: hasVariant(
+                $state,
+                "moulty",
+                "moulty"
+              ),
+              [sty.radioGropsize_small__xDgqnqO86K]: hasVariant(
+                $state,
+                "size",
+                "small"
+              ),
+              [sty.radioGropunnamedVariant__xDgqnpN4Io]: hasVariant(
                 $state,
                 "unnamedVariant",
                 "unnamedVariant"
@@ -285,40 +331,199 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
                 throw e;
               }
             })()}
+            size={hasVariant($state, "size", "small") ? "mini" : undefined}
             style2={"grayBackgerand"}
           >
-            <React.Fragment>
-              {(() => {
-                try {
-                  return currentItem.label;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "";
-                  }
-                  throw e;
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__h0Hhj,
+                {
+                  [sty.textsize_small__h0HhjqO86K]: hasVariant(
+                    $state,
+                    "size",
+                    "small"
+                  )
                 }
-              })()}
-            </React.Fragment>
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return currentItem.label;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            </div>
           </RadioGrop>
         );
       })}
+      {(hasVariant($state, "moulty", "moulty") ? true : false)
+        ? (_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+            (() => {
+              try {
+                return $state.list;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return [];
+                }
+                throw e;
+              }
+            })()
+          ).map((__plasmic_item_0, __plasmic_idx_0) => {
+            const currentItem = __plasmic_item_0;
+            const currentIndex = __plasmic_idx_0;
+            return (
+              <RadioGrop
+                className={classNames("__wab_instance", sty.radioGrop__zHtyZ, {
+                  [sty.radioGropmoulty__zHtyZqublj]: hasVariant(
+                    $state,
+                    "moulty",
+                    "moulty"
+                  ),
+                  [sty.radioGropsize_small__zHtyZqO86K]: hasVariant(
+                    $state,
+                    "size",
+                    "small"
+                  ),
+                  [sty.radioGropunnamedVariant__zHtyZpN4Io]: hasVariant(
+                    $state,
+                    "unnamedVariant",
+                    "unnamedVariant"
+                  )
+                })}
+                color={"light"}
+                key={currentIndex}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runCode"] = currentItem.access
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return $state.selects.includes(currentItem.value)
+                              ? ($state.selects = $state.selects.filter(
+                                  i => i != currentItem.value
+                                ))
+                              : $state.selects.push(currentItem.value);
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+
+                  $steps["runAccessclicke"] = !currentItem.access
+                    ? (() => {
+                        const actionArgs = { eventRef: $props["accessclicke"] };
+                        return (({ eventRef, args }) => {
+                          return eventRef?.(...(args ?? []));
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runAccessclicke"] != null &&
+                    typeof $steps["runAccessclicke"] === "object" &&
+                    typeof $steps["runAccessclicke"].then === "function"
+                  ) {
+                    $steps["runAccessclicke"] = await $steps["runAccessclicke"];
+                  }
+                }}
+                pair={(() => {
+                  try {
+                    return currentItem.paid;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()}
+                selected={(() => {
+                  try {
+                    return $state.selects.includes(currentItem.value);
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()}
+                size={hasVariant($state, "size", "small") ? "mini" : undefined}
+                style2={"grayBackgerand"}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___9BoMi,
+                    {
+                      [sty.textsize_small___9BoMIqO86K]: hasVariant(
+                        $state,
+                        "size",
+                        "small"
+                      )
+                    }
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return currentItem.label;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+              </RadioGrop>
+            );
+          })
+        : null}
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "radioGrop"],
-  radioGrop: ["radioGrop"]
+  root: ["root"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  radioGrop: typeof RadioGrop;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -332,7 +537,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicRadioGroupLiom__VariantsArgs;
     args?: PlasmicRadioGroupLiom__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicRadioGroupLiom__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicRadioGroupLiom__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicRadioGroupLiom__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
@@ -381,7 +588,6 @@ export const PlasmicRadioGroupLiom = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    radioGrop: makeNodeComponent("radioGrop"),
 
     // Metadata about props expected for PlasmicRadioGroupLiom
     internalVariantProps: PlasmicRadioGroupLiom__VariantProps,

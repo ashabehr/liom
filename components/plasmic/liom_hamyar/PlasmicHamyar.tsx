@@ -1491,6 +1491,31 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "reminderSetting.refreshTime",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "mainHamyar.hamyar2Refresh",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.reminderSetting.refreshTime;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -1631,6 +1656,10 @@ function PlasmicHamyar__RenderFunc(props: {
                 "mainHamyar",
                 "hamyar2PlasmicAntd5ModalOpen"
               ])}
+              hamyar2Refresh={generateStateValueProp($state, [
+                "mainHamyar",
+                "hamyar2Refresh"
+              ])}
               hamyar2ShopPage2Open={generateStateValueProp($state, [
                 "mainHamyar",
                 "hamyar2ShopPage2Open"
@@ -1677,6 +1706,20 @@ function PlasmicHamyar__RenderFunc(props: {
                 generateStateOnChangeProp($state, [
                   "mainHamyar",
                   "hamyar2PlasmicAntd5ModalOpen"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onHamyar2RefreshChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "mainHamyar",
+                  "hamyar2Refresh"
                 ]).apply(null, eventArgs);
 
                 if (
@@ -6006,6 +6049,20 @@ function PlasmicHamyar__RenderFunc(props: {
                   return;
                 }
               }}
+              onRefreshTimeChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminderSetting",
+                  "refreshTime"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
               onSmsChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "reminderSetting",
@@ -6050,6 +6107,10 @@ function PlasmicHamyar__RenderFunc(props: {
               refresh={generateStateValueProp($state, [
                 "reminderSetting",
                 "refresh"
+              ])}
+              refreshTime={generateStateValueProp($state, [
+                "reminderSetting",
+                "refreshTime"
               ])}
               setMobile={async () => {
                 const $steps = {};

@@ -484,8 +484,8 @@ function PlasmicEditProfile__RenderFunc(props: {
               return $state.getInfo.data.result.user.married === true
                 ? "Married"
                 : $state.getInfo.data.result.user.married === false
-                ? "Single"
-                : "";
+                  ? "Single"
+                  : "";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -626,12 +626,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                     return {
                       label: `${dayOfWeek} ${formattedDay} ${monthName}`,
                       value: 0,
-                      date: `${today.getFullYear()}-${String(
-                        today.getMonth() + 1
-                      ).padStart(2, "0")}-${String(today.getDate()).padStart(
-                        2,
-                        "0"
-                      )}`
+                      date: `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`
                     };
                   })(),
                   ...Array.from(
@@ -1442,9 +1437,8 @@ function PlasmicEditProfile__RenderFunc(props: {
                       typeof $steps["updateDialogOpendialog"].then ===
                         "function"
                     ) {
-                      $steps["updateDialogOpendialog"] = await $steps[
-                        "updateDialogOpendialog"
-                      ];
+                      $steps["updateDialogOpendialog"] =
+                        await $steps["updateDialogOpendialog"];
                     }
                   }}
                 >
@@ -1591,9 +1585,8 @@ function PlasmicEditProfile__RenderFunc(props: {
                             typeof $steps["updateVariableForJob"].then ===
                               "function"
                           ) {
-                            $steps["updateVariableForJob"] = await $steps[
-                              "updateVariableForJob"
-                            ];
+                            $steps["updateVariableForJob"] =
+                              await $steps["updateVariableForJob"];
                           }
                         }}
                         select={(() => {
@@ -2521,9 +2514,10 @@ function PlasmicEditProfile__RenderFunc(props: {
                         ) {
                           $steps[
                             "updateDialogForTheDateOfTheFirstDayOfYourLastPeriodOpendialog"
-                          ] = await $steps[
-                            "updateDialogForTheDateOfTheFirstDayOfYourLastPeriodOpendialog"
-                          ];
+                          ] =
+                            await $steps[
+                              "updateDialogForTheDateOfTheFirstDayOfYourLastPeriodOpendialog"
+                            ];
                         }
                       }}
                     >
@@ -2946,9 +2940,8 @@ function PlasmicEditProfile__RenderFunc(props: {
                         typeof $steps["updateBtnLoading"] === "object" &&
                         typeof $steps["updateBtnLoading"].then === "function"
                       ) {
-                        $steps["updateBtnLoading"] = await $steps[
-                          "updateBtnLoading"
-                        ];
+                        $steps["updateBtnLoading"] =
+                          await $steps["updateBtnLoading"];
                       }
 
                       $steps["updateNameInputValue2"] =
@@ -2970,16 +2963,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                                             $state.token || undefined,
                                           name: $state.name || undefined,
                                           birthDate: $state.dateOfBrith.gy
-                                            ? `${
-                                                $state.dateOfBrith.gy
-                                              }-${$state.dateOfBrith.gm
-                                                .toString()
-                                                .padStart(
-                                                  2,
-                                                  "0"
-                                                )}-${$state.dateOfBrith.gd
-                                                .toString()
-                                                .padStart(2, "0")}`
+                                            ? `${$state.dateOfBrith.gy}-${$state.dateOfBrith.gm.toString().padStart(2, "0")}-${$state.dateOfBrith.gd.toString().padStart(2, "0")}`
                                             : undefined,
                                           height: $state.height || undefined,
                                           weight: $state.weight3 || undefined,
@@ -3007,9 +2991,9 @@ function PlasmicEditProfile__RenderFunc(props: {
                                             "Married"
                                               ? true
                                               : $state.variableForMarrideStutuse ===
-                                                "Single"
-                                              ? false
-                                              : undefined
+                                                  "Single"
+                                                ? false
+                                                : undefined
                                         };
                                         var edit = Object.fromEntries(
                                           Object.entries(edit).filter(
@@ -3042,9 +3026,8 @@ function PlasmicEditProfile__RenderFunc(props: {
                         typeof $steps["updateNameInputValue2"].then ===
                           "function"
                       ) {
-                        $steps["updateNameInputValue2"] = await $steps[
-                          "updateNameInputValue2"
-                        ];
+                        $steps["updateNameInputValue2"] =
+                          await $steps["updateNameInputValue2"];
                       }
 
                       $steps["invokeGlobalAction"] =
@@ -3067,9 +3050,8 @@ function PlasmicEditProfile__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["updateBtnLoading2"] = true
@@ -3103,9 +3085,8 @@ function PlasmicEditProfile__RenderFunc(props: {
                         typeof $steps["updateBtnLoading2"] === "object" &&
                         typeof $steps["updateBtnLoading2"].then === "function"
                       ) {
-                        $steps["updateBtnLoading2"] = await $steps[
-                          "updateBtnLoading2"
-                        ];
+                        $steps["updateBtnLoading2"] =
+                          await $steps["updateBtnLoading2"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -3341,9 +3322,8 @@ function PlasmicEditProfile__RenderFunc(props: {
                     typeof $steps["updateNumberOfDaysOfBleedingPicker"].then ===
                       "function"
                   ) {
-                    $steps["updateNumberOfDaysOfBleedingPicker"] = await $steps[
-                      "updateNumberOfDaysOfBleedingPicker"
-                    ];
+                    $steps["updateNumberOfDaysOfBleedingPicker"] =
+                      await $steps["updateNumberOfDaysOfBleedingPicker"];
                   }
 
                   $steps["updateNumberOfDaysOfBleedingOpendialog"] = true
@@ -3525,6 +3505,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                     sty.datePickersBirthDay
                   )}
                   customYears={[]}
+                  hideYear={false}
                   onChange={async (...eventArgs: any) => {
                     generateStateOnChangeProp($state, [
                       "datePickersBirthDay",
@@ -3590,9 +3571,8 @@ function PlasmicEditProfile__RenderFunc(props: {
                       typeof $steps["updateDatePickersValue"].then ===
                         "function"
                     ) {
-                      $steps["updateDatePickersValue"] = await $steps[
-                        "updateDatePickersValue"
-                      ];
+                      $steps["updateDatePickersValue"] =
+                        await $steps["updateDatePickersValue"];
                     }
 
                     $steps["updateDialogDateOfBrithOpendialog"] = true
@@ -3859,9 +3839,8 @@ function PlasmicEditProfile__RenderFunc(props: {
                     typeof $steps["updatePeriodCycleLength"] === "object" &&
                     typeof $steps["updatePeriodCycleLength"].then === "function"
                   ) {
-                    $steps["updatePeriodCycleLength"] = await $steps[
-                      "updatePeriodCycleLength"
-                    ];
+                    $steps["updatePeriodCycleLength"] =
+                      await $steps["updatePeriodCycleLength"];
                   }
 
                   $steps["updateDialogForPeriodCycleLengthOpendialog"] = true
@@ -4103,9 +4082,8 @@ function PlasmicEditProfile__RenderFunc(props: {
                     typeof $steps["updateDialogForHeightOpendialog"].then ===
                       "function"
                   ) {
-                    $steps["updateDialogForHeightOpendialog"] = await $steps[
-                      "updateDialogForHeightOpendialog"
-                    ];
+                    $steps["updateDialogForHeightOpendialog"] =
+                      await $steps["updateDialogForHeightOpendialog"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
@@ -4309,9 +4287,8 @@ function PlasmicEditProfile__RenderFunc(props: {
                     typeof $steps["updateDialogForWeightOpendialog"].then ===
                       "function"
                   ) {
-                    $steps["updateDialogForWeightOpendialog"] = await $steps[
-                      "updateDialogForWeightOpendialog"
-                    ];
+                    $steps["updateDialogForWeightOpendialog"] =
+                      await $steps["updateDialogForWeightOpendialog"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
@@ -4522,9 +4499,8 @@ function PlasmicEditProfile__RenderFunc(props: {
                     typeof $steps["updateNameInputValue2"] === "object" &&
                     typeof $steps["updateNameInputValue2"].then === "function"
                   ) {
-                    $steps["updateNameInputValue2"] = await $steps[
-                      "updateNameInputValue2"
-                    ];
+                    $steps["updateNameInputValue2"] =
+                      await $steps["updateNameInputValue2"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
@@ -4956,7 +4932,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicEditProfile__VariantsArgs;
     args?: PlasmicEditProfile__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicEditProfile__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicEditProfile__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicEditProfile__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

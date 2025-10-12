@@ -625,6 +625,7 @@ function PlasmicAgePregnant__RenderFunc(props: {
                               throw e;
                             }
                           })()}
+                          hideYear={false}
                           onChange={async (...eventArgs: any) => {
                             generateStateOnChangeProp($state, [
                               "datePickers",
@@ -693,9 +694,8 @@ function PlasmicAgePregnant__RenderFunc(props: {
                             typeof $steps["updateDateOfBirth"].then ===
                               "function"
                           ) {
-                            $steps["updateDateOfBirth"] = await $steps[
-                              "updateDateOfBirth"
-                            ];
+                            $steps["updateDateOfBirth"] =
+                              await $steps["updateDateOfBirth"];
                           }
 
                           $steps["updateLastTime2"] =
@@ -730,9 +730,8 @@ function PlasmicAgePregnant__RenderFunc(props: {
                             typeof $steps["updateLastTime2"] === "object" &&
                             typeof $steps["updateLastTime2"].then === "function"
                           ) {
-                            $steps["updateLastTime2"] = await $steps[
-                              "updateLastTime2"
-                            ];
+                            $steps["updateLastTime2"] =
+                              await $steps["updateLastTime2"];
                           }
 
                           $steps["updateLastTime"] =
@@ -864,9 +863,8 @@ function PlasmicAgePregnant__RenderFunc(props: {
                             typeof $steps["updateLastTime"] === "object" &&
                             typeof $steps["updateLastTime"].then === "function"
                           ) {
-                            $steps["updateLastTime"] = await $steps[
-                              "updateLastTime"
-                            ];
+                            $steps["updateLastTime"] =
+                              await $steps["updateLastTime"];
                           }
 
                           $steps["updateDateOfBirth2"] =
@@ -999,9 +997,8 @@ function PlasmicAgePregnant__RenderFunc(props: {
                             typeof $steps["updateDateOfBirth2"].then ===
                               "function"
                           ) {
-                            $steps["updateDateOfBirth2"] = await $steps[
-                              "updateDateOfBirth2"
-                            ];
+                            $steps["updateDateOfBirth2"] =
+                              await $steps["updateDateOfBirth2"];
                           }
 
                           $steps["updateSlideinModalClick"] = true
@@ -1037,9 +1034,8 @@ function PlasmicAgePregnant__RenderFunc(props: {
                             typeof $steps["updateSlideinModalClick"].then ===
                               "function"
                           ) {
-                            $steps["updateSlideinModalClick"] = await $steps[
-                              "updateSlideinModalClick"
-                            ];
+                            $steps["updateSlideinModalClick"] =
+                              await $steps["updateSlideinModalClick"];
                           }
 
                           $steps["updateDuDate"] = true
@@ -1126,9 +1122,8 @@ function PlasmicAgePregnant__RenderFunc(props: {
                             typeof $steps["updateDuDate"] === "object" &&
                             typeof $steps["updateDuDate"].then === "function"
                           ) {
-                            $steps["updateDuDate"] = await $steps[
-                              "updateDuDate"
-                            ];
+                            $steps["updateDuDate"] =
+                              await $steps["updateDuDate"];
                           }
                         }}
                         onColorChange={async (...eventArgs: any) => {
@@ -1223,9 +1218,8 @@ function PlasmicAgePregnant__RenderFunc(props: {
                             typeof $steps["updateSlideinModalClick"].then ===
                               "function"
                           ) {
-                            $steps["updateSlideinModalClick"] = await $steps[
-                              "updateSlideinModalClick"
-                            ];
+                            $steps["updateSlideinModalClick"] =
+                              await $steps["updateSlideinModalClick"];
                           }
                         }}
                       >
@@ -1332,9 +1326,8 @@ function PlasmicAgePregnant__RenderFunc(props: {
                           typeof $steps["updateTypeInterDate"].then ===
                             "function"
                         ) {
-                          $steps["updateTypeInterDate"] = await $steps[
-                            "updateTypeInterDate"
-                          ];
+                          $steps["updateTypeInterDate"] =
+                            await $steps["updateTypeInterDate"];
                         }
                       }}
                     >
@@ -1417,9 +1410,8 @@ function PlasmicAgePregnant__RenderFunc(props: {
                           typeof $steps["updateTypeInterDate"].then ===
                             "function"
                         ) {
-                          $steps["updateTypeInterDate"] = await $steps[
-                            "updateTypeInterDate"
-                          ];
+                          $steps["updateTypeInterDate"] =
+                            await $steps["updateTypeInterDate"];
                         }
                       }}
                     >
@@ -1551,9 +1543,8 @@ function PlasmicAgePregnant__RenderFunc(props: {
                             typeof $steps["updateSlideinModalClick"].then ===
                               "function"
                           ) {
-                            $steps["updateSlideinModalClick"] = await $steps[
-                              "updateSlideinModalClick"
-                            ];
+                            $steps["updateSlideinModalClick"] =
+                              await $steps["updateSlideinModalClick"];
                           }
 
                           $steps["updateTypeDate"] = true
@@ -1587,9 +1578,8 @@ function PlasmicAgePregnant__RenderFunc(props: {
                             typeof $steps["updateTypeDate"] === "object" &&
                             typeof $steps["updateTypeDate"].then === "function"
                           ) {
-                            $steps["updateTypeDate"] = await $steps[
-                              "updateTypeDate"
-                            ];
+                            $steps["updateTypeDate"] =
+                              await $steps["updateTypeDate"];
                           }
                         }}
                       >
@@ -1769,9 +1759,8 @@ function PlasmicAgePregnant__RenderFunc(props: {
                             typeof $steps["updateSlideinModalClick"].then ===
                               "function"
                           ) {
-                            $steps["updateSlideinModalClick"] = await $steps[
-                              "updateSlideinModalClick"
-                            ];
+                            $steps["updateSlideinModalClick"] =
+                              await $steps["updateSlideinModalClick"];
                           }
 
                           $steps["updateTypeDate"] = true
@@ -1805,9 +1794,8 @@ function PlasmicAgePregnant__RenderFunc(props: {
                             typeof $steps["updateTypeDate"] === "object" &&
                             typeof $steps["updateTypeDate"].then === "function"
                           ) {
-                            $steps["updateTypeDate"] = await $steps[
-                              "updateTypeDate"
-                            ];
+                            $steps["updateTypeDate"] =
+                              await $steps["updateTypeDate"];
                           }
                         }}
                       >
@@ -1934,9 +1922,8 @@ function PlasmicAgePregnant__RenderFunc(props: {
                       typeof $steps["updateAgePregnant"] === "object" &&
                       typeof $steps["updateAgePregnant"].then === "function"
                     ) {
-                      $steps["updateAgePregnant"] = await $steps[
-                        "updateAgePregnant"
-                      ];
+                      $steps["updateAgePregnant"] =
+                        await $steps["updateAgePregnant"];
                     }
 
                     $steps["goToPage"] = true
@@ -2099,7 +2086,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicAgePregnant__VariantsArgs;
     args?: PlasmicAgePregnant__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicAgePregnant__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicAgePregnant__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicAgePregnant__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

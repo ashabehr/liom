@@ -191,6 +191,12 @@ function PlasmicReminderCategory__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "radioGroupLiom.selects",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       }
     ],
     [$props, $ctx, $refs]
@@ -252,10 +258,25 @@ function PlasmicReminderCategory__RenderFunc(props: {
             return;
           }
         }}
+        onSelectsChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, [
+            "radioGroupLiom",
+            "selects"
+          ]).apply(null, eventArgs);
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
         selected={generateStateValueProp($state, [
           "radioGroupLiom",
           "selected"
         ])}
+        selects={generateStateValueProp($state, ["radioGroupLiom", "selects"])}
       />
 
       <ApiRequest

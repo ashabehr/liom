@@ -846,7 +846,7 @@ function PlasmicReminder__RenderFunc(props: {
             name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
             text: "occasion",
             token1: null,
-            dates: '["2025-10-11"]',
+            dates: '["2026-10-11"]',
             weekdays: null,
             times: '["10:00"]',
             finishTime: null,
@@ -968,6 +968,18 @@ function PlasmicReminder__RenderFunc(props: {
 
         valueProp: "first",
         onChangeProp: "onFirstChange"
+      },
+      {
+        path: "reminderSetting.refreshTime",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "reminderSetting2.refreshTime",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -1568,6 +1580,7 @@ function PlasmicReminder__RenderFunc(props: {
               SelectedYear={1379}
               className={classNames("__wab_instance", sty.datePickers)}
               customYears={[]}
+              hideYear={false}
               onChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "datePickers",
@@ -4323,6 +4336,20 @@ function PlasmicReminder__RenderFunc(props: {
                     }
                   }).apply(null, eventArgs);
                 }}
+                onRefreshTimeChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "reminderSetting",
+                    "refreshTime"
+                  ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
                 onSmsChange={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, [
                     "reminderSetting",
@@ -4415,6 +4442,10 @@ function PlasmicReminder__RenderFunc(props: {
                 refresh={generateStateValueProp($state, [
                   "reminderSetting",
                   "refresh"
+                ])}
+                refreshTime={generateStateValueProp($state, [
+                  "reminderSetting",
+                  "refreshTime"
                 ])}
                 shop={async () => {
                   const $steps = {};
@@ -4808,6 +4839,20 @@ function PlasmicReminder__RenderFunc(props: {
                   }
                 }).apply(null, eventArgs);
               }}
+              onRefreshTimeChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminderSetting2",
+                  "refreshTime"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
               onSmsChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "reminderSetting2",
@@ -4906,6 +4951,10 @@ function PlasmicReminder__RenderFunc(props: {
               refresh={generateStateValueProp($state, [
                 "reminderSetting2",
                 "refresh"
+              ])}
+              refreshTime={generateStateValueProp($state, [
+                "reminderSetting2",
+                "refreshTime"
               ])}
               shop={async () => {
                 const $steps = {};

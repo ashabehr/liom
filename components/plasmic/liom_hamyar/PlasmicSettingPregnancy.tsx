@@ -930,6 +930,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                             { value: 1403, label: "1403" },
                             { value: 1404, label: "1404" }
                           ]}
+                          hideYear={false}
                           onChange={async (...eventArgs: any) => {
                             generateStateOnChangeProp($state, [
                               "datePickers",

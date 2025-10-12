@@ -669,8 +669,8 @@ function PlasmicBioritm__RenderFunc(props: {
               hasVariant($state, "ferstTimepage", "ferstTimepage")
                 ? "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n<script src=\"https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js\"></script>\r\n"
                 : hasVariant(globalVariants, "screen", "mobile")
-                ? "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
-                : "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n<script src=\"https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js\"></script>\r\n"
+                  ? "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
+                  : "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n<script src=\"https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js\"></script>\r\n"
             }
           />
 
@@ -810,9 +810,8 @@ function PlasmicBioritm__RenderFunc(props: {
                       typeof $steps["updateSlideinModalClick"].then ===
                         "function"
                     ) {
-                      $steps["updateSlideinModalClick"] = await $steps[
-                        "updateSlideinModalClick"
-                      ];
+                      $steps["updateSlideinModalClick"] =
+                        await $steps["updateSlideinModalClick"];
                     }
                   }}
                   onClickChange={async (...eventArgs: any) => {
@@ -927,6 +926,7 @@ function PlasmicBioritm__RenderFunc(props: {
                       })()}
                       className={classNames("__wab_instance", sty.datePickers3)}
                       customYears={[]}
+                      hideYear={false}
                       onChange={async (...eventArgs: any) => {
                         generateStateOnChangeProp($state, [
                           "datePickers3",
@@ -1008,9 +1008,8 @@ function PlasmicBioritm__RenderFunc(props: {
                             typeof $steps["updateBirthday"] === "object" &&
                             typeof $steps["updateBirthday"].then === "function"
                           ) {
-                            $steps["updateBirthday"] = await $steps[
-                              "updateBirthday"
-                            ];
+                            $steps["updateBirthday"] =
+                              await $steps["updateBirthday"];
                           }
 
                           $steps["updateBday"] = true
@@ -1121,9 +1120,8 @@ function PlasmicBioritm__RenderFunc(props: {
                             typeof $steps["updateSlideinModal2Click"].then ===
                               "function"
                           ) {
-                            $steps["updateSlideinModal2Click"] = await $steps[
-                              "updateSlideinModal2Click"
-                            ];
+                            $steps["updateSlideinModal2Click"] =
+                              await $steps["updateSlideinModal2Click"];
                           }
 
                           $steps["invokeGlobalAction"] = true
@@ -1179,9 +1177,8 @@ function PlasmicBioritm__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
 
                           $steps["invokeGlobalAction2"] =
@@ -1205,9 +1202,8 @@ function PlasmicBioritm__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction2"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction2"] = await $steps[
-                              "invokeGlobalAction2"
-                            ];
+                            $steps["invokeGlobalAction2"] =
+                              await $steps["invokeGlobalAction2"];
                           }
 
                           $steps["runCode"] = true
@@ -1265,9 +1261,8 @@ function PlasmicBioritm__RenderFunc(props: {
                             typeof $steps["updateFerstTimepage"].then ===
                               "function"
                           ) {
-                            $steps["updateFerstTimepage"] = await $steps[
-                              "updateFerstTimepage"
-                            ];
+                            $steps["updateFerstTimepage"] =
+                              await $steps["updateFerstTimepage"];
                           }
                         }}
                         onColorChange={async (...eventArgs: any) => {
@@ -1405,9 +1400,8 @@ function PlasmicBioritm__RenderFunc(props: {
                   typeof $steps["invokeGlobalAction"] === "object" &&
                   typeof $steps["invokeGlobalAction"].then === "function"
                 ) {
-                  $steps["invokeGlobalAction"] = await $steps[
-                    "invokeGlobalAction"
-                  ];
+                  $steps["invokeGlobalAction"] =
+                    await $steps["invokeGlobalAction"];
                 }
               }).apply(null, eventArgs);
             }}
@@ -1482,9 +1476,8 @@ function PlasmicBioritm__RenderFunc(props: {
                         typeof $steps["updateDialog2Opendialog"].then ===
                           "function"
                       ) {
-                        $steps["updateDialog2Opendialog"] = await $steps[
-                          "updateDialog2Opendialog"
-                        ];
+                        $steps["updateDialog2Opendialog"] =
+                          await $steps["updateDialog2Opendialog"];
                       }
                     }}
                   >
@@ -2163,9 +2156,8 @@ function PlasmicBioritm__RenderFunc(props: {
                           typeof $steps["updateDialogOpendialog"].then ===
                             "function"
                         ) {
-                          $steps["updateDialogOpendialog"] = await $steps[
-                            "updateDialogOpendialog"
-                          ];
+                          $steps["updateDialogOpendialog"] =
+                            await $steps["updateDialogOpendialog"];
                         }
                       }}
                       onColorChange={async (...eventArgs: any) => {
@@ -2462,9 +2454,8 @@ function PlasmicBioritm__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
 
                         $steps["refreshData"] =
@@ -5702,9 +5693,8 @@ function PlasmicBioritm__RenderFunc(props: {
                     typeof $steps["updateSlideinModalClick"] === "object" &&
                     typeof $steps["updateSlideinModalClick"].then === "function"
                   ) {
-                    $steps["updateSlideinModalClick"] = await $steps[
-                      "updateSlideinModalClick"
-                    ];
+                    $steps["updateSlideinModalClick"] =
+                      await $steps["updateSlideinModalClick"];
                   }
                 }}
                 onClickChange={async (...eventArgs: any) => {
@@ -5841,6 +5831,7 @@ function PlasmicBioritm__RenderFunc(props: {
                     })()}
                     className={classNames("__wab_instance", sty.datePickers2)}
                     customYears={[]}
+                    hideYear={false}
                     onChange={async (...eventArgs: any) => {
                       generateStateOnChangeProp($state, [
                         "datePickers2",
@@ -5915,9 +5906,8 @@ function PlasmicBioritm__RenderFunc(props: {
                           typeof $steps["updateBirthday"] === "object" &&
                           typeof $steps["updateBirthday"].then === "function"
                         ) {
-                          $steps["updateBirthday"] = await $steps[
-                            "updateBirthday"
-                          ];
+                          $steps["updateBirthday"] =
+                            await $steps["updateBirthday"];
                         }
 
                         $steps["updateBday"] = true
@@ -6025,9 +6015,8 @@ function PlasmicBioritm__RenderFunc(props: {
                           typeof $steps["updateSlideinModal2Click"].then ===
                             "function"
                         ) {
-                          $steps["updateSlideinModal2Click"] = await $steps[
-                            "updateSlideinModal2Click"
-                          ];
+                          $steps["updateSlideinModal2Click"] =
+                            await $steps["updateSlideinModal2Click"];
                         }
 
                         $steps["invokeGlobalAction"] = true
@@ -6083,9 +6072,8 @@ function PlasmicBioritm__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
 
                         $steps["invokeGlobalAction2"] =
@@ -6109,9 +6097,8 @@ function PlasmicBioritm__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction2"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction2"] = await $steps[
-                            "invokeGlobalAction2"
-                          ];
+                          $steps["invokeGlobalAction2"] =
+                            await $steps["invokeGlobalAction2"];
                         }
 
                         $steps["runCode"] = true
@@ -6167,9 +6154,8 @@ function PlasmicBioritm__RenderFunc(props: {
                           typeof $steps["updateFerstTimepage"].then ===
                             "function"
                         ) {
-                          $steps["updateFerstTimepage"] = await $steps[
-                            "updateFerstTimepage"
-                          ];
+                          $steps["updateFerstTimepage"] =
+                            await $steps["updateFerstTimepage"];
                         }
                       }}
                       onColorChange={async (...eventArgs: any) => {
@@ -6307,9 +6293,8 @@ function PlasmicBioritm__RenderFunc(props: {
                     typeof $steps["updateDialog2Opendialog"] === "object" &&
                     typeof $steps["updateDialog2Opendialog"].then === "function"
                   ) {
-                    $steps["updateDialog2Opendialog"] = await $steps[
-                      "updateDialog2Opendialog"
-                    ];
+                    $steps["updateDialog2Opendialog"] =
+                      await $steps["updateDialog2Opendialog"];
                   }
                 }}
               >
@@ -6382,9 +6367,8 @@ function PlasmicBioritm__RenderFunc(props: {
                     typeof $steps["updateDialogOpendialog"] === "object" &&
                     typeof $steps["updateDialogOpendialog"].then === "function"
                   ) {
-                    $steps["updateDialogOpendialog"] = await $steps[
-                      "updateDialogOpendialog"
-                    ];
+                    $steps["updateDialogOpendialog"] =
+                      await $steps["updateDialogOpendialog"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
@@ -6605,6 +6589,7 @@ function PlasmicBioritm__RenderFunc(props: {
                   })()}
                   className={classNames("__wab_instance", sty.datePickers)}
                   customYears={[]}
+                  hideYear={false}
                   onChange={async (...eventArgs: any) => {
                     generateStateOnChangeProp($state, [
                       "datePickers",
@@ -6676,9 +6661,8 @@ function PlasmicBioritm__RenderFunc(props: {
                         typeof $steps["updateBirthday"] === "object" &&
                         typeof $steps["updateBirthday"].then === "function"
                       ) {
-                        $steps["updateBirthday"] = await $steps[
-                          "updateBirthday"
-                        ];
+                        $steps["updateBirthday"] =
+                          await $steps["updateBirthday"];
                       }
 
                       $steps["updateBday"] = true
@@ -6753,9 +6737,8 @@ function PlasmicBioritm__RenderFunc(props: {
                         typeof $steps["updateDialogOpendialog"].then ===
                           "function"
                       ) {
-                        $steps["updateDialogOpendialog"] = await $steps[
-                          "updateDialogOpendialog"
-                        ];
+                        $steps["updateDialogOpendialog"] =
+                          await $steps["updateDialogOpendialog"];
                       }
 
                       $steps["invokeGlobalAction"] = true
@@ -6811,9 +6794,8 @@ function PlasmicBioritm__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["invokeGlobalAction2"] =
@@ -6836,9 +6818,8 @@ function PlasmicBioritm__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction2"] === "object" &&
                         typeof $steps["invokeGlobalAction2"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction2"] = await $steps[
-                          "invokeGlobalAction2"
-                        ];
+                        $steps["invokeGlobalAction2"] =
+                          await $steps["invokeGlobalAction2"];
                       }
 
                       $steps["runCode"] = true
@@ -6891,9 +6872,8 @@ function PlasmicBioritm__RenderFunc(props: {
                         typeof $steps["updateFerstTimepage"] === "object" &&
                         typeof $steps["updateFerstTimepage"].then === "function"
                       ) {
-                        $steps["updateFerstTimepage"] = await $steps[
-                          "updateFerstTimepage"
-                        ];
+                        $steps["updateFerstTimepage"] =
+                          await $steps["updateFerstTimepage"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -7004,9 +6984,8 @@ function PlasmicBioritm__RenderFunc(props: {
                         typeof $steps["updateDialogOpendialog"].then ===
                           "function"
                       ) {
-                        $steps["updateDialogOpendialog"] = await $steps[
-                          "updateDialogOpendialog"
-                        ];
+                        $steps["updateDialogOpendialog"] =
+                          await $steps["updateDialogOpendialog"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -7243,9 +7222,7 @@ function PlasmicBioritm__RenderFunc(props: {
                         const actionArgs = {
                           destination: (() => {
                             try {
-                              return `/clinic?token=${localStorage.getItem(
-                                "token"
-                              )}&userId=${$state.userInfo.r}&gender=male`;
+                              return `/clinic?token=${localStorage.getItem("token")}&userId=${$state.userInfo.r}&gender=male`;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -7512,7 +7489,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicBioritm__VariantsArgs;
     args?: PlasmicBioritm__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicBioritm__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicBioritm__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicBioritm__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
