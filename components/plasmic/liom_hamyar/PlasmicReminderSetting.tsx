@@ -87,6 +87,7 @@ import Icon311Icon from "./icons/PlasmicIcon__Icon311"; // plasmic-import: lNuAA
 import Icon291Icon from "./icons/PlasmicIcon__Icon291"; // plasmic-import: U9F0Jow4owN9/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+import Icon214Icon from "./icons/PlasmicIcon__Icon214"; // plasmic-import: gfITgruAsqTI/icon
 import Icon283Icon from "./icons/PlasmicIcon__Icon283"; // plasmic-import: d6oFXeX9yzDi/icon
 import Icon313Icon from "./icons/PlasmicIcon__Icon313"; // plasmic-import: 2foIFDF7T4zN/icon
 
@@ -510,7 +511,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         path: "button9.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => "blue"
       },
       {
         path: "button9.loading",
@@ -3820,6 +3821,10 @@ function PlasmicReminderSetting__RenderFunc(props: {
               >
                 {"\u0641\u0639\u0627\u0644"}
               </div>
+              <Icon214Icon
+                className={classNames(projectcss.all, sty.svg___1Ih8Q)}
+                role={"img"}
+              />
             </div>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__lD35S)}>
@@ -3949,9 +3954,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 }}
                 size={"compact"}
               >
-                {
-                  "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0631\u0628\u0627\u062a \u062a\u0644\u06af\u0631\u0627\u0645"
-                }
+                {"\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc"}
               </Button>
             ) : null}
             {(() => {
@@ -3967,16 +3970,20 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 throw e;
               }
             })() ? (
-              <div className={classNames(projectcss.all, sty.freeBox__aSzNr)}>
+              <div className={classNames(projectcss.all, sty.freeBox__apXmg)}>
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__kKe59
+                    sty.text__tt72S
                   )}
                 >
                   {"\u0641\u0639\u0627\u0644"}
                 </div>
+                <Icon214Icon
+                  className={classNames(projectcss.all, sty.svg__fua6)}
+                  role={"img"}
+                />
               </div>
             ) : null}
           </div>
@@ -4104,9 +4111,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 }}
                 size={"compact"}
               >
-                {
-                  "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9"
-                }
+                {"\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc"}
               </Button>
             ) : null}
             {(() => {
@@ -4122,16 +4127,20 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 throw e;
               }
             })() ? (
-              <div className={classNames(projectcss.all, sty.freeBox__iMPcZ)}>
+              <div className={classNames(projectcss.all, sty.freeBox__zNeZt)}>
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__byBf7
+                    sty.text__ugo5M
                   )}
                 >
                   {"\u0641\u0639\u0627\u0644"}
                 </div>
+                <Icon214Icon
+                  className={classNames(projectcss.all, sty.svg__vdJmv)}
+                  role={"img"}
+                />
               </div>
             ) : null}
           </div>
