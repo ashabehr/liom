@@ -62,6 +62,7 @@ import {
 import Hamyar2 from "../../Hamyar2"; // plasmic-import: lqbda80vTmgo/component
 import { Iframe } from "@plasmicpkgs/plasmic-basic-components";
 import SelfCare2 from "../../SelfCare2"; // plasmic-import: q5NYbKztjYXR/component
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -133,9 +134,9 @@ export type PlasmicMainHamyar__OverridesType = {
   root?: Flex__<"div">;
   hamyar2?: Flex__<typeof Hamyar2>;
   section?: Flex__<"section">;
-  freeBox?: Flex__<"div">;
   iframe?: Flex__<typeof Iframe>;
   selfCare2?: Flex__<typeof SelfCare2>;
+  embedHtml?: Flex__<typeof Embed>;
 };
 
 export interface DefaultMainHamyarProps {
@@ -590,10 +591,12 @@ function PlasmicMainHamyar__RenderFunc(props: {
         })}
       >
         <div
-          data-plasmic-name={"freeBox"}
-          data-plasmic-override={overrides.freeBox}
-          className={classNames(projectcss.all, sty.freeBox, {
-            [sty.freeBoxpage_bot]: hasVariant($state, "page", "bot")
+          className={classNames(projectcss.all, sty.freeBox___350JY, {
+            [sty.freeBoxpage_bot___350JYcUp9K]: hasVariant(
+              $state,
+              "page",
+              "bot"
+            )
           })}
           style={(() => {
             try {
@@ -652,17 +655,66 @@ function PlasmicMainHamyar__RenderFunc(props: {
         }}
         subItems={generateStateValueProp($state, ["selfCare2", "subItems"])}
       />
+
+      <Embed
+        data-plasmic-name={"embedHtml"}
+        data-plasmic-override={overrides.embedHtml}
+        className={classNames("__wab_instance", sty.embedHtml)}
+        code={
+          '  <script>\r\n    window.addEventListener("pageshow", () => {\r\n      const btn = document.getElementById("pageshow");\r\n      if (btn) {\r\n        btn.click(); // \u0647\u0631 \u0628\u0627\u0631 \u06a9\u0647 \u0635\u0641\u062d\u0647 \u0646\u0634\u0648\u0646 \u062f\u0627\u062f\u0647 \u0634\u062f\u060c \u0627\u06cc\u0646 \u0627\u062c\u0631\u0627 \u0645\u06cc\u0634\u0647\r\n      }\r\n    });\r\n\r\n  </script>'
+        }
+      />
+
+      <div
+        className={classNames(projectcss.all, sty.freeBox__cfliQ)}
+        id={"pageshow"}
+        onClick={async event => {
+          const $steps = {};
+
+          $steps["updateHamyar2Refresh"] = true
+            ? (() => {
+                const actionArgs = {
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["hamyar2", "refresh"]
+                  },
+                  operation: 0,
+                  value: new Date().toLocaleString("fa-IR", {
+                    timeZone: "Asia/Tehran"
+                  })
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  $stateSet(objRoot, variablePath, value);
+                  return value;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateHamyar2Refresh"] != null &&
+            typeof $steps["updateHamyar2Refresh"] === "object" &&
+            typeof $steps["updateHamyar2Refresh"].then === "function"
+          ) {
+            $steps["updateHamyar2Refresh"] =
+              await $steps["updateHamyar2Refresh"];
+          }
+        }}
+      />
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "hamyar2", "section", "freeBox", "iframe", "selfCare2"],
+  root: ["root", "hamyar2", "section", "iframe", "selfCare2", "embedHtml"],
   hamyar2: ["hamyar2"],
-  section: ["section", "freeBox", "iframe"],
-  freeBox: ["freeBox", "iframe"],
+  section: ["section", "iframe"],
   iframe: ["iframe"],
-  selfCare2: ["selfCare2"]
+  selfCare2: ["selfCare2"],
+  embedHtml: ["embedHtml"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -671,9 +723,9 @@ type NodeDefaultElementType = {
   root: "div";
   hamyar2: typeof Hamyar2;
   section: "section";
-  freeBox: "div";
   iframe: typeof Iframe;
   selfCare2: typeof SelfCare2;
+  embedHtml: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -740,9 +792,9 @@ export const PlasmicMainHamyar = Object.assign(
     // Helper components rendering sub-elements
     hamyar2: makeNodeComponent("hamyar2"),
     section: makeNodeComponent("section"),
-    freeBox: makeNodeComponent("freeBox"),
     iframe: makeNodeComponent("iframe"),
     selfCare2: makeNodeComponent("selfCare2"),
+    embedHtml: makeNodeComponent("embedHtml"),
 
     // Metadata about props expected for PlasmicMainHamyar
     internalVariantProps: PlasmicMainHamyar__VariantProps,

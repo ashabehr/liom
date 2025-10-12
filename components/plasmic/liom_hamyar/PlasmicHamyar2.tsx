@@ -2439,6 +2439,41 @@ function PlasmicHamyar2__RenderFunc(props: {
             $steps["getCookie"] = await $steps["getCookie"];
           }
 
+          $steps["loadChash"] = (
+            window.sessionStorage.getItem("cash") ? true : false
+          )
+            ? (() => {
+                const actionArgs = {
+                  customFunction: async () => {
+                    return (() => {
+                      $state.userdata = JSON.parse(
+                        window.sessionStorage.getItem("userdata")
+                      );
+                      $state.advices = JSON.parse(
+                        window.sessionStorage.getItem("advice")
+                      );
+                      $state.toDos = JSON.parse(
+                        window.sessionStorage.getItem("todo")
+                      );
+                      return ($state.shapData = JSON.parse(
+                        window.sessionStorage.getItem("shop")
+                      ));
+                    })();
+                  }
+                };
+                return (({ customFunction }) => {
+                  return customFunction();
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["loadChash"] != null &&
+            typeof $steps["loadChash"] === "object" &&
+            typeof $steps["loadChash"].then === "function"
+          ) {
+            $steps["loadChash"] = await $steps["loadChash"];
+          }
+
           $steps["userdata"] = true
             ? (() => {
                 const actionArgs = {
@@ -2485,40 +2520,6 @@ function PlasmicHamyar2__RenderFunc(props: {
             typeof $steps["userdata"].then === "function"
           ) {
             $steps["userdata"] = await $steps["userdata"];
-          }
-
-          $steps["loadChash"] =
-            window.sessionStorage.getItem("cash") == "true"
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return (() => {
-                        $state.userdata = JSON.parse(
-                          window.sessionStorage.getItem("userdata")
-                        );
-                        $state.advices = JSON.parse(
-                          window.sessionStorage.getItem("advice")
-                        );
-                        $state.toDos = JSON.parse(
-                          window.sessionStorage.getItem("todo")
-                        );
-                        return ($state.shapData = JSON.parse(
-                          window.sessionStorage.getItem("shop")
-                        ));
-                      })();
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-          if (
-            $steps["loadChash"] != null &&
-            typeof $steps["loadChash"] === "object" &&
-            typeof $steps["loadChash"].then === "function"
-          ) {
-            $steps["loadChash"] = await $steps["loadChash"];
           }
 
           $steps["updateUserdata"] = (
@@ -2914,38 +2915,39 @@ function PlasmicHamyar2__RenderFunc(props: {
             $steps["updateNoPartner"] = await $steps["updateNoPartner"];
           }
 
-          $steps["advice"] = true
-            ? (() => {
-                const actionArgs = {
-                  args: [
-                    undefined,
-                    "https://n8n.staas.ir/webhook/hamyar/advice",
-                    (() => {
-                      try {
-                        return {
-                          status:
-                            $state.cyclebox.cycle == "Pregnancy"
-                              ? $state.pregnancy?.week.toString()
-                              : $state.cyclebox.cycle || "white",
-                          limit: 1
-                        };
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
+          $steps["advice"] =
+            window.sessionStorage.getItem("cash") != "true"
+              ? (() => {
+                  const actionArgs = {
+                    args: [
+                      undefined,
+                      "https://n8n.staas.ir/webhook/hamyar/advice",
+                      (() => {
+                        try {
+                          return {
+                            status:
+                              $state.cyclebox.cycle == "Pregnancy"
+                                ? $state.pregnancy?.week.toString()
+                                : $state.cyclebox.cycle || "white",
+                            limit: 1
+                          };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()
-                  ]
-                };
-                return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                  ...actionArgs.args
-                ]);
-              })()
-            : undefined;
+                      })()
+                    ]
+                  };
+                  return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                    ...actionArgs.args
+                  ]);
+                })()
+              : undefined;
           if (
             $steps["advice"] != null &&
             typeof $steps["advice"] === "object" &&
@@ -2983,7 +2985,11 @@ function PlasmicHamyar2__RenderFunc(props: {
             $steps["updateAdvices"] = await $steps["updateAdvices"];
           }
 
-          $steps["todo"] = ($steps.userdata?.data?.success ? true : false)
+          $steps["todo"] = (
+            $steps.userdata?.data?.success
+              ? true
+              : false && window.sessionStorage.getItem("cash") != "true"
+          )
             ? (() => {
                 const actionArgs = {
                   args: [
@@ -3098,6 +3104,92 @@ function PlasmicHamyar2__RenderFunc(props: {
             $steps["updateLoadingPage"] = await $steps["updateLoadingPage"];
           }
 
+          $steps["shop"] = (
+            $steps.userdata?.data?.success
+              ? true
+              : false && window.sessionStorage.getItem("cash") != "true"
+          )
+            ? (() => {
+                const actionArgs = {
+                  args: [
+                    "POST",
+                    "https://n8n.staas.ir/webhook/hamyar/shop",
+                    undefined,
+                    (() => {
+                      try {
+                        return { refCode: $state.userdata.result.man.refCode };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })(),
+                    (() => {
+                      try {
+                        return {
+                          headers: {
+                            "Content-Type": "application/json",
+                            Authorization: $state.userdata.result.token
+                          }
+                        };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+                  ]
+                };
+                return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                  ...actionArgs.args
+                ]);
+              })()
+            : undefined;
+          if (
+            $steps["shop"] != null &&
+            typeof $steps["shop"] === "object" &&
+            typeof $steps["shop"].then === "function"
+          ) {
+            $steps["shop"] = await $steps["shop"];
+          }
+
+          $steps["updateShapData"] = ($steps.shop?.data.success ? true : false)
+            ? (() => {
+                const actionArgs = {
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["shapData"]
+                  },
+                  operation: 0,
+                  value: $steps.shop.data
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  $stateSet(objRoot, variablePath, value);
+                  return value;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateShapData"] != null &&
+            typeof $steps["updateShapData"] === "object" &&
+            typeof $steps["updateShapData"].then === "function"
+          ) {
+            $steps["updateShapData"] = await $steps["updateShapData"];
+          }
+
           $steps["stote"] = (
             $steps.userdata?.data?.success &&
             $steps.shop?.data?.success &&
@@ -3204,88 +3296,6 @@ function PlasmicHamyar2__RenderFunc(props: {
             typeof $steps["log"].then === "function"
           ) {
             $steps["log"] = await $steps["log"];
-          }
-
-          $steps["shop"] = ($steps.userdata?.data?.success ? true : false)
-            ? (() => {
-                const actionArgs = {
-                  args: [
-                    "POST",
-                    "https://n8n.staas.ir/webhook/hamyar/shop",
-                    undefined,
-                    (() => {
-                      try {
-                        return { refCode: $state.userdata.result.man.refCode };
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })(),
-                    (() => {
-                      try {
-                        return {
-                          headers: {
-                            "Content-Type": "application/json",
-                            Authorization: $state.userdata.result.token
-                          }
-                        };
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()
-                  ]
-                };
-                return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                  ...actionArgs.args
-                ]);
-              })()
-            : undefined;
-          if (
-            $steps["shop"] != null &&
-            typeof $steps["shop"] === "object" &&
-            typeof $steps["shop"].then === "function"
-          ) {
-            $steps["shop"] = await $steps["shop"];
-          }
-
-          $steps["updateShapData"] = ($steps.shop?.data.success ? true : false)
-            ? (() => {
-                const actionArgs = {
-                  variable: {
-                    objRoot: $state,
-                    variablePath: ["shapData"]
-                  },
-                  operation: 0,
-                  value: $steps.shop.data
-                };
-                return (({ variable, value, startIndex, deleteCount }) => {
-                  if (!variable) {
-                    return;
-                  }
-                  const { objRoot, variablePath } = variable;
-
-                  $stateSet(objRoot, variablePath, value);
-                  return value;
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["updateShapData"] != null &&
-            typeof $steps["updateShapData"] === "object" &&
-            typeof $steps["updateShapData"].then === "function"
-          ) {
-            $steps["updateShapData"] = await $steps["updateShapData"];
           }
         }}
       />
