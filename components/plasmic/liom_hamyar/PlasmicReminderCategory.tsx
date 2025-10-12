@@ -60,6 +60,7 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import RadioGroupLiom from "../../RadioGroupLiom"; // plasmic-import: tXN0uQ-uT9R3/component
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -83,6 +84,7 @@ export const PlasmicReminderCategory__ArgProps = new Array<ArgPropType>();
 export type PlasmicReminderCategory__OverridesType = {
   root?: Flex__<"div">;
   radioGroupLiom?: Flex__<typeof RadioGroupLiom>;
+  apiRequest?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultReminderCategoryProps {
@@ -145,6 +147,24 @@ function PlasmicReminderCategory__RenderFunc(props: {
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "apiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -211,13 +231,62 @@ function PlasmicReminderCategory__RenderFunc(props: {
           "selected"
         ])}
       />
+
+      <ApiRequest
+        data-plasmic-name={"apiRequest"}
+        data-plasmic-override={overrides.apiRequest}
+        className={classNames("__wab_instance", sty.apiRequest)}
+        errorDisplay={
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__q6IRy
+            )}
+          >
+            {"Error fetching data"}
+          </div>
+        }
+        loadingDisplay={
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text___41Z7U
+            )}
+          >
+            {"Loading..."}
+          </div>
+        }
+        method={"GET"}
+        onError={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(
+            null,
+            eventArgs
+          );
+        }}
+        onLoading={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["apiRequest", "loading"]).apply(
+            null,
+            eventArgs
+          );
+        }}
+        onSuccess={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
+            null,
+            eventArgs
+          );
+        }}
+        shouldFetch={true}
+      />
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "radioGroupLiom"],
-  radioGroupLiom: ["radioGroupLiom"]
+  root: ["root", "radioGroupLiom", "apiRequest"],
+  radioGroupLiom: ["radioGroupLiom"],
+  apiRequest: ["apiRequest"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -225,6 +294,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   radioGroupLiom: typeof RadioGroupLiom;
+  apiRequest: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -290,6 +360,7 @@ export const PlasmicReminderCategory = Object.assign(
   {
     // Helper components rendering sub-elements
     radioGroupLiom: makeNodeComponent("radioGroupLiom"),
+    apiRequest: makeNodeComponent("apiRequest"),
 
     // Metadata about props expected for PlasmicReminderCategory
     internalVariantProps: PlasmicReminderCategory__VariantProps,

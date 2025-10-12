@@ -155,8 +155,12 @@ export type PlasmicHamyar2__ArgsType = {
   onTokenUserChange?: (val: string) => void;
   plasmicAntd5ModalOpen?: boolean;
   onPlasmicAntd5ModalOpenChange?: (val: boolean) => void;
+  shop?: boolean;
+  onShopChange?: (val: boolean) => void;
   userdata?: any;
   onUserdataChange?: (val: string) => void;
+  mobileDialogOpen?: boolean;
+  onMobileDialogOpenChange?: (val: boolean) => void;
   remind?: any;
   onRemindChange?: (val: string) => void;
   reminderOpen?: (event: any) => void;
@@ -171,8 +175,12 @@ export const PlasmicHamyar2__ArgProps = new Array<ArgPropType>(
   "onTokenUserChange",
   "plasmicAntd5ModalOpen",
   "onPlasmicAntd5ModalOpenChange",
+  "shop",
+  "onShopChange",
   "userdata",
   "onUserdataChange",
+  "mobileDialogOpen",
+  "onMobileDialogOpenChange",
   "remind",
   "onRemindChange",
   "reminderOpen",
@@ -253,8 +261,12 @@ export interface DefaultHamyar2Props {
   onTokenUserChange?: (val: string) => void;
   plasmicAntd5ModalOpen?: boolean;
   onPlasmicAntd5ModalOpenChange?: (val: boolean) => void;
+  shop?: boolean;
+  onShopChange?: (val: boolean) => void;
   userdata?: any;
   onUserdataChange?: (val: string) => void;
+  mobileDialogOpen?: boolean;
+  onMobileDialogOpenChange?: (val: boolean) => void;
   remind?: any;
   onRemindChange?: (val: string) => void;
   reminderOpen?: (event: any) => void;
@@ -1325,9 +1337,11 @@ function PlasmicHamyar2__RenderFunc(props: {
       },
       {
         path: "dialog.opendialog",
-        type: "private",
+        type: "writable",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+
+        valueProp: "shop",
+        onChangeProp: "onShopChange"
       },
       {
         path: "shopDialog.data",
@@ -1533,9 +1547,11 @@ function PlasmicHamyar2__RenderFunc(props: {
       },
       {
         path: "mobileDialog.open",
-        type: "private",
+        type: "writable",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+
+        valueProp: "mobileDialogOpen",
+        onChangeProp: "onMobileDialogOpenChange"
       },
       {
         path: "button19.color",

@@ -70,8 +70,8 @@ import { Pickers } from "@/components/Pickers"; // plasmic-import: htE-oGSeNx82/
 import { TimePickerCustom } from "@/components/TimePickerCustom"; // plasmic-import: GRoigtq491XH/codeComponent
 import CheckboxGroup from "../../CheckboxGroup"; // plasmic-import: AhgoIztCTzjf/component
 import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
-import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
+import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -123,6 +123,7 @@ export type PlasmicReminderSetting__ArgsType = {
   onTelChange?: (val: string) => void;
   sms?: boolean;
   onSmsChange?: (val: string) => void;
+  setMobile?: () => void;
 };
 type ArgPropType = keyof PlasmicReminderSetting__ArgsType;
 export const PlasmicReminderSetting__ArgProps = new Array<ArgPropType>(
@@ -141,7 +142,8 @@ export const PlasmicReminderSetting__ArgProps = new Array<ArgPropType>(
   "tel",
   "onTelChange",
   "sms",
-  "onSmsChange"
+  "onSmsChange",
+  "setMobile"
 );
 
 export type PlasmicReminderSetting__OverridesType = {
@@ -166,9 +168,8 @@ export type PlasmicReminderSetting__OverridesType = {
   checkboxGroup?: Flex__<typeof CheckboxGroup>;
   checkbox?: Flex__<typeof Checkbox>;
   slide2?: Flex__<"div">;
-  switchSms?: Flex__<typeof Switchbest>;
-  switchTelegram?: Flex__<typeof Switchbest>;
   button9?: Flex__<typeof Button>;
+  button10?: Flex__<typeof Button>;
   frame?: Flex__<"div">;
   frame2?: Flex__<"div">;
   button7?: Flex__<typeof Button>;
@@ -203,6 +204,7 @@ export interface DefaultReminderSettingProps {
   onTelChange?: (val: string) => void;
   sms?: boolean;
   onSmsChange?: (val: string) => void;
+  setMobile?: () => void;
   slide?: SingleChoiceArg<"_1" | "_2">;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
   className?: string;
@@ -300,9 +302,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
           subscription: false,
           token:
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc1NzMxMjM4N30.pdVwl5PBNOb_8qOvch4mCHnnO_nPudkzmuNdHeGfEuY",
-          telegramOn: false,
-          phoneNumber: "null",
-          telegramId: "5384384618"
+          telegramOn: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -505,44 +505,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
         path: "switchSetting[][].isChecked",
         type: "private",
         variableType: "boolean"
-      },
-      {
-        path: "switchSms.isChecked",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.sms;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return [];
-              }
-              throw e;
-            }
-          })()
-      },
-      {
-        path: "switchTelegram.isChecked",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.tel;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return [];
-              }
-              throw e;
-            }
-          })()
       },
       {
         path: "button9.color",
@@ -876,6 +838,24 @@ function PlasmicReminderSetting__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.hamyar
+      },
+      {
+        path: "button10.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button10.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button10.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -2393,35 +2373,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["runCode2"] = false
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              var firstChild =
-                                window.document.getElementById("sms-tag");
-                              var checkbox = firstChild.querySelector(
-                                'input[type="checkbox"]'
-                              );
-                              if (checkbox) {
-                                return checkbox.click();
-                              }
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode2"] != null &&
-                    typeof $steps["runCode2"] === "object" &&
-                    typeof $steps["runCode2"].then === "function"
-                  ) {
-                    $steps["runCode2"] = await $steps["runCode2"];
-                  }
-
                   $steps["updateButton5Loading"] = true
                     ? (() => {
                         const actionArgs = {
@@ -3845,176 +3796,31 @@ function PlasmicReminderSetting__RenderFunc(props: {
             [sty.slide2slide__2]: hasVariant($state, "slide", "_2")
           })}
         >
-          <div
-            className={classNames(projectcss.all, sty.freeBox__h31Sa)}
-            id={"sms-tag"}
-          >
-            <div className={classNames(projectcss.all, sty.freeBox__ljiiw)}>
+          <div className={classNames(projectcss.all, sty.freeBox__mco7M)}>
+            <div className={classNames(projectcss.all, sty.freeBox__jphvW)}>
               <div
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text___9HquP
+                  sty.text___8SfmK
                 )}
               >
                 {
-                  "\u06cc\u0627\u062f \u0622\u0648\u0631\u06cc \u0628\u0627 \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9"
+                  "\u06cc\u0627\u062f \u0622\u0648\u0631\u06cc \u0627\u0632 \u0637\u0631\u06cc\u0642 \u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646"
                 }
               </div>
             </div>
-            <Switchbest
-              data-plasmic-name={"switchSms"}
-              data-plasmic-override={overrides.switchSms}
-              children={null}
-              className={classNames("__wab_instance", sty.switchSms)}
-              isChecked={
-                generateStateValueProp($state, ["switchSms", "isChecked"]) ??
-                false
-              }
-              onChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["switchSms", "isChecked"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-
-                (async isChecked => {
-                  const $steps = {};
-
-                  $steps["runCode2"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return ($state.sms = $state.switchSms.isChecked
-                              ? true
-                              : false);
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode2"] != null &&
-                    typeof $steps["runCode2"] === "object" &&
-                    typeof $steps["runCode2"].then === "function"
-                  ) {
-                    $steps["runCode2"] = await $steps["runCode2"];
-                  }
-
-                  $steps["runShop"] = !$props.subscription
-                    ? (() => {
-                        const actionArgs = { eventRef: $props["shop"] };
-                        return (({ eventRef, args }) => {
-                          return eventRef?.(...(args ?? []));
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runShop"] != null &&
-                    typeof $steps["runShop"] === "object" &&
-                    typeof $steps["runShop"].then === "function"
-                  ) {
-                    $steps["runShop"] = await $steps["runShop"];
-                  }
-
-                  $steps["runCode"] = !$props.subscription
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              $state.switchSms.isChecked = false;
-                              return ($state.sms = $state.switchSms.isChecked
-                                ? true
-                                : false);
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
-
-                  $steps["update"] = $props.subscription
-                    ? (() => {
-                        const actionArgs = {
-                          args: [
-                            "POST",
-                            "https://n8n.staas.ir/webhook/user/setNotif",
-                            undefined,
-                            (() => {
-                              try {
-                                return {
-                                  data: $state.switchSms.isChecked
-                                    ? true
-                                    : false,
-                                  type: "activeSmsNotif"
-                                };
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })(),
-                            (() => {
-                              try {
-                                return {
-                                  headers: {
-                                    "Content-Type": "application/json",
-                                    Accept: "application/json",
-                                    Authorization: $props.token,
-                                    "X-Requested-With": "XMLHttpRequest"
-                                  }
-                                };
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          ]
-                        };
-                        return $globalActions["Fragment.apiRequest"]?.apply(
-                          null,
-                          [...actionArgs.args]
-                        );
-                      })()
-                    : undefined;
-                  if (
-                    $steps["update"] != null &&
-                    typeof $steps["update"] === "object" &&
-                    typeof $steps["update"].then === "function"
-                  ) {
-                    $steps["update"] = await $steps["update"];
-                  }
-                }).apply(null, eventArgs);
-              }}
-            />
+            <div className={classNames(projectcss.all, sty.freeBox__jYkOx)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___0IZfz
+                )}
+              >
+                {"\u0641\u0639\u0627\u0644"}
+              </div>
+            </div>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__lD35S)}>
             <div className={classNames(projectcss.all, sty.freeBox__nyFlb)}>
@@ -4030,180 +3836,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 }
               </div>
             </div>
-            {(() => {
-              try {
-                return $props.telegramOn;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
-                }
-                throw e;
-              }
-            })() ? (
-              <Switchbest
-                data-plasmic-name={"switchTelegram"}
-                data-plasmic-override={overrides.switchTelegram}
-                children={null}
-                className={classNames("__wab_instance", sty.switchTelegram)}
-                isChecked={
-                  generateStateValueProp($state, [
-                    "switchTelegram",
-                    "isChecked"
-                  ]) ?? false
-                }
-                onChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, [
-                      "switchTelegram",
-                      "isChecked"
-                    ])(eventArgs[0]);
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-
-                  (async isChecked => {
-                    const $steps = {};
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return ($state.tel = $state.switchTelegram
-                                .isChecked
-                                ? true
-                                : false);
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-
-                    $steps["runCode2"] = !$props.subscription
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                $state.switchTelegram.isChecked = false;
-                                return ($state.tel = $state.switchTelegram
-                                  .isChecked
-                                  ? true
-                                  : false);
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode2"] != null &&
-                      typeof $steps["runCode2"] === "object" &&
-                      typeof $steps["runCode2"].then === "function"
-                    ) {
-                      $steps["runCode2"] = await $steps["runCode2"];
-                    }
-
-                    $steps["runShop"] = !$props.subscription
-                      ? (() => {
-                          const actionArgs = { eventRef: $props["shop"] };
-                          return (({ eventRef, args }) => {
-                            return eventRef?.(...(args ?? []));
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runShop"] != null &&
-                      typeof $steps["runShop"] === "object" &&
-                      typeof $steps["runShop"].then === "function"
-                    ) {
-                      $steps["runShop"] = await $steps["runShop"];
-                    }
-
-                    $steps["update"] = $props.subscription
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              "POST",
-                              "https://n8n.staas.ir/webhook/user/setNotif",
-                              undefined,
-                              (() => {
-                                try {
-                                  return {
-                                    data: $state.switchTelegram.isChecked
-                                      ? true
-                                      : false,
-                                    type: "activeNotifTel"
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })(),
-                              (() => {
-                                try {
-                                  return {
-                                    headers: {
-                                      "Content-Type": "application/json",
-                                      Accept: "application/json",
-                                      Authorization: $props.token,
-                                      "X-Requested-With": "XMLHttpRequest"
-                                    }
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            ]
-                          };
-                          return $globalActions["Fragment.apiRequest"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["update"] != null &&
-                      typeof $steps["update"] === "object" &&
-                      typeof $steps["update"].then === "function"
-                    ) {
-                      $steps["update"] = await $steps["update"];
-                    }
-                  }).apply(null, eventArgs);
-                }}
-              />
-            ) : null}
             {(() => {
               try {
                 return !$props.telegramOn;
@@ -4227,23 +3859,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["runBack"] = true
-                    ? (() => {
-                        const actionArgs = { eventRef: $props["back"] };
-                        return (({ eventRef, args }) => {
-                          return eventRef?.(...(args ?? []));
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runBack"] != null &&
-                    typeof $steps["runBack"] === "object" &&
-                    typeof $steps["runBack"].then === "function"
-                  ) {
-                    $steps["runBack"] = await $steps["runBack"];
-                  }
-
-                  $steps["runCode2"] = true
+                  $steps["runCode2"] = false
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
@@ -4337,6 +3953,186 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0631\u0628\u0627\u062a \u062a\u0644\u06af\u0631\u0627\u0645"
                 }
               </Button>
+            ) : null}
+            {(() => {
+              try {
+                return $props.telegramOn;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div className={classNames(projectcss.all, sty.freeBox__aSzNr)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__kKe59
+                  )}
+                >
+                  {"\u0641\u0639\u0627\u0644"}
+                </div>
+              </div>
+            ) : null}
+          </div>
+          <div
+            className={classNames(projectcss.all, sty.freeBox__h31Sa)}
+            id={"sms-tag"}
+          >
+            <div className={classNames(projectcss.all, sty.freeBox__ljiiw)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___9HquP
+                )}
+              >
+                {
+                  "\u06cc\u0627\u062f \u0622\u0648\u0631\u06cc \u0628\u0627 \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9 \u06cc\u0627 \u062a\u0645\u0627\u0633"
+                }
+              </div>
+            </div>
+            {(() => {
+              try {
+                return !$props.subscription || !$props.phoneNumber;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <Button
+                data-plasmic-name={"button10"}
+                data-plasmic-override={overrides.button10}
+                className={classNames("__wab_instance", sty.button10)}
+                color={generateStateValueProp($state, ["button10", "color"])}
+                load={generateStateValueProp($state, ["button10", "load"])}
+                loading={generateStateValueProp($state, [
+                  "button10",
+                  "loading"
+                ])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runCode2"] = !$props.subscription
+                    ? (() => {
+                        const actionArgs = { eventRef: $props["shop"] };
+                        return (({ eventRef, args }) => {
+                          return eventRef?.(...(args ?? []));
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode2"] != null &&
+                    typeof $steps["runCode2"] === "object" &&
+                    typeof $steps["runCode2"].then === "function"
+                  ) {
+                    $steps["runCode2"] = await $steps["runCode2"];
+                  }
+
+                  $steps["runInteractionProp"] =
+                    $props.subscription && !$props.phoneNumber
+                      ? (() => {
+                          const actionArgs = {};
+                          return (({ eventRef, args }) => {
+                            return eventRef?.(...(args ?? []));
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                  if (
+                    $steps["runInteractionProp"] != null &&
+                    typeof $steps["runInteractionProp"] === "object" &&
+                    typeof $steps["runInteractionProp"].then === "function"
+                  ) {
+                    $steps["runInteractionProp"] =
+                      await $steps["runInteractionProp"];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button10", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button10", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button10", "loading"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                size={"compact"}
+              >
+                {
+                  "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9"
+                }
+              </Button>
+            ) : null}
+            {(() => {
+              try {
+                return $props.subscription && $props.phoneNumber;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div className={classNames(projectcss.all, sty.freeBox__iMPcZ)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__byBf7
+                  )}
+                >
+                  {"\u0641\u0639\u0627\u0644"}
+                </div>
+              </div>
             ) : null}
           </div>
         </div>
@@ -4667,38 +4463,39 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     const actionArgs = {
                                       customFunction: async () => {
                                         return (() => {
-                                          var firstChild =
-                                            window.document.querySelector(
-                                              ".days"
-                                            ).children[dayIndex];
-                                          var itemDayChild =
+                                          const daysContainer =
+                                            document.querySelector(".days");
+                                          if (!daysContainer) return;
+                                          const firstChild =
+                                            daysContainer.children[dayIndex];
+                                          if (!firstChild) return;
+                                          const itemDay =
                                             firstChild.querySelector(
                                               ".itemdays"
                                             );
-                                          var targetChild =
-                                            itemDayChild.children[currentIndex];
-                                          var datesStr =
-                                            currentItem.dates || "[]";
-                                          var parsed = JSON.parse(
+                                          if (!itemDay) return;
+                                          const targetChild =
+                                            itemDay.children[currentIndex];
+                                          if (!targetChild) return;
+                                          const datesStr =
+                                            currentItem?.dates || "[]";
+                                          const parsedDates = JSON.parse(
                                             datesStr || "[]"
                                           );
-                                          if (parsed.length === 0) {
-                                            var firstButton =
+                                          if (parsedDates.length === 0) {
+                                            const firstButton =
                                               targetChild.querySelector(
                                                 "button"
                                               );
-                                            if (firstButton) {
+                                            if (firstButton)
                                               return firstButton.click();
-                                            }
                                           } else {
-                                            var checkbox =
+                                            const checkbox =
                                               targetChild.querySelector(
                                                 'input[type="checkbox"]'
                                               );
-                                            console.log(checkbox);
-                                            if (checkbox) {
+                                            if (checkbox)
                                               return checkbox.click();
-                                            }
                                           }
                                         })();
                                       }
@@ -5788,41 +5585,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                       (async isChecked => {
                                         const $steps = {};
 
-                                        $steps["runCode3"] = false
-                                          ? (() => {
-                                              const actionArgs = {
-                                                customFunction: async () => {
-                                                  return (() => {
-                                                    var firstChild =
-                                                      window.document.getElementById(
-                                                        "sms-tag"
-                                                      );
-                                                    var checkbox =
-                                                      firstChild.querySelector(
-                                                        'input[type="checkbox"]'
-                                                      );
-                                                    if (checkbox) {
-                                                      return checkbox.click();
-                                                    }
-                                                  })();
-                                                }
-                                              };
-                                              return (({ customFunction }) => {
-                                                return customFunction();
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                        if (
-                                          $steps["runCode3"] != null &&
-                                          typeof $steps["runCode3"] ===
-                                            "object" &&
-                                          typeof $steps["runCode3"].then ===
-                                            "function"
-                                        ) {
-                                          $steps["runCode3"] =
-                                            await $steps["runCode3"];
-                                        }
-
                                         $steps["runCode"] = false
                                           ? (() => {
                                               const actionArgs = {
@@ -6563,9 +6325,8 @@ const PlasmicDescendants = {
     "checkboxGroup",
     "checkbox",
     "slide2",
-    "switchSms",
-    "switchTelegram",
     "button9",
+    "button10",
     "frame",
     "frame2",
     "button7",
@@ -6621,10 +6382,9 @@ const PlasmicDescendants = {
   weekDays: ["weekDays", "checkboxGroup", "checkbox"],
   checkboxGroup: ["checkboxGroup", "checkbox"],
   checkbox: ["checkbox"],
-  slide2: ["slide2", "switchSms", "switchTelegram", "button9"],
-  switchSms: ["switchSms"],
-  switchTelegram: ["switchTelegram"],
+  slide2: ["slide2", "button9", "button10"],
   button9: ["button9"],
+  button10: ["button10"],
   frame: ["frame", "frame2", "button7"],
   frame2: ["frame2", "button7"],
   button7: ["button7"],
@@ -6709,9 +6469,8 @@ type NodeDefaultElementType = {
   checkboxGroup: typeof CheckboxGroup;
   checkbox: typeof Checkbox;
   slide2: "div";
-  switchSms: typeof Switchbest;
-  switchTelegram: typeof Switchbest;
   button9: typeof Button;
+  button10: typeof Button;
   frame: "div";
   frame2: "div";
   button7: typeof Button;
@@ -6811,9 +6570,8 @@ export const PlasmicReminderSetting = Object.assign(
     checkboxGroup: makeNodeComponent("checkboxGroup"),
     checkbox: makeNodeComponent("checkbox"),
     slide2: makeNodeComponent("slide2"),
-    switchSms: makeNodeComponent("switchSms"),
-    switchTelegram: makeNodeComponent("switchTelegram"),
     button9: makeNodeComponent("button9"),
+    button10: makeNodeComponent("button10"),
     frame: makeNodeComponent("frame"),
     frame2: makeNodeComponent("frame2"),
     button7: makeNodeComponent("button7"),

@@ -1479,6 +1479,18 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "mainHamyar.hamyarShop",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "mainHamyar.hamyar2MobileDialogOpen",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1611,6 +1623,10 @@ function PlasmicHamyar__RenderFunc(props: {
                   $steps["updateEditCycle"] = await $steps["updateEditCycle"];
                 }
               }}
+              hamyar2MobileDialogOpen={generateStateValueProp($state, [
+                "mainHamyar",
+                "hamyar2MobileDialogOpen"
+              ])}
               hamyar2PlasmicAntd5ModalOpen={generateStateValueProp($state, [
                 "mainHamyar",
                 "hamyar2PlasmicAntd5ModalOpen"
@@ -1618,6 +1634,10 @@ function PlasmicHamyar__RenderFunc(props: {
               hamyar2ShopPage2Open={generateStateValueProp($state, [
                 "mainHamyar",
                 "hamyar2ShopPage2Open"
+              ])}
+              hamyarShop={generateStateValueProp($state, [
+                "mainHamyar",
+                "hamyarShop"
               ])}
               headershow={(() => {
                 try {
@@ -1637,6 +1657,20 @@ function PlasmicHamyar__RenderFunc(props: {
                   throw e;
                 }
               })()}
+              onHamyar2MobileDialogOpenChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "mainHamyar",
+                  "hamyar2MobileDialogOpen"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
               onHamyar2PlasmicAntd5ModalOpenChange={async (
                 ...eventArgs: any
               ) => {
@@ -1657,6 +1691,20 @@ function PlasmicHamyar__RenderFunc(props: {
                 generateStateOnChangeProp($state, [
                   "mainHamyar",
                   "hamyar2ShopPage2Open"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onHamyarShopChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "mainHamyar",
+                  "hamyarShop"
                 ]).apply(null, eventArgs);
 
                 if (
@@ -5653,12 +5701,12 @@ function PlasmicHamyar__RenderFunc(props: {
               shop={async () => {
                 const $steps = {};
 
-                $steps["updateDialogOpendialog"] = true
+                $steps["updateMainHamyarHamyarShop"] = true
                   ? (() => {
                       const actionArgs = {
                         variable: {
                           objRoot: $state,
-                          variablePath: ["dialog", "opendialog"]
+                          variablePath: ["mainHamyar", "hamyarShop"]
                         },
                         operation: 0,
                         value: true
@@ -5680,24 +5728,23 @@ function PlasmicHamyar__RenderFunc(props: {
                     })()
                   : undefined;
                 if (
-                  $steps["updateDialogOpendialog"] != null &&
-                  typeof $steps["updateDialogOpendialog"] === "object" &&
-                  typeof $steps["updateDialogOpendialog"].then === "function"
+                  $steps["updateMainHamyarHamyarShop"] != null &&
+                  typeof $steps["updateMainHamyarHamyarShop"] === "object" &&
+                  typeof $steps["updateMainHamyarHamyarShop"].then ===
+                    "function"
                 ) {
-                  $steps["updateDialogOpendialog"] =
-                    await $steps["updateDialogOpendialog"];
+                  $steps["updateMainHamyarHamyarShop"] =
+                    await $steps["updateMainHamyarHamyarShop"];
                 }
 
                 $steps["runCode"] = true
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
-                          return (() => {
-                            return window.sessionStorage.setItem(
-                              "page",
-                              "settingReminder"
-                            );
-                          })();
+                          return window.sessionStorage.setItem(
+                            "page",
+                            "settingReminder"
+                          );
                         }
                       };
                       return (({ customFunction }) => {
@@ -5989,7 +6036,7 @@ function PlasmicHamyar__RenderFunc(props: {
               }}
               phoneNumber={(() => {
                 try {
-                  return $state.mobile;
+                  return $state.userdata?.result?.man?.mobile;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -6004,17 +6051,21 @@ function PlasmicHamyar__RenderFunc(props: {
                 "reminderSetting",
                 "refresh"
               ])}
-              shop={async () => {
+              setMobile={async () => {
                 const $steps = {};
 
-                $steps["updateDialogOpendialog"] = true
+                $steps["updateMainHamyarHamyar2MobileDialogOpen"] = true
                   ? (() => {
                       const actionArgs = {
                         variable: {
                           objRoot: $state,
-                          variablePath: ["dialog", "opendialog"]
+                          variablePath: [
+                            "mainHamyar",
+                            "hamyar2MobileDialogOpen"
+                          ]
                         },
-                        operation: 4
+                        operation: 0,
+                        value: true
                       };
                       return (({
                         variable,
@@ -6027,31 +6078,69 @@ function PlasmicHamyar__RenderFunc(props: {
                         }
                         const { objRoot, variablePath } = variable;
 
-                        const oldValue = $stateGet(objRoot, variablePath);
-                        $stateSet(objRoot, variablePath, !oldValue);
-                        return !oldValue;
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["updateDialogOpendialog"] != null &&
-                  typeof $steps["updateDialogOpendialog"] === "object" &&
-                  typeof $steps["updateDialogOpendialog"].then === "function"
+                  $steps["updateMainHamyarHamyar2MobileDialogOpen"] != null &&
+                  typeof $steps["updateMainHamyarHamyar2MobileDialogOpen"] ===
+                    "object" &&
+                  typeof $steps["updateMainHamyarHamyar2MobileDialogOpen"]
+                    .then === "function"
                 ) {
-                  $steps["updateDialogOpendialog"] =
-                    await $steps["updateDialogOpendialog"];
+                  $steps["updateMainHamyarHamyar2MobileDialogOpen"] =
+                    await $steps["updateMainHamyarHamyar2MobileDialogOpen"];
+                }
+              }}
+              shop={async () => {
+                const $steps = {};
+
+                $steps["updateMainHamyarHamyarShop"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["mainHamyar", "hamyarShop"]
+                        },
+                        operation: 0,
+                        value: true
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateMainHamyarHamyarShop"] != null &&
+                  typeof $steps["updateMainHamyarHamyarShop"] === "object" &&
+                  typeof $steps["updateMainHamyarHamyarShop"].then ===
+                    "function"
+                ) {
+                  $steps["updateMainHamyarHamyarShop"] =
+                    await $steps["updateMainHamyarHamyarShop"];
                 }
 
                 $steps["runCode"] = true
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
-                          return (() => {
-                            return window.sessionStorage.setItem(
-                              "page",
-                              "settingReminder"
-                            );
-                          })();
+                          return window.sessionStorage.setItem(
+                            "page",
+                            "settingReminder"
+                          );
                         }
                       };
                       return (({ customFunction }) => {

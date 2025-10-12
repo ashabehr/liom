@@ -885,7 +885,7 @@ function PlasmicReminder__RenderFunc(props: {
             telegramId: null,
             phoneNumber: null,
             schedule_type: "everyYear",
-            name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u0633\u06cc",
+            name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc",
             text: "relationship_anniversary",
             token1: null,
             dates: null,

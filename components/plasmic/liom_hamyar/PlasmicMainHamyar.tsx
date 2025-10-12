@@ -100,6 +100,10 @@ export type PlasmicMainHamyar__ArgsType = {
   onHamyar2PlasmicAntd5ModalOpenChange?: (val: boolean) => void;
   hamyar2ShopPage2Open?: boolean;
   onHamyar2ShopPage2OpenChange?: (val: boolean) => void;
+  hamyarShop?: boolean;
+  onHamyarShopChange?: (val: boolean) => void;
+  hamyar2MobileDialogOpen?: boolean;
+  onHamyar2MobileDialogOpenChange?: (val: boolean) => void;
 };
 type ArgPropType = keyof PlasmicMainHamyar__ArgsType;
 export const PlasmicMainHamyar__ArgProps = new Array<ArgPropType>(
@@ -114,7 +118,11 @@ export const PlasmicMainHamyar__ArgProps = new Array<ArgPropType>(
   "hamyar2PlasmicAntd5ModalOpen",
   "onHamyar2PlasmicAntd5ModalOpenChange",
   "hamyar2ShopPage2Open",
-  "onHamyar2ShopPage2OpenChange"
+  "onHamyar2ShopPage2OpenChange",
+  "hamyarShop",
+  "onHamyarShopChange",
+  "hamyar2MobileDialogOpen",
+  "onHamyar2MobileDialogOpenChange"
 );
 
 export type PlasmicMainHamyar__OverridesType = {
@@ -139,6 +147,10 @@ export interface DefaultMainHamyarProps {
   onHamyar2PlasmicAntd5ModalOpenChange?: (val: boolean) => void;
   hamyar2ShopPage2Open?: boolean;
   onHamyar2ShopPage2OpenChange?: (val: boolean) => void;
+  hamyarShop?: boolean;
+  onHamyarShopChange?: (val: boolean) => void;
+  hamyar2MobileDialogOpen?: boolean;
+  onHamyar2MobileDialogOpenChange?: (val: boolean) => void;
   page?: SingleChoiceArg<"hamyar" | "self" | "bot">;
   haader?: SingleBooleanChoiceArg<"haader">;
   className?: string;
@@ -272,6 +284,22 @@ function PlasmicMainHamyar__RenderFunc(props: {
 
         valueProp: "hamyar2ShopPage2Open",
         onChangeProp: "onHamyar2ShopPage2OpenChange"
+      },
+      {
+        path: "hamyar2.shop",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "hamyarShop",
+        onChangeProp: "onHamyarShopChange"
+      },
+      {
+        path: "hamyar2.mobileDialogOpen",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "hamyar2MobileDialogOpen",
+        onChangeProp: "onHamyar2MobileDialogOpenChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -341,6 +369,24 @@ function PlasmicMainHamyar__RenderFunc(props: {
             throw e;
           }
         })()}
+        mobileDialogOpen={generateStateValueProp($state, [
+          "hamyar2",
+          "mobileDialogOpen"
+        ])}
+        onMobileDialogOpenChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, [
+            "hamyar2",
+            "mobileDialogOpen"
+          ]).apply(null, eventArgs);
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
         onPlasmicAntd5ModalOpenChange={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, [
             "hamyar2",
@@ -357,6 +403,20 @@ function PlasmicMainHamyar__RenderFunc(props: {
         }}
         onRemindChange={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, ["hamyar2", "remind"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        onShopChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["hamyar2", "shop"]).apply(
             null,
             eventArgs
           );
@@ -483,6 +543,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
         ])}
         remind={generateStateValueProp($state, ["hamyar2", "remind"])}
         reminderOpen={args.reminderOpen}
+        shop={generateStateValueProp($state, ["hamyar2", "shop"])}
         shopPage2Open={generateStateValueProp($state, [
           "hamyar2",
           "shopPage2Open"
