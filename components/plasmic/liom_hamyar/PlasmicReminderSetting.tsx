@@ -2528,25 +2528,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 </div>
                 {(() => {
                   const child$Props = {
-                    accessclicke: async () => {
-                      const $steps = {};
-
-                      $steps["runShop"] = true
-                        ? (() => {
-                            const actionArgs = { eventRef: $props["shop"] };
-                            return (({ eventRef, args }) => {
-                              return eventRef?.(...(args ?? []));
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["runShop"] != null &&
-                        typeof $steps["runShop"] === "object" &&
-                        typeof $steps["runShop"].then === "function"
-                      ) {
-                        $steps["runShop"] = await $steps["runShop"];
-                      }
-                    },
                     className: classNames("__wab_instance", sty.radioGroupLiom),
                     list: generateStateValueProp($state, [
                       "radioGroupLiom",
