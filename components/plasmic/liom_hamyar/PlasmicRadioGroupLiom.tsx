@@ -405,6 +405,19 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
                   )
                 })}
                 color={"light"}
+                comingSoon={(() => {
+                  try {
+                    return currentItem.paid;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()}
                 key={currentIndex}
                 onClick={async event => {
                   const $steps = {};
@@ -449,19 +462,6 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
                     $steps["runAccessclicke"] = await $steps["runAccessclicke"];
                   }
                 }}
-                pair={(() => {
-                  try {
-                    return currentItem.paid;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return [];
-                    }
-                    throw e;
-                  }
-                })()}
                 selected={(() => {
                   try {
                     return $state.selects.includes(currentItem.value);

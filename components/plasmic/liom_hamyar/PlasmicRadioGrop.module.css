@@ -53,6 +53,27 @@
 .rootstyle2_grayBackgerand_color_light_selected {
   background: var(--token-IlR0iqdnKI_m);
 }
+.text {
+  position: absolute;
+  width: 100px;
+  height: auto;
+  max-width: 100%;
+  background: var(--token-SX03PBUzWAqr);
+  color: var(--token-R_Rsn0nP9oIv);
+  text-align: center;
+  box-shadow: 0px 4px 16px 0px #ffffff;
+  left: -38px;
+  top: 4px;
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(-45deg);
+  font-size: 8px;
+  font-weight: 700;
+  flex-shrink: 0;
+  display: none;
+  padding: 2px;
+}
+.textcomingSoon {
+  display: block;
+}
 .freeBox {
   width: 100%;
   height: auto;

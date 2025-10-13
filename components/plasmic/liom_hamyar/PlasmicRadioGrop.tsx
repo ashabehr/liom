@@ -80,6 +80,7 @@ export type PlasmicRadioGrop__VariantMembers = {
   size: "mini";
   choise: "choise";
   pair: "pair";
+  comingSoon: "comingSoon";
 };
 export type PlasmicRadioGrop__VariantsArgs = {
   selected?: SingleBooleanChoiceArg<"selected">;
@@ -90,6 +91,7 @@ export type PlasmicRadioGrop__VariantsArgs = {
   size?: SingleChoiceArg<"mini">;
   choise?: SingleBooleanChoiceArg<"choise">;
   pair?: SingleBooleanChoiceArg<"pair">;
+  comingSoon?: SingleBooleanChoiceArg<"comingSoon">;
 };
 type VariantPropType = keyof PlasmicRadioGrop__VariantsArgs;
 export const PlasmicRadioGrop__VariantProps = new Array<VariantPropType>(
@@ -100,7 +102,8 @@ export const PlasmicRadioGrop__VariantProps = new Array<VariantPropType>(
   "style2",
   "size",
   "choise",
-  "pair"
+  "pair",
+  "comingSoon"
 );
 
 export type PlasmicRadioGrop__ArgsType = {
@@ -115,6 +118,7 @@ export const PlasmicRadioGrop__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicRadioGrop__OverridesType = {
   root?: Flex__<"div">;
+  text?: Flex__<"div">;
   freeBox?: Flex__<"div">;
   svg?: Flex__<"svg">;
 };
@@ -130,6 +134,7 @@ export interface DefaultRadioGropProps {
   size?: SingleChoiceArg<"mini">;
   choise?: SingleBooleanChoiceArg<"choise">;
   pair?: SingleBooleanChoiceArg<"pair">;
+  comingSoon?: SingleBooleanChoiceArg<"comingSoon">;
   className?: string;
 }
 
@@ -225,6 +230,12 @@ function PlasmicRadioGrop__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.pair
+      },
+      {
+        path: "comingSoon",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.comingSoon
       }
     ],
     [$props, $ctx, $refs]
@@ -260,6 +271,7 @@ function PlasmicRadioGrop__RenderFunc(props: {
           [sty.rootcolor_light_selected]:
             hasVariant($state, "color", "light") &&
             hasVariant($state, "selected", "selected"),
+          [sty.rootcomingSoon]: hasVariant($state, "comingSoon", "comingSoon"),
           [sty.rootdisable]: hasVariant($state, "disable", "disable"),
           [sty.rootpair]: hasVariant($state, "pair", "pair"),
           [sty.rootselectedLine]: hasVariant(
@@ -292,7 +304,35 @@ function PlasmicRadioGrop__RenderFunc(props: {
         }
       )}
       onClick={args.onClick}
+      style={
+        hasVariant($state, "comingSoon", "comingSoon")
+          ? (() => {
+              try {
+                return {
+                  overflow: "hidden"
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()
+          : undefined
+      }
     >
+      <div
+        data-plasmic-name={"text"}
+        data-plasmic-override={overrides.text}
+        className={classNames(projectcss.all, projectcss.__wab_text, sty.text, {
+          [sty.textcomingSoon]: hasVariant($state, "comingSoon", "comingSoon")
+        })}
+      >
+        {"\u0628\u0647\u200c\u0632\u0648\u062f\u06cc!"}
+      </div>
       <div
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
@@ -354,7 +394,8 @@ function PlasmicRadioGrop__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "freeBox", "svg"],
+  root: ["root", "text", "freeBox", "svg"],
+  text: ["text"],
   freeBox: ["freeBox", "svg"],
   svg: ["svg"]
 } as const;
@@ -363,6 +404,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  text: "div";
   freeBox: "div";
   svg: "svg";
 };
@@ -429,6 +471,7 @@ export const PlasmicRadioGrop = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    text: makeNodeComponent("text"),
     freeBox: makeNodeComponent("freeBox"),
     svg: makeNodeComponent("svg"),
 
