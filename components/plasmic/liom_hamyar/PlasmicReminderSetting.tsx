@@ -908,7 +908,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 ];
 
                 notifications.forEach(i => {
-                  i.access = i.paid ? $props.subscription : true;
+                  i.access = i.paid ? false : true;
                 });
                 return notifications;
               })();
@@ -2603,8 +2603,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       "radioGroupLiom",
                       "selects"
                     ]),
-                    size: "small",
-                    unnamedVariant: true
+                    size: "small"
                   };
 
                   initializePlasmicStates(
@@ -4473,43 +4472,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   ) {
                     $steps["runCode"] = await $steps["runCode"];
                   }
-
-                  $steps["updateRefreshTime"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["refreshTime"]
-                          },
-                          operation: 0,
-                          value: new Date().toLocaleString("fa-IR", {
-                            timeZone: "Asia/Tehran"
-                          })
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateRefreshTime"] != null &&
-                    typeof $steps["updateRefreshTime"] === "object" &&
-                    typeof $steps["updateRefreshTime"].then === "function"
-                  ) {
-                    $steps["updateRefreshTime"] =
-                      await $steps["updateRefreshTime"];
-                  }
                 }}
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
@@ -4630,9 +4592,23 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 }
               </div>
             </div>
+            <div className={classNames(projectcss.all, sty.freeBox__ywBkh)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__d61Dh
+                )}
+              >
+                {"\u0628\u0632\u0648\u062f\u06cc"}
+              </div>
+            </div>
             {(() => {
               try {
-                return !$props.subscription || !$props.phoneNumber;
+                return (
+                  // !$props.subscription || !$props.phoneNumber
+                  false
+                );
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -4687,43 +4663,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                     typeof $steps["runSetMobile"].then === "function"
                   ) {
                     $steps["runSetMobile"] = await $steps["runSetMobile"];
-                  }
-
-                  $steps["updateRefreshTime"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["refreshTime"]
-                          },
-                          operation: 0,
-                          value: new Date().toLocaleString("fa-IR", {
-                            timeZone: "Asia/Tehran"
-                          })
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateRefreshTime"] != null &&
-                    typeof $steps["updateRefreshTime"] === "object" &&
-                    typeof $steps["updateRefreshTime"].then === "function"
-                  ) {
-                    $steps["updateRefreshTime"] =
-                      await $steps["updateRefreshTime"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {

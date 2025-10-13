@@ -2446,9 +2446,6 @@ function PlasmicHamyar2__RenderFunc(props: {
                 const actionArgs = {
                   customFunction: async () => {
                     return (() => {
-                      $state.userdata = JSON.parse(
-                        window.sessionStorage.getItem("userdata")
-                      );
                       $state.advices = JSON.parse(
                         window.sessionStorage.getItem("advice")
                       );

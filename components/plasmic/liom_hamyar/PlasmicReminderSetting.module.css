@@ -1421,6 +1421,36 @@
     font-size: 14px;
   }
 }
+.freeBox__ywBkh {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 90px;
+  height: 30px;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  background: #f5f5f5;
+  column-gap: var(--token-O5TjkXII_aat);
+  opacity: 1;
+  flex-shrink: 0;
+  border-radius: 0.4rem;
+  padding: 4px 8px;
+}
+@media (max-width: 640px) {
+  .freeBox__ywBkh {
+    opacity: 1;
+  }
+}
+.text__d61Dh {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  font-weight: 700;
+  color: var(--token-AwpLXbw5AmtS);
+  font-size: var(--token-Wa5tmrNKVUYF);
+}
 .button10:global(.__wab_instance) {
   max-width: 100%;
 }
