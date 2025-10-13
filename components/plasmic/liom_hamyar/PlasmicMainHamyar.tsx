@@ -661,7 +661,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
         data-plasmic-override={overrides.embedHtml}
         className={classNames("__wab_instance", sty.embedHtml)}
         code={
-          '  <script>\r\n    window.addEventListener("pageshow", () => {\r\n      const btn = document.getElementById("pageshow");\r\n      if (btn) {\r\n        btn.click(); // \u0647\u0631 \u0628\u0627\u0631 \u06a9\u0647 \u0635\u0641\u062d\u0647 \u0646\u0634\u0648\u0646 \u062f\u0627\u062f\u0647 \u0634\u062f\u060c \u0627\u06cc\u0646 \u0627\u062c\u0631\u0627 \u0645\u06cc\u0634\u0647\r\n        console.log("pageshow")\r\n      }\r\n    });\r\n\r\n  </script>'
+          '  <script>\r\n        let lastChange = Date.now();\r\n\r\n        function updateCredit() {\r\n            const btn = document.getElementById("pageshow");\r\n            if (btn) {    \r\n                console.log("ok");\r\n                btn.click();\r\n            }\r\n        }\r\n\r\n        document.addEventListener("visibilitychange", () => {\r\n          if (document.visibilityState === "visible" && Date.now() - lastChange > 1000) {\r\n            updateCredit();\r\n            lastChange = Date.now();\r\n          }\r\n        });\r\n\r\n        window.addEventListener("pageshow", () => {\r\n          const navigation = performance.getEntriesByType("navigation")[0];\r\n          if (navigation && navigation.type === "back_forward") {\r\n            updateCredit();\r\n          }\r\n        });\r\n\r\n  </script>'
         }
       />
 
