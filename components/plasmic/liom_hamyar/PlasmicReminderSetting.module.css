@@ -39,6 +39,9 @@
 .rootslide__2 > * {
   grid-column: 4;
 }
+.roothamyar > * {
+  grid-column: 4;
+}
 .section {
   display: grid;
   position: fixed;
@@ -1168,6 +1171,13 @@
 }
 .img___2Ze26 > picture > img {
   object-fit: cover;
+}
+@media (max-width: 640px) {
+  .img___2Ze26 {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
 }
 .freeBox__jphvW {
   display: flex;

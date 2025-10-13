@@ -128,6 +128,7 @@ export type PlasmicReminderSetting__ArgsType = {
   setMobile?: () => void;
   refreshTime?: string;
   onRefreshTimeChange?: (val: string) => void;
+  man?: any;
 };
 type ArgPropType = keyof PlasmicReminderSetting__ArgsType;
 export const PlasmicReminderSetting__ArgProps = new Array<ArgPropType>(
@@ -149,7 +150,8 @@ export const PlasmicReminderSetting__ArgProps = new Array<ArgPropType>(
   "onSmsChange",
   "setMobile",
   "refreshTime",
-  "onRefreshTimeChange"
+  "onRefreshTimeChange",
+  "man"
 );
 
 export type PlasmicReminderSetting__OverridesType = {
@@ -214,6 +216,7 @@ export interface DefaultReminderSettingProps {
   setMobile?: () => void;
   refreshTime?: string;
   onRefreshTimeChange?: (val: string) => void;
+  man?: any;
   slide?: SingleChoiceArg<"_1" | "_2">;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
   className?: string;
@@ -979,6 +982,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         styleTokensClassNames,
         sty.root,
         {
+          [sty.roothamyar]: hasVariant($state, "hamyar", "hamyar"),
           [sty.rootslide__1]: hasVariant($state, "slide", "_1"),
           [sty.rootslide__2]: hasVariant($state, "slide", "_2")
         }
@@ -4311,13 +4315,23 @@ function PlasmicReminderSetting__RenderFunc(props: {
           <div className={classNames(projectcss.all, sty.freeBox__mco7M)}>
             <PlasmicImg__
               alt={""}
-              className={classNames(sty.img___2Ze26)}
-              displayHeight={"50px"}
+              className={classNames(sty.img___2Ze26, {
+                [sty.imghamyar___2Ze26Yj8LV]: hasVariant(
+                  $state,
+                  "hamyar",
+                  "hamyar"
+                )
+              })}
+              displayHeight={
+                hasVariant(globalVariants, "screen", "mobile") ? "40px" : "50px"
+              }
               displayMaxHeight={"none"}
               displayMaxWidth={"100%"}
               displayMinHeight={"0"}
               displayMinWidth={"0"}
-              displayWidth={"50px"}
+              displayWidth={
+                hasVariant(globalVariants, "screen", "mobile") ? "40px" : "50px"
+              }
               loading={"lazy"}
               src={{
                 src: "/plasmic/liom_hamyar/images/image121.svg",
@@ -4442,7 +4456,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         const actionArgs = {
                           customFunction: async () => {
                             return window.open(
-                              "https://t.me/liomApp_bot",
+                              `https://t.me/liomApp_bot?start=ref_${$props.man.refCode}`,
                               "_blank"
                             );
                           }
@@ -4658,22 +4672,21 @@ function PlasmicReminderSetting__RenderFunc(props: {
                     $steps["runCode2"] = await $steps["runCode2"];
                   }
 
-                  $steps["runInteractionProp"] =
+                  $steps["runSetMobile"] =
                     $props.subscription && !$props.phoneNumber
                       ? (() => {
-                          const actionArgs = {};
+                          const actionArgs = { eventRef: $props["setMobile"] };
                           return (({ eventRef, args }) => {
                             return eventRef?.(...(args ?? []));
                           })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
                   if (
-                    $steps["runInteractionProp"] != null &&
-                    typeof $steps["runInteractionProp"] === "object" &&
-                    typeof $steps["runInteractionProp"].then === "function"
+                    $steps["runSetMobile"] != null &&
+                    typeof $steps["runSetMobile"] === "object" &&
+                    typeof $steps["runSetMobile"].then === "function"
                   ) {
-                    $steps["runInteractionProp"] =
-                      await $steps["runInteractionProp"];
+                    $steps["runSetMobile"] = await $steps["runSetMobile"];
                   }
 
                   $steps["updateRefreshTime"] = true

@@ -6005,6 +6005,19 @@ function PlasmicHamyar__RenderFunc(props: {
                 }
               })()}
               hamyar={true}
+              man={(() => {
+                try {
+                  return $state.userdata?.result?.man;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
               manId={
                 hasVariant($state, "remindersetting", "remindersetting") &&
                 hasVariant(globalVariants, "screen", "mobile")
