@@ -547,13 +547,7 @@ function PlasmicShop3__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return `https://apps.liom.app/shopResult?buyId=${
-                $state.selectShop.id
-              }&?offCode=${
-                $state.discountCode
-              }&token=hjk812${localStorage.getItem("token")}jkp&redirectUrl=${
-                window.document.referrer
-              }`;
+              return `https://apps.liom.app/shopResult?buyId=${$state.selectShop.id}&?offCode=${$state.discountCode}&token=hjk812${localStorage.getItem("token")}jkp&redirectUrl=${window.document.referrer}`;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -2196,9 +2190,7 @@ function PlasmicShop3__RenderFunc(props: {
                           searchParams.delete("token");
                           searchParams.delete("userId");
                           searchParams.delete("user_id");
-                          const newUrl = `${
-                            window.location.pathname
-                          }?${searchParams.toString()}`;
+                          const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                           return window.history.replaceState(null, "", newUrl);
                         })();
                       }
@@ -2339,10 +2331,7 @@ function PlasmicShop3__RenderFunc(props: {
                                     if (
                                       /Mac OS X (\d+[\._]\d+)/.test(userAgent)
                                     )
-                                      return `macOS ${RegExp.$1.replace(
-                                        "_",
-                                        "."
-                                      )}`;
+                                      return `macOS ${RegExp.$1.replace("_", ".")}`;
                                     if (/Android (\d+(\.\d+)?)/.test(userAgent))
                                       return `Android ${RegExp.$1}`;
                                     if (
@@ -2350,10 +2339,7 @@ function PlasmicShop3__RenderFunc(props: {
                                         userAgent
                                       )
                                     )
-                                      return `iOS ${RegExp.$2.replace(
-                                        "_",
-                                        "."
-                                      )}`;
+                                      return `iOS ${RegExp.$2.replace("_", ".")}`;
                                     return "Unknown Version";
                                   })(),
                                   sex: $state.gender || "",
@@ -2411,7 +2397,7 @@ function PlasmicShop3__RenderFunc(props: {
               }
 
               $steps["runCode"] =
-                $steps.userGuset?.data?.success ?? false
+                ($steps.userGuset?.data?.success ?? false)
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
@@ -3020,9 +3006,8 @@ function PlasmicShop3__RenderFunc(props: {
                                       typeof $steps["updateLoadingBtn"].then ===
                                         "function"
                                     ) {
-                                      $steps["updateLoadingBtn"] = await $steps[
-                                        "updateLoadingBtn"
-                                      ];
+                                      $steps["updateLoadingBtn"] =
+                                        await $steps["updateLoadingBtn"];
                                     }
 
                                     $steps["invokeGlobalAction"] = true
@@ -3121,9 +3106,8 @@ function PlasmicShop3__RenderFunc(props: {
                                       typeof $steps["goToPage"].then ===
                                         "function"
                                     ) {
-                                      $steps["goToPage"] = await $steps[
-                                        "goToPage"
-                                      ];
+                                      $steps["goToPage"] =
+                                        await $steps["goToPage"];
                                     }
 
                                     $steps["invokeGlobalAction2"] =
@@ -3236,9 +3220,8 @@ function PlasmicShop3__RenderFunc(props: {
                                       typeof $steps["updateName"].then ===
                                         "function"
                                     ) {
-                                      $steps["updateName"] = await $steps[
-                                        "updateName"
-                                      ];
+                                      $steps["updateName"] =
+                                        await $steps["updateName"];
                                     }
                                   }}
                                   onColorChange={async (...eventArgs: any) => {
@@ -3404,9 +3387,8 @@ function PlasmicShop3__RenderFunc(props: {
                                       typeof $steps["updateLoadingBtn"].then ===
                                         "function"
                                     ) {
-                                      $steps["updateLoadingBtn"] = await $steps[
-                                        "updateLoadingBtn"
-                                      ];
+                                      $steps["updateLoadingBtn"] =
+                                        await $steps["updateLoadingBtn"];
                                     }
 
                                     $steps["invokeGlobalAction"] = true
@@ -3505,9 +3487,8 @@ function PlasmicShop3__RenderFunc(props: {
                                       typeof $steps["goToPage"].then ===
                                         "function"
                                     ) {
-                                      $steps["goToPage"] = await $steps[
-                                        "goToPage"
-                                      ];
+                                      $steps["goToPage"] =
+                                        await $steps["goToPage"];
                                     }
 
                                     $steps["invokeGlobalAction2"] =
@@ -3620,9 +3601,8 @@ function PlasmicShop3__RenderFunc(props: {
                                       typeof $steps["updateName"].then ===
                                         "function"
                                     ) {
-                                      $steps["updateName"] = await $steps[
-                                        "updateName"
-                                      ];
+                                      $steps["updateName"] =
+                                        await $steps["updateName"];
                                     }
                                   }}
                                   onColorChange={async (...eventArgs: any) => {
@@ -3759,9 +3739,8 @@ function PlasmicShop3__RenderFunc(props: {
                                     typeof $steps["updateDiscount"].then ===
                                       "function"
                                   ) {
-                                    $steps["updateDiscount"] = await $steps[
-                                      "updateDiscount"
-                                    ];
+                                    $steps["updateDiscount"] =
+                                      await $steps["updateDiscount"];
                                   }
                                 }}
                                 onColorChange={async (...eventArgs: any) => {
@@ -4004,9 +3983,8 @@ function PlasmicShop3__RenderFunc(props: {
                                     typeof $steps["updateSelectShop"].then ===
                                       "function"
                                   ) {
-                                    $steps["updateSelectShop"] = await $steps[
-                                      "updateSelectShop"
-                                    ];
+                                    $steps["updateSelectShop"] =
+                                      await $steps["updateSelectShop"];
                                   }
                                 },
                                 onClickitemChange: async (
@@ -4367,9 +4345,8 @@ function PlasmicShop3__RenderFunc(props: {
                                 typeof $steps["updateLoadingBtn"].then ===
                                   "function"
                               ) {
-                                $steps["updateLoadingBtn"] = await $steps[
-                                  "updateLoadingBtn"
-                                ];
+                                $steps["updateLoadingBtn"] =
+                                  await $steps["updateLoadingBtn"];
                               }
 
                               $steps["invokeGlobalAction"] = true
@@ -4412,9 +4389,8 @@ function PlasmicShop3__RenderFunc(props: {
                                 typeof $steps["invokeGlobalAction"].then ===
                                   "function"
                               ) {
-                                $steps["invokeGlobalAction"] = await $steps[
-                                  "invokeGlobalAction"
-                                ];
+                                $steps["invokeGlobalAction"] =
+                                  await $steps["invokeGlobalAction"];
                               }
 
                               $steps["goToPage"] =
@@ -4489,9 +4465,8 @@ function PlasmicShop3__RenderFunc(props: {
                                 typeof $steps["invokeGlobalAction2"].then ===
                                   "function"
                               ) {
-                                $steps["invokeGlobalAction2"] = await $steps[
-                                  "invokeGlobalAction2"
-                                ];
+                                $steps["invokeGlobalAction2"] =
+                                  await $steps["invokeGlobalAction2"];
                               }
 
                               $steps["updateLoadingBtn2"] = true
@@ -4528,9 +4503,8 @@ function PlasmicShop3__RenderFunc(props: {
                                 typeof $steps["updateLoadingBtn2"].then ===
                                   "function"
                               ) {
-                                $steps["updateLoadingBtn2"] = await $steps[
-                                  "updateLoadingBtn2"
-                                ];
+                                $steps["updateLoadingBtn2"] =
+                                  await $steps["updateLoadingBtn2"];
                               }
                             }}
                             onColorChange={async (...eventArgs: any) => {
@@ -4673,9 +4647,8 @@ function PlasmicShop3__RenderFunc(props: {
                                 typeof $steps["updateDiscount"].then ===
                                   "function"
                               ) {
-                                $steps["updateDiscount"] = await $steps[
-                                  "updateDiscount"
-                                ];
+                                $steps["updateDiscount"] =
+                                  await $steps["updateDiscount"];
                               }
                             }}
                             onColorChange={async (...eventArgs: any) => {
@@ -4926,9 +4899,8 @@ function PlasmicShop3__RenderFunc(props: {
                                   typeof $steps["updateDiscountCode"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateDiscountCode"] = await $steps[
-                                    "updateDiscountCode"
-                                  ];
+                                  $steps["updateDiscountCode"] =
+                                    await $steps["updateDiscountCode"];
                                 }
                               }}
                               onColorChange={async (...eventArgs: any) => {
@@ -5307,9 +5279,8 @@ function PlasmicShop3__RenderFunc(props: {
                         typeof $steps["updateShopPage"] === "object" &&
                         typeof $steps["updateShopPage"].then === "function"
                       ) {
-                        $steps["updateShopPage"] = await $steps[
-                          "updateShopPage"
-                        ];
+                        $steps["updateShopPage"] =
+                          await $steps["updateShopPage"];
                       }
                     }}
                     role={"img"}
@@ -5594,7 +5565,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicShop3__VariantsArgs;
     args?: PlasmicShop3__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicShop3__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicShop3__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicShop3__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

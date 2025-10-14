@@ -6318,6 +6318,11 @@
   font-size: 14px;
   font-weight: 500;
 }
+.svg__gC61O {
+  object-fit: cover;
+  max-width: 100%;
+  height: 1em;
+}
 .freeBox__ihXz3 {
   display: flex;
   flex-direction: row;
@@ -8428,6 +8433,11 @@
     white-space: pre-wrap;
     text-align: justify;
   }
+}
+.svg__mtkn3 {
+  object-fit: cover;
+  max-width: 100%;
+  height: 1em;
 }
 .section__bZwSb {
   display: grid;

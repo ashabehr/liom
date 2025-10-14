@@ -71,7 +71,7 @@ import StickynoteIcon from "./icons/PlasmicIcon__Stickynote"; // plasmic-import:
 import Icon260Icon from "./icons/PlasmicIcon__Icon260"; // plasmic-import: SpmDa_1Lyb3r/icon
 import Icon261Icon from "./icons/PlasmicIcon__Icon261"; // plasmic-import: 4mV1FUQXQxqo/icon
 import Icon262Icon from "./icons/PlasmicIcon__Icon262"; // plasmic-import: FbWns72AK2M4/icon
-import Icon263Icon from "./icons/PlasmicIcon__Icon263"; // plasmic-import: uiMUauyScroM/icon
+import Icon334Icon from "./icons/PlasmicIcon__Icon334"; // plasmic-import: muYCK2fR4AUF/icon
 import Icon264Icon from "./icons/PlasmicIcon__Icon264"; // plasmic-import: k-XgEulbN8XQ/icon
 import Icon265Icon from "./icons/PlasmicIcon__Icon265"; // plasmic-import: uOsS8ihVyPQb/icon
 import Icon266Icon from "./icons/PlasmicIcon__Icon266"; // plasmic-import: D9XHc369DSfD/icon
@@ -86,6 +86,14 @@ import BellIcon from "../fragment_icons/icons/PlasmicIcon__Bell"; // plasmic-imp
 import Icon303Icon from "./icons/PlasmicIcon__Icon303"; // plasmic-import: eR1M432ACvbc/icon
 import Icon308Icon from "./icons/PlasmicIcon__Icon308"; // plasmic-import: ujrmfJ7_W8UT/icon
 import Icon309Icon from "./icons/PlasmicIcon__Icon309"; // plasmic-import: capAF3E74mwy/icon
+import Icon328Icon from "./icons/PlasmicIcon__Icon328"; // plasmic-import: qbkJhcXgK7Xq/icon
+import Icon288Icon from "./icons/PlasmicIcon__Icon288"; // plasmic-import: Qcsj4FrA-OA0/icon
+import Icon329Icon from "./icons/PlasmicIcon__Icon329"; // plasmic-import: tG0iN_OcJAFt/icon
+import Icon331Icon from "./icons/PlasmicIcon__Icon331"; // plasmic-import: lRTXCttZJnX6/icon
+import Icon332Icon from "./icons/PlasmicIcon__Icon332"; // plasmic-import: DfBoSBVEfQrM/icon
+import Icon333Icon from "./icons/PlasmicIcon__Icon333"; // plasmic-import: -zj3WWgA39t8/icon
+import Icon335Icon from "./icons/PlasmicIcon__Icon335"; // plasmic-import: ES0Wt5wo85mt/icon
+import Icon336Icon from "./icons/PlasmicIcon__Icon336"; // plasmic-import: ZtGeLXK02IkO/icon
 
 createPlasmicElementProxy;
 
@@ -110,7 +118,20 @@ export type PlasmicMenuIcon__VariantMembers = {
     | "notification"
     | "charts"
     | "drinkWater"
-    | "routineSkinMorning";
+    | "routineSkinMorning"
+    | "weddingAnniversary"
+    | "relationshipAnniversary"
+    | "spouseBirthday"
+    | "motherBirthday"
+    | "fatherBirthday"
+    | "childBirthday"
+    | "medicineTime"
+    | "checkup"
+    | "exercise"
+    | "valentineDay"
+    | "womensDay"
+    | "mothersDay"
+    | "sepandarmazgan";
   unnamedVariant: "unnamedVariant";
   unnamedVariant2: "unnamedVariant2";
   color: "waite";
@@ -138,6 +159,19 @@ export type PlasmicMenuIcon__VariantsArgs = {
     | "charts"
     | "drinkWater"
     | "routineSkinMorning"
+    | "weddingAnniversary"
+    | "relationshipAnniversary"
+    | "spouseBirthday"
+    | "motherBirthday"
+    | "fatherBirthday"
+    | "childBirthday"
+    | "medicineTime"
+    | "checkup"
+    | "exercise"
+    | "valentineDay"
+    | "womensDay"
+    | "mothersDay"
+    | "sepandarmazgan"
   >;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
   unnamedVariant2?: SingleBooleanChoiceArg<"unnamedVariant2">;
@@ -184,6 +218,19 @@ export interface DefaultMenuIconProps {
     | "charts"
     | "drinkWater"
     | "routineSkinMorning"
+    | "weddingAnniversary"
+    | "relationshipAnniversary"
+    | "spouseBirthday"
+    | "motherBirthday"
+    | "fatherBirthday"
+    | "childBirthday"
+    | "medicineTime"
+    | "checkup"
+    | "exercise"
+    | "valentineDay"
+    | "womensDay"
+    | "mothersDay"
+    | "sepandarmazgan"
   >;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
   unnamedVariant2?: SingleBooleanChoiceArg<"unnamedVariant2">;
@@ -292,46 +339,152 @@ function PlasmicMenuIcon__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       PlasmicIconType={
-        hasVariant($state, "icons", "routineSkinMorning")
-          ? Icon309Icon
-          : hasVariant($state, "icons", "drinkWater")
-          ? Icon308Icon
-          : hasVariant($state, "icons", "charts")
-          ? Icon303Icon
-          : hasVariant($state, "icons", "notification") &&
-            hasVariant(globalVariants, "screen", "mobile")
-          ? BellIcon
-          : hasVariant($state, "icons", "notification")
-          ? BellIcon
-          : hasVariant($state, "icons", "alert")
-          ? Icon277Icon
-          : hasVariant($state, "icons", "love")
-          ? Icon275Icon
-          : hasVariant($state, "icons", "birthday")
-          ? Icon274Icon
-          : hasVariant($state, "icons", "occasion")
-          ? Icon273Icon
-          : hasVariant($state, "icons", "settings")
-          ? Icon270Icon
-          : hasVariant($state, "icons", "message")
-          ? Icon269Icon
-          : hasVariant($state, "icons", "users")
-          ? Icon268Icon
-          : hasVariant($state, "icons", "chartbar")
-          ? Icon266Icon
-          : hasVariant($state, "icons", "questioncircle")
-          ? Icon265Icon
-          : hasVariant($state, "icons", "barChart")
-          ? Icon264Icon
-          : hasVariant($state, "icons", "speedometer")
-          ? Icon263Icon
-          : hasVariant($state, "icons", "history")
-          ? Icon262Icon
-          : hasVariant($state, "icons", "chart")
-          ? Icon261Icon
-          : hasVariant($state, "icons", "target")
-          ? Icon260Icon
-          : StickynoteIcon
+        hasVariant($state, "icons", "sepandarmazgan")
+          ? Icon334Icon
+          : hasVariant($state, "icons", "mothersDay")
+            ? Icon336Icon
+            : hasVariant($state, "icons", "womensDay")
+              ? Icon335Icon
+              : hasVariant($state, "icons", "valentineDay")
+                ? Icon334Icon
+                : hasVariant($state, "icons", "exercise")
+                  ? Icon333Icon
+                  : hasVariant($state, "icons", "checkup")
+                    ? Icon332Icon
+                    : hasVariant($state, "icons", "medicineTime")
+                      ? Icon331Icon
+                      : hasVariant($state, "icons", "childBirthday")
+                        ? Icon329Icon
+                        : hasVariant($state, "icons", "fatherBirthday")
+                          ? Icon329Icon
+                          : hasVariant($state, "icons", "motherBirthday")
+                            ? Icon329Icon
+                            : hasVariant($state, "icons", "spouseBirthday")
+                              ? Icon329Icon
+                              : hasVariant(
+                                    $state,
+                                    "icons",
+                                    "relationshipAnniversary"
+                                  )
+                                ? Icon288Icon
+                                : hasVariant(
+                                      $state,
+                                      "icons",
+                                      "weddingAnniversary"
+                                    )
+                                  ? Icon328Icon
+                                  : hasVariant(
+                                        $state,
+                                        "icons",
+                                        "routineSkinMorning"
+                                      )
+                                    ? Icon309Icon
+                                    : hasVariant($state, "icons", "drinkWater")
+                                      ? Icon308Icon
+                                      : hasVariant($state, "icons", "charts")
+                                        ? Icon303Icon
+                                        : hasVariant(
+                                              $state,
+                                              "icons",
+                                              "notification"
+                                            ) &&
+                                            hasVariant(
+                                              globalVariants,
+                                              "screen",
+                                              "mobile"
+                                            )
+                                          ? BellIcon
+                                          : hasVariant(
+                                                $state,
+                                                "icons",
+                                                "notification"
+                                              )
+                                            ? BellIcon
+                                            : hasVariant(
+                                                  $state,
+                                                  "icons",
+                                                  "alert"
+                                                )
+                                              ? Icon277Icon
+                                              : hasVariant(
+                                                    $state,
+                                                    "icons",
+                                                    "love"
+                                                  )
+                                                ? Icon275Icon
+                                                : hasVariant(
+                                                      $state,
+                                                      "icons",
+                                                      "birthday"
+                                                    )
+                                                  ? Icon274Icon
+                                                  : hasVariant(
+                                                        $state,
+                                                        "icons",
+                                                        "occasion"
+                                                      )
+                                                    ? Icon273Icon
+                                                    : hasVariant(
+                                                          $state,
+                                                          "icons",
+                                                          "settings"
+                                                        )
+                                                      ? Icon270Icon
+                                                      : hasVariant(
+                                                            $state,
+                                                            "icons",
+                                                            "message"
+                                                          )
+                                                        ? Icon269Icon
+                                                        : hasVariant(
+                                                              $state,
+                                                              "icons",
+                                                              "users"
+                                                            )
+                                                          ? Icon268Icon
+                                                          : hasVariant(
+                                                                $state,
+                                                                "icons",
+                                                                "chartbar"
+                                                              )
+                                                            ? Icon266Icon
+                                                            : hasVariant(
+                                                                  $state,
+                                                                  "icons",
+                                                                  "questioncircle"
+                                                                )
+                                                              ? Icon265Icon
+                                                              : hasVariant(
+                                                                    $state,
+                                                                    "icons",
+                                                                    "barChart"
+                                                                  )
+                                                                ? Icon264Icon
+                                                                : hasVariant(
+                                                                      $state,
+                                                                      "icons",
+                                                                      "speedometer"
+                                                                    )
+                                                                  ? Icon334Icon
+                                                                  : hasVariant(
+                                                                        $state,
+                                                                        "icons",
+                                                                        "history"
+                                                                      )
+                                                                    ? Icon262Icon
+                                                                    : hasVariant(
+                                                                          $state,
+                                                                          "icons",
+                                                                          "chart"
+                                                                        )
+                                                                      ? Icon261Icon
+                                                                      : hasVariant(
+                                                                            $state,
+                                                                            "icons",
+                                                                            "target"
+                                                                          )
+                                                                        ? Icon260Icon
+                                                                        : StickynoteIcon
       }
       className={classNames(
         projectcss.all,
@@ -348,10 +501,33 @@ function PlasmicMenuIcon__RenderFunc(props: {
           [sty.rooticons_chart]: hasVariant($state, "icons", "chart"),
           [sty.rooticons_chartbar]: hasVariant($state, "icons", "chartbar"),
           [sty.rooticons_charts]: hasVariant($state, "icons", "charts"),
+          [sty.rooticons_checkup]: hasVariant($state, "icons", "checkup"),
+          [sty.rooticons_childBirthday]: hasVariant(
+            $state,
+            "icons",
+            "childBirthday"
+          ),
           [sty.rooticons_drinkWater]: hasVariant($state, "icons", "drinkWater"),
+          [sty.rooticons_exercise]: hasVariant($state, "icons", "exercise"),
+          [sty.rooticons_fatherBirthday]: hasVariant(
+            $state,
+            "icons",
+            "fatherBirthday"
+          ),
           [sty.rooticons_history]: hasVariant($state, "icons", "history"),
           [sty.rooticons_love]: hasVariant($state, "icons", "love"),
+          [sty.rooticons_medicineTime]: hasVariant(
+            $state,
+            "icons",
+            "medicineTime"
+          ),
           [sty.rooticons_message]: hasVariant($state, "icons", "message"),
+          [sty.rooticons_motherBirthday]: hasVariant(
+            $state,
+            "icons",
+            "motherBirthday"
+          ),
+          [sty.rooticons_mothersDay]: hasVariant($state, "icons", "mothersDay"),
           [sty.rooticons_notebook]: hasVariant($state, "icons", "notebook"),
           [sty.rooticons_notification]: hasVariant(
             $state,
@@ -364,10 +540,20 @@ function PlasmicMenuIcon__RenderFunc(props: {
             "icons",
             "questioncircle"
           ),
+          [sty.rooticons_relationshipAnniversary]: hasVariant(
+            $state,
+            "icons",
+            "relationshipAnniversary"
+          ),
           [sty.rooticons_routineSkinMorning]: hasVariant(
             $state,
             "icons",
             "routineSkinMorning"
+          ),
+          [sty.rooticons_sepandarmazgan]: hasVariant(
+            $state,
+            "icons",
+            "sepandarmazgan"
           ),
           [sty.rooticons_settings]: hasVariant($state, "icons", "settings"),
           [sty.rooticons_speedometer]: hasVariant(
@@ -375,8 +561,24 @@ function PlasmicMenuIcon__RenderFunc(props: {
             "icons",
             "speedometer"
           ),
+          [sty.rooticons_spouseBirthday]: hasVariant(
+            $state,
+            "icons",
+            "spouseBirthday"
+          ),
           [sty.rooticons_target]: hasVariant($state, "icons", "target"),
           [sty.rooticons_users]: hasVariant($state, "icons", "users"),
+          [sty.rooticons_valentineDay]: hasVariant(
+            $state,
+            "icons",
+            "valentineDay"
+          ),
+          [sty.rooticons_weddingAnniversary]: hasVariant(
+            $state,
+            "icons",
+            "weddingAnniversary"
+          ),
+          [sty.rooticons_womensDay]: hasVariant($state, "icons", "womensDay"),
           [sty.rootselect]: hasVariant($state, "select", "select"),
           [sty.rootsize__25]: hasVariant($state, "size", "_25")
         }
@@ -407,7 +609,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicMenuIcon__VariantsArgs;
     args?: PlasmicMenuIcon__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicMenuIcon__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicMenuIcon__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicMenuIcon__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

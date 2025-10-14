@@ -576,6 +576,11 @@
   padding-left: 4px;
   text-align: center;
 }
+.svg___5EEdp {
+  object-fit: cover;
+  max-width: 100%;
+  height: 1em;
+}
 .freeBox__vSiEp {
   display: flex;
   flex-direction: row;

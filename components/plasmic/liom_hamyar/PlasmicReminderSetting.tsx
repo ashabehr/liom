@@ -6208,27 +6208,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                       throw e;
                                     }
                                   })()
-                                : (() => {
-                                    try {
-                                      return (() => {
-                                        const datesStr =
-                                          currentItem.dates || "[]";
-                                        const parsed = JSON.parse(
-                                          datesStr || "[]"
-                                        );
-                                        return parsed.length > 0;
-                                      })();
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return true;
-                                      }
-                                      throw e;
-                                    }
-                                  })()
+                                : true
                             )
                               ? (() => {
                                   const child$Props = {

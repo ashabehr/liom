@@ -6315,6 +6315,11 @@
   font-size: 14px;
   font-weight: 500;
 }
+.svg___7O4Xs {
+  object-fit: cover;
+  max-width: 100%;
+  height: 1em;
+}
 .freeBox__zQoT {
   display: flex;
   flex-direction: row;
@@ -8425,6 +8430,11 @@
     white-space: pre-wrap;
     text-align: justify;
   }
+}
+.svg__dm04V {
+  object-fit: cover;
+  max-width: 100%;
+  height: 1em;
 }
 .section___6C3LI {
   display: grid;

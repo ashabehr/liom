@@ -564,9 +564,7 @@ function PlasmicPost2__RenderFunc(props: {
                           searchParams.delete("token");
                           searchParams.delete("userId");
                           searchParams.delete("user_id");
-                          const newUrl = `${
-                            window.location.pathname
-                          }?${searchParams.toString()}`;
+                          const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                           return window.history.replaceState(null, "", newUrl);
                         })();
                       }
@@ -703,9 +701,8 @@ function PlasmicPost2__RenderFunc(props: {
                 typeof $steps["updateTextAreaValue"] === "object" &&
                 typeof $steps["updateTextAreaValue"].then === "function"
               ) {
-                $steps["updateTextAreaValue"] = await $steps[
-                  "updateTextAreaValue"
-                ];
+                $steps["updateTextAreaValue"] =
+                  await $steps["updateTextAreaValue"];
               }
 
               $steps["userInfo"] = true
@@ -934,9 +931,8 @@ function PlasmicPost2__RenderFunc(props: {
                     typeof $steps["updateApiGetInfo"] === "object" &&
                     typeof $steps["updateApiGetInfo"].then === "function"
                   ) {
-                    $steps["updateApiGetInfo"] = await $steps[
-                      "updateApiGetInfo"
-                    ];
+                    $steps["updateApiGetInfo"] =
+                      await $steps["updateApiGetInfo"];
                   }
                 }}
               >
@@ -1360,9 +1356,8 @@ function PlasmicPost2__RenderFunc(props: {
                         typeof $steps["updateTextAreaValue"] === "object" &&
                         typeof $steps["updateTextAreaValue"].then === "function"
                       ) {
-                        $steps["updateTextAreaValue"] = await $steps[
-                          "updateTextAreaValue"
-                        ];
+                        $steps["updateTextAreaValue"] =
+                          await $steps["updateTextAreaValue"];
                       }
                     }}
                     comment={generateStateValueProp($state, [
@@ -1450,9 +1445,8 @@ function PlasmicPost2__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["invokeGlobalAction2"] = true
@@ -1493,9 +1487,8 @@ function PlasmicPost2__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction2"] === "object" &&
                         typeof $steps["invokeGlobalAction2"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction2"] = await $steps[
-                          "invokeGlobalAction2"
-                        ];
+                        $steps["invokeGlobalAction2"] =
+                          await $steps["invokeGlobalAction2"];
                       }
                     }}
                     onCommentChange={async (...eventArgs: any) => {
@@ -1699,9 +1692,8 @@ function PlasmicPost2__RenderFunc(props: {
                                     typeof $steps["updateOrderby"].then ===
                                       "function"
                                   ) {
-                                    $steps["updateOrderby"] = await $steps[
-                                      "updateOrderby"
-                                    ];
+                                    $steps["updateOrderby"] =
+                                      await $steps["updateOrderby"];
                                   }
 
                                   $steps["updateHasMore"] =
@@ -1743,9 +1735,8 @@ function PlasmicPost2__RenderFunc(props: {
                                     typeof $steps["updateHasMore"].then ===
                                       "function"
                                   ) {
-                                    $steps["updateHasMore"] = await $steps[
-                                      "updateHasMore"
-                                    ];
+                                    $steps["updateHasMore"] =
+                                      await $steps["updateHasMore"];
                                   }
 
                                   $steps["updatePopoverOpen"] = true
@@ -1786,9 +1777,8 @@ function PlasmicPost2__RenderFunc(props: {
                                     typeof $steps["updatePopoverOpen"].then ===
                                       "function"
                                   ) {
-                                    $steps["updatePopoverOpen"] = await $steps[
-                                      "updatePopoverOpen"
-                                    ];
+                                    $steps["updatePopoverOpen"] =
+                                      await $steps["updatePopoverOpen"];
                                   }
                                 }}
                                 selected={(() => {
@@ -1986,9 +1976,8 @@ function PlasmicPost2__RenderFunc(props: {
                                 typeof $steps["invokeGlobalAction"].then ===
                                   "function"
                               ) {
-                                $steps["invokeGlobalAction"] = await $steps[
-                                  "invokeGlobalAction"
-                                ];
+                                $steps["invokeGlobalAction"] =
+                                  await $steps["invokeGlobalAction"];
                               }
 
                               $steps["runCode"] = $steps.invokeGlobalAction
@@ -2168,9 +2157,8 @@ function PlasmicPost2__RenderFunc(props: {
                                 typeof $steps["updateModalOpen"].then ===
                                   "function"
                               ) {
-                                $steps["updateModalOpen"] = await $steps[
-                                  "updateModalOpen"
-                                ];
+                                $steps["updateModalOpen"] =
+                                  await $steps["updateModalOpen"];
                               }
 
                               $steps["runCode"] = true
@@ -2279,9 +2267,8 @@ function PlasmicPost2__RenderFunc(props: {
                                 typeof $steps["updateModalOpen"].then ===
                                   "function"
                               ) {
-                                $steps["updateModalOpen"] = await $steps[
-                                  "updateModalOpen"
-                                ];
+                                $steps["updateModalOpen"] =
+                                  await $steps["updateModalOpen"];
                               }
 
                               $steps["updateComingSoonOpen"] = false
@@ -2318,9 +2305,8 @@ function PlasmicPost2__RenderFunc(props: {
                                 typeof $steps["updateComingSoonOpen"].then ===
                                   "function"
                               ) {
-                                $steps["updateComingSoonOpen"] = await $steps[
-                                  "updateComingSoonOpen"
-                                ];
+                                $steps["updateComingSoonOpen"] =
+                                  await $steps["updateComingSoonOpen"];
                               }
                             },
                             onCommentDataChange: async (...eventArgs: any) => {
@@ -2619,9 +2605,8 @@ function PlasmicPost2__RenderFunc(props: {
                                   typeof $steps["sendComment"].then ===
                                     "function"
                                 ) {
-                                  $steps["sendComment"] = await $steps[
-                                    "sendComment"
-                                  ];
+                                  $steps["sendComment"] =
+                                    await $steps["sendComment"];
                                 }
 
                                 $steps["editComment"] =
@@ -2666,9 +2651,8 @@ function PlasmicPost2__RenderFunc(props: {
                                   typeof $steps["editComment"].then ===
                                     "function"
                                 ) {
-                                  $steps["editComment"] = await $steps[
-                                    "editComment"
-                                  ];
+                                  $steps["editComment"] =
+                                    await $steps["editComment"];
                                 }
 
                                 $steps["send"] =
@@ -2682,8 +2666,7 @@ function PlasmicPost2__RenderFunc(props: {
                                                 $steps.sendComment.data.result
                                               );
                                               $state.repeatPost2.comment.number += 1;
-                                              return ($state.repeatPost2.comment.active =
-                                                true);
+                                              return ($state.repeatPost2.comment.active = true);
                                             })();
                                           }
                                         };
@@ -2773,9 +2756,8 @@ function PlasmicPost2__RenderFunc(props: {
                                   typeof $steps["invokeGlobalAction"].then ===
                                     "function"
                                 ) {
-                                  $steps["invokeGlobalAction"] = await $steps[
-                                    "invokeGlobalAction"
-                                  ];
+                                  $steps["invokeGlobalAction"] =
+                                    await $steps["invokeGlobalAction"];
                                 }
 
                                 $steps["invokeGlobalAction2"] =
@@ -2819,9 +2801,8 @@ function PlasmicPost2__RenderFunc(props: {
                                   typeof $steps["invokeGlobalAction2"].then ===
                                     "function"
                                 ) {
-                                  $steps["invokeGlobalAction2"] = await $steps[
-                                    "invokeGlobalAction2"
-                                  ];
+                                  $steps["invokeGlobalAction2"] =
+                                    await $steps["invokeGlobalAction2"];
                                 }
 
                                 $steps["updateTextAreaValue3"] = true
@@ -2858,9 +2839,8 @@ function PlasmicPost2__RenderFunc(props: {
                                   typeof $steps["updateTextAreaValue3"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateTextAreaValue3"] = await $steps[
-                                    "updateTextAreaValue3"
-                                  ];
+                                  $steps["updateTextAreaValue3"] =
+                                    await $steps["updateTextAreaValue3"];
                                 }
                               }}
                               style={(() => {
@@ -3268,9 +3248,8 @@ function PlasmicPost2__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction"] === "object" &&
                 typeof $steps["invokeGlobalAction"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
               }
 
               $steps["runCode2"] =
@@ -3325,9 +3304,8 @@ function PlasmicPost2__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction2"] === "object" &&
                 typeof $steps["invokeGlobalAction2"].then === "function"
               ) {
-                $steps["invokeGlobalAction2"] = await $steps[
-                  "invokeGlobalAction2"
-                ];
+                $steps["invokeGlobalAction2"] =
+                  await $steps["invokeGlobalAction2"];
               }
             }}
             runWhileEditing={false}
@@ -3882,7 +3860,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicPost2__VariantsArgs;
     args?: PlasmicPost2__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicPost2__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicPost2__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicPost2__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

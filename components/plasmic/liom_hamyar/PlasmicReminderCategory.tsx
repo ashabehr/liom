@@ -59,6 +59,10 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import TextInput from "../../TextInput"; // plasmic-import: cOSV4CnhD7mN/component
+import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
+import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
+import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import RadioGroupLiom from "../../RadioGroupLiom"; // plasmic-import: tXN0uQ-uT9R3/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
@@ -68,6 +72,10 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 
 import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicReminderCategory.module.css"; // plasmic-import: ndgNxvaF00At/css
+
+import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
+import Icon337Icon from "./icons/PlasmicIcon__Icon337"; // plasmic-import: RvConAdz2gho/icon
+import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: DnjmD0szshuz/icon
 
 createPlasmicElementProxy;
 
@@ -83,7 +91,12 @@ export const PlasmicReminderCategory__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicReminderCategory__OverridesType = {
   root?: Flex__<"div">;
-  radioGroupLiom?: Flex__<typeof RadioGroupLiom>;
+  title?: Flex__<typeof TextInput>;
+  titleInput?: Flex__<typeof Input>;
+  reveal?: Flex__<typeof Reveal>;
+  sort?: Flex__<typeof RadioGroupLiom>;
+  more?: Flex__<"div">;
+  radioGroupLiom2?: Flex__<typeof RadioGroupLiom>;
   apiRequest?: Flex__<typeof ApiRequest>;
 };
 
@@ -137,32 +150,25 @@ function PlasmicReminderCategory__RenderFunc(props: {
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: "radioGroupLiom.selected",
+        path: "sort.selected",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return undefined;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => "love"
       },
       {
-        path: "radioGroupLiom.list",
+        path: "sort.list",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.apiRequest.data.category;
+              return (() => {
+                $state.apiRequest.data.category.forEach(i => {
+                  i.label = i.name_fa;
+                  i.value = i.name;
+                });
+                return $state.apiRequest.data.category;
+              })();
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -193,10 +199,45 @@ function PlasmicReminderCategory__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "radioGroupLiom.selects",
+        path: "sort.selects",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "radioGroupLiom2[].selected",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "radioGroupLiom2[].list",
+        type: "private",
+        variableType: "array"
+      },
+      {
+        path: "radioGroupLiom2[].selects",
+        type: "private",
+        variableType: "array"
+      },
+      {
+        path: "title.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "titleInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", Input_Helpers)
+      },
+      {
+        path: "select",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -225,60 +266,473 @@ function PlasmicReminderCategory__RenderFunc(props: {
         sty.root
       )}
     >
-      <RadioGroupLiom
-        data-plasmic-name={"radioGroupLiom"}
-        data-plasmic-override={overrides.radioGroupLiom}
-        className={classNames("__wab_instance", sty.radioGroupLiom)}
-        list={generateStateValueProp($state, ["radioGroupLiom", "list"])}
-        onListChange={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, ["radioGroupLiom", "list"]).apply(
-            null,
-            eventArgs
+      <div className={classNames(projectcss.all, sty.freeBox__dYrxe)}>
+        <div className={classNames(projectcss.all, sty.freeBox__bs98W)}>
+          <TextInput
+            data-plasmic-name={"title"}
+            data-plasmic-override={overrides.title}
+            antdInput2={(() => {
+              const child$Props = {
+                "aria-label": ``,
+                bordered: false,
+                className: classNames("__wab_instance", sty.titleInput),
+                onChange: async (...eventArgs: any) => {
+                  generateStateOnChangePropForCodeComponents(
+                    $state,
+                    "value",
+                    ["titleInput", "value"],
+                    Input_Helpers
+                  ).apply(null, eventArgs);
+
+                  (async event => {
+                    const $steps = {};
+                  }).apply(null, eventArgs);
+                },
+                placeholder:
+                  "\u0639\u0646\u0648\u0627\u0646 \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f",
+                size: "large",
+                value: generateStateValueProp($state, ["titleInput", "value"])
+              };
+              initializeCodeComponentStates(
+                $state,
+                [
+                  {
+                    name: "value",
+                    plasmicStateName: "titleInput.value"
+                  }
+                ],
+                [],
+                Input_Helpers ?? {},
+                child$Props
+              );
+
+              return (
+                <Input
+                  data-plasmic-name={"titleInput"}
+                  data-plasmic-override={overrides.titleInput}
+                  {...child$Props}
+                />
+              );
+            })()}
+            className={classNames("__wab_instance", sty.title)}
+            color={"soft"}
+            endIcon={null}
+            onChange={async (...eventArgs: any) => {
+              ((...eventArgs) => {
+                generateStateOnChangeProp($state, ["title", "value"])(
+                  (e => e.target?.value).apply(null, eventArgs)
+                );
+              }).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            placeholder={
+              "\u0639\u0646\u0648\u0627\u0646 \u062e\u0648\u062f \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f"
+            }
+            showEndIcon={true}
+            style2={"cycle"}
+            value={generateStateValueProp($state, ["title", "value"]) ?? ""}
+          />
+
+          {(() => {
+            try {
+              return $state.titleInput.value?.length > 0;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <Reveal
+              data-plasmic-name={"reveal"}
+              data-plasmic-override={overrides.reveal}
+              className={classNames("__wab_instance", sty.reveal)}
+              duration={200}
+              effect={"slide"}
+              triggerOnce={true}
+            >
+              <Icon337Icon
+                className={classNames(projectcss.all, sty.svg__rPrmK)}
+                role={"img"}
+              />
+            </Reveal>
+          ) : null}
+        </div>
+        <div
+          className={classNames(
+            projectcss.all,
+            sty.freeBox__zRwXa,
+            "container-scroll"
+          )}
+        >
+          <RadioGroupLiom
+            data-plasmic-name={"sort"}
+            data-plasmic-override={overrides.sort}
+            className={classNames("__wab_instance", sty.sort)}
+            click={async () => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const el = document.querySelector(
+                            `#${$state.sort.selected}`
+                          );
+                          if (el) {
+                            el.scrollIntoView({
+                              behavior: "smooth",
+                              block: "center"
+                            });
+                            el.classList.add("highlight");
+                            return setTimeout(() => {
+                              el.classList.remove("highlight");
+                            }, 500);
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
+            color={"line"}
+            list={generateStateValueProp($state, ["sort", "list"])}
+            onListChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["sort", "list"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onSelectedChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["sort", "selected"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onSelectsChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["sort", "selects"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            selected={generateStateValueProp($state, ["sort", "selected"])}
+            selects={generateStateValueProp($state, ["sort", "selects"])}
+            size={"mini"}
+            style2={"cycle"}
+          />
+        </div>
+      </div>
+      <div className={classNames(projectcss.all, sty.freeBox__pI1Hb)}>
+        {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+          (() => {
+            try {
+              return (
+                // $state.apiRequest.data.type.sort((a, b) => {
+                //   if (a.category_name === $state.sort.selected) return -1; // بذار اول
+                //   if (b.category_name === $state.sort.selected) return 1;  // بقیه بعدش
+                //   return a.category_name.localeCompare(b.category_name); // بقیه به‌ترتیب حروفی
+                // });
+
+                $state.apiRequest.data.type
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+        ).map((__plasmic_item_0, __plasmic_idx_0) => {
+          const currentItem = __plasmic_item_0;
+          const currentIndex = __plasmic_idx_0;
+          return (
+            <div
+              className={classNames(projectcss.all, sty.freeBox__fwhJg)}
+              id={(() => {
+                try {
+                  return currentItem.category_name;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              key={currentIndex}
+            >
+              <div className={classNames(projectcss.all, sty.freeBox__nf0Dn)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__zdUNm
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return currentItem.category_name_fa;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+                {(() => {
+                  try {
+                    return currentItem.items.length > 3;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    data-plasmic-name={"more"}
+                    data-plasmic-override={overrides.more}
+                    className={classNames(projectcss.all, sty.more)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__oC7Od
+                      )}
+                    >
+                      {"\u0628\u06cc\u0634\u062a\u0631"}
+                    </div>
+                    <ChevronLeftIcon
+                      className={classNames(projectcss.all, sty.svg__eefGn)}
+                      role={"img"}
+                    />
+                  </div>
+                ) : null}
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  sty.freeBox__xcMxX,
+                  "container-scroll"
+                )}
+              >
+                {(() => {
+                  const child$Props = {
+                    className: classNames(
+                      "__wab_instance",
+                      sty.radioGroupLiom2
+                    ),
+                    click: async () => {
+                      const $steps = {};
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  $state.radioGroupLiom2.forEach((item, i) => {
+                                    if (i !== currentIndex) {
+                                      item.selected = null;
+                                    }
+                                  });
+                                  $state.select = currentItem.items.find(
+                                    i =>
+                                      i.type ==
+                                      $state.radioGroupLiom2[currentIndex]
+                                        .selected
+                                  );
+                                  return ($state.titleInput.value =
+                                    $state.select.type_fa);
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    },
+                    color: "line",
+                    icon: true,
+                    list: generateStateValueProp($state, [
+                      "radioGroupLiom2",
+                      __plasmic_idx_0,
+                      "list"
+                    ]),
+                    onListChange: async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "radioGroupLiom2",
+                        __plasmic_idx_0,
+                        "list"
+                      ]).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    },
+                    onSelectedChange: async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "radioGroupLiom2",
+                        __plasmic_idx_0,
+                        "selected"
+                      ]).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    },
+                    onSelectsChange: async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "radioGroupLiom2",
+                        __plasmic_idx_0,
+                        "selects"
+                      ]).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    },
+                    selected: generateStateValueProp($state, [
+                      "radioGroupLiom2",
+                      __plasmic_idx_0,
+                      "selected"
+                    ]),
+                    selects: generateStateValueProp($state, [
+                      "radioGroupLiom2",
+                      __plasmic_idx_0,
+                      "selects"
+                    ])
+                  };
+
+                  initializePlasmicStates(
+                    $state,
+                    [
+                      {
+                        name: "radioGroupLiom2[].selected",
+                        initFunc: ({ $props, $state, $queries }) => ""
+                      },
+                      {
+                        name: "radioGroupLiom2[].list",
+                        initFunc: ({ $props, $state, $queries }) =>
+                          (() => {
+                            try {
+                              return (() => {
+                                currentItem.items.forEach(i => {
+                                  i.label = i.type_fa;
+                                  i.value = i.type;
+                                });
+                                return currentItem.items.slice(0, 5);
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                      },
+                      {
+                        name: "radioGroupLiom2[].selects",
+                        initFunc: ({ $props, $state, $queries }) => []
+                      }
+                    ],
+                    [__plasmic_idx_0]
+                  );
+                  return (
+                    <RadioGroupLiom
+                      data-plasmic-name={"radioGroupLiom2"}
+                      data-plasmic-override={overrides.radioGroupLiom2}
+                      {...child$Props}
+                    />
+                  );
+                })()}
+              </div>
+            </div>
           );
-
-          if (
-            eventArgs.length > 1 &&
-            eventArgs[1] &&
-            eventArgs[1]._plasmic_state_init_
-          ) {
-            return;
-          }
-        }}
-        onSelectedChange={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, [
-            "radioGroupLiom",
-            "selected"
-          ]).apply(null, eventArgs);
-
-          if (
-            eventArgs.length > 1 &&
-            eventArgs[1] &&
-            eventArgs[1]._plasmic_state_init_
-          ) {
-            return;
-          }
-        }}
-        onSelectsChange={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, [
-            "radioGroupLiom",
-            "selects"
-          ]).apply(null, eventArgs);
-
-          if (
-            eventArgs.length > 1 &&
-            eventArgs[1] &&
-            eventArgs[1]._plasmic_state_init_
-          ) {
-            return;
-          }
-        }}
-        selected={generateStateValueProp($state, [
-          "radioGroupLiom",
-          "selected"
-        ])}
-        selects={generateStateValueProp($state, ["radioGroupLiom", "selects"])}
-      />
-
+        })}
+      </div>
       <ApiRequest
         data-plasmic-name={"apiRequest"}
         data-plasmic-override={overrides.apiRequest}
@@ -332,8 +786,22 @@ function PlasmicReminderCategory__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "radioGroupLiom", "apiRequest"],
-  radioGroupLiom: ["radioGroupLiom"],
+  root: [
+    "root",
+    "title",
+    "titleInput",
+    "reveal",
+    "sort",
+    "more",
+    "radioGroupLiom2",
+    "apiRequest"
+  ],
+  title: ["title", "titleInput"],
+  titleInput: ["titleInput"],
+  reveal: ["reveal"],
+  sort: ["sort"],
+  more: ["more"],
+  radioGroupLiom2: ["radioGroupLiom2"],
   apiRequest: ["apiRequest"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -341,7 +809,12 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  radioGroupLiom: typeof RadioGroupLiom;
+  title: typeof TextInput;
+  titleInput: typeof Input;
+  reveal: typeof Reveal;
+  sort: typeof RadioGroupLiom;
+  more: "div";
+  radioGroupLiom2: typeof RadioGroupLiom;
   apiRequest: typeof ApiRequest;
 };
 
@@ -407,7 +880,12 @@ export const PlasmicReminderCategory = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    radioGroupLiom: makeNodeComponent("radioGroupLiom"),
+    title: makeNodeComponent("title"),
+    titleInput: makeNodeComponent("titleInput"),
+    reveal: makeNodeComponent("reveal"),
+    sort: makeNodeComponent("sort"),
+    more: makeNodeComponent("more"),
+    radioGroupLiom2: makeNodeComponent("radioGroupLiom2"),
     apiRequest: makeNodeComponent("apiRequest"),
 
     // Metadata about props expected for PlasmicReminderCategory

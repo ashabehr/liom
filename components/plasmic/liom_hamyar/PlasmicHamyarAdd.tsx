@@ -720,9 +720,7 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                           searchParams.delete("token");
                           searchParams.delete("userId");
                           searchParams.delete("user_id");
-                          const newUrl = `${
-                            window.location.pathname
-                          }?${searchParams.toString()}`;
+                          const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                           return window.history.replaceState(null, "", newUrl);
                         })();
                       }
@@ -1269,9 +1267,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                               typeof $steps["updateNumber"] === "object" &&
                               typeof $steps["updateNumber"].then === "function"
                             ) {
-                              $steps["updateNumber"] = await $steps[
-                                "updateNumber"
-                              ];
+                              $steps["updateNumber"] =
+                                await $steps["updateNumber"];
                             }
                           }).apply(null, eventArgs);
                         },
@@ -1425,9 +1422,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       typeof $steps["updateNumber2Open"] === "object" &&
                       typeof $steps["updateNumber2Open"].then === "function"
                     ) {
-                      $steps["updateNumber2Open"] = await $steps[
-                        "updateNumber2Open"
-                      ];
+                      $steps["updateNumber2Open"] =
+                        await $steps["updateNumber2Open"];
                     }
 
                     $steps["updateName2Open"] = true
@@ -1461,9 +1457,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       typeof $steps["updateName2Open"] === "object" &&
                       typeof $steps["updateName2Open"].then === "function"
                     ) {
-                      $steps["updateName2Open"] = await $steps[
-                        "updateName2Open"
-                      ];
+                      $steps["updateName2Open"] =
+                        await $steps["updateName2Open"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
@@ -1816,9 +1811,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                             typeof $steps["updateRelation"] === "object" &&
                             typeof $steps["updateRelation"].then === "function"
                           ) {
-                            $steps["updateRelation"] = await $steps[
-                              "updateRelation"
-                            ];
+                            $steps["updateRelation"] =
+                              await $steps["updateRelation"];
                           }
 
                           $steps["invokeGlobalAction"] =
@@ -1831,9 +1825,7 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                       "error",
                                       (() => {
                                         try {
-                                          return `فقط یک همیار با نسبت ${
-                                            currentItem.text.split("هستند")[0]
-                                          }میتونید اضافه کنید.`;
+                                          return `فقط یک همیار با نسبت ${currentItem.text.split("هستند")[0]}میتونید اضافه کنید.`;
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
@@ -1859,9 +1851,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
                         }}
                         selectedLine={(() => {
@@ -1968,9 +1959,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       typeof $steps["updateLoadingBtn2"] === "object" &&
                       typeof $steps["updateLoadingBtn2"].then === "function"
                     ) {
-                      $steps["updateLoadingBtn2"] = await $steps[
-                        "updateLoadingBtn2"
-                      ];
+                      $steps["updateLoadingBtn2"] =
+                        await $steps["updateLoadingBtn2"];
                     }
 
                     $steps["invokeGlobalAction"] = true
@@ -2013,9 +2003,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
 
                     $steps["invokeGlobalAction2"] =
@@ -2039,9 +2028,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction2"] === "object" &&
                       typeof $steps["invokeGlobalAction2"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction2"] = await $steps[
-                        "invokeGlobalAction2"
-                      ];
+                      $steps["invokeGlobalAction2"] =
+                        await $steps["invokeGlobalAction2"];
                     }
 
                     $steps["updateMasseg"] =
@@ -2149,9 +2137,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction3"] === "object" &&
                       typeof $steps["invokeGlobalAction3"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction3"] = await $steps[
-                        "invokeGlobalAction3"
-                      ];
+                      $steps["invokeGlobalAction3"] =
+                        await $steps["invokeGlobalAction3"];
                     }
 
                     $steps["updateSmsOpen"] = $steps.invokeGlobalAction?.data
@@ -2221,9 +2208,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       typeof $steps["updateName2Open"] === "object" &&
                       typeof $steps["updateName2Open"].then === "function"
                     ) {
-                      $steps["updateName2Open"] = await $steps[
-                        "updateName2Open"
-                      ];
+                      $steps["updateName2Open"] =
+                        await $steps["updateName2Open"];
                     }
 
                     $steps["updateV"] = true
@@ -2291,9 +2277,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       typeof $steps["updateLoadingBtn"] === "object" &&
                       typeof $steps["updateLoadingBtn"].then === "function"
                     ) {
-                      $steps["updateLoadingBtn"] = await $steps[
-                        "updateLoadingBtn"
-                      ];
+                      $steps["updateLoadingBtn"] =
+                        await $steps["updateLoadingBtn"];
                     }
 
                     $steps["runCode"] = true
@@ -2603,9 +2588,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       typeof $steps["updateName2Open"] === "object" &&
                       typeof $steps["updateName2Open"].then === "function"
                     ) {
-                      $steps["updateName2Open"] = await $steps[
-                        "updateName2Open"
-                      ];
+                      $steps["updateName2Open"] =
+                        await $steps["updateName2Open"];
                     }
 
                     $steps["invokeGlobalAction"] = true
@@ -2645,9 +2629,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
 
                     $steps["invokeGlobalAction2"] =
@@ -2671,9 +2654,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction2"] === "object" &&
                       typeof $steps["invokeGlobalAction2"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction2"] = await $steps[
-                        "invokeGlobalAction2"
-                      ];
+                      $steps["invokeGlobalAction2"] =
+                        await $steps["invokeGlobalAction2"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
@@ -2856,9 +2838,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       typeof $steps["updateLoadingBtn"] === "object" &&
                       typeof $steps["updateLoadingBtn"].then === "function"
                     ) {
-                      $steps["updateLoadingBtn"] = await $steps[
-                        "updateLoadingBtn"
-                      ];
+                      $steps["updateLoadingBtn"] =
+                        await $steps["updateLoadingBtn"];
                     }
 
                     $steps["invokeGlobalAction"] = true
@@ -2900,9 +2881,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
 
                     $steps["updateV"] = true
@@ -2970,9 +2950,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       typeof $steps["updateRemoveOpen"] === "object" &&
                       typeof $steps["updateRemoveOpen"].then === "function"
                     ) {
-                      $steps["updateRemoveOpen"] = await $steps[
-                        "updateRemoveOpen"
-                      ];
+                      $steps["updateRemoveOpen"] =
+                        await $steps["updateRemoveOpen"];
                     }
 
                     $steps["updateLoadingBtn2"] = true
@@ -3006,9 +2985,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       typeof $steps["updateLoadingBtn2"] === "object" &&
                       typeof $steps["updateLoadingBtn2"].then === "function"
                     ) {
-                      $steps["updateLoadingBtn2"] = await $steps[
-                        "updateLoadingBtn2"
-                      ];
+                      $steps["updateLoadingBtn2"] =
+                        await $steps["updateLoadingBtn2"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
@@ -3117,9 +3095,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       typeof $steps["updateName2Open"] === "object" &&
                       typeof $steps["updateName2Open"].then === "function"
                     ) {
-                      $steps["updateName2Open"] = await $steps[
-                        "updateName2Open"
-                      ];
+                      $steps["updateName2Open"] =
+                        await $steps["updateName2Open"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
@@ -3221,11 +3198,7 @@ function PlasmicHamyarAdd__RenderFunc(props: {
             open={generateStateValueProp($state, ["directDialog2", "open"])}
             redirectUrl={(() => {
               try {
-                return `https://apps.liom.app/shopResult?buyId=${
-                  $state.directDialog2.selectShop.id
-                }&?offCode=&token=hjk812${localStorage.getItem(
-                  "token"
-                )}jkp&redirectUrl=https://apps.liom.app/Self-care/`;
+                return `https://apps.liom.app/shopResult?buyId=${$state.directDialog2.selectShop.id}&?offCode=&token=hjk812${localStorage.getItem("token")}jkp&redirectUrl=https://apps.liom.app/Self-care/`;
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -3362,9 +3335,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                         typeof $steps["updateModalOpen"] === "object" &&
                         typeof $steps["updateModalOpen"].then === "function"
                       ) {
-                        $steps["updateModalOpen"] = await $steps[
-                          "updateModalOpen"
-                        ];
+                        $steps["updateModalOpen"] =
+                          await $steps["updateModalOpen"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -3542,12 +3514,7 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                       }
                                     ];
 
-                                    return `(نسبت: ${
-                                      a.find(
-                                        item =>
-                                          item.type == currentItem.rel.relation
-                                      ).text
-                                    })`;
+                                    return `(نسبت: ${a.find(item => item.type == currentItem.rel.relation).text})`;
                                   })();
                                 } catch (e) {
                                   if (
@@ -3623,9 +3590,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                           typeof $steps["runCode2"].then ===
                                             "function"
                                         ) {
-                                          $steps["runCode2"] = await $steps[
-                                            "runCode2"
-                                          ];
+                                          $steps["runCode2"] =
+                                            await $steps["runCode2"];
                                         }
 
                                         $steps["runCode"] = true
@@ -3664,9 +3630,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                           typeof $steps["runCode"].then ===
                                             "function"
                                         ) {
-                                          $steps["runCode"] = await $steps[
-                                            "runCode"
-                                          ];
+                                          $steps["runCode"] =
+                                            await $steps["runCode"];
                                         }
                                       },
                                       onColorChange: async (
@@ -3836,9 +3801,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                           typeof $steps["runCode"].then ===
                                             "function"
                                         ) {
-                                          $steps["runCode"] = await $steps[
-                                            "runCode"
-                                          ];
+                                          $steps["runCode"] =
+                                            await $steps["runCode"];
                                         }
 
                                         $steps["updateRemoveOpen"] = true
@@ -4317,9 +4281,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                       typeof $steps["runCode"].then ===
                                         "function"
                                     ) {
-                                      $steps["runCode"] = await $steps[
-                                        "runCode"
-                                      ];
+                                      $steps["runCode"] =
+                                        await $steps["runCode"];
                                     }
 
                                     $steps["updateShopType"] = true
@@ -4364,9 +4327,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                       typeof $steps["updateShopType"].then ===
                                         "function"
                                     ) {
-                                      $steps["updateShopType"] = await $steps[
-                                        "updateShopType"
-                                      ];
+                                      $steps["updateShopType"] =
+                                        await $steps["updateShopType"];
                                     }
 
                                     $steps["updateDirectDialog2Open"] =
@@ -4605,9 +4567,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                       typeof $steps["updateV"].then ===
                                         "function"
                                     ) {
-                                      $steps["updateV"] = await $steps[
-                                        "updateV"
-                                      ];
+                                      $steps["updateV"] =
+                                        await $steps["updateV"];
                                     }
 
                                     $steps["updateLoadLoading2"] = true
@@ -4799,9 +4760,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       typeof $steps["updateLoadLoading2"] === "object" &&
                       typeof $steps["updateLoadLoading2"].then === "function"
                     ) {
-                      $steps["updateLoadLoading2"] = await $steps[
-                        "updateLoadLoading2"
-                      ];
+                      $steps["updateLoadLoading2"] =
+                        await $steps["updateLoadLoading2"];
                     }
 
                     $steps["invokeGlobalAction"] = true
@@ -4844,9 +4804,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
 
                     $steps["updateShopType"] = true
@@ -4896,8 +4855,7 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                   $steps.invokeGlobalAction?.data?.success ==
                                   false
                                 )
-                                  return ($state.switchbest[0].isChecked =
-                                    false);
+                                  return ($state.switchbest[0].isChecked = false);
                               })();
                             }
                           };
@@ -4947,9 +4905,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       typeof $steps["updateDirectDialog2Open"].then ===
                         "function"
                     ) {
-                      $steps["updateDirectDialog2Open"] = await $steps[
-                        "updateDirectDialog2Open"
-                      ];
+                      $steps["updateDirectDialog2Open"] =
+                        await $steps["updateDirectDialog2Open"];
                     }
 
                     $steps["updateErrorMassege"] =
@@ -4985,9 +4942,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       typeof $steps["updateErrorMassege"] === "object" &&
                       typeof $steps["updateErrorMassege"].then === "function"
                     ) {
-                      $steps["updateErrorMassege"] = await $steps[
-                        "updateErrorMassege"
-                      ];
+                      $steps["updateErrorMassege"] =
+                        await $steps["updateErrorMassege"];
                     }
 
                     $steps["invokeGlobalAction2"] = $steps.invokeGlobalAction
@@ -5043,9 +4999,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction2"] === "object" &&
                       typeof $steps["invokeGlobalAction2"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction2"] = await $steps[
-                        "invokeGlobalAction2"
-                      ];
+                      $steps["invokeGlobalAction2"] =
+                        await $steps["invokeGlobalAction2"];
                     }
 
                     $steps["invokeGlobalAction3"] =
@@ -5082,9 +5037,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction3"] === "object" &&
                       typeof $steps["invokeGlobalAction3"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction3"] = await $steps[
-                        "invokeGlobalAction3"
-                      ];
+                      $steps["invokeGlobalAction3"] =
+                        await $steps["invokeGlobalAction3"];
                     }
 
                     $steps["updateV"] = $steps.invokeGlobalAction?.data?.success
@@ -5152,9 +5106,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       typeof $steps["updateLoadLoading"] === "object" &&
                       typeof $steps["updateLoadLoading"].then === "function"
                     ) {
-                      $steps["updateLoadLoading"] = await $steps[
-                        "updateLoadLoading"
-                      ];
+                      $steps["updateLoadLoading"] =
+                        await $steps["updateLoadLoading"];
                     }
                   }}
                 >
@@ -5411,7 +5364,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicHamyarAdd__VariantsArgs;
     args?: PlasmicHamyarAdd__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicHamyarAdd__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicHamyarAdd__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicHamyarAdd__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -20,6 +20,9 @@
 .root___focusVisibleWithin {
   outline: none;
 }
+.rootstyle2_cycle:focus-within {
+  outline: none;
+}
 .freeBox {
   display: flex;
   flex-direction: row;
@@ -47,6 +50,9 @@
 .freeBoxdiscriptionData {
   background: #f7f7f7;
 }
+.freeBoxstyle2_cycle {
+  border-radius: 50px;
+}
 .root:hover .freeBox {
   border-color: #c8c7c1;
 }
@@ -65,6 +71,14 @@
   border-radius: 6px;
   border-width: 1px;
   border-color: var(--token-55cSeNPovQFh);
+}
+.rootstyle2_cycle:focus-within .freeBoxstyle2_cycle {
+  outline: none;
+  border-radius: 100px;
+}
+.rootstyle2_cycle .freeBox___focusVisibleWithin_style2_cycle {
+  outline: none;
+  border-radius: 100px;
 }
 .startIconContainer {
   position: relative;

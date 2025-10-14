@@ -277,20 +277,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                 }
               })()
             : hasVariant($state, "loginPage", "mobileCode")
-            ? (() => {
-                try {
-                  return $state.number;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
+              ? (() => {
+                  try {
+                    return $state.number;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
                   }
-                  throw e;
-                }
-              })()
-            : ""
+                })()
+              : ""
       },
       {
         path: "button3.color",
@@ -387,20 +387,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                 }
               })()
             : hasVariant($state, "loginPage", "name")
-            ? (() => {
-                try {
-                  return "";
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
+              ? (() => {
+                  try {
+                    return "";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
                   }
-                  throw e;
-                }
-              })()
-            : undefined,
+                })()
+              : undefined,
 
         onMutate: generateOnMutateForSpec("value", Input_Helpers)
       },
@@ -432,20 +432,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                 }
               })()
             : hasVariant($state, "loginPage", "mobileCode")
-            ? (() => {
-                try {
-                  return $state.number;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
+              ? (() => {
+                  try {
+                    return $state.number;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
                   }
-                  throw e;
-                }
-              })()
-            : undefined,
+                })()
+              : undefined,
 
         onMutate: generateOnMutateForSpec("value", Input_Helpers)
       },
@@ -521,20 +521,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                 }
               })()
             : hasVariant($state, "loginPage", "mobileCode")
-            ? (() => {
-                try {
-                  return $state.number;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
+              ? (() => {
+                  try {
+                    return $state.number;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
                   }
-                  throw e;
-                }
-              })()
-            : ""
+                })()
+              : ""
       },
       {
         path: "antdInput6.value",
@@ -556,20 +556,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                 }
               })()
             : hasVariant($state, "loginPage", "mobileCode")
-            ? (() => {
-                try {
-                  return $state.number;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
+              ? (() => {
+                  try {
+                    return $state.number;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
                   }
-                  throw e;
-                }
-              })()
-            : undefined,
+                })()
+              : undefined,
 
         onMutate: generateOnMutateForSpec("value", Input_Helpers)
       },
@@ -587,8 +587,8 @@ function PlasmicLoginMan__RenderFunc(props: {
           hasVariant($state, "loginPage", "selectstatus")
             ? false
             : hasVariant($state, "loginPage", "name")
-            ? false
-            : undefined
+              ? false
+              : undefined
       },
       {
         path: "textInput7.value",
@@ -767,20 +767,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                 }
               })()
             : hasVariant($state, "loginPage", "name")
-            ? (() => {
-                try {
-                  return "";
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
+              ? (() => {
+                  try {
+                    return "";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
                   }
-                  throw e;
-                }
-              })()
-            : undefined,
+                })()
+              : undefined,
 
         onMutate: generateOnMutateForSpec("value", Input_Helpers)
       },
@@ -1015,20 +1015,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                 }
               })()
             : hasVariant($state, "loginPage", "mobileCode")
-            ? (() => {
-                try {
-                  return $state.loadedbtn;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return [];
+              ? (() => {
+                  try {
+                    return $state.loadedbtn;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
                   }
-                  throw e;
-                }
-              })()
-            : undefined
+                })()
+              : undefined
       },
       {
         path: "button7.loading",
@@ -1050,20 +1050,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                 }
               })()
             : hasVariant($state, "loginPage", "mobileCode")
-            ? (() => {
-                try {
-                  return $state.loadedbtn;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return [];
+              ? (() => {
+                  try {
+                    return $state.loadedbtn;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
                   }
-                  throw e;
-                }
-              })()
-            : undefined
+                })()
+              : undefined
       },
       {
         path: "button5.loading",
@@ -1218,8 +1218,8 @@ function PlasmicLoginMan__RenderFunc(props: {
               hasVariant($state, "loginPage", "mobileCode")
                 ? "<script>\r\n(function() {\r\n    // \u0627\u06cc\u062c\u0627\u062f \u06cc\u0627 \u0628\u0647\u200c\u0631\u0648\u0632\u0631\u0633\u0627\u0646\u06cc favicon\r\n    var faviconLink = document.querySelector(\"link[rel='icon']\");\r\n    if (!faviconLink) {\r\n        faviconLink = document.createElement('link');\r\n        faviconLink.rel = 'icon';\r\n        document.head.appendChild(faviconLink);\r\n    }\r\n    faviconLink.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n\r\n    // \u0627\u06cc\u062c\u0627\u062f \u06cc\u0627 \u0628\u0647\u200c\u0631\u0648\u0632\u0631\u0633\u0627\u0646\u06cc apple-touch-icon\r\n    var appleTouchIconLink = document.querySelector(\"link[rel='apple-touch-icon']\");\r\n    if (!appleTouchIconLink) {\r\n        appleTouchIconLink = document.createElement('link');\r\n        appleTouchIconLink.rel = 'apple-touch-icon';\r\n        document.head.appendChild(appleTouchIconLink);\r\n    }\r\n    appleTouchIconLink.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n\r\n\r\nwindow.setCookie = (name, value, days) => {\r\n  const expires = new Date(Date.now() + days * 864e5).toUTCString();\r\n  document.cookie = ${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax;\r\n};\r\n\r\nwindow.getCookie = (name) => {\r\n  const cookies = document.cookie.split(\"; \");\r\n  for (let cookie of cookies) {\r\n    const [key, value] = cookie.split(\"=\");\r\n    if (key === name) return value;\r\n  }\r\n  return null;\r\n};\r\n</script>"
                 : hasVariant(globalVariants, "screen", "mobile")
-                ? "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
-                : "<script>\r\n(function() {\r\n    // \u0627\u06cc\u062c\u0627\u062f \u06cc\u0627 \u0628\u0647\u200c\u0631\u0648\u0632\u0631\u0633\u0627\u0646\u06cc favicon\r\n    var faviconLink = document.querySelector(\"link[rel='icon']\");\r\n    if (!faviconLink) {\r\n        faviconLink = document.createElement('link');\r\n        faviconLink.rel = 'icon';\r\n        document.head.appendChild(faviconLink);\r\n    }\r\n    faviconLink.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n\r\n    // \u0627\u06cc\u062c\u0627\u062f \u06cc\u0627 \u0628\u0647\u200c\u0631\u0648\u0632\u0631\u0633\u0627\u0646\u06cc apple-touch-icon\r\n    var appleTouchIconLink = document.querySelector(\"link[rel='apple-touch-icon']\");\r\n    if (!appleTouchIconLink) {\r\n        appleTouchIconLink = document.createElement('link');\r\n        appleTouchIconLink.rel = 'apple-touch-icon';\r\n        document.head.appendChild(appleTouchIconLink);\r\n    }\r\n    appleTouchIconLink.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>"
+                  ? "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
+                  : "<script>\r\n(function() {\r\n    // \u0627\u06cc\u062c\u0627\u062f \u06cc\u0627 \u0628\u0647\u200c\u0631\u0648\u0632\u0631\u0633\u0627\u0646\u06cc favicon\r\n    var faviconLink = document.querySelector(\"link[rel='icon']\");\r\n    if (!faviconLink) {\r\n        faviconLink = document.createElement('link');\r\n        faviconLink.rel = 'icon';\r\n        document.head.appendChild(faviconLink);\r\n    }\r\n    faviconLink.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n\r\n    // \u0627\u06cc\u062c\u0627\u062f \u06cc\u0627 \u0628\u0647\u200c\u0631\u0648\u0632\u0631\u0633\u0627\u0646\u06cc apple-touch-icon\r\n    var appleTouchIconLink = document.querySelector(\"link[rel='apple-touch-icon']\");\r\n    if (!appleTouchIconLink) {\r\n        appleTouchIconLink = document.createElement('link');\r\n        appleTouchIconLink.rel = 'apple-touch-icon';\r\n        document.head.appendChild(appleTouchIconLink);\r\n    }\r\n    appleTouchIconLink.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>"
             }
           />
 
@@ -1947,9 +1947,7 @@ function PlasmicLoginMan__RenderFunc(props: {
                                 const stateUrl =
                                   redirectUrl === ""
                                     ? "https://apps.liom.app/login/"
-                                    : `https://apps.liom.app/login/?redirect_url=${encodeURIComponent(
-                                        redirectUrl
-                                      )}`;
+                                    : `https://apps.liom.app/login/?redirect_url=${encodeURIComponent(redirectUrl)}`;
                                 const encodedState =
                                   encodeURIComponent(stateUrl);
                                 const encodedRedirectUri = encodeURIComponent(
@@ -2074,9 +2072,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                       typeof $steps["updateLoginPage"] === "object" &&
                       typeof $steps["updateLoginPage"].then === "function"
                     ) {
-                      $steps["updateLoginPage"] = await $steps[
-                        "updateLoginPage"
-                      ];
+                      $steps["updateLoginPage"] =
+                        await $steps["updateLoginPage"];
                     }
 
                     $steps["updateType"] = true
@@ -2222,9 +2219,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                       typeof $steps["updateLoginPage"] === "object" &&
                       typeof $steps["updateLoginPage"].then === "function"
                     ) {
-                      $steps["updateLoginPage"] = await $steps[
-                        "updateLoginPage"
-                      ];
+                      $steps["updateLoginPage"] =
+                        await $steps["updateLoginPage"];
                     }
                   }}
                   slot={
@@ -2314,9 +2310,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                       typeof $steps["updateLoginPage"] === "object" &&
                       typeof $steps["updateLoginPage"].then === "function"
                     ) {
-                      $steps["updateLoginPage"] = await $steps[
-                        "updateLoginPage"
-                      ];
+                      $steps["updateLoginPage"] =
+                        await $steps["updateLoginPage"];
                     }
 
                     $steps["runCode"] = true
@@ -2452,20 +2447,20 @@ function PlasmicLoginMan__RenderFunc(props: {
             hasVariant($state, "loginPage", "selectstatus")
               ? true
               : hasVariant($state, "loginPage", "userNameSingup")
-              ? true
-              : hasVariant($state, "loginPage", "userNameLogin")
-              ? true
-              : hasVariant($state, "loginPage", "emailCode")
-              ? true
-              : hasVariant($state, "loginPage", "name")
-              ? true
-              : hasVariant($state, "loginPage", "mobileCode")
-              ? true
-              : hasVariant($state, "loginPage", "email")
-              ? true
-              : hasVariant($state, "loginPage", "mobile")
-              ? true
-              : false
+                ? true
+                : hasVariant($state, "loginPage", "userNameLogin")
+                  ? true
+                  : hasVariant($state, "loginPage", "emailCode")
+                    ? true
+                    : hasVariant($state, "loginPage", "name")
+                      ? true
+                      : hasVariant($state, "loginPage", "mobileCode")
+                        ? true
+                        : hasVariant($state, "loginPage", "email")
+                          ? true
+                          : hasVariant($state, "loginPage", "mobile")
+                            ? true
+                            : false
           ) ? (
             <Reveal
               className={classNames("__wab_instance", sty.reveal__fysTl, {
@@ -2624,9 +2619,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                       typeof $steps["updateLoginPage"] === "object" &&
                       typeof $steps["updateLoginPage"].then === "function"
                     ) {
-                      $steps["updateLoginPage"] = await $steps[
-                        "updateLoginPage"
-                      ];
+                      $steps["updateLoginPage"] =
+                        await $steps["updateLoginPage"];
                     }
                   }}
                 >
@@ -2757,20 +2751,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                     {hasVariant($state, "loginPage", "selectstatus")
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                       : hasVariant($state, "loginPage", "userNameSingup")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "userNameLogin")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "emailCode")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "name")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "mobileCode")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "email")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "mobile")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : "Enter some text"}
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : hasVariant($state, "loginPage", "userNameLogin")
+                          ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                          : hasVariant($state, "loginPage", "emailCode")
+                            ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                            : hasVariant($state, "loginPage", "name")
+                              ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                              : hasVariant($state, "loginPage", "mobileCode")
+                                ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                : hasVariant($state, "loginPage", "email")
+                                  ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                  : hasVariant($state, "loginPage", "mobile")
+                                    ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                    : "Enter some text"}
                   </div>
                   <div
                     className={classNames(
@@ -2779,20 +2773,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                       hasVariant($state, "loginPage", "selectstatus")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameSingup")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "emailCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "name")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "email")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? "negative"
-                        : undefined,
+                          ? "negative"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                            ? "negative"
+                            : hasVariant($state, "loginPage", "emailCode")
+                              ? "negative"
+                              : hasVariant($state, "loginPage", "name")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                  ? "negative"
+                                  : hasVariant($state, "loginPage", "email")
+                                    ? "negative"
+                                    : hasVariant($state, "loginPage", "mobile")
+                                      ? "negative"
+                                      : undefined,
                       {
                         [sty.freeBoxloginPage_emailCode__i7JL2HTfDf]:
                           hasVariant($state, "loginPage", "emailCode"),
@@ -2902,10 +2896,10 @@ function PlasmicLoginMan__RenderFunc(props: {
                           )
                             ? "tel"
                             : hasVariant($state, "loginPage", "userNameLogin")
-                            ? "tel"
-                            : hasVariant($state, "loginPage", "mobile")
-                            ? "tel"
-                            : undefined,
+                              ? "tel"
+                              : hasVariant($state, "loginPage", "mobile")
+                                ? "tel"
+                                : undefined,
                           value: generateStateValueProp($state, [
                             "antdInput",
                             "value"
@@ -2995,28 +2989,44 @@ function PlasmicLoginMan__RenderFunc(props: {
                               hasVariant($state, "loginPage", "selectstatus")
                                 ? "negative"
                                 : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameSingup"
-                                  )
-                                ? "negative"
-                                : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameLogin"
-                                  )
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "emailCode")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "name")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "mobileCode")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "email")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "mobile")
-                                ? "negative"
-                                : undefined,
+                                      $state,
+                                      "loginPage",
+                                      "userNameSingup"
+                                    )
+                                  ? "negative"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? "negative"
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        )
+                                      ? "negative"
+                                      : hasVariant($state, "loginPage", "name")
+                                        ? "negative"
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "mobileCode"
+                                            )
+                                          ? "negative"
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "email"
+                                              )
+                                            ? "negative"
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobile"
+                                                )
+                                              ? "negative"
+                                              : undefined,
                               {
                                 [sty.textloginPage_emailCode__oTcXhTfDf]:
                                   hasVariant($state, "loginPage", "emailCode"),
@@ -3055,52 +3065,84 @@ function PlasmicLoginMan__RenderFunc(props: {
                             {hasVariant($state, "loginPage", "selectstatus")
                               ? "+98 "
                               : hasVariant(
-                                  $state,
-                                  "loginPage",
-                                  "userNameSingup"
-                                )
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "userNameLogin")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "emailCode")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "name")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "mobileCode")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "email")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "mobile")
-                              ? "+98 "
-                              : "Enter some text"}
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
+                                ? "+98 "
+                                : hasVariant(
+                                      $state,
+                                      "loginPage",
+                                      "userNameLogin"
+                                    )
+                                  ? "+98 "
+                                  : hasVariant($state, "loginPage", "emailCode")
+                                    ? "+98 "
+                                    : hasVariant($state, "loginPage", "name")
+                                      ? "+98 "
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "mobileCode"
+                                          )
+                                        ? "+98 "
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "email"
+                                            )
+                                          ? "+98 "
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "mobile"
+                                              )
+                                            ? "+98 "
+                                            : "Enter some text"}
                           </div>
                           <PlasmicIcon__
                             PlasmicIconType={
                               hasVariant($state, "loginPage", "selectstatus")
                                 ? Icon111Icon
                                 : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameSingup"
-                                  )
-                                ? Icon111Icon
-                                : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameLogin"
-                                  )
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "emailCode")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "name")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "mobileCode")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "email")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "mobile")
-                                ? Icon111Icon
-                                : "div"
+                                      $state,
+                                      "loginPage",
+                                      "userNameSingup"
+                                    )
+                                  ? Icon111Icon
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? Icon111Icon
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        )
+                                      ? Icon111Icon
+                                      : hasVariant($state, "loginPage", "name")
+                                        ? Icon111Icon
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "mobileCode"
+                                            )
+                                          ? Icon111Icon
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "email"
+                                              )
+                                            ? Icon111Icon
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobile"
+                                                )
+                                              ? Icon111Icon
+                                              : "div"
                             }
                             className={classNames(
                               projectcss.all,
@@ -3193,9 +3235,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                             typeof $steps["updateNumber"] === "object" &&
                             typeof $steps["updateNumber"].then === "function"
                           ) {
-                            $steps["updateNumber"] = await $steps[
-                              "updateNumber"
-                            ];
+                            $steps["updateNumber"] =
+                              await $steps["updateNumber"];
                           }
                         }).apply(null, eventArgs);
                       }}
@@ -3203,20 +3244,28 @@ function PlasmicLoginMan__RenderFunc(props: {
                         hasVariant($state, "loginPage", "selectstatus")
                           ? "09123456789"
                           : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "email")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "09123456789"
-                          : "9123456789"
+                            ? "09123456789"
+                            : hasVariant($state, "loginPage", "userNameLogin")
+                              ? "09123456789"
+                              : hasVariant($state, "loginPage", "emailCode")
+                                ? "09123456789"
+                                : hasVariant($state, "loginPage", "name")
+                                  ? "09123456789"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "mobileCode"
+                                      )
+                                    ? "09123456789"
+                                    : hasVariant($state, "loginPage", "email")
+                                      ? "09123456789"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "mobile"
+                                          )
+                                        ? "09123456789"
+                                        : "9123456789"
                       }
                       showEndIcon={true}
                       type={
@@ -3224,41 +3273,117 @@ function PlasmicLoginMan__RenderFunc(props: {
                         hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "selectstatus")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameSingup") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameLogin") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "emailCode") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "name") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobileCode") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "email") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobile") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "tel"
-                          : "tel"
+                            ? "tel"
+                            : hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "userNameSingup"
+                                ) &&
+                                hasVariant(globalVariants, "screen", "mobile")
+                              ? "tel"
+                              : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
+                                ? "tel"
+                                : hasVariant(
+                                      $state,
+                                      "loginPage",
+                                      "userNameLogin"
+                                    ) &&
+                                    hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobile"
+                                    )
+                                  ? "tel"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? "tel"
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        ) &&
+                                        hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "mobile"
+                                        )
+                                      ? "tel"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "emailCode"
+                                          )
+                                        ? "tel"
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "name"
+                                            ) &&
+                                            hasVariant(
+                                              globalVariants,
+                                              "screen",
+                                              "mobile"
+                                            )
+                                          ? "tel"
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "name"
+                                              )
+                                            ? "tel"
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobileCode"
+                                                ) &&
+                                                hasVariant(
+                                                  globalVariants,
+                                                  "screen",
+                                                  "mobile"
+                                                )
+                                              ? "tel"
+                                              : hasVariant(
+                                                    $state,
+                                                    "loginPage",
+                                                    "mobileCode"
+                                                  )
+                                                ? "tel"
+                                                : hasVariant(
+                                                      $state,
+                                                      "loginPage",
+                                                      "email"
+                                                    ) &&
+                                                    hasVariant(
+                                                      globalVariants,
+                                                      "screen",
+                                                      "mobile"
+                                                    )
+                                                  ? "tel"
+                                                  : hasVariant(
+                                                        $state,
+                                                        "loginPage",
+                                                        "mobile"
+                                                      ) &&
+                                                      hasVariant(
+                                                        globalVariants,
+                                                        "screen",
+                                                        "mobile"
+                                                      )
+                                                    ? "tel"
+                                                    : hasVariant(
+                                                          $state,
+                                                          "loginPage",
+                                                          "mobile"
+                                                        )
+                                                      ? "tel"
+                                                      : "tel"
                       }
                       value={
                         generateStateValueProp($state, [
@@ -3351,44 +3476,45 @@ function PlasmicLoginMan__RenderFunc(props: {
                             }
                           })()
                         : hasVariant($state, "loginPage", "userNameLogin")
-                        ? (() => {
-                            try {
-                              return (
-                                !(
-                                  $state.antdInput.value.length === 10 ||
-                                  $state.antdInput.value.length === 11
-                                ) || $state.loadedbtn
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
+                          ? (() => {
+                              try {
+                                return (
+                                  !(
+                                    $state.antdInput.value.length === 10 ||
+                                    $state.antdInput.value.length === 11
+                                  ) || $state.loadedbtn
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? (() => {
-                            try {
-                              return (
-                                !(
-                                  $state.antdInput.value.length === 10 ||
-                                  $state.antdInput.value.length === 11
-                                ) || $state.loadedbtn
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
-                              }
-                              throw e;
-                            }
-                          })()
-                        : undefined
+                            })()
+                          : hasVariant($state, "loginPage", "mobile")
+                            ? (() => {
+                                try {
+                                  return (
+                                    !(
+                                      $state.antdInput.value.length === 10 ||
+                                      $state.antdInput.value.length === 11
+                                    ) || $state.loadedbtn
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            : undefined
                     }
                     load={generateStateValueProp($state, ["button", "load"])}
                     loading={generateStateValueProp($state, [
@@ -3429,9 +3555,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         typeof $steps["updateLoadedbtn"] === "object" &&
                         typeof $steps["updateLoadedbtn"].then === "function"
                       ) {
-                        $steps["updateLoadedbtn"] = await $steps[
-                          "updateLoadedbtn"
-                        ];
+                        $steps["updateLoadedbtn"] =
+                          await $steps["updateLoadedbtn"];
                       }
 
                       $steps["updateNumber"] = true
@@ -3491,9 +3616,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction2"] === "object" &&
                         typeof $steps["invokeGlobalAction2"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction2"] = await $steps[
-                          "invokeGlobalAction2"
-                        ];
+                        $steps["invokeGlobalAction2"] =
+                          await $steps["invokeGlobalAction2"];
                       }
 
                       $steps["invokeGlobalAction"] = (() => {
@@ -3541,9 +3665,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["invokeGlobalAction3"] = (() => {
@@ -3609,9 +3732,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction3"] === "object" &&
                         typeof $steps["invokeGlobalAction3"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction3"] = await $steps[
-                          "invokeGlobalAction3"
-                        ];
+                        $steps["invokeGlobalAction3"] =
+                          await $steps["invokeGlobalAction3"];
                       }
 
                       $steps["updateTypeLogin"] = $steps.invokeGlobalAction
@@ -3646,9 +3768,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         typeof $steps["updateTypeLogin"] === "object" &&
                         typeof $steps["updateTypeLogin"].then === "function"
                       ) {
-                        $steps["updateTypeLogin"] = await $steps[
-                          "updateTypeLogin"
-                        ];
+                        $steps["updateTypeLogin"] =
+                          await $steps["updateTypeLogin"];
                       }
 
                       $steps["updateTypeLogin2"] =
@@ -3684,9 +3805,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         typeof $steps["updateTypeLogin2"] === "object" &&
                         typeof $steps["updateTypeLogin2"].then === "function"
                       ) {
-                        $steps["updateTypeLogin2"] = await $steps[
-                          "updateTypeLogin2"
-                        ];
+                        $steps["updateTypeLogin2"] =
+                          await $steps["updateTypeLogin2"];
                       }
 
                       $steps["updateLoginPage"] =
@@ -3713,9 +3833,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         typeof $steps["updateLoginPage"] === "object" &&
                         typeof $steps["updateLoginPage"].then === "function"
                       ) {
-                        $steps["updateLoginPage"] = await $steps[
-                          "updateLoginPage"
-                        ];
+                        $steps["updateLoginPage"] =
+                          await $steps["updateLoginPage"];
                       }
 
                       $steps["updateTime"] = true
@@ -3784,9 +3903,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         typeof $steps["updateTextInputValue2"].then ===
                           "function"
                       ) {
-                        $steps["updateTextInputValue2"] = await $steps[
-                          "updateTextInputValue2"
-                        ];
+                        $steps["updateTextInputValue2"] =
+                          await $steps["updateTextInputValue2"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -3876,20 +3994,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                       {hasVariant($state, "loginPage", "selectstatus")
                         ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
                         : hasVariant($state, "loginPage", "userNameSingup")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "emailCode")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "name")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "email")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : "Button"}
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                            : hasVariant($state, "loginPage", "emailCode")
+                              ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                              : hasVariant($state, "loginPage", "name")
+                                ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                  ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                  : hasVariant($state, "loginPage", "email")
+                                    ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                    : hasVariant($state, "loginPage", "mobile")
+                                      ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                      : "Button"}
                     </div>
                   </Button>
                 </section>
@@ -3900,20 +4018,20 @@ function PlasmicLoginMan__RenderFunc(props: {
             hasVariant($state, "loginPage", "selectstatus")
               ? true
               : hasVariant($state, "loginPage", "userNameSingup")
-              ? true
-              : hasVariant($state, "loginPage", "userNameLogin")
-              ? true
-              : hasVariant($state, "loginPage", "emailCode")
-              ? true
-              : hasVariant($state, "loginPage", "name")
-              ? true
-              : hasVariant($state, "loginPage", "mobileCode")
-              ? true
-              : hasVariant($state, "loginPage", "email")
-              ? true
-              : hasVariant($state, "loginPage", "mobile")
-              ? true
-              : false
+                ? true
+                : hasVariant($state, "loginPage", "userNameLogin")
+                  ? true
+                  : hasVariant($state, "loginPage", "emailCode")
+                    ? true
+                    : hasVariant($state, "loginPage", "name")
+                      ? true
+                      : hasVariant($state, "loginPage", "mobileCode")
+                        ? true
+                        : hasVariant($state, "loginPage", "email")
+                          ? true
+                          : hasVariant($state, "loginPage", "mobile")
+                            ? true
+                            : false
           ) ? (
             <Reveal
               className={classNames("__wab_instance", sty.reveal__cQo75, {
@@ -4064,9 +4182,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                       typeof $steps["updateLoginPage"] === "object" &&
                       typeof $steps["updateLoginPage"].then === "function"
                     ) {
-                      $steps["updateLoginPage"] = await $steps[
-                        "updateLoginPage"
-                      ];
+                      $steps["updateLoginPage"] =
+                        await $steps["updateLoginPage"];
                     }
                   }}
                 >
@@ -4194,20 +4311,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                     {hasVariant($state, "loginPage", "selectstatus")
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                       : hasVariant($state, "loginPage", "userNameSingup")
-                      ? "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc"
-                      : hasVariant($state, "loginPage", "userNameLogin")
-                      ? "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc"
-                      : hasVariant($state, "loginPage", "emailCode")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "name")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "mobileCode")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "email")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "mobile")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : "Enter some text"}
+                        ? "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc"
+                        : hasVariant($state, "loginPage", "userNameLogin")
+                          ? "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc"
+                          : hasVariant($state, "loginPage", "emailCode")
+                            ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                            : hasVariant($state, "loginPage", "name")
+                              ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                              : hasVariant($state, "loginPage", "mobileCode")
+                                ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                : hasVariant($state, "loginPage", "email")
+                                  ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                  : hasVariant($state, "loginPage", "mobile")
+                                    ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                    : "Enter some text"}
                   </div>
                   <div
                     className={classNames(
@@ -4216,20 +4333,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                       hasVariant($state, "loginPage", "selectstatus")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameSingup")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "emailCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "name")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "email")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? "negative"
-                        : undefined,
+                          ? "negative"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                            ? "negative"
+                            : hasVariant($state, "loginPage", "emailCode")
+                              ? "negative"
+                              : hasVariant($state, "loginPage", "name")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                  ? "negative"
+                                  : hasVariant($state, "loginPage", "email")
+                                    ? "negative"
+                                    : hasVariant($state, "loginPage", "mobile")
+                                      ? "negative"
+                                      : undefined,
                       {
                         [sty.freeBoxloginPage_emailCode___77Oa1HTfDf]:
                           hasVariant($state, "loginPage", "emailCode"),
@@ -4316,8 +4433,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           )
                             ? "sara_mohammadi"
                             : hasVariant($state, "loginPage", "userNameLogin")
-                            ? "user_name"
-                            : "9123456789",
+                              ? "user_name"
+                              : "9123456789",
                           size: "large",
                           type: hasVariant(
                             $state,
@@ -4326,10 +4443,10 @@ function PlasmicLoginMan__RenderFunc(props: {
                           )
                             ? "text"
                             : hasVariant($state, "loginPage", "userNameLogin")
-                            ? "email"
-                            : hasVariant($state, "loginPage", "mobile")
-                            ? "tel"
-                            : undefined,
+                              ? "email"
+                              : hasVariant($state, "loginPage", "mobile")
+                                ? "tel"
+                                : undefined,
                           value: generateStateValueProp($state, [
                             "antdInput7",
                             "value"
@@ -4423,34 +4540,42 @@ function PlasmicLoginMan__RenderFunc(props: {
                         hasVariant($state, "loginPage", "selectstatus")
                           ? "09123456789"
                           : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "email")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "09123456789"
-                          : "9123456789"
+                            ? "09123456789"
+                            : hasVariant($state, "loginPage", "userNameLogin")
+                              ? "09123456789"
+                              : hasVariant($state, "loginPage", "emailCode")
+                                ? "09123456789"
+                                : hasVariant($state, "loginPage", "name")
+                                  ? "09123456789"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "mobileCode"
+                                      )
+                                    ? "09123456789"
+                                    : hasVariant($state, "loginPage", "email")
+                                      ? "09123456789"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "mobile"
+                                          )
+                                        ? "09123456789"
+                                        : "9123456789"
                       }
                       showEndIcon={
                         hasVariant($state, "loginPage", "userNameSingup")
                           ? undefined
                           : hasVariant($state, "loginPage", "userNameLogin")
-                          ? undefined
-                          : true
+                            ? undefined
+                            : true
                       }
                       showStartIcon={
                         hasVariant($state, "loginPage", "userNameSingup")
                           ? true
                           : hasVariant($state, "loginPage", "userNameLogin")
-                          ? true
-                          : undefined
+                            ? true
+                            : undefined
                       }
                       startIcon={
                         <PlasmicIcon__
@@ -4458,8 +4583,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                             hasVariant($state, "loginPage", "userNameSingup")
                               ? Icon116Icon
                               : hasVariant($state, "loginPage", "userNameLogin")
-                              ? Icon116Icon
-                              : SearchSvgIcon
+                                ? Icon116Icon
+                                : SearchSvgIcon
                           }
                           className={classNames(
                             projectcss.all,
@@ -4487,41 +4612,117 @@ function PlasmicLoginMan__RenderFunc(props: {
                         hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "selectstatus")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameSingup") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameLogin") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "emailCode") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "name") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobileCode") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "email") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobile") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "tel"
-                          : "tel"
+                            ? "tel"
+                            : hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "userNameSingup"
+                                ) &&
+                                hasVariant(globalVariants, "screen", "mobile")
+                              ? "tel"
+                              : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
+                                ? "tel"
+                                : hasVariant(
+                                      $state,
+                                      "loginPage",
+                                      "userNameLogin"
+                                    ) &&
+                                    hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobile"
+                                    )
+                                  ? "tel"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? "tel"
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        ) &&
+                                        hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "mobile"
+                                        )
+                                      ? "tel"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "emailCode"
+                                          )
+                                        ? "tel"
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "name"
+                                            ) &&
+                                            hasVariant(
+                                              globalVariants,
+                                              "screen",
+                                              "mobile"
+                                            )
+                                          ? "tel"
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "name"
+                                              )
+                                            ? "tel"
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobileCode"
+                                                ) &&
+                                                hasVariant(
+                                                  globalVariants,
+                                                  "screen",
+                                                  "mobile"
+                                                )
+                                              ? "tel"
+                                              : hasVariant(
+                                                    $state,
+                                                    "loginPage",
+                                                    "mobileCode"
+                                                  )
+                                                ? "tel"
+                                                : hasVariant(
+                                                      $state,
+                                                      "loginPage",
+                                                      "email"
+                                                    ) &&
+                                                    hasVariant(
+                                                      globalVariants,
+                                                      "screen",
+                                                      "mobile"
+                                                    )
+                                                  ? "tel"
+                                                  : hasVariant(
+                                                        $state,
+                                                        "loginPage",
+                                                        "mobile"
+                                                      ) &&
+                                                      hasVariant(
+                                                        globalVariants,
+                                                        "screen",
+                                                        "mobile"
+                                                      )
+                                                    ? "tel"
+                                                    : hasVariant(
+                                                          $state,
+                                                          "loginPage",
+                                                          "mobile"
+                                                        )
+                                                      ? "tel"
+                                                      : "tel"
                       }
                       value={
                         generateStateValueProp($state, [
@@ -4610,20 +4811,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                     {hasVariant($state, "loginPage", "selectstatus")
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                       : hasVariant($state, "loginPage", "userNameSingup")
-                      ? "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631"
-                      : hasVariant($state, "loginPage", "userNameLogin")
-                      ? "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631"
-                      : hasVariant($state, "loginPage", "emailCode")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "name")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "mobileCode")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "email")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "mobile")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : "Enter some text"}
+                        ? "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631"
+                        : hasVariant($state, "loginPage", "userNameLogin")
+                          ? "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631"
+                          : hasVariant($state, "loginPage", "emailCode")
+                            ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                            : hasVariant($state, "loginPage", "name")
+                              ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                              : hasVariant($state, "loginPage", "mobileCode")
+                                ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                : hasVariant($state, "loginPage", "email")
+                                  ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                  : hasVariant($state, "loginPage", "mobile")
+                                    ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                    : "Enter some text"}
                   </div>
                   <div
                     className={classNames(
@@ -4632,20 +4833,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                       hasVariant($state, "loginPage", "selectstatus")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameSingup")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "emailCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "name")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "email")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? "negative"
-                        : undefined,
+                          ? "negative"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                            ? "negative"
+                            : hasVariant($state, "loginPage", "emailCode")
+                              ? "negative"
+                              : hasVariant($state, "loginPage", "name")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                  ? "negative"
+                                  : hasVariant($state, "loginPage", "email")
+                                    ? "negative"
+                                    : hasVariant($state, "loginPage", "mobile")
+                                      ? "negative"
+                                      : undefined,
                       {
                         [sty.freeBoxloginPage_emailCode__wyWBjhTfDf]:
                           hasVariant($state, "loginPage", "emailCode"),
@@ -4732,8 +4933,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           )
                             ? "\u0631\u0645\u0632 ..."
                             : hasVariant($state, "loginPage", "userNameLogin")
-                            ? "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631"
-                            : "9123456789",
+                              ? "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631"
+                              : "9123456789",
                           size: "large",
                           type: hasVariant(
                             $state,
@@ -4742,10 +4943,10 @@ function PlasmicLoginMan__RenderFunc(props: {
                           )
                             ? "password"
                             : hasVariant($state, "loginPage", "userNameLogin")
-                            ? "password"
-                            : hasVariant($state, "loginPage", "mobile")
-                            ? "tel"
-                            : undefined,
+                              ? "password"
+                              : hasVariant($state, "loginPage", "mobile")
+                                ? "tel"
+                                : undefined,
                           value: generateStateValueProp($state, [
                             "antdInput8",
                             "value"
@@ -4865,9 +5066,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                             typeof $steps["updateNumber"] === "object" &&
                             typeof $steps["updateNumber"].then === "function"
                           ) {
-                            $steps["updateNumber"] = await $steps[
-                              "updateNumber"
-                            ];
+                            $steps["updateNumber"] =
+                              await $steps["updateNumber"];
                           }
                         }).apply(null, eventArgs);
                       }}
@@ -4875,34 +5075,42 @@ function PlasmicLoginMan__RenderFunc(props: {
                         hasVariant($state, "loginPage", "selectstatus")
                           ? "09123456789"
                           : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "email")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "09123456789"
-                          : "9123456789"
+                            ? "09123456789"
+                            : hasVariant($state, "loginPage", "userNameLogin")
+                              ? "09123456789"
+                              : hasVariant($state, "loginPage", "emailCode")
+                                ? "09123456789"
+                                : hasVariant($state, "loginPage", "name")
+                                  ? "09123456789"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "mobileCode"
+                                      )
+                                    ? "09123456789"
+                                    : hasVariant($state, "loginPage", "email")
+                                      ? "09123456789"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "mobile"
+                                          )
+                                        ? "09123456789"
+                                        : "9123456789"
                       }
                       showEndIcon={
                         hasVariant($state, "loginPage", "userNameSingup")
                           ? undefined
                           : hasVariant($state, "loginPage", "userNameLogin")
-                          ? undefined
-                          : true
+                            ? undefined
+                            : true
                       }
                       showStartIcon={
                         hasVariant($state, "loginPage", "userNameSingup")
                           ? true
                           : hasVariant($state, "loginPage", "userNameLogin")
-                          ? true
-                          : undefined
+                            ? true
+                            : undefined
                       }
                       startIcon={
                         <PlasmicIcon__
@@ -4910,8 +5118,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                             hasVariant($state, "loginPage", "userNameSingup")
                               ? Icon117Icon
                               : hasVariant($state, "loginPage", "userNameLogin")
-                              ? Icon117Icon
-                              : SearchSvgIcon
+                                ? Icon117Icon
+                                : SearchSvgIcon
                           }
                           className={classNames(
                             projectcss.all,
@@ -4939,41 +5147,117 @@ function PlasmicLoginMan__RenderFunc(props: {
                         hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "selectstatus")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameSingup") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameLogin") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "emailCode") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "name") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobileCode") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "email") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobile") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "tel"
-                          : "tel"
+                            ? "tel"
+                            : hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "userNameSingup"
+                                ) &&
+                                hasVariant(globalVariants, "screen", "mobile")
+                              ? "tel"
+                              : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
+                                ? "tel"
+                                : hasVariant(
+                                      $state,
+                                      "loginPage",
+                                      "userNameLogin"
+                                    ) &&
+                                    hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobile"
+                                    )
+                                  ? "tel"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? "tel"
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        ) &&
+                                        hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "mobile"
+                                        )
+                                      ? "tel"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "emailCode"
+                                          )
+                                        ? "tel"
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "name"
+                                            ) &&
+                                            hasVariant(
+                                              globalVariants,
+                                              "screen",
+                                              "mobile"
+                                            )
+                                          ? "tel"
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "name"
+                                              )
+                                            ? "tel"
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobileCode"
+                                                ) &&
+                                                hasVariant(
+                                                  globalVariants,
+                                                  "screen",
+                                                  "mobile"
+                                                )
+                                              ? "tel"
+                                              : hasVariant(
+                                                    $state,
+                                                    "loginPage",
+                                                    "mobileCode"
+                                                  )
+                                                ? "tel"
+                                                : hasVariant(
+                                                      $state,
+                                                      "loginPage",
+                                                      "email"
+                                                    ) &&
+                                                    hasVariant(
+                                                      globalVariants,
+                                                      "screen",
+                                                      "mobile"
+                                                    )
+                                                  ? "tel"
+                                                  : hasVariant(
+                                                        $state,
+                                                        "loginPage",
+                                                        "mobile"
+                                                      ) &&
+                                                      hasVariant(
+                                                        globalVariants,
+                                                        "screen",
+                                                        "mobile"
+                                                      )
+                                                    ? "tel"
+                                                    : hasVariant(
+                                                          $state,
+                                                          "loginPage",
+                                                          "mobile"
+                                                        )
+                                                      ? "tel"
+                                                      : "tel"
                       }
                       value={
                         generateStateValueProp($state, [
@@ -5100,43 +5384,45 @@ function PlasmicLoginMan__RenderFunc(props: {
                               }
                             })()
                           : hasVariant($state, "loginPage", "userNameLogin")
-                          ? (() => {
-                              try {
-                                return (
-                                  ($state.antdInput7.value?.length < 2 &&
-                                    $state.antdInput8.value.length < 7) ||
-                                  $state.loadedbtn
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
+                            ? (() => {
+                                try {
+                                  return (
+                                    ($state.antdInput7.value?.length < 2 &&
+                                      $state.antdInput8.value.length < 7) ||
+                                    $state.loadedbtn
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
                                 }
-                                throw e;
-                              }
-                            })()
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? (() => {
-                              try {
-                                return (
-                                  !(
-                                    $state.antdInput7.value.length === 10 ||
-                                    $state.antdInput7.value.length === 11
-                                  ) || $state.loadedbtn
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
-                                }
-                                throw e;
-                              }
-                            })()
-                          : undefined
+                              })()
+                            : hasVariant($state, "loginPage", "mobile")
+                              ? (() => {
+                                  try {
+                                    return (
+                                      !(
+                                        $state.antdInput7.value.length === 10 ||
+                                        $state.antdInput7.value.length === 11
+                                      ) || $state.loadedbtn
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [];
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              : undefined
                       }
                       load={generateStateValueProp($state, ["button2", "load"])}
                       loading={generateStateValueProp($state, [
@@ -5177,9 +5463,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["updateLoadedbtn"] === "object" &&
                           typeof $steps["updateLoadedbtn"].then === "function"
                         ) {
-                          $steps["updateLoadedbtn"] = await $steps[
-                            "updateLoadedbtn"
-                          ];
+                          $steps["updateLoadedbtn"] =
+                            await $steps["updateLoadedbtn"];
                         }
 
                         $steps["updateUsername"] = true
@@ -5213,9 +5498,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["updateUsername"] === "object" &&
                           typeof $steps["updateUsername"].then === "function"
                         ) {
-                          $steps["updateUsername"] = await $steps[
-                            "updateUsername"
-                          ];
+                          $steps["updateUsername"] =
+                            await $steps["updateUsername"];
                         }
 
                         $steps["updatePassword"] = true
@@ -5249,9 +5533,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["updatePassword"] === "object" &&
                           typeof $steps["updatePassword"].then === "function"
                         ) {
-                          $steps["updatePassword"] = await $steps[
-                            "updatePassword"
-                          ];
+                          $steps["updatePassword"] =
+                            await $steps["updatePassword"];
                         }
 
                         $steps["invokeGlobalAction2"] = (() => {
@@ -5283,9 +5566,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction2"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction2"] = await $steps[
-                            "invokeGlobalAction2"
-                          ];
+                          $steps["invokeGlobalAction2"] =
+                            await $steps["invokeGlobalAction2"];
                         }
 
                         $steps["invokeGlobalAction"] = (() => {
@@ -5371,10 +5653,7 @@ function PlasmicLoginMan__RenderFunc(props: {
                                               userAgent
                                             )
                                           )
-                                            return `macOS ${RegExp.$1.replace(
-                                              "_",
-                                              "."
-                                            )}`;
+                                            return `macOS ${RegExp.$1.replace("_", ".")}`;
                                           if (
                                             /Android (\d+(\.\d+)?)/.test(
                                               userAgent
@@ -5386,10 +5665,7 @@ function PlasmicLoginMan__RenderFunc(props: {
                                               userAgent
                                             )
                                           )
-                                            return `iOS ${RegExp.$2.replace(
-                                              "_",
-                                              "."
-                                            )}`;
+                                            return `iOS ${RegExp.$2.replace("_", ".")}`;
                                           return "Unknown Version";
                                         })(),
                                         additionalData: {
@@ -5422,9 +5698,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
 
                         $steps["updateLoginData"] =
@@ -5459,9 +5734,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["updateLoginData"] === "object" &&
                           typeof $steps["updateLoginData"].then === "function"
                         ) {
-                          $steps["updateLoginData"] = await $steps[
-                            "updateLoginData"
-                          ];
+                          $steps["updateLoginData"] =
+                            await $steps["updateLoginData"];
                         }
 
                         $steps["runCode"] =
@@ -5520,9 +5794,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction3"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction3"] = await $steps[
-                            "invokeGlobalAction3"
-                          ];
+                          $steps["invokeGlobalAction3"] =
+                            await $steps["invokeGlobalAction3"];
                         }
 
                         $steps["goToPage"] =
@@ -5646,9 +5919,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["updateTextInputValue2"].then ===
                             "function"
                         ) {
-                          $steps["updateTextInputValue2"] = await $steps[
-                            "updateTextInputValue2"
-                          ];
+                          $steps["updateTextInputValue2"] =
+                            await $steps["updateTextInputValue2"];
                         }
                       }}
                       onColorChange={async (...eventArgs: any) => {
@@ -5737,20 +6009,28 @@ function PlasmicLoginMan__RenderFunc(props: {
                         {hasVariant($state, "loginPage", "selectstatus")
                           ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
                           : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : hasVariant($state, "loginPage", "email")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : "Button"}
+                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                            : hasVariant($state, "loginPage", "userNameLogin")
+                              ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                              : hasVariant($state, "loginPage", "emailCode")
+                                ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                : hasVariant($state, "loginPage", "name")
+                                  ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "mobileCode"
+                                      )
+                                    ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                    : hasVariant($state, "loginPage", "email")
+                                      ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "mobile"
+                                          )
+                                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                        : "Button"}
                       </div>
                     </Button>
                   </div>
@@ -5800,17 +6080,16 @@ function PlasmicLoginMan__RenderFunc(props: {
                       typeof $steps["updateLoginPage"] === "object" &&
                       typeof $steps["updateLoginPage"].then === "function"
                     ) {
-                      $steps["updateLoginPage"] = await $steps[
-                        "updateLoginPage"
-                      ];
+                      $steps["updateLoginPage"] =
+                        await $steps["updateLoginPage"];
                     }
                   }}
                 >
                   {hasVariant($state, "loginPage", "userNameSingup")
                     ? "\u0627\u06af\u0631 \u062d\u0633\u0627\u0628 \u06a9\u0627\u0631\u0628\u0631\u06cc \u0646\u062f\u0627\u0631\u06cc \u0628\u0631\u0627\u06cc \u062b\u0628\u062a \u0646\u0627\u0645 \u0627\u06cc\u0646\u062c\u0627 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 >"
                     : hasVariant($state, "loginPage", "userNameLogin")
-                    ? "\u0627\u06af\u0631 \u062d\u0633\u0627\u0628 \u06a9\u0627\u0631\u0628\u0631\u06cc \u0646\u062f\u0627\u0631\u06cc \u0628\u0631\u0627\u06cc \u062b\u0628\u062a \u0646\u0627\u0645 \u0627\u06cc\u0646\u062c\u0627 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 >"
-                    : "Enter some text"}
+                      ? "\u0627\u06af\u0631 \u062d\u0633\u0627\u0628 \u06a9\u0627\u0631\u0628\u0631\u06cc \u0646\u062f\u0627\u0631\u06cc \u0628\u0631\u0627\u06cc \u062b\u0628\u062a \u0646\u0627\u0645 \u0627\u06cc\u0646\u062c\u0627 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 >"
+                      : "Enter some text"}
                 </div>
               </div>
             </Reveal>
@@ -5819,20 +6098,20 @@ function PlasmicLoginMan__RenderFunc(props: {
             hasVariant($state, "loginPage", "selectstatus")
               ? true
               : hasVariant($state, "loginPage", "userNameSingup")
-              ? true
-              : hasVariant($state, "loginPage", "userNameLogin")
-              ? true
-              : hasVariant($state, "loginPage", "emailCode")
-              ? true
-              : hasVariant($state, "loginPage", "name")
-              ? true
-              : hasVariant($state, "loginPage", "mobileCode")
-              ? true
-              : hasVariant($state, "loginPage", "email")
-              ? true
-              : hasVariant($state, "loginPage", "mobile")
-              ? true
-              : false
+                ? true
+                : hasVariant($state, "loginPage", "userNameLogin")
+                  ? true
+                  : hasVariant($state, "loginPage", "emailCode")
+                    ? true
+                    : hasVariant($state, "loginPage", "name")
+                      ? true
+                      : hasVariant($state, "loginPage", "mobileCode")
+                        ? true
+                        : hasVariant($state, "loginPage", "email")
+                          ? true
+                          : hasVariant($state, "loginPage", "mobile")
+                            ? true
+                            : false
           ) ? (
             <Reveal
               className={classNames("__wab_instance", sty.reveal__d4OCh, {
@@ -5986,9 +6265,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                       typeof $steps["updateLoginPage"] === "object" &&
                       typeof $steps["updateLoginPage"].then === "function"
                     ) {
-                      $steps["updateLoginPage"] = await $steps[
-                        "updateLoginPage"
-                      ];
+                      $steps["updateLoginPage"] =
+                        await $steps["updateLoginPage"];
                     }
                   }}
                 >
@@ -6119,20 +6397,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                     {hasVariant($state, "loginPage", "selectstatus")
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                       : hasVariant($state, "loginPage", "userNameSingup")
-                      ? "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc"
-                      : hasVariant($state, "loginPage", "userNameLogin")
-                      ? "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc"
-                      : hasVariant($state, "loginPage", "emailCode")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "name")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "mobileCode")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "email")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "mobile")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : "Enter some text"}
+                        ? "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc"
+                        : hasVariant($state, "loginPage", "userNameLogin")
+                          ? "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc"
+                          : hasVariant($state, "loginPage", "emailCode")
+                            ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                            : hasVariant($state, "loginPage", "name")
+                              ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                              : hasVariant($state, "loginPage", "mobileCode")
+                                ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                : hasVariant($state, "loginPage", "email")
+                                  ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                  : hasVariant($state, "loginPage", "mobile")
+                                    ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                    : "Enter some text"}
                   </div>
                   <div
                     className={classNames(
@@ -6141,20 +6419,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                       hasVariant($state, "loginPage", "selectstatus")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameSingup")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "emailCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "name")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "email")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? "negative"
-                        : undefined,
+                          ? "negative"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                            ? "negative"
+                            : hasVariant($state, "loginPage", "emailCode")
+                              ? "negative"
+                              : hasVariant($state, "loginPage", "name")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                  ? "negative"
+                                  : hasVariant($state, "loginPage", "email")
+                                    ? "negative"
+                                    : hasVariant($state, "loginPage", "mobile")
+                                      ? "negative"
+                                      : undefined,
                       {
                         [sty.freeBoxloginPage_emailCode__gvvzFhTfDf]:
                           hasVariant($state, "loginPage", "emailCode"),
@@ -6241,8 +6519,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           )
                             ? "user_name"
                             : hasVariant($state, "loginPage", "userNameLogin")
-                            ? "sara_mohammadi"
-                            : "9123456789",
+                              ? "sara_mohammadi"
+                              : "9123456789",
                           size: "large",
                           type: hasVariant(
                             $state,
@@ -6251,10 +6529,10 @@ function PlasmicLoginMan__RenderFunc(props: {
                           )
                             ? "email"
                             : hasVariant($state, "loginPage", "userNameLogin")
-                            ? "text"
-                            : hasVariant($state, "loginPage", "mobile")
-                            ? "tel"
-                            : undefined,
+                              ? "text"
+                              : hasVariant($state, "loginPage", "mobile")
+                                ? "tel"
+                                : undefined,
                           value: generateStateValueProp($state, [
                             "antdInput9",
                             "value"
@@ -6348,34 +6626,42 @@ function PlasmicLoginMan__RenderFunc(props: {
                         hasVariant($state, "loginPage", "selectstatus")
                           ? "09123456789"
                           : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "email")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "09123456789"
-                          : "9123456789"
+                            ? "09123456789"
+                            : hasVariant($state, "loginPage", "userNameLogin")
+                              ? "09123456789"
+                              : hasVariant($state, "loginPage", "emailCode")
+                                ? "09123456789"
+                                : hasVariant($state, "loginPage", "name")
+                                  ? "09123456789"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "mobileCode"
+                                      )
+                                    ? "09123456789"
+                                    : hasVariant($state, "loginPage", "email")
+                                      ? "09123456789"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "mobile"
+                                          )
+                                        ? "09123456789"
+                                        : "9123456789"
                       }
                       showEndIcon={
                         hasVariant($state, "loginPage", "userNameSingup")
                           ? undefined
                           : hasVariant($state, "loginPage", "userNameLogin")
-                          ? undefined
-                          : true
+                            ? undefined
+                            : true
                       }
                       showStartIcon={
                         hasVariant($state, "loginPage", "userNameSingup")
                           ? true
                           : hasVariant($state, "loginPage", "userNameLogin")
-                          ? true
-                          : undefined
+                            ? true
+                            : undefined
                       }
                       startIcon={
                         <PlasmicIcon__
@@ -6383,8 +6669,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                             hasVariant($state, "loginPage", "userNameSingup")
                               ? Icon116Icon
                               : hasVariant($state, "loginPage", "userNameLogin")
-                              ? Icon116Icon
-                              : SearchSvgIcon
+                                ? Icon116Icon
+                                : SearchSvgIcon
                           }
                           className={classNames(
                             projectcss.all,
@@ -6412,41 +6698,117 @@ function PlasmicLoginMan__RenderFunc(props: {
                         hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "selectstatus")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameSingup") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameLogin") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "emailCode") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "name") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobileCode") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "email") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobile") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "tel"
-                          : "tel"
+                            ? "tel"
+                            : hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "userNameSingup"
+                                ) &&
+                                hasVariant(globalVariants, "screen", "mobile")
+                              ? "tel"
+                              : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
+                                ? "tel"
+                                : hasVariant(
+                                      $state,
+                                      "loginPage",
+                                      "userNameLogin"
+                                    ) &&
+                                    hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobile"
+                                    )
+                                  ? "tel"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? "tel"
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        ) &&
+                                        hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "mobile"
+                                        )
+                                      ? "tel"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "emailCode"
+                                          )
+                                        ? "tel"
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "name"
+                                            ) &&
+                                            hasVariant(
+                                              globalVariants,
+                                              "screen",
+                                              "mobile"
+                                            )
+                                          ? "tel"
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "name"
+                                              )
+                                            ? "tel"
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobileCode"
+                                                ) &&
+                                                hasVariant(
+                                                  globalVariants,
+                                                  "screen",
+                                                  "mobile"
+                                                )
+                                              ? "tel"
+                                              : hasVariant(
+                                                    $state,
+                                                    "loginPage",
+                                                    "mobileCode"
+                                                  )
+                                                ? "tel"
+                                                : hasVariant(
+                                                      $state,
+                                                      "loginPage",
+                                                      "email"
+                                                    ) &&
+                                                    hasVariant(
+                                                      globalVariants,
+                                                      "screen",
+                                                      "mobile"
+                                                    )
+                                                  ? "tel"
+                                                  : hasVariant(
+                                                        $state,
+                                                        "loginPage",
+                                                        "mobile"
+                                                      ) &&
+                                                      hasVariant(
+                                                        globalVariants,
+                                                        "screen",
+                                                        "mobile"
+                                                      )
+                                                    ? "tel"
+                                                    : hasVariant(
+                                                          $state,
+                                                          "loginPage",
+                                                          "mobile"
+                                                        )
+                                                      ? "tel"
+                                                      : "tel"
                       }
                       value={
                         generateStateValueProp($state, [
@@ -6538,20 +6900,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                     {hasVariant($state, "loginPage", "selectstatus")
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                       : hasVariant($state, "loginPage", "userNameSingup")
-                      ? "\u06cc\u06a9 \u0631\u0645\u0632 \u0639\u0628\u0648\u0631 \u0628\u0627 \u062d\u062f\u0627\u0642\u0644 8 \u06a9\u0627\u0631\u0627\u06a9\u062a\u0631 \u0628\u0646\u0648\u06cc\u0633"
-                      : hasVariant($state, "loginPage", "userNameLogin")
-                      ? "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631"
-                      : hasVariant($state, "loginPage", "emailCode")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "name")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "mobileCode")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "email")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "mobile")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : "Enter some text"}
+                        ? "\u06cc\u06a9 \u0631\u0645\u0632 \u0639\u0628\u0648\u0631 \u0628\u0627 \u062d\u062f\u0627\u0642\u0644 8 \u06a9\u0627\u0631\u0627\u06a9\u062a\u0631 \u0628\u0646\u0648\u06cc\u0633"
+                        : hasVariant($state, "loginPage", "userNameLogin")
+                          ? "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631"
+                          : hasVariant($state, "loginPage", "emailCode")
+                            ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                            : hasVariant($state, "loginPage", "name")
+                              ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                              : hasVariant($state, "loginPage", "mobileCode")
+                                ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                : hasVariant($state, "loginPage", "email")
+                                  ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                  : hasVariant($state, "loginPage", "mobile")
+                                    ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                    : "Enter some text"}
                   </div>
                   <div
                     className={classNames(
@@ -6560,20 +6922,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                       hasVariant($state, "loginPage", "selectstatus")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameSingup")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "emailCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "name")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "email")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? "negative"
-                        : undefined,
+                          ? "negative"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                            ? "negative"
+                            : hasVariant($state, "loginPage", "emailCode")
+                              ? "negative"
+                              : hasVariant($state, "loginPage", "name")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                  ? "negative"
+                                  : hasVariant($state, "loginPage", "email")
+                                    ? "negative"
+                                    : hasVariant($state, "loginPage", "mobile")
+                                      ? "negative"
+                                      : undefined,
                       {
                         [sty.freeBoxloginPage_emailCode__cbeGehTfDf]:
                           hasVariant($state, "loginPage", "emailCode"),
@@ -6660,8 +7022,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           )
                             ? " \u0631\u0645\u0632 \u0639\u0628\u0648\u0631"
                             : hasVariant($state, "loginPage", "userNameLogin")
-                            ? "\u0631\u0645\u0632 ..."
-                            : "9123456789",
+                              ? "\u0631\u0645\u0632 ..."
+                              : "9123456789",
                           size: "large",
                           type: hasVariant(
                             $state,
@@ -6670,10 +7032,10 @@ function PlasmicLoginMan__RenderFunc(props: {
                           )
                             ? "password"
                             : hasVariant($state, "loginPage", "userNameLogin")
-                            ? "password"
-                            : hasVariant($state, "loginPage", "mobile")
-                            ? "tel"
-                            : undefined,
+                              ? "password"
+                              : hasVariant($state, "loginPage", "mobile")
+                                ? "tel"
+                                : undefined,
                           value: generateStateValueProp($state, [
                             "antdInput10",
                             "value"
@@ -6793,9 +7155,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                             typeof $steps["updateNumber"] === "object" &&
                             typeof $steps["updateNumber"].then === "function"
                           ) {
-                            $steps["updateNumber"] = await $steps[
-                              "updateNumber"
-                            ];
+                            $steps["updateNumber"] =
+                              await $steps["updateNumber"];
                           }
                         }).apply(null, eventArgs);
                       }}
@@ -6803,34 +7164,42 @@ function PlasmicLoginMan__RenderFunc(props: {
                         hasVariant($state, "loginPage", "selectstatus")
                           ? "09123456789"
                           : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "email")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "09123456789"
-                          : "9123456789"
+                            ? "09123456789"
+                            : hasVariant($state, "loginPage", "userNameLogin")
+                              ? "09123456789"
+                              : hasVariant($state, "loginPage", "emailCode")
+                                ? "09123456789"
+                                : hasVariant($state, "loginPage", "name")
+                                  ? "09123456789"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "mobileCode"
+                                      )
+                                    ? "09123456789"
+                                    : hasVariant($state, "loginPage", "email")
+                                      ? "09123456789"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "mobile"
+                                          )
+                                        ? "09123456789"
+                                        : "9123456789"
                       }
                       showEndIcon={
                         hasVariant($state, "loginPage", "userNameSingup")
                           ? undefined
                           : hasVariant($state, "loginPage", "userNameLogin")
-                          ? undefined
-                          : true
+                            ? undefined
+                            : true
                       }
                       showStartIcon={
                         hasVariant($state, "loginPage", "userNameSingup")
                           ? true
                           : hasVariant($state, "loginPage", "userNameLogin")
-                          ? true
-                          : undefined
+                            ? true
+                            : undefined
                       }
                       startIcon={
                         <PlasmicIcon__
@@ -6838,8 +7207,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                             hasVariant($state, "loginPage", "userNameSingup")
                               ? Icon117Icon
                               : hasVariant($state, "loginPage", "userNameLogin")
-                              ? Icon117Icon
-                              : SearchSvgIcon
+                                ? Icon117Icon
+                                : SearchSvgIcon
                           }
                           className={classNames(
                             projectcss.all,
@@ -6867,41 +7236,117 @@ function PlasmicLoginMan__RenderFunc(props: {
                         hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "selectstatus")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameSingup") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameLogin") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "emailCode") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "name") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobileCode") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "email") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobile") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "tel"
-                          : "tel"
+                            ? "tel"
+                            : hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "userNameSingup"
+                                ) &&
+                                hasVariant(globalVariants, "screen", "mobile")
+                              ? "tel"
+                              : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
+                                ? "tel"
+                                : hasVariant(
+                                      $state,
+                                      "loginPage",
+                                      "userNameLogin"
+                                    ) &&
+                                    hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobile"
+                                    )
+                                  ? "tel"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? "tel"
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        ) &&
+                                        hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "mobile"
+                                        )
+                                      ? "tel"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "emailCode"
+                                          )
+                                        ? "tel"
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "name"
+                                            ) &&
+                                            hasVariant(
+                                              globalVariants,
+                                              "screen",
+                                              "mobile"
+                                            )
+                                          ? "tel"
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "name"
+                                              )
+                                            ? "tel"
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobileCode"
+                                                ) &&
+                                                hasVariant(
+                                                  globalVariants,
+                                                  "screen",
+                                                  "mobile"
+                                                )
+                                              ? "tel"
+                                              : hasVariant(
+                                                    $state,
+                                                    "loginPage",
+                                                    "mobileCode"
+                                                  )
+                                                ? "tel"
+                                                : hasVariant(
+                                                      $state,
+                                                      "loginPage",
+                                                      "email"
+                                                    ) &&
+                                                    hasVariant(
+                                                      globalVariants,
+                                                      "screen",
+                                                      "mobile"
+                                                    )
+                                                  ? "tel"
+                                                  : hasVariant(
+                                                        $state,
+                                                        "loginPage",
+                                                        "mobile"
+                                                      ) &&
+                                                      hasVariant(
+                                                        globalVariants,
+                                                        "screen",
+                                                        "mobile"
+                                                      )
+                                                    ? "tel"
+                                                    : hasVariant(
+                                                          $state,
+                                                          "loginPage",
+                                                          "mobile"
+                                                        )
+                                                      ? "tel"
+                                                      : "tel"
                       }
                       value={
                         generateStateValueProp($state, [
@@ -6996,20 +7441,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                     {hasVariant($state, "loginPage", "selectstatus")
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                       : hasVariant($state, "loginPage", "userNameSingup")
-                      ? "\u062a\u06a9\u0631\u0627\u0631 \u0631\u0645\u0632 \u0639\u0628\u0648\u0631 ..."
-                      : hasVariant($state, "loginPage", "userNameLogin")
-                      ? "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631"
-                      : hasVariant($state, "loginPage", "emailCode")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "name")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "mobileCode")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "email")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "mobile")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : "Enter some text"}
+                        ? "\u062a\u06a9\u0631\u0627\u0631 \u0631\u0645\u0632 \u0639\u0628\u0648\u0631 ..."
+                        : hasVariant($state, "loginPage", "userNameLogin")
+                          ? "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631"
+                          : hasVariant($state, "loginPage", "emailCode")
+                            ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                            : hasVariant($state, "loginPage", "name")
+                              ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                              : hasVariant($state, "loginPage", "mobileCode")
+                                ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                : hasVariant($state, "loginPage", "email")
+                                  ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                  : hasVariant($state, "loginPage", "mobile")
+                                    ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                    : "Enter some text"}
                   </div>
                   <div
                     className={classNames(
@@ -7018,20 +7463,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                       hasVariant($state, "loginPage", "selectstatus")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameSingup")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "emailCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "name")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "email")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? "negative"
-                        : undefined,
+                          ? "negative"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                            ? "negative"
+                            : hasVariant($state, "loginPage", "emailCode")
+                              ? "negative"
+                              : hasVariant($state, "loginPage", "name")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                  ? "negative"
+                                  : hasVariant($state, "loginPage", "email")
+                                    ? "negative"
+                                    : hasVariant($state, "loginPage", "mobile")
+                                      ? "negative"
+                                      : undefined,
                       {
                         [sty.freeBoxloginPage_emailCode___7Ftg0HTfDf]:
                           hasVariant($state, "loginPage", "emailCode"),
@@ -7118,8 +7563,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           )
                             ? "\u062a\u06a9\u0631\u0627\u0631  \u0631\u0645\u0632 \u0639\u0628\u0648\u0631"
                             : hasVariant($state, "loginPage", "userNameLogin")
-                            ? "\u0631\u0645\u0632 ..."
-                            : "\u0631\u0645\u0632 ...",
+                              ? "\u0631\u0645\u0632 ..."
+                              : "\u0631\u0645\u0632 ...",
                           size: "large",
                           type: hasVariant(
                             $state,
@@ -7128,10 +7573,10 @@ function PlasmicLoginMan__RenderFunc(props: {
                           )
                             ? "password"
                             : hasVariant($state, "loginPage", "userNameLogin")
-                            ? "password"
-                            : hasVariant($state, "loginPage", "mobile")
-                            ? "tel"
-                            : "password",
+                              ? "password"
+                              : hasVariant($state, "loginPage", "mobile")
+                                ? "tel"
+                                : "password",
                           value: generateStateValueProp($state, [
                             "antdInput11",
                             "value"
@@ -7251,9 +7696,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                             typeof $steps["updateNumber"] === "object" &&
                             typeof $steps["updateNumber"].then === "function"
                           ) {
-                            $steps["updateNumber"] = await $steps[
-                              "updateNumber"
-                            ];
+                            $steps["updateNumber"] =
+                              await $steps["updateNumber"];
                           }
                         }).apply(null, eventArgs);
                       }}
@@ -7261,34 +7705,42 @@ function PlasmicLoginMan__RenderFunc(props: {
                         hasVariant($state, "loginPage", "selectstatus")
                           ? "09123456789"
                           : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "email")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "09123456789"
-                          : "9123456789"
+                            ? "09123456789"
+                            : hasVariant($state, "loginPage", "userNameLogin")
+                              ? "09123456789"
+                              : hasVariant($state, "loginPage", "emailCode")
+                                ? "09123456789"
+                                : hasVariant($state, "loginPage", "name")
+                                  ? "09123456789"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "mobileCode"
+                                      )
+                                    ? "09123456789"
+                                    : hasVariant($state, "loginPage", "email")
+                                      ? "09123456789"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "mobile"
+                                          )
+                                        ? "09123456789"
+                                        : "9123456789"
                       }
                       showEndIcon={
                         hasVariant($state, "loginPage", "userNameSingup")
                           ? undefined
                           : hasVariant($state, "loginPage", "userNameLogin")
-                          ? undefined
-                          : true
+                            ? undefined
+                            : true
                       }
                       showStartIcon={
                         hasVariant($state, "loginPage", "userNameSingup")
                           ? true
                           : hasVariant($state, "loginPage", "userNameLogin")
-                          ? true
-                          : undefined
+                            ? true
+                            : undefined
                       }
                       startIcon={
                         <PlasmicIcon__
@@ -7296,8 +7748,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                             hasVariant($state, "loginPage", "userNameSingup")
                               ? Icon117Icon
                               : hasVariant($state, "loginPage", "userNameLogin")
-                              ? Icon117Icon
-                              : SearchSvgIcon
+                                ? Icon117Icon
+                                : SearchSvgIcon
                           }
                           className={classNames(
                             projectcss.all,
@@ -7325,41 +7777,117 @@ function PlasmicLoginMan__RenderFunc(props: {
                         hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "selectstatus")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameSingup") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameLogin") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "emailCode") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "name") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobileCode") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "email") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobile") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "tel"
-                          : "tel"
+                            ? "tel"
+                            : hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "userNameSingup"
+                                ) &&
+                                hasVariant(globalVariants, "screen", "mobile")
+                              ? "tel"
+                              : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
+                                ? "tel"
+                                : hasVariant(
+                                      $state,
+                                      "loginPage",
+                                      "userNameLogin"
+                                    ) &&
+                                    hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobile"
+                                    )
+                                  ? "tel"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? "tel"
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        ) &&
+                                        hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "mobile"
+                                        )
+                                      ? "tel"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "emailCode"
+                                          )
+                                        ? "tel"
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "name"
+                                            ) &&
+                                            hasVariant(
+                                              globalVariants,
+                                              "screen",
+                                              "mobile"
+                                            )
+                                          ? "tel"
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "name"
+                                              )
+                                            ? "tel"
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobileCode"
+                                                ) &&
+                                                hasVariant(
+                                                  globalVariants,
+                                                  "screen",
+                                                  "mobile"
+                                                )
+                                              ? "tel"
+                                              : hasVariant(
+                                                    $state,
+                                                    "loginPage",
+                                                    "mobileCode"
+                                                  )
+                                                ? "tel"
+                                                : hasVariant(
+                                                      $state,
+                                                      "loginPage",
+                                                      "email"
+                                                    ) &&
+                                                    hasVariant(
+                                                      globalVariants,
+                                                      "screen",
+                                                      "mobile"
+                                                    )
+                                                  ? "tel"
+                                                  : hasVariant(
+                                                        $state,
+                                                        "loginPage",
+                                                        "mobile"
+                                                      ) &&
+                                                      hasVariant(
+                                                        globalVariants,
+                                                        "screen",
+                                                        "mobile"
+                                                      )
+                                                    ? "tel"
+                                                    : hasVariant(
+                                                          $state,
+                                                          "loginPage",
+                                                          "mobile"
+                                                        )
+                                                      ? "tel"
+                                                      : "tel"
                       }
                       value={
                         generateStateValueProp($state, [
@@ -7487,43 +8015,45 @@ function PlasmicLoginMan__RenderFunc(props: {
                               }
                             })()
                           : hasVariant($state, "loginPage", "userNameLogin")
-                          ? (() => {
-                              try {
-                                return (
-                                  ($state.antdInput9.value?.length < 2 &&
-                                    $state.antdInput10.value.length < 7) ||
-                                  $state.loadedbtn
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
+                            ? (() => {
+                                try {
+                                  return (
+                                    ($state.antdInput9.value?.length < 2 &&
+                                      $state.antdInput10.value.length < 7) ||
+                                    $state.loadedbtn
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
                                 }
-                                throw e;
-                              }
-                            })()
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? (() => {
-                              try {
-                                return (
-                                  !(
-                                    $state.antdInput9.value.length === 10 ||
-                                    $state.antdInput9.value.length === 11
-                                  ) || $state.loadedbtn
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
-                                }
-                                throw e;
-                              }
-                            })()
-                          : undefined
+                              })()
+                            : hasVariant($state, "loginPage", "mobile")
+                              ? (() => {
+                                  try {
+                                    return (
+                                      !(
+                                        $state.antdInput9.value.length === 10 ||
+                                        $state.antdInput9.value.length === 11
+                                      ) || $state.loadedbtn
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [];
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              : undefined
                       }
                       load={generateStateValueProp($state, ["button6", "load"])}
                       loading={generateStateValueProp($state, [
@@ -7564,9 +8094,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["updateLoadedbtn"] === "object" &&
                           typeof $steps["updateLoadedbtn"].then === "function"
                         ) {
-                          $steps["updateLoadedbtn"] = await $steps[
-                            "updateLoadedbtn"
-                          ];
+                          $steps["updateLoadedbtn"] =
+                            await $steps["updateLoadedbtn"];
                         }
 
                         $steps["updateUsername"] = true
@@ -7600,9 +8129,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["updateUsername"] === "object" &&
                           typeof $steps["updateUsername"].then === "function"
                         ) {
-                          $steps["updateUsername"] = await $steps[
-                            "updateUsername"
-                          ];
+                          $steps["updateUsername"] =
+                            await $steps["updateUsername"];
                         }
 
                         $steps["updatePassword"] = true
@@ -7636,9 +8164,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["updatePassword"] === "object" &&
                           typeof $steps["updatePassword"].then === "function"
                         ) {
-                          $steps["updatePassword"] = await $steps[
-                            "updatePassword"
-                          ];
+                          $steps["updatePassword"] =
+                            await $steps["updatePassword"];
                         }
 
                         $steps["invokeGlobalAction2"] = (() => {
@@ -7670,9 +8197,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction2"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction2"] = await $steps[
-                            "invokeGlobalAction2"
-                          ];
+                          $steps["invokeGlobalAction2"] =
+                            await $steps["invokeGlobalAction2"];
                         }
 
                         $steps["invokeGlobalAction4"] =
@@ -7695,9 +8221,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction4"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction4"] = await $steps[
-                            "invokeGlobalAction4"
-                          ];
+                          $steps["invokeGlobalAction4"] =
+                            await $steps["invokeGlobalAction4"];
                         }
 
                         $steps["invokeGlobalAction"] = (() => {
@@ -7745,9 +8270,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
 
                         $steps["invokeGlobalAction3"] =
@@ -7771,9 +8295,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction3"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction3"] = await $steps[
-                            "invokeGlobalAction3"
-                          ];
+                          $steps["invokeGlobalAction3"] =
+                            await $steps["invokeGlobalAction3"];
                         }
 
                         $steps["updateLoginPage"] =
@@ -7799,9 +8322,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["updateLoginPage"] === "object" &&
                           typeof $steps["updateLoginPage"].then === "function"
                         ) {
-                          $steps["updateLoginPage"] = await $steps[
-                            "updateLoginPage"
-                          ];
+                          $steps["updateLoginPage"] =
+                            await $steps["updateLoginPage"];
                         }
 
                         $steps["updateTextInputValue2"] = true
@@ -7836,9 +8358,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["updateTextInputValue2"].then ===
                             "function"
                         ) {
-                          $steps["updateTextInputValue2"] = await $steps[
-                            "updateTextInputValue2"
-                          ];
+                          $steps["updateTextInputValue2"] =
+                            await $steps["updateTextInputValue2"];
                         }
                       }}
                       onColorChange={async (...eventArgs: any) => {
@@ -7927,20 +8448,28 @@ function PlasmicLoginMan__RenderFunc(props: {
                         {hasVariant($state, "loginPage", "selectstatus")
                           ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
                           : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : hasVariant($state, "loginPage", "email")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : "Button"}
+                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                            : hasVariant($state, "loginPage", "userNameLogin")
+                              ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                              : hasVariant($state, "loginPage", "emailCode")
+                                ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                : hasVariant($state, "loginPage", "name")
+                                  ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "mobileCode"
+                                      )
+                                    ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                    : hasVariant($state, "loginPage", "email")
+                                      ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "mobile"
+                                          )
+                                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                        : "Button"}
                       </div>
                     </Button>
                   </div>
@@ -7990,17 +8519,16 @@ function PlasmicLoginMan__RenderFunc(props: {
                       typeof $steps["updateLoginPage"] === "object" &&
                       typeof $steps["updateLoginPage"].then === "function"
                     ) {
-                      $steps["updateLoginPage"] = await $steps[
-                        "updateLoginPage"
-                      ];
+                      $steps["updateLoginPage"] =
+                        await $steps["updateLoginPage"];
                     }
                   }}
                 >
                   {hasVariant($state, "loginPage", "userNameSingup")
                     ? "\u062f\u0631 \u0644\u06cc\u0648\u0645 \u062d\u0633\u0627\u0628 \u06a9\u0627\u0631\u0628\u0631\u06cc \u062f\u0627\u0631\u0645 \u0645\u06cc\u062e\u0648\u0627\u0645 \u0628\u0647 \u0622\u0646 \u0648\u0631\u0648\u062f \u06a9\u0646\u0645 >"
                     : hasVariant($state, "loginPage", "userNameLogin")
-                    ? "\u0627\u06af\u0631 \u062d\u0633\u0627\u0628 \u06a9\u0627\u0631\u0628\u0631\u06cc \u0646\u062f\u0627\u0631\u06cc \u0628\u0631\u0627\u06cc \u062b\u0628\u062a \u0646\u0627\u0645 \u0627\u06cc\u0646\u062c\u0627 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 >"
-                    : "Enter some text"}
+                      ? "\u0627\u06af\u0631 \u062d\u0633\u0627\u0628 \u06a9\u0627\u0631\u0628\u0631\u06cc \u0646\u062f\u0627\u0631\u06cc \u0628\u0631\u0627\u06cc \u062b\u0628\u062a \u0646\u0627\u0645 \u0627\u06cc\u0646\u062c\u0627 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 >"
+                      : "Enter some text"}
                 </div>
               </div>
             </Reveal>
@@ -8009,20 +8537,20 @@ function PlasmicLoginMan__RenderFunc(props: {
             hasVariant($state, "loginPage", "selectstatus")
               ? true
               : hasVariant($state, "loginPage", "userNameSingup")
-              ? true
-              : hasVariant($state, "loginPage", "userNameLogin")
-              ? true
-              : hasVariant($state, "loginPage", "emailCode")
-              ? true
-              : hasVariant($state, "loginPage", "name")
-              ? true
-              : hasVariant($state, "loginPage", "mobileCode")
-              ? true
-              : hasVariant($state, "loginPage", "email")
-              ? true
-              : hasVariant($state, "loginPage", "mobile")
-              ? true
-              : false
+                ? true
+                : hasVariant($state, "loginPage", "userNameLogin")
+                  ? true
+                  : hasVariant($state, "loginPage", "emailCode")
+                    ? true
+                    : hasVariant($state, "loginPage", "name")
+                      ? true
+                      : hasVariant($state, "loginPage", "mobileCode")
+                        ? true
+                        : hasVariant($state, "loginPage", "email")
+                          ? true
+                          : hasVariant($state, "loginPage", "mobile")
+                            ? true
+                            : false
           ) ? (
             <Reveal
               className={classNames("__wab_instance", sty.reveal__mbcum, {
@@ -8279,20 +8807,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                     {hasVariant($state, "loginPage", "selectstatus")
                       ? "\u0644\u0637\u0641\u0627 \u0627\u0633\u0645\u062a \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646"
                       : hasVariant($state, "loginPage", "userNameSingup")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "userNameLogin")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "emailCode")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "name")
-                      ? "\u0644\u0637\u0641\u0627 \u0627\u0633\u0645\u062a \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646"
-                      : hasVariant($state, "loginPage", "mobileCode")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "email")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "mobile")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : "Enter some text"}
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : hasVariant($state, "loginPage", "userNameLogin")
+                          ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                          : hasVariant($state, "loginPage", "emailCode")
+                            ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                            : hasVariant($state, "loginPage", "name")
+                              ? "\u0644\u0637\u0641\u0627 \u0627\u0633\u0645\u062a \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646"
+                              : hasVariant($state, "loginPage", "mobileCode")
+                                ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                : hasVariant($state, "loginPage", "email")
+                                  ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                  : hasVariant($state, "loginPage", "mobile")
+                                    ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                    : "Enter some text"}
                   </div>
                   <div
                     className={classNames(
@@ -8301,20 +8829,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                       hasVariant($state, "loginPage", "selectstatus")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameSingup")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "emailCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "name")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "email")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? "negative"
-                        : undefined,
+                          ? "negative"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                            ? "negative"
+                            : hasVariant($state, "loginPage", "emailCode")
+                              ? "negative"
+                              : hasVariant($state, "loginPage", "name")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                  ? "negative"
+                                  : hasVariant($state, "loginPage", "email")
+                                    ? "negative"
+                                    : hasVariant($state, "loginPage", "mobile")
+                                      ? "negative"
+                                      : undefined,
                       {
                         [sty.freeBoxloginPage_emailCode__wdq0ShTfDf]:
                           hasVariant($state, "loginPage", "emailCode"),
@@ -8367,8 +8895,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           id: hasVariant($state, "loginPage", "selectstatus")
                             ? "inputMobile2"
                             : hasVariant($state, "loginPage", "name")
-                            ? "inputMobile2"
-                            : undefined,
+                              ? "inputMobile2"
+                              : undefined,
                           onChange: async (...eventArgs: any) => {
                             generateStateOnChangePropForCodeComponents(
                               $state,
@@ -8503,28 +9031,44 @@ function PlasmicLoginMan__RenderFunc(props: {
                               hasVariant($state, "loginPage", "selectstatus")
                                 ? "negative"
                                 : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameSingup"
-                                  )
-                                ? "negative"
-                                : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameLogin"
-                                  )
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "emailCode")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "name")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "mobileCode")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "email")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "mobile")
-                                ? "negative"
-                                : undefined,
+                                      $state,
+                                      "loginPage",
+                                      "userNameSingup"
+                                    )
+                                  ? "negative"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? "negative"
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        )
+                                      ? "negative"
+                                      : hasVariant($state, "loginPage", "name")
+                                        ? "negative"
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "mobileCode"
+                                            )
+                                          ? "negative"
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "email"
+                                              )
+                                            ? "negative"
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobile"
+                                                )
+                                              ? "negative"
+                                              : undefined,
                               {
                                 [sty.textloginPage_emailCode__iBzj2HTfDf]:
                                   hasVariant($state, "loginPage", "emailCode"),
@@ -8560,52 +9104,84 @@ function PlasmicLoginMan__RenderFunc(props: {
                             {hasVariant($state, "loginPage", "selectstatus")
                               ? "+98 "
                               : hasVariant(
-                                  $state,
-                                  "loginPage",
-                                  "userNameSingup"
-                                )
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "userNameLogin")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "emailCode")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "name")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "mobileCode")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "email")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "mobile")
-                              ? "+98 "
-                              : "Enter some text"}
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
+                                ? "+98 "
+                                : hasVariant(
+                                      $state,
+                                      "loginPage",
+                                      "userNameLogin"
+                                    )
+                                  ? "+98 "
+                                  : hasVariant($state, "loginPage", "emailCode")
+                                    ? "+98 "
+                                    : hasVariant($state, "loginPage", "name")
+                                      ? "+98 "
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "mobileCode"
+                                          )
+                                        ? "+98 "
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "email"
+                                            )
+                                          ? "+98 "
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "mobile"
+                                              )
+                                            ? "+98 "
+                                            : "Enter some text"}
                           </div>
                           <PlasmicIcon__
                             PlasmicIconType={
                               hasVariant($state, "loginPage", "selectstatus")
                                 ? Icon111Icon
                                 : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameSingup"
-                                  )
-                                ? Icon111Icon
-                                : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameLogin"
-                                  )
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "emailCode")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "name")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "mobileCode")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "email")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "mobile")
-                                ? Icon111Icon
-                                : "div"
+                                      $state,
+                                      "loginPage",
+                                      "userNameSingup"
+                                    )
+                                  ? Icon111Icon
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? Icon111Icon
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        )
+                                      ? Icon111Icon
+                                      : hasVariant($state, "loginPage", "name")
+                                        ? Icon111Icon
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "mobileCode"
+                                            )
+                                          ? Icon111Icon
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "email"
+                                              )
+                                            ? Icon111Icon
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobile"
+                                                )
+                                              ? Icon111Icon
+                                              : "div"
                             }
                             className={classNames(
                               projectcss.all,
@@ -8668,68 +9244,152 @@ function PlasmicLoginMan__RenderFunc(props: {
                         hasVariant($state, "loginPage", "selectstatus")
                           ? "\u0645\u062b\u0644\u0627: \u0639\u0644\u06cc \u0645\u062d\u0645\u062f\u06cc"
                           : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "\u0645\u062b\u0644\u0627: \u0639\u0644\u06cc \u0645\u062d\u0645\u062f\u06cc"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "email")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "09123456789"
-                          : ``
+                            ? "09123456789"
+                            : hasVariant($state, "loginPage", "userNameLogin")
+                              ? "09123456789"
+                              : hasVariant($state, "loginPage", "emailCode")
+                                ? "09123456789"
+                                : hasVariant($state, "loginPage", "name")
+                                  ? "\u0645\u062b\u0644\u0627: \u0639\u0644\u06cc \u0645\u062d\u0645\u062f\u06cc"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "mobileCode"
+                                      )
+                                    ? "09123456789"
+                                    : hasVariant($state, "loginPage", "email")
+                                      ? "09123456789"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "mobile"
+                                          )
+                                        ? "09123456789"
+                                        : ``
                       }
                       showEndIcon={
                         hasVariant($state, "loginPage", "selectstatus")
                           ? undefined
                           : hasVariant($state, "loginPage", "name")
-                          ? undefined
-                          : true
+                            ? undefined
+                            : true
                       }
                       type={
                         hasVariant($state, "loginPage", "selectstatus") &&
                         hasVariant(globalVariants, "screen", "mobile")
                           ? "text"
                           : hasVariant($state, "loginPage", "selectstatus")
-                          ? "text"
-                          : hasVariant($state, "loginPage", "userNameSingup") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameLogin") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "emailCode") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "name") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "text"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "text"
-                          : hasVariant($state, "loginPage", "mobileCode") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "email") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobile") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "tel"
-                          : undefined
+                            ? "text"
+                            : hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "userNameSingup"
+                                ) &&
+                                hasVariant(globalVariants, "screen", "mobile")
+                              ? "tel"
+                              : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
+                                ? "tel"
+                                : hasVariant(
+                                      $state,
+                                      "loginPage",
+                                      "userNameLogin"
+                                    ) &&
+                                    hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobile"
+                                    )
+                                  ? "tel"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? "tel"
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        ) &&
+                                        hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "mobile"
+                                        )
+                                      ? "tel"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "emailCode"
+                                          )
+                                        ? "tel"
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "name"
+                                            ) &&
+                                            hasVariant(
+                                              globalVariants,
+                                              "screen",
+                                              "mobile"
+                                            )
+                                          ? "text"
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "name"
+                                              )
+                                            ? "text"
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobileCode"
+                                                ) &&
+                                                hasVariant(
+                                                  globalVariants,
+                                                  "screen",
+                                                  "mobile"
+                                                )
+                                              ? "tel"
+                                              : hasVariant(
+                                                    $state,
+                                                    "loginPage",
+                                                    "mobileCode"
+                                                  )
+                                                ? "tel"
+                                                : hasVariant(
+                                                      $state,
+                                                      "loginPage",
+                                                      "email"
+                                                    ) &&
+                                                    hasVariant(
+                                                      globalVariants,
+                                                      "screen",
+                                                      "mobile"
+                                                    )
+                                                  ? "tel"
+                                                  : hasVariant(
+                                                        $state,
+                                                        "loginPage",
+                                                        "mobile"
+                                                      ) &&
+                                                      hasVariant(
+                                                        globalVariants,
+                                                        "screen",
+                                                        "mobile"
+                                                      )
+                                                    ? "tel"
+                                                    : hasVariant(
+                                                          $state,
+                                                          "loginPage",
+                                                          "mobile"
+                                                        )
+                                                      ? "tel"
+                                                      : undefined
                       }
                       value={
                         generateStateValueProp($state, [
@@ -8821,20 +9481,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                     {hasVariant($state, "loginPage", "selectstatus")
                       ? "\u0644\u0637\u0641\u0627 \u062c\u0646\u0633\u06cc\u062a \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646"
                       : hasVariant($state, "loginPage", "userNameSingup")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "userNameLogin")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "emailCode")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "name")
-                      ? "\u0644\u0637\u0641\u0627 \u062c\u0646\u0633\u06cc\u062a \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646"
-                      : hasVariant($state, "loginPage", "mobileCode")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "email")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "mobile")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : "Enter some text"}
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : hasVariant($state, "loginPage", "userNameLogin")
+                          ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                          : hasVariant($state, "loginPage", "emailCode")
+                            ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                            : hasVariant($state, "loginPage", "name")
+                              ? "\u0644\u0637\u0641\u0627 \u062c\u0646\u0633\u06cc\u062a \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646"
+                              : hasVariant($state, "loginPage", "mobileCode")
+                                ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                : hasVariant($state, "loginPage", "email")
+                                  ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                  : hasVariant($state, "loginPage", "mobile")
+                                    ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                    : "Enter some text"}
                   </div>
                   <div
                     className={classNames(
@@ -8843,20 +9503,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                       hasVariant($state, "loginPage", "selectstatus")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameSingup")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "emailCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "name")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "email")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? "negative"
-                        : undefined,
+                          ? "negative"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                            ? "negative"
+                            : hasVariant($state, "loginPage", "emailCode")
+                              ? "negative"
+                              : hasVariant($state, "loginPage", "name")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                  ? "negative"
+                                  : hasVariant($state, "loginPage", "email")
+                                    ? "negative"
+                                    : hasVariant($state, "loginPage", "mobile")
+                                      ? "negative"
+                                      : undefined,
                       {
                         [sty.freeBoxloginPage_emailCode__uvmnJhTfDf]:
                           hasVariant($state, "loginPage", "emailCode"),
@@ -8960,9 +9620,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                               typeof $steps["updateGender"] === "object" &&
                               typeof $steps["updateGender"].then === "function"
                             ) {
-                              $steps["updateGender"] = await $steps[
-                                "updateGender"
-                              ];
+                              $steps["updateGender"] =
+                                await $steps["updateGender"];
                             }
                           }}
                           selected={(() => {
@@ -9102,20 +9761,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                     {hasVariant($state, "loginPage", "selectstatus")
                       ? "\u0627\u06af\u0647 \u06a9\u062f \u0645\u0639\u0631\u0641 \u062f\u0627\u0631\u06cc\u060c \u0627\u06cc\u0646\u062c\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646 (\u0627\u062e\u062a\u06cc\u0627\u0631\u06cc)"
                       : hasVariant($state, "loginPage", "userNameSingup")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "userNameLogin")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "emailCode")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "name")
-                      ? "\u0627\u06af\u0647 \u06a9\u062f \u0645\u0639\u0631\u0641 \u062f\u0627\u0631\u06cc\u060c \u0627\u06cc\u0646\u062c\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646 (\u0627\u062e\u062a\u06cc\u0627\u0631\u06cc)"
-                      : hasVariant($state, "loginPage", "mobileCode")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "email")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "mobile")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : "Enter some text"}
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : hasVariant($state, "loginPage", "userNameLogin")
+                          ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                          : hasVariant($state, "loginPage", "emailCode")
+                            ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                            : hasVariant($state, "loginPage", "name")
+                              ? "\u0627\u06af\u0647 \u06a9\u062f \u0645\u0639\u0631\u0641 \u062f\u0627\u0631\u06cc\u060c \u0627\u06cc\u0646\u062c\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646 (\u0627\u062e\u062a\u06cc\u0627\u0631\u06cc)"
+                              : hasVariant($state, "loginPage", "mobileCode")
+                                ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                : hasVariant($state, "loginPage", "email")
+                                  ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                  : hasVariant($state, "loginPage", "mobile")
+                                    ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                    : "Enter some text"}
                   </div>
                   <div
                     className={classNames(
@@ -9124,20 +9783,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                       hasVariant($state, "loginPage", "selectstatus")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameSingup")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "emailCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "name")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "email")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? "negative"
-                        : undefined,
+                          ? "negative"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                            ? "negative"
+                            : hasVariant($state, "loginPage", "emailCode")
+                              ? "negative"
+                              : hasVariant($state, "loginPage", "name")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                  ? "negative"
+                                  : hasVariant($state, "loginPage", "email")
+                                    ? "negative"
+                                    : hasVariant($state, "loginPage", "mobile")
+                                      ? "negative"
+                                      : undefined,
                       {
                         [sty.freeBoxloginPage_emailCode__zHb7KhTfDf]:
                           hasVariant($state, "loginPage", "emailCode"),
@@ -9192,8 +9851,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           id: hasVariant($state, "loginPage", "selectstatus")
                             ? "inputMobile3"
                             : hasVariant($state, "loginPage", "name")
-                            ? "inputMobile3"
-                            : undefined,
+                              ? "inputMobile3"
+                              : undefined,
                           onChange: async (...eventArgs: any) => {
                             generateStateOnChangePropForCodeComponents(
                               $state,
@@ -9302,28 +9961,44 @@ function PlasmicLoginMan__RenderFunc(props: {
                               hasVariant($state, "loginPage", "selectstatus")
                                 ? "negative"
                                 : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameSingup"
-                                  )
-                                ? "negative"
-                                : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameLogin"
-                                  )
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "emailCode")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "name")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "mobileCode")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "email")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "mobile")
-                                ? "negative"
-                                : undefined,
+                                      $state,
+                                      "loginPage",
+                                      "userNameSingup"
+                                    )
+                                  ? "negative"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? "negative"
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        )
+                                      ? "negative"
+                                      : hasVariant($state, "loginPage", "name")
+                                        ? "negative"
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "mobileCode"
+                                            )
+                                          ? "negative"
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "email"
+                                              )
+                                            ? "negative"
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobile"
+                                                )
+                                              ? "negative"
+                                              : undefined,
                               {
                                 [sty.textloginPage_emailCode__hKVoShTfDf]:
                                   hasVariant($state, "loginPage", "emailCode"),
@@ -9359,52 +10034,84 @@ function PlasmicLoginMan__RenderFunc(props: {
                             {hasVariant($state, "loginPage", "selectstatus")
                               ? "+98 "
                               : hasVariant(
-                                  $state,
-                                  "loginPage",
-                                  "userNameSingup"
-                                )
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "userNameLogin")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "emailCode")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "name")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "mobileCode")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "email")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "mobile")
-                              ? "+98 "
-                              : "Enter some text"}
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
+                                ? "+98 "
+                                : hasVariant(
+                                      $state,
+                                      "loginPage",
+                                      "userNameLogin"
+                                    )
+                                  ? "+98 "
+                                  : hasVariant($state, "loginPage", "emailCode")
+                                    ? "+98 "
+                                    : hasVariant($state, "loginPage", "name")
+                                      ? "+98 "
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "mobileCode"
+                                          )
+                                        ? "+98 "
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "email"
+                                            )
+                                          ? "+98 "
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "mobile"
+                                              )
+                                            ? "+98 "
+                                            : "Enter some text"}
                           </div>
                           <PlasmicIcon__
                             PlasmicIconType={
                               hasVariant($state, "loginPage", "selectstatus")
                                 ? Icon111Icon
                                 : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameSingup"
-                                  )
-                                ? Icon111Icon
-                                : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameLogin"
-                                  )
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "emailCode")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "name")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "mobileCode")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "email")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "mobile")
-                                ? Icon111Icon
-                                : "div"
+                                      $state,
+                                      "loginPage",
+                                      "userNameSingup"
+                                    )
+                                  ? Icon111Icon
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? Icon111Icon
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        )
+                                      ? Icon111Icon
+                                      : hasVariant($state, "loginPage", "name")
+                                        ? Icon111Icon
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "mobileCode"
+                                            )
+                                          ? Icon111Icon
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "email"
+                                              )
+                                            ? Icon111Icon
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobile"
+                                                )
+                                              ? Icon111Icon
+                                              : "div"
                             }
                             className={classNames(
                               projectcss.all,
@@ -9467,68 +10174,152 @@ function PlasmicLoginMan__RenderFunc(props: {
                         hasVariant($state, "loginPage", "selectstatus")
                           ? "liom"
                           : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "liom"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "email")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "09123456789"
-                          : "liom"
+                            ? "09123456789"
+                            : hasVariant($state, "loginPage", "userNameLogin")
+                              ? "09123456789"
+                              : hasVariant($state, "loginPage", "emailCode")
+                                ? "09123456789"
+                                : hasVariant($state, "loginPage", "name")
+                                  ? "liom"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "mobileCode"
+                                      )
+                                    ? "09123456789"
+                                    : hasVariant($state, "loginPage", "email")
+                                      ? "09123456789"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "mobile"
+                                          )
+                                        ? "09123456789"
+                                        : "liom"
                       }
                       showEndIcon={
                         hasVariant($state, "loginPage", "selectstatus")
                           ? undefined
                           : hasVariant($state, "loginPage", "name")
-                          ? undefined
-                          : true
+                            ? undefined
+                            : true
                       }
                       type={
                         hasVariant($state, "loginPage", "selectstatus") &&
                         hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "selectstatus")
-                          ? "text"
-                          : hasVariant($state, "loginPage", "userNameSingup") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameLogin") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "emailCode") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "name") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "text"
-                          : hasVariant($state, "loginPage", "mobileCode") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "email") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobile") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "tel"
-                          : undefined
+                            ? "text"
+                            : hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "userNameSingup"
+                                ) &&
+                                hasVariant(globalVariants, "screen", "mobile")
+                              ? "tel"
+                              : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
+                                ? "tel"
+                                : hasVariant(
+                                      $state,
+                                      "loginPage",
+                                      "userNameLogin"
+                                    ) &&
+                                    hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobile"
+                                    )
+                                  ? "tel"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? "tel"
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        ) &&
+                                        hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "mobile"
+                                        )
+                                      ? "tel"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "emailCode"
+                                          )
+                                        ? "tel"
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "name"
+                                            ) &&
+                                            hasVariant(
+                                              globalVariants,
+                                              "screen",
+                                              "mobile"
+                                            )
+                                          ? "tel"
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "name"
+                                              )
+                                            ? "text"
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobileCode"
+                                                ) &&
+                                                hasVariant(
+                                                  globalVariants,
+                                                  "screen",
+                                                  "mobile"
+                                                )
+                                              ? "tel"
+                                              : hasVariant(
+                                                    $state,
+                                                    "loginPage",
+                                                    "mobileCode"
+                                                  )
+                                                ? "tel"
+                                                : hasVariant(
+                                                      $state,
+                                                      "loginPage",
+                                                      "email"
+                                                    ) &&
+                                                    hasVariant(
+                                                      globalVariants,
+                                                      "screen",
+                                                      "mobile"
+                                                    )
+                                                  ? "tel"
+                                                  : hasVariant(
+                                                        $state,
+                                                        "loginPage",
+                                                        "mobile"
+                                                      ) &&
+                                                      hasVariant(
+                                                        globalVariants,
+                                                        "screen",
+                                                        "mobile"
+                                                      )
+                                                    ? "tel"
+                                                    : hasVariant(
+                                                          $state,
+                                                          "loginPage",
+                                                          "mobile"
+                                                        )
+                                                      ? "tel"
+                                                      : undefined
                       }
                       value={
                         generateStateValueProp($state, [
@@ -9691,17 +10482,16 @@ function PlasmicLoginMan__RenderFunc(props: {
                               typeof $steps["updateRulesOpen"].then ===
                                 "function"
                             ) {
-                              $steps["updateRulesOpen"] = await $steps[
-                                "updateRulesOpen"
-                              ];
+                              $steps["updateRulesOpen"] =
+                                await $steps["updateRulesOpen"];
                             }
                           }}
                         >
                           {hasVariant($state, "loginPage", "selectstatus")
                             ? "\u0642\u0648\u0627\u0646\u06cc\u0646 \u0648 \u0645\u0642\u0631\u0631\u0627\u062a \u0631\u0627 \u0645\u06cc\u067e\u0630\u06cc\u0631\u0645!"
                             : hasVariant($state, "loginPage", "name")
-                            ? "\u0642\u0648\u0627\u0646\u06cc\u0646 \u0648 \u0645\u0642\u0631\u0631\u0627\u062a \u0631\u0627 \u0645\u06cc\u067e\u0630\u06cc\u0631\u0645!"
-                            : "Enter some text"}
+                              ? "\u0642\u0648\u0627\u0646\u06cc\u0646 \u0648 \u0645\u0642\u0631\u0631\u0627\u062a \u0631\u0627 \u0645\u06cc\u067e\u0630\u06cc\u0631\u0645!"
+                              : "Enter some text"}
                         </div>
                       </Checkbox>
                       <Button
@@ -9757,25 +10547,25 @@ function PlasmicLoginMan__RenderFunc(props: {
                           hasVariant($state, "loginPage", "selectstatus")
                             ? undefined
                             : hasVariant($state, "loginPage", "name")
-                            ? undefined
-                            : (() => {
-                                try {
-                                  return (
-                                    ($state.antdInput2.value.length < 4 &&
-                                      $state.gender == "") ||
-                                    $state.loadedbtn
-                                  );
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
+                              ? undefined
+                              : (() => {
+                                  try {
+                                    return (
+                                      ($state.antdInput2.value.length < 4 &&
+                                        $state.gender == "") ||
+                                      $state.loadedbtn
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
                                   }
-                                  throw e;
-                                }
-                              })()
+                                })()
                         }
                         isDisabled={
                           hasVariant($state, "loginPage", "selectstatus")
@@ -9801,28 +10591,28 @@ function PlasmicLoginMan__RenderFunc(props: {
                                 }
                               })()
                             : hasVariant($state, "loginPage", "name")
-                            ? (() => {
-                                try {
-                                  return (
-                                    !(
-                                      $state.antdInput2.value?.trim().length >
-                                        2 &&
-                                      $state.gender != "" &&
-                                      $state.checkbox.isChecked == true
-                                    ) || $state.loadedbtn
-                                  );
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return [];
+                              ? (() => {
+                                  try {
+                                    return (
+                                      !(
+                                        $state.antdInput2.value?.trim().length >
+                                          2 &&
+                                        $state.gender != "" &&
+                                        $state.checkbox.isChecked == true
+                                      ) || $state.loadedbtn
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [];
+                                    }
+                                    throw e;
                                   }
-                                  throw e;
-                                }
-                              })()
-                            : undefined
+                                })()
+                              : undefined
                         }
                         load={generateStateValueProp($state, [
                           "button4",
@@ -9866,9 +10656,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                             typeof $steps["updateLoadedbtn"] === "object" &&
                             typeof $steps["updateLoadedbtn"].then === "function"
                           ) {
-                            $steps["updateLoadedbtn"] = await $steps[
-                              "updateLoadedbtn"
-                            ];
+                            $steps["updateLoadedbtn"] =
+                              await $steps["updateLoadedbtn"];
                           }
 
                           $steps["invokeGlobalAction"] =
@@ -9974,10 +10763,7 @@ function PlasmicLoginMan__RenderFunc(props: {
                                                   userAgent
                                                 )
                                               )
-                                                return `macOS ${RegExp.$1.replace(
-                                                  "_",
-                                                  "."
-                                                )}`;
+                                                return `macOS ${RegExp.$1.replace("_", ".")}`;
                                               if (
                                                 /Android (\d+(\.\d+)?)/.test(
                                                   userAgent
@@ -9989,10 +10775,7 @@ function PlasmicLoginMan__RenderFunc(props: {
                                                   userAgent
                                                 )
                                               )
-                                                return `iOS ${RegExp.$2.replace(
-                                                  "_",
-                                                  "."
-                                                )}`;
+                                                return `iOS ${RegExp.$2.replace("_", ".")}`;
                                               return "Unknown Version";
                                             })(),
                                             password: $state.password || "",
@@ -10035,9 +10818,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
 
                           $steps["invokeGlobalAction2"] =
@@ -10140,10 +10922,7 @@ function PlasmicLoginMan__RenderFunc(props: {
                                                   userAgent
                                                 )
                                               )
-                                                return `macOS ${RegExp.$1.replace(
-                                                  "_",
-                                                  "."
-                                                )}`;
+                                                return `macOS ${RegExp.$1.replace("_", ".")}`;
                                               if (
                                                 /Android (\d+(\.\d+)?)/.test(
                                                   userAgent
@@ -10155,10 +10934,7 @@ function PlasmicLoginMan__RenderFunc(props: {
                                                   userAgent
                                                 )
                                               )
-                                                return `iOS ${RegExp.$2.replace(
-                                                  "_",
-                                                  "."
-                                                )}`;
+                                                return `iOS ${RegExp.$2.replace("_", ".")}`;
                                               return "Unknown Version";
                                             })(),
                                             password: $state.password,
@@ -10201,9 +10977,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction2"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction2"] = await $steps[
-                              "invokeGlobalAction2"
-                            ];
+                            $steps["invokeGlobalAction2"] =
+                              await $steps["invokeGlobalAction2"];
                           }
 
                           $steps["invokeGlobalAction3"] =
@@ -10273,10 +11048,7 @@ function PlasmicLoginMan__RenderFunc(props: {
                                                   userAgent
                                                 )
                                               )
-                                                return `macOS ${RegExp.$1.replace(
-                                                  "_",
-                                                  "."
-                                                )}`;
+                                                return `macOS ${RegExp.$1.replace("_", ".")}`;
                                               if (
                                                 /Android (\d+(\.\d+)?)/.test(
                                                   userAgent
@@ -10288,10 +11060,7 @@ function PlasmicLoginMan__RenderFunc(props: {
                                                   userAgent
                                                 )
                                               )
-                                                return `iOS ${RegExp.$2.replace(
-                                                  "_",
-                                                  "."
-                                                )}`;
+                                                return `iOS ${RegExp.$2.replace("_", ".")}`;
                                               return "Unknown Version";
                                             })(),
                                             sex: $state.gender || "",
@@ -10349,9 +11118,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction3"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction3"] = await $steps[
-                              "invokeGlobalAction3"
-                            ];
+                            $steps["invokeGlobalAction3"] =
+                              await $steps["invokeGlobalAction3"];
                           }
 
                           $steps["updateLoginData"] =
@@ -10391,9 +11159,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                             typeof $steps["updateLoginData"] === "object" &&
                             typeof $steps["updateLoginData"].then === "function"
                           ) {
-                            $steps["updateLoginData"] = await $steps[
-                              "updateLoginData"
-                            ];
+                            $steps["updateLoginData"] =
+                              await $steps["updateLoginData"];
                           }
 
                           $steps["goToPage"] =
@@ -10571,9 +11338,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                             typeof $steps["updateTextInputValue5"].then ===
                               "function"
                           ) {
-                            $steps["updateTextInputValue5"] = await $steps[
-                              "updateTextInputValue5"
-                            ];
+                            $steps["updateTextInputValue5"] =
+                              await $steps["updateTextInputValue5"];
                           }
 
                           $steps["updateLoginPage2"] = false
@@ -10599,9 +11365,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                             typeof $steps["updateLoginPage2"].then ===
                               "function"
                           ) {
-                            $steps["updateLoginPage2"] = await $steps[
-                              "updateLoginPage2"
-                            ];
+                            $steps["updateLoginPage2"] =
+                              await $steps["updateLoginPage2"];
                           }
 
                           $steps["updateLoginData2"] =
@@ -10643,9 +11408,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                             typeof $steps["updateLoginData2"].then ===
                               "function"
                           ) {
-                            $steps["updateLoginData2"] = await $steps[
-                              "updateLoginData2"
-                            ];
+                            $steps["updateLoginData2"] =
+                              await $steps["updateLoginData2"];
                           }
 
                           $steps["updateTextInputValue2"] =
@@ -10687,9 +11451,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                             typeof $steps["updateTextInputValue2"].then ===
                               "function"
                           ) {
-                            $steps["updateTextInputValue2"] = await $steps[
-                              "updateTextInputValue2"
-                            ];
+                            $steps["updateTextInputValue2"] =
+                              await $steps["updateTextInputValue2"];
                           }
 
                           $steps["updateTextInputValue3"] =
@@ -10721,9 +11484,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                             typeof $steps["updateTextInputValue3"].then ===
                               "function"
                           ) {
-                            $steps["updateTextInputValue3"] = await $steps[
-                              "updateTextInputValue3"
-                            ];
+                            $steps["updateTextInputValue3"] =
+                              await $steps["updateTextInputValue3"];
                           }
 
                           $steps["updateLoadedbtn2"] = true
@@ -10758,9 +11520,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                             typeof $steps["updateLoadedbtn2"].then ===
                               "function"
                           ) {
-                            $steps["updateLoadedbtn2"] = await $steps[
-                              "updateLoadedbtn2"
-                            ];
+                            $steps["updateLoadedbtn2"] =
+                              await $steps["updateLoadedbtn2"];
                           }
                         }}
                         onColorChange={async (...eventArgs: any) => {
@@ -10854,20 +11615,28 @@ function PlasmicLoginMan__RenderFunc(props: {
                           {hasVariant($state, "loginPage", "selectstatus")
                             ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
                             : hasVariant($state, "loginPage", "userNameSingup")
-                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                            : hasVariant($state, "loginPage", "userNameLogin")
-                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                            : hasVariant($state, "loginPage", "emailCode")
-                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                            : hasVariant($state, "loginPage", "name")
-                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                            : hasVariant($state, "loginPage", "mobileCode")
-                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                            : hasVariant($state, "loginPage", "email")
-                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                            : hasVariant($state, "loginPage", "mobile")
-                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                            : "Button"}
+                              ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                              : hasVariant($state, "loginPage", "userNameLogin")
+                                ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                : hasVariant($state, "loginPage", "emailCode")
+                                  ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                  : hasVariant($state, "loginPage", "name")
+                                    ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "mobileCode"
+                                        )
+                                      ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                      : hasVariant($state, "loginPage", "email")
+                                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "mobile"
+                                            )
+                                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                          : "Button"}
                         </div>
                       </Button>
                     </div>
@@ -10880,20 +11649,20 @@ function PlasmicLoginMan__RenderFunc(props: {
             hasVariant($state, "loginPage", "selectstatus")
               ? true
               : hasVariant($state, "loginPage", "userNameSingup")
-              ? true
-              : hasVariant($state, "loginPage", "userNameLogin")
-              ? true
-              : hasVariant($state, "loginPage", "emailCode")
-              ? true
-              : hasVariant($state, "loginPage", "name")
-              ? true
-              : hasVariant($state, "loginPage", "mobileCode")
-              ? true
-              : hasVariant($state, "loginPage", "email")
-              ? true
-              : hasVariant($state, "loginPage", "mobile")
-              ? true
-              : false
+                ? true
+                : hasVariant($state, "loginPage", "userNameLogin")
+                  ? true
+                  : hasVariant($state, "loginPage", "emailCode")
+                    ? true
+                    : hasVariant($state, "loginPage", "name")
+                      ? true
+                      : hasVariant($state, "loginPage", "mobileCode")
+                        ? true
+                        : hasVariant($state, "loginPage", "email")
+                          ? true
+                          : hasVariant($state, "loginPage", "mobile")
+                            ? true
+                            : false
           ) ? (
             <Reveal
               className={classNames("__wab_instance", sty.reveal__oeBs, {
@@ -11153,20 +11922,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                     {hasVariant($state, "loginPage", "selectstatus")
                       ? "\u062f\u0631 \u0686\u0647 \u0648\u0636\u0639\u06cc\u062a\u06cc \u0647\u0633\u062a\u06cc\u061f"
                       : hasVariant($state, "loginPage", "userNameSingup")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "userNameLogin")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "emailCode")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "name")
-                      ? "\u0644\u0637\u0641\u0627 \u0627\u0633\u0645\u062a \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646"
-                      : hasVariant($state, "loginPage", "mobileCode")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "email")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "mobile")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : "Enter some text"}
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : hasVariant($state, "loginPage", "userNameLogin")
+                          ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                          : hasVariant($state, "loginPage", "emailCode")
+                            ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                            : hasVariant($state, "loginPage", "name")
+                              ? "\u0644\u0637\u0641\u0627 \u0627\u0633\u0645\u062a \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646"
+                              : hasVariant($state, "loginPage", "mobileCode")
+                                ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                : hasVariant($state, "loginPage", "email")
+                                  ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                  : hasVariant($state, "loginPage", "mobile")
+                                    ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                    : "Enter some text"}
                   </div>
                   <div
                     className={classNames(
@@ -11175,20 +11944,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                       hasVariant($state, "loginPage", "selectstatus")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameSingup")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "emailCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "name")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "email")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? "negative"
-                        : undefined,
+                          ? "negative"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                            ? "negative"
+                            : hasVariant($state, "loginPage", "emailCode")
+                              ? "negative"
+                              : hasVariant($state, "loginPage", "name")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                  ? "negative"
+                                  : hasVariant($state, "loginPage", "email")
+                                    ? "negative"
+                                    : hasVariant($state, "loginPage", "mobile")
+                                      ? "negative"
+                                      : undefined,
                       {
                         [sty.freeBoxloginPage_emailCode__mBzMkhTfDf]:
                           hasVariant($state, "loginPage", "emailCode"),
@@ -11241,8 +12010,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           id: hasVariant($state, "loginPage", "selectstatus")
                             ? "inputMobile2"
                             : hasVariant($state, "loginPage", "name")
-                            ? "inputMobile2"
-                            : undefined,
+                              ? "inputMobile2"
+                              : undefined,
                           onChange: async (...eventArgs: any) => {
                             generateStateOnChangePropForCodeComponents(
                               $state,
@@ -11377,28 +12146,44 @@ function PlasmicLoginMan__RenderFunc(props: {
                               hasVariant($state, "loginPage", "selectstatus")
                                 ? "negative"
                                 : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameSingup"
-                                  )
-                                ? "negative"
-                                : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameLogin"
-                                  )
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "emailCode")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "name")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "mobileCode")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "email")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "mobile")
-                                ? "negative"
-                                : undefined,
+                                      $state,
+                                      "loginPage",
+                                      "userNameSingup"
+                                    )
+                                  ? "negative"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? "negative"
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        )
+                                      ? "negative"
+                                      : hasVariant($state, "loginPage", "name")
+                                        ? "negative"
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "mobileCode"
+                                            )
+                                          ? "negative"
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "email"
+                                              )
+                                            ? "negative"
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobile"
+                                                )
+                                              ? "negative"
+                                              : undefined,
                               {
                                 [sty.textloginPage_emailCode__pgFjEhTfDf]:
                                   hasVariant($state, "loginPage", "emailCode"),
@@ -11434,52 +12219,84 @@ function PlasmicLoginMan__RenderFunc(props: {
                             {hasVariant($state, "loginPage", "selectstatus")
                               ? "+98 "
                               : hasVariant(
-                                  $state,
-                                  "loginPage",
-                                  "userNameSingup"
-                                )
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "userNameLogin")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "emailCode")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "name")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "mobileCode")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "email")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "mobile")
-                              ? "+98 "
-                              : "Enter some text"}
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
+                                ? "+98 "
+                                : hasVariant(
+                                      $state,
+                                      "loginPage",
+                                      "userNameLogin"
+                                    )
+                                  ? "+98 "
+                                  : hasVariant($state, "loginPage", "emailCode")
+                                    ? "+98 "
+                                    : hasVariant($state, "loginPage", "name")
+                                      ? "+98 "
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "mobileCode"
+                                          )
+                                        ? "+98 "
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "email"
+                                            )
+                                          ? "+98 "
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "mobile"
+                                              )
+                                            ? "+98 "
+                                            : "Enter some text"}
                           </div>
                           <PlasmicIcon__
                             PlasmicIconType={
                               hasVariant($state, "loginPage", "selectstatus")
                                 ? Icon111Icon
                                 : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameSingup"
-                                  )
-                                ? Icon111Icon
-                                : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameLogin"
-                                  )
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "emailCode")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "name")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "mobileCode")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "email")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "mobile")
-                                ? Icon111Icon
-                                : "div"
+                                      $state,
+                                      "loginPage",
+                                      "userNameSingup"
+                                    )
+                                  ? Icon111Icon
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? Icon111Icon
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        )
+                                      ? Icon111Icon
+                                      : hasVariant($state, "loginPage", "name")
+                                        ? Icon111Icon
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "mobileCode"
+                                            )
+                                          ? Icon111Icon
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "email"
+                                              )
+                                            ? Icon111Icon
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobile"
+                                                )
+                                              ? Icon111Icon
+                                              : "div"
                             }
                             className={classNames(
                               projectcss.all,
@@ -11542,68 +12359,152 @@ function PlasmicLoginMan__RenderFunc(props: {
                         hasVariant($state, "loginPage", "selectstatus")
                           ? "\u0645\u062b\u0644\u0627: \u0639\u0644\u06cc \u0645\u062d\u0645\u062f\u06cc"
                           : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "\u0645\u062b\u0644\u0627: \u0639\u0644\u06cc \u0645\u062d\u0645\u062f\u06cc"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "email")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "09123456789"
-                          : ``
+                            ? "09123456789"
+                            : hasVariant($state, "loginPage", "userNameLogin")
+                              ? "09123456789"
+                              : hasVariant($state, "loginPage", "emailCode")
+                                ? "09123456789"
+                                : hasVariant($state, "loginPage", "name")
+                                  ? "\u0645\u062b\u0644\u0627: \u0639\u0644\u06cc \u0645\u062d\u0645\u062f\u06cc"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "mobileCode"
+                                      )
+                                    ? "09123456789"
+                                    : hasVariant($state, "loginPage", "email")
+                                      ? "09123456789"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "mobile"
+                                          )
+                                        ? "09123456789"
+                                        : ``
                       }
                       showEndIcon={
                         hasVariant($state, "loginPage", "selectstatus")
                           ? undefined
                           : hasVariant($state, "loginPage", "name")
-                          ? undefined
-                          : true
+                            ? undefined
+                            : true
                       }
                       type={
                         hasVariant($state, "loginPage", "selectstatus") &&
                         hasVariant(globalVariants, "screen", "mobile")
                           ? "text"
                           : hasVariant($state, "loginPage", "selectstatus")
-                          ? "text"
-                          : hasVariant($state, "loginPage", "userNameSingup") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameLogin") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "emailCode") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "name") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "text"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "text"
-                          : hasVariant($state, "loginPage", "mobileCode") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "email") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobile") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "tel"
-                          : undefined
+                            ? "text"
+                            : hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "userNameSingup"
+                                ) &&
+                                hasVariant(globalVariants, "screen", "mobile")
+                              ? "tel"
+                              : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
+                                ? "tel"
+                                : hasVariant(
+                                      $state,
+                                      "loginPage",
+                                      "userNameLogin"
+                                    ) &&
+                                    hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobile"
+                                    )
+                                  ? "tel"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? "tel"
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        ) &&
+                                        hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "mobile"
+                                        )
+                                      ? "tel"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "emailCode"
+                                          )
+                                        ? "tel"
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "name"
+                                            ) &&
+                                            hasVariant(
+                                              globalVariants,
+                                              "screen",
+                                              "mobile"
+                                            )
+                                          ? "text"
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "name"
+                                              )
+                                            ? "text"
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobileCode"
+                                                ) &&
+                                                hasVariant(
+                                                  globalVariants,
+                                                  "screen",
+                                                  "mobile"
+                                                )
+                                              ? "tel"
+                                              : hasVariant(
+                                                    $state,
+                                                    "loginPage",
+                                                    "mobileCode"
+                                                  )
+                                                ? "tel"
+                                                : hasVariant(
+                                                      $state,
+                                                      "loginPage",
+                                                      "email"
+                                                    ) &&
+                                                    hasVariant(
+                                                      globalVariants,
+                                                      "screen",
+                                                      "mobile"
+                                                    )
+                                                  ? "tel"
+                                                  : hasVariant(
+                                                        $state,
+                                                        "loginPage",
+                                                        "mobile"
+                                                      ) &&
+                                                      hasVariant(
+                                                        globalVariants,
+                                                        "screen",
+                                                        "mobile"
+                                                      )
+                                                    ? "tel"
+                                                    : hasVariant(
+                                                          $state,
+                                                          "loginPage",
+                                                          "mobile"
+                                                        )
+                                                      ? "tel"
+                                                      : undefined
                       }
                       value={
                         generateStateValueProp($state, [
@@ -11709,9 +12610,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                               typeof $steps["updateStatus"] === "object" &&
                               typeof $steps["updateStatus"].then === "function"
                             ) {
-                              $steps["updateStatus"] = await $steps[
-                                "updateStatus"
-                              ];
+                              $steps["updateStatus"] =
+                                await $steps["updateStatus"];
                             }
                           }}
                           selectedLine={(() => {
@@ -12093,17 +12993,16 @@ function PlasmicLoginMan__RenderFunc(props: {
                               typeof $steps["updateRulesOpen"].then ===
                                 "function"
                             ) {
-                              $steps["updateRulesOpen"] = await $steps[
-                                "updateRulesOpen"
-                              ];
+                              $steps["updateRulesOpen"] =
+                                await $steps["updateRulesOpen"];
                             }
                           }}
                         >
                           {hasVariant($state, "loginPage", "selectstatus")
                             ? "\u0642\u0648\u0627\u0646\u06cc\u0646 \u0648 \u0645\u0642\u0631\u0631\u0627\u062a \u0631\u0627 \u0645\u06cc\u067e\u0630\u06cc\u0631\u0645!"
                             : hasVariant($state, "loginPage", "name")
-                            ? "\u0642\u0648\u0627\u0646\u06cc\u0646 \u0648 \u0645\u0642\u0631\u0631\u0627\u062a \u0631\u0627 \u0645\u06cc\u067e\u0630\u06cc\u0631\u0645!"
-                            : "Enter some text"}
+                              ? "\u0642\u0648\u0627\u0646\u06cc\u0646 \u0648 \u0645\u0642\u0631\u0631\u0627\u062a \u0631\u0627 \u0645\u06cc\u067e\u0630\u06cc\u0631\u0645!"
+                              : "Enter some text"}
                         </div>
                       </Checkbox>
                       <Button
@@ -12159,25 +13058,25 @@ function PlasmicLoginMan__RenderFunc(props: {
                           hasVariant($state, "loginPage", "selectstatus")
                             ? undefined
                             : hasVariant($state, "loginPage", "name")
-                            ? undefined
-                            : (() => {
-                                try {
-                                  return (
-                                    ($state.antdInput12.value.length < 4 &&
-                                      $state.gender == "") ||
-                                    $state.loadedbtn
-                                  );
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
+                              ? undefined
+                              : (() => {
+                                  try {
+                                    return (
+                                      ($state.antdInput12.value.length < 4 &&
+                                        $state.gender == "") ||
+                                      $state.loadedbtn
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
                                   }
-                                  throw e;
-                                }
-                              })()
+                                })()
                         }
                         isDisabled={
                           hasVariant($state, "loginPage", "selectstatus")
@@ -12196,28 +13095,28 @@ function PlasmicLoginMan__RenderFunc(props: {
                                 }
                               })()
                             : hasVariant($state, "loginPage", "name")
-                            ? (() => {
-                                try {
-                                  return (
-                                    !(
-                                      $state.antdInput12.value?.trim().length >
-                                        2 &&
-                                      $state.gender != "" &&
-                                      $state.checkbox2.isChecked == true
-                                    ) || $state.loadedbtn
-                                  );
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return [];
+                              ? (() => {
+                                  try {
+                                    return (
+                                      !(
+                                        $state.antdInput12.value?.trim()
+                                          .length > 2 &&
+                                        $state.gender != "" &&
+                                        $state.checkbox2.isChecked == true
+                                      ) || $state.loadedbtn
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [];
+                                    }
+                                    throw e;
                                   }
-                                  throw e;
-                                }
-                              })()
-                            : undefined
+                                })()
+                              : undefined
                         }
                         load={generateStateValueProp($state, [
                           "button8",
@@ -12290,9 +13189,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                             typeof $steps["updateLoadedbtn"] === "object" &&
                             typeof $steps["updateLoadedbtn"].then === "function"
                           ) {
-                            $steps["updateLoadedbtn"] = await $steps[
-                              "updateLoadedbtn"
-                            ];
+                            $steps["updateLoadedbtn"] =
+                              await $steps["updateLoadedbtn"];
                           }
 
                           $steps["goToPage"] = true
@@ -12444,20 +13342,28 @@ function PlasmicLoginMan__RenderFunc(props: {
                           {hasVariant($state, "loginPage", "selectstatus")
                             ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
                             : hasVariant($state, "loginPage", "userNameSingup")
-                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                            : hasVariant($state, "loginPage", "userNameLogin")
-                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                            : hasVariant($state, "loginPage", "emailCode")
-                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                            : hasVariant($state, "loginPage", "name")
-                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                            : hasVariant($state, "loginPage", "mobileCode")
-                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                            : hasVariant($state, "loginPage", "email")
-                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                            : hasVariant($state, "loginPage", "mobile")
-                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                            : "Button"}
+                              ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                              : hasVariant($state, "loginPage", "userNameLogin")
+                                ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                : hasVariant($state, "loginPage", "emailCode")
+                                  ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                  : hasVariant($state, "loginPage", "name")
+                                    ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "mobileCode"
+                                        )
+                                      ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                      : hasVariant($state, "loginPage", "email")
+                                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "mobile"
+                                            )
+                                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                          : "Button"}
                         </div>
                       </Button>
                     </div>
@@ -12514,24 +13420,25 @@ function PlasmicLoginMan__RenderFunc(props: {
                         hasVariant($state, "loginPage", "selectstatus")
                           ? undefined
                           : hasVariant($state, "loginPage", "name")
-                          ? undefined
-                          : (() => {
-                              try {
-                                return (
-                                  ($state.antdInput2.value.length < 4 &&
-                                    $state.gender == "") ||
-                                  $state.loadedbtn
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
+                            ? undefined
+                            : (() => {
+                                try {
+                                  return (
+                                    ($state.antdInput2.value.length < 4 &&
+                                      $state.gender == "") ||
+                                    $state.loadedbtn
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
                                 }
-                                throw e;
-                              }
-                            })()
+                              })()
                       }
                       isDisabled={
                         hasVariant($state, "loginPage", "selectstatus")
@@ -12549,27 +13456,28 @@ function PlasmicLoginMan__RenderFunc(props: {
                               }
                             })()
                           : hasVariant($state, "loginPage", "name")
-                          ? (() => {
-                              try {
-                                return (
-                                  !(
-                                    $state.antdInput2.value?.trim().length >
-                                      2 &&
-                                    $state.gender != "" &&
-                                    $state.checkbox.isChecked == true
-                                  ) || $state.loadedbtn
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
+                            ? (() => {
+                                try {
+                                  return (
+                                    !(
+                                      $state.antdInput2.value?.trim().length >
+                                        2 &&
+                                      $state.gender != "" &&
+                                      $state.checkbox.isChecked == true
+                                    ) || $state.loadedbtn
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
                                 }
-                                throw e;
-                              }
-                            })()
-                          : undefined
+                              })()
+                            : undefined
                       }
                       load={generateStateValueProp($state, ["button9", "load"])}
                       loading={generateStateValueProp($state, [
@@ -12610,9 +13518,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["updateLoadedbtn"] === "object" &&
                           typeof $steps["updateLoadedbtn"].then === "function"
                         ) {
-                          $steps["updateLoadedbtn"] = await $steps[
-                            "updateLoadedbtn"
-                          ];
+                          $steps["updateLoadedbtn"] =
+                            await $steps["updateLoadedbtn"];
                         }
 
                         $steps["invokeGlobalAction"] =
@@ -12712,10 +13619,7 @@ function PlasmicLoginMan__RenderFunc(props: {
                                                 userAgent
                                               )
                                             )
-                                              return `macOS ${RegExp.$1.replace(
-                                                "_",
-                                                "."
-                                              )}`;
+                                              return `macOS ${RegExp.$1.replace("_", ".")}`;
                                             if (
                                               /Android (\d+(\.\d+)?)/.test(
                                                 userAgent
@@ -12727,10 +13631,7 @@ function PlasmicLoginMan__RenderFunc(props: {
                                                 userAgent
                                               )
                                             )
-                                              return `iOS ${RegExp.$2.replace(
-                                                "_",
-                                                "."
-                                              )}`;
+                                              return `iOS ${RegExp.$2.replace("_", ".")}`;
                                             return "Unknown Version";
                                           })(),
                                           password: $state.password || "",
@@ -12774,9 +13675,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
 
                         $steps["invokeGlobalAction2"] =
@@ -12874,10 +13774,7 @@ function PlasmicLoginMan__RenderFunc(props: {
                                                 userAgent
                                               )
                                             )
-                                              return `macOS ${RegExp.$1.replace(
-                                                "_",
-                                                "."
-                                              )}`;
+                                              return `macOS ${RegExp.$1.replace("_", ".")}`;
                                             if (
                                               /Android (\d+(\.\d+)?)/.test(
                                                 userAgent
@@ -12889,10 +13786,7 @@ function PlasmicLoginMan__RenderFunc(props: {
                                                 userAgent
                                               )
                                             )
-                                              return `iOS ${RegExp.$2.replace(
-                                                "_",
-                                                "."
-                                              )}`;
+                                              return `iOS ${RegExp.$2.replace("_", ".")}`;
                                             return "Unknown Version";
                                           })(),
                                           password: $state.password,
@@ -12936,9 +13830,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction2"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction2"] = await $steps[
-                            "invokeGlobalAction2"
-                          ];
+                          $steps["invokeGlobalAction2"] =
+                            await $steps["invokeGlobalAction2"];
                         }
 
                         $steps["invokeGlobalAction3"] =
@@ -13003,10 +13896,7 @@ function PlasmicLoginMan__RenderFunc(props: {
                                                 userAgent
                                               )
                                             )
-                                              return `macOS ${RegExp.$1.replace(
-                                                "_",
-                                                "."
-                                              )}`;
+                                              return `macOS ${RegExp.$1.replace("_", ".")}`;
                                             if (
                                               /Android (\d+(\.\d+)?)/.test(
                                                 userAgent
@@ -13018,10 +13908,7 @@ function PlasmicLoginMan__RenderFunc(props: {
                                                 userAgent
                                               )
                                             )
-                                              return `iOS ${RegExp.$2.replace(
-                                                "_",
-                                                "."
-                                              )}`;
+                                              return `iOS ${RegExp.$2.replace("_", ".")}`;
                                             return "Unknown Version";
                                           })(),
                                           sex: $state.gender || "",
@@ -13080,9 +13967,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction3"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction3"] = await $steps[
-                            "invokeGlobalAction3"
-                          ];
+                          $steps["invokeGlobalAction3"] =
+                            await $steps["invokeGlobalAction3"];
                         }
 
                         $steps["updateLoginData"] =
@@ -13122,9 +14008,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["updateLoginData"] === "object" &&
                           typeof $steps["updateLoginData"].then === "function"
                         ) {
-                          $steps["updateLoginData"] = await $steps[
-                            "updateLoginData"
-                          ];
+                          $steps["updateLoginData"] =
+                            await $steps["updateLoginData"];
                         }
 
                         $steps["updateTextInputValue2"] =
@@ -13163,9 +14048,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["updateTextInputValue2"].then ===
                             "function"
                         ) {
-                          $steps["updateTextInputValue2"] = await $steps[
-                            "updateTextInputValue2"
-                          ];
+                          $steps["updateTextInputValue2"] =
+                            await $steps["updateTextInputValue2"];
                         }
 
                         $steps["goToPage"] =
@@ -13320,20 +14204,28 @@ function PlasmicLoginMan__RenderFunc(props: {
                         {hasVariant($state, "loginPage", "selectstatus")
                           ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
                           : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : hasVariant($state, "loginPage", "email")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : "Button"}
+                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                            : hasVariant($state, "loginPage", "userNameLogin")
+                              ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                              : hasVariant($state, "loginPage", "emailCode")
+                                ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                : hasVariant($state, "loginPage", "name")
+                                  ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "mobileCode"
+                                      )
+                                    ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                    : hasVariant($state, "loginPage", "email")
+                                      ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "mobile"
+                                          )
+                                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                        : "Button"}
                       </div>
                     </Button>
                   </div>
@@ -13345,20 +14237,20 @@ function PlasmicLoginMan__RenderFunc(props: {
             hasVariant($state, "loginPage", "selectstatus")
               ? true
               : hasVariant($state, "loginPage", "userNameSingup")
-              ? true
-              : hasVariant($state, "loginPage", "userNameLogin")
-              ? true
-              : hasVariant($state, "loginPage", "emailCode")
-              ? true
-              : hasVariant($state, "loginPage", "name")
-              ? true
-              : hasVariant($state, "loginPage", "mobileCode")
-              ? true
-              : hasVariant($state, "loginPage", "email")
-              ? true
-              : hasVariant($state, "loginPage", "mobile")
-              ? true
-              : false
+                ? true
+                : hasVariant($state, "loginPage", "userNameLogin")
+                  ? true
+                  : hasVariant($state, "loginPage", "emailCode")
+                    ? true
+                    : hasVariant($state, "loginPage", "name")
+                      ? true
+                      : hasVariant($state, "loginPage", "mobileCode")
+                        ? true
+                        : hasVariant($state, "loginPage", "email")
+                          ? true
+                          : hasVariant($state, "loginPage", "mobile")
+                            ? true
+                            : false
           ) ? (
             <Reveal
               data-plasmic-name={"mobileCode"}
@@ -13511,9 +14403,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                       typeof $steps["updateLoginPage"] === "object" &&
                       typeof $steps["updateLoginPage"].then === "function"
                     ) {
-                      $steps["updateLoginPage"] = await $steps[
-                        "updateLoginPage"
-                      ];
+                      $steps["updateLoginPage"] =
+                        await $steps["updateLoginPage"];
                     }
                   }}
                 >
@@ -13652,20 +14543,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                       {hasVariant($state, "loginPage", "selectstatus")
                         ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                         : hasVariant($state, "loginPage", "userNameSingup")
-                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                        : hasVariant($state, "loginPage", "emailCode")
-                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                        : hasVariant($state, "loginPage", "name")
-                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                        : hasVariant($state, "loginPage", "email")
-                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                        : "Enter some text"}
+                          ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                            ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                            : hasVariant($state, "loginPage", "emailCode")
+                              ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                              : hasVariant($state, "loginPage", "name")
+                                ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                  ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                  : hasVariant($state, "loginPage", "email")
+                                    ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                    : hasVariant($state, "loginPage", "mobile")
+                                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                      : "Enter some text"}
                     </div>
                     <div
                       className={classNames(
@@ -13731,29 +14622,28 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["updateLoginPage"] === "object" &&
                           typeof $steps["updateLoginPage"].then === "function"
                         ) {
-                          $steps["updateLoginPage"] = await $steps[
-                            "updateLoginPage"
-                          ];
+                          $steps["updateLoginPage"] =
+                            await $steps["updateLoginPage"];
                         }
                       }}
                     >
                       {hasVariant($state, "loginPage", "selectstatus")
                         ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                         : hasVariant($state, "loginPage", "userNameSingup")
-                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                        : hasVariant($state, "loginPage", "emailCode")
-                        ? "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0634\u0645\u0627\u0631\u0647"
-                        : hasVariant($state, "loginPage", "name")
-                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0634\u0645\u0627\u0631\u0647"
-                        : hasVariant($state, "loginPage", "email")
-                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                        : "Enter some text"}
+                          ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                            ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                            : hasVariant($state, "loginPage", "emailCode")
+                              ? "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0634\u0645\u0627\u0631\u0647"
+                              : hasVariant($state, "loginPage", "name")
+                                ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                  ? "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0634\u0645\u0627\u0631\u0647"
+                                  : hasVariant($state, "loginPage", "email")
+                                    ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                    : hasVariant($state, "loginPage", "mobile")
+                                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                      : "Enter some text"}
                     </div>
                   </div>
                   <div
@@ -13763,20 +14653,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                       hasVariant($state, "loginPage", "selectstatus")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameSingup")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "emailCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "name")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "email")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? "negative"
-                        : undefined,
+                          ? "negative"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                            ? "negative"
+                            : hasVariant($state, "loginPage", "emailCode")
+                              ? "negative"
+                              : hasVariant($state, "loginPage", "name")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                  ? "negative"
+                                  : hasVariant($state, "loginPage", "email")
+                                    ? "negative"
+                                    : hasVariant($state, "loginPage", "mobile")
+                                      ? "negative"
+                                      : undefined,
                       {
                         [sty.freeBoxloginPage_emailCode__q14IghTfDf]:
                           hasVariant($state, "loginPage", "emailCode"),
@@ -13839,8 +14729,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           disabled: hasVariant($state, "loginPage", "emailCode")
                             ? true
                             : hasVariant($state, "loginPage", "mobileCode")
-                            ? true
-                            : undefined,
+                              ? true
+                              : undefined,
                           onChange: async (...eventArgs: any) => {
                             generateStateOnChangePropForCodeComponents(
                               $state,
@@ -13857,8 +14747,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           type: hasVariant($state, "loginPage", "emailCode")
                             ? "tel"
                             : hasVariant($state, "loginPage", "mobileCode")
-                            ? "tel"
-                            : undefined,
+                              ? "tel"
+                              : undefined,
                           value: generateStateValueProp($state, [
                             "antdInput4",
                             "value"
@@ -13944,28 +14834,44 @@ function PlasmicLoginMan__RenderFunc(props: {
                               hasVariant($state, "loginPage", "selectstatus")
                                 ? "negative"
                                 : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameSingup"
-                                  )
-                                ? "negative"
-                                : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameLogin"
-                                  )
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "emailCode")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "name")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "mobileCode")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "email")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "mobile")
-                                ? "negative"
-                                : undefined,
+                                      $state,
+                                      "loginPage",
+                                      "userNameSingup"
+                                    )
+                                  ? "negative"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? "negative"
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        )
+                                      ? "negative"
+                                      : hasVariant($state, "loginPage", "name")
+                                        ? "negative"
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "mobileCode"
+                                            )
+                                          ? "negative"
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "email"
+                                              )
+                                            ? "negative"
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobile"
+                                                )
+                                              ? "negative"
+                                              : undefined,
                               {
                                 [sty.textloginPage_emailCode__dTeAmhTfDf]:
                                   hasVariant($state, "loginPage", "emailCode"),
@@ -14001,52 +14907,84 @@ function PlasmicLoginMan__RenderFunc(props: {
                             {hasVariant($state, "loginPage", "selectstatus")
                               ? "+98 "
                               : hasVariant(
-                                  $state,
-                                  "loginPage",
-                                  "userNameSingup"
-                                )
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "userNameLogin")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "emailCode")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "name")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "mobileCode")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "email")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "mobile")
-                              ? "+98 "
-                              : "Enter some text"}
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
+                                ? "+98 "
+                                : hasVariant(
+                                      $state,
+                                      "loginPage",
+                                      "userNameLogin"
+                                    )
+                                  ? "+98 "
+                                  : hasVariant($state, "loginPage", "emailCode")
+                                    ? "+98 "
+                                    : hasVariant($state, "loginPage", "name")
+                                      ? "+98 "
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "mobileCode"
+                                          )
+                                        ? "+98 "
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "email"
+                                            )
+                                          ? "+98 "
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "mobile"
+                                              )
+                                            ? "+98 "
+                                            : "Enter some text"}
                           </div>
                           <PlasmicIcon__
                             PlasmicIconType={
                               hasVariant($state, "loginPage", "selectstatus")
                                 ? Icon111Icon
                                 : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameSingup"
-                                  )
-                                ? Icon111Icon
-                                : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameLogin"
-                                  )
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "emailCode")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "name")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "mobileCode")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "email")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "mobile")
-                                ? Icon111Icon
-                                : "div"
+                                      $state,
+                                      "loginPage",
+                                      "userNameSingup"
+                                    )
+                                  ? Icon111Icon
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? Icon111Icon
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        )
+                                      ? Icon111Icon
+                                      : hasVariant($state, "loginPage", "name")
+                                        ? Icon111Icon
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "mobileCode"
+                                            )
+                                          ? Icon111Icon
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "email"
+                                              )
+                                            ? Icon111Icon
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobile"
+                                                )
+                                              ? Icon111Icon
+                                              : "div"
                             }
                             className={classNames(
                               projectcss.all,
@@ -14109,20 +15047,28 @@ function PlasmicLoginMan__RenderFunc(props: {
                         hasVariant($state, "loginPage", "selectstatus")
                           ? "09123456789"
                           : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "email")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "09123456789"
-                          : "09123456789"
+                            ? "09123456789"
+                            : hasVariant($state, "loginPage", "userNameLogin")
+                              ? "09123456789"
+                              : hasVariant($state, "loginPage", "emailCode")
+                                ? "09123456789"
+                                : hasVariant($state, "loginPage", "name")
+                                  ? "09123456789"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "mobileCode"
+                                      )
+                                    ? "09123456789"
+                                    : hasVariant($state, "loginPage", "email")
+                                      ? "09123456789"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "mobile"
+                                          )
+                                        ? "09123456789"
+                                        : "09123456789"
                       }
                       showEndIcon={true}
                       type={
@@ -14130,41 +15076,117 @@ function PlasmicLoginMan__RenderFunc(props: {
                         hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "selectstatus")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameSingup") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameLogin") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "emailCode") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "name") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobileCode") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "email") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobile") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "tel"
-                          : undefined
+                            ? "tel"
+                            : hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "userNameSingup"
+                                ) &&
+                                hasVariant(globalVariants, "screen", "mobile")
+                              ? "tel"
+                              : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
+                                ? "tel"
+                                : hasVariant(
+                                      $state,
+                                      "loginPage",
+                                      "userNameLogin"
+                                    ) &&
+                                    hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobile"
+                                    )
+                                  ? "tel"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? "tel"
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        ) &&
+                                        hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "mobile"
+                                        )
+                                      ? "tel"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "emailCode"
+                                          )
+                                        ? "tel"
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "name"
+                                            ) &&
+                                            hasVariant(
+                                              globalVariants,
+                                              "screen",
+                                              "mobile"
+                                            )
+                                          ? "tel"
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "name"
+                                              )
+                                            ? "tel"
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobileCode"
+                                                ) &&
+                                                hasVariant(
+                                                  globalVariants,
+                                                  "screen",
+                                                  "mobile"
+                                                )
+                                              ? "tel"
+                                              : hasVariant(
+                                                    $state,
+                                                    "loginPage",
+                                                    "mobileCode"
+                                                  )
+                                                ? "tel"
+                                                : hasVariant(
+                                                      $state,
+                                                      "loginPage",
+                                                      "email"
+                                                    ) &&
+                                                    hasVariant(
+                                                      globalVariants,
+                                                      "screen",
+                                                      "mobile"
+                                                    )
+                                                  ? "tel"
+                                                  : hasVariant(
+                                                        $state,
+                                                        "loginPage",
+                                                        "mobile"
+                                                      ) &&
+                                                      hasVariant(
+                                                        globalVariants,
+                                                        "screen",
+                                                        "mobile"
+                                                      )
+                                                    ? "tel"
+                                                    : hasVariant(
+                                                          $state,
+                                                          "loginPage",
+                                                          "mobile"
+                                                        )
+                                                      ? "tel"
+                                                      : undefined
                       }
                       value={
                         generateStateValueProp($state, [
@@ -14196,8 +15218,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         hasVariant(globalVariants, "screen", "mobile")
                           ? '<div class="otp-wrapper">\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit1" class="otp-input"\r\n         onkeyup="handleInput(this, 0, \'digit2\')" />\r\n\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit2" class="otp-input"\r\n         onkeyup="handleInput(this, 1, \'digit3\')" onkeydown="moveToPrev(event, \'digit1\')" />\r\n\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit3" class="otp-input"\r\n         onkeyup="handleInput(this, 2, \'digit4\')" onkeydown="moveToPrev(event, \'digit2\')" />\r\n\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit4" class="otp-input"\r\n         onkeyup="handleInput(this, 3)" onkeydown="moveToPrev(event, \'digit3\')" />\r\n</div>\r\n\r\n\r\n<script>\r\n  window.inputValues = ["", "", "", ""];\r\n  window.codeCompleted = false;\r\n\r\n  function handleInput(current, index, nextFieldId) {\r\n    const value = current.value;\r\n\r\n    // \u0641\u0642\u0637 \u0639\u062f\u062f\r\n    if (!/^[0-9]$/.test(value)) {\r\n      current.value = \'\';\r\n      window.inputValues[index] = \'\';\r\n    } else {\r\n      window.inputValues[index] = value;\r\n    }\r\n\r\n    // \u062d\u0631\u06a9\u062a \u0628\u0647 \u0641\u06cc\u0644\u062f \u0628\u0639\u062f\u06cc\r\n    if (value.length === 1 && nextFieldId) {\r\n      document.getElementById(nextFieldId).focus();\r\n    }\r\n\r\n    // \u0627\u06af\u0647 \u06cc\u06a9\u06cc \u0627\u0632 \u0641\u06cc\u0644\u062f\u0647\u0627 \u062e\u0627\u0644\u06cc \u0628\u0634\u0647 \u2192 \u0627\u062c\u0627\u0632\u0647 \u0628\u062f\u0647 \u062f\u0648\u0628\u0627\u0631\u0647 log \u0628\u0634\u0647\r\n    if (window.inputValues.some(val => val === "")) {\r\n      window.codeCompleted = false;\r\n    }\r\n\r\n    // \u0641\u0642\u0637 \u0648\u0642\u062a\u06cc \u0647\u0645\u0647 \u067e\u0631 \u0628\u0648\u062f\u0646 \u0648 \u0642\u0628\u0644\u0627\u064b log \u0646\u0634\u062f\u0647:\r\n    if (window.inputValues.every(val => val !== "") && !window.codeCompleted) {\r\n      console.log("ok");\r\n      document.querySelector(\'#codeButten button\').click();\r\n      window.codeCompleted = true;\r\n    }\r\n  }\r\n\r\n  function moveToPrev(event, prevFieldId) {\r\n    if (event.key === "Backspace" && !event.target.value) {\r\n      document.getElementById(prevFieldId).focus();\r\n    }\r\n  }\r\n</script>\r\n'
                           : hasVariant(globalVariants, "screen", "mobile")
-                          ? '<div class="otp-wrapper">\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit1" class="otp-input"\r\n         onkeyup="handleInput(this, 0, \'digit2\')" />\r\n\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit2" class="otp-input"\r\n         onkeyup="handleInput(this, 1, \'digit3\')" onkeydown="moveToPrev(event, \'digit1\')" />\r\n\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit3" class="otp-input"\r\n         onkeyup="handleInput(this, 2, \'digit4\')" onkeydown="moveToPrev(event, \'digit2\')" />\r\n\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit4" class="otp-input"\r\n         onkeyup="handleInput(this, 3)" onkeydown="moveToPrev(event, \'digit3\')" />\r\n</div>\r\n\r\n\r\n<script>\r\n  window.inputValues = ["", "", "", ""];\r\n  window.codeCompleted = false;\r\n\r\n  function handleInput(current, index, nextFieldId) {\r\n    const value = current.value;\r\n\r\n    // \u0641\u0642\u0637 \u0639\u062f\u062f\r\n    if (!/^[0-9]$/.test(value)) {\r\n      current.value = \'\';\r\n      window.inputValues[index] = \'\';\r\n    } else {\r\n      window.inputValues[index] = value;\r\n    }\r\n\r\n    // \u062d\u0631\u06a9\u062a \u0628\u0647 \u0641\u06cc\u0644\u062f \u0628\u0639\u062f\u06cc\r\n    if (value.length === 1 && nextFieldId) {\r\n      document.getElementById(nextFieldId).focus();\r\n    }\r\n\r\n    // \u0627\u06af\u0647 \u06cc\u06a9\u06cc \u0627\u0632 \u0641\u06cc\u0644\u062f\u0647\u0627 \u062e\u0627\u0644\u06cc \u0628\u0634\u0647 \u2192 \u0627\u062c\u0627\u0632\u0647 \u0628\u062f\u0647 \u062f\u0648\u0628\u0627\u0631\u0647 log \u0628\u0634\u0647\r\n    if (window.inputValues.some(val => val === "")) {\r\n      window.codeCompleted = false;\r\n    }\r\n\r\n    // \u0641\u0642\u0637 \u0648\u0642\u062a\u06cc \u0647\u0645\u0647 \u067e\u0631 \u0628\u0648\u062f\u0646 \u0648 \u0642\u0628\u0644\u0627\u064b log \u0646\u0634\u062f\u0647:\r\n    if (window.inputValues.every(val => val !== "") && !window.codeCompleted) {\r\n      console.log("ok");\r\n      document.querySelector(\'#codeButten button\').click();\r\n      window.codeCompleted = true;\r\n    }\r\n  }\r\n\r\n  function moveToPrev(event, prevFieldId) {\r\n    if (event.key === "Backspace" && !event.target.value) {\r\n      document.getElementById(prevFieldId).focus();\r\n    }\r\n  }\r\n</script>\r\n'
-                          : '<div class="otp-wrapper">\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit1" class="otp-input"\r\n         onkeyup="handleInput(this, 0, \'digit2\')" />\r\n\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit2" class="otp-input"\r\n         onkeyup="handleInput(this, 1, \'digit3\')" onkeydown="moveToPrev(event, \'digit1\')" />\r\n\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit3" class="otp-input"\r\n         onkeyup="handleInput(this, 2, \'digit4\')" onkeydown="moveToPrev(event, \'digit2\')" />\r\n\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit4" class="otp-input"\r\n         onkeyup="handleInput(this, 3)" onkeydown="moveToPrev(event, \'digit3\')" />\r\n</div>\r\n\r\n<script>\r\n  window.inputValues = ["", "", "", ""];\r\n  window.codeCompleted = false;\r\n\r\n  function handleInput(current, index, nextFieldId) {\r\n    const value = current.value;\r\n\r\n    // \u0641\u0642\u0637 \u0639\u062f\u062f\r\n    if (!/^[0-9]$/.test(value)) {\r\n      current.value = \'\';\r\n      window.inputValues[index] = \'\';\r\n    } else {\r\n      window.inputValues[index] = value;\r\n    }\r\n\r\n    // \u062d\u0631\u06a9\u062a \u0628\u0647 \u0641\u06cc\u0644\u062f \u0628\u0639\u062f\u06cc\r\n    if (value.length === 1 && nextFieldId) {\r\n      document.getElementById(nextFieldId).focus();\r\n    }\r\n\r\n    // \u0627\u06af\u0647 \u06cc\u06a9\u06cc \u0627\u0632 \u0641\u06cc\u0644\u062f\u0647\u0627 \u062e\u0627\u0644\u06cc \u0628\u0634\u0647 \u2192 \u0627\u062c\u0627\u0632\u0647 \u0628\u062f\u0647 \u062f\u0648\u0628\u0627\u0631\u0647 log \u0628\u0634\u0647\r\n    if (window.inputValues.some(val => val === "")) {\r\n      window.codeCompleted = false;\r\n    }\r\n\r\n    // \u0641\u0642\u0637 \u0648\u0642\u062a\u06cc \u0647\u0645\u0647 \u067e\u0631 \u0628\u0648\u062f\u0646 \u0648 \u0642\u0628\u0644\u0627\u064b log \u0646\u0634\u062f\u0647:\r\n    if (window.inputValues.every(val => val !== "") && !window.codeCompleted) {\r\n      console.log("ok");\r\n      document.querySelector(\'#codeButten button\').click();\r\n      window.codeCompleted = true;\r\n    }\r\n  }\r\n\r\n  function moveToPrev(event, prevFieldId) {\r\n    if (event.key === "Backspace" && !event.target.value) {\r\n      document.getElementById(prevFieldId).focus();\r\n    }\r\n  }\r\n</script>\r\n'
+                            ? '<div class="otp-wrapper">\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit1" class="otp-input"\r\n         onkeyup="handleInput(this, 0, \'digit2\')" />\r\n\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit2" class="otp-input"\r\n         onkeyup="handleInput(this, 1, \'digit3\')" onkeydown="moveToPrev(event, \'digit1\')" />\r\n\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit3" class="otp-input"\r\n         onkeyup="handleInput(this, 2, \'digit4\')" onkeydown="moveToPrev(event, \'digit2\')" />\r\n\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit4" class="otp-input"\r\n         onkeyup="handleInput(this, 3)" onkeydown="moveToPrev(event, \'digit3\')" />\r\n</div>\r\n\r\n\r\n<script>\r\n  window.inputValues = ["", "", "", ""];\r\n  window.codeCompleted = false;\r\n\r\n  function handleInput(current, index, nextFieldId) {\r\n    const value = current.value;\r\n\r\n    // \u0641\u0642\u0637 \u0639\u062f\u062f\r\n    if (!/^[0-9]$/.test(value)) {\r\n      current.value = \'\';\r\n      window.inputValues[index] = \'\';\r\n    } else {\r\n      window.inputValues[index] = value;\r\n    }\r\n\r\n    // \u062d\u0631\u06a9\u062a \u0628\u0647 \u0641\u06cc\u0644\u062f \u0628\u0639\u062f\u06cc\r\n    if (value.length === 1 && nextFieldId) {\r\n      document.getElementById(nextFieldId).focus();\r\n    }\r\n\r\n    // \u0627\u06af\u0647 \u06cc\u06a9\u06cc \u0627\u0632 \u0641\u06cc\u0644\u062f\u0647\u0627 \u062e\u0627\u0644\u06cc \u0628\u0634\u0647 \u2192 \u0627\u062c\u0627\u0632\u0647 \u0628\u062f\u0647 \u062f\u0648\u0628\u0627\u0631\u0647 log \u0628\u0634\u0647\r\n    if (window.inputValues.some(val => val === "")) {\r\n      window.codeCompleted = false;\r\n    }\r\n\r\n    // \u0641\u0642\u0637 \u0648\u0642\u062a\u06cc \u0647\u0645\u0647 \u067e\u0631 \u0628\u0648\u062f\u0646 \u0648 \u0642\u0628\u0644\u0627\u064b log \u0646\u0634\u062f\u0647:\r\n    if (window.inputValues.every(val => val !== "") && !window.codeCompleted) {\r\n      console.log("ok");\r\n      document.querySelector(\'#codeButten button\').click();\r\n      window.codeCompleted = true;\r\n    }\r\n  }\r\n\r\n  function moveToPrev(event, prevFieldId) {\r\n    if (event.key === "Backspace" && !event.target.value) {\r\n      document.getElementById(prevFieldId).focus();\r\n    }\r\n  }\r\n</script>\r\n'
+                            : '<div class="otp-wrapper">\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit1" class="otp-input"\r\n         onkeyup="handleInput(this, 0, \'digit2\')" />\r\n\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit2" class="otp-input"\r\n         onkeyup="handleInput(this, 1, \'digit3\')" onkeydown="moveToPrev(event, \'digit1\')" />\r\n\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit3" class="otp-input"\r\n         onkeyup="handleInput(this, 2, \'digit4\')" onkeydown="moveToPrev(event, \'digit2\')" />\r\n\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit4" class="otp-input"\r\n         onkeyup="handleInput(this, 3)" onkeydown="moveToPrev(event, \'digit3\')" />\r\n</div>\r\n\r\n<script>\r\n  window.inputValues = ["", "", "", ""];\r\n  window.codeCompleted = false;\r\n\r\n  function handleInput(current, index, nextFieldId) {\r\n    const value = current.value;\r\n\r\n    // \u0641\u0642\u0637 \u0639\u062f\u062f\r\n    if (!/^[0-9]$/.test(value)) {\r\n      current.value = \'\';\r\n      window.inputValues[index] = \'\';\r\n    } else {\r\n      window.inputValues[index] = value;\r\n    }\r\n\r\n    // \u062d\u0631\u06a9\u062a \u0628\u0647 \u0641\u06cc\u0644\u062f \u0628\u0639\u062f\u06cc\r\n    if (value.length === 1 && nextFieldId) {\r\n      document.getElementById(nextFieldId).focus();\r\n    }\r\n\r\n    // \u0627\u06af\u0647 \u06cc\u06a9\u06cc \u0627\u0632 \u0641\u06cc\u0644\u062f\u0647\u0627 \u062e\u0627\u0644\u06cc \u0628\u0634\u0647 \u2192 \u0627\u062c\u0627\u0632\u0647 \u0628\u062f\u0647 \u062f\u0648\u0628\u0627\u0631\u0647 log \u0628\u0634\u0647\r\n    if (window.inputValues.some(val => val === "")) {\r\n      window.codeCompleted = false;\r\n    }\r\n\r\n    // \u0641\u0642\u0637 \u0648\u0642\u062a\u06cc \u0647\u0645\u0647 \u067e\u0631 \u0628\u0648\u062f\u0646 \u0648 \u0642\u0628\u0644\u0627\u064b log \u0646\u0634\u062f\u0647:\r\n    if (window.inputValues.every(val => val !== "") && !window.codeCompleted) {\r\n      console.log("ok");\r\n      document.querySelector(\'#codeButten button\').click();\r\n      window.codeCompleted = true;\r\n    }\r\n  }\r\n\r\n  function moveToPrev(event, prevFieldId) {\r\n    if (event.key === "Backspace" && !event.target.value) {\r\n      document.getElementById(prevFieldId).focus();\r\n    }\r\n  }\r\n</script>\r\n'
                       }
                     />
                   </div>
@@ -14217,20 +15239,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                           }
                         })()
                       : hasVariant($state, "loginPage", "mobileCode")
-                      ? (() => {
-                          try {
-                            return $state.time != 0;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
+                        ? (() => {
+                            try {
+                              return $state.time != 0;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
                             }
-                            throw e;
-                          }
-                        })()
-                      : true
+                          })()
+                        : true
                   ) ? (
                     <div
                       className={classNames(
@@ -14315,8 +15337,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         {hasVariant($state, "loginPage", "emailCode")
                           ? "\u062a\u0627 \u0627\u0631\u0633\u0627\u0644 \u0645\u062c\u062f\u062f \u06a9\u062f \u0645\u0627\u0646\u062f\u0647 \u0627\u0633\u062a"
                           : hasVariant($state, "loginPage", "mobileCode")
-                          ? "\u062a\u0627 \u0627\u0631\u0633\u0627\u0644 \u0645\u062c\u062f\u062f \u06a9\u062f \u0645\u0627\u0646\u062f\u0647 \u0627\u0633\u062a"
-                          : "Enter some text"}
+                            ? "\u062a\u0627 \u0627\u0631\u0633\u0627\u0644 \u0645\u062c\u062f\u062f \u06a9\u062f \u0645\u0627\u0646\u062f\u0647 \u0627\u0633\u062a"
+                            : "Enter some text"}
                       </div>
                       <Timer
                         className={classNames(
@@ -14333,8 +15355,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           hasVariant($state, "loginPage", "emailCode")
                             ? 1
                             : hasVariant($state, "loginPage", "mobileCode")
-                            ? 1
-                            : undefined
+                              ? 1
+                              : undefined
                         }
                         isRunning={true}
                         onTick={async () => {
@@ -14395,20 +15417,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                           }
                         })()
                       : hasVariant($state, "loginPage", "mobileCode")
-                      ? (() => {
-                          try {
-                            return $state.time == 0;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
+                        ? (() => {
+                            try {
+                              return $state.time == 0;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
                             }
-                            throw e;
-                          }
-                        })()
-                      : true
+                          })()
+                        : true
                   ) ? (
                     <div
                       className={classNames(
@@ -14438,8 +15460,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         {hasVariant($state, "loginPage", "emailCode")
                           ? "23"
                           : hasVariant($state, "loginPage", "mobileCode")
-                          ? "23"
-                          : "Enter some text"}
+                            ? "23"
+                            : "Enter some text"}
                       </div>
                       <div
                         className={classNames(
@@ -14530,9 +15552,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
 
                           $steps["invokeGlobalAction3"] =
@@ -14594,9 +15615,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction3"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction3"] = await $steps[
-                              "invokeGlobalAction3"
-                            ];
+                            $steps["invokeGlobalAction3"] =
+                              await $steps["invokeGlobalAction3"];
                           }
 
                           $steps["invokeGlobalAction2"] =
@@ -14621,17 +15641,16 @@ function PlasmicLoginMan__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction2"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction2"] = await $steps[
-                              "invokeGlobalAction2"
-                            ];
+                            $steps["invokeGlobalAction2"] =
+                              await $steps["invokeGlobalAction2"];
                           }
                         }}
                       >
                         {hasVariant($state, "loginPage", "emailCode")
                           ? "\u062f\u0631\u06cc\u0627\u0641\u062a \u0645\u062c\u062f\u062f \u06a9\u062f"
                           : hasVariant($state, "loginPage", "mobileCode")
-                          ? "\u062f\u0631\u06cc\u0627\u0641\u062a \u0645\u062c\u062f\u062f \u06a9\u062f"
-                          : "Enter some text"}
+                            ? "\u062f\u0631\u06cc\u0627\u0641\u062a \u0645\u062c\u062f\u062f \u06a9\u062f"
+                            : "Enter some text"}
                       </div>
                     </div>
                   ) : null}
@@ -14765,20 +15784,21 @@ function PlasmicLoginMan__RenderFunc(props: {
                               }
                             })()
                           : hasVariant($state, "loginPage", "mobileCode")
-                          ? (() => {
-                              try {
-                                return $state.loadedbtn;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
+                            ? (() => {
+                                try {
+                                  return $state.loadedbtn;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
                                 }
-                                throw e;
-                              }
-                            })()
-                          : undefined
+                              })()
+                            : undefined
                       }
                       load={generateStateValueProp($state, ["button3", "load"])}
                       loading={generateStateValueProp($state, [
@@ -14819,9 +15839,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["updateLoadedbtn"] === "object" &&
                           typeof $steps["updateLoadedbtn"].then === "function"
                         ) {
-                          $steps["updateLoadedbtn"] = await $steps[
-                            "updateLoadedbtn"
-                          ];
+                          $steps["updateLoadedbtn"] =
+                            await $steps["updateLoadedbtn"];
                         }
 
                         $steps["updateCods"] = true
@@ -14898,9 +15917,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
 
                         $steps["invokeGlobalAction3"] =
@@ -14994,10 +16012,7 @@ function PlasmicLoginMan__RenderFunc(props: {
                                                 userAgent
                                               )
                                             )
-                                              return `macOS ${RegExp.$1.replace(
-                                                "_",
-                                                "."
-                                              )}`;
+                                              return `macOS ${RegExp.$1.replace("_", ".")}`;
                                             if (
                                               /Android (\d+(\.\d+)?)/.test(
                                                 userAgent
@@ -15009,10 +16024,7 @@ function PlasmicLoginMan__RenderFunc(props: {
                                                 userAgent
                                               )
                                             )
-                                              return `iOS ${RegExp.$2.replace(
-                                                "_",
-                                                "."
-                                              )}`;
+                                              return `iOS ${RegExp.$2.replace("_", ".")}`;
                                             return "Unknown Version";
                                           })(),
                                           password: "",
@@ -15055,9 +16067,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction3"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction3"] = await $steps[
-                            "invokeGlobalAction3"
-                          ];
+                          $steps["invokeGlobalAction3"] =
+                            await $steps["invokeGlobalAction3"];
                         }
 
                         $steps["invokeGlobalAction4"] =
@@ -15124,9 +16135,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction4"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction4"] = await $steps[
-                            "invokeGlobalAction4"
-                          ];
+                          $steps["invokeGlobalAction4"] =
+                            await $steps["invokeGlobalAction4"];
                         }
 
                         $steps["updateToken"] =
@@ -15190,9 +16200,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["updateLoginPage"] === "object" &&
                           typeof $steps["updateLoginPage"].then === "function"
                         ) {
-                          $steps["updateLoginPage"] = await $steps[
-                            "updateLoginPage"
-                          ];
+                          $steps["updateLoginPage"] =
+                            await $steps["updateLoginPage"];
                         }
 
                         $steps["updateLoginData"] =
@@ -15232,9 +16241,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["updateLoginData"] === "object" &&
                           typeof $steps["updateLoginData"].then === "function"
                         ) {
-                          $steps["updateLoginData"] = await $steps[
-                            "updateLoginData"
-                          ];
+                          $steps["updateLoginData"] =
+                            await $steps["updateLoginData"];
                         }
 
                         $steps["runCode"] =
@@ -15298,9 +16306,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction2"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction2"] = await $steps[
-                            "invokeGlobalAction2"
-                          ];
+                          $steps["invokeGlobalAction2"] =
+                            await $steps["invokeGlobalAction2"];
                         }
 
                         $steps["goToPage"] =
@@ -15426,9 +16433,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["updateLoadedbtn2"] === "object" &&
                           typeof $steps["updateLoadedbtn2"].then === "function"
                         ) {
-                          $steps["updateLoadedbtn2"] = await $steps[
-                            "updateLoadedbtn2"
-                          ];
+                          $steps["updateLoadedbtn2"] =
+                            await $steps["updateLoadedbtn2"];
                         }
                       }}
                       onColorChange={async (...eventArgs: any) => {
@@ -15517,20 +16523,28 @@ function PlasmicLoginMan__RenderFunc(props: {
                         {hasVariant($state, "loginPage", "selectstatus")
                           ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
                           : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : hasVariant($state, "loginPage", "email")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                          : "Button"}
+                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                            : hasVariant($state, "loginPage", "userNameLogin")
+                              ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                              : hasVariant($state, "loginPage", "emailCode")
+                                ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                : hasVariant($state, "loginPage", "name")
+                                  ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "mobileCode"
+                                      )
+                                    ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                    : hasVariant($state, "loginPage", "email")
+                                      ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "mobile"
+                                          )
+                                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                        : "Button"}
                       </div>
                     </Button>
                   </div>
@@ -15542,20 +16556,20 @@ function PlasmicLoginMan__RenderFunc(props: {
             hasVariant($state, "loginPage", "selectstatus")
               ? true
               : hasVariant($state, "loginPage", "userNameSingup")
-              ? true
-              : hasVariant($state, "loginPage", "userNameLogin")
-              ? true
-              : hasVariant($state, "loginPage", "emailCode")
-              ? true
-              : hasVariant($state, "loginPage", "name")
-              ? true
-              : hasVariant($state, "loginPage", "mobileCode")
-              ? true
-              : hasVariant($state, "loginPage", "email")
-              ? true
-              : hasVariant($state, "loginPage", "mobile")
-              ? true
-              : false
+                ? true
+                : hasVariant($state, "loginPage", "userNameLogin")
+                  ? true
+                  : hasVariant($state, "loginPage", "emailCode")
+                    ? true
+                    : hasVariant($state, "loginPage", "name")
+                      ? true
+                      : hasVariant($state, "loginPage", "mobileCode")
+                        ? true
+                        : hasVariant($state, "loginPage", "email")
+                          ? true
+                          : hasVariant($state, "loginPage", "mobile")
+                            ? true
+                            : false
           ) ? (
             <Reveal
               data-plasmic-name={"emailCode"}
@@ -15711,9 +16725,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                       typeof $steps["updateLoginPage"] === "object" &&
                       typeof $steps["updateLoginPage"].then === "function"
                     ) {
-                      $steps["updateLoginPage"] = await $steps[
-                        "updateLoginPage"
-                      ];
+                      $steps["updateLoginPage"] =
+                        await $steps["updateLoginPage"];
                     }
                   }}
                 >
@@ -15849,20 +16862,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                       {hasVariant($state, "loginPage", "selectstatus")
                         ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                         : hasVariant($state, "loginPage", "userNameSingup")
-                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                        : hasVariant($state, "loginPage", "emailCode")
-                        ? "\u0627\u06cc\u0645\u06cc\u0644"
-                        : hasVariant($state, "loginPage", "name")
-                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                        : hasVariant($state, "loginPage", "email")
-                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                        : "Enter some text"}
+                          ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                            ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                            : hasVariant($state, "loginPage", "emailCode")
+                              ? "\u0627\u06cc\u0645\u06cc\u0644"
+                              : hasVariant($state, "loginPage", "name")
+                                ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                  ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                  : hasVariant($state, "loginPage", "email")
+                                    ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                    : hasVariant($state, "loginPage", "mobile")
+                                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                      : "Enter some text"}
                     </div>
                     <div
                       className={classNames(
@@ -15925,29 +16938,28 @@ function PlasmicLoginMan__RenderFunc(props: {
                           typeof $steps["updateLoginPage"] === "object" &&
                           typeof $steps["updateLoginPage"].then === "function"
                         ) {
-                          $steps["updateLoginPage"] = await $steps[
-                            "updateLoginPage"
-                          ];
+                          $steps["updateLoginPage"] =
+                            await $steps["updateLoginPage"];
                         }
                       }}
                     >
                       {hasVariant($state, "loginPage", "selectstatus")
                         ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                         : hasVariant($state, "loginPage", "userNameSingup")
-                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                        : hasVariant($state, "loginPage", "emailCode")
-                        ? "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0627\u06cc\u0645\u06cc\u0644"
-                        : hasVariant($state, "loginPage", "name")
-                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0634\u0645\u0627\u0631\u0647"
-                        : hasVariant($state, "loginPage", "email")
-                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                        : "Enter some text"}
+                          ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                            ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                            : hasVariant($state, "loginPage", "emailCode")
+                              ? "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0627\u06cc\u0645\u06cc\u0644"
+                              : hasVariant($state, "loginPage", "name")
+                                ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                  ? "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0634\u0645\u0627\u0631\u0647"
+                                  : hasVariant($state, "loginPage", "email")
+                                    ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                    : hasVariant($state, "loginPage", "mobile")
+                                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                      : "Enter some text"}
                     </div>
                   </div>
                   <div
@@ -15957,20 +16969,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                       hasVariant($state, "loginPage", "selectstatus")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameSingup")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "emailCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "name")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "email")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? "negative"
-                        : undefined,
+                          ? "negative"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                            ? "negative"
+                            : hasVariant($state, "loginPage", "emailCode")
+                              ? "negative"
+                              : hasVariant($state, "loginPage", "name")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                  ? "negative"
+                                  : hasVariant($state, "loginPage", "email")
+                                    ? "negative"
+                                    : hasVariant($state, "loginPage", "mobile")
+                                      ? "negative"
+                                      : undefined,
                       {
                         [sty.freeBoxloginPage_emailCode__hc1LohTfDf]:
                           hasVariant($state, "loginPage", "emailCode"),
@@ -16031,8 +17043,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           disabled: hasVariant($state, "loginPage", "emailCode")
                             ? true
                             : hasVariant($state, "loginPage", "mobileCode")
-                            ? true
-                            : undefined,
+                              ? true
+                              : undefined,
                           onChange: async (...eventArgs: any) => {
                             generateStateOnChangePropForCodeComponents(
                               $state,
@@ -16056,8 +17068,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           type: hasVariant($state, "loginPage", "emailCode")
                             ? "email"
                             : hasVariant($state, "loginPage", "mobileCode")
-                            ? "tel"
-                            : undefined,
+                              ? "tel"
+                              : undefined,
                           value: generateStateValueProp($state, [
                             "antdInput6",
                             "value"
@@ -16147,28 +17159,44 @@ function PlasmicLoginMan__RenderFunc(props: {
                               hasVariant($state, "loginPage", "selectstatus")
                                 ? "negative"
                                 : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameSingup"
-                                  )
-                                ? "negative"
-                                : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameLogin"
-                                  )
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "emailCode")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "name")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "mobileCode")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "email")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "mobile")
-                                ? "negative"
-                                : undefined,
+                                      $state,
+                                      "loginPage",
+                                      "userNameSingup"
+                                    )
+                                  ? "negative"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? "negative"
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        )
+                                      ? "negative"
+                                      : hasVariant($state, "loginPage", "name")
+                                        ? "negative"
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "mobileCode"
+                                            )
+                                          ? "negative"
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "email"
+                                              )
+                                            ? "negative"
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobile"
+                                                )
+                                              ? "negative"
+                                              : undefined,
                               {
                                 [sty.textloginPage_emailCode__q1DoihTfDf]:
                                   hasVariant($state, "loginPage", "emailCode"),
@@ -16204,52 +17232,84 @@ function PlasmicLoginMan__RenderFunc(props: {
                             {hasVariant($state, "loginPage", "selectstatus")
                               ? "+98 "
                               : hasVariant(
-                                  $state,
-                                  "loginPage",
-                                  "userNameSingup"
-                                )
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "userNameLogin")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "emailCode")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "name")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "mobileCode")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "email")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "mobile")
-                              ? "+98 "
-                              : "Enter some text"}
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
+                                ? "+98 "
+                                : hasVariant(
+                                      $state,
+                                      "loginPage",
+                                      "userNameLogin"
+                                    )
+                                  ? "+98 "
+                                  : hasVariant($state, "loginPage", "emailCode")
+                                    ? "+98 "
+                                    : hasVariant($state, "loginPage", "name")
+                                      ? "+98 "
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "mobileCode"
+                                          )
+                                        ? "+98 "
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "email"
+                                            )
+                                          ? "+98 "
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "mobile"
+                                              )
+                                            ? "+98 "
+                                            : "Enter some text"}
                           </div>
                           <PlasmicIcon__
                             PlasmicIconType={
                               hasVariant($state, "loginPage", "selectstatus")
                                 ? Icon111Icon
                                 : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameSingup"
-                                  )
-                                ? Icon111Icon
-                                : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameLogin"
-                                  )
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "emailCode")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "name")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "mobileCode")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "email")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "mobile")
-                                ? Icon111Icon
-                                : "div"
+                                      $state,
+                                      "loginPage",
+                                      "userNameSingup"
+                                    )
+                                  ? Icon111Icon
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? Icon111Icon
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        )
+                                      ? Icon111Icon
+                                      : hasVariant($state, "loginPage", "name")
+                                        ? Icon111Icon
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "mobileCode"
+                                            )
+                                          ? Icon111Icon
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "email"
+                                              )
+                                            ? Icon111Icon
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobile"
+                                                )
+                                              ? Icon111Icon
+                                              : "div"
                             }
                             className={classNames(
                               projectcss.all,
@@ -16317,20 +17377,28 @@ function PlasmicLoginMan__RenderFunc(props: {
                         hasVariant($state, "loginPage", "selectstatus")
                           ? "09123456789"
                           : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "email")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "09123456789"
-                          : "09123456789"
+                            ? "09123456789"
+                            : hasVariant($state, "loginPage", "userNameLogin")
+                              ? "09123456789"
+                              : hasVariant($state, "loginPage", "emailCode")
+                                ? "09123456789"
+                                : hasVariant($state, "loginPage", "name")
+                                  ? "09123456789"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "mobileCode"
+                                      )
+                                    ? "09123456789"
+                                    : hasVariant($state, "loginPage", "email")
+                                      ? "09123456789"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "mobile"
+                                          )
+                                        ? "09123456789"
+                                        : "09123456789"
                       }
                       showEndIcon={
                         hasVariant($state, "loginPage", "emailCode")
@@ -16365,41 +17433,117 @@ function PlasmicLoginMan__RenderFunc(props: {
                         hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "selectstatus")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameSingup") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameLogin") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "emailCode") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "name") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobileCode") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "email") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobile") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "tel"
-                          : undefined
+                            ? "tel"
+                            : hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "userNameSingup"
+                                ) &&
+                                hasVariant(globalVariants, "screen", "mobile")
+                              ? "tel"
+                              : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
+                                ? "tel"
+                                : hasVariant(
+                                      $state,
+                                      "loginPage",
+                                      "userNameLogin"
+                                    ) &&
+                                    hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobile"
+                                    )
+                                  ? "tel"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? "tel"
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        ) &&
+                                        hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "mobile"
+                                        )
+                                      ? "tel"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "emailCode"
+                                          )
+                                        ? "tel"
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "name"
+                                            ) &&
+                                            hasVariant(
+                                              globalVariants,
+                                              "screen",
+                                              "mobile"
+                                            )
+                                          ? "tel"
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "name"
+                                              )
+                                            ? "tel"
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobileCode"
+                                                ) &&
+                                                hasVariant(
+                                                  globalVariants,
+                                                  "screen",
+                                                  "mobile"
+                                                )
+                                              ? "tel"
+                                              : hasVariant(
+                                                    $state,
+                                                    "loginPage",
+                                                    "mobileCode"
+                                                  )
+                                                ? "tel"
+                                                : hasVariant(
+                                                      $state,
+                                                      "loginPage",
+                                                      "email"
+                                                    ) &&
+                                                    hasVariant(
+                                                      globalVariants,
+                                                      "screen",
+                                                      "mobile"
+                                                    )
+                                                  ? "tel"
+                                                  : hasVariant(
+                                                        $state,
+                                                        "loginPage",
+                                                        "mobile"
+                                                      ) &&
+                                                      hasVariant(
+                                                        globalVariants,
+                                                        "screen",
+                                                        "mobile"
+                                                      )
+                                                    ? "tel"
+                                                    : hasVariant(
+                                                          $state,
+                                                          "loginPage",
+                                                          "mobile"
+                                                        )
+                                                      ? "tel"
+                                                      : undefined
                       }
                       value={
                         generateStateValueProp($state, [
@@ -16443,20 +17587,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                           }
                         })()
                       : hasVariant($state, "loginPage", "mobileCode")
-                      ? (() => {
-                          try {
-                            return $state.time != 0;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
+                        ? (() => {
+                            try {
+                              return $state.time != 0;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
                             }
-                            throw e;
-                          }
-                        })()
-                      : true
+                          })()
+                        : true
                   ) ? (
                     <div
                       className={classNames(
@@ -16544,8 +17688,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         {hasVariant($state, "loginPage", "emailCode")
                           ? "\u062a\u0627 \u0627\u0631\u0633\u0627\u0644 \u0645\u062c\u062f\u062f \u06a9\u062f \u0645\u0627\u0646\u062f\u0647 \u0627\u0633\u062a"
                           : hasVariant($state, "loginPage", "mobileCode")
-                          ? "\u062a\u0627 \u0627\u0631\u0633\u0627\u0644 \u0645\u062c\u062f\u062f \u06a9\u062f \u0645\u0627\u0646\u062f\u0647 \u0627\u0633\u062a"
-                          : "Enter some text"}
+                            ? "\u062a\u0627 \u0627\u0631\u0633\u0627\u0644 \u0645\u062c\u062f\u062f \u06a9\u062f \u0645\u0627\u0646\u062f\u0647 \u0627\u0633\u062a"
+                            : "Enter some text"}
                       </div>
                       <Timer
                         className={classNames(
@@ -16562,8 +17706,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                           hasVariant($state, "loginPage", "emailCode")
                             ? 1
                             : hasVariant($state, "loginPage", "mobileCode")
-                            ? 1
-                            : undefined
+                              ? 1
+                              : undefined
                         }
                         isRunning={false}
                         onTick={async () => {
@@ -16624,20 +17768,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                           }
                         })()
                       : hasVariant($state, "loginPage", "mobileCode")
-                      ? (() => {
-                          try {
-                            return $state.time == 0;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
+                        ? (() => {
+                            try {
+                              return $state.time == 0;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
                             }
-                            throw e;
-                          }
-                        })()
-                      : true
+                          })()
+                        : true
                   ) ? (
                     <div
                       className={classNames(
@@ -16667,8 +17811,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         {hasVariant($state, "loginPage", "emailCode")
                           ? "23"
                           : hasVariant($state, "loginPage", "mobileCode")
-                          ? "23"
-                          : "Enter some text"}
+                            ? "23"
+                            : "Enter some text"}
                       </div>
                       <div
                         className={classNames(
@@ -16758,9 +17902,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
 
                           $steps["invokeGlobalAction2"] =
@@ -16784,17 +17927,16 @@ function PlasmicLoginMan__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction2"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction2"] = await $steps[
-                              "invokeGlobalAction2"
-                            ];
+                            $steps["invokeGlobalAction2"] =
+                              await $steps["invokeGlobalAction2"];
                           }
                         }}
                       >
                         {hasVariant($state, "loginPage", "emailCode")
                           ? "\u062f\u0631\u06cc\u0627\u0641\u062a \u0645\u062c\u062f\u062f \u06a9\u062f"
                           : hasVariant($state, "loginPage", "mobileCode")
-                          ? "\u062f\u0631\u06cc\u0627\u0641\u062a \u0645\u062c\u062f\u062f \u06a9\u062f"
-                          : "Enter some text"}
+                            ? "\u062f\u0631\u06cc\u0627\u0641\u062a \u0645\u062c\u062f\u062f \u06a9\u062f"
+                            : "Enter some text"}
                       </div>
                     </div>
                   ) : null}
@@ -16916,20 +18058,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                             }
                           })()
                         : hasVariant($state, "loginPage", "mobileCode")
-                        ? (() => {
-                            try {
-                              return $state.loadedbtn;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
+                          ? (() => {
+                              try {
+                                return $state.loadedbtn;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()
-                        : undefined
+                            })()
+                          : undefined
                     }
                     load={generateStateValueProp($state, ["button7", "load"])}
                     loading={generateStateValueProp($state, [
@@ -16970,9 +18112,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         typeof $steps["updateLoadedbtn"] === "object" &&
                         typeof $steps["updateLoadedbtn"].then === "function"
                       ) {
-                        $steps["updateLoadedbtn"] = await $steps[
-                          "updateLoadedbtn"
-                        ];
+                        $steps["updateLoadedbtn"] =
+                          await $steps["updateLoadedbtn"];
                       }
 
                       $steps["updateCods"] = true
@@ -17046,9 +18187,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["invokeGlobalAction3"] =
@@ -17128,10 +18268,7 @@ function PlasmicLoginMan__RenderFunc(props: {
                                               userAgent
                                             )
                                           )
-                                            return `macOS ${RegExp.$1.replace(
-                                              "_",
-                                              "."
-                                            )}`;
+                                            return `macOS ${RegExp.$1.replace("_", ".")}`;
                                           if (
                                             /Android (\d+(\.\d+)?)/.test(
                                               userAgent
@@ -17143,10 +18280,7 @@ function PlasmicLoginMan__RenderFunc(props: {
                                               userAgent
                                             )
                                           )
-                                            return `iOS ${RegExp.$2.replace(
-                                              "_",
-                                              "."
-                                            )}`;
+                                            return `iOS ${RegExp.$2.replace("_", ".")}`;
                                           return "Unknown Version";
                                         })(),
                                         password: "",
@@ -17186,9 +18320,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction3"] === "object" &&
                         typeof $steps["invokeGlobalAction3"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction3"] = await $steps[
-                          "invokeGlobalAction3"
-                        ];
+                        $steps["invokeGlobalAction3"] =
+                          await $steps["invokeGlobalAction3"];
                       }
 
                       $steps["updateToken"] =
@@ -17251,9 +18384,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         typeof $steps["updateLoginPage"] === "object" &&
                         typeof $steps["updateLoginPage"].then === "function"
                       ) {
-                        $steps["updateLoginPage"] = await $steps[
-                          "updateLoginPage"
-                        ];
+                        $steps["updateLoginPage"] =
+                          await $steps["updateLoginPage"];
                       }
 
                       $steps["updateLoginData"] =
@@ -17289,9 +18421,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         typeof $steps["updateLoginData"] === "object" &&
                         typeof $steps["updateLoginData"].then === "function"
                       ) {
-                        $steps["updateLoginData"] = await $steps[
-                          "updateLoginData"
-                        ];
+                        $steps["updateLoginData"] =
+                          await $steps["updateLoginData"];
                       }
 
                       $steps["invokeGlobalAction2"] =
@@ -17315,9 +18446,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction2"] === "object" &&
                         typeof $steps["invokeGlobalAction2"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction2"] = await $steps[
-                          "invokeGlobalAction2"
-                        ];
+                        $steps["invokeGlobalAction2"] =
+                          await $steps["invokeGlobalAction2"];
                       }
 
                       $steps["goToPage"] =
@@ -17413,9 +18543,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         typeof $steps["updateLoadedbtn2"] === "object" &&
                         typeof $steps["updateLoadedbtn2"].then === "function"
                       ) {
-                        $steps["updateLoadedbtn2"] = await $steps[
-                          "updateLoadedbtn2"
-                        ];
+                        $steps["updateLoadedbtn2"] =
+                          await $steps["updateLoadedbtn2"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -17502,20 +18631,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                       {hasVariant($state, "loginPage", "selectstatus")
                         ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
                         : hasVariant($state, "loginPage", "userNameSingup")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "emailCode")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "name")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "email")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : "Button"}
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                            : hasVariant($state, "loginPage", "emailCode")
+                              ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                              : hasVariant($state, "loginPage", "name")
+                                ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                  ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                  : hasVariant($state, "loginPage", "email")
+                                    ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                    : hasVariant($state, "loginPage", "mobile")
+                                      ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                      : "Button"}
                     </div>
                   </Button>
                 </div>
@@ -17526,20 +18655,20 @@ function PlasmicLoginMan__RenderFunc(props: {
             hasVariant($state, "loginPage", "selectstatus")
               ? true
               : hasVariant($state, "loginPage", "userNameSingup")
-              ? true
-              : hasVariant($state, "loginPage", "userNameLogin")
-              ? true
-              : hasVariant($state, "loginPage", "emailCode")
-              ? true
-              : hasVariant($state, "loginPage", "name")
-              ? true
-              : hasVariant($state, "loginPage", "mobileCode")
-              ? true
-              : hasVariant($state, "loginPage", "email")
-              ? true
-              : hasVariant($state, "loginPage", "mobile")
-              ? true
-              : false
+                ? true
+                : hasVariant($state, "loginPage", "userNameLogin")
+                  ? true
+                  : hasVariant($state, "loginPage", "emailCode")
+                    ? true
+                    : hasVariant($state, "loginPage", "name")
+                      ? true
+                      : hasVariant($state, "loginPage", "mobileCode")
+                        ? true
+                        : hasVariant($state, "loginPage", "email")
+                          ? true
+                          : hasVariant($state, "loginPage", "mobile")
+                            ? true
+                            : false
           ) ? (
             <Reveal
               className={classNames("__wab_instance", sty.reveal__p9Vkm, {
@@ -17690,9 +18819,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                       typeof $steps["updateLoginPage"] === "object" &&
                       typeof $steps["updateLoginPage"].then === "function"
                     ) {
-                      $steps["updateLoginPage"] = await $steps[
-                        "updateLoginPage"
-                      ];
+                      $steps["updateLoginPage"] =
+                        await $steps["updateLoginPage"];
                     }
                   }}
                 >
@@ -17823,20 +18951,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                     {hasVariant($state, "loginPage", "selectstatus")
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                       : hasVariant($state, "loginPage", "userNameSingup")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "userNameLogin")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "emailCode")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "name")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "mobileCode")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "email")
-                      ? "\u0627\u06cc\u0645\u06cc\u0644"
-                      : hasVariant($state, "loginPage", "mobile")
-                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                      : "Enter some text"}
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : hasVariant($state, "loginPage", "userNameLogin")
+                          ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                          : hasVariant($state, "loginPage", "emailCode")
+                            ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                            : hasVariant($state, "loginPage", "name")
+                              ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                              : hasVariant($state, "loginPage", "mobileCode")
+                                ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                : hasVariant($state, "loginPage", "email")
+                                  ? "\u0627\u06cc\u0645\u06cc\u0644"
+                                  : hasVariant($state, "loginPage", "mobile")
+                                    ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                    : "Enter some text"}
                   </div>
                   <div
                     className={classNames(
@@ -17845,20 +18973,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                       hasVariant($state, "loginPage", "selectstatus")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameSingup")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "emailCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "name")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "email")
-                        ? "negative"
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? "negative"
-                        : undefined,
+                          ? "negative"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                            ? "negative"
+                            : hasVariant($state, "loginPage", "emailCode")
+                              ? "negative"
+                              : hasVariant($state, "loginPage", "name")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                  ? "negative"
+                                  : hasVariant($state, "loginPage", "email")
+                                    ? "negative"
+                                    : hasVariant($state, "loginPage", "mobile")
+                                      ? "negative"
+                                      : undefined,
                       {
                         [sty.freeBoxloginPage_emailCode__vtySbhTfDf]:
                           hasVariant($state, "loginPage", "emailCode"),
@@ -18036,28 +19164,44 @@ function PlasmicLoginMan__RenderFunc(props: {
                               hasVariant($state, "loginPage", "selectstatus")
                                 ? "negative"
                                 : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameSingup"
-                                  )
-                                ? "negative"
-                                : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameLogin"
-                                  )
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "emailCode")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "name")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "mobileCode")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "email")
-                                ? "negative"
-                                : hasVariant($state, "loginPage", "mobile")
-                                ? "negative"
-                                : undefined,
+                                      $state,
+                                      "loginPage",
+                                      "userNameSingup"
+                                    )
+                                  ? "negative"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? "negative"
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        )
+                                      ? "negative"
+                                      : hasVariant($state, "loginPage", "name")
+                                        ? "negative"
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "mobileCode"
+                                            )
+                                          ? "negative"
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "email"
+                                              )
+                                            ? "negative"
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobile"
+                                                )
+                                              ? "negative"
+                                              : undefined,
                               {
                                 [sty.textloginPage_emailCode__swhddhTfDf]:
                                   hasVariant($state, "loginPage", "emailCode"),
@@ -18093,52 +19237,84 @@ function PlasmicLoginMan__RenderFunc(props: {
                             {hasVariant($state, "loginPage", "selectstatus")
                               ? "+98 "
                               : hasVariant(
-                                  $state,
-                                  "loginPage",
-                                  "userNameSingup"
-                                )
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "userNameLogin")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "emailCode")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "name")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "mobileCode")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "email")
-                              ? "+98 "
-                              : hasVariant($state, "loginPage", "mobile")
-                              ? "+98 "
-                              : "Enter some text"}
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
+                                ? "+98 "
+                                : hasVariant(
+                                      $state,
+                                      "loginPage",
+                                      "userNameLogin"
+                                    )
+                                  ? "+98 "
+                                  : hasVariant($state, "loginPage", "emailCode")
+                                    ? "+98 "
+                                    : hasVariant($state, "loginPage", "name")
+                                      ? "+98 "
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "mobileCode"
+                                          )
+                                        ? "+98 "
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "email"
+                                            )
+                                          ? "+98 "
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "mobile"
+                                              )
+                                            ? "+98 "
+                                            : "Enter some text"}
                           </div>
                           <PlasmicIcon__
                             PlasmicIconType={
                               hasVariant($state, "loginPage", "selectstatus")
                                 ? Icon111Icon
                                 : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameSingup"
-                                  )
-                                ? Icon111Icon
-                                : hasVariant(
-                                    $state,
-                                    "loginPage",
-                                    "userNameLogin"
-                                  )
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "emailCode")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "name")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "mobileCode")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "email")
-                                ? Icon111Icon
-                                : hasVariant($state, "loginPage", "mobile")
-                                ? Icon111Icon
-                                : "div"
+                                      $state,
+                                      "loginPage",
+                                      "userNameSingup"
+                                    )
+                                  ? Icon111Icon
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      )
+                                    ? Icon111Icon
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "emailCode"
+                                        )
+                                      ? Icon111Icon
+                                      : hasVariant($state, "loginPage", "name")
+                                        ? Icon111Icon
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "mobileCode"
+                                            )
+                                          ? Icon111Icon
+                                          : hasVariant(
+                                                $state,
+                                                "loginPage",
+                                                "email"
+                                              )
+                                            ? Icon111Icon
+                                            : hasVariant(
+                                                  $state,
+                                                  "loginPage",
+                                                  "mobile"
+                                                )
+                                              ? Icon111Icon
+                                              : "div"
                             }
                             className={classNames(
                               projectcss.all,
@@ -18201,20 +19377,28 @@ function PlasmicLoginMan__RenderFunc(props: {
                         hasVariant($state, "loginPage", "selectstatus")
                           ? "09123456789"
                           : hasVariant($state, "loginPage", "userNameSingup")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "userNameLogin")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "emailCode")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? "09123456789"
-                          : hasVariant($state, "loginPage", "email")
-                          ? "\u0627\u06cc\u0645\u06cc\u0644"
-                          : hasVariant($state, "loginPage", "mobile")
-                          ? "09123456789"
-                          : "09123456789"
+                            ? "09123456789"
+                            : hasVariant($state, "loginPage", "userNameLogin")
+                              ? "09123456789"
+                              : hasVariant($state, "loginPage", "emailCode")
+                                ? "09123456789"
+                                : hasVariant($state, "loginPage", "name")
+                                  ? "09123456789"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "mobileCode"
+                                      )
+                                    ? "09123456789"
+                                    : hasVariant($state, "loginPage", "email")
+                                      ? "\u0627\u06cc\u0645\u06cc\u0644"
+                                      : hasVariant(
+                                            $state,
+                                            "loginPage",
+                                            "mobile"
+                                          )
+                                        ? "09123456789"
+                                        : "09123456789"
                       }
                       showEndIcon={
                         hasVariant($state, "loginPage", "email")
@@ -18252,29 +19436,61 @@ function PlasmicLoginMan__RenderFunc(props: {
                         hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "userNameSingup") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "userNameLogin") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "emailCode") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "name") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "mobileCode") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : hasVariant($state, "loginPage", "email") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "email"
-                          : hasVariant($state, "loginPage", "email")
-                          ? "email"
-                          : hasVariant($state, "loginPage", "mobile") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "tel"
-                          : undefined
+                              hasVariant(globalVariants, "screen", "mobile")
+                            ? "tel"
+                            : hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "userNameLogin"
+                                ) &&
+                                hasVariant(globalVariants, "screen", "mobile")
+                              ? "tel"
+                              : hasVariant($state, "loginPage", "emailCode") &&
+                                  hasVariant(globalVariants, "screen", "mobile")
+                                ? "tel"
+                                : hasVariant($state, "loginPage", "name") &&
+                                    hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobile"
+                                    )
+                                  ? "tel"
+                                  : hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "mobileCode"
+                                      ) &&
+                                      hasVariant(
+                                        globalVariants,
+                                        "screen",
+                                        "mobile"
+                                      )
+                                    ? "tel"
+                                    : hasVariant(
+                                          $state,
+                                          "loginPage",
+                                          "email"
+                                        ) &&
+                                        hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "mobile"
+                                        )
+                                      ? "email"
+                                      : hasVariant($state, "loginPage", "email")
+                                        ? "email"
+                                        : hasVariant(
+                                              $state,
+                                              "loginPage",
+                                              "mobile"
+                                            ) &&
+                                            hasVariant(
+                                              globalVariants,
+                                              "screen",
+                                              "mobile"
+                                            )
+                                          ? "tel"
+                                          : undefined
                       }
                       value={
                         generateStateValueProp($state, [
@@ -18396,67 +19612,69 @@ function PlasmicLoginMan__RenderFunc(props: {
                             }
                           })()
                         : hasVariant($state, "loginPage", "userNameLogin")
-                        ? (() => {
-                            try {
-                              return (
-                                !(
-                                  $state.antdInput.value.length === 10 ||
-                                  $state.antdInput.value.length === 11
-                                ) || $state.loadedbtn
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
+                          ? (() => {
+                              try {
+                                return (
+                                  !(
+                                    $state.antdInput.value.length === 10 ||
+                                    $state.antdInput.value.length === 11
+                                  ) || $state.loadedbtn
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()
-                        : hasVariant($state, "loginPage", "email")
-                        ? (() => {
-                            try {
-                              return (
-                                $state.loadedbtn ||
-                                (() => {
-                                  const emailRegex =
-                                    /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-                                  return !emailRegex.test(
-                                    $state.antdInput5.value
+                            })()
+                          : hasVariant($state, "loginPage", "email")
+                            ? (() => {
+                                try {
+                                  return (
+                                    $state.loadedbtn ||
+                                    (() => {
+                                      const emailRegex =
+                                        /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                                      return !emailRegex.test(
+                                        $state.antdInput5.value
+                                      );
+                                    })()
                                   );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            : hasVariant($state, "loginPage", "mobile")
+                              ? (() => {
+                                  try {
+                                    return (
+                                      !(
+                                        $state.antdInput.value.length === 10 ||
+                                        $state.antdInput.value.length === 11
+                                      ) || $state.loadedbtn
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [];
+                                    }
+                                    throw e;
+                                  }
                                 })()
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
-                              }
-                              throw e;
-                            }
-                          })()
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? (() => {
-                            try {
-                              return (
-                                !(
-                                  $state.antdInput.value.length === 10 ||
-                                  $state.antdInput.value.length === 11
-                                ) || $state.loadedbtn
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
-                              }
-                              throw e;
-                            }
-                          })()
-                        : undefined
+                              : undefined
                     }
                     load={generateStateValueProp($state, ["button5", "load"])}
                     loading={generateStateValueProp($state, [
@@ -18497,9 +19715,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         typeof $steps["updateLoadedbtn"] === "object" &&
                         typeof $steps["updateLoadedbtn"].then === "function"
                       ) {
-                        $steps["updateLoadedbtn"] = await $steps[
-                          "updateLoadedbtn"
-                        ];
+                        $steps["updateLoadedbtn"] =
+                          await $steps["updateLoadedbtn"];
                       }
 
                       $steps["updateEmail"] = true
@@ -18560,9 +19777,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction2"] === "object" &&
                         typeof $steps["invokeGlobalAction2"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction2"] = await $steps[
-                          "invokeGlobalAction2"
-                        ];
+                        $steps["invokeGlobalAction2"] =
+                          await $steps["invokeGlobalAction2"];
                       }
 
                       $steps["invokeGlobalAction"] = (() => {
@@ -18608,9 +19824,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["updateTypeLogin"] = true
@@ -18644,9 +19859,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         typeof $steps["updateTypeLogin"] === "object" &&
                         typeof $steps["updateTypeLogin"].then === "function"
                       ) {
-                        $steps["updateTypeLogin"] = await $steps[
-                          "updateTypeLogin"
-                        ];
+                        $steps["updateTypeLogin"] =
+                          await $steps["updateTypeLogin"];
                       }
 
                       $steps["updateLoginPage"] =
@@ -18672,9 +19886,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         typeof $steps["updateLoginPage"] === "object" &&
                         typeof $steps["updateLoginPage"].then === "function"
                       ) {
-                        $steps["updateLoginPage"] = await $steps[
-                          "updateLoginPage"
-                        ];
+                        $steps["updateLoginPage"] =
+                          await $steps["updateLoginPage"];
                       }
 
                       $steps["updateTextInputValue2"] = true
@@ -18709,9 +19922,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                         typeof $steps["updateTextInputValue2"].then ===
                           "function"
                       ) {
-                        $steps["updateTextInputValue2"] = await $steps[
-                          "updateTextInputValue2"
-                        ];
+                        $steps["updateTextInputValue2"] =
+                          await $steps["updateTextInputValue2"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -18801,20 +20013,20 @@ function PlasmicLoginMan__RenderFunc(props: {
                       {hasVariant($state, "loginPage", "selectstatus")
                         ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
                         : hasVariant($state, "loginPage", "userNameSingup")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "emailCode")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "name")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "email")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : "Button"}
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                            : hasVariant($state, "loginPage", "emailCode")
+                              ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                              : hasVariant($state, "loginPage", "name")
+                                ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                  ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                  : hasVariant($state, "loginPage", "email")
+                                    ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                    : hasVariant($state, "loginPage", "mobile")
+                                      ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                                      : "Button"}
                     </div>
                   </Button>
                 </div>
@@ -18847,8 +20059,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                   hasVariant($state, "loginPage", "selectstatus")
                     ? SearchSvgIcon
                     : hasVariant($state, "loginPage", "name")
-                    ? SearchSvgIcon
-                    : "div"
+                      ? SearchSvgIcon
+                      : "div"
                 }
                 className={classNames(projectcss.all, sty.svg__qoPKo, {
                   [sty.svgloginPage_name__qoPKo7Yteu]: hasVariant(
@@ -18912,15 +20124,15 @@ function PlasmicLoginMan__RenderFunc(props: {
               hasVariant($state, "loginPage", "selectstatus")
                 ? true
                 : hasVariant($state, "loginPage", "name")
-                ? true
-                : undefined
+                  ? true
+                  : undefined
             }
             maskClosable={
               hasVariant($state, "loginPage", "selectstatus")
                 ? false
                 : hasVariant($state, "loginPage", "name")
-                ? false
-                : undefined
+                  ? false
+                  : undefined
             }
             modalContentClassName={classNames({
               [sty["pcls_E4I9TOo-KuTf"]]: hasVariant(
@@ -18948,8 +20160,8 @@ function PlasmicLoginMan__RenderFunc(props: {
               hasVariant($state, "loginPage", "selectstatus")
                 ? "100vw"
                 : hasVariant($state, "loginPage", "name")
-                ? "100vw"
-                : undefined
+                  ? "100vw"
+                  : undefined
             }
           >
             <div
@@ -19026,8 +20238,8 @@ function PlasmicLoginMan__RenderFunc(props: {
               hasVariant($state, "loginPage", "selectstatus")
                 ? true
                 : hasVariant($state, "loginPage", "name")
-                ? true
-                : false
+                  ? true
+                  : false
             ) ? (
               <div
                 data-plasmic-name={"top"}
@@ -19092,9 +20304,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                       typeof $steps["updateRulesOpen"] === "object" &&
                       typeof $steps["updateRulesOpen"].then === "function"
                     ) {
-                      $steps["updateRulesOpen"] = await $steps[
-                        "updateRulesOpen"
-                      ];
+                      $steps["updateRulesOpen"] =
+                        await $steps["updateRulesOpen"];
                     }
                   }}
                   role={"img"}
@@ -19122,8 +20333,8 @@ function PlasmicLoginMan__RenderFunc(props: {
                   {hasVariant($state, "loginPage", "selectstatus")
                     ? "\u0642\u0648\u0627\u0646\u06cc\u0646 \u0648 \u0645\u0642\u0631\u0631\u0627\u062a"
                     : hasVariant($state, "loginPage", "name")
-                    ? "\u0642\u0648\u0627\u0646\u06cc\u0646 \u0648 \u0645\u0642\u0631\u0631\u0627\u062a"
-                    : "Dr. Bellamy Nich\u2026"}
+                      ? "\u0642\u0648\u0627\u0646\u06cc\u0646 \u0648 \u0645\u0642\u0631\u0631\u0627\u062a"
+                      : "Dr. Bellamy Nich\u2026"}
                 </div>
               </div>
             ) : null}
@@ -19602,7 +20813,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicLoginMan__VariantsArgs;
     args?: PlasmicLoginMan__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicLoginMan__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicLoginMan__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicLoginMan__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

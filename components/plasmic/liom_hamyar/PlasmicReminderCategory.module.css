@@ -6,10 +6,186 @@
   height: auto;
   justify-content: flex-start;
   align-items: center;
+  row-gap: var(--token-O5TjkXII_aat);
+  min-width: 0;
+  padding: 0px;
+}
+.freeBox__dYrxe {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  background: var(--token-R_Rsn0nP9oIv);
+  row-gap: var(--token-B5WvIYiqPJW-);
+  min-width: 0;
+  padding: var(--token-uOLZE7OyOW-J);
+  border-bottom: var(--token-O5TjkXII_aat) solid var(--token-MC6PcZje01vY);
+}
+.freeBox__bs98W {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  column-gap: var(--token-38wfsm-OP2Vm);
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+  min-width: 0;
+  -webkit-transition-property: all;
+  -webkit-transition-timing-function: ease-in-out;
+  -webkit-transition-duration: 0.3s;
+  padding: 0px;
+}
+.title:global(.__wab_instance) {
+  max-width: 100%;
+  height: auto;
+}
+.svg__euwYi {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.titleInput:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  height: 30px;
+}
+.reveal:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.svg__rPrmK {
+  position: relative;
+  object-fit: cover;
+  width: 45px;
+  height: 45px;
+  color: var(--token-qvl81LxkOSoe);
+}
+.freeBox__zRwXa {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: auto;
+  background: var(--token-R_Rsn0nP9oIv);
+  min-width: 0;
+  padding: 0px;
+}
+.sort:global(.__wab_instance) {
+  max-width: 100%;
+  margin-left: 0px;
+}
+.freeBox__pI1Hb {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  row-gap: var(--token-1KusGK5GePTh);
+  transition-property: all;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+  min-width: 0;
+  -webkit-transition-property: all;
+  -webkit-transition-timing-function: ease-in-out;
+  -webkit-transition-duration: 1s;
+  padding: var(--token-B5WvIYiqPJW-) var(--token-uOLZE7OyOW-J) 300px;
+}
+.freeBox__fwhJg {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  row-gap: var(--token-O5TjkXII_aat);
+  min-width: 0;
+  padding: 0px;
+}
+.freeBox__nf0Dn {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 0px;
+}
+.text__zdUNm {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  font-size: var(--token-oauBtmzr8uOQ);
+  font-weight: 700;
   min-width: 0;
 }
-.radioGroupLiom:global(.__wab_instance) {
+.more {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
   max-width: 100%;
+  padding: 0px;
+}
+.text__oC7Od {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-qvl81LxkOSoe);
+  font-weight: 500;
+}
+.svg__eefGn {
+  object-fit: cover;
+  max-width: 100%;
+  color: var(--token-qvl81LxkOSoe);
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.freeBox__xcMxX {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  overflow: auto;
+  min-width: 0;
+  padding: 0px 0px var(--token-ZvaN7zB_BbvY);
+}
+.radioGroupLiom2:global(.__wab_instance) {
+  max-width: 100%;
+  height: 100%;
+  min-height: 0;
 }
 .apiRequest:global(.__wab_instance) {
   max-width: 100%;

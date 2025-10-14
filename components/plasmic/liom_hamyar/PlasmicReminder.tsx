@@ -292,7 +292,7 @@ function PlasmicReminder__RenderFunc(props: {
               times:
                 '["08:00","10:00","12:00","15:20","18:00","20:45","22:00","00:30"]',
               finishTime: "2025-12-11 23:59:02",
-              active: 1
+              active: 0
             },
             {
               id: 243,
@@ -309,7 +309,7 @@ function PlasmicReminder__RenderFunc(props: {
               times:
                 '["08:00","10:00","12:00","15:20","18:00","22:00","00:30"]',
               finishTime: "2026-08-27 00:00:00",
-              active: 1
+              active: 0
             },
             {
               id: 255,
@@ -341,7 +341,7 @@ function PlasmicReminder__RenderFunc(props: {
                 '["sunday","monday","tuesday","wednesday","friday","saturday"]',
               times: '["10:00"]',
               finishTime: "2025-12-11 23:59:02",
-              active: 1
+              active: 0
             },
             {
               id: 279,
@@ -780,7 +780,8 @@ function PlasmicReminder__RenderFunc(props: {
             weekdays: null,
             times: '["10:00"]',
             finishTime: null,
-            active: 0
+            active: 0,
+            chanels: ["notification", "telegram"]
           },
           {
             liomId: null,
@@ -794,7 +795,8 @@ function PlasmicReminder__RenderFunc(props: {
             weekdays: null,
             times: '["10:00"]',
             finishTime: null,
-            active: 0
+            active: 0,
+            chanels: ["notification", "telegram"]
           },
           {
             liomId: null,
@@ -808,7 +810,8 @@ function PlasmicReminder__RenderFunc(props: {
             weekdays: null,
             times: '["10:00"]',
             finishTime: null,
-            active: 0
+            active: 0,
+            chanels: ["notification", "telegram"]
           },
           {
             liomId: null,
@@ -822,7 +825,8 @@ function PlasmicReminder__RenderFunc(props: {
             weekdays: null,
             times: '["10:00"]',
             finishTime: null,
-            active: 0
+            active: 0,
+            chanels: ["notification", "telegram"]
           },
           {
             liomId: null,
@@ -836,7 +840,8 @@ function PlasmicReminder__RenderFunc(props: {
             weekdays: null,
             times: '["10:00"]',
             finishTime: null,
-            active: 0
+            active: 0,
+            chanels: ["notification", "telegram"]
           },
           {
             liomId: null,
@@ -850,7 +855,8 @@ function PlasmicReminder__RenderFunc(props: {
             weekdays: null,
             times: '["10:00"]',
             finishTime: null,
-            active: 0
+            active: 0,
+            chanels: ["notification", "telegram"]
           },
           {
             liomId: null,
@@ -864,7 +870,8 @@ function PlasmicReminder__RenderFunc(props: {
             weekdays: null,
             times: '["10:00"]',
             finishTime: null,
-            active: 0
+            active: 0,
+            chanels: ["notification", "telegram"]
           },
           {
             liomId: null,
@@ -878,7 +885,8 @@ function PlasmicReminder__RenderFunc(props: {
             weekdays: null,
             times: '["10:00"]',
             finishTime: null,
-            active: 0
+            active: 0,
+            chanels: ["notification", "telegram"]
           },
           {
             liomId: null,
@@ -892,7 +900,8 @@ function PlasmicReminder__RenderFunc(props: {
             weekdays: null,
             times: '["10:00"]',
             finishTime: null,
-            active: 0
+            active: 0,
+            chanels: ["notification", "telegram"]
           },
           {
             liomId: null,
@@ -906,7 +915,8 @@ function PlasmicReminder__RenderFunc(props: {
             weekdays: null,
             times: '["10:00"]',
             finishTime: null,
-            active: 0
+            active: 0,
+            chanels: ["notification", "telegram"]
           }
         ]
       },
@@ -1903,7 +1913,53 @@ function PlasmicReminder__RenderFunc(props: {
         >
           <div className={classNames(projectcss.all, sty.freeBox__mFarw)}>
             <ChevronRightIcon
-              className={classNames(projectcss.all, sty.svg__qTt4T)}
+              className={classNames(projectcss.all, sty.svg__qTt4T, {
+                [sty.svgslide3__qTt4TWyFt]: hasVariant(
+                  $state,
+                  "slide3",
+                  "slide3"
+                )
+              })}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["updateSlide3"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        vgroup: "slide3",
+                        operation: 2,
+                        value: "slide3"
+                      };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        const oldValue = $stateGet($state, vgroup);
+                        $stateSet($state, vgroup, !oldValue);
+                        return !oldValue;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateSlide3"] != null &&
+                  typeof $steps["updateSlide3"] === "object" &&
+                  typeof $steps["updateSlide3"].then === "function"
+                ) {
+                  $steps["updateSlide3"] = await $steps["updateSlide3"];
+                }
+              }}
+              role={"img"}
+            />
+
+            <ChevronRightIcon
+              className={classNames(projectcss.all, sty.svg__vwOkj, {
+                [sty.svgslide3__vwOkjWyFt]: hasVariant(
+                  $state,
+                  "slide3",
+                  "slide3"
+                )
+              })}
               onClick={async event => {
                 const $steps = {};
 
@@ -2096,6 +2152,7 @@ function PlasmicReminder__RenderFunc(props: {
                           const today = new Date(todayISO);
                           today.setHours(0, 0, 0, 0);
                           $props.data.forEach(t => {
+                            if (t.active === 0) return;
                             let parsedDates;
                             try {
                               parsedDates = t.dates ? JSON.parse(t.dates) : [];
@@ -2697,6 +2754,7 @@ function PlasmicReminder__RenderFunc(props: {
                     .toLocaleDateString("en-US", { weekday: "long" })
                     .toLowerCase();
                   const todayAndEveryDayList = $props.data.filter(t => {
+                    if (t.active === 0) return false;
                     let parsedDates = [];
                     try {
                       parsedDates = t.dates ? JSON.parse(t.dates) : [];

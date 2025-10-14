@@ -60,6 +60,7 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import RadioGrop from "../../RadioGrop"; // plasmic-import: mcNKMbL_6N75/component
+import MenuIcon from "../../MenuIcon"; // plasmic-import: JBF-V8Q5mpWl/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -72,19 +73,28 @@ createPlasmicElementProxy;
 
 export type PlasmicRadioGroupLiom__VariantMembers = {
   unnamedVariant: "unnamedVariant";
-  size: "small";
+  size: "small" | "mini";
   moulty: "moulty";
+  color: "line";
+  icon: "icon";
+  style2: "cycle";
 };
 export type PlasmicRadioGroupLiom__VariantsArgs = {
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
-  size?: SingleChoiceArg<"small">;
+  size?: SingleChoiceArg<"small" | "mini">;
   moulty?: SingleBooleanChoiceArg<"moulty">;
+  color?: SingleChoiceArg<"line">;
+  icon?: SingleBooleanChoiceArg<"icon">;
+  style2?: SingleChoiceArg<"cycle">;
 };
 type VariantPropType = keyof PlasmicRadioGroupLiom__VariantsArgs;
 export const PlasmicRadioGroupLiom__VariantProps = new Array<VariantPropType>(
   "unnamedVariant",
   "size",
-  "moulty"
+  "moulty",
+  "color",
+  "icon",
+  "style2"
 );
 
 export type PlasmicRadioGroupLiom__ArgsType = {
@@ -95,6 +105,7 @@ export type PlasmicRadioGroupLiom__ArgsType = {
   selects?: any;
   onSelectsChange?: (val: string) => void;
   accessclicke?: () => void;
+  click?: () => void;
 };
 type ArgPropType = keyof PlasmicRadioGroupLiom__ArgsType;
 export const PlasmicRadioGroupLiom__ArgProps = new Array<ArgPropType>(
@@ -104,11 +115,13 @@ export const PlasmicRadioGroupLiom__ArgProps = new Array<ArgPropType>(
   "onListChange",
   "selects",
   "onSelectsChange",
-  "accessclicke"
+  "accessclicke",
+  "click"
 );
 
 export type PlasmicRadioGroupLiom__OverridesType = {
   root?: Flex__<"div">;
+  menuIcon?: Flex__<typeof MenuIcon>;
 };
 
 export interface DefaultRadioGroupLiomProps {
@@ -119,9 +132,13 @@ export interface DefaultRadioGroupLiomProps {
   selects?: any;
   onSelectsChange?: (val: string) => void;
   accessclicke?: () => void;
+  click?: () => void;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
-  size?: SingleChoiceArg<"small">;
+  size?: SingleChoiceArg<"small" | "mini">;
   moulty?: SingleBooleanChoiceArg<"moulty">;
+  color?: SingleChoiceArg<"line">;
+  icon?: SingleBooleanChoiceArg<"icon">;
+  style2?: SingleChoiceArg<"cycle">;
   className?: string;
 }
 
@@ -211,6 +228,24 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.moulty
+      },
+      {
+        path: "color",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.color
+      },
+      {
+        path: "icon",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.icon
+      },
+      {
+        path: "style2",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.style2
       }
     ],
     [$props, $ctx, $refs]
@@ -238,8 +273,12 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
         styleTokensClassNames,
         sty.root,
         {
+          [sty.rootcolor_line]: hasVariant($state, "color", "line"),
+          [sty.rooticon]: hasVariant($state, "icon", "icon"),
           [sty.rootmoulty]: hasVariant($state, "moulty", "moulty"),
+          [sty.rootsize_mini]: hasVariant($state, "size", "mini"),
           [sty.rootsize_small]: hasVariant($state, "size", "small"),
+          [sty.rootstyle2_cycle]: hasVariant($state, "style2", "cycle"),
           [sty.rootunnamedVariant]: hasVariant(
             $state,
             "unnamedVariant",
@@ -268,15 +307,35 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
         return (
           <RadioGrop
             className={classNames("__wab_instance", sty.radioGrop__xDgqn, {
+              [sty.radioGropcolor_line__xDgqna6Qw]: hasVariant(
+                $state,
+                "color",
+                "line"
+              ),
+              [sty.radioGropicon__xDgqn9MoHd]: hasVariant(
+                $state,
+                "icon",
+                "icon"
+              ),
               [sty.radioGropmoulty__xDgqnQublj]: hasVariant(
                 $state,
                 "moulty",
                 "moulty"
               ),
+              [sty.radioGropsize_mini__xDgqnaMdd]: hasVariant(
+                $state,
+                "size",
+                "mini"
+              ),
               [sty.radioGropsize_small__xDgqnqO86K]: hasVariant(
                 $state,
                 "size",
                 "small"
+              ),
+              [sty.radioGropstyle2_cycle__xDgqniTqtf]: hasVariant(
+                $state,
+                "style2",
+                "cycle"
               ),
               [sty.radioGropunnamedVariant__xDgqnpN4Io]: hasVariant(
                 $state,
@@ -285,6 +344,7 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
               )
             })}
             color={"light"}
+            icon={hasVariant($state, "icon", "icon") ? true : undefined}
             key={currentIndex}
             onClick={async event => {
               const $steps = {};
@@ -317,6 +377,22 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
               ) {
                 $steps["updateSelected"] = await $steps["updateSelected"];
               }
+
+              $steps["updateSelected2"] = true
+                ? (() => {
+                    const actionArgs = { eventRef: $props["click"] };
+                    return (({ eventRef, args }) => {
+                      return eventRef?.(...(args ?? []));
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateSelected2"] != null &&
+                typeof $steps["updateSelected2"] === "object" &&
+                typeof $steps["updateSelected2"].then === "function"
+              ) {
+                $steps["updateSelected2"] = await $steps["updateSelected2"];
+              }
             }}
             selected={(() => {
               try {
@@ -331,8 +407,50 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
                 throw e;
               }
             })()}
-            size={hasVariant($state, "size", "small") ? "mini" : undefined}
-            style2={"grayBackgerand"}
+            size={
+              hasVariant($state, "size", "mini")
+                ? "mini"
+                : hasVariant($state, "size", "small")
+                  ? "mini"
+                  : undefined
+            }
+            slot={
+              <MenuIcon
+                data-plasmic-name={"menuIcon"}
+                data-plasmic-override={overrides.menuIcon}
+                className={classNames("__wab_instance", sty.menuIcon, {
+                  [sty.menuIconicon]: hasVariant($state, "icon", "icon")
+                })}
+                icons={(() => {
+                  try {
+                    return (() => {
+                      const str = currentItem.icon;
+                      const camelCased = str.replace(/_(.)/g, (_, c) =>
+                        c.toUpperCase()
+                      );
+                      return camelCased;
+                    })();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()}
+                size={"_25"}
+              />
+            }
+            style2={
+              hasVariant($state, "color", "line")
+                ? "lineligt"
+                : "grayBackgerand"
+            }
+            style3={
+              hasVariant($state, "style2", "cycle") ? "circle" : undefined
+            }
           >
             <div
               className={classNames(
@@ -340,6 +458,11 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
                 projectcss.__wab_text,
                 sty.text__h0Hhj,
                 {
+                  [sty.textsize_mini__h0HhjaMdd]: hasVariant(
+                    $state,
+                    "size",
+                    "mini"
+                  ),
                   [sty.textsize_small__h0HhjqO86K]: hasVariant(
                     $state,
                     "size",
@@ -392,6 +515,11 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
                     $state,
                     "moulty",
                     "moulty"
+                  ),
+                  [sty.radioGropsize_mini__zHtyZaMdd]: hasVariant(
+                    $state,
+                    "size",
+                    "mini"
                   ),
                   [sty.radioGropsize_small__zHtyZqO86K]: hasVariant(
                     $state,
@@ -475,7 +603,13 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
                     throw e;
                   }
                 })()}
-                size={hasVariant($state, "size", "small") ? "mini" : undefined}
+                size={
+                  hasVariant($state, "size", "mini")
+                    ? "mini"
+                    : hasVariant($state, "size", "small")
+                      ? "mini"
+                      : undefined
+                }
                 style2={"grayBackgerand"}
               >
                 <div
@@ -484,6 +618,11 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
                     projectcss.__wab_text,
                     sty.text___9BoMi,
                     {
+                      [sty.textsize_mini___9BoMIaMdd]: hasVariant(
+                        $state,
+                        "size",
+                        "mini"
+                      ),
                       [sty.textsize_small___9BoMIqO86K]: hasVariant(
                         $state,
                         "size",
@@ -517,13 +656,15 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "menuIcon"],
+  menuIcon: ["menuIcon"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  menuIcon: typeof MenuIcon;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -588,6 +729,7 @@ export const PlasmicRadioGroupLiom = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    menuIcon: makeNodeComponent("menuIcon"),
 
     // Metadata about props expected for PlasmicRadioGroupLiom
     internalVariantProps: PlasmicRadioGroupLiom__VariantProps,

@@ -83,6 +83,7 @@ export type PlasmicTextInput__VariantMembers = {
   color: "dark" | "soft";
   error: "error";
   discriptionData: "discriptionData";
+  style2: "cycle";
 };
 export type PlasmicTextInput__VariantsArgs = {
   showStartIcon?: SingleBooleanChoiceArg<"showStartIcon">;
@@ -91,6 +92,7 @@ export type PlasmicTextInput__VariantsArgs = {
   color?: SingleChoiceArg<"dark" | "soft">;
   error?: SingleBooleanChoiceArg<"error">;
   discriptionData?: SingleBooleanChoiceArg<"discriptionData">;
+  style2?: SingleChoiceArg<"cycle">;
 };
 type VariantPropType = keyof PlasmicTextInput__VariantsArgs;
 export const PlasmicTextInput__VariantProps = new Array<VariantPropType>(
@@ -99,7 +101,8 @@ export const PlasmicTextInput__VariantProps = new Array<VariantPropType>(
   "isDisabled",
   "color",
   "error",
-  "discriptionData"
+  "discriptionData",
+  "style2"
 );
 
 export type PlasmicTextInput__ArgsType = {
@@ -181,6 +184,7 @@ export interface DefaultTextInputProps extends pp.BaseTextInputProps {
   color?: SingleChoiceArg<"dark" | "soft">;
   error?: SingleBooleanChoiceArg<"error">;
   discriptionData?: SingleBooleanChoiceArg<"discriptionData">;
+  style2?: SingleChoiceArg<"cycle">;
 }
 
 const $$ = {};
@@ -273,6 +277,12 @@ function PlasmicTextInput__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.discriptionData
+      },
+      {
+        path: "style2",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.style2
       }
     ],
     [$props, $ctx, $refs]
@@ -330,7 +340,8 @@ function PlasmicTextInput__RenderFunc(props: {
             $state,
             "showStartIcon",
             "showStartIcon"
-          )
+          ),
+          [sty.rootstyle2_cycle]: hasVariant($state, "style2", "cycle")
         }
       )}
       onClick={args.onClick}
@@ -341,6 +352,9 @@ function PlasmicTextInput__RenderFunc(props: {
         data-plasmic-override={overrides.freeBox}
         className={classNames(projectcss.all, sty.freeBox, {
           [sty.freeBox___focusVisibleWithin]: triggers.focusVisibleWithin_root,
+          [sty.freeBox___focusVisibleWithin_style2_cycle]:
+            hasVariant($state, "style2", "cycle") &&
+            triggers.focusVisibleWithin_root,
           [sty.freeBoxcolor_dark]: hasVariant($state, "color", "dark"),
           [sty.freeBoxcolor_soft]: hasVariant($state, "color", "soft"),
           [sty.freeBoxdiscriptionData]: hasVariant(
@@ -366,7 +380,8 @@ function PlasmicTextInput__RenderFunc(props: {
             $state,
             "showStartIcon",
             "showStartIcon"
-          )
+          ),
+          [sty.freeBoxstyle2_cycle]: hasVariant($state, "style2", "cycle")
         })}
       >
         <div
@@ -552,7 +567,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicTextInput__VariantsArgs;
     args?: PlasmicTextInput__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicTextInput__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicTextInput__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicTextInput__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

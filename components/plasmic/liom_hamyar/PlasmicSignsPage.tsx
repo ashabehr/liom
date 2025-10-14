@@ -1122,9 +1122,7 @@ function PlasmicSignsPage__RenderFunc(props: {
                           searchParams.delete("token");
                           searchParams.delete("userId");
                           searchParams.delete("user_id");
-                          const newUrl = `${
-                            window.location.pathname
-                          }?${searchParams.toString()}`;
+                          const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                           return window.history.replaceState(null, "", newUrl);
                         })();
                       }
@@ -1265,10 +1263,7 @@ function PlasmicSignsPage__RenderFunc(props: {
                                     if (
                                       /Mac OS X (\d+[\._]\d+)/.test(userAgent)
                                     )
-                                      return `macOS ${RegExp.$1.replace(
-                                        "_",
-                                        "."
-                                      )}`;
+                                      return `macOS ${RegExp.$1.replace("_", ".")}`;
                                     if (/Android (\d+(\.\d+)?)/.test(userAgent))
                                       return `Android ${RegExp.$1}`;
                                     if (
@@ -1276,10 +1271,7 @@ function PlasmicSignsPage__RenderFunc(props: {
                                         userAgent
                                       )
                                     )
-                                      return `iOS ${RegExp.$2.replace(
-                                        "_",
-                                        "."
-                                      )}`;
+                                      return `iOS ${RegExp.$2.replace("_", ".")}`;
                                     return "Unknown Version";
                                   })(),
                                   sex: $state.gender || "",
@@ -1337,7 +1329,7 @@ function PlasmicSignsPage__RenderFunc(props: {
               }
 
               $steps["setCookieGuset"] =
-                $steps.userGuset?.data?.success ?? false
+                ($steps.userGuset?.data?.success ?? false)
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
@@ -1548,9 +1540,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                               typeof $steps["updateNumber"] === "object" &&
                               typeof $steps["updateNumber"].then === "function"
                             ) {
-                              $steps["updateNumber"] = await $steps[
-                                "updateNumber"
-                              ];
+                              $steps["updateNumber"] =
+                                await $steps["updateNumber"];
                             }
                           }).apply(null, eventArgs);
                         },
@@ -1704,9 +1695,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                       typeof $steps["updateNumber2Open"] === "object" &&
                       typeof $steps["updateNumber2Open"].then === "function"
                     ) {
-                      $steps["updateNumber2Open"] = await $steps[
-                        "updateNumber2Open"
-                      ];
+                      $steps["updateNumber2Open"] =
+                        await $steps["updateNumber2Open"];
                     }
 
                     $steps["updateName2Open"] = true
@@ -1740,9 +1730,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                       typeof $steps["updateName2Open"] === "object" &&
                       typeof $steps["updateName2Open"].then === "function"
                     ) {
-                      $steps["updateName2Open"] = await $steps[
-                        "updateName2Open"
-                      ];
+                      $steps["updateName2Open"] =
+                        await $steps["updateName2Open"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
@@ -2095,9 +2084,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                             typeof $steps["updateRelation"] === "object" &&
                             typeof $steps["updateRelation"].then === "function"
                           ) {
-                            $steps["updateRelation"] = await $steps[
-                              "updateRelation"
-                            ];
+                            $steps["updateRelation"] =
+                              await $steps["updateRelation"];
                           }
 
                           $steps["invokeGlobalAction"] =
@@ -2110,9 +2098,7 @@ function PlasmicSignsPage__RenderFunc(props: {
                                       "error",
                                       (() => {
                                         try {
-                                          return `فقط یک همیار با نسبت ${
-                                            currentItem.text.split("هستند")[0]
-                                          }میتونید اضافه کنید.`;
+                                          return `فقط یک همیار با نسبت ${currentItem.text.split("هستند")[0]}میتونید اضافه کنید.`;
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
@@ -2138,9 +2124,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
                         }}
                         selectedLine={(() => {
@@ -2247,9 +2232,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                       typeof $steps["updateLoadingBtn2"] === "object" &&
                       typeof $steps["updateLoadingBtn2"].then === "function"
                     ) {
-                      $steps["updateLoadingBtn2"] = await $steps[
-                        "updateLoadingBtn2"
-                      ];
+                      $steps["updateLoadingBtn2"] =
+                        await $steps["updateLoadingBtn2"];
                     }
 
                     $steps["invokeGlobalAction"] = true
@@ -2292,9 +2276,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
 
                     $steps["invokeGlobalAction2"] =
@@ -2318,9 +2301,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction2"] === "object" &&
                       typeof $steps["invokeGlobalAction2"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction2"] = await $steps[
-                        "invokeGlobalAction2"
-                      ];
+                      $steps["invokeGlobalAction2"] =
+                        await $steps["invokeGlobalAction2"];
                     }
 
                     $steps["updateMasseg"] =
@@ -2428,9 +2410,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction3"] === "object" &&
                       typeof $steps["invokeGlobalAction3"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction3"] = await $steps[
-                        "invokeGlobalAction3"
-                      ];
+                      $steps["invokeGlobalAction3"] =
+                        await $steps["invokeGlobalAction3"];
                     }
 
                     $steps["updateSmsOpen"] = true
@@ -2498,9 +2479,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                       typeof $steps["updateName2Open"] === "object" &&
                       typeof $steps["updateName2Open"].then === "function"
                     ) {
-                      $steps["updateName2Open"] = await $steps[
-                        "updateName2Open"
-                      ];
+                      $steps["updateName2Open"] =
+                        await $steps["updateName2Open"];
                     }
 
                     $steps["updateV"] = true
@@ -2568,9 +2548,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                       typeof $steps["updateLoadingBtn"] === "object" &&
                       typeof $steps["updateLoadingBtn"].then === "function"
                     ) {
-                      $steps["updateLoadingBtn"] = await $steps[
-                        "updateLoadingBtn"
-                      ];
+                      $steps["updateLoadingBtn"] =
+                        await $steps["updateLoadingBtn"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
@@ -2857,9 +2836,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                       typeof $steps["updateName2Open"] === "object" &&
                       typeof $steps["updateName2Open"].then === "function"
                     ) {
-                      $steps["updateName2Open"] = await $steps[
-                        "updateName2Open"
-                      ];
+                      $steps["updateName2Open"] =
+                        await $steps["updateName2Open"];
                     }
 
                     $steps["invokeGlobalAction"] = true
@@ -2899,9 +2877,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
 
                     $steps["invokeGlobalAction2"] =
@@ -2925,9 +2902,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction2"] === "object" &&
                       typeof $steps["invokeGlobalAction2"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction2"] = await $steps[
-                        "invokeGlobalAction2"
-                      ];
+                      $steps["invokeGlobalAction2"] =
+                        await $steps["invokeGlobalAction2"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
@@ -3110,9 +3086,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                       typeof $steps["updateLoadingBtn"] === "object" &&
                       typeof $steps["updateLoadingBtn"].then === "function"
                     ) {
-                      $steps["updateLoadingBtn"] = await $steps[
-                        "updateLoadingBtn"
-                      ];
+                      $steps["updateLoadingBtn"] =
+                        await $steps["updateLoadingBtn"];
                     }
 
                     $steps["invokeGlobalAction"] = true
@@ -3154,9 +3129,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
 
                     $steps["updateV"] = true
@@ -3224,9 +3198,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                       typeof $steps["updateRemoveOpen"] === "object" &&
                       typeof $steps["updateRemoveOpen"].then === "function"
                     ) {
-                      $steps["updateRemoveOpen"] = await $steps[
-                        "updateRemoveOpen"
-                      ];
+                      $steps["updateRemoveOpen"] =
+                        await $steps["updateRemoveOpen"];
                     }
 
                     $steps["updateLoadingBtn2"] = true
@@ -3260,9 +3233,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                       typeof $steps["updateLoadingBtn2"] === "object" &&
                       typeof $steps["updateLoadingBtn2"].then === "function"
                     ) {
-                      $steps["updateLoadingBtn2"] = await $steps[
-                        "updateLoadingBtn2"
-                      ];
+                      $steps["updateLoadingBtn2"] =
+                        await $steps["updateLoadingBtn2"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
@@ -3371,9 +3343,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                       typeof $steps["updateName2Open"] === "object" &&
                       typeof $steps["updateName2Open"].then === "function"
                     ) {
-                      $steps["updateName2Open"] = await $steps[
-                        "updateName2Open"
-                      ];
+                      $steps["updateName2Open"] =
+                        await $steps["updateName2Open"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
@@ -4508,9 +4479,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                           typeof $steps["updateLoadingBtn"] === "object" &&
                           typeof $steps["updateLoadingBtn"].then === "function"
                         ) {
-                          $steps["updateLoadingBtn"] = await $steps[
-                            "updateLoadingBtn"
-                          ];
+                          $steps["updateLoadingBtn"] =
+                            await $steps["updateLoadingBtn"];
                         }
 
                         $steps["invokeGlobalAction"] = true
@@ -4558,9 +4528,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
 
                         $steps["invokeGlobalAction2"] =
@@ -4584,9 +4553,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction2"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction2"] = await $steps[
-                            "invokeGlobalAction2"
-                          ];
+                          $steps["invokeGlobalAction2"] =
+                            await $steps["invokeGlobalAction2"];
                         }
 
                         $steps["runCode"] =
@@ -4641,9 +4609,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                           typeof $steps["updateLoadingBtn2"] === "object" &&
                           typeof $steps["updateLoadingBtn2"].then === "function"
                         ) {
-                          $steps["updateLoadingBtn2"] = await $steps[
-                            "updateLoadingBtn2"
-                          ];
+                          $steps["updateLoadingBtn2"] =
+                            await $steps["updateLoadingBtn2"];
                         }
 
                         $steps["invokeGlobalAction3"] = true
@@ -4696,9 +4663,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction3"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction3"] = await $steps[
-                            "invokeGlobalAction3"
-                          ];
+                          $steps["invokeGlobalAction3"] =
+                            await $steps["invokeGlobalAction3"];
                         }
                       }}
                       onColorChange={async (...eventArgs: any) => {
@@ -4911,7 +4877,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSignsPage__VariantsArgs;
     args?: PlasmicSignsPage__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSignsPage__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSignsPage__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSignsPage__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -2664,6 +2664,11 @@
   padding-left: 4px;
   text-align: center;
 }
+.svg__rov3F {
+  object-fit: cover;
+  max-width: 100%;
+  height: 1em;
+}
 .freeBox__pq0E {
   display: flex;
   flex-direction: row;

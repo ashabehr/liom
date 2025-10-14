@@ -8291,11 +8291,18 @@ function PlasmicHamyar2__RenderFunc(props: {
                               return (
                                 (() => {
                                   const list = $state.remind
-                                    .filter(i => i.schedule_type != "everyDay")
+                                    .filter(
+                                      i =>
+                                        i.active !== 0 &&
+                                        i.schedule_type !== "everyDay"
+                                    )
                                     .flatMap(item => {
-                                      let dates = item.dates
-                                        ? JSON.parse(item.dates)
-                                        : [];
+                                      let dates = [];
+                                      try {
+                                        dates = item.dates
+                                          ? JSON.parse(item.dates)
+                                          : [];
+                                      } catch {}
                                       if (dates.length > 0) {
                                         const today = new Date();
                                         today.setHours(0, 0, 0, 0);
@@ -8327,16 +8334,16 @@ function PlasmicHamyar2__RenderFunc(props: {
                                     const replacement = list.find(
                                       x => x.id !== picked[0].id
                                     );
-                                    if (replacement) {
-                                      picked = [picked[0], replacement];
-                                    } else {
-                                      picked = [picked[0]];
-                                    }
+                                    picked = replacement
+                                      ? [picked[0], replacement]
+                                      : [picked[0]];
                                   }
                                   return picked;
                                 })() ?? []
                               );
-                            } catch {}
+                            } catch {
+                              return [];
+                            }
                           })();
                         } catch (e) {
                           if (

@@ -81,6 +81,8 @@ export type PlasmicRadioGrop__VariantMembers = {
   choise: "choise";
   pair: "pair";
   comingSoon: "comingSoon";
+  icon: "icon";
+  style3: "circle";
 };
 export type PlasmicRadioGrop__VariantsArgs = {
   selected?: SingleBooleanChoiceArg<"selected">;
@@ -92,6 +94,8 @@ export type PlasmicRadioGrop__VariantsArgs = {
   choise?: SingleBooleanChoiceArg<"choise">;
   pair?: SingleBooleanChoiceArg<"pair">;
   comingSoon?: SingleBooleanChoiceArg<"comingSoon">;
+  icon?: SingleBooleanChoiceArg<"icon">;
+  style3?: SingleChoiceArg<"circle">;
 };
 type VariantPropType = keyof PlasmicRadioGrop__VariantsArgs;
 export const PlasmicRadioGrop__VariantProps = new Array<VariantPropType>(
@@ -103,16 +107,20 @@ export const PlasmicRadioGrop__VariantProps = new Array<VariantPropType>(
   "size",
   "choise",
   "pair",
-  "comingSoon"
+  "comingSoon",
+  "icon",
+  "style3"
 );
 
 export type PlasmicRadioGrop__ArgsType = {
   onClick?: (event: any) => void;
+  slot?: React.ReactNode;
   children?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicRadioGrop__ArgsType;
 export const PlasmicRadioGrop__ArgProps = new Array<ArgPropType>(
   "onClick",
+  "slot",
   "children"
 );
 
@@ -125,6 +133,7 @@ export type PlasmicRadioGrop__OverridesType = {
 
 export interface DefaultRadioGropProps {
   onClick?: (event: any) => void;
+  slot?: React.ReactNode;
   children?: React.ReactNode;
   selected?: SingleBooleanChoiceArg<"selected">;
   selectedLine?: SingleBooleanChoiceArg<"selectedLine">;
@@ -135,6 +144,8 @@ export interface DefaultRadioGropProps {
   choise?: SingleBooleanChoiceArg<"choise">;
   pair?: SingleBooleanChoiceArg<"pair">;
   comingSoon?: SingleBooleanChoiceArg<"comingSoon">;
+  icon?: SingleBooleanChoiceArg<"icon">;
+  style3?: SingleChoiceArg<"circle">;
   className?: string;
 }
 
@@ -236,6 +247,18 @@ function PlasmicRadioGrop__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.comingSoon
+      },
+      {
+        path: "icon",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.icon
+      },
+      {
+        path: "style3",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.style3
       }
     ],
     [$props, $ctx, $refs]
@@ -273,6 +296,7 @@ function PlasmicRadioGrop__RenderFunc(props: {
             hasVariant($state, "selected", "selected"),
           [sty.rootcomingSoon]: hasVariant($state, "comingSoon", "comingSoon"),
           [sty.rootdisable]: hasVariant($state, "disable", "disable"),
+          [sty.rooticon]: hasVariant($state, "icon", "icon"),
           [sty.rootpair]: hasVariant($state, "pair", "pair"),
           [sty.rootselectedLine]: hasVariant(
             $state,
@@ -298,9 +322,13 @@ function PlasmicRadioGrop__RenderFunc(props: {
             hasVariant($state, "style2", "grayBackgerand"),
           [sty.rootstyle2_line]: hasVariant($state, "style2", "line"),
           [sty.rootstyle2_lineligt]: hasVariant($state, "style2", "lineligt"),
+          [sty.rootstyle2_lineligt_icon]:
+            hasVariant($state, "icon", "icon") &&
+            hasVariant($state, "style2", "lineligt"),
           [sty.rootstyle2_lineligt_selected]:
             hasVariant($state, "style2", "lineligt") &&
-            hasVariant($state, "selected", "selected")
+            hasVariant($state, "selected", "selected"),
+          [sty.rootstyle3_circle]: hasVariant($state, "style3", "circle")
         }
       )}
       onClick={args.onClick}
@@ -328,11 +356,24 @@ function PlasmicRadioGrop__RenderFunc(props: {
         data-plasmic-name={"text"}
         data-plasmic-override={overrides.text}
         className={classNames(projectcss.all, projectcss.__wab_text, sty.text, {
-          [sty.textcomingSoon]: hasVariant($state, "comingSoon", "comingSoon")
+          [sty.textcomingSoon]: hasVariant($state, "comingSoon", "comingSoon"),
+          [sty.texticon]: hasVariant($state, "icon", "icon")
         })}
       >
         {"\u0628\u0647\u200c\u0632\u0648\u062f\u06cc!"}
       </div>
+      {(hasVariant($state, "icon", "icon") ? true : false)
+        ? renderPlasmicSlot({
+            defaultContents: (
+              <svg
+                className={classNames(projectcss.all, sty.svg__fC0D)}
+                role={"img"}
+              />
+            ),
+
+            value: args.slot
+          })
+        : null}
       <div
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
@@ -341,6 +382,7 @@ function PlasmicRadioGrop__RenderFunc(props: {
           [sty.freeBoxchoise_selected]:
             hasVariant($state, "choise", "choise") &&
             hasVariant($state, "selected", "selected"),
+          [sty.freeBoxicon]: hasVariant($state, "icon", "icon"),
           [sty.freeBoxpair]: hasVariant($state, "pair", "pair"),
           [sty.freeBoxselected]: hasVariant($state, "selected", "selected"),
           [sty.freeBoxstyle2_lineligt]: hasVariant($state, "style2", "lineligt")
@@ -361,6 +403,7 @@ function PlasmicRadioGrop__RenderFunc(props: {
             [sty.slotTargetChildrencolor_light_selected]:
               hasVariant($state, "color", "light") &&
               hasVariant($state, "selected", "selected"),
+            [sty.slotTargetChildrenicon]: hasVariant($state, "icon", "icon"),
             [sty.slotTargetChildrenselected]: hasVariant(
               $state,
               "selected",

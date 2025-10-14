@@ -37,6 +37,16 @@
   border-radius: 50px;
   border-color: var(--token-ODBUExjR6VEF);
 }
+.rooticon {
+  display: flex;
+  flex-direction: column;
+  column-gap: 0px;
+}
+.rootstyle3_circle {
+  padding-right: var(--token-B5WvIYiqPJW-);
+  padding-left: var(--token-B5WvIYiqPJW-);
+  border-radius: 10rem;
+}
 .rootcolor_light_selected {
   background: var(--token-xZSjH46lB6C3);
 }
@@ -49,6 +59,10 @@
   background: var(--token-qvl81LxkOSoe);
   border-width: 1px;
   border-style: solid;
+}
+.rootstyle2_lineligt_icon {
+  box-shadow: none;
+  border-color: var(--token-Y4frplZPI0IJ);
 }
 .rootstyle2_grayBackgerand_color_light_selected {
   background: var(--token-IlR0iqdnKI_m);
@@ -73,6 +87,15 @@
 }
 .textcomingSoon {
   display: block;
+}
+.texticon {
+  left: 0px;
+  top: 0px;
+}
+.svg__fC0D {
+  object-fit: cover;
+  max-width: 100%;
+  height: 1em;
 }
 .freeBox {
   width: 100%;
