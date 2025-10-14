@@ -4725,6 +4725,33 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicReminderCategory.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "KwP9Ca9sBlnP",
+          "name": "SShopItem2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSShopItem2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/s-2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSShopItem2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/s-2"
+        },
+        {
+          "id": "b0wHmbLNagu-",
+          "name": "ShopBoxRef2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicShopBoxRef2.tsx",
+          "importSpec": {
+            "modulePath": "ShopBoxRef2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicShopBoxRef2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

@@ -21,6 +21,10 @@
   align-items: center;
   background: var(--token-R_Rsn0nP9oIv);
   row-gap: var(--token-B5WvIYiqPJW-);
+  left: auto;
+  top: auto;
+  z-index: 1;
+  right: auto;
   min-width: 0;
   padding: var(--token-uOLZE7OyOW-J);
   border-bottom: var(--token-O5TjkXII_aat) solid var(--token-MC6PcZje01vY);
@@ -98,13 +102,15 @@
   align-items: stretch;
   justify-content: flex-start;
   width: 100%;
-  height: auto;
+  height: 50vh;
   max-width: 100%;
   row-gap: var(--token-1KusGK5GePTh);
   transition-property: all;
   transition-duration: 1s;
   transition-timing-function: ease-in-out;
+  overflow: auto;
   min-width: 0;
+  flex-shrink: 0;
   -webkit-transition-property: all;
   -webkit-transition-timing-function: ease-in-out;
   -webkit-transition-duration: 1s;

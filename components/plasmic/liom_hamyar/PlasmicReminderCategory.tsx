@@ -265,6 +265,9 @@ function PlasmicReminderCategory__RenderFunc(props: {
         styleTokensClassNames,
         sty.root
       )}
+      onScroll={async event => {
+        const $steps = {};
+      }}
     >
       <div className={classNames(projectcss.all, sty.freeBox__dYrxe)}>
         <div className={classNames(projectcss.all, sty.freeBox__bs98W)}>
@@ -467,7 +470,49 @@ function PlasmicReminderCategory__RenderFunc(props: {
           />
         </div>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__pI1Hb)}>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__pI1Hb)}
+        onScroll={async event => {
+          const $steps = {};
+
+          $steps["runCode"] = true
+            ? (() => {
+                const actionArgs = {
+                  customFunction: async () => {
+                    return (() => {
+                      const scrollMid = window.scrollY + window.innerHeight / 2;
+                      const sections =
+                        window.document.querySelectorAll(".section");
+                      console.log(sections);
+                      let currentSectionId = null;
+                      sections.forEach(section => {
+                        const rect = section.getBoundingClientRect();
+                        const top = window.scrollY + rect.top;
+                        const bottom = top + section.offsetHeight;
+                        if (scrollMid >= top && scrollMid < bottom) {
+                          currentSectionId = section.id;
+                        }
+                      });
+                      if (currentSectionId) {
+                        return ($state.sort.selected = currentSectionId);
+                      }
+                    })();
+                  }
+                };
+                return (({ customFunction }) => {
+                  return customFunction();
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["runCode"] != null &&
+            typeof $steps["runCode"] === "object" &&
+            typeof $steps["runCode"].then === "function"
+          ) {
+            $steps["runCode"] = await $steps["runCode"];
+          }
+        }}
+      >
         {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
           (() => {
             try {
@@ -495,7 +540,11 @@ function PlasmicReminderCategory__RenderFunc(props: {
           const currentIndex = __plasmic_idx_0;
           return (
             <div
-              className={classNames(projectcss.all, sty.freeBox__fwhJg)}
+              className={classNames(
+                projectcss.all,
+                sty.freeBox__fwhJg,
+                "section"
+              )}
               id={(() => {
                 try {
                   return currentItem.category_name;
