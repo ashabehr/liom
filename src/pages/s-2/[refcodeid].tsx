@@ -2,13 +2,13 @@
 // This file is owned by you, feel free to edit as you see fit.
 import * as React from "react";
 import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-web/lib/host";
-import GlobalContextsProvider from "../../components/plasmic/liom_hamyar/PlasmicGlobalContextsProvider";
+import GlobalContextsProvider from "../../../components/plasmic/liom_hamyar/PlasmicGlobalContextsProvider";
 
-import { UnnamedGlobalGroupOfVariants4ContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants4";
-import { UnnamedGlobalGroupOfVariants5ContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants5";
-import { UnnamedGlobalGroupOfVariants6ContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants6";
-import { NewViewContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__NewView";
-import { PlasmicSShopItem2 } from "../../components/plasmic/liom_hamyar/PlasmicSShopItem2";
+import { UnnamedGlobalGroupOfVariants4ContextProvider } from "../../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants4";
+import { UnnamedGlobalGroupOfVariants5ContextProvider } from "../../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants5";
+import { UnnamedGlobalGroupOfVariants6ContextProvider } from "../../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants6";
+import { NewViewContextProvider } from "../../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__NewView";
+import { PlasmicSShopItem2 } from "../../../components/plasmic/liom_hamyar/PlasmicSShopItem2";
 import { useRouter } from "next/router";
 
 function SShopItem2() {
