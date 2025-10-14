@@ -532,7 +532,7 @@ function PlasmicShopBoxRef2__RenderFunc(props: {
         }}
         shouldFetch={(() => {
           try {
-            return $props.type;
+            return $props.id;
           } catch (e) {
             if (
               e instanceof TypeError ||

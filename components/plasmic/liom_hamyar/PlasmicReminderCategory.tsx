@@ -396,7 +396,7 @@ function PlasmicReminderCategory__RenderFunc(props: {
                           if (el) {
                             el.scrollIntoView({
                               behavior: "smooth",
-                              block: "center"
+                              block: "start"
                             });
                             el.classList.add("highlight");
                             return setTimeout(() => {
@@ -480,7 +480,8 @@ function PlasmicReminderCategory__RenderFunc(props: {
                 const actionArgs = {
                   customFunction: async () => {
                     return (() => {
-                      const scrollMid = window.scrollY + window.innerHeight / 2;
+                      const scrollMid =
+                        window.scrollY + window.innerHeight / 2 - 50;
                       const sections =
                         window.document.querySelectorAll(".section");
                       console.log(sections);
