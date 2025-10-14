@@ -79,11 +79,16 @@ import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-impor
 
 createPlasmicElementProxy;
 
-export type PlasmicReminderCategory__VariantMembers = {};
-export type PlasmicReminderCategory__VariantsArgs = {};
+export type PlasmicReminderCategory__VariantMembers = {
+  more2: "more2";
+};
+export type PlasmicReminderCategory__VariantsArgs = {
+  more2?: SingleBooleanChoiceArg<"more2">;
+};
 type VariantPropType = keyof PlasmicReminderCategory__VariantsArgs;
-export const PlasmicReminderCategory__VariantProps =
-  new Array<VariantPropType>();
+export const PlasmicReminderCategory__VariantProps = new Array<VariantPropType>(
+  "more2"
+);
 
 export type PlasmicReminderCategory__ArgsType = {};
 type ArgPropType = keyof PlasmicReminderCategory__ArgsType;
@@ -97,10 +102,12 @@ export type PlasmicReminderCategory__OverridesType = {
   sort?: Flex__<typeof RadioGroupLiom>;
   more?: Flex__<"div">;
   radioGroupLiom2?: Flex__<typeof RadioGroupLiom>;
+  radioGroupLiom3?: Flex__<typeof RadioGroupLiom>;
   apiRequest?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultReminderCategoryProps {
+  more2?: SingleBooleanChoiceArg<"more2">;
   className?: string;
 }
 
@@ -238,6 +245,55 @@ function PlasmicReminderCategory__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "more2",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.more2
+      },
+      {
+        path: "more3",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "radioGroupLiom3.selected",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "radioGroupLiom3.list",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                $state.more3.items.forEach(i => {
+                  i.label = i.type_fa;
+                  i.value = i.type;
+                });
+                return $state.more3.items;
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "radioGroupLiom3.selects",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       }
     ],
     [$props, $ctx, $refs]
@@ -263,7 +319,8 @@ function PlasmicReminderCategory__RenderFunc(props: {
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
         styleTokensClassNames,
-        sty.root
+        sty.root,
+        { [sty.rootmore2]: hasVariant($state, "more2", "more2") }
       )}
       onScroll={async event => {
         const $steps = {};
@@ -471,7 +528,9 @@ function PlasmicReminderCategory__RenderFunc(props: {
         </div>
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox__pI1Hb)}
+        className={classNames(projectcss.all, sty.freeBox__pI1Hb, {
+          [sty.freeBoxmore2__pI1Hb3WEwR]: hasVariant($state, "more2", "more2")
+        })}
         onScroll={async event => {
           const $steps = {};
 
@@ -544,7 +603,14 @@ function PlasmicReminderCategory__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 sty.freeBox__fwhJg,
-                "section"
+                "section",
+                {
+                  [sty.freeBoxmore2__fwhJg3WEwR]: hasVariant(
+                    $state,
+                    "more2",
+                    "more2"
+                  )
+                }
               )}
               id={(() => {
                 try {
@@ -602,6 +668,67 @@ function PlasmicReminderCategory__RenderFunc(props: {
                     data-plasmic-name={"more"}
                     data-plasmic-override={overrides.more}
                     className={classNames(projectcss.all, sty.more)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateMore3"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["more3"]
+                              },
+                              operation: 0,
+                              value: currentItem
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateMore3"] != null &&
+                        typeof $steps["updateMore3"] === "object" &&
+                        typeof $steps["updateMore3"].then === "function"
+                      ) {
+                        $steps["updateMore3"] = await $steps["updateMore3"];
+                      }
+
+                      $steps["updateMore2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              vgroup: "more2",
+                              operation: 4
+                            };
+                            return (({ vgroup, value }) => {
+                              if (typeof value === "string") {
+                                value = [value];
+                              }
+
+                              $stateSet($state, vgroup, true);
+                              return true;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateMore2"] != null &&
+                        typeof $steps["updateMore2"] === "object" &&
+                        typeof $steps["updateMore2"].then === "function"
+                      ) {
+                        $steps["updateMore2"] = await $steps["updateMore2"];
+                      }
+                    }}
                   >
                     <div
                       className={classNames(
@@ -630,7 +757,14 @@ function PlasmicReminderCategory__RenderFunc(props: {
                   const child$Props = {
                     className: classNames(
                       "__wab_instance",
-                      sty.radioGroupLiom2
+                      sty.radioGroupLiom2,
+                      {
+                        [sty.radioGroupLiom2more2]: hasVariant(
+                          $state,
+                          "more2",
+                          "more2"
+                        )
+                      }
                     ),
                     click: async () => {
                       const $steps = {};
@@ -783,6 +917,140 @@ function PlasmicReminderCategory__RenderFunc(props: {
           );
         })}
       </div>
+      {(hasVariant($state, "more2", "more2") ? true : false) ? (
+        <div
+          className={classNames(projectcss.all, sty.freeBox__yyjSq, {
+            [sty.freeBoxmore2__yyjSq3WEwR]: hasVariant($state, "more2", "more2")
+          })}
+        >
+          <div
+            className={classNames(
+              projectcss.all,
+              sty.freeBox__gzb0A,
+              "section",
+              {
+                [sty.freeBoxmore2__gzb0A3WEwR]: hasVariant(
+                  $state,
+                  "more2",
+                  "more2"
+                )
+              }
+            )}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                sty.freeBox___1QsXy,
+                "container-scroll"
+              )}
+            >
+              <RadioGroupLiom
+                data-plasmic-name={"radioGroupLiom3"}
+                data-plasmic-override={overrides.radioGroupLiom3}
+                className={classNames("__wab_instance", sty.radioGroupLiom3, {
+                  [sty.radioGroupLiom3more2]: hasVariant(
+                    $state,
+                    "more2",
+                    "more2"
+                  )
+                })}
+                click={async () => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              $state.radioGroupLiom2.forEach((item, i) => {
+                                if (i !== currentIndex) {
+                                  item.selected = null;
+                                }
+                              });
+                              $state.select = currentItem.items.find(
+                                i =>
+                                  i.type ==
+                                  $state.radioGroupLiom2[currentIndex].selected
+                              );
+                              return ($state.titleInput.value =
+                                $state.select.type_fa);
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
+                color={"line"}
+                icon={true}
+                list={generateStateValueProp($state, [
+                  "radioGroupLiom3",
+                  "list"
+                ])}
+                onListChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "radioGroupLiom3",
+                    "list"
+                  ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onSelectedChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "radioGroupLiom3",
+                    "selected"
+                  ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onSelectsChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "radioGroupLiom3",
+                    "selects"
+                  ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                selected={generateStateValueProp($state, [
+                  "radioGroupLiom3",
+                  "selected"
+                ])}
+                selects={generateStateValueProp($state, [
+                  "radioGroupLiom3",
+                  "selects"
+                ])}
+              />
+            </div>
+          </div>
+        </div>
+      ) : null}
       <ApiRequest
         data-plasmic-name={"apiRequest"}
         data-plasmic-override={overrides.apiRequest}
@@ -844,6 +1112,7 @@ const PlasmicDescendants = {
     "sort",
     "more",
     "radioGroupLiom2",
+    "radioGroupLiom3",
     "apiRequest"
   ],
   title: ["title", "titleInput"],
@@ -852,6 +1121,7 @@ const PlasmicDescendants = {
   sort: ["sort"],
   more: ["more"],
   radioGroupLiom2: ["radioGroupLiom2"],
+  radioGroupLiom3: ["radioGroupLiom3"],
   apiRequest: ["apiRequest"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -865,6 +1135,7 @@ type NodeDefaultElementType = {
   sort: typeof RadioGroupLiom;
   more: "div";
   radioGroupLiom2: typeof RadioGroupLiom;
+  radioGroupLiom3: typeof RadioGroupLiom;
   apiRequest: typeof ApiRequest;
 };
 
@@ -936,6 +1207,7 @@ export const PlasmicReminderCategory = Object.assign(
     sort: makeNodeComponent("sort"),
     more: makeNodeComponent("more"),
     radioGroupLiom2: makeNodeComponent("radioGroupLiom2"),
+    radioGroupLiom3: makeNodeComponent("radioGroupLiom3"),
     apiRequest: makeNodeComponent("apiRequest"),
 
     // Metadata about props expected for PlasmicReminderCategory
