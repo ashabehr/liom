@@ -543,7 +543,7 @@ function PlasmicShopBoxRef2__RenderFunc(props: {
             throw e;
           }
         })()}
-        url={"https://api.liom.app/rest/shop/list"}
+        url={"https://api.liom.app/rest/shop/list/by/id"}
       >
         <div className={classNames(projectcss.all, sty.freeBox__aSa19)}>
           <div
