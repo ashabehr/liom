@@ -16694,7 +16694,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                     week = "0" + $state.selectedWeek;
                                   else week = "" + $state.selectedWeek;
                                   return (
-                                    "https://liom.storage.c2.liara.space/config/pregnancy/week" +
+                                    "https://liom.teh-1.s3.poshtiban.com/config/pregnancy/week" +
                                     week +
                                     ".png"
                                   );

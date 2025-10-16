@@ -83,6 +83,7 @@ export type PlasmicRadioGrop__VariantMembers = {
   comingSoon: "comingSoon";
   icon: "icon";
   style3: "circle";
+  direction: "v";
 };
 export type PlasmicRadioGrop__VariantsArgs = {
   selected?: SingleBooleanChoiceArg<"selected">;
@@ -96,6 +97,7 @@ export type PlasmicRadioGrop__VariantsArgs = {
   comingSoon?: SingleBooleanChoiceArg<"comingSoon">;
   icon?: SingleBooleanChoiceArg<"icon">;
   style3?: SingleChoiceArg<"circle">;
+  direction?: SingleChoiceArg<"v">;
 };
 type VariantPropType = keyof PlasmicRadioGrop__VariantsArgs;
 export const PlasmicRadioGrop__VariantProps = new Array<VariantPropType>(
@@ -109,7 +111,8 @@ export const PlasmicRadioGrop__VariantProps = new Array<VariantPropType>(
   "pair",
   "comingSoon",
   "icon",
-  "style3"
+  "style3",
+  "direction"
 );
 
 export type PlasmicRadioGrop__ArgsType = {
@@ -146,6 +149,7 @@ export interface DefaultRadioGropProps {
   comingSoon?: SingleBooleanChoiceArg<"comingSoon">;
   icon?: SingleBooleanChoiceArg<"icon">;
   style3?: SingleChoiceArg<"circle">;
+  direction?: SingleChoiceArg<"v">;
   className?: string;
 }
 
@@ -259,6 +263,12 @@ function PlasmicRadioGrop__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.style3
+      },
+      {
+        path: "direction",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.direction
       }
     ],
     [$props, $ctx, $refs]
@@ -295,6 +305,7 @@ function PlasmicRadioGrop__RenderFunc(props: {
             hasVariant($state, "color", "light") &&
             hasVariant($state, "selected", "selected"),
           [sty.rootcomingSoon]: hasVariant($state, "comingSoon", "comingSoon"),
+          [sty.rootdirection_v]: hasVariant($state, "direction", "v"),
           [sty.rootdisable]: hasVariant($state, "disable", "disable"),
           [sty.rooticon]: hasVariant($state, "icon", "icon"),
           [sty.rootpair]: hasVariant($state, "pair", "pair"),
@@ -357,6 +368,7 @@ function PlasmicRadioGrop__RenderFunc(props: {
         data-plasmic-override={overrides.text}
         className={classNames(projectcss.all, projectcss.__wab_text, sty.text, {
           [sty.textcomingSoon]: hasVariant($state, "comingSoon", "comingSoon"),
+          [sty.textdirection_v]: hasVariant($state, "direction", "v"),
           [sty.texticon]: hasVariant($state, "icon", "icon")
         })}
       >
@@ -366,7 +378,13 @@ function PlasmicRadioGrop__RenderFunc(props: {
         ? renderPlasmicSlot({
             defaultContents: (
               <svg
-                className={classNames(projectcss.all, sty.svg__fC0D)}
+                className={classNames(projectcss.all, sty.svg__fC0D, {
+                  [sty.svgdirection_v__fC0DBOLb6]: hasVariant(
+                    $state,
+                    "direction",
+                    "v"
+                  )
+                })}
                 role={"img"}
               />
             ),
@@ -382,6 +400,7 @@ function PlasmicRadioGrop__RenderFunc(props: {
           [sty.freeBoxchoise_selected]:
             hasVariant($state, "choise", "choise") &&
             hasVariant($state, "selected", "selected"),
+          [sty.freeBoxdirection_v]: hasVariant($state, "direction", "v"),
           [sty.freeBoxicon]: hasVariant($state, "icon", "icon"),
           [sty.freeBoxpair]: hasVariant($state, "pair", "pair"),
           [sty.freeBoxselected]: hasVariant($state, "selected", "selected"),
@@ -427,6 +446,7 @@ function PlasmicRadioGrop__RenderFunc(props: {
           data-plasmic-name={"svg"}
           data-plasmic-override={overrides.svg}
           className={classNames(projectcss.all, sty.svg, {
+            [sty.svgdirection_v]: hasVariant($state, "direction", "v"),
             [sty.svgpair]: hasVariant($state, "pair", "pair")
           })}
           role={"img"}

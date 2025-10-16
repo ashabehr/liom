@@ -66,6 +66,7 @@ import Repead from "../../Repead"; // plasmic-import: bTRB9n2MQ7IL/component
 import RadioGrop from "../../RadioGrop"; // plasmic-import: mcNKMbL_6N75/component
 import RadioGroupLiom from "../../RadioGroupLiom"; // plasmic-import: tXN0uQ-uT9R3/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import ReminderCategory from "../../ReminderCategory"; // plasmic-import: ndgNxvaF00At/component
 import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
 import { Pickers } from "@/components/Pickers"; // plasmic-import: htE-oGSeNx82/codeComponent
 import { TimePickerCustom } from "@/components/TimePickerCustom"; // plasmic-import: GRoigtq491XH/codeComponent
@@ -86,6 +87,7 @@ import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-impor
 import Icon290Icon from "./icons/PlasmicIcon__Icon290"; // plasmic-import: jLdE-DKzPlst/icon
 import Icon311Icon from "./icons/PlasmicIcon__Icon311"; // plasmic-import: lNuAAu8GY-nH/icon
 import Icon291Icon from "./icons/PlasmicIcon__Icon291"; // plasmic-import: U9F0Jow4owN9/icon
+import Icon305Icon from "./icons/PlasmicIcon__Icon305"; // plasmic-import: oMWvE38W149h/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon214Icon from "./icons/PlasmicIcon__Icon214"; // plasmic-import: gfITgruAsqTI/icon
@@ -165,6 +167,8 @@ export type PlasmicReminderSetting__OverridesType = {
   radioGroupLiom?: Flex__<typeof RadioGroupLiom>;
   button5?: Flex__<typeof Button>;
   button8?: Flex__<typeof Button>;
+  dialog2?: Flex__<typeof Dialog>;
+  reminderCategory2?: Flex__<typeof ReminderCategory>;
   dateDiolog?: Flex__<typeof Dialog>;
   datePickers?: Flex__<typeof DatePickers>;
   button4?: Flex__<typeof Button>;
@@ -375,7 +379,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant(globalVariants, "screen", "mobile") ? false : false
+          hasVariant(globalVariants, "screen", "mobile") ? false : true
       },
       {
         path: "input.value",
@@ -384,7 +388,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.select2.name;
+              return (
+                $state.select2.name || $state.reminderCategory2.antdInputValue
+              );
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -955,6 +961,31 @@ function PlasmicReminderSetting__RenderFunc(props: {
 
         valueProp: "refreshTime",
         onChangeProp: "onRefreshTimeChange"
+      },
+      {
+        path: "dialog2.opendialog",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobile") ? false : true
+      },
+      {
+        path: "reminderCategory2.antdInputValue",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "reminderCategory2.show",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "reminderCategory2.select",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -2323,6 +2354,24 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       </React.Fragment>
                     </div>
                   ) : null}
+                  {(() => {
+                    try {
+                      return true;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <Icon305Icon
+                      className={classNames(projectcss.all, sty.svg__feQp0)}
+                      role={"img"}
+                    />
+                  ) : null}
                 </div>
                 {(() => {
                   try {
@@ -3309,6 +3358,304 @@ function PlasmicReminderSetting__RenderFunc(props: {
               </Button>
             </div>
           </div>
+        </Dialog>
+        <Dialog
+          data-plasmic-name={"dialog2"}
+          data-plasmic-override={overrides.dialog2}
+          className={classNames("__wab_instance", sty.dialog2, {
+            [sty.dialog2slide__1]: hasVariant($state, "slide", "_1")
+          })}
+          onOpendialogChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["dialog2", "opendialog"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          opendialog={generateStateValueProp($state, ["dialog2", "opendialog"])}
+        >
+          <ReminderCategory
+            data-plasmic-name={"reminderCategory2"}
+            data-plasmic-override={overrides.reminderCategory2}
+            antdInputValue={generateStateValueProp($state, [
+              "reminderCategory2",
+              "antdInputValue"
+            ])}
+            className={classNames("__wab_instance", sty.reminderCategory2)}
+            ok={async () => {
+              const $steps = {};
+
+              $steps["updateDialogOpendialog"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["dialog", "opendialog"]
+                      },
+                      operation: 0,
+                      value: true
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateDialogOpendialog"] != null &&
+                typeof $steps["updateDialogOpendialog"] === "object" &&
+                typeof $steps["updateDialogOpendialog"].then === "function"
+              ) {
+                $steps["updateDialogOpendialog"] =
+                  await $steps["updateDialogOpendialog"];
+              }
+
+              $steps["updateSelect2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["select2"]
+                      },
+                      operation: 0,
+                      value: (() => {
+                        return {
+                          liomId: $props.manId,
+                          telegramId: $props.telegramId,
+                          phoneNumber: $props.phoneNumber,
+                          name: $state.reminderCategory2.antdInputValue,
+                          text:
+                            $state.reminderCategory2.select.text ||
+                            $state.reminderCategory2.select.type,
+                          schedule_type:
+                            $state.reminderCategory2.select.schedule_type,
+                          dates:
+                            JSON.stringify([
+                              $state.reminderCategory2.select.date
+                            ]) ?? "[]",
+                          channels: '["notification","telegram"]',
+                          times: '["10:00"]',
+                          weekdays:
+                            $state.reminderCategory2.select.schedule_type ==
+                            "everyDay"
+                              ? JSON.stringify([
+                                  "saturday",
+                                  "sunday",
+                                  "monday",
+                                  "tuesday",
+                                  "wednesday",
+                                  "thursday",
+                                  "friday"
+                                ])
+                              : null,
+                          active: 1
+                        };
+                      })()
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateSelect2"] != null &&
+                typeof $steps["updateSelect2"] === "object" &&
+                typeof $steps["updateSelect2"].then === "function"
+              ) {
+                $steps["updateSelect2"] = await $steps["updateSelect2"];
+              }
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          try {
+                            const dates = JSON.parse($state.select2.dates);
+                            function faToEnDigits(str) {
+                              return str.replace(/[۰-۹]/g, d =>
+                                "۰۱۲۳۴۵۶۷۸۹".indexOf(d)
+                              );
+                            }
+                            $state.date = dates.map(m => {
+                              const today = new Date(m);
+                              const f = today.toISOString().split("T")[0];
+                              const g = new Intl.DateTimeFormat("fa-IR", {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric"
+                              }).format(today);
+                              const jy = Number(
+                                faToEnDigits(
+                                  new Intl.DateTimeFormat("fa-IR", {
+                                    year: "numeric"
+                                  }).format(today)
+                                )
+                              );
+                              const jm = Number(
+                                faToEnDigits(
+                                  new Intl.DateTimeFormat("fa-IR", {
+                                    month: "numeric"
+                                  }).format(today)
+                                )
+                              );
+                              const jd = Number(
+                                faToEnDigits(
+                                  new Intl.DateTimeFormat("fa-IR", {
+                                    day: "numeric"
+                                  }).format(today)
+                                )
+                              );
+                              return {
+                                start: {
+                                  f,
+                                  g,
+                                  year: jy,
+                                  month: jm,
+                                  day: jd
+                                }
+                              };
+                            });
+                          } catch {
+                            $state.date = [];
+                          }
+                          try {
+                            $state.week = JSON.parse(currentItem.weekdays);
+                          } catch {}
+                          try {
+                            function formatTimeString(value) {
+                              if (!value) return ["0", "0"];
+
+                              return value.split(":");
+                            }
+                            const times = JSON.parse($state.select2.times);
+                            $state.time2 = times.map(t => {
+                              const [hh, mm] = formatTimeString(t);
+                              return {
+                                hour: parseInt(hh),
+                                minute: parseInt(mm)
+                              };
+                            });
+                          } catch {
+                            $state.time2 = [];
+                          }
+                          try {
+                            function arraysEqualIgnoreOrder(a, b) {
+                              if (a.length !== b.length) return false;
+                              return [...a]
+                                .sort()
+                                .every(
+                                  (val, index) => val === [...b].sort()[index]
+                                );
+                            }
+                            if ($state.week.length === 0) {
+                              return ($state.repead.selected = "once");
+                            } else if (
+                              arraysEqualIgnoreOrder($state.week, [
+                                "saturday",
+                                "sunday",
+                                "monday",
+                                "tuesday",
+                                "wednesday",
+                                "thursday",
+                                "friday"
+                              ])
+                            ) {
+                              return ($state.repead.selected = "daily");
+                            } else if (
+                              arraysEqualIgnoreOrder($state.week, [
+                                "saturday",
+                                "sunday",
+                                "monday",
+                                "tuesday",
+                                "wednesday"
+                              ])
+                            ) {
+                              return ($state.repead.selected = "sat_to_wed");
+                            } else {
+                              return ($state.repead.selected = "custom");
+                            }
+                          } catch {
+                            return ($state.week = []);
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
+            onAntdInputValueChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "reminderCategory2",
+                "antdInputValue"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onSelectChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "reminderCategory2",
+                "select"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onShowChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "reminderCategory2",
+                "show"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            show={generateStateValueProp($state, ["reminderCategory2", "show"])}
+          />
         </Dialog>
         <Dialog
           data-plasmic-name={"dateDiolog"}
@@ -7018,6 +7365,8 @@ const PlasmicDescendants = {
     "radioGroupLiom",
     "button5",
     "button8",
+    "dialog2",
+    "reminderCategory2",
     "dateDiolog",
     "datePickers",
     "button4",
@@ -7058,6 +7407,8 @@ const PlasmicDescendants = {
     "radioGroupLiom",
     "button5",
     "button8",
+    "dialog2",
+    "reminderCategory2",
     "dateDiolog",
     "datePickers",
     "button4",
@@ -7086,6 +7437,8 @@ const PlasmicDescendants = {
   radioGroupLiom: ["radioGroupLiom"],
   button5: ["button5"],
   button8: ["button8"],
+  dialog2: ["dialog2", "reminderCategory2"],
+  reminderCategory2: ["reminderCategory2"],
   dateDiolog: ["dateDiolog", "datePickers", "button4"],
   datePickers: ["datePickers"],
   button4: ["button4"],
@@ -7173,6 +7526,8 @@ type NodeDefaultElementType = {
   radioGroupLiom: typeof RadioGroupLiom;
   button5: typeof Button;
   button8: typeof Button;
+  dialog2: typeof Dialog;
+  reminderCategory2: typeof ReminderCategory;
   dateDiolog: typeof Dialog;
   datePickers: typeof DatePickers;
   button4: typeof Button;
@@ -7275,6 +7630,8 @@ export const PlasmicReminderSetting = Object.assign(
     radioGroupLiom: makeNodeComponent("radioGroupLiom"),
     button5: makeNodeComponent("button5"),
     button8: makeNodeComponent("button8"),
+    dialog2: makeNodeComponent("dialog2"),
+    reminderCategory2: makeNodeComponent("reminderCategory2"),
     dateDiolog: makeNodeComponent("dateDiolog"),
     datePickers: makeNodeComponent("datePickers"),
     button4: makeNodeComponent("button4"),

@@ -78,6 +78,7 @@ export type PlasmicRadioGroupLiom__VariantMembers = {
   color: "line";
   icon: "icon";
   style2: "cycle";
+  direction: "v";
 };
 export type PlasmicRadioGroupLiom__VariantsArgs = {
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
@@ -86,6 +87,7 @@ export type PlasmicRadioGroupLiom__VariantsArgs = {
   color?: SingleChoiceArg<"line">;
   icon?: SingleBooleanChoiceArg<"icon">;
   style2?: SingleChoiceArg<"cycle">;
+  direction?: SingleChoiceArg<"v">;
 };
 type VariantPropType = keyof PlasmicRadioGroupLiom__VariantsArgs;
 export const PlasmicRadioGroupLiom__VariantProps = new Array<VariantPropType>(
@@ -94,7 +96,8 @@ export const PlasmicRadioGroupLiom__VariantProps = new Array<VariantPropType>(
   "moulty",
   "color",
   "icon",
-  "style2"
+  "style2",
+  "direction"
 );
 
 export type PlasmicRadioGroupLiom__ArgsType = {
@@ -139,6 +142,7 @@ export interface DefaultRadioGroupLiomProps {
   color?: SingleChoiceArg<"line">;
   icon?: SingleBooleanChoiceArg<"icon">;
   style2?: SingleChoiceArg<"cycle">;
+  direction?: SingleChoiceArg<"v">;
   className?: string;
 }
 
@@ -246,6 +250,12 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.style2
+      },
+      {
+        path: "direction",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.direction
       }
     ],
     [$props, $ctx, $refs]
@@ -274,6 +284,7 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
         sty.root,
         {
           [sty.rootcolor_line]: hasVariant($state, "color", "line"),
+          [sty.rootdirection_v]: hasVariant($state, "direction", "v"),
           [sty.rooticon]: hasVariant($state, "icon", "icon"),
           [sty.rootmoulty]: hasVariant($state, "moulty", "moulty"),
           [sty.rootsize_mini]: hasVariant($state, "size", "mini"),
@@ -312,6 +323,11 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
                 "color",
                 "line"
               ),
+              [sty.radioGropdirection_v__xDgqnmR1Io]: hasVariant(
+                $state,
+                "direction",
+                "v"
+              ),
               [sty.radioGropicon__xDgqn9MoHd]: hasVariant(
                 $state,
                 "icon",
@@ -344,6 +360,7 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
               )
             })}
             color={"light"}
+            direction={hasVariant($state, "direction", "v") ? "v" : undefined}
             icon={hasVariant($state, "icon", "icon") ? true : undefined}
             key={currentIndex}
             onClick={async event => {
@@ -419,6 +436,11 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
                 data-plasmic-name={"menuIcon"}
                 data-plasmic-override={overrides.menuIcon}
                 className={classNames("__wab_instance", sty.menuIcon, {
+                  [sty.menuIcondirection_v]: hasVariant(
+                    $state,
+                    "direction",
+                    "v"
+                  ),
                   [sty.menuIconicon]: hasVariant($state, "icon", "icon")
                 })}
                 icons={(() => {
@@ -458,6 +480,11 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
                 projectcss.__wab_text,
                 sty.text__h0Hhj,
                 {
+                  [sty.textdirection_v__h0HhjmR1Io]: hasVariant(
+                    $state,
+                    "direction",
+                    "v"
+                  ),
                   [sty.textsize_mini__h0HhjaMdd]: hasVariant(
                     $state,
                     "size",
@@ -511,6 +538,11 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
             return (
               <RadioGrop
                 className={classNames("__wab_instance", sty.radioGrop__zHtyZ, {
+                  [sty.radioGropdirection_v__zHtyZmR1Io]: hasVariant(
+                    $state,
+                    "direction",
+                    "v"
+                  ),
                   [sty.radioGropmoulty__zHtyZqublj]: hasVariant(
                     $state,
                     "moulty",
