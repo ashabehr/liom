@@ -180,7 +180,7 @@ function PlasmicToolsComponent__RenderFunc(props: {
                               description: "",
                               action: "#events",
                               shopType: "",
-                              icon: "https://liom.storage.c2.liara.space/tools/mainPage/today_status.png"
+                              icon: "https://teh-1.s3.poshtiban.com/liom/tools/mainPage/today_status.png"
                             },
                             {
                               text: "ویدیو آموزشی",
@@ -188,7 +188,7 @@ function PlasmicToolsComponent__RenderFunc(props: {
                                 "مجموعه ویدیوهای آموزشی مرتبط با بارداری و مراقبت‌ها.",
                               action: "#video",
                               shopType: "",
-                              icon: "https://https://liom.storage.c2.liara.space/config/self_care/videoOutlined.png"
+                              icon: "https://https://teh-1.s3.poshtiban.com/liom/config/self_care/videoOutlined.png"
                             },
                             {
                               text: "کنترل وزن",
@@ -196,7 +196,7 @@ function PlasmicToolsComponent__RenderFunc(props: {
                                 "برنامه کنترل وزن مادر و نوزاد در دوران بارداری.",
                               action: "#weight",
                               shopType: "",
-                              icon: "https://https://liom.storage.c2.liara.space/config/self_care/bmiOutlined.png"
+                              icon: "https://https://teh-1.s3.poshtiban.com/liom/config/self_care/bmiOutlined.png"
                             },
                             {
                               text: "روتین مو",
@@ -204,7 +204,7 @@ function PlasmicToolsComponent__RenderFunc(props: {
                                 "برنامه مراقبت و نگهداری از موها در دوران بارداری.",
                               action: "#hair_care",
                               shopType: "hair_car",
-                              icon: "https://https://liom.storage.c2.liara.space/config/self_care/hairCareOutlined.png"
+                              icon: "https://https://teh-1.s3.poshtiban.com/liom/config/self_care/hairCareOutlined.png"
                             },
                             {
                               text: "روتین پوست",
@@ -212,7 +212,7 @@ function PlasmicToolsComponent__RenderFunc(props: {
                                 "راهنمای مراقبت از پوست در دوران بارداری برای حفظ زیبایی و سلامت.",
                               action: "#skinCare",
                               shopType: "skinCare",
-                              icon: "https://https://liom.storage.c2.liara.space/config/self_care/skinCareOutlined.png"
+                              icon: "https://https://teh-1.s3.poshtiban.com/liom/config/self_care/skinCareOutlined.png"
                             },
                             {
                               text: "پیشگیری از ترک پوستی",
@@ -220,13 +220,13 @@ function PlasmicToolsComponent__RenderFunc(props: {
                                 "روش‌های جلوگیری از ایجاد ترک‌های پوستی در بارداری.",
                               action: "#stretch_marks",
                               shopType: "stretch_marks_sub",
-                              icon: "https://https://liom.storage.c2.liara.space/config/self_care/stretchMarkOutlined.png"
+                              icon: "https://https://teh-1.s3.poshtiban.com/liom/config/self_care/stretchMarkOutlined.png"
                             },
                             {
                               text: "درمان  ADHD ",
                               action: "#adhd_treatment_sub",
                               shopType: "adhd_treatment_sub",
-                              icon: "https://https://liom.storage.c2.liara.space/config/self_care/adhdOutlined.png"
+                              icon: "https://https://teh-1.s3.poshtiban.com/liom/config/self_care/adhdOutlined.png"
                             },
                             {
                               text: "تست نیاز به تراپی دارم",
@@ -234,7 +234,7 @@ function PlasmicToolsComponent__RenderFunc(props: {
                                 "ارزیابی نیاز به خدمات تراپی روانشناسی و درمانی.",
                               action: "#need_therapy",
                               shopType: "need_therapy_sub",
-                              icon: "https://https://liom.storage.c2.liara.space/config/self_care/therapyOutlined.png"
+                              icon: "https://https://teh-1.s3.poshtiban.com/liom/config/self_care/therapyOutlined.png"
                             },
                             {
                               text: "تست افسردگی",
@@ -242,7 +242,7 @@ function PlasmicToolsComponent__RenderFunc(props: {
                                 "ارزیابی سلامت روان و تشخیص علائم افسردگی.",
                               action: "#depression",
                               shopType: "",
-                              icon: "https://https://liom.storage.c2.liara.space/config/self_care/depressionNew.png"
+                              icon: "https://https://teh-1.s3.poshtiban.com/liom/config/self_care/depressionNew.png"
                             },
                             {
                               text: "تست ADHD",
@@ -250,37 +250,37 @@ function PlasmicToolsComponent__RenderFunc(props: {
                                 "آزمون و ارزیابی اختلال نقص توجه و بیش‌فعالی.",
                               action: "#adhd",
                               shopType: "adhd_sub",
-                              icon: "https://https://liom.storage.c2.liara.space/config/self_care/adhdOutlined.png"
+                              icon: "https://https://teh-1.s3.poshtiban.com/liom/config/self_care/adhdOutlined.png"
                             },
                             {
                               text: "تست دیابت بارداری (GD)",
                               action: "#pregnancyDiabetes",
                               shopType: "pregnancy_diabetes",
-                              icon: "https://https://liom.storage.c2.liara.space/config/self_care/diabetOutlined.png"
+                              icon: "https://https://teh-1.s3.poshtiban.com/liom/config/self_care/diabetOutlined.png"
                             },
                             {
                               text: "تست مسمومیت بارداری",
                               action: "#preeclampsia",
                               shopType: "preeclampsia",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/preeclampsiaOutlined.png"
+                              icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/preeclampsiaOutlined.png"
                             },
                             {
                               text: "تست اختلال تیروئید",
                               action: "#thyroid",
                               shopType: "thyroid",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/therapyOutlined.png"
+                              icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/therapyOutlined.png"
                             },
                             {
                               text: "همیار بارداری",
                               shopType: "",
                               action: "#hamyarInfo",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/hamyarOutlined.png"
+                              icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/hamyarOutlined.png"
                             },
                             {
                               text: "کلینیک",
                               action: "#clinic",
                               shopType: "",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/clinicOutlined.png"
+                              icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/clinicOutlined.png"
                             },
                             {
                               text: "بیوریتم",
@@ -288,7 +288,7 @@ function PlasmicToolsComponent__RenderFunc(props: {
                                 "برنامه بیوریتم و چرخه‌های طبیعی بدن در دوران بارداری.",
                               action: "#biorhythm",
                               shopType: "",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/biorhythmOutlined.png"
+                              icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/biorhythmOutlined.png"
                             }
                           ]
                         }
@@ -306,13 +306,13 @@ function PlasmicToolsComponent__RenderFunc(props: {
                               description:
                                 "آزمون و بررسی احتمالات جنسیت نوزاد.",
                               action: "#genderDetection",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/genderTestOutlined.png"
+                              icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/genderTestOutlined.png"
                             },
                             {
                               text: "چک‌لیست ایمنی و علائم هشدار",
                               action: "#danger",
                               shopType: "",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/dangerOutlined.png"
+                              icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/dangerOutlined.png"
                             }
                           ]
                         }

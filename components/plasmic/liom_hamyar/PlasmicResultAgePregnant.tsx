@@ -670,7 +670,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                               week = "0" + ($state.agePregnant.week + 1);
                             else week = "" + ($state.agePregnant.week + 1);
                             return (
-                              "https://liom.storage.c2.liara.space/config/pregnancy/week" +
+                              "https://teh-1.s3.poshtiban.com/liom/config/pregnancy/week" +
                               week +
                               ".png"
                             );

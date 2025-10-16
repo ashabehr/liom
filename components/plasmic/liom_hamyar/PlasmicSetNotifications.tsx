@@ -270,7 +270,7 @@ function PlasmicSetNotifications__RenderFunc(props: {
                         btn_textV2: "",
                         style: "rectangle",
                         image:
-                          "https://liom.storage.c2.liara.space/config/self_care/skin_care.png",
+                          "https://teh-1.s3.poshtiban.com/liom/config/self_care/skin_care.png",
                         isPremium: true,
                         isNew: true,
                         checkSub: true,
@@ -287,7 +287,7 @@ function PlasmicSetNotifications__RenderFunc(props: {
                         btn_textV2: "",
                         style: "rectangle",
                         image:
-                          "https://liom.storage.c2.liara.space/config/self_care/stretch_marks.png",
+                          "https://teh-1.s3.poshtiban.com/liom/config/self_care/stretch_marks.png",
                         isPremium: true,
                         isNew: true,
                         checkSub: true,

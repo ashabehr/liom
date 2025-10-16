@@ -154,7 +154,7 @@ function PlasmicPost__RenderFunc(props: {
       Object.assign(
         {
           image2:
-            "https://storage.c2.liara.space/liom/2025-03/post/2025-03-28-38fa0b71-308d-49f8-87e0-290a8573a25c.mp4\n"
+            "https://teh-1.s3.poshtiban.com/liom/2025-03/post/2025-03-28-38fa0b71-308d-49f8-87e0-290a8573a25c.mp4\n"
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)

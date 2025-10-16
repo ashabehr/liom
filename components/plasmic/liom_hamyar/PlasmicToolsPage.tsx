@@ -163,13 +163,13 @@ function PlasmicToolsPage__RenderFunc(props: {
                               text: "یادآوری غربالگری و آزمایش های مهم",
                               action: "#selfSms",
                               shopType: "pregnancy_sub_self_sms",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/selfSmsOutlined.png"
+                              icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/selfSmsOutlined.png"
                             },
                             {
                               text: "معرفی مکمل‌ها و ویتامین‌ها",
                               action: "",
                               shopType: "danger",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/vitaminOutlined.png"
+                              icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/vitaminOutlined.png"
                             },
                             {
                               text: "ویدیو آموزشی",
@@ -177,7 +177,7 @@ function PlasmicToolsPage__RenderFunc(props: {
                                 "مجموعه ویدیوهای آموزشی مرتبط با بارداری و مراقبت‌ها.",
                               action: "#video",
                               shopType: "",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/videoOutlined.png"
+                              icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/videoOutlined.png"
                             },
                             {
                               text: "کنترل وزن",
@@ -185,7 +185,7 @@ function PlasmicToolsPage__RenderFunc(props: {
                                 "برنامه کنترل وزن مادر و نوزاد در دوران بارداری.",
                               action: "#weight",
                               shopType: "",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/bmiOutlined.png"
+                              icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/bmiOutlined.png"
                               // }
                               //   ]
                             },
@@ -198,27 +198,27 @@ function PlasmicToolsPage__RenderFunc(props: {
                             //       "description": "برنامه مراقبت و نگهداری از موها در دوران بارداری.",
                             //       "action": "#hair_care",
                             //       "shopType" : "hair_car" ,
-                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/hairCareOutlined.png"
+                            //       "icon": "https://teh-1.s3.poshtiban.com/liom/config/self_care/hairCareOutlined.png"
                             //     },
                             //     {
                             //       "text": "روتین پوست",
                             //       "description": "راهنمای مراقبت از پوست در دوران بارداری برای حفظ زیبایی و سلامت.",
                             //       "action": "#skinCare",
                             //       "shopType" : "skinCare" ,
-                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/skinCareOutlined.png"
+                            //       "icon": "https://teh-1.s3.poshtiban.com/liom/config/self_care/skinCareOutlined.png"
                             //     },
                             //     {
                             //       "text": "پیشگیری از ترک پوستی",
                             //       "description": "روش‌های جلوگیری از ایجاد ترک‌های پوستی در بارداری.",
                             //       "action": "#stretch_marks",
                             //       "shopType" : "stretch_marks_sub" ,
-                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/stretchMarkOutlined.png"
+                            //       "icon": "https://teh-1.s3.poshtiban.com/liom/config/self_care/stretchMarkOutlined.png"
                             //     },
                             //     {
                             //       "text": "درمان  ADHD ",
                             //       "action": "#adhd_treatment_sub",
                             //       "shopType" : "adhd_treatment_sub" ,
-                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/adhdOutlined.png"
+                            //       "icon": "https://teh-1.s3.poshtiban.com/liom/config/self_care/adhdOutlined.png"
                             //     }
                             //   ]
                             // },
@@ -230,39 +230,39 @@ function PlasmicToolsPage__RenderFunc(props: {
                             //       "description": "ارزیابی نیاز به خدمات تراپی روانشناسی و درمانی.",
                             //       "action": "#need_therapy",
                             //       "shopType" : "need_therapy_sub" ,
-                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/therapyOutlined.png"
+                            //       "icon": "https://teh-1.s3.poshtiban.com/liom/config/self_care/therapyOutlined.png"
                             //     },
                             //     {
                             //       "text": "تست افسردگی",
                             //       "description": "ارزیابی سلامت روان و تشخیص علائم افسردگی.",
                             //       "action": "#depression",
                             //       "shopType" : "" ,
-                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/depressionNew.png"
+                            //       "icon": "https://teh-1.s3.poshtiban.com/liom/config/self_care/depressionNew.png"
                             //     },
                             //     {
                             //       "text": "تست ADHD",
                             //       "description": "آزمون و ارزیابی اختلال نقص توجه و بیش‌فعالی.",
                             //       "action": "#adhd",
                             //       "shopType" : "adhd_sub" ,
-                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/adhdOutlined.png"
+                            //       "icon": "https://teh-1.s3.poshtiban.com/liom/config/self_care/adhdOutlined.png"
                             //     },
                             //     {
                             //       "text": "تست دیابت بارداری (GD)",
                             //       "action": "#pregnancyDiabetes",
                             //       "shopType" : "pregnancy_diabetes" ,
-                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/diabetOutlined.png"
+                            //       "icon": "https://teh-1.s3.poshtiban.com/liom/config/self_care/diabetOutlined.png"
                             //     },
                             //     {
                             //       "text": "تست مسمومیت بارداری",
                             //       "action": "#preeclampsia",
                             //       "shopType" : "preeclampsia" ,
-                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/preeclampsiaOutlined.png"
+                            //       "icon": "https://teh-1.s3.poshtiban.com/liom/config/self_care/preeclampsiaOutlined.png"
                             //     },
                             //     {
                             //       "text": "تست اختلال تیروئید",
                             //       "action": "#thyroid",
                             //       "shopType" : "thyroid" ,
-                            //       "icon": "https://liom.storage.c2.liara.space/config/self_care/therapyOutlined.png"
+                            //       "icon": "https://teh-1.s3.poshtiban.com/liom/config/self_care/therapyOutlined.png"
                             //     }
                             //   ]
                             // },
@@ -273,19 +273,19 @@ function PlasmicToolsPage__RenderFunc(props: {
                             //   "text": "یادآوری خودآزمایی سرطان سینه",
                             //   "action": "#breastCancer",
                             //   "shopType" : "" ,
-                            //   "icon": "https://liom.storage.c2.liara.space/config/self_care/breastCancerOutlined.png"
+                            //   "icon": "https://teh-1.s3.poshtiban.com/liom/config/self_care/breastCancerOutlined.png"
                             // },
                             {
                               text: "همیار بارداری",
                               shopType: "",
                               action: "#hamyarInfo",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/hamyarOutlined.png"
+                              icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/hamyarOutlined.png"
                             },
                             {
                               text: "کلینیک",
                               action: "#clinic",
                               shopType: "",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/clinicOutlined.png"
+                              icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/clinicOutlined.png"
                             },
                             {
                               text: "بیوریتم",
@@ -293,7 +293,7 @@ function PlasmicToolsPage__RenderFunc(props: {
                                 "برنامه بیوریتم و چرخه‌های طبیعی بدن در دوران بارداری.",
                               action: "#biorhythm",
                               shopType: "",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/biorhythmOutlined.png"
+                              icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/biorhythmOutlined.png"
                             }
                           ]
                         }
@@ -311,7 +311,7 @@ function PlasmicToolsPage__RenderFunc(props: {
                               description:
                                 "راهنمای انتخاب و تهیه سیسمونی مناسب برای نوزاد.",
                               action: "#sismony",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/sismoonyOutlined.png"
+                              icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/sismoonyOutlined.png"
                             },
                             {
                               text: "کیف بیمارستان",
@@ -319,7 +319,7 @@ function PlasmicToolsPage__RenderFunc(props: {
                               description:
                                 "لیست کامل وسایل ضروری برای بیمارستان هنگام زایمان.",
                               action: "#hospitalBag",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/haspitalBagOutlined.png"
+                              icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/haspitalBagOutlined.png"
                             },
                             {
                               text: "تست پیش‌بینی جنسیت",
@@ -327,13 +327,13 @@ function PlasmicToolsPage__RenderFunc(props: {
                               description:
                                 "آزمون و بررسی احتمالات جنسیت نوزاد.",
                               action: "#genderDetection",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/genderTestOutlined.png"
+                              icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/genderTestOutlined.png"
                             },
                             {
                               text: "چک‌لیست ایمنی و علائم هشدار",
                               action: "#danger",
                               shopType: "",
-                              icon: "https://liom.storage.c2.liara.space/config/self_care/dangerOutlined.png"
+                              icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/dangerOutlined.png"
                             }
                           ]
                         }

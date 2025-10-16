@@ -7542,7 +7542,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                               week = "0" + $state.pregnancy.week;
                             else week = "" + $state.pregnancy.week;
                             return (
-                              "https://liom.storage.c2.liara.space/config/pregnancy/week" +
+                              "https://teh-1.s3.poshtiban.com/liom/config/pregnancy/week" +
                               week +
                               ".png"
                             );

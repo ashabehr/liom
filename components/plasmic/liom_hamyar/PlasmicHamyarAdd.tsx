@@ -475,17 +475,17 @@ function PlasmicHamyarAdd__RenderFunc(props: {
             banners: [
               {
                 banner:
-                  "https://liom.storage.c2.liara.space/config/hamyar/ham1.png",
+                  "https://teh-1.s3.poshtiban.com/liom/config/hamyar/ham1.png",
                 action: "#calendar"
               },
               {
                 banner:
-                  "https://liom.storage.c2.liara.space/config/hamyar/ham2.png",
+                  "https://teh-1.s3.poshtiban.com/liom/config/hamyar/ham2.png",
                 action: "#calendar"
               },
               {
                 banner:
-                  "https://liom.storage.c2.liara.space/config/hamyar/ham3.png",
+                  "https://teh-1.s3.poshtiban.com/liom/config/hamyar/ham3.png",
                 action: "#calendar"
               }
             ],
@@ -493,7 +493,7 @@ function PlasmicHamyarAdd__RenderFunc(props: {
             partnerOverViewImage: "",
             limitHamyar: 1,
             background:
-              "https://liom.storage.c2.liara.space/config/hamyar/hamyar_pregnancy.png"
+              "https://teh-1.s3.poshtiban.com/liom/config/hamyar/hamyar_pregnancy.png"
           }
         })
       },
