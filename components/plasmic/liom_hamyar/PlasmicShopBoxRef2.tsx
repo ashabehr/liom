@@ -490,33 +490,6 @@ function PlasmicShopBoxRef2__RenderFunc(props: {
             null,
             eventArgs
           );
-
-          (async error => {
-            const $steps = {};
-
-            $steps["invokeGlobalAction"] =
-              $props.token == "" || $props.token == null
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        "error",
-                        "\u0645\u062a\u0627\u0633\u0641\u0627\u0646\u0647 \u0645\u0634\u06a9\u0644\u06cc \u0631\u062e \u062f\u0627\u062f\u0647 \u0627\u0633\u062a. \u0644\u0637\u0641\u0627 \u0645\u062c\u062f\u062f\u0627 \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f",
-                        "bottom-center"
-                      ]
-                    };
-                    return $globalActions["Fragment.showToast"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
-            if (
-              $steps["invokeGlobalAction"] != null &&
-              typeof $steps["invokeGlobalAction"] === "object" &&
-              typeof $steps["invokeGlobalAction"].then === "function"
-            ) {
-              $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
-            }
-          }).apply(null, eventArgs);
         }}
         onLoading={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, ["shopDialog", "loading"]).apply(

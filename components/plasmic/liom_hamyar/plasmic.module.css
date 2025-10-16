@@ -288,57 +288,33 @@
 @media (max-width: 640px) {
   .plasmic_tokens {
     --token-G-IZ_XhVdlqp: #00af65;
-    --plasmic-token-green: var(--token-G-IZ_XhVdlqp);
   }
 }
 
 .plasmic_tokens.global_newView_newView.global_newView_newView {
   --token-yL32ChWVky0P: #ffffff;
-  --plasmic-token-app-bg: var(--token-yL32ChWVky0P);
   --token-_Tqr-iwbEpLO: #4595ff;
-  --plasmic-token-light-purple: var(--token-_Tqr-iwbEpLO);
   --token-sN1yASr7oAvM: #f1f4f8;
-  --plasmic-token-surface: var(--token-sN1yASr7oAvM);
   --token-SX03PBUzWAqr: #1264d1;
-  --plasmic-token-primary: var(--token-SX03PBUzWAqr);
   --token-RfhqiwT2YAVo: #d1e5ff;
-  --plasmic-token-serface: var(--token-RfhqiwT2YAVo);
   --token-AupbASVTnAsv: #eef2fa;
-  --plasmic-token-bg-liom: var(--token-AupbASVTnAsv);
   --token-qvl81LxkOSoe: var(--token-0xHMxyAHbOos);
-  --plasmic-token-basic-border: var(--token-qvl81LxkOSoe);
   --token-bdv-dtXXZl0T: #a2caff;
-  --plasmic-token-primary-soft: var(--token-bdv-dtXXZl0T);
   --token-my-eDT9W5v2h: #74b0ff4d;
-  --plasmic-token-primary-light: var(--token-my-eDT9W5v2h);
   --token-V9F2RDyAp-Aj: #1e3a8a;
-  --plasmic-token-bavarian-blue: var(--token-V9F2RDyAp-Aj);
   --token-jazd99cxnU6L: #3fa2f6;
-  --plasmic-token-gradient-1: var(--token-jazd99cxnU6L);
   --token-h0Lrt0a3YiLk: #177bff;
-  --plasmic-token-gradient-2: var(--token-h0Lrt0a3YiLk);
   --token-tdm3bsKUybvD: #1264d199;
-  --plasmic-token-primary-60: var(--token-tdm3bsKUybvD);
   --token-dcSKjrUoFVAy: #a2caff;
-  --plasmic-token-select: var(--token-dcSKjrUoFVAy);
   --token-_ZJXI4jrgWEl: #1264d1;
-  --plasmic-token-primary-text: var(--token-_ZJXI4jrgWEl);
   --token-DfljP9wlRXN0: #1976d2;
-  --plasmic-token-gradient-3: var(--token-DfljP9wlRXN0);
   --token-B4BpXURM66z6: #1e88e5;
-  --plasmic-token-gradient-4: var(--token-B4BpXURM66z6);
   --token-F1eLFoy3cKfL: #2196f3;
-  --plasmic-token-gradient-5: var(--token-F1eLFoy3cKfL);
   --token-QhYm7a9pRl-F: #42a5f5;
-  --plasmic-token-gradient-6: var(--token-QhYm7a9pRl-F);
   --token-4yyaCJT6oTu5: #64b5f6;
-  --plasmic-token-gradient-7: var(--token-4yyaCJT6oTu5);
   --token-IbfjnB1m9DUX: #90caf9;
-  --plasmic-token-gradient-8: var(--token-IbfjnB1m9DUX);
   --token-sCjC_4Q-DzZo: #bbdefb;
-  --plasmic-token-gradient-9: var(--token-sCjC_4Q-DzZo);
   --token-dqshVX6SoHxS: #0e4ea2;
-  --plasmic-token-dark-primary: var(--token-dqshVX6SoHxS);
 }
 
 .plasmic_tokens {
