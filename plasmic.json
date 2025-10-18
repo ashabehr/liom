@@ -4639,7 +4639,7 @@
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
           "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSShopItem.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/s.tsx"
+            "modulePath": "../src/pages/s-2.tsx"
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicSShopItem.module.css",
           "scheme": "blackbox",
@@ -4733,7 +4733,7 @@
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
           "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSShopItem2.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/s-2/[refcodeid].tsx"
+            "modulePath": "../src/pages/s/[refcodeid].tsx"
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicSShopItem2.module.css",
           "scheme": "blackbox",

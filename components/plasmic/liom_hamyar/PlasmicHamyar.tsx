@@ -1516,6 +1516,12 @@ function PlasmicHamyar__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "reminderSetting.dialogOpendialog3",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -6004,6 +6010,10 @@ function PlasmicHamyar__RenderFunc(props: {
                   throw e;
                 }
               })()}
+              dialogOpendialog3={generateStateValueProp($state, [
+                "reminderSetting",
+                "dialogOpendialog3"
+              ])}
               hamyar={true}
               man={(() => {
                 try {
@@ -6048,6 +6058,20 @@ function PlasmicHamyar__RenderFunc(props: {
                       }
                     })()
               }
+              onDialogOpendialog3Change={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminderSetting",
+                  "dialogOpendialog3"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
               onRefreshChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "reminderSetting",

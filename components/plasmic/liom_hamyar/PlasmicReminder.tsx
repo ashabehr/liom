@@ -990,6 +990,18 @@ function PlasmicReminder__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "reminderSetting.dialogOpendialog3",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "reminderSetting2.dialogOpendialog3",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -4329,6 +4341,10 @@ function PlasmicReminder__RenderFunc(props: {
                         }
                       })()
                 }
+                dialogOpendialog3={generateStateValueProp($state, [
+                  "reminderSetting",
+                  "dialogOpendialog3"
+                ])}
                 manId={(() => {
                   try {
                     return $props.manId;
@@ -4342,6 +4358,20 @@ function PlasmicReminder__RenderFunc(props: {
                     throw e;
                   }
                 })()}
+                onDialogOpendialog3Change={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "reminderSetting",
+                    "dialogOpendialog3"
+                  ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
                 onRefreshChange={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, [
                     "reminderSetting",
@@ -4832,6 +4862,10 @@ function PlasmicReminder__RenderFunc(props: {
                   throw e;
                 }
               })()}
+              dialogOpendialog3={generateStateValueProp($state, [
+                "reminderSetting2",
+                "dialogOpendialog3"
+              ])}
               manId={(() => {
                 try {
                   return $props.manId;
@@ -4845,6 +4879,20 @@ function PlasmicReminder__RenderFunc(props: {
                   throw e;
                 }
               })()}
+              onDialogOpendialog3Change={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminderSetting2",
+                  "dialogOpendialog3"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
               onRefreshChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "reminderSetting2",
@@ -5507,30 +5555,51 @@ function PlasmicReminder__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["updateSlide3"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          vgroup: "slide3",
-                          operation: 2,
-                          value: "slide3"
-                        };
-                        return (({ vgroup, value }) => {
-                          if (typeof value === "string") {
-                            value = [value];
-                          }
+                  $steps["updateSlide3"] =
+                    $props.manId != "1"
+                      ? (() => {
+                          const actionArgs = {
+                            vgroup: "slide3",
+                            operation: 4,
+                            value: "slide3"
+                          };
+                          return (({ vgroup, value }) => {
+                            if (typeof value === "string") {
+                              value = [value];
+                            }
 
-                          const oldValue = $stateGet($state, vgroup);
-                          $stateSet($state, vgroup, !oldValue);
-                          return !oldValue;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
+                            $stateSet($state, vgroup, true);
+                            return true;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
                   if (
                     $steps["updateSlide3"] != null &&
                     typeof $steps["updateSlide3"] === "object" &&
                     typeof $steps["updateSlide3"].then === "function"
                   ) {
                     $steps["updateSlide3"] = await $steps["updateSlide3"];
+                  }
+
+                  $steps["runCode"] =
+                    $props.manId == "1"
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return ($state.reminderSetting.dialogOpendialog3 = true);
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {

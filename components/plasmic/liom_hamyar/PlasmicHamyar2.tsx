@@ -2220,6 +2220,12 @@ function PlasmicHamyar2__RenderFunc(props: {
 
         valueProp: "refresh",
         onChangeProp: "onRefreshChange"
+      },
+      {
+        path: "reminderSetting.dialogOpendialog3",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -7542,7 +7548,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                               week = "0" + $state.pregnancy.week;
                             else week = "" + $state.pregnancy.week;
                             return (
-                              "https://teh-1.s3.poshtiban.com/liom/config/pregnancy/week" +
+                              "https://liom.storage.c2.liara.space/config/pregnancy/week" +
                               week +
                               ".png"
                             );
@@ -21154,6 +21160,10 @@ function PlasmicHamyar2__RenderFunc(props: {
               throw e;
             }
           })()}
+          dialogOpendialog3={generateStateValueProp($state, [
+            "reminderSetting",
+            "dialogOpendialog3"
+          ])}
           manId={
             hasVariant($state, "remindersetting", "remindersetting") &&
             hasVariant(globalVariants, "screen", "mobile")
@@ -21184,6 +21194,20 @@ function PlasmicHamyar2__RenderFunc(props: {
                   }
                 })()
           }
+          onDialogOpendialog3Change={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, [
+              "reminderSetting",
+              "dialogOpendialog3"
+            ]).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
           onRefreshChange={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, [
               "reminderSetting",

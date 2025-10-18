@@ -586,16 +586,27 @@
   font-weight: 500;
   min-width: 0;
 }
+.freeBox___0WTdm {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 0px;
+  min-width: 0;
+  padding: 0px;
+}
 .freeBox__c06WY {
   display: flex;
   flex-direction: row;
-  position: relative;
   align-items: center;
   justify-content: flex-start;
   width: 100%;
   height: auto;
   max-width: 100%;
-  margin-top: 0px;
   column-gap: var(--token-O5TjkXII_aat);
   min-width: 0;
   border-radius: 0.3rem;
@@ -628,6 +639,18 @@
   opacity: 0.5;
   min-width: 0;
 }
+.svg__sOlxy {
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20px;
+  align-self: auto;
+  color: var(--token-qvl81LxkOSoe);
+  position: relative;
+  left: auto;
+  top: auto;
+  flex-shrink: 0;
+}
 .svg__feQp0 {
   object-fit: cover;
   max-width: 100%;
@@ -635,6 +658,9 @@
   height: 20px;
   align-self: auto;
   color: var(--token-qvl81LxkOSoe);
+  position: absolute;
+  left: 10px;
+  top: 10px;
   flex-shrink: 0;
 }
 .freeBox___4YZz {
@@ -722,66 +748,6 @@
   max-width: 100%;
   height: 100%;
   min-height: 0;
-}
-.freeBox__u0Uwl {
-  display: grid;
-  position: relative;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  grid-row-gap: var(--token-uOLZE7OyOW-J);
-  grid-column-gap: var(--token-uOLZE7OyOW-J);
-  min-width: 0;
-  padding: var(--token-O5TjkXII_aat) 0px;
-}
-.freeBox___5Yr4M {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  justify-content: flex-start;
-  align-items: center;
-  background: none;
-  min-width: 0;
-  border-radius: var(--token-B5WvIYiqPJW-);
-  padding: 0px;
-  border: 2px solid var(--token-qvl81LxkOSoe);
-}
-.freeBox__cnHxd {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  justify-content: flex-start;
-  align-items: flex-start;
-  min-width: 0;
-  padding: 0px var(--token-O5TjkXII_aat) 0px 0px;
-}
-.text___63ZP {
-  width: auto;
-  height: 25px;
-  max-width: 100%;
-  text-align: right;
-  font-size: var(--token-Wa5tmrNKVUYF);
-  font-weight: 400;
-  flex-shrink: 0;
-}
-.svg__w5Xe {
-  object-fit: cover;
-  max-width: 100%;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  left: 4px;
-  top: 2px;
-  opacity: 1;
-  color: var(--token-qvl81LxkOSoe);
-  flex-shrink: 0;
 }
 .freeBox__wxPm {
   display: flex;
