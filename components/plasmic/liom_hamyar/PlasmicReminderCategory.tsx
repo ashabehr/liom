@@ -97,6 +97,8 @@ export type PlasmicReminderCategory__ArgsType = {
   show?: boolean;
   onShowChange?: (val: string) => void;
   ok?: () => void;
+  diable?: boolean;
+  onDiableChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicReminderCategory__ArgsType;
 export const PlasmicReminderCategory__ArgProps = new Array<ArgPropType>(
@@ -105,7 +107,9 @@ export const PlasmicReminderCategory__ArgProps = new Array<ArgPropType>(
   "onSelectChange",
   "show",
   "onShowChange",
-  "ok"
+  "ok",
+  "diable",
+  "onDiableChange"
 );
 
 export type PlasmicReminderCategory__OverridesType = {
@@ -127,6 +131,8 @@ export interface DefaultReminderCategoryProps {
   show?: boolean;
   onShowChange?: (val: string) => void;
   ok?: () => void;
+  diable?: boolean;
+  onDiableChange?: (val: string) => void;
   more2?: SingleBooleanChoiceArg<"more2">;
   className?: string;
 }
@@ -326,6 +332,14 @@ function PlasmicReminderCategory__RenderFunc(props: {
 
         valueProp: "show",
         onChangeProp: "onShowChange"
+      },
+      {
+        path: "diable",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "diable",
+        onChangeProp: "onDiableChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -381,6 +395,19 @@ function PlasmicReminderCategory__RenderFunc(props: {
                   "aria-label": ``,
                   bordered: false,
                   className: classNames("__wab_instance", sty.titleInput),
+                  disabled: (() => {
+                    try {
+                      return $state.diable;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })(),
                   onChange: async (...eventArgs: any) => {
                     generateStateOnChangePropForCodeComponents(
                       $state,
@@ -488,6 +515,60 @@ function PlasmicReminderCategory__RenderFunc(props: {
                   role={"img"}
                 />
               </Reveal>
+            ) : null}
+            {(() => {
+              try {
+                return $state.diable;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div
+                className={classNames(projectcss.all, sty.freeBox__dov4)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateDiable"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["diable"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateDiable"] != null &&
+                    typeof $steps["updateDiable"] === "object" &&
+                    typeof $steps["updateDiable"].then === "function"
+                  ) {
+                    $steps["updateDiable"] = await $steps["updateDiable"];
+                  }
+                }}
+              />
             ) : null}
           </div>
           <div

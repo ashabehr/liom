@@ -1283,9 +1283,6 @@
   font-weight: 400;
   min-width: 0;
 }
-.reminderSetting2:global(.__wab_instance) {
-  max-width: 100%;
-}
 .section__vMhpT {
   display: grid;
   position: relative;

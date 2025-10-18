@@ -188,7 +188,6 @@ export type PlasmicReminder__OverridesType = {
   reminderSetting?: Flex__<typeof ReminderSetting>;
   swiperSlider?: Flex__<typeof SwiperSlider>;
   slide2?: Flex__<"div">;
-  reminderSetting2?: Flex__<typeof ReminderSetting>;
   button8?: Flex__<typeof Button>;
   button?: Flex__<typeof Button>;
   tooltip?: Flex__<typeof AntdTooltip>;
@@ -698,50 +697,6 @@ function PlasmicReminder__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "reminderSetting2.refresh",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
-        path: "reminderSetting2.tel",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.tel;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })()
-      },
-      {
-        path: "reminderSetting2.sms",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.sms;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })()
-      },
-      {
         path: "sms",
         type: "writable",
         variableType: "boolean",
@@ -986,19 +941,7 @@ function PlasmicReminder__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
       },
       {
-        path: "reminderSetting2.refreshTime",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
         path: "reminderSetting.dialogOpendialog3",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "reminderSetting2.dialogOpendialog3",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
@@ -4703,440 +4646,6 @@ function PlasmicReminder__RenderFunc(props: {
                 }
               </div>
             </div>
-            <ReminderSetting
-              data-plasmic-name={"reminderSetting2"}
-              data-plasmic-override={overrides.reminderSetting2}
-              className={classNames("__wab_instance", sty.reminderSetting2, {
-                [sty.reminderSetting2slide3]: hasVariant(
-                  $state,
-                  "slide3",
-                  "slide3"
-                )
-              })}
-              data={(() => {
-                try {
-                  return $props.data || [];
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return [
-                      {
-                        id: "04d77165-ab7d-4537-86ba-1099e4f66091-1",
-                        progressGroupId: null,
-                        userId: "1",
-                        doctorId: "21353",
-                        name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
-                        text: "",
-                        actionText: null,
-                        canSkip: null,
-                        actionIcon: null,
-                        actionType: null,
-                        action: null,
-                        type: "SpouseBirthday",
-                        category: "personal",
-                        category_fa:
-                          "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
-                        status: "waiting",
-                        done: false,
-                        date: "2025-09-10T00:00:00.000Z",
-                        dependId: null,
-                        dependAt: null,
-                        exclude: [],
-                        order: 7,
-                        priority: 10,
-                        createdAt: "2025-09-08T07:45:09.172Z",
-                        updatedAt: "2025-09-08T07:45:09.172Z"
-                      },
-                      {
-                        id: "d2e905f3-2837-4bda-8404-368f6a63527b-1",
-                        progressGroupId: null,
-                        userId: "1",
-                        doctorId: "21353",
-                        name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c",
-                        text: "",
-                        actionText: null,
-                        canSkip: null,
-                        actionIcon: null,
-                        actionType: null,
-                        action: null,
-                        type: "WeddingAnniversary",
-                        category: "notification",
-                        category_fa:
-                          "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-                        status: "waiting",
-                        done: false,
-                        date: "2025-10-01T00:00:00.000Z",
-                        dependId: null,
-                        dependAt: null,
-                        exclude: [],
-                        order: 9,
-                        priority: 10,
-                        createdAt: "2025-09-08T08:47:52.446Z",
-                        updatedAt: "2025-09-08T08:47:52.446Z"
-                      },
-                      {
-                        id: "04d77165-ab7d-4537-86ba-1099e4f66091-2",
-                        progressGroupId: null,
-                        userId: "1",
-                        doctorId: "21353",
-                        name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
-                        text: "\u0631\u0648\u0632 \u0639\u0634\u0642 \u062c\u0647\u0627\u0646\u06cc",
-                        actionText: null,
-                        canSkip: null,
-                        actionIcon: null,
-                        actionType: null,
-                        action: null,
-                        type: "occasion",
-                        category: "notification",
-                        category_fa:
-                          "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-                        status: "waiting",
-                        done: false,
-                        date: "2026-02-14T00:00:00.000Z",
-                        dependId: null,
-                        dependAt: null,
-                        exclude: [],
-                        order: 4,
-                        priority: 10,
-                        createdAt: "2025-09-08T07:50:00.000Z",
-                        updatedAt: "2025-09-08T07:50:00.000Z"
-                      },
-                      {
-                        id: "04d77165-ab7d-4537-86ba-1099e4f66091-3",
-                        progressGroupId: null,
-                        userId: "1",
-                        doctorId: "21353",
-                        name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
-                        text: "\u0631\u0648\u0632 \u0632\u0646 \u0648 \u0639\u0634\u0642 \u062f\u0631 \u0627\u06cc\u0631\u0627\u0646 \u0628\u0627\u0633\u062a\u0627\u0646",
-                        actionText: null,
-                        canSkip: null,
-                        actionIcon: null,
-                        actionType: null,
-                        action: null,
-                        type: "occasion",
-                        category: "notification",
-                        category_fa:
-                          "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-                        status: "waiting",
-                        done: false,
-                        date: "2026-02-18T00:00:00.000Z",
-                        dependId: null,
-                        dependAt: null,
-                        exclude: [],
-                        order: 5,
-                        priority: 10,
-                        createdAt: "2025-09-08T07:51:00.000Z",
-                        updatedAt: "2025-09-08T07:51:00.000Z"
-                      },
-                      {
-                        id: "04d77165-ab7d-4537-86ba-1099e4f66091-4",
-                        progressGroupId: null,
-                        userId: "1",
-                        doctorId: "21353",
-                        name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
-                        text: "International Women's Day",
-                        actionText: null,
-                        canSkip: null,
-                        actionIcon: null,
-                        actionType: null,
-                        action: null,
-                        type: "occasion",
-                        category: "notification",
-                        category_fa:
-                          "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-                        status: "waiting",
-                        done: false,
-                        date: "2026-03-08T00:00:00.000Z",
-                        dependId: null,
-                        dependAt: null,
-                        exclude: [],
-                        order: 3,
-                        priority: 10,
-                        createdAt: "2025-09-08T07:52:00.000Z",
-                        updatedAt: "2025-09-08T07:52:00.000Z"
-                      }
-                    ];
-                  }
-                  throw e;
-                }
-              })()}
-              dialogOpendialog3={generateStateValueProp($state, [
-                "reminderSetting2",
-                "dialogOpendialog3"
-              ])}
-              manId={(() => {
-                try {
-                  return $props.manId;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-              onDialogOpendialog3Change={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "reminderSetting2",
-                  "dialogOpendialog3"
-                ]).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              onRefreshChange={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "reminderSetting2",
-                  "refresh"
-                ]).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-
-                (async val => {
-                  const $steps = {};
-
-                  $steps["updateRefresh"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["refresh"]
-                          },
-                          operation: 0,
-                          value: $state.refresh + 1
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateRefresh"] != null &&
-                    typeof $steps["updateRefresh"] === "object" &&
-                    typeof $steps["updateRefresh"].then === "function"
-                  ) {
-                    $steps["updateRefresh"] = await $steps["updateRefresh"];
-                  }
-                }).apply(null, eventArgs);
-              }}
-              onRefreshTimeChange={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "reminderSetting2",
-                  "refreshTime"
-                ]).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              onSmsChange={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "reminderSetting2",
-                  "sms"
-                ]).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-
-                (async val => {
-                  const $steps = {};
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              $state.sms = $state.reminderSetting2.sms;
-                              return console.log("sms", $state.sms);
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
-                }).apply(null, eventArgs);
-              }}
-              onTelChange={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "reminderSetting2",
-                  "tel"
-                ]).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-
-                (async val => {
-                  const $steps = {};
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              $state.tel = $state.reminderSetting2.tel;
-                              return console.log("tel", $state.tel);
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
-                }).apply(null, eventArgs);
-              }}
-              phoneNumber={(() => {
-                try {
-                  return $props.phone;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-              refresh={generateStateValueProp($state, [
-                "reminderSetting2",
-                "refresh"
-              ])}
-              refreshTime={generateStateValueProp($state, [
-                "reminderSetting2",
-                "refreshTime"
-              ])}
-              shop={async () => {
-                const $steps = {};
-
-                $steps["runShop"] = true
-                  ? (() => {
-                      const actionArgs = { eventRef: $props["shop"] };
-                      return (({ eventRef, args }) => {
-                        return eventRef?.(...(args ?? []));
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["runShop"] != null &&
-                  typeof $steps["runShop"] === "object" &&
-                  typeof $steps["runShop"].then === "function"
-                ) {
-                  $steps["runShop"] = await $steps["runShop"];
-                }
-              }}
-              slide={"_2"}
-              sms={generateStateValueProp($state, ["reminderSetting2", "sms"])}
-              subscription={(() => {
-                try {
-                  return $props.subscription;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return false;
-                  }
-                  throw e;
-                }
-              })()}
-              tel={generateStateValueProp($state, ["reminderSetting2", "tel"])}
-              telegramId={(() => {
-                try {
-                  return $props.telegramId;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-              telegramOn={(() => {
-                try {
-                  return $props.telegram;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return false;
-                  }
-                  throw e;
-                }
-              })()}
-              token={(() => {
-                try {
-                  return $props.token;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-            />
           </div>
         </SwiperSlider>
         <section
@@ -5696,7 +5205,6 @@ const PlasmicDescendants = {
     "reminderSetting",
     "swiperSlider",
     "slide2",
-    "reminderSetting2",
     "button8",
     "button",
     "tooltip",
@@ -5738,9 +5246,8 @@ const PlasmicDescendants = {
   slide1: ["slide1", "button6", "reminderSetting"],
   button6: ["button6"],
   reminderSetting: ["reminderSetting"],
-  swiperSlider: ["swiperSlider", "slide2", "reminderSetting2"],
-  slide2: ["slide2", "reminderSetting2"],
-  reminderSetting2: ["reminderSetting2"],
+  swiperSlider: ["swiperSlider", "slide2"],
+  slide2: ["slide2"],
   button8: ["button8"],
   button: ["button"],
   tooltip: ["tooltip", "button7"],
@@ -5782,7 +5289,6 @@ type NodeDefaultElementType = {
   reminderSetting: typeof ReminderSetting;
   swiperSlider: typeof SwiperSlider;
   slide2: "div";
-  reminderSetting2: typeof ReminderSetting;
   button8: typeof Button;
   button: typeof Button;
   tooltip: typeof AntdTooltip;
@@ -5882,7 +5388,6 @@ export const PlasmicReminder = Object.assign(
     reminderSetting: makeNodeComponent("reminderSetting"),
     swiperSlider: makeNodeComponent("swiperSlider"),
     slide2: makeNodeComponent("slide2"),
-    reminderSetting2: makeNodeComponent("reminderSetting2"),
     button8: makeNodeComponent("button8"),
     button: makeNodeComponent("button"),
     tooltip: makeNodeComponent("tooltip"),

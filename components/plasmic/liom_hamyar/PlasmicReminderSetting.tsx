@@ -993,6 +993,12 @@ function PlasmicReminderSetting__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "reminderCategory2.diable",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -3271,6 +3277,30 @@ function PlasmicReminderSetting__RenderFunc(props: {
             ) {
               return;
             }
+
+            (async val => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return ($state.reminderCategory2.diable = true);
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }).apply(null, eventArgs);
           }}
           opendialog={generateStateValueProp($state, ["dialog2", "opendialog"])}
         >
@@ -3282,6 +3312,10 @@ function PlasmicReminderSetting__RenderFunc(props: {
               "antdInputValue"
             ])}
             className={classNames("__wab_instance", sty.reminderCategory2)}
+            diable={generateStateValueProp($state, [
+              "reminderCategory2",
+              "diable"
+            ])}
             ok={async () => {
               const $steps = {};
 
@@ -3509,6 +3543,20 @@ function PlasmicReminderSetting__RenderFunc(props: {
               generateStateOnChangeProp($state, [
                 "reminderCategory2",
                 "antdInputValue"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onDiableChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "reminderCategory2",
+                "diable"
               ]).apply(null, eventArgs);
 
               if (
