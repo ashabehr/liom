@@ -116,8 +116,8 @@ export type PlasmicReminderCategory__OverridesType = {
   sort?: Flex__<typeof RadioGroupLiom>;
   more?: Flex__<"div">;
   radioGroupLiom2?: Flex__<typeof RadioGroupLiom>;
-  radioGroupLiom3?: Flex__<typeof RadioGroupLiom>;
   apiRequest?: Flex__<typeof ApiRequest>;
+  radioGroupLiom3?: Flex__<typeof RadioGroupLiom>;
 };
 
 export interface DefaultReminderCategoryProps {
@@ -1007,6 +1007,34 @@ function PlasmicReminderCategory__RenderFunc(props: {
               </div>
             );
           })}
+          <ApiRequest
+            data-plasmic-name={"apiRequest"}
+            data-plasmic-override={overrides.apiRequest}
+            className={classNames("__wab_instance", sty.apiRequest)}
+            errorDisplay={null}
+            loadingDisplay={null}
+            method={"GET"}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "apiRequest",
+                "loading"
+              ]).apply(null, eventArgs);
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            shouldFetch={true}
+            url={"https://n8n.staas.ir/webhook/reminders/category"}
+          />
         </div>
         {(hasVariant($state, "more2", "more2") ? true : false) ? (
           <div
@@ -1140,54 +1168,6 @@ function PlasmicReminderCategory__RenderFunc(props: {
             </div>
           </div>
         ) : null}
-        <ApiRequest
-          data-plasmic-name={"apiRequest"}
-          data-plasmic-override={overrides.apiRequest}
-          className={classNames("__wab_instance", sty.apiRequest)}
-          errorDisplay={
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__q6IRy
-              )}
-            >
-              {"Error fetching data"}
-            </div>
-          }
-          loadingDisplay={
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___41Z7U
-              )}
-            >
-              {"Loading..."}
-            </div>
-          }
-          method={"GET"}
-          onError={async (...eventArgs: any) => {
-            generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(
-              null,
-              eventArgs
-            );
-          }}
-          onLoading={async (...eventArgs: any) => {
-            generateStateOnChangeProp($state, ["apiRequest", "loading"]).apply(
-              null,
-              eventArgs
-            );
-          }}
-          onSuccess={async (...eventArgs: any) => {
-            generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
-              null,
-              eventArgs
-            );
-          }}
-          shouldFetch={true}
-          url={"https://n8n.staas.ir/webhook/reminders/category"}
-        />
       </div>
     ) : null
   ) as React.ReactElement | null;
@@ -1202,8 +1182,8 @@ const PlasmicDescendants = {
     "sort",
     "more",
     "radioGroupLiom2",
-    "radioGroupLiom3",
-    "apiRequest"
+    "apiRequest",
+    "radioGroupLiom3"
   ],
   title: ["title", "titleInput"],
   titleInput: ["titleInput"],
@@ -1211,8 +1191,8 @@ const PlasmicDescendants = {
   sort: ["sort"],
   more: ["more"],
   radioGroupLiom2: ["radioGroupLiom2"],
-  radioGroupLiom3: ["radioGroupLiom3"],
-  apiRequest: ["apiRequest"]
+  apiRequest: ["apiRequest"],
+  radioGroupLiom3: ["radioGroupLiom3"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1225,8 +1205,8 @@ type NodeDefaultElementType = {
   sort: typeof RadioGroupLiom;
   more: "div";
   radioGroupLiom2: typeof RadioGroupLiom;
-  radioGroupLiom3: typeof RadioGroupLiom;
   apiRequest: typeof ApiRequest;
+  radioGroupLiom3: typeof RadioGroupLiom;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1297,8 +1277,8 @@ export const PlasmicReminderCategory = Object.assign(
     sort: makeNodeComponent("sort"),
     more: makeNodeComponent("more"),
     radioGroupLiom2: makeNodeComponent("radioGroupLiom2"),
-    radioGroupLiom3: makeNodeComponent("radioGroupLiom3"),
     apiRequest: makeNodeComponent("apiRequest"),
+    radioGroupLiom3: makeNodeComponent("radioGroupLiom3"),
 
     // Metadata about props expected for PlasmicReminderCategory
     internalVariantProps: PlasmicReminderCategory__VariantProps,
