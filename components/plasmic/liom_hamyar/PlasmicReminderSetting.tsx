@@ -986,7 +986,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         path: "reminderCategory2.show",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "reminderCategory2.select",
@@ -3311,7 +3311,13 @@ function PlasmicReminderSetting__RenderFunc(props: {
               "reminderCategory2",
               "antdInputValue"
             ])}
-            className={classNames("__wab_instance", sty.reminderCategory2)}
+            className={classNames("__wab_instance", sty.reminderCategory2, {
+              [sty.reminderCategory2hamyar]: hasVariant(
+                $state,
+                "hamyar",
+                "hamyar"
+              )
+            })}
             diable={generateStateValueProp($state, [
               "reminderCategory2",
               "diable"
