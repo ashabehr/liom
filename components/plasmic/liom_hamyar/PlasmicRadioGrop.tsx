@@ -306,6 +306,18 @@ function PlasmicRadioGrop__RenderFunc(props: {
             hasVariant($state, "color", "light") &&
             hasVariant($state, "selected", "selected"),
           [sty.rootcomingSoon]: hasVariant($state, "comingSoon", "comingSoon"),
+          [sty.rootcomingSoon_style2_grayBackgerand_style3_radio_size_mini]:
+            hasVariant($state, "comingSoon", "comingSoon") &&
+            hasVariant($state, "style3", "radio") &&
+            hasVariant($state, "size", "mini") &&
+            hasVariant($state, "style2", "grayBackgerand"),
+          [sty.rootcomingSoon_style3_radio]:
+            hasVariant($state, "comingSoon", "comingSoon") &&
+            hasVariant($state, "style3", "radio"),
+          [sty.rootcomingSoon_style3_radio_size_mini]:
+            hasVariant($state, "comingSoon", "comingSoon") &&
+            hasVariant($state, "style3", "radio") &&
+            hasVariant($state, "size", "mini"),
           [sty.rootdirection_v]: hasVariant($state, "direction", "v"),
           [sty.rootdisable]: hasVariant($state, "disable", "disable"),
           [sty.rooticon]: hasVariant($state, "icon", "icon"),
