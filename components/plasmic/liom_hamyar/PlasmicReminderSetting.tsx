@@ -960,7 +960,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         path: "reminderCategory2.show",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "reminderCategory2.select",
@@ -2753,6 +2753,33 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   </div>
                   {(() => {
                     const child$Props = {
+                      accessclicke: async () => {
+                        const $steps = {};
+
+                        $steps["invokeGlobalAction"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "custom",
+                                  "\u0628\u0647\u200c\u0632\u0648\u062f\u06cc \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0641\u0639\u0627\u0644 \u0645\u06cc\u200c\u0634\u0648\u062f!",
+                                  "bottom-center"
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
+                        }
+                      },
                       className: classNames(
                         "__wab_instance",
                         sty.radioGroupLiom
@@ -3127,7 +3154,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               customFunction: async () => {
                                 return (() => {
                                   $state.dialog.opendialog = false;
-                                  return ($state.select2 = {});
+                                  $state.select2 = {};
+                                  return ($state.dialog2.opendialog = false);
                                 })();
                               }
                             };
@@ -3508,10 +3536,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           schedule_type:
                             $state.reminderCategory2.select.schedule_type,
                           type: $state.reminderCategory2.select.type,
-                          dates:
-                            JSON.stringify([
-                              $state.reminderCategory2.select.date
-                            ]) ?? "[]",
+                          dates: $state.reminderCategory2.select.date
+                            ? JSON.stringify([
+                                $state.reminderCategory2.select.date
+                              ])
+                            : "[]",
                           channels: '["notification","telegram"]',
                           times: "[]",
                           weekdays:

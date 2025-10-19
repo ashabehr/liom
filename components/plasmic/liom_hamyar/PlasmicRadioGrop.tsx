@@ -131,7 +131,6 @@ export const PlasmicRadioGrop__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicRadioGrop__OverridesType = {
   root?: Flex__<"div">;
-  text?: Flex__<"div">;
   freeBox?: Flex__<"div">;
 };
 
@@ -392,17 +391,6 @@ function PlasmicRadioGrop__RenderFunc(props: {
           : undefined
       }
     >
-      <div
-        data-plasmic-name={"text"}
-        data-plasmic-override={overrides.text}
-        className={classNames(projectcss.all, projectcss.__wab_text, sty.text, {
-          [sty.textcomingSoon]: hasVariant($state, "comingSoon", "comingSoon"),
-          [sty.textdirection_v]: hasVariant($state, "direction", "v"),
-          [sty.texticon]: hasVariant($state, "icon", "icon")
-        })}
-      >
-        {"\u0628\u0647\u200c\u0632\u0648\u062f\u06cc!"}
-      </div>
       {(hasVariant($state, "icon", "icon") ? true : false)
         ? renderPlasmicSlot({
             defaultContents: (
@@ -429,6 +417,11 @@ function PlasmicRadioGrop__RenderFunc(props: {
           [sty.freeBoxchoise_selected]:
             hasVariant($state, "choise", "choise") &&
             hasVariant($state, "selected", "selected"),
+          [sty.freeBoxcomingSoon]: hasVariant(
+            $state,
+            "comingSoon",
+            "comingSoon"
+          ),
           [sty.freeBoxdirection_v]: hasVariant($state, "direction", "v"),
           [sty.freeBoxicon]: hasVariant($state, "icon", "icon"),
           [sty.freeBoxpair]: hasVariant($state, "pair", "pair"),
@@ -537,8 +530,7 @@ function PlasmicRadioGrop__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "text", "freeBox"],
-  text: ["text"],
+  root: ["root", "freeBox"],
   freeBox: ["freeBox"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -546,7 +538,6 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  text: "div";
   freeBox: "div";
 };
 
@@ -612,7 +603,6 @@ export const PlasmicRadioGrop = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    text: makeNodeComponent("text"),
     freeBox: makeNodeComponent("freeBox"),
 
     // Metadata about props expected for PlasmicRadioGrop

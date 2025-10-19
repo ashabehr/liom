@@ -91,35 +91,6 @@
 .rootcomingSoon_style2_grayBackgerand_style3_radio_size_mini {
   background: var(--token-Y4frplZPI0IJ);
 }
-.text {
-  position: absolute;
-  width: 100px;
-  height: auto;
-  max-width: 100%;
-  background: var(--token-SX03PBUzWAqr);
-  color: var(--token-R_Rsn0nP9oIv);
-  text-align: center;
-  box-shadow: 0px 4px 16px 0px #ffffff;
-  left: -38px;
-  top: 4px;
-  transform: rotateX(0deg) rotateY(0deg) rotateZ(-45deg);
-  font-size: 8px;
-  font-weight: 700;
-  flex-shrink: 0;
-  display: none;
-  padding: 2px;
-}
-.textcomingSoon {
-  display: block;
-}
-.texticon {
-  left: 0px;
-  top: 0px;
-}
-.textdirection_v {
-  left: 0px;
-  top: 0px;
-}
 .svg__fC0D {
   object-fit: cover;
   max-width: 100%;
@@ -135,6 +106,9 @@
   align-items: center;
   column-gap: var(--token-O5TjkXII_aat);
   min-width: 0;
+}
+.freeBoxcomingSoon {
+  opacity: 0.6;
 }
 .freeBoxstyle3_radio {
   column-gap: var(--token-38wfsm-OP2Vm);

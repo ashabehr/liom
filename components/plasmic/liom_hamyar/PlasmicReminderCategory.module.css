@@ -1,14 +1,13 @@
 .root {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   justify-content: flex-start;
   align-items: center;
   row-gap: var(--token-O5TjkXII_aat);
   justify-self: flex-start;
-  min-width: 0;
   padding: 0px;
 }
 @media (max-width: 640px) {
@@ -25,7 +24,7 @@
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
-  background: var(--token-R_Rsn0nP9oIv);
+  background: none;
   row-gap: var(--token-B5WvIYiqPJW-);
   left: auto;
   top: auto;
@@ -36,7 +35,6 @@
   border-bottom: var(--token-O5TjkXII_aat) solid var(--token-MC6PcZje01vY);
 }
 .freeBox__bs98W {
-  display: flex;
   flex-direction: row;
   position: relative;
   align-items: stretch;
@@ -49,6 +47,7 @@
   transition-duration: 0.3s;
   transition-timing-function: ease-in-out;
   min-width: 0;
+  display: none;
   -webkit-transition-property: all;
   -webkit-transition-timing-function: ease-in-out;
   -webkit-transition-duration: 0.3s;
