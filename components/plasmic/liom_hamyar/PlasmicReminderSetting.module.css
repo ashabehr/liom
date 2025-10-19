@@ -176,13 +176,21 @@
   font-weight: 500;
   min-width: 0;
 }
-.input:global(.__wab_instance) {
+.textInput {
+  display: flex;
+  flex-direction: column;
+  position: relative;
   width: 100%;
+  height: 45px;
   max-width: 100%;
-  object-fit: cover;
-  background: none;
-  font-size: var(--token-Wa5tmrNKVUYF);
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 16px;
   min-width: 0;
+  flex-shrink: 0;
+  border-radius: var(--token-O5TjkXII_aat);
+  padding: 8px;
+  border-width: 1px;
 }
 .freeBox__p8KA1 {
   flex-direction: column;

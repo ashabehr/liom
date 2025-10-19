@@ -61,7 +61,6 @@ import {
 
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
-import { Input } from "@/fragment/components/input"; // plasmic-import: zZH7vV9pXyf8/codeComponent
 import Repead from "../../Repead"; // plasmic-import: bTRB9n2MQ7IL/component
 import RadioGrop from "../../RadioGrop"; // plasmic-import: mcNKMbL_6N75/component
 import RadioGroupLiom from "../../RadioGroupLiom"; // plasmic-import: tXN0uQ-uT9R3/component
@@ -165,7 +164,7 @@ export type PlasmicReminderSetting__OverridesType = {
   section?: Flex__<"section">;
   headerLiom?: Flex__<typeof HeaderLiom>;
   dialog?: Flex__<typeof Dialog>;
-  input?: Flex__<typeof Input>;
+  textInput?: Flex__<"input">;
   repead?: Flex__<typeof Repead>;
   radioGrop?: Flex__<typeof RadioGrop>;
   radioGroupLiom?: Flex__<typeof RadioGroupLiom>;
@@ -202,6 +201,7 @@ export type PlasmicReminderSetting__OverridesType = {
   editItem?: Flex__<typeof Button>;
   switchSetting?: Flex__<typeof Switchbest>;
   button2?: Flex__<typeof Button>;
+  textbox?: Flex__<"input">;
 };
 
 export interface DefaultReminderSettingProps {
@@ -385,26 +385,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant(globalVariants, "screen", "mobile") ? false : false
-      },
-      {
-        path: "input.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.select2.name || $state.reminderCategory2.inputValue;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+          hasVariant(globalVariants, "screen", "mobile") ? false : true
       },
       {
         path: "dateDiolog.opendialog",
@@ -993,10 +974,29 @@ function PlasmicReminderSetting__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
-        path: "reminderCategory2.inputValue",
+        path: "reminderCategory2.title",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "title",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.select2.name || $state.reminderCategory2.title;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -1156,21 +1156,73 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 >
                   {"\u0639\u0646\u0648\u0627\u0646 "}
                 </div>
-                <Input
-                  data-plasmic-name={"input"}
-                  data-plasmic-override={overrides.input}
-                  className={classNames("__wab_instance", sty.input)}
-                  onChange={async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, ["input", "value"]).apply(
-                      null,
-                      eventArgs
-                    );
+                <input
+                  data-plasmic-name={"textInput"}
+                  data-plasmic-override={
+                    overrides.textInput ?? overrides.textbox
+                  }
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.input,
+                    sty.textInput
+                  )}
+                  id={"htmltitleSetting"}
+                  onChange={async event => {
+                    const $steps = {};
+
+                    $steps["updateTitle"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["title"]
+                            },
+                            operation: 0,
+                            value:
+                              window.document.getElementById("htmltitleSetting")
+                                .value
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateTitle"] != null &&
+                      typeof $steps["updateTitle"] === "object" &&
+                      typeof $steps["updateTitle"].then === "function"
+                    ) {
+                      $steps["updateTitle"] = await $steps["updateTitle"];
+                    }
                   }}
                   placeholder={
                     "\u0628\u0631\u0627\u06cc \u0645\u062b\u0627\u0644 ..."
                   }
                   type={"text"}
-                  value={generateStateValueProp($state, ["input", "value"])}
+                  value={(() => {
+                    try {
+                      return $state.title;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
                 />
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__p8KA1)}>
@@ -2651,7 +2703,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       "radioGroupLiom",
                       "selects"
                     ]),
-                    size: "small"
+                    size: "small",
+                    unnamedVariant: true
                   };
 
                   initializePlasmicStates(
@@ -2785,7 +2838,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                         `${String(t.hour).padStart(2, "0")}:${String(t.minute).padStart(2, "0")}`
                                     )
                                   );
-                                  $state.select2.name = $state.input.value;
+                                  $state.select2.name = $state.title;
                                   $state.select2.channels = JSON.stringify(
                                     $state.radioGroupLiom.selects
                                   );
@@ -2863,7 +2916,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                         `${String(t.hour).padStart(2, "0")}:${String(t.minute).padStart(2, "0")}`
                                     )
                                   );
-                                  $state.select2.name = $state.input.value;
+                                  $state.select2.name = $state.title;
                                   $state.select2.channels = JSON.stringify(
                                     $state.radioGroupLiom.selects
                                   );
@@ -3217,7 +3270,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       customFunction: async () => {
                         return (() => {
                           $state.reminderCategory2.diable = true;
-                          return ($state.reminderCategory2.inputValue = "");
+                          return ($state.reminderCategory2.title = "");
                         })();
                       }
                     };
@@ -3250,10 +3303,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
             diable={generateStateValueProp($state, [
               "reminderCategory2",
               "diable"
-            ])}
-            inputValue={generateStateValueProp($state, [
-              "reminderCategory2",
-              "inputValue"
             ])}
             ok={async () => {
               const $steps = {};
@@ -3301,7 +3350,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           liomId: $props.manId,
                           telegramId: $props.telegramId,
                           phoneNumber: $props.phoneNumber,
-                          name: $state.reminderCategory2.inputValue,
+                          name: $state.reminderCategory2.title,
                           text:
                             $state.reminderCategory2.select.text ||
                             $state.reminderCategory2.select.type,
@@ -3493,20 +3542,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 return;
               }
             }}
-            onInputValueChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, [
-                "reminderCategory2",
-                "inputValue"
-              ]).apply(null, eventArgs);
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
             onSelectChange={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, [
                 "reminderCategory2",
@@ -3535,7 +3570,25 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 return;
               }
             }}
+            onTitleChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "reminderCategory2",
+                "title"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
             show={generateStateValueProp($state, ["reminderCategory2", "show"])}
+            title={generateStateValueProp($state, [
+              "reminderCategory2",
+              "title"
+            ])}
           />
         </Dialog>
         <Dialog
@@ -7206,7 +7259,8 @@ const PlasmicDescendants = {
     "section",
     "headerLiom",
     "dialog",
-    "input",
+    "textInput",
+    "textbox",
     "repead",
     "radioGrop",
     "radioGroupLiom",
@@ -7248,7 +7302,8 @@ const PlasmicDescendants = {
     "section",
     "headerLiom",
     "dialog",
-    "input",
+    "textInput",
+    "textbox",
     "repead",
     "radioGrop",
     "radioGroupLiom",
@@ -7271,14 +7326,15 @@ const PlasmicDescendants = {
   headerLiom: ["headerLiom"],
   dialog: [
     "dialog",
-    "input",
+    "textInput",
+    "textbox",
     "repead",
     "radioGrop",
     "radioGroupLiom",
     "button5",
     "button8"
   ],
-  input: ["input"],
+  textInput: ["textInput", "textbox"],
   repead: ["repead"],
   radioGrop: ["radioGrop"],
   radioGroupLiom: ["radioGroupLiom"],
@@ -7367,7 +7423,7 @@ type NodeDefaultElementType = {
   section: "section";
   headerLiom: typeof HeaderLiom;
   dialog: typeof Dialog;
-  input: typeof Input;
+  textInput: "input";
   repead: typeof Repead;
   radioGrop: typeof RadioGrop;
   radioGroupLiom: typeof RadioGroupLiom;
@@ -7471,7 +7527,7 @@ export const PlasmicReminderSetting = Object.assign(
     section: makeNodeComponent("section"),
     headerLiom: makeNodeComponent("headerLiom"),
     dialog: makeNodeComponent("dialog"),
-    input: makeNodeComponent("input"),
+    textInput: makeNodeComponent("textInput"),
     repead: makeNodeComponent("repead"),
     radioGrop: makeNodeComponent("radioGrop"),
     radioGroupLiom: makeNodeComponent("radioGroupLiom"),

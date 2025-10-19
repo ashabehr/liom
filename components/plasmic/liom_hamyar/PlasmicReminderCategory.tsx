@@ -59,7 +59,6 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import { Input } from "@/fragment/components/input"; // plasmic-import: zZH7vV9pXyf8/codeComponent
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import RadioGroupLiom from "../../RadioGroupLiom"; // plasmic-import: tXN0uQ-uT9R3/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
@@ -94,8 +93,8 @@ export type PlasmicReminderCategory__ArgsType = {
   ok?: () => void;
   diable?: boolean;
   onDiableChange?: (val: string) => void;
-  inputValue?: string;
-  onInputValueChange?: (val: string) => void;
+  title?: string;
+  onTitleChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicReminderCategory__ArgsType;
 export const PlasmicReminderCategory__ArgProps = new Array<ArgPropType>(
@@ -105,13 +104,13 @@ export const PlasmicReminderCategory__ArgProps = new Array<ArgPropType>(
   "ok",
   "diable",
   "onDiableChange",
-  "inputValue",
-  "onInputValueChange"
+  "title",
+  "onTitleChange"
 );
 
 export type PlasmicReminderCategory__OverridesType = {
   root?: Flex__<"div">;
-  input?: Flex__<typeof Input>;
+  htmlInput?: Flex__<"input">;
   reveal?: Flex__<typeof Reveal>;
   sort?: Flex__<typeof RadioGroupLiom>;
   apiRequest?: Flex__<typeof ApiRequest>;
@@ -127,8 +126,8 @@ export interface DefaultReminderCategoryProps {
   ok?: () => void;
   diable?: boolean;
   onDiableChange?: (val: string) => void;
-  inputValue?: string;
-  onInputValueChange?: (val: string) => void;
+  title?: string;
+  onTitleChange?: (val: string) => void;
   more2?: SingleBooleanChoiceArg<"more2">;
   className?: string;
 }
@@ -322,12 +321,31 @@ function PlasmicReminderCategory__RenderFunc(props: {
         onChangeProp: "onDiableChange"
       },
       {
-        path: "input.value",
+        path: "htmlInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.title;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "title",
         type: "writable",
         variableType: "text",
 
-        valueProp: "inputValue",
-        onChangeProp: "onInputValueChange"
+        valueProp: "title",
+        onChangeProp: "onTitleChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -362,26 +380,74 @@ function PlasmicReminderCategory__RenderFunc(props: {
     >
       <div className={classNames(projectcss.all, sty.freeBox__dYrxe)}>
         <div className={classNames(projectcss.all, sty.freeBox__bs98W)}>
-          <Input
-            data-plasmic-name={"input"}
-            data-plasmic-override={overrides.input}
-            className={classNames("__wab_instance", sty.input)}
+          <input
+            data-plasmic-name={"htmlInput"}
+            data-plasmic-override={overrides.htmlInput}
+            className={classNames(
+              projectcss.all,
+              projectcss.input,
+              sty.htmlInput
+            )}
+            id={"titleCategory"}
             onChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["input", "value"]).apply(
-                null,
-                eventArgs
-              );
+              (e => {
+                generateStateOnChangeProp($state, ["htmlInput", "value"])(
+                  e.target.value
+                );
+              }).apply(null, eventArgs);
+
+              (async event => {
+                const $steps = {};
+
+                $steps["updateTitle"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["title"]
+                        },
+                        operation: 0,
+                        value:
+                          window.document.getElementById("titleCategory").value
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateTitle"] != null &&
+                  typeof $steps["updateTitle"] === "object" &&
+                  typeof $steps["updateTitle"].then === "function"
+                ) {
+                  $steps["updateTitle"] = await $steps["updateTitle"];
+                }
+              }).apply(null, eventArgs);
             }}
             placeholder={
               "\u0639\u0646\u0648\u0627\u0646 \u062e\u0648\u062f \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f"
             }
+            ref={ref => {
+              $refs["htmlInput"] = ref;
+            }}
             type={"text"}
-            value={generateStateValueProp($state, ["input", "value"])}
+            value={generateStateValueProp($state, ["htmlInput", "value"]) ?? ""}
           />
 
           {(() => {
             try {
-              return $state.input.value?.length > 0;
+              return $state.title?.length > 0;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -859,7 +925,7 @@ function PlasmicReminderCategory__RenderFunc(props: {
                                         $state.radioGroupLiom2[currentIndex]
                                           .selected
                                     );
-                                    return ($state.input.value =
+                                    return ($state.title =
                                       $state.select.type_fa);
                                   })();
                                 }
@@ -1056,8 +1122,7 @@ function PlasmicReminderCategory__RenderFunc(props: {
                               $state.select = $state.more3.items.find(
                                 i => i.type == $state.radioGroupLiom3.selected
                               );
-                              return ($state.input.value =
-                                $state.select.type_fa);
+                              return ($state.title = $state.select.type_fa);
                             })();
                           }
                         };
@@ -1143,7 +1208,7 @@ function PlasmicReminderCategory__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "input",
+    "htmlInput",
     "reveal",
     "sort",
     "apiRequest",
@@ -1151,7 +1216,7 @@ const PlasmicDescendants = {
     "radioGroupLiom2",
     "radioGroupLiom3"
   ],
-  input: ["input"],
+  htmlInput: ["htmlInput"],
   reveal: ["reveal"],
   sort: ["sort"],
   apiRequest: ["apiRequest", "more", "radioGroupLiom2"],
@@ -1164,7 +1229,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  input: typeof Input;
+  htmlInput: "input";
   reveal: typeof Reveal;
   sort: typeof RadioGroupLiom;
   apiRequest: typeof ApiRequest;
@@ -1235,7 +1300,7 @@ export const PlasmicReminderCategory = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    input: makeNodeComponent("input"),
+    htmlInput: makeNodeComponent("htmlInput"),
     reveal: makeNodeComponent("reveal"),
     sort: makeNodeComponent("sort"),
     apiRequest: makeNodeComponent("apiRequest"),
