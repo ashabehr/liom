@@ -38,11 +38,24 @@ export const Input = (props: InputType) => {
   const fragmentConfig = useSelector("Fragment");
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // جلوگیری از فوکوس خودکار بعد از mount
+  // جلوگیری از هر نوع فوکوس (خودکار یا دستی)
   useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.blur();
-    }
+    const input = inputRef.current;
+    if (!input) return;
+
+    // اطمینان از اینکه بعد از mount فوکوس ندارد
+    input.blur();
+
+    // جلوگیری از هر فوکوس در آینده
+    const handleFocus = (e: FocusEvent) => {
+      e.preventDefault();
+      input.blur();
+    };
+
+    input.addEventListener("focus", handleFocus);
+    return () => {
+      input.removeEventListener("focus", handleFocus);
+    };
   }, []);
 
   // حذف autoFocus از attributes
