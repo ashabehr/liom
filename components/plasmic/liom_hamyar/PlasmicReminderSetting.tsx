@@ -61,6 +61,7 @@ import {
 
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
+import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 import Repead from "../../Repead"; // plasmic-import: bTRB9n2MQ7IL/component
 import RadioGrop from "../../RadioGrop"; // plasmic-import: mcNKMbL_6N75/component
 import RadioGroupLiom from "../../RadioGroupLiom"; // plasmic-import: tXN0uQ-uT9R3/component
@@ -70,7 +71,6 @@ import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5x
 import { Pickers } from "@/components/Pickers"; // plasmic-import: htE-oGSeNx82/codeComponent
 import { TimePickerCustom } from "@/components/TimePickerCustom"; // plasmic-import: GRoigtq491XH/codeComponent
 import CheckboxGroup from "../../CheckboxGroup"; // plasmic-import: AhgoIztCTzjf/component
-import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
@@ -164,6 +164,7 @@ export type PlasmicReminderSetting__OverridesType = {
   section?: Flex__<"section">;
   headerLiom?: Flex__<typeof HeaderLiom>;
   dialog?: Flex__<typeof Dialog>;
+  checkbox2?: Flex__<typeof Checkbox>;
   textbox?: Flex__<"input">;
   repead?: Flex__<typeof Repead>;
   radioGrop?: Flex__<typeof RadioGrop>;
@@ -171,6 +172,7 @@ export type PlasmicReminderSetting__OverridesType = {
   button5?: Flex__<typeof Button>;
   button8?: Flex__<typeof Button>;
   dialog2?: Flex__<typeof Dialog>;
+  checkbox3?: Flex__<typeof Checkbox>;
   reminderCategory2?: Flex__<typeof ReminderCategory>;
   dateDiolog?: Flex__<typeof Dialog>;
   datePickers?: Flex__<typeof DatePickers>;
@@ -1015,6 +1017,18 @@ function PlasmicReminderSetting__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "checkbox2.isChecked",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "checkbox3.isChecked",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -1095,6 +1109,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 projectcss.__wab_text,
                 sty.text__wEvVl
               )}
+              id={"myTarget"}
             >
               {
                 "\u062a\u0646\u0638\u06cc\u0645\u0627\u062a \u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627"
@@ -1186,6 +1201,32 @@ function PlasmicReminderSetting__RenderFunc(props: {
               </div>
             ) : null}
             <div className={classNames(projectcss.all, sty.freeBox__p32It)}>
+              <Checkbox
+                data-plasmic-name={"checkbox2"}
+                data-plasmic-override={overrides.checkbox2}
+                className={classNames("__wab_instance", sty.checkbox2)}
+                isChecked={
+                  generateStateValueProp($state, ["checkbox2", "isChecked"]) ??
+                  false
+                }
+                onChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, [
+                      "checkbox2",
+                      "isChecked"
+                    ])(eventArgs[0]);
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+              />
+
               <div className={classNames(projectcss.all, sty.freeBox__lk7Ua)}>
                 <div
                   className={classNames(projectcss.all, sty.freeBox__zoDiw)}
@@ -1583,6 +1624,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           projectcss.all,
                           sty.freeBox__hOu8T
                         )}
+                        id={``}
                         onClick={async event => {
                           const $steps = {};
 
@@ -3374,6 +3416,31 @@ function PlasmicReminderSetting__RenderFunc(props: {
           }}
           opendialog={generateStateValueProp($state, ["dialog2", "opendialog"])}
         >
+          <Checkbox
+            data-plasmic-name={"checkbox3"}
+            data-plasmic-override={overrides.checkbox3}
+            className={classNames("__wab_instance", sty.checkbox3)}
+            isChecked={
+              generateStateValueProp($state, ["checkbox3", "isChecked"]) ??
+              false
+            }
+            onChange={async (...eventArgs: any) => {
+              ((...eventArgs) => {
+                generateStateOnChangeProp($state, ["checkbox3", "isChecked"])(
+                  eventArgs[0]
+                );
+              }).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+          />
+
           <ReminderCategory
             data-plasmic-name={"reminderCategory2"}
             data-plasmic-override={overrides.reminderCategory2}
@@ -7344,6 +7411,7 @@ const PlasmicDescendants = {
     "section",
     "headerLiom",
     "dialog",
+    "checkbox2",
     "textbox",
     "repead",
     "radioGrop",
@@ -7351,6 +7419,7 @@ const PlasmicDescendants = {
     "button5",
     "button8",
     "dialog2",
+    "checkbox3",
     "reminderCategory2",
     "dateDiolog",
     "datePickers",
@@ -7386,6 +7455,7 @@ const PlasmicDescendants = {
     "section",
     "headerLiom",
     "dialog",
+    "checkbox2",
     "textbox",
     "repead",
     "radioGrop",
@@ -7393,6 +7463,7 @@ const PlasmicDescendants = {
     "button5",
     "button8",
     "dialog2",
+    "checkbox3",
     "reminderCategory2",
     "dateDiolog",
     "datePickers",
@@ -7409,6 +7480,7 @@ const PlasmicDescendants = {
   headerLiom: ["headerLiom"],
   dialog: [
     "dialog",
+    "checkbox2",
     "textbox",
     "repead",
     "radioGrop",
@@ -7416,13 +7488,15 @@ const PlasmicDescendants = {
     "button5",
     "button8"
   ],
+  checkbox2: ["checkbox2"],
   textbox: ["textbox"],
   repead: ["repead"],
   radioGrop: ["radioGrop"],
   radioGroupLiom: ["radioGroupLiom"],
   button5: ["button5"],
   button8: ["button8"],
-  dialog2: ["dialog2", "reminderCategory2"],
+  dialog2: ["dialog2", "checkbox3", "reminderCategory2"],
+  checkbox3: ["checkbox3"],
   reminderCategory2: ["reminderCategory2"],
   dateDiolog: ["dateDiolog", "datePickers", "button4"],
   datePickers: ["datePickers"],
@@ -7505,6 +7579,7 @@ type NodeDefaultElementType = {
   section: "section";
   headerLiom: typeof HeaderLiom;
   dialog: typeof Dialog;
+  checkbox2: typeof Checkbox;
   textbox: "input";
   repead: typeof Repead;
   radioGrop: typeof RadioGrop;
@@ -7512,6 +7587,7 @@ type NodeDefaultElementType = {
   button5: typeof Button;
   button8: typeof Button;
   dialog2: typeof Dialog;
+  checkbox3: typeof Checkbox;
   reminderCategory2: typeof ReminderCategory;
   dateDiolog: typeof Dialog;
   datePickers: typeof DatePickers;
@@ -7609,6 +7685,7 @@ export const PlasmicReminderSetting = Object.assign(
     section: makeNodeComponent("section"),
     headerLiom: makeNodeComponent("headerLiom"),
     dialog: makeNodeComponent("dialog"),
+    checkbox2: makeNodeComponent("checkbox2"),
     textbox: makeNodeComponent("textbox"),
     repead: makeNodeComponent("repead"),
     radioGrop: makeNodeComponent("radioGrop"),
@@ -7616,6 +7693,7 @@ export const PlasmicReminderSetting = Object.assign(
     button5: makeNodeComponent("button5"),
     button8: makeNodeComponent("button8"),
     dialog2: makeNodeComponent("dialog2"),
+    checkbox3: makeNodeComponent("checkbox3"),
     reminderCategory2: makeNodeComponent("reminderCategory2"),
     dateDiolog: makeNodeComponent("dateDiolog"),
     datePickers: makeNodeComponent("datePickers"),

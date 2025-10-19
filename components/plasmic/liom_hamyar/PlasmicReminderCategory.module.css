@@ -143,14 +143,8 @@
   height: 300px;
   max-width: 100%;
   row-gap: var(--token-B5WvIYiqPJW-);
-  transition-property: all;
-  transition-duration: 1s;
-  transition-timing-function: ease-in-out;
   overflow: auto;
   min-width: 0;
-  -webkit-transition-property: all;
-  -webkit-transition-timing-function: ease-in-out;
-  -webkit-transition-duration: 1s;
   padding: var(--token-uOLZE7OyOW-J) var(--token-uOLZE7OyOW-J) 250px;
 }
 .freeBoxmore2__pI1Hb3WEwR {

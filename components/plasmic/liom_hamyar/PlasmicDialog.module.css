@@ -70,7 +70,8 @@
 @media (max-width: 640px) {
   .dialogContent:global(.__wab_instance) {
     width: 100%;
-    min-width: 0;
+    min-width: 100vw;
+    max-width: 100vw;
     border-radius: 16px 16px 0px 0px;
   }
 }
