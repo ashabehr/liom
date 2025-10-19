@@ -435,6 +435,11 @@ export const Fragment = ({
       >
         {children}
         <Toaster
+          position="top-center"
+          containerStyle={{
+            zIndex: 999999,
+            pointerEvents: 'none',
+          }}
           toastOptions={{
             // کلاس‌های عمومی برای تمام toastها
             className: 'custom-toast',
