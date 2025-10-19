@@ -15,6 +15,10 @@ function Dialog3(props: Dialog3Props) {
       overrides={{
         // مطمئن می‌شیم همیشه یک عنوان مخفی داخل دیالوگ باشه
         dialogContent: {
+          // ⛔ جلوگیری از فوکوس خودکار Radix Dialog
+          props: {
+            onOpenAutoFocus: (e) => e.preventDefault(),
+          },
           children: (
             <>
               <VisuallyHidden>
@@ -22,8 +26,8 @@ function Dialog3(props: Dialog3Props) {
               </VisuallyHidden>
               {props.children}
             </>
-          )
-        }
+          ),
+        },
       }}
     />
   );
