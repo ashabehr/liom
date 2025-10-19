@@ -38,28 +38,26 @@ export const Input = (props: InputType) => {
   const fragmentConfig = useSelector("Fragment");
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // جلوگیری از فوکوس خودکار یا فوکوس از اسکریپت
   useEffect(() => {
     const input = inputRef.current;
     if (!input) return;
 
-    // حذف فوکوس اولیه (مثلاً autoFocus)
+    // حذف فوکوس اولیه (autoFocus) یا فوکوس‌های اجباری Plasmic
     input.blur();
 
-    // اگر فوکوس از طرف کاربر نباشه، blur کن
-    const handleFocus = (e: FocusEvent) => {
-      // isTrusted=false یعنی فوکوس از اسکریپت یا کد بوده
-      if (!e.isTrusted) {
-        e.preventDefault();
+    // گوش بده به فوکوس‌های غیرکاربری و حذفشون
+    const observer = new MutationObserver(() => {
+      if (document.activeElement === input && !input.matches(":focus-visible")) {
         input.blur();
       }
-    };
+    });
 
-    input.addEventListener("focus", handleFocus);
-    return () => input.removeEventListener("focus", handleFocus);
+    observer.observe(document, { subtree: true, childList: false, attributes: true });
+
+    return () => observer.disconnect();
   }, []);
 
-  // حذف autoFocus از attributes
+  // حذف autoFocus از attributes (حتی اگر Plasmic ست کرده باشه)
   const { autoFocus, ...restAttributes } = attributes ?? {};
 
   return (
@@ -73,10 +71,7 @@ export const Input = (props: InputType) => {
       placeholder={placeholder}
       className={className}
       type={type}
-      {...(type === "file" && {
-        multiple,
-        accept,
-      })}
+      {...(type === "file" && { multiple, accept })}
       {...restAttributes}
     />
   );
@@ -113,11 +108,11 @@ export const inputMeta: CodeComponentMeta<InputType> = {
     disabled: "boolean",
     multiple: {
       type: "boolean",
-      hidden: (ps) => ps.type != "file",
+      hidden: (ps) => ps.type !== "file",
     },
     accept: {
       type: "string",
-      hidden: (ps) => ps.type != "file",
+      hidden: (ps) => ps.type !== "file",
     },
     name: {
       type: "string",
