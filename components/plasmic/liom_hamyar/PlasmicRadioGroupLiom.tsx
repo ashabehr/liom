@@ -643,6 +643,7 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
                       : undefined
                 }
                 style2={"grayBackgerand"}
+                style3={"radio"}
               >
                 <div
                   className={classNames(

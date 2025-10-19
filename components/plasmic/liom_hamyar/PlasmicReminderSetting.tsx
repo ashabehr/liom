@@ -394,9 +394,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return (
-                $state.select2.name || $state.reminderCategory2.antdInputValue
-              );
+              return $state.select2.name || $state.reminderCategory2.inputValue;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -977,16 +975,10 @@ function PlasmicReminderSetting__RenderFunc(props: {
         onChangeProp: "onDialogOpendialog3Change"
       },
       {
-        path: "reminderCategory2.antdInputValue",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
         path: "reminderCategory2.show",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "reminderCategory2.select",
@@ -999,6 +991,12 @@ function PlasmicReminderSetting__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "reminderCategory2.inputValue",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -1162,19 +1160,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   data-plasmic-name={"input"}
                   data-plasmic-override={overrides.input}
                   className={classNames("__wab_instance", sty.input)}
-                  disabled={(() => {
-                    try {
-                      return $state.disable;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return true;
-                      }
-                      throw e;
-                    }
-                  })()}
                   onChange={async (...eventArgs: any) => {
                     generateStateOnChangeProp($state, ["input", "value"]).apply(
                       null,
@@ -1187,61 +1172,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   type={"text"}
                   value={generateStateValueProp($state, ["input", "value"])}
                 />
-
-                {(() => {
-                  try {
-                    return $state.disable;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___9Cmk)}
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["updateDisable"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["disable"]
-                              },
-                              operation: 0,
-                              value: false
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateDisable"] != null &&
-                        typeof $steps["updateDisable"] === "object" &&
-                        typeof $steps["updateDisable"].then === "function"
-                      ) {
-                        $steps["updateDisable"] = await $steps["updateDisable"];
-                      }
-                    }}
-                  />
-                ) : null}
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__p8KA1)}>
                 <div
@@ -3285,7 +3215,10 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
-                        return ($state.reminderCategory2.diable = true);
+                        return (() => {
+                          $state.reminderCategory2.diable = true;
+                          return ($state.reminderCategory2.inputValue = "");
+                        })();
                       }
                     };
                     return (({ customFunction }) => {
@@ -3307,10 +3240,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
           <ReminderCategory
             data-plasmic-name={"reminderCategory2"}
             data-plasmic-override={overrides.reminderCategory2}
-            antdInputValue={generateStateValueProp($state, [
-              "reminderCategory2",
-              "antdInputValue"
-            ])}
             className={classNames("__wab_instance", sty.reminderCategory2, {
               [sty.reminderCategory2hamyar]: hasVariant(
                 $state,
@@ -3321,6 +3250,10 @@ function PlasmicReminderSetting__RenderFunc(props: {
             diable={generateStateValueProp($state, [
               "reminderCategory2",
               "diable"
+            ])}
+            inputValue={generateStateValueProp($state, [
+              "reminderCategory2",
+              "inputValue"
             ])}
             ok={async () => {
               const $steps = {};
@@ -3368,18 +3301,19 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           liomId: $props.manId,
                           telegramId: $props.telegramId,
                           phoneNumber: $props.phoneNumber,
-                          name: $state.reminderCategory2.antdInputValue,
+                          name: $state.reminderCategory2.inputValue,
                           text:
                             $state.reminderCategory2.select.text ||
                             $state.reminderCategory2.select.type,
                           schedule_type:
                             $state.reminderCategory2.select.schedule_type,
+                          type: $state.reminderCategory2.select.type,
                           dates:
                             JSON.stringify([
                               $state.reminderCategory2.select.date
                             ]) ?? "[]",
                           channels: '["notification","telegram"]',
-                          times: '["10:00"]',
+                          times: "[]",
                           weekdays:
                             $state.reminderCategory2.select.schedule_type ==
                             "everyDay"
@@ -3545,10 +3479,10 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 $steps["runCode"] = await $steps["runCode"];
               }
             }}
-            onAntdInputValueChange={async (...eventArgs: any) => {
+            onDiableChange={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, [
                 "reminderCategory2",
-                "antdInputValue"
+                "diable"
               ]).apply(null, eventArgs);
 
               if (
@@ -3559,10 +3493,10 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 return;
               }
             }}
-            onDiableChange={async (...eventArgs: any) => {
+            onInputValueChange={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, [
                 "reminderCategory2",
-                "diable"
+                "inputValue"
               ]).apply(null, eventArgs);
 
               if (
@@ -4878,147 +4812,113 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 {"\u0628\u0632\u0648\u062f\u06cc"}
               </div>
             </div>
-            {(() => {
-              try {
-                return (
-                  // !$props.subscription || !$props.phoneNumber
-                  false
-                );
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
-                }
-                throw e;
-              }
-            })() ? (
-              <Button
-                data-plasmic-name={"button10"}
-                data-plasmic-override={overrides.button10}
-                className={classNames("__wab_instance", sty.button10)}
-                color={generateStateValueProp($state, ["button10", "color"])}
-                load={generateStateValueProp($state, ["button10", "load"])}
-                loading={generateStateValueProp($state, [
-                  "button10",
-                  "loading"
-                ])}
-                onClick={async event => {
-                  const $steps = {};
+            <Button
+              data-plasmic-name={"button10"}
+              data-plasmic-override={overrides.button10}
+              className={classNames("__wab_instance", sty.button10)}
+              color={generateStateValueProp($state, ["button10", "color"])}
+              load={generateStateValueProp($state, ["button10", "load"])}
+              loading={generateStateValueProp($state, ["button10", "loading"])}
+              onClick={async event => {
+                const $steps = {};
 
-                  $steps["runCode2"] = !$props.subscription
+                $steps["runCode2"] = !$props.subscription
+                  ? (() => {
+                      const actionArgs = { eventRef: $props["shop"] };
+                      return (({ eventRef, args }) => {
+                        return eventRef?.(...(args ?? []));
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode2"] != null &&
+                  typeof $steps["runCode2"] === "object" &&
+                  typeof $steps["runCode2"].then === "function"
+                ) {
+                  $steps["runCode2"] = await $steps["runCode2"];
+                }
+
+                $steps["runSetMobile"] =
+                  $props.subscription && !$props.phoneNumber
                     ? (() => {
-                        const actionArgs = { eventRef: $props["shop"] };
+                        const actionArgs = { eventRef: $props["setMobile"] };
                         return (({ eventRef, args }) => {
                           return eventRef?.(...(args ?? []));
                         })?.apply(null, [actionArgs]);
                       })()
                     : undefined;
-                  if (
-                    $steps["runCode2"] != null &&
-                    typeof $steps["runCode2"] === "object" &&
-                    typeof $steps["runCode2"].then === "function"
-                  ) {
-                    $steps["runCode2"] = await $steps["runCode2"];
-                  }
-
-                  $steps["runSetMobile"] =
-                    $props.subscription && !$props.phoneNumber
-                      ? (() => {
-                          const actionArgs = { eventRef: $props["setMobile"] };
-                          return (({ eventRef, args }) => {
-                            return eventRef?.(...(args ?? []));
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                  if (
-                    $steps["runSetMobile"] != null &&
-                    typeof $steps["runSetMobile"] === "object" &&
-                    typeof $steps["runSetMobile"].then === "function"
-                  ) {
-                    $steps["runSetMobile"] = await $steps["runSetMobile"];
-                  }
-                }}
-                onColorChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button10", "color"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onLoadChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button10", "load"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onLoadingChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button10", "loading"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                size={"compact"}
-              >
-                {"\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc"}
-              </Button>
-            ) : null}
-            {(() => {
-              try {
-                return $props.subscription && $props.phoneNumber;
-              } catch (e) {
                 if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
+                  $steps["runSetMobile"] != null &&
+                  typeof $steps["runSetMobile"] === "object" &&
+                  typeof $steps["runSetMobile"].then === "function"
                 ) {
-                  return true;
+                  $steps["runSetMobile"] = await $steps["runSetMobile"];
                 }
-                throw e;
-              }
-            })() ? (
-              <div className={classNames(projectcss.all, sty.freeBox__lEgr6)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__xnAhg
-                  )}
-                >
-                  {"\u0641\u0639\u0627\u0644"}
-                </div>
-                <Icon214Icon
-                  className={classNames(projectcss.all, sty.svg__yFzrA)}
-                  role={"img"}
-                />
+              }}
+              onColorChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button10", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onLoadChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button10", "load"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onLoadingChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button10", "loading"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              size={"compact"}
+            >
+              {"\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc"}
+            </Button>
+            <div className={classNames(projectcss.all, sty.freeBox__lEgr6)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__xnAhg
+                )}
+              >
+                {"\u0641\u0639\u0627\u0644"}
               </div>
-            ) : null}
+              <Icon214Icon
+                className={classNames(projectcss.all, sty.svg__yFzrA)}
+                role={"img"}
+              />
+            </div>
           </div>
         </div>
         <div

@@ -67,6 +67,8 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicRadioGrop.module.css"; // plasmic-import: mcNKMbL_6N75/css
 
+import Icon339Icon from "./icons/PlasmicIcon__Icon339"; // plasmic-import: 9akTBdz--z4Y/icon
+import Icon340Icon from "./icons/PlasmicIcon__Icon340"; // plasmic-import: 2o51XeMZlZ2H/icon
 import Icon326Icon from "./icons/PlasmicIcon__Icon326"; // plasmic-import: -Srk0MsP1XRi/icon
 
 createPlasmicElementProxy;
@@ -82,7 +84,7 @@ export type PlasmicRadioGrop__VariantMembers = {
   pair: "pair";
   comingSoon: "comingSoon";
   icon: "icon";
-  style3: "circle";
+  style3: "circle" | "radio";
   direction: "v";
 };
 export type PlasmicRadioGrop__VariantsArgs = {
@@ -96,7 +98,7 @@ export type PlasmicRadioGrop__VariantsArgs = {
   pair?: SingleBooleanChoiceArg<"pair">;
   comingSoon?: SingleBooleanChoiceArg<"comingSoon">;
   icon?: SingleBooleanChoiceArg<"icon">;
-  style3?: SingleChoiceArg<"circle">;
+  style3?: SingleChoiceArg<"circle" | "radio">;
   direction?: SingleChoiceArg<"v">;
 };
 type VariantPropType = keyof PlasmicRadioGrop__VariantsArgs;
@@ -131,7 +133,6 @@ export type PlasmicRadioGrop__OverridesType = {
   root?: Flex__<"div">;
   text?: Flex__<"div">;
   freeBox?: Flex__<"div">;
-  svg?: Flex__<"svg">;
 };
 
 export interface DefaultRadioGropProps {
@@ -148,7 +149,7 @@ export interface DefaultRadioGropProps {
   pair?: SingleBooleanChoiceArg<"pair">;
   comingSoon?: SingleBooleanChoiceArg<"comingSoon">;
   icon?: SingleBooleanChoiceArg<"icon">;
-  style3?: SingleChoiceArg<"circle">;
+  style3?: SingleChoiceArg<"circle" | "radio">;
   direction?: SingleChoiceArg<"v">;
   className?: string;
 }
@@ -331,6 +332,18 @@ function PlasmicRadioGrop__RenderFunc(props: {
           [sty.rootstyle2_grayBackgerand_selected]:
             hasVariant($state, "selected", "selected") &&
             hasVariant($state, "style2", "grayBackgerand"),
+          [sty.rootstyle2_grayBackgerand_size_mini]:
+            hasVariant($state, "style2", "grayBackgerand") &&
+            hasVariant($state, "size", "mini"),
+          [sty.rootstyle2_grayBackgerand_style3_radio_size_mini]:
+            hasVariant($state, "style2", "grayBackgerand") &&
+            hasVariant($state, "size", "mini") &&
+            hasVariant($state, "style3", "radio"),
+          [sty.rootstyle2_grayBackgerand_style3_radio_size_mini_color_light]:
+            hasVariant($state, "style2", "grayBackgerand") &&
+            hasVariant($state, "size", "mini") &&
+            hasVariant($state, "style3", "radio") &&
+            hasVariant($state, "color", "light"),
           [sty.rootstyle2_line]: hasVariant($state, "style2", "line"),
           [sty.rootstyle2_lineligt]: hasVariant($state, "style2", "lineligt"),
           [sty.rootstyle2_lineligt_icon]:
@@ -339,7 +352,11 @@ function PlasmicRadioGrop__RenderFunc(props: {
           [sty.rootstyle2_lineligt_selected]:
             hasVariant($state, "style2", "lineligt") &&
             hasVariant($state, "selected", "selected"),
-          [sty.rootstyle3_circle]: hasVariant($state, "style3", "circle")
+          [sty.rootstyle3_circle]: hasVariant($state, "style3", "circle"),
+          [sty.rootstyle3_radio]: hasVariant($state, "style3", "radio"),
+          [sty.rootstyle3_radio_selected]:
+            hasVariant($state, "style3", "radio") &&
+            hasVariant($state, "selected", "selected")
         }
       )}
       onClick={args.onClick}
@@ -404,9 +421,37 @@ function PlasmicRadioGrop__RenderFunc(props: {
           [sty.freeBoxicon]: hasVariant($state, "icon", "icon"),
           [sty.freeBoxpair]: hasVariant($state, "pair", "pair"),
           [sty.freeBoxselected]: hasVariant($state, "selected", "selected"),
-          [sty.freeBoxstyle2_lineligt]: hasVariant($state, "style2", "lineligt")
+          [sty.freeBoxstyle2_lineligt]: hasVariant(
+            $state,
+            "style2",
+            "lineligt"
+          ),
+          [sty.freeBoxstyle3_radio]: hasVariant($state, "style3", "radio"),
+          [sty.freeBoxstyle3_radio_selected]:
+            hasVariant($state, "style3", "radio") &&
+            hasVariant($state, "selected", "selected")
         })}
       >
+        <PlasmicIcon__
+          PlasmicIconType={
+            hasVariant($state, "style3", "radio") &&
+            hasVariant($state, "selected", "selected")
+              ? Icon340Icon
+              : Icon339Icon
+          }
+          className={classNames(projectcss.all, sty.svg__bBffU, {
+            [sty.svgstyle3_radio__bBffUbPzba]: hasVariant(
+              $state,
+              "style3",
+              "radio"
+            ),
+            [sty.svgstyle3_radio_selected__bBffUbPzbaZ6Q2T]:
+              hasVariant($state, "style3", "radio") &&
+              hasVariant($state, "selected", "selected")
+          })}
+          role={"img"}
+        />
+
         {renderPlasmicSlot({
           defaultContents: "Enter some text",
           value: args.children,
@@ -437,17 +482,40 @@ function PlasmicRadioGrop__RenderFunc(props: {
               hasVariant($state, "style2", "grayBackgerand") &&
               hasVariant($state, "color", "light") &&
               hasVariant($state, "selected", "selected"),
+            [sty.slotTargetChildrenstyle2_lineligt]: hasVariant(
+              $state,
+              "style2",
+              "lineligt"
+            ),
             [sty.slotTargetChildrenstyle2_lineligt_selected]:
               hasVariant($state, "style2", "lineligt") &&
+              hasVariant($state, "selected", "selected"),
+            [sty.slotTargetChildrenstyle2_lineligt_style3_radio]:
+              hasVariant($state, "style2", "lineligt") &&
+              hasVariant($state, "style3", "radio"),
+            [sty.slotTargetChildrenstyle3_radio]: hasVariant(
+              $state,
+              "style3",
+              "radio"
+            ),
+            [sty.slotTargetChildrenstyle3_radio_selected]:
+              hasVariant($state, "style3", "radio") &&
               hasVariant($state, "selected", "selected")
           })
         })}
         <Icon326Icon
-          data-plasmic-name={"svg"}
-          data-plasmic-override={overrides.svg}
-          className={classNames(projectcss.all, sty.svg, {
-            [sty.svgdirection_v]: hasVariant($state, "direction", "v"),
-            [sty.svgpair]: hasVariant($state, "pair", "pair")
+          className={classNames(projectcss.all, sty.svg__mjZCn, {
+            [sty.svgdirection_v__mjZCnbOLb6]: hasVariant(
+              $state,
+              "direction",
+              "v"
+            ),
+            [sty.svgpair__mjZCntDuAx]: hasVariant($state, "pair", "pair"),
+            [sty.svgstyle3_radio__mjZCnbPzba]: hasVariant(
+              $state,
+              "style3",
+              "radio"
+            )
           })}
           role={"img"}
         />
@@ -457,10 +525,9 @@ function PlasmicRadioGrop__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "text", "freeBox", "svg"],
+  root: ["root", "text", "freeBox"],
   text: ["text"],
-  freeBox: ["freeBox", "svg"],
-  svg: ["svg"]
+  freeBox: ["freeBox"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -469,7 +536,6 @@ type NodeDefaultElementType = {
   root: "div";
   text: "div";
   freeBox: "div";
-  svg: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -536,7 +602,6 @@ export const PlasmicRadioGrop = Object.assign(
     // Helper components rendering sub-elements
     text: makeNodeComponent("text"),
     freeBox: makeNodeComponent("freeBox"),
-    svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicRadioGrop
     internalVariantProps: PlasmicRadioGrop__VariantProps,
