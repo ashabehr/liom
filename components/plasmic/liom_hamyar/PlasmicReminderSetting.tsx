@@ -704,7 +704,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant(globalVariants, "screen", "mobile") ? false : true
+          hasVariant(globalVariants, "screen", "mobile") ? false : false
       },
       {
         path: "dateDiolog.opendialog",
@@ -3587,8 +3587,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               customFunction: async () => {
                                 return (() => {
                                   $state.dialog.opendialog = false;
-                                  $state.select2 = {};
-                                  return ($state.dialog2.opendialog = false);
+                                  $state.dialog2.opendialog = false;
+                                  return ($state.select2 = {});
                                 })();
                               }
                             };
