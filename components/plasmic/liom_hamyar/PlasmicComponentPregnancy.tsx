@@ -1248,6 +1248,18 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "switchbest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "switchbest2.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -17122,6 +17134,12 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                     "__wab_instance",
                                     sty.switchbest
                                   )}
+                                  data={
+                                    generateStateValueProp($state, [
+                                      "switchbest",
+                                      "data"
+                                    ]) ?? false
+                                  }
                                   isChecked={
                                     generateStateValueProp($state, [
                                       "switchbest",
@@ -17133,6 +17151,22 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                       generateStateOnChangeProp($state, [
                                         "switchbest",
                                         "isChecked"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  }}
+                                  onDataChange={async (...eventArgs: any) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "switchbest",
+                                        "data"
                                       ])(eventArgs[0]);
                                     }).apply(null, eventArgs);
 
@@ -28717,6 +28751,12 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                               "__wab_instance",
                                               sty.switchbest2
                                             )}
+                                            data={
+                                              generateStateValueProp($state, [
+                                                "switchbest2",
+                                                "data"
+                                              ]) ?? false
+                                            }
                                             isChecked={
                                               generateStateValueProp($state, [
                                                 "switchbest2",
@@ -28730,6 +28770,25 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                                 generateStateOnChangeProp(
                                                   $state,
                                                   ["switchbest2", "isChecked"]
+                                                )(eventArgs[0]);
+                                              }).apply(null, eventArgs);
+
+                                              if (
+                                                eventArgs.length > 1 &&
+                                                eventArgs[1] &&
+                                                eventArgs[1]
+                                                  ._plasmic_state_init_
+                                              ) {
+                                                return;
+                                              }
+                                            }}
+                                            onDataChange={async (
+                                              ...eventArgs: any
+                                            ) => {
+                                              ((...eventArgs) => {
+                                                generateStateOnChangeProp(
+                                                  $state,
+                                                  ["switchbest2", "data"]
                                                 )(eventArgs[0]);
                                               }).apply(null, eventArgs);
 

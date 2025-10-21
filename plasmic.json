@@ -4752,6 +4752,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicShopBoxRef2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "DESzdq_iEiZG",
+          "name": "Snackbar",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSnackbar.tsx",
+          "importSpec": {
+            "modulePath": "Snackbar.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSnackbar.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -6944,6 +6957,36 @@
           "id": "2o51XeMZlZ2H",
           "name": "Icon340Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon340.tsx"
+        },
+        {
+          "id": "YAlSZawb_KzK",
+          "name": "Icon341Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon341.tsx"
+        },
+        {
+          "id": "tY1SQ_92U0l-",
+          "name": "Icon342Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon342.tsx"
+        },
+        {
+          "id": "PUKuDNK8e5He",
+          "name": "Icon343Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon343.tsx"
+        },
+        {
+          "id": "yGnMTXTyjf2m",
+          "name": "Icon344Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon344.tsx"
+        },
+        {
+          "id": "JAvtUzC6_U9X",
+          "name": "Icon345Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon345.tsx"
+        },
+        {
+          "id": "Z4J9kCEKbiAp",
+          "name": "Icon346Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon346.tsx"
         }
       ],
       "images": [

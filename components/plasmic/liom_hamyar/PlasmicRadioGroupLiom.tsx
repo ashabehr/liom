@@ -124,6 +124,7 @@ export const PlasmicRadioGroupLiom__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicRadioGroupLiom__OverridesType = {
   root?: Flex__<"div">;
+  freeBox?: Flex__<"div">;
   menuIcon?: Flex__<typeof MenuIcon>;
 };
 
@@ -475,44 +476,111 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
             }
           >
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__h0Hhj,
-                {
-                  [sty.textdirection_v__h0HhjmR1Io]: hasVariant(
-                    $state,
-                    "direction",
-                    "v"
-                  ),
-                  [sty.textsize_mini__h0HhjaMdd]: hasVariant(
-                    $state,
-                    "size",
-                    "mini"
-                  ),
-                  [sty.textsize_small__h0HhjqO86K]: hasVariant(
-                    $state,
-                    "size",
-                    "small"
-                  )
-                }
-              )}
+              data-plasmic-name={"freeBox"}
+              data-plasmic-override={overrides.freeBox}
+              className={classNames(projectcss.all, sty.freeBox)}
             >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return currentItem.label;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
-                    }
-                    throw e;
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__h0Hhj,
+                  {
+                    [sty.textdirection_v__h0HhjmR1Io]: hasVariant(
+                      $state,
+                      "direction",
+                      "v"
+                    ),
+                    [sty.textsize_mini__h0HhjaMdd]: hasVariant(
+                      $state,
+                      "size",
+                      "mini"
+                    ),
+                    [sty.textsize_small__h0HhjqO86K]: hasVariant(
+                      $state,
+                      "size",
+                      "small"
+                    )
                   }
-                })()}
-              </React.Fragment>
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return currentItem.label;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+              {(() => {
+                try {
+                  return currentItem.date;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___2KgJ1,
+                    {
+                      [sty.textdirection_v___2KgJ1MR1Io]: hasVariant(
+                        $state,
+                        "direction",
+                        "v"
+                      ),
+                      [sty.textsize_mini___2KgJ1AMdd]: hasVariant(
+                        $state,
+                        "size",
+                        "mini"
+                      ),
+                      [sty.textsize_small___2KgJ1QO86K]: hasVariant(
+                        $state,
+                        "size",
+                        "small"
+                      )
+                    }
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return (() => {
+                          var today = new Date(currentItem.date);
+                          const g = new Intl.DateTimeFormat("fa-IR", {
+                            month: "long",
+                            day: "numeric"
+                          }).format(today);
+                          return `تاریخ پیشفرض: ${g}`;
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+              ) : null}
             </div>
           </RadioGrop>
         );
@@ -689,7 +757,8 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "menuIcon"],
+  root: ["root", "freeBox", "menuIcon"],
+  freeBox: ["freeBox"],
   menuIcon: ["menuIcon"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -697,6 +766,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  freeBox: "div";
   menuIcon: typeof MenuIcon;
 };
 
@@ -762,6 +832,7 @@ export const PlasmicRadioGroupLiom = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    freeBox: makeNodeComponent("freeBox"),
     menuIcon: makeNodeComponent("menuIcon"),
 
     // Metadata about props expected for PlasmicRadioGroupLiom

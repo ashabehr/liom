@@ -28,6 +28,18 @@
 .rootcolor_waite {
   color: var(--token-R_Rsn0nP9oIv);
 }
+.rootcolor_blue {
+  color: var(--token-0xHMxyAHbOos);
+}
+.rootcolor_green {
+  color: var(--token-G-IZ_XhVdlqp);
+}
+.rootcolor_warning {
+  color: var(--token-EueuB3d74YKA);
+}
+.rootcolor_fuchsia {
+  color: var(--token-4yyaCJT6oTu5);
+}
 .rootsize__25 {
   width: 25px;
   height: 25px;

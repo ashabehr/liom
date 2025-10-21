@@ -884,6 +884,12 @@ function PlasmicEditProfile__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "switchbest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -1914,6 +1920,12 @@ function PlasmicEditProfile__RenderFunc(props: {
                         data-plasmic-override={overrides.switchbest}
                         children={null}
                         className={classNames("__wab_instance", sty.switchbest)}
+                        data={
+                          generateStateValueProp($state, [
+                            "switchbest",
+                            "data"
+                          ]) ?? false
+                        }
                         isChecked={
                           generateStateValueProp($state, [
                             "switchbest",
@@ -1980,6 +1992,22 @@ function PlasmicEditProfile__RenderFunc(props: {
                                 await $steps["updateVariableSwichForProbility"];
                             }
                           }).apply(null, eventArgs);
+                        }}
+                        onDataChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "switchbest",
+                              "data"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
                         }}
                       />
                     </div>

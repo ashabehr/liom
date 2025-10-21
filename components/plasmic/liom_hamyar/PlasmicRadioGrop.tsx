@@ -305,11 +305,29 @@ function PlasmicRadioGrop__RenderFunc(props: {
             hasVariant($state, "color", "light") &&
             hasVariant($state, "selected", "selected"),
           [sty.rootcomingSoon]: hasVariant($state, "comingSoon", "comingSoon"),
+          [sty.rootcomingSoon_style2_grayBackgerand]:
+            hasVariant($state, "comingSoon", "comingSoon") &&
+            hasVariant($state, "style2", "grayBackgerand"),
+          [sty.rootcomingSoon_style2_grayBackgerand_color_light]:
+            hasVariant($state, "comingSoon", "comingSoon") &&
+            hasVariant($state, "style2", "grayBackgerand") &&
+            hasVariant($state, "color", "light"),
+          [sty.rootcomingSoon_style2_grayBackgerand_size_mini_color_light]:
+            hasVariant($state, "comingSoon", "comingSoon") &&
+            hasVariant($state, "style2", "grayBackgerand") &&
+            hasVariant($state, "color", "light") &&
+            hasVariant($state, "size", "mini"),
           [sty.rootcomingSoon_style2_grayBackgerand_style3_radio_size_mini]:
             hasVariant($state, "comingSoon", "comingSoon") &&
             hasVariant($state, "style3", "radio") &&
             hasVariant($state, "size", "mini") &&
             hasVariant($state, "style2", "grayBackgerand"),
+          [sty.rootcomingSoon_style2_grayBackgerand_style3_radio_size_mini_color_light]:
+            hasVariant($state, "comingSoon", "comingSoon") &&
+            hasVariant($state, "style2", "grayBackgerand") &&
+            hasVariant($state, "color", "light") &&
+            hasVariant($state, "size", "mini") &&
+            hasVariant($state, "style3", "radio"),
           [sty.rootcomingSoon_style3_radio]:
             hasVariant($state, "comingSoon", "comingSoon") &&
             hasVariant($state, "style3", "radio"),

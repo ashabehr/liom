@@ -61,7 +61,6 @@ import {
 
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import RadioGroupLiom from "../../RadioGroupLiom"; // plasmic-import: tXN0uQ-uT9R3/component
-import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -95,6 +94,8 @@ export type PlasmicReminderCategory__ArgsType = {
   onDiableChange?: (val: string) => void;
   title?: string;
   onTitleChange?: (val: string) => void;
+  data?: any;
+  onDataChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicReminderCategory__ArgsType;
 export const PlasmicReminderCategory__ArgProps = new Array<ArgPropType>(
@@ -105,7 +106,9 @@ export const PlasmicReminderCategory__ArgProps = new Array<ArgPropType>(
   "diable",
   "onDiableChange",
   "title",
-  "onTitleChange"
+  "onTitleChange",
+  "data",
+  "onDataChange"
 );
 
 export type PlasmicReminderCategory__OverridesType = {
@@ -113,7 +116,6 @@ export type PlasmicReminderCategory__OverridesType = {
   htmlInput?: Flex__<"input">;
   reveal?: Flex__<typeof Reveal>;
   sort?: Flex__<typeof RadioGroupLiom>;
-  apiRequest?: Flex__<typeof ApiRequest>;
   more?: Flex__<"div">;
   radioGroupLiom2?: Flex__<typeof RadioGroupLiom>;
   radioGroupLiom3?: Flex__<typeof RadioGroupLiom>;
@@ -128,6 +130,8 @@ export interface DefaultReminderCategoryProps {
   onDiableChange?: (val: string) => void;
   title?: string;
   onTitleChange?: (val: string) => void;
+  data?: any;
+  onDataChange?: (val: string) => void;
   more2?: SingleBooleanChoiceArg<"more2">;
   className?: string;
 }
@@ -191,11 +195,11 @@ function PlasmicReminderCategory__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                $state.apiRequest.data.category.forEach(i => {
+                $state.data.category.forEach(i => {
                   i.label = i.name_fa;
                   i.value = i.name;
                 });
-                return $state.apiRequest.data.category;
+                return $state.data.category;
               })();
             } catch (e) {
               if (
@@ -207,24 +211,6 @@ function PlasmicReminderCategory__RenderFunc(props: {
               throw e;
             }
           })()
-      },
-      {
-        path: "apiRequest.data",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "apiRequest.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "apiRequest.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
         path: "sort.selects",
@@ -346,6 +332,14 @@ function PlasmicReminderCategory__RenderFunc(props: {
 
         valueProp: "title",
         onChangeProp: "onTitleChange"
+      },
+      {
+        path: "data",
+        type: "writable",
+        variableType: "object",
+
+        valueProp: "data",
+        onChangeProp: "onDataChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -618,53 +612,23 @@ function PlasmicReminderCategory__RenderFunc(props: {
           />
         </div>
       </div>
-      <ApiRequest
-        data-plasmic-name={"apiRequest"}
-        data-plasmic-override={overrides.apiRequest}
-        className={classNames("__wab_instance", sty.apiRequest)}
-        errorDisplay={null}
-        loadingDisplay={
-          <div className={classNames(projectcss.all, sty.freeBox__g8OtV)}>
-            {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))([
-              2, 3, 4
-            ]).map((__plasmic_item_0, __plasmic_idx_0) => {
-              const currentItem = __plasmic_item_0;
-              const currentIndex = __plasmic_idx_0;
-              return (
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__hC2RX,
-                    "shimmer"
-                  )}
-                  key={currentIndex}
-                />
-              );
-            })}
-          </div>
-        }
-        method={"GET"}
-        onError={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(
-            null,
-            eventArgs
-          );
-        }}
-        onLoading={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, ["apiRequest", "loading"]).apply(
-            null,
-            eventArgs
-          );
-        }}
-        onSuccess={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
-            null,
-            eventArgs
-          );
-        }}
-        shouldFetch={true}
-        url={"https://n8n.staas.ir/webhook/reminders/category"}
-      >
+      {(
+        hasVariant($state, "more2", "more2")
+          ? true
+          : (() => {
+              try {
+                return Object.keys($state.data).length > 0;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })()
+      ) ? (
         <div
           className={classNames(projectcss.all, sty.freeBox__pI1Hb, {
             [sty.freeBoxmore2__pI1Hb3WEwR]: hasVariant($state, "more2", "more2")
@@ -678,7 +642,7 @@ function PlasmicReminderCategory__RenderFunc(props: {
                     customFunction: async () => {
                       return (() => {
                         const scrollMid =
-                          window.scrollY + window.innerHeight / 2 - 30;
+                          window.scrollY + window.innerHeight / 2;
                         const sections =
                           window.document.querySelectorAll(".section");
                         console.log(sections);
@@ -721,7 +685,7 @@ function PlasmicReminderCategory__RenderFunc(props: {
                   //   return a.category_name.localeCompare(b.category_name); // بقیه به‌ترتیب حروفی
                   // });
 
-                  $state.apiRequest.data.type
+                  $state.data.type
                 );
               } catch (e) {
                 if (
@@ -1073,7 +1037,7 @@ function PlasmicReminderCategory__RenderFunc(props: {
             );
           })}
         </div>
-      </ApiRequest>
+      ) : null}
       {(hasVariant($state, "more2", "more2") ? true : false) ? (
         <div
           className={classNames(projectcss.all, sty.freeBox__yyjSq, {
@@ -1201,6 +1165,38 @@ function PlasmicReminderCategory__RenderFunc(props: {
           </div>
         </div>
       ) : null}
+      {(() => {
+        try {
+          return Object.keys($state.data).length == 0;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
+          }
+          throw e;
+        }
+      })() ? (
+        <div className={classNames(projectcss.all, sty.freeBox__g8OtV)}>
+          {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))([
+            2, 3, 4
+          ]).map((__plasmic_item_0, __plasmic_idx_0) => {
+            const currentItem = __plasmic_item_0;
+            const currentIndex = __plasmic_idx_0;
+            return (
+              <div
+                className={classNames(
+                  projectcss.all,
+                  sty.freeBox__hC2RX,
+                  "shimmer"
+                )}
+                key={currentIndex}
+              />
+            );
+          })}
+        </div>
+      ) : null}
     </div>
   ) as React.ReactElement | null;
 }
@@ -1211,7 +1207,6 @@ const PlasmicDescendants = {
     "htmlInput",
     "reveal",
     "sort",
-    "apiRequest",
     "more",
     "radioGroupLiom2",
     "radioGroupLiom3"
@@ -1219,7 +1214,6 @@ const PlasmicDescendants = {
   htmlInput: ["htmlInput"],
   reveal: ["reveal"],
   sort: ["sort"],
-  apiRequest: ["apiRequest", "more", "radioGroupLiom2"],
   more: ["more"],
   radioGroupLiom2: ["radioGroupLiom2"],
   radioGroupLiom3: ["radioGroupLiom3"]
@@ -1232,7 +1226,6 @@ type NodeDefaultElementType = {
   htmlInput: "input";
   reveal: typeof Reveal;
   sort: typeof RadioGroupLiom;
-  apiRequest: typeof ApiRequest;
   more: "div";
   radioGroupLiom2: typeof RadioGroupLiom;
   radioGroupLiom3: typeof RadioGroupLiom;
@@ -1303,7 +1296,6 @@ export const PlasmicReminderCategory = Object.assign(
     htmlInput: makeNodeComponent("htmlInput"),
     reveal: makeNodeComponent("reveal"),
     sort: makeNodeComponent("sort"),
-    apiRequest: makeNodeComponent("apiRequest"),
     more: makeNodeComponent("more"),
     radioGroupLiom2: makeNodeComponent("radioGroupLiom2"),
     radioGroupLiom3: makeNodeComponent("radioGroupLiom3"),

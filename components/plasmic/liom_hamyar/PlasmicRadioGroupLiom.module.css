@@ -51,6 +51,18 @@
   width: 100%;
   min-width: 0;
 }
+.freeBox {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 0px;
+}
 .text__h0Hhj {
   font-weight: 500;
 }
@@ -58,6 +70,17 @@
   font-size: 14px;
 }
 .textsize_mini__h0HhjaMdd {
+  font-size: 14px;
+}
+.text___2KgJ1 {
+  font-weight: 500;
+  color: var(--token-AwpLXbw5AmtS);
+  font-size: var(--token-ZuffvoxgS-gS);
+}
+.textsize_small___2KgJ1QO86K {
+  font-size: 14px;
+}
+.textsize_mini___2KgJ1AMdd {
   font-size: 14px;
 }
 .menuIcon:global(.__wab_instance) {

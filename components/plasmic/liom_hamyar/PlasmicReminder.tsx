@@ -129,6 +129,8 @@ export type PlasmicReminder__ArgsType = {
   ferst?: boolean;
   first?: boolean;
   onFirstChange?: (val: string) => void;
+  reminderSettingReminderCategory2Data?: any;
+  onReminderSettingReminderCategory2DataChange?: (val: any) => void;
 };
 type ArgPropType = keyof PlasmicReminder__ArgsType;
 export const PlasmicReminder__ArgProps = new Array<ArgPropType>(
@@ -152,7 +154,9 @@ export const PlasmicReminder__ArgProps = new Array<ArgPropType>(
   "onSlide3Change",
   "ferst",
   "first",
-  "onFirstChange"
+  "onFirstChange",
+  "reminderSettingReminderCategory2Data",
+  "onReminderSettingReminderCategory2DataChange"
 );
 
 export type PlasmicReminder__OverridesType = {
@@ -216,6 +220,8 @@ export interface DefaultReminderProps {
   ferst?: boolean;
   first?: boolean;
   onFirstChange?: (val: string) => void;
+  reminderSettingReminderCategory2Data?: any;
+  onReminderSettingReminderCategory2DataChange?: (val: any) => void;
   slide3?: SingleBooleanChoiceArg<"slide3">;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
   className?: string;
@@ -945,6 +951,20 @@ function PlasmicReminder__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "switchbest3.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "reminderSetting.reminderCategory2Data",
+        type: "writable",
+        variableType: "object",
+
+        valueProp: "reminderSettingReminderCategory2Data",
+        onChangeProp: "onReminderSettingReminderCategory2DataChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -1186,6 +1206,10 @@ function PlasmicReminder__RenderFunc(props: {
                 data-plasmic-name={"switchbest3"}
                 data-plasmic-override={overrides.switchbest3}
                 className={classNames("__wab_instance", sty.switchbest3)}
+                data={
+                  generateStateValueProp($state, ["switchbest3", "data"]) ??
+                  false
+                }
                 isChecked={
                   generateStateValueProp($state, [
                     "switchbest3",
@@ -1211,6 +1235,21 @@ function PlasmicReminder__RenderFunc(props: {
                       "switchbest3",
                       "isChecked"
                     ])(eventArgs[0]);
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onDataChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["switchbest3", "data"])(
+                      eventArgs[0]
+                    );
                   }).apply(null, eventArgs);
 
                   if (
@@ -1860,7 +1899,7 @@ function PlasmicReminder__RenderFunc(props: {
                 )}
               >
                 {
-                  "\u062a\u0646\u0638\u06cc\u0645\u0627\u062a \u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627"
+                  "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0648 \u062a\u0646\u0638\u06cc\u0645\u0627\u062a"
                 }
               </div>
             </Button>
@@ -2748,41 +2787,38 @@ function PlasmicReminder__RenderFunc(props: {
               className={classNames(projectcss.all, sty.frame32)}
               key={currentIndex}
             >
-              <div
-                className={classNames(projectcss.all, sty.freeBox___30GP4)}
-                style={(() => {
-                  try {
-                    return (() => {
-                      let color;
-                      switch (currentday.text) {
-                        case "drinkWater":
-                          color = "--antd-colorInfoTextHover";
-                          break;
-                        case "routineSkinMorning":
-                          color = "--antd-colorWarningTextHover";
-                          break;
-                        default:
-                          color = "--antd-colorPrimaryTextHover";
-                          break;
-                      }
-                      return { background: `var(${color})` };
-                    })();
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox___30GP4)}>
                 <MenuIcon
                   data-plasmic-name={"menuIcon"}
                   data-plasmic-override={overrides.menuIcon}
                   className={classNames("__wab_instance", sty.menuIcon)}
-                  color={"waite"}
+                  color={(() => {
+                    try {
+                      return (() => {
+                        let color;
+                        switch (currentday.text) {
+                          case "drinkWater":
+                            color = "blue";
+                            break;
+                          case "routineSkinMorning":
+                            color = "warning";
+                            break;
+                          default:
+                            color = "fuchsia";
+                            break;
+                        }
+                        return color;
+                      })();
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()}
                   icons={(() => {
                     try {
                       return currentday.text;
@@ -4381,6 +4417,20 @@ function PlasmicReminder__RenderFunc(props: {
                     return;
                   }
                 }}
+                onReminderCategory2DataChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "reminderSetting",
+                    "reminderCategory2Data"
+                  ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
                 onSmsChange={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, [
                     "reminderSetting",
@@ -4477,6 +4527,10 @@ function PlasmicReminder__RenderFunc(props: {
                 refreshTime={generateStateValueProp($state, [
                   "reminderSetting",
                   "refreshTime"
+                ])}
+                reminderCategory2Data={generateStateValueProp($state, [
+                  "reminderSetting",
+                  "reminderCategory2Data"
                 ])}
                 shop={async () => {
                   const $steps = {};

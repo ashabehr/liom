@@ -263,6 +263,18 @@ function PlasmicInformationBox__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "switchbest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "switchbest2.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -520,9 +532,8 @@ function PlasmicInformationBox__RenderFunc(props: {
                       typeof $steps["updateSwitchChecked"] === "object" &&
                       typeof $steps["updateSwitchChecked"].then === "function"
                     ) {
-                      $steps["updateSwitchChecked"] = await $steps[
-                        "updateSwitchChecked"
-                      ];
+                      $steps["updateSwitchChecked"] =
+                        await $steps["updateSwitchChecked"];
                     }
                   }).apply(null, eventArgs);
                 }}
@@ -551,6 +562,10 @@ function PlasmicInformationBox__RenderFunc(props: {
                       "newView"
                     )
                   })}
+                  data={
+                    generateStateValueProp($state, ["switchbest", "data"]) ??
+                    false
+                  }
                   isChecked={
                     generateStateValueProp($state, [
                       "switchbest",
@@ -607,11 +622,25 @@ function PlasmicInformationBox__RenderFunc(props: {
                         typeof $steps["updateSwitchChecked"] === "object" &&
                         typeof $steps["updateSwitchChecked"].then === "function"
                       ) {
-                        $steps["updateSwitchChecked"] = await $steps[
-                          "updateSwitchChecked"
-                        ];
+                        $steps["updateSwitchChecked"] =
+                          await $steps["updateSwitchChecked"];
                       }
                     }).apply(null, eventArgs);
+                  }}
+                  onDataChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["switchbest", "data"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
                   }}
                 >
                   <div
@@ -732,6 +761,10 @@ function PlasmicInformationBox__RenderFunc(props: {
                       "newView"
                     )
                   })}
+                  data={
+                    generateStateValueProp($state, ["switchbest2", "data"]) ??
+                    false
+                  }
                   isChecked={
                     generateStateValueProp($state, [
                       "switchbest2",
@@ -788,11 +821,26 @@ function PlasmicInformationBox__RenderFunc(props: {
                         typeof $steps["updateSwitchChecked"] === "object" &&
                         typeof $steps["updateSwitchChecked"].then === "function"
                       ) {
-                        $steps["updateSwitchChecked"] = await $steps[
-                          "updateSwitchChecked"
-                        ];
+                        $steps["updateSwitchChecked"] =
+                          await $steps["updateSwitchChecked"];
                       }
                     }).apply(null, eventArgs);
+                  }}
+                  onDataChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "switchbest2",
+                        "data"
+                      ])(eventArgs[0]);
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
                   }}
                 >
                   <div
@@ -883,9 +931,8 @@ function PlasmicInformationBox__RenderFunc(props: {
                       typeof $steps["updateSwitchChecked"] === "object" &&
                       typeof $steps["updateSwitchChecked"].then === "function"
                     ) {
-                      $steps["updateSwitchChecked"] = await $steps[
-                        "updateSwitchChecked"
-                      ];
+                      $steps["updateSwitchChecked"] =
+                        await $steps["updateSwitchChecked"];
                     }
                   }).apply(null, eventArgs);
                 }}
@@ -929,7 +976,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicInformationBox__VariantsArgs;
     args?: PlasmicInformationBox__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicInformationBox__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicInformationBox__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicInformationBox__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

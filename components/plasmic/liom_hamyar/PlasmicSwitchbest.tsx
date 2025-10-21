@@ -95,6 +95,8 @@ export type PlasmicSwitchbest__ArgsType = {
   "aria-label"?: string;
   "aria-labelledby"?: string;
   onChange?: (isChecked: boolean) => void;
+  data?: any;
+  onDataChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicSwitchbest__ArgsType;
 export const PlasmicSwitchbest__ArgProps = new Array<ArgPropType>(
@@ -103,7 +105,9 @@ export const PlasmicSwitchbest__ArgProps = new Array<ArgPropType>(
   "value",
   "aria-label",
   "aria-labelledby",
-  "onChange"
+  "onChange",
+  "data",
+  "onDataChange"
 );
 
 export type PlasmicSwitchbest__OverridesType = {
@@ -118,6 +122,8 @@ export interface DefaultSwitchbestProps extends pp.SwitchProps {
   "aria-label"?: string;
   "aria-labelledby"?: string;
   onChange?: (isChecked: boolean) => void;
+  data?: any;
+  onDataChange?: (val: string) => void;
 }
 
 const $$ = {};
@@ -184,6 +190,14 @@ function PlasmicSwitchbest__RenderFunc(props: {
 
         valueProp: "isChecked",
         onChangeProp: "onChange"
+      },
+      {
+        path: "data",
+        type: "writable",
+        variableType: "object",
+
+        valueProp: "data",
+        onChangeProp: "onDataChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -354,7 +368,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSwitchbest__VariantsArgs;
     args?: PlasmicSwitchbest__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSwitchbest__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSwitchbest__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSwitchbest__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

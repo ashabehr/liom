@@ -156,6 +156,7 @@ export type PlasmicHamyar__OverridesType = {
   settingCycle4?: Flex__<typeof SettingCycle4>;
   editProfile2?: Flex__<typeof EditProfile2>;
   remember?: Flex__<typeof ApiRequest>;
+  apiRequest?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultHamyarProps {}
@@ -1522,6 +1523,704 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "apiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "reminderSetting.reminderCategory2Data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({
+          category: [
+            {
+              id: 1,
+              name: "love",
+              name_fa: "\u0639\u0627\u0634\u0642\u0627\u0646\u0647",
+              description:
+                "\u0645\u0646\u0627\u0633\u0628\u062a\u200c\u0647\u0627 \u0648 \u06cc\u0627\u062f\u0622\u0648\u0631\u0647\u0627\u06cc \u0627\u062d\u0633\u0627\u0633\u06cc \u0648 \u0631\u0645\u0627\u0646\u062a\u06cc\u06a9.",
+              color: "#E91E63"
+            },
+            {
+              id: 2,
+              name: "birthday",
+              name_fa: "\u062a\u0648\u0644\u062f",
+              description:
+                "\u06cc\u0627\u062f\u0622\u0648\u0631 \u062a\u0648\u0644\u062f \u0639\u0632\u06cc\u0632\u0627\u0646 \u0648 \u062f\u0648\u0633\u062a\u0627\u0646.",
+              color: "#FFC107"
+            },
+            {
+              id: 3,
+              name: "health",
+              name_fa: "\u0633\u0644\u0627\u0645\u062a",
+              description:
+                "\u06cc\u0627\u062f\u0622\u0648\u0631\u0647\u0627\u06cc \u0645\u0631\u062a\u0628\u0637 \u0628\u0627 \u0633\u0644\u0627\u0645\u062a \u062c\u0633\u0645 \u0648 \u0631\u0648\u0627\u0646\u060c \u0645\u0627\u0646\u0646\u062f \u0686\u06a9\u0627\u067e\u060c \u062f\u0627\u0631\u0648 \u0648 \u0648\u0631\u0632\u0634.",
+              color: "#4CAF50"
+            },
+            {
+              id: 4,
+              name: "international_days",
+              name_fa:
+                "\u0631\u0648\u0632\u0647\u0627\u06cc \u062c\u0647\u0627\u0646\u06cc",
+              description:
+                "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u062c\u0647\u0627\u0646\u06cc \u0645\u0647\u0645 \u0645\u0627\u0646\u0646\u062f \u0631\u0648\u0632 \u0632\u0645\u06cc\u0646\u060c \u0631\u0648\u0632 \u0632\u0646 \u0648 ...",
+              color: "#2196F3"
+            },
+            {
+              id: 5,
+              name: "religious_days",
+              name_fa:
+                "\u0631\u0648\u0632\u0647\u0627\u06cc \u0645\u0630\u0647\u0628\u06cc",
+              description:
+                "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0645\u0646\u0627\u0633\u0628\u062a\u200c\u0647\u0627 \u0648 \u062a\u0639\u0637\u06cc\u0644\u0627\u062a \u0645\u0630\u0647\u0628\u06cc \u0645\u0627\u0646\u0646\u062f \u0639\u06cc\u062f \u0642\u0631\u0628\u0627\u0646\u060c \u0631\u0645\u0636\u0627\u0646 \u0648 ...",
+              color: "#9C27B0"
+            },
+            {
+              id: 6,
+              name: "national_days",
+              name_fa:
+                "\u0631\u0648\u0632\u0647\u0627\u06cc \u0645\u0644\u06cc",
+              description:
+                "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0645\u0646\u0627\u0633\u0628\u062a\u200c\u0647\u0627 \u0648 \u0631\u0648\u0632\u0647\u0627\u06cc \u0645\u0644\u06cc \u0645\u0627\u0646\u0646\u062f \u0631\u0648\u0632 \u0645\u0639\u0644\u0645\u060c \u067e\u062f\u0631\u060c \u067e\u0631\u0633\u062a\u0627\u0631 \u0648 \u062f\u0647\u0647 \u0641\u062c\u0631",
+              color: "#FF7043"
+            }
+          ],
+          type: [
+            {
+              category_id: 1,
+              category_name: "love",
+              category_name_fa: "\u0639\u0627\u0634\u0642\u0627\u0646\u0647",
+              items: [
+                {
+                  id: 1,
+                  category_id: 1,
+                  type: "wedding_anniversary",
+                  schedule_type: "everyYear",
+                  type_fa:
+                    "\u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c",
+                  description:
+                    "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c \u0628\u0627 \u0647\u0645\u0633\u0631.",
+                  date: null,
+                  text: null,
+                  tag: null,
+                  color: "#E91E63",
+                  icon: "wedding_anniversary"
+                },
+                {
+                  id: 2,
+                  category_id: 1,
+                  type: "relationship_anniversary",
+                  schedule_type: "everyYear",
+                  type_fa:
+                    "\u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc",
+                  description:
+                    "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc \u06cc\u0627 \u0634\u0631\u0648\u0639 \u0631\u0627\u0628\u0637\u0647.",
+                  date: null,
+                  text: null,
+                  tag: null,
+                  color: "#EC407A",
+                  icon: "relationship_anniversary"
+                }
+              ]
+            },
+            {
+              category_id: 2,
+              category_name: "birthday",
+              category_name_fa: "\u062a\u0648\u0644\u062f",
+              items: [
+                {
+                  id: 3,
+                  category_id: 2,
+                  type: "spouse_birthday",
+                  schedule_type: "everyYear",
+                  type_fa: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
+                  description:
+                    "\u06cc\u0627\u062f\u0622\u0648\u0631 \u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631.",
+                  date: null,
+                  text: null,
+                  tag: null,
+                  color: "#FFB300",
+                  icon: "spouse_birthday"
+                },
+                {
+                  id: 4,
+                  category_id: 2,
+                  type: "mother_birthday",
+                  schedule_type: "everyYear",
+                  type_fa: "\u062a\u0648\u0644\u062f \u0645\u0627\u062f\u0631",
+                  description:
+                    "\u06cc\u0627\u062f\u0622\u0648\u0631 \u062a\u0648\u0644\u062f \u0645\u0627\u062f\u0631.",
+                  date: null,
+                  text: null,
+                  tag: null,
+                  color: "#FFC107",
+                  icon: "mother_birthday"
+                },
+                {
+                  id: 5,
+                  category_id: 2,
+                  type: "father_birthday",
+                  schedule_type: "everyYear",
+                  type_fa: "\u062a\u0648\u0644\u062f \u067e\u062f\u0631",
+                  description:
+                    "\u06cc\u0627\u062f\u0622\u0648\u0631 \u062a\u0648\u0644\u062f \u067e\u062f\u0631.",
+                  date: null,
+                  text: null,
+                  tag: null,
+                  color: "#FFD54F",
+                  icon: "father_birthday"
+                },
+                {
+                  id: 6,
+                  category_id: 2,
+                  type: "child_birthday",
+                  schedule_type: "everyYear",
+                  type_fa:
+                    "\u062a\u0648\u0644\u062f \u0641\u0631\u0632\u0646\u062f",
+                  description:
+                    "\u06cc\u0627\u062f\u0622\u0648\u0631 \u062a\u0648\u0644\u062f \u0641\u0631\u0632\u0646\u062f.",
+                  date: null,
+                  text: null,
+                  tag: null,
+                  color: "#FFE082",
+                  icon: "child_birthday"
+                }
+              ]
+            },
+            {
+              category_id: 3,
+              category_name: "health",
+              category_name_fa: "\u0633\u0644\u0627\u0645\u062a",
+              items: [
+                {
+                  id: 8,
+                  category_id: 3,
+                  type: "doctor_visit",
+                  schedule_type: "everyDay",
+                  type_fa:
+                    "\u0648\u06cc\u0632\u06cc\u062a \u067e\u0632\u0634\u06a9",
+                  description:
+                    "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0646\u0648\u0628\u062a \u0645\u0631\u0627\u062c\u0639\u0647 \u0628\u0647 \u067e\u0632\u0634\u06a9.",
+                  date: null,
+                  text: null,
+                  tag: null,
+                  color: "#4CAF50",
+                  icon: "doctor_visit"
+                },
+                {
+                  id: 9,
+                  category_id: 3,
+                  type: "medicine_time",
+                  schedule_type: "everyDay",
+                  type_fa: "\u0645\u0635\u0631\u0641 \u062f\u0627\u0631\u0648",
+                  description:
+                    "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0632\u0645\u0627\u0646 \u0645\u0635\u0631\u0641 \u062f\u0627\u0631\u0648.",
+                  date: null,
+                  text: null,
+                  tag: "repead",
+                  color: "#66BB6A",
+                  icon: "medicine_time"
+                },
+                {
+                  id: 10,
+                  category_id: 3,
+                  type: "checkup",
+                  schedule_type: "everyDay",
+                  type_fa:
+                    "\u0686\u06a9\u0627\u067e \u062f\u0648\u0631\u0647\u200c\u0627\u06cc",
+                  description:
+                    "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0622\u0632\u0645\u0627\u06cc\u0634\u200c\u0647\u0627 \u0648 \u0645\u0639\u0627\u06cc\u0646\u0627\u062a \u0645\u0646\u0638\u0645.",
+                  date: null,
+                  text: null,
+                  tag: null,
+                  color: "#81C784",
+                  icon: "checkup"
+                },
+                {
+                  id: 18,
+                  category_id: 3,
+                  type: "Water_time",
+                  schedule_type: "everyDay",
+                  type_fa: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628",
+                  description:
+                    "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0632\u0645\u0627\u0646 \u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628.",
+                  date: null,
+                  text: null,
+                  tag: null,
+                  color: "#66BB6A",
+                  icon: "Water"
+                }
+              ]
+            },
+            {
+              category_id: 4,
+              category_name: "international_days",
+              category_name_fa:
+                "\u0631\u0648\u0632\u0647\u0627\u06cc \u062c\u0647\u0627\u0646\u06cc",
+              items: [
+                {
+                  id: 12,
+                  category_id: 4,
+                  type: "valentine_day",
+                  schedule_type: "everyYear",
+                  type_fa:
+                    "\u0631\u0648\u0632 \u0648\u0644\u0646\u062a\u0627\u06cc\u0646",
+                  description:
+                    "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0639\u0634\u0642 \u0648 \u0645\u062d\u0628\u062a.",
+                  date: "0000-02-14",
+                  text: "occasion",
+                  tag: null,
+                  color: "#F06292",
+                  icon: "valentine_day"
+                },
+                {
+                  id: 13,
+                  category_id: 4,
+                  type: "womens_day",
+                  schedule_type: "everyYear",
+                  type_fa:
+                    "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631",
+                  description:
+                    "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646 \u0648 \u062d\u0642\u0648\u0642 \u0628\u0631\u0627\u0628\u0631.",
+                  date: "0000-04-19",
+                  text: "occasion",
+                  tag: null,
+                  color: "#42A5F5",
+                  icon: "womens_day"
+                },
+                {
+                  id: 14,
+                  category_id: 4,
+                  type: "mothers_day",
+                  schedule_type: "everyYear",
+                  type_fa:
+                    "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
+                  description:
+                    "\u0631\u0648\u0632 \u0642\u062f\u0631\u062f\u0627\u0646\u06cc \u0627\u0632 \u0645\u0627\u062f\u0631\u0627\u0646 \u062f\u0631 \u0633\u0631\u0627\u0633\u0631 \u062c\u0647\u0627\u0646.",
+                  date: "0000-03-08",
+                  text: "occasion",
+                  tag: null,
+                  color: "#64B5F6",
+                  icon: "mothers_day"
+                }
+              ]
+            },
+            {
+              category_id: 5,
+              category_name: "religious_days",
+              category_name_fa:
+                "\u0631\u0648\u0632\u0647\u0627\u06cc \u0645\u0630\u0647\u0628\u06cc",
+              items: [
+                {
+                  id: 16,
+                  category_id: 5,
+                  type: "religious_womens_day",
+                  schedule_type: "everyYear",
+                  type_fa: "\u0631\u0648\u0632 \u0632\u0646 ",
+                  description:
+                    "\u0631\u0648\u0632 \u0628\u0632\u0631\u06af\u062f\u0627\u0634\u062a \u0645\u0642\u0627\u0645 \u0632\u0646 \u062f\u0631 \u0627\u0633\u0644\u0627\u0645.",
+                  date: "0000-12-11",
+                  text: "occasion",
+                  tag: null,
+                  color: "#CE93D8",
+                  icon: "womens_day"
+                },
+                {
+                  id: 19,
+                  category_id: 5,
+                  type: "religious_womens_day",
+                  schedule_type: "everyYear",
+                  type_fa: "\u0631\u0648\u0632 \u062f\u062e\u062a\u0631 ",
+                  description:
+                    "\u0631\u0648\u0632 \u0628\u0632\u0631\u06af\u062f\u0627\u0634\u062a \u0645\u0642\u0627\u0645 \u062f\u062e\u062a\u0631 \u062f\u0631 \u0627\u0633\u0644\u0627\u0645.",
+                  date: "0000-04-19",
+                  text: "occasion",
+                  tag: null,
+                  color: "#CE93D8",
+                  icon: "womens_day"
+                }
+              ]
+            },
+            {
+              category_id: 6,
+              category_name: "national_days",
+              category_name_fa:
+                "\u0631\u0648\u0632\u0647\u0627\u06cc \u0645\u0644\u06cc",
+              items: [
+                {
+                  id: 17,
+                  category_id: 6,
+                  type: "sepandarmazgan",
+                  schedule_type: "everyYear",
+                  type_fa:
+                    "\u0631\u0648\u0632 \u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646",
+                  description:
+                    "\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc\u060c \u062c\u0634\u0646 \u0645\u0647\u0631 \u0648 \u0645\u062d\u0628\u062a \u062f\u0631 \u0641\u0631\u0647\u0646\u06af \u067e\u0627\u0631\u0633\u06cc.",
+                  date: "0000-02-18",
+                  text: "occasion",
+                  tag: null,
+                  color: "#F48FB1",
+                  icon: "sepandarmazgan"
+                }
+              ]
+            }
+          ]
+        })
+      },
+      {
+        path: "reminder2.reminderSettingReminderCategory2Data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({
+          category: [
+            {
+              id: 1,
+              name: "love",
+              name_fa: "\u0639\u0627\u0634\u0642\u0627\u0646\u0647",
+              description:
+                "\u0645\u0646\u0627\u0633\u0628\u062a\u200c\u0647\u0627 \u0648 \u06cc\u0627\u062f\u0622\u0648\u0631\u0647\u0627\u06cc \u0627\u062d\u0633\u0627\u0633\u06cc \u0648 \u0631\u0645\u0627\u0646\u062a\u06cc\u06a9.",
+              color: "#E91E63"
+            },
+            {
+              id: 2,
+              name: "birthday",
+              name_fa: "\u062a\u0648\u0644\u062f",
+              description:
+                "\u06cc\u0627\u062f\u0622\u0648\u0631 \u062a\u0648\u0644\u062f \u0639\u0632\u06cc\u0632\u0627\u0646 \u0648 \u062f\u0648\u0633\u062a\u0627\u0646.",
+              color: "#FFC107"
+            },
+            {
+              id: 3,
+              name: "health",
+              name_fa: "\u0633\u0644\u0627\u0645\u062a",
+              description:
+                "\u06cc\u0627\u062f\u0622\u0648\u0631\u0647\u0627\u06cc \u0645\u0631\u062a\u0628\u0637 \u0628\u0627 \u0633\u0644\u0627\u0645\u062a \u062c\u0633\u0645 \u0648 \u0631\u0648\u0627\u0646\u060c \u0645\u0627\u0646\u0646\u062f \u0686\u06a9\u0627\u067e\u060c \u062f\u0627\u0631\u0648 \u0648 \u0648\u0631\u0632\u0634.",
+              color: "#4CAF50"
+            },
+            {
+              id: 4,
+              name: "international_days",
+              name_fa:
+                "\u0631\u0648\u0632\u0647\u0627\u06cc \u062c\u0647\u0627\u0646\u06cc",
+              description:
+                "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u062c\u0647\u0627\u0646\u06cc \u0645\u0647\u0645 \u0645\u0627\u0646\u0646\u062f \u0631\u0648\u0632 \u0632\u0645\u06cc\u0646\u060c \u0631\u0648\u0632 \u0632\u0646 \u0648 ...",
+              color: "#2196F3"
+            },
+            {
+              id: 5,
+              name: "religious_days",
+              name_fa:
+                "\u0631\u0648\u0632\u0647\u0627\u06cc \u0645\u0630\u0647\u0628\u06cc",
+              description:
+                "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0645\u0646\u0627\u0633\u0628\u062a\u200c\u0647\u0627 \u0648 \u062a\u0639\u0637\u06cc\u0644\u0627\u062a \u0645\u0630\u0647\u0628\u06cc \u0645\u0627\u0646\u0646\u062f \u0639\u06cc\u062f \u0642\u0631\u0628\u0627\u0646\u060c \u0631\u0645\u0636\u0627\u0646 \u0648 ...",
+              color: "#9C27B0"
+            },
+            {
+              id: 6,
+              name: "national_days",
+              name_fa:
+                "\u0631\u0648\u0632\u0647\u0627\u06cc \u0645\u0644\u06cc",
+              description:
+                "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0645\u0646\u0627\u0633\u0628\u062a\u200c\u0647\u0627 \u0648 \u0631\u0648\u0632\u0647\u0627\u06cc \u0645\u0644\u06cc \u0645\u0627\u0646\u0646\u062f \u0631\u0648\u0632 \u0645\u0639\u0644\u0645\u060c \u067e\u062f\u0631\u060c \u067e\u0631\u0633\u062a\u0627\u0631 \u0648 \u062f\u0647\u0647 \u0641\u062c\u0631",
+              color: "#FF7043"
+            }
+          ],
+          type: [
+            {
+              category_id: 1,
+              category_name: "love",
+              category_name_fa: "\u0639\u0627\u0634\u0642\u0627\u0646\u0647",
+              items: [
+                {
+                  id: 1,
+                  category_id: 1,
+                  type: "wedding_anniversary",
+                  schedule_type: "everyYear",
+                  type_fa:
+                    "\u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c",
+                  description:
+                    "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c \u0628\u0627 \u0647\u0645\u0633\u0631.",
+                  date: null,
+                  text: null,
+                  tag: null,
+                  color: "#E91E63",
+                  icon: "wedding_anniversary"
+                },
+                {
+                  id: 2,
+                  category_id: 1,
+                  type: "relationship_anniversary",
+                  schedule_type: "everyYear",
+                  type_fa:
+                    "\u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc",
+                  description:
+                    "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc \u06cc\u0627 \u0634\u0631\u0648\u0639 \u0631\u0627\u0628\u0637\u0647.",
+                  date: null,
+                  text: null,
+                  tag: null,
+                  color: "#EC407A",
+                  icon: "relationship_anniversary"
+                }
+              ]
+            },
+            {
+              category_id: 2,
+              category_name: "birthday",
+              category_name_fa: "\u062a\u0648\u0644\u062f",
+              items: [
+                {
+                  id: 3,
+                  category_id: 2,
+                  type: "spouse_birthday",
+                  schedule_type: "everyYear",
+                  type_fa: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
+                  description:
+                    "\u06cc\u0627\u062f\u0622\u0648\u0631 \u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631.",
+                  date: null,
+                  text: null,
+                  tag: null,
+                  color: "#FFB300",
+                  icon: "spouse_birthday"
+                },
+                {
+                  id: 4,
+                  category_id: 2,
+                  type: "mother_birthday",
+                  schedule_type: "everyYear",
+                  type_fa: "\u062a\u0648\u0644\u062f \u0645\u0627\u062f\u0631",
+                  description:
+                    "\u06cc\u0627\u062f\u0622\u0648\u0631 \u062a\u0648\u0644\u062f \u0645\u0627\u062f\u0631.",
+                  date: null,
+                  text: null,
+                  tag: null,
+                  color: "#FFC107",
+                  icon: "mother_birthday"
+                },
+                {
+                  id: 5,
+                  category_id: 2,
+                  type: "father_birthday",
+                  schedule_type: "everyYear",
+                  type_fa: "\u062a\u0648\u0644\u062f \u067e\u062f\u0631",
+                  description:
+                    "\u06cc\u0627\u062f\u0622\u0648\u0631 \u062a\u0648\u0644\u062f \u067e\u062f\u0631.",
+                  date: null,
+                  text: null,
+                  tag: null,
+                  color: "#FFD54F",
+                  icon: "father_birthday"
+                },
+                {
+                  id: 6,
+                  category_id: 2,
+                  type: "child_birthday",
+                  schedule_type: "everyYear",
+                  type_fa:
+                    "\u062a\u0648\u0644\u062f \u0641\u0631\u0632\u0646\u062f",
+                  description:
+                    "\u06cc\u0627\u062f\u0622\u0648\u0631 \u062a\u0648\u0644\u062f \u0641\u0631\u0632\u0646\u062f.",
+                  date: null,
+                  text: null,
+                  tag: null,
+                  color: "#FFE082",
+                  icon: "child_birthday"
+                }
+              ]
+            },
+            {
+              category_id: 3,
+              category_name: "health",
+              category_name_fa: "\u0633\u0644\u0627\u0645\u062a",
+              items: [
+                {
+                  id: 8,
+                  category_id: 3,
+                  type: "doctor_visit",
+                  schedule_type: "everyDay",
+                  type_fa:
+                    "\u0648\u06cc\u0632\u06cc\u062a \u067e\u0632\u0634\u06a9",
+                  description:
+                    "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0646\u0648\u0628\u062a \u0645\u0631\u0627\u062c\u0639\u0647 \u0628\u0647 \u067e\u0632\u0634\u06a9.",
+                  date: null,
+                  text: null,
+                  tag: null,
+                  color: "#4CAF50",
+                  icon: "doctor_visit"
+                },
+                {
+                  id: 9,
+                  category_id: 3,
+                  type: "medicine_time",
+                  schedule_type: "everyDay",
+                  type_fa: "\u0645\u0635\u0631\u0641 \u062f\u0627\u0631\u0648",
+                  description:
+                    "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0632\u0645\u0627\u0646 \u0645\u0635\u0631\u0641 \u062f\u0627\u0631\u0648.",
+                  date: null,
+                  text: null,
+                  tag: "repead",
+                  color: "#66BB6A",
+                  icon: "medicine_time"
+                },
+                {
+                  id: 10,
+                  category_id: 3,
+                  type: "checkup",
+                  schedule_type: "everyDay",
+                  type_fa:
+                    "\u0686\u06a9\u0627\u067e \u062f\u0648\u0631\u0647\u200c\u0627\u06cc",
+                  description:
+                    "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0622\u0632\u0645\u0627\u06cc\u0634\u200c\u0647\u0627 \u0648 \u0645\u0639\u0627\u06cc\u0646\u0627\u062a \u0645\u0646\u0638\u0645.",
+                  date: null,
+                  text: null,
+                  tag: null,
+                  color: "#81C784",
+                  icon: "checkup"
+                },
+                {
+                  id: 18,
+                  category_id: 3,
+                  type: "Water_time",
+                  schedule_type: "everyDay",
+                  type_fa: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628",
+                  description:
+                    "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0632\u0645\u0627\u0646 \u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628.",
+                  date: null,
+                  text: null,
+                  tag: null,
+                  color: "#66BB6A",
+                  icon: "Water"
+                }
+              ]
+            },
+            {
+              category_id: 4,
+              category_name: "international_days",
+              category_name_fa:
+                "\u0631\u0648\u0632\u0647\u0627\u06cc \u062c\u0647\u0627\u0646\u06cc",
+              items: [
+                {
+                  id: 12,
+                  category_id: 4,
+                  type: "valentine_day",
+                  schedule_type: "everyYear",
+                  type_fa:
+                    "\u0631\u0648\u0632 \u0648\u0644\u0646\u062a\u0627\u06cc\u0646",
+                  description:
+                    "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0639\u0634\u0642 \u0648 \u0645\u062d\u0628\u062a.",
+                  date: "0000-02-14",
+                  text: "occasion",
+                  tag: null,
+                  color: "#F06292",
+                  icon: "valentine_day"
+                },
+                {
+                  id: 13,
+                  category_id: 4,
+                  type: "womens_day",
+                  schedule_type: "everyYear",
+                  type_fa:
+                    "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631",
+                  description:
+                    "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646 \u0648 \u062d\u0642\u0648\u0642 \u0628\u0631\u0627\u0628\u0631.",
+                  date: "0000-04-19",
+                  text: "occasion",
+                  tag: null,
+                  color: "#42A5F5",
+                  icon: "womens_day"
+                },
+                {
+                  id: 14,
+                  category_id: 4,
+                  type: "mothers_day",
+                  schedule_type: "everyYear",
+                  type_fa:
+                    "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
+                  description:
+                    "\u0631\u0648\u0632 \u0642\u062f\u0631\u062f\u0627\u0646\u06cc \u0627\u0632 \u0645\u0627\u062f\u0631\u0627\u0646 \u062f\u0631 \u0633\u0631\u0627\u0633\u0631 \u062c\u0647\u0627\u0646.",
+                  date: "0000-03-08",
+                  text: "occasion",
+                  tag: null,
+                  color: "#64B5F6",
+                  icon: "mothers_day"
+                }
+              ]
+            },
+            {
+              category_id: 5,
+              category_name: "religious_days",
+              category_name_fa:
+                "\u0631\u0648\u0632\u0647\u0627\u06cc \u0645\u0630\u0647\u0628\u06cc",
+              items: [
+                {
+                  id: 16,
+                  category_id: 5,
+                  type: "religious_womens_day",
+                  schedule_type: "everyYear",
+                  type_fa: "\u0631\u0648\u0632 \u0632\u0646 ",
+                  description:
+                    "\u0631\u0648\u0632 \u0628\u0632\u0631\u06af\u062f\u0627\u0634\u062a \u0645\u0642\u0627\u0645 \u0632\u0646 \u062f\u0631 \u0627\u0633\u0644\u0627\u0645.",
+                  date: "0000-12-11",
+                  text: "occasion",
+                  tag: null,
+                  color: "#CE93D8",
+                  icon: "womens_day"
+                },
+                {
+                  id: 19,
+                  category_id: 5,
+                  type: "religious_womens_day",
+                  schedule_type: "everyYear",
+                  type_fa: "\u0631\u0648\u0632 \u062f\u062e\u062a\u0631 ",
+                  description:
+                    "\u0631\u0648\u0632 \u0628\u0632\u0631\u06af\u062f\u0627\u0634\u062a \u0645\u0642\u0627\u0645 \u062f\u062e\u062a\u0631 \u062f\u0631 \u0627\u0633\u0644\u0627\u0645.",
+                  date: "0000-04-19",
+                  text: "occasion",
+                  tag: null,
+                  color: "#CE93D8",
+                  icon: "womens_day"
+                }
+              ]
+            },
+            {
+              category_id: 6,
+              category_name: "national_days",
+              category_name_fa:
+                "\u0631\u0648\u0632\u0647\u0627\u06cc \u0645\u0644\u06cc",
+              items: [
+                {
+                  id: 17,
+                  category_id: 6,
+                  type: "sepandarmazgan",
+                  schedule_type: "everyYear",
+                  type_fa:
+                    "\u0631\u0648\u0632 \u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646",
+                  description:
+                    "\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc\u060c \u062c\u0634\u0646 \u0645\u0647\u0631 \u0648 \u0645\u062d\u0628\u062a \u062f\u0631 \u0641\u0631\u0647\u0646\u06af \u067e\u0627\u0631\u0633\u06cc.",
+                  date: "0000-02-18",
+                  text: "occasion",
+                  tag: null,
+                  color: "#F48FB1",
+                  icon: "sepandarmazgan"
+                }
+              ]
+            }
+          ]
+        })
       }
     ],
     [$props, $ctx, $refs]
@@ -5663,6 +6362,22 @@ function PlasmicHamyar__RenderFunc(props: {
                   }
                 }).apply(null, eventArgs);
               }}
+              onReminderSettingReminderCategory2DataChange={async (
+                ...eventArgs: any
+              ) => {
+                generateStateOnChangeProp($state, [
+                  "reminder2",
+                  "reminderSettingReminderCategory2Data"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
               onSlide3Change={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "reminder2",
@@ -5719,6 +6434,10 @@ function PlasmicHamyar__RenderFunc(props: {
                 }
               })()}
               refresh={generateStateValueProp($state, ["reminder2", "refresh"])}
+              reminderSettingReminderCategory2Data={generateStateValueProp(
+                $state,
+                ["reminder2", "reminderSettingReminderCategory2Data"]
+              )}
               setting={async () => {
                 const $steps = {};
 
@@ -6100,6 +6819,20 @@ function PlasmicHamyar__RenderFunc(props: {
                   return;
                 }
               }}
+              onReminderCategory2DataChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminderSetting",
+                  "reminderCategory2Data"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
               onSmsChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "reminderSetting",
@@ -6148,6 +6881,10 @@ function PlasmicHamyar__RenderFunc(props: {
               refreshTime={generateStateValueProp($state, [
                 "reminderSetting",
                 "refreshTime"
+              ])}
+              reminderCategory2Data={generateStateValueProp($state, [
+                "reminderSetting",
+                "reminderCategory2Data"
               ])}
               setMobile={async () => {
                 const $steps = {};
@@ -6871,6 +7608,84 @@ function PlasmicHamyar__RenderFunc(props: {
             })()}
             url={"https://n8n.staas.ir/webhook/user/task/day"}
           />
+
+          <ApiRequest
+            data-plasmic-name={"apiRequest"}
+            data-plasmic-override={overrides.apiRequest}
+            className={classNames("__wab_instance", sty.apiRequest)}
+            errorDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___7YmH4
+                )}
+              >
+                {"Error fetching data"}
+              </div>
+            }
+            loadingDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__eYRhM
+                )}
+              >
+                {"Loading..."}
+              </div>
+            }
+            method={"GET"}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "apiRequest",
+                "loading"
+              ]).apply(null, eventArgs);
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
+                null,
+                eventArgs
+              );
+
+              (async data => {
+                const $steps = {};
+
+                $steps["runCode"] = $state.apiRequest.data
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            $state.reminder2.reminderSettingReminderCategory2Data =
+                              $state.apiRequest.data;
+                            return ($state.reminderSetting.reminderCategory2Data =
+                              $state.apiRequest.data);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }).apply(null, eventArgs);
+            }}
+            shouldFetch={true}
+            url={"https://n8n.staas.ir/webhook/reminders/category"}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -6904,7 +7719,8 @@ const PlasmicDescendants = {
     "reminderSetting",
     "settingCycle4",
     "editProfile2",
-    "remember"
+    "remember",
+    "apiRequest"
   ],
   main: ["main", "mainHamyar", "footerMain", "mainHeader", "button"],
   mainHamyar: ["mainHamyar"],
@@ -6951,7 +7767,8 @@ const PlasmicDescendants = {
   reminderSetting: ["reminderSetting"],
   settingCycle4: ["settingCycle4"],
   editProfile2: ["editProfile2"],
-  remember: ["remember"]
+  remember: ["remember"],
+  apiRequest: ["apiRequest"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -6983,6 +7800,7 @@ type NodeDefaultElementType = {
   settingCycle4: typeof SettingCycle4;
   editProfile2: typeof EditProfile2;
   remember: typeof ApiRequest;
+  apiRequest: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -7097,6 +7915,7 @@ export const PlasmicHamyar = Object.assign(
     settingCycle4: makeNodeComponent("settingCycle4"),
     editProfile2: makeNodeComponent("editProfile2"),
     remember: makeNodeComponent("remember"),
+    apiRequest: makeNodeComponent("apiRequest"),
 
     // Metadata about props expected for PlasmicHamyar
     internalVariantProps: PlasmicHamyar__VariantProps,

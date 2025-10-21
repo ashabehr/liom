@@ -450,6 +450,11 @@ function PlasmicUserPage__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "switchbest[][].data",
+        type: "private",
+        variableType: "object"
       }
     ],
     [$props, $ctx, $refs]
@@ -983,6 +988,13 @@ function PlasmicUserPage__RenderFunc(props: {
                                       "__wab_instance",
                                       sty.switchbest
                                     ),
+                                    data:
+                                      generateStateValueProp($state, [
+                                        "switchbest",
+                                        __plasmic_idx_0,
+                                        __plasmic_idx_1,
+                                        "data"
+                                      ]) ?? false,
                                     isChecked:
                                       generateStateValueProp($state, [
                                         "switchbest",
@@ -998,6 +1010,24 @@ function PlasmicUserPage__RenderFunc(props: {
                                           __plasmic_idx_0,
                                           __plasmic_idx_1,
                                           "isChecked"
+                                        ])(eventArgs[0]);
+                                      }).apply(null, eventArgs);
+
+                                      if (
+                                        eventArgs.length > 1 &&
+                                        eventArgs[1] &&
+                                        eventArgs[1]._plasmic_state_init_
+                                      ) {
+                                        return;
+                                      }
+                                    },
+                                    onDataChange: async (...eventArgs: any) => {
+                                      ((...eventArgs) => {
+                                        generateStateOnChangeProp($state, [
+                                          "switchbest",
+                                          __plasmic_idx_0,
+                                          __plasmic_idx_1,
+                                          "data"
                                         ])(eventArgs[0]);
                                       }).apply(null, eventArgs);
 
@@ -1035,6 +1065,14 @@ function PlasmicUserPage__RenderFunc(props: {
                                               throw e;
                                             }
                                           })()
+                                      },
+                                      {
+                                        name: "switchbest[][].data",
+                                        initFunc: ({
+                                          $props,
+                                          $state,
+                                          $queries
+                                        }) => ({})
                                       }
                                     ],
                                     [__plasmic_idx_0, __plasmic_idx_1]
@@ -1154,7 +1192,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicUserPage__VariantsArgs;
     args?: PlasmicUserPage__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicUserPage__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicUserPage__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicUserPage__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

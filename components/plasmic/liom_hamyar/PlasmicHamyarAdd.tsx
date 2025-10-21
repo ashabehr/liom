@@ -475,17 +475,17 @@ function PlasmicHamyarAdd__RenderFunc(props: {
             banners: [
               {
                 banner:
-                  "https://teh-1.s3.poshtiban.com/liom/config/hamyar/ham1.png",
+                  "https://liom.storage.c2.liara.space/config/hamyar/ham1.png",
                 action: "#calendar"
               },
               {
                 banner:
-                  "https://teh-1.s3.poshtiban.com/liom/config/hamyar/ham2.png",
+                  "https://liom.storage.c2.liara.space/config/hamyar/ham2.png",
                 action: "#calendar"
               },
               {
                 banner:
-                  "https://teh-1.s3.poshtiban.com/liom/config/hamyar/ham3.png",
+                  "https://liom.storage.c2.liara.space/config/hamyar/ham3.png",
                 action: "#calendar"
               }
             ],
@@ -493,7 +493,7 @@ function PlasmicHamyarAdd__RenderFunc(props: {
             partnerOverViewImage: "",
             limitHamyar: 1,
             background:
-              "https://teh-1.s3.poshtiban.com/liom/config/hamyar/hamyar_pregnancy.png"
+              "https://liom.storage.c2.liara.space/config/hamyar/hamyar_pregnancy.png"
           }
         })
       },
@@ -638,6 +638,11 @@ function PlasmicHamyarAdd__RenderFunc(props: {
         path: "button7[].loading",
         type: "private",
         variableType: "boolean"
+      },
+      {
+        path: "switchbest[].data",
+        type: "private",
+        variableType: "object"
       }
     ],
     [$props, $ctx, $refs]
@@ -4140,6 +4145,12 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                   "__wab_instance",
                                   sty.switchbest
                                 ),
+                                data:
+                                  generateStateValueProp($state, [
+                                    "switchbest",
+                                    __plasmic_idx_0,
+                                    "data"
+                                  ]) ?? false,
                                 isChecked:
                                   generateStateValueProp($state, [
                                     "switchbest",
@@ -4613,6 +4624,23 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                         await $steps["updateLoadLoading2"];
                                     }
                                   }).apply(null, eventArgs);
+                                },
+                                onDataChange: async (...eventArgs: any) => {
+                                  ((...eventArgs) => {
+                                    generateStateOnChangeProp($state, [
+                                      "switchbest",
+                                      __plasmic_idx_0,
+                                      "data"
+                                    ])(eventArgs[0]);
+                                  }).apply(null, eventArgs);
+
+                                  if (
+                                    eventArgs.length > 1 &&
+                                    eventArgs[1] &&
+                                    eventArgs[1]._plasmic_state_init_
+                                  ) {
+                                    return;
+                                  }
                                 }
                               };
 
@@ -4636,6 +4664,14 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                           throw e;
                                         }
                                       })()
+                                  },
+                                  {
+                                    name: "switchbest[].data",
+                                    initFunc: ({
+                                      $props,
+                                      $state,
+                                      $queries
+                                    }) => ({})
                                   }
                                 ],
                                 [__plasmic_idx_0]

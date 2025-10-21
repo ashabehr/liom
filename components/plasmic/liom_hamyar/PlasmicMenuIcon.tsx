@@ -136,7 +136,7 @@ export type PlasmicMenuIcon__VariantMembers = {
     | "water";
   unnamedVariant: "unnamedVariant";
   unnamedVariant2: "unnamedVariant2";
-  color: "waite";
+  color: "waite" | "blue" | "green" | "warning" | "fuchsia";
   size: "_25";
 };
 export type PlasmicMenuIcon__VariantsArgs = {
@@ -178,7 +178,7 @@ export type PlasmicMenuIcon__VariantsArgs = {
   >;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
   unnamedVariant2?: SingleBooleanChoiceArg<"unnamedVariant2">;
-  color?: SingleChoiceArg<"waite">;
+  color?: SingleChoiceArg<"waite" | "blue" | "green" | "warning" | "fuchsia">;
   size?: SingleChoiceArg<"_25">;
 };
 type VariantPropType = keyof PlasmicMenuIcon__VariantsArgs;
@@ -238,7 +238,7 @@ export interface DefaultMenuIconProps {
   >;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
   unnamedVariant2?: SingleBooleanChoiceArg<"unnamedVariant2">;
-  color?: SingleChoiceArg<"waite">;
+  color?: SingleChoiceArg<"waite" | "blue" | "green" | "warning" | "fuchsia">;
   size?: SingleChoiceArg<"_25">;
   className?: string;
 }
@@ -504,7 +504,11 @@ function PlasmicMenuIcon__RenderFunc(props: {
         styleTokensClassNames,
         sty.root,
         {
+          [sty.rootcolor_blue]: hasVariant($state, "color", "blue"),
+          [sty.rootcolor_fuchsia]: hasVariant($state, "color", "fuchsia"),
+          [sty.rootcolor_green]: hasVariant($state, "color", "green"),
           [sty.rootcolor_waite]: hasVariant($state, "color", "waite"),
+          [sty.rootcolor_warning]: hasVariant($state, "color", "warning"),
           [sty.rooticons_alert]: hasVariant($state, "icons", "alert"),
           [sty.rooticons_barChart]: hasVariant($state, "icons", "barChart"),
           [sty.rooticons_birthday]: hasVariant($state, "icons", "birthday"),

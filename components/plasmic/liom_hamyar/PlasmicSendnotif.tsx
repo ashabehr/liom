@@ -503,6 +503,11 @@ function PlasmicSendnotif__RenderFunc(props: {
         path: "radioGroupLiom[].selects",
         type: "private",
         variableType: "array"
+      },
+      {
+        path: "switchbest[].data",
+        type: "private",
+        variableType: "object"
       }
     ],
     [$props, $ctx, $refs]
@@ -1290,6 +1295,12 @@ function PlasmicSendnotif__RenderFunc(props: {
                               "__wab_instance",
                               sty.switchbest
                             ),
+                            data:
+                              generateStateValueProp($state, [
+                                "switchbest",
+                                __plasmic_idx_0,
+                                "data"
+                              ]) ?? false,
                             isChecked:
                               generateStateValueProp($state, [
                                 "switchbest",
@@ -1312,6 +1323,23 @@ function PlasmicSendnotif__RenderFunc(props: {
                               ) {
                                 return;
                               }
+                            },
+                            onDataChange: async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "switchbest",
+                                  __plasmic_idx_0,
+                                  "data"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
                             }
                           };
 
@@ -1322,6 +1350,10 @@ function PlasmicSendnotif__RenderFunc(props: {
                                 name: "switchbest[].isChecked",
                                 initFunc: ({ $props, $state, $queries }) =>
                                   undefined
+                              },
+                              {
+                                name: "switchbest[].data",
+                                initFunc: ({ $props, $state, $queries }) => ({})
                               }
                             ],
                             [__plasmic_idx_0]
