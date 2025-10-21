@@ -636,6 +636,23 @@ function PlasmicReminderSetting__RenderFunc(props: {
               finishTime: null,
               chanels: '["notification","telegram"]',
               active: 1
+            },
+            {
+              id: 511,
+              liomId: "1",
+              telegramId: "372883527",
+              phoneNumber: "",
+              schedule_type: "everyDay",
+              type: "Water_time",
+              name: "\u0646\u0648\u0634\u06cc\u062f\u0646 ddddd\u0622\u0628",
+              text: "Water_time",
+              token1: null,
+              dates: null,
+              weekdays: null,
+              times: '["22:50","23:05"]',
+              finishTime: null,
+              chanels: '["notification","telegram"]',
+              active: 1
             }
           ],
           subscription: false,
@@ -978,44 +995,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                const offlineMap = new Map();
-                $state.offlineList.forEach(t => {
-                  const key =
-                    t.text === "occasion"
-                      ? `occasion:${t.name}`
-                      : `text:${t.text}`;
-                  offlineMap.set(key, t);
-                });
-                const updatedList = [...$state.offlineList];
-                $props.data.forEach(r => {
-                  const key =
-                    r.text === "occasion"
-                      ? `occasion:${r.name}`
-                      : `text:${r.text}`;
-                  const existing = offlineMap.get(key);
-                  if (existing) {
-                    const updated = {
-                      ...existing,
-                      id: r.id,
-                      liomId: r.liomId || existing.liomId,
-                      telegramId: r.telegramId || existing.telegramId,
-                      phoneNumber: r.phoneNumber || existing.phoneNumber,
-                      schedule_type: r.schedule_type || existing.schedule_type,
-                      name: r.name || existing.name,
-                      text: r.text || existing.text,
-                      token1: r.token1 || existing.token1,
-                      dates: r.dates || existing.dates,
-                      type: r.type || existing.type,
-                      weekdays: r.weekdays || existing.weekdays,
-                      times: r.times || existing.times,
-                      finishTime: r.finishTime || existing.finishTime,
-                      active: r.active ?? existing.active,
-                      channels: r.chanels ?? existing.chanels
-                    };
-                    offlineMap.set(key, updated);
-                    const index = updatedList.indexOf(existing);
-                    updatedList[index] = updated;
-                  } else {
+                const updatedList = [];
+                if (Array.isArray($props?.data)) {
+                  $props.data.forEach(r => {
                     const newEvent = {
                       id: r.id,
                       liomId: r.liomId || null,
@@ -1025,19 +1007,20 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       name: r.name,
                       text: r.text,
                       token1: r.token1 || null,
-                      dates: r.dates,
+                      dates: r.dates || null,
                       type: r.type || null,
                       weekdays: r.weekdays || null,
                       times: r.times || null,
                       finishTime: r.finishTime || null,
                       active: r.active ?? 0,
                       channels:
-                        r.channels == "{" ? '["notification"]' : r.channels
+                        r.channels === "{" || !r.channels
+                          ? '["notification"]'
+                          : r.channels
                     };
                     updatedList.push(newEvent);
-                    offlineMap.set(key, newEvent);
-                  }
-                });
+                  });
+                }
                 return updatedList;
               })();
             } catch (e) {
@@ -3457,48 +3440,75 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               (() => {
                                 try {
                                   return (() => {
-                                    $state.select2.weekdays = $state.week
-                                      ?.length
-                                      ? JSON.stringify($state.week)
-                                      : undefined;
-                                    if ($state.date.length > 0) {
-                                      let dates = $state.date.map(
-                                        i => i.start.f
-                                      );
+                                    try {
                                       if (
-                                        $state.select2.schedule_type ===
-                                        "everyYear"
+                                        Array.isArray($state.week) &&
+                                        $state.week.length > 0
                                       ) {
-                                        dates = $state.date.map(i => {
-                                          let parts = i.start.f.split(/[-/]/);
-                                          parts[0] = "0000";
-                                          return i.start.f.includes("-")
-                                            ? parts.join("-")
-                                            : parts.join("/");
-                                        });
+                                        $state.select2.weekdays =
+                                          JSON.stringify($state.week);
+                                      } else {
+                                        $state.select2.weekdays = undefined;
                                       }
-                                      $state.select2.dates =
-                                        JSON.stringify(dates);
-                                    } else {
-                                      $state.select2.dates = undefined;
-                                    }
-                                    if ($state.finishDate?.f) {
+                                      if (
+                                        Array.isArray($state.date) &&
+                                        $state.date.length > 0
+                                      ) {
+                                        let dates = $state.date
+                                          .map(i => i?.start?.f || "")
+                                          .filter(Boolean);
+                                        if (
+                                          $state.select2.schedule_type ===
+                                          "everyYear"
+                                        ) {
+                                          dates = dates.map(f => {
+                                            let parts = f.split(/[-/]/);
+                                            if (parts.length > 1)
+                                              parts[0] = "0000";
+                                            return f.includes("-")
+                                              ? parts.join("-")
+                                              : parts.join("/");
+                                          });
+                                        }
+                                        $state.select2.dates =
+                                          JSON.stringify(dates);
+                                      } else {
+                                        $state.select2.dates = undefined;
+                                      }
                                       $state.select2.finishTime =
-                                        $state.finishDate.f;
-                                    } else {
-                                      $state.select2.finishTime = undefined;
+                                        $state?.finishDate?.f || undefined;
+                                      $state.select2.active = 1;
+                                      if (
+                                        Array.isArray($state.time2) &&
+                                        $state.time2.length > 0
+                                      ) {
+                                        $state.select2.times = JSON.stringify(
+                                          $state.time2.map(
+                                            t =>
+                                              `${String(t?.hour ?? 0).padStart(2, "0")}:${String(t?.minute ?? 0).padStart(2, "0")}`
+                                          )
+                                        );
+                                      } else {
+                                        $state.select2.times = JSON.stringify(
+                                          []
+                                        );
+                                      }
+                                      $state.select2.name = $state?.title ?? "";
+                                      const selects =
+                                        $state?.radioGroupLiom?.selects ?? [];
+                                      $state.select2.channels =
+                                        JSON.stringify(selects);
+                                    } catch (err) {
+                                      $state.select2 = {
+                                        weekdays: undefined,
+                                        dates: undefined,
+                                        finishTime: undefined,
+                                        active: 0,
+                                        times: "[]",
+                                        name: "",
+                                        channels: "[]"
+                                      };
                                     }
-                                    $state.select2.active = 1;
-                                    $state.select2.times = JSON.stringify(
-                                      $state.time2.map(
-                                        t =>
-                                          `${String(t.hour).padStart(2, "0")}:${String(t.minute).padStart(2, "0")}`
-                                      )
-                                    );
-                                    $state.select2.name = $state.title;
-                                    $state.select2.channels = JSON.stringify(
-                                      $state.radioGroupLiom.selects
-                                    );
                                     return $state.select2;
                                   })();
                                 } catch (e) {
@@ -3562,8 +3572,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               customFunction: async () => {
                                 return (() => {
                                   $state.dialog.opendialog = false;
-                                  $state.select2.id = $steps.insert.data.result;
-                                  return ($state.select2 = {});
+                                  $state.dialog2.opendialog = false;
+                                  return ($state.select2.id =
+                                    $steps.insert.data.result);
                                 })();
                               }
                             };
@@ -3587,8 +3598,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               customFunction: async () => {
                                 return (() => {
                                   $state.dialog.opendialog = false;
-                                  $state.dialog2.opendialog = false;
-                                  return ($state.select2 = {});
+                                  return ($state.dialog2.opendialog = false);
                                 })();
                               }
                             };
@@ -4069,7 +4079,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             $state.date = [];
                           }
                           try {
-                            $state.week = JSON.parse(currentItem.weekdays);
+                            $state.week = JSON.parse($state.select2.weekdays);
                           } catch {}
                           try {
                             function formatTimeString(value) {
@@ -6484,10 +6494,12 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     {(() => {
                                       try {
                                         return (() => {
-                                          let dates = JSON.parse(
-                                            currentItem.dates
-                                          );
-                                          return dates && dates.length > 0;
+                                          try {
+                                            let dates = JSON.parse(
+                                              currentItem.dates
+                                            );
+                                            return dates && dates.length > 0;
+                                          } catch {}
                                         })();
                                       } catch (e) {
                                         if (
@@ -8553,7 +8565,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             $state.date = [];
                           }
                           try {
-                            $state.week = JSON.parse(currentItem.weekdays);
+                            $state.week = JSON.parse($state.select2.weekdays);
                           } catch {}
                           try {
                             function formatTimeString(value) {

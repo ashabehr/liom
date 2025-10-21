@@ -384,7 +384,7 @@
   background: #f8f8f8;
   grid-column-start: 1 !important;
   grid-column-end: -1 !important;
-  padding: 5rem 12px;
+  padding: 5rem 12px 7rem;
 }
 @media (max-width: 640px) {
   .freeBox__xMddU {
@@ -459,7 +459,7 @@
   padding: 0px;
 }
 .frame23 {
-  height: auto;
+  height: 100%;
   display: flex;
   position: relative;
   align-self: stretch;
@@ -1495,7 +1495,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   min-width: 0;
   padding: 0px;
