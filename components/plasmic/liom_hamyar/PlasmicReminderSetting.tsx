@@ -704,7 +704,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant(globalVariants, "screen", "mobile") ? false : false
+          hasVariant(globalVariants, "screen", "mobile") ? false : true
       },
       {
         path: "dateDiolog.opendialog",
@@ -2031,7 +2031,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     <React.Fragment>
                                       {(() => {
                                         try {
-                                          return currentItem.start.g;
+                                          return `${currentItem.start.g.slice(0, -4)} هر سال`;
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
@@ -5531,7 +5531,15 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 }
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__ywBkh)}>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__ywBkh, {
+                [sty.freeBoxhamyar__ywBkhYj8LV]: hasVariant(
+                  $state,
+                  "hamyar",
+                  "hamyar"
+                )
+              })}
+            >
               <div
                 className={classNames(
                   projectcss.all,
@@ -6164,14 +6172,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     sty.freeBox__ez4GT
                                   )}
                                 >
-                                  <Icon291Icon
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.svg___0Df5
-                                    )}
-                                    role={"img"}
-                                  />
-
                                   <div
                                     className={classNames(
                                       projectcss.all,

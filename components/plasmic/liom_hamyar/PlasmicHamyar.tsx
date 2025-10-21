@@ -2769,6 +2769,34 @@ function PlasmicHamyar__RenderFunc(props: {
                       $steps["updateEdit"] = await $steps["updateEdit"];
                     }
                   }}
+                  reminder={async () => {
+                    const $steps = {};
+
+                    $steps["updatePage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            vgroup: "page",
+                            operation: 0,
+                            value: "reminder"
+                          };
+                          return (({ vgroup, value }) => {
+                            if (typeof value === "string") {
+                              value = [value];
+                            }
+
+                            $stateSet($state, vgroup, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updatePage"] != null &&
+                      typeof $steps["updatePage"] === "object" &&
+                      typeof $steps["updatePage"].then === "function"
+                    ) {
+                      $steps["updatePage"] = await $steps["updatePage"];
+                    }
+                  }}
                   slot={
                     <React.Fragment>
                       {(() => {

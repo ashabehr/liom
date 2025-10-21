@@ -1535,7 +1535,7 @@
 }
 @media (max-width: 640px) {
   .button7:global(.__wab_instance) {
-    width: auto;
+    width: 58px;
   }
 }
 .svg__zpfYo {

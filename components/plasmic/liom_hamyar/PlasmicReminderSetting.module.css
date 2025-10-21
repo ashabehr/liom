@@ -1713,7 +1713,7 @@
 }
 @media (max-width: 640px) {
   .text__d61Dh {
-    font-size: 10px;
+    font-size: 12px;
   }
 }
 .button10:global(.__wab_instance) {
@@ -2009,13 +2009,6 @@
   row-gap: 0px;
   min-width: 0;
   padding: 0px;
-}
-.svg___0Df5 {
-  object-fit: cover;
-  max-width: 100%;
-  width: 25px;
-  height: 25px;
-  flex-shrink: 0;
 }
 .text__yZzHx {
   display: block;

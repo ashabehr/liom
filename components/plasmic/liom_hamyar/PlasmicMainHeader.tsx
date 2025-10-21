@@ -79,6 +79,7 @@ import Icon189Icon from "./icons/PlasmicIcon__Icon189"; // plasmic-import: V52xq
 import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
 import Icon190Icon from "./icons/PlasmicIcon__Icon190"; // plasmic-import: tsFhlLw3Wre3/icon
 import Icon193Icon from "./icons/PlasmicIcon__Icon193"; // plasmic-import: mQViEY5IKL9R/icon
+import Icon304Icon from "./icons/PlasmicIcon__Icon304"; // plasmic-import: 703ShUnmEPbT/icon
 import Icon194Icon from "./icons/PlasmicIcon__Icon194"; // plasmic-import: uU66A14xTk1C/icon
 import Icon226Icon from "./icons/PlasmicIcon__Icon226"; // plasmic-import: i72W_8jC8xCg/icon
 import Icon187Icon from "./icons/PlasmicIcon__Icon187"; // plasmic-import: TGEaylyFP26z/icon
@@ -104,6 +105,7 @@ export type PlasmicMainHeader__ArgsType = {
   onDopenChange2?: (val: string) => void;
   openEdit?: () => void;
   hamyarshop?: () => void;
+  reminder?: () => void;
   children?: React.ReactNode;
   slot?: React.ReactNode;
 };
@@ -115,6 +117,7 @@ export const PlasmicMainHeader__ArgProps = new Array<ArgPropType>(
   "onDopenChange2",
   "openEdit",
   "hamyarshop",
+  "reminder",
   "children",
   "slot"
 );
@@ -136,6 +139,7 @@ export interface DefaultMainHeaderProps {
   onDopenChange2?: (val: string) => void;
   openEdit?: () => void;
   hamyarshop?: () => void;
+  reminder?: () => void;
   children?: React.ReactNode;
   slot?: React.ReactNode;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
@@ -1614,6 +1618,107 @@ function PlasmicMainHeader__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
+                $steps["runReminder"] = true
+                  ? (() => {
+                      const actionArgs = { eventRef: $props["reminder"] };
+                      return (({ eventRef, args }) => {
+                        return eventRef?.(...(args ?? []));
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runReminder"] != null &&
+                  typeof $steps["runReminder"] === "object" &&
+                  typeof $steps["runReminder"].then === "function"
+                ) {
+                  $steps["runReminder"] = await $steps["runReminder"];
+                }
+
+                $steps["updateDopen"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["dopen"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateDopen"] != null &&
+                  typeof $steps["updateDopen"] === "object" &&
+                  typeof $steps["updateDopen"].then === "function"
+                ) {
+                  $steps["updateDopen"] = await $steps["updateDopen"];
+                }
+              }}
+            >
+              <PlasmicIcon__
+                PlasmicIconType={
+                  hasVariant($state, "hamyar", "hamyar")
+                    ? Icon304Icon
+                    : Icon193Icon
+                }
+                className={classNames(projectcss.all, sty.svg__f8NU, {
+                  [sty.svghamyar__f8NUs1T6S]: hasVariant(
+                    $state,
+                    "hamyar",
+                    "hamyar"
+                  )
+                })}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___1IMnQ,
+                  {
+                    [sty.texthamyar___1IMnQs1T6S]: hasVariant(
+                      $state,
+                      "hamyar",
+                      "hamyar"
+                    )
+                  }
+                )}
+              >
+                {hasVariant($state, "hamyar", "hamyar")
+                  ? "\u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627\u06cc \u0645\u0646"
+                  : "\u062f\u0631\u0628\u0627\u0631\u0647 \u0645\u0627"}
+              </div>
+              <ChevronLeftIcon
+                className={classNames(projectcss.all, sty.svg__v0Is6)}
+                role={"img"}
+              />
+            </div>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__jANpX, {
+                [sty.freeBoxhamyar__jANpXs1T6S]: hasVariant(
+                  $state,
+                  "hamyar",
+                  "hamyar"
+                )
+              })}
+              onClick={async event => {
+                const $steps = {};
+
                 $steps["runCode"] = true
                   ? (() => {
                       const actionArgs = {
@@ -1670,7 +1775,7 @@ function PlasmicMainHeader__RenderFunc(props: {
               }}
             >
               <Icon193Icon
-                className={classNames(projectcss.all, sty.svg__f8NU)}
+                className={classNames(projectcss.all, sty.svg__sjF2K)}
                 role={"img"}
               />
 
@@ -1678,13 +1783,20 @@ function PlasmicMainHeader__RenderFunc(props: {
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text___1IMnQ
+                  sty.text___32Orb,
+                  {
+                    [sty.texthamyar___32Orbs1T6S]: hasVariant(
+                      $state,
+                      "hamyar",
+                      "hamyar"
+                    )
+                  }
                 )}
               >
                 {"\u062f\u0631\u0628\u0627\u0631\u0647 \u0645\u0627"}
               </div>
               <ChevronLeftIcon
-                className={classNames(projectcss.all, sty.svg__v0Is6)}
+                className={classNames(projectcss.all, sty.svg__bZbGw)}
                 role={"img"}
               />
             </div>
