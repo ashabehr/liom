@@ -2463,6 +2463,31 @@ function PlasmicHamyar__RenderFunc(props: {
                   return;
                 }
               }}
+              onRefreshChange={async val => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            return ($state.reminderSetting.refresh += 1);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }}
               onTokenChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "mainHamyar",
@@ -2543,6 +2568,34 @@ function PlasmicHamyar__RenderFunc(props: {
                   typeof $steps["updatePage"].then === "function"
                 ) {
                   $steps["updatePage"] = await $steps["updatePage"];
+                }
+              }}
+              reminderSetting={async () => {
+                const $steps = {};
+
+                $steps["updateRemindersetting"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        vgroup: "remindersetting",
+                        operation: 4
+                      };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        $stateSet($state, vgroup, true);
+                        return true;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateRemindersetting"] != null &&
+                  typeof $steps["updateRemindersetting"] === "object" &&
+                  typeof $steps["updateRemindersetting"].then === "function"
+                ) {
+                  $steps["updateRemindersetting"] =
+                    await $steps["updateRemindersetting"];
                 }
               }}
               token={generateStateValueProp($state, ["mainHamyar", "token"])}
@@ -3058,6 +3111,8 @@ function PlasmicHamyar__RenderFunc(props: {
                                   return "عَلاّمه";
                                 case "self":
                                   return "مراقبت از خود";
+                                case "reminder":
+                                  return "یادآوری";
                                 default:
                                   return "";
                               }
@@ -6257,83 +6312,6 @@ function PlasmicHamyar__RenderFunc(props: {
                 ) {
                   return;
                 }
-
-                (async val => {
-                  const $steps = {};
-
-                  $steps["updateReminder2Slide3"] =
-                    $state.reminder2.first == true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["reminder2", "slide3"]
-                            },
-                            operation: 0,
-                            value: true
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                  if (
-                    $steps["updateReminder2Slide3"] != null &&
-                    typeof $steps["updateReminder2Slide3"] === "object" &&
-                    typeof $steps["updateReminder2Slide3"].then === "function"
-                  ) {
-                    $steps["updateReminder2Slide3"] =
-                      await $steps["updateReminder2Slide3"];
-                  }
-
-                  $steps["updateReminder2Slide32"] =
-                    $state.reminder2.first == false &&
-                    $state.reminder2.slide3 != true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["reminder2", "slide3"]
-                            },
-                            operation: 0,
-                            value: false
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                  if (
-                    $steps["updateReminder2Slide32"] != null &&
-                    typeof $steps["updateReminder2Slide32"] === "object" &&
-                    typeof $steps["updateReminder2Slide32"].then === "function"
-                  ) {
-                    $steps["updateReminder2Slide32"] =
-                      await $steps["updateReminder2Slide32"];
-                  }
-                }).apply(null, eventArgs);
               }}
               onRefreshChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [

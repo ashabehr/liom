@@ -261,6 +261,9 @@
   > :global(.__wab_slot-string-wrapper) {
   text-decoration-line: none;
 }
+.slotTargetChildrencustom {
+  color: var(--token-TpmbTrq5hCAj);
+}
 .slotTargetChildrencircle_isChecked > :global(.__wab_text),
 .slotTargetChildrencircle_isChecked > :global(.__wab_expr_html_text),
 .slotTargetChildrencircle_isChecked > :global(.__wab_slot-string-wrapper),
@@ -301,6 +304,9 @@
   > :global(.__wab_slot)
   > :global(.__wab_slot-string-wrapper) {
   text-decoration-line: line-through;
+}
+.slotTargetChildrencustom_isChecked {
+  color: var(--token-bQEloS1hWiDI);
 }
 .slotTargetChildrencircle_custom {
   text-align: right;

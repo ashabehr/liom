@@ -720,8 +720,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         path: "dialog.opendialog",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant(globalVariants, "screen", "mobile") ? false : false
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "dateDiolog.opendialog",
@@ -2764,7 +2763,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               {(() => {
                                 try {
                                   return (() => {
-                                    var weekday = [
+                                    const weekday = [
                                       {
                                         label: "شنبه",
                                         value: "saturday"
@@ -2795,12 +2794,16 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                       }
                                     ];
 
-                                    return weekday
-                                      .filter(i =>
-                                        $state.week.includes(i.value)
-                                      )
-                                      .map(i => i.label)
-                                      .join(", ");
+                                    const selected = weekday.filter(i =>
+                                      $state.week.includes(i.value)
+                                    );
+                                    const result =
+                                      selected.length === weekday.length
+                                        ? "هر روز هفته"
+                                        : selected
+                                            .map(i => i.label)
+                                            .join("\u060C ");
+                                    return result;
                                   })();
                                 } catch (e) {
                                   if (

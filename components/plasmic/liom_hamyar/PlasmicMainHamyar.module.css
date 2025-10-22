@@ -143,3 +143,10 @@
   flex-shrink: 0;
   padding: 0px;
 }
+.reminder:global(.__wab_instance) {
+  max-width: 100%;
+  display: none;
+}
+.reminderpage_reminder:global(.__wab_instance) {
+  display: grid;
+}

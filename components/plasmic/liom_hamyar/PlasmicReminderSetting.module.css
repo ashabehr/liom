@@ -384,11 +384,12 @@
   font-size: var(--token-ZuffvoxgS-gS);
   font-weight: 400;
   color: var(--token-qvl81LxkOSoe);
+  padding-top: 2px;
 }
 .freeBox__xgMp {
   display: grid;
   position: relative;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -574,6 +575,7 @@
   font-size: var(--token-ZuffvoxgS-gS);
   font-weight: 400;
   color: var(--token-qvl81LxkOSoe);
+  padding-top: 2px;
 }
 .svg__tHSl {
   object-fit: cover;
@@ -690,11 +692,13 @@
   font-size: var(--token-ZuffvoxgS-gS);
   font-weight: 400;
   color: var(--token-qvl81LxkOSoe);
+  align-self: flex-end;
+  padding-top: 2px;
 }
 .freeBox___4YZz {
   display: grid;
   position: relative;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -871,6 +875,7 @@
   font-size: var(--token-ZuffvoxgS-gS);
   font-weight: 400;
   color: var(--token-qvl81LxkOSoe);
+  padding-top: 2px;
 }
 .svg__nN12S {
   object-fit: cover;

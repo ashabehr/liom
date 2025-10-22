@@ -275,6 +275,9 @@ function PlasmicCheckbox__RenderFunc(props: {
             hasVariant($state, "circle", "circle") &&
             hasVariant($state, "isChecked", "isChecked"),
           [sty.rootcustom]: hasVariant($state, "custom", "custom"),
+          [sty.rootcustom_isChecked]:
+            hasVariant($state, "isChecked", "isChecked") &&
+            hasVariant($state, "custom", "custom"),
           [sty.rootfilter_isChecked]:
             hasVariant($state, "filter", "filter") &&
             hasVariant($state, "isChecked", "isChecked"),
@@ -333,12 +336,12 @@ function PlasmicCheckbox__RenderFunc(props: {
             hasVariant($state, "isChecked", "isChecked")
               ? Icon167Icon
               : hasVariant($state, "circle", "circle")
-              ? Icon166Icon
-              : hasVariant($state, "isIndeterminate", "isIndeterminate")
-              ? SquareMinusSvgIcon
-              : hasVariant($state, "isChecked", "isChecked")
-              ? SquareCheckFilledSvgIcon
-              : SquareSvgIcon
+                ? Icon166Icon
+                : hasVariant($state, "isIndeterminate", "isIndeterminate")
+                  ? SquareMinusSvgIcon
+                  : hasVariant($state, "isChecked", "isChecked")
+                    ? SquareCheckFilledSvgIcon
+                    : SquareSvgIcon
           }
           className={classNames(projectcss.all, sty.svg, {
             [sty.svg___focusVisibleWithin]: triggers.focusVisibleWithin_root,
@@ -413,6 +416,14 @@ function PlasmicCheckbox__RenderFunc(props: {
               [sty.slotTargetChildrencircle_isChecked]:
                 hasVariant($state, "circle", "circle") &&
                 hasVariant($state, "isChecked", "isChecked"),
+              [sty.slotTargetChildrencustom]: hasVariant(
+                $state,
+                "custom",
+                "custom"
+              ),
+              [sty.slotTargetChildrencustom_isChecked]:
+                hasVariant($state, "isChecked", "isChecked") &&
+                hasVariant($state, "custom", "custom"),
               [sty.slotTargetChildrenfilter_isChecked]:
                 hasVariant($state, "filter", "filter") &&
                 hasVariant($state, "isChecked", "isChecked"),
@@ -500,7 +511,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicCheckbox__VariantsArgs;
     args?: PlasmicCheckbox__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicCheckbox__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicCheckbox__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicCheckbox__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

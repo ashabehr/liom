@@ -79,6 +79,7 @@ export type PlasmicRadioGroupLiom__VariantMembers = {
   icon: "icon";
   style2: "cycle";
   direction: "v";
+  noselect: "noselect";
 };
 export type PlasmicRadioGroupLiom__VariantsArgs = {
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
@@ -88,6 +89,7 @@ export type PlasmicRadioGroupLiom__VariantsArgs = {
   icon?: SingleBooleanChoiceArg<"icon">;
   style2?: SingleChoiceArg<"cycle">;
   direction?: SingleChoiceArg<"v">;
+  noselect?: SingleBooleanChoiceArg<"noselect">;
 };
 type VariantPropType = keyof PlasmicRadioGroupLiom__VariantsArgs;
 export const PlasmicRadioGroupLiom__VariantProps = new Array<VariantPropType>(
@@ -97,7 +99,8 @@ export const PlasmicRadioGroupLiom__VariantProps = new Array<VariantPropType>(
   "color",
   "icon",
   "style2",
-  "direction"
+  "direction",
+  "noselect"
 );
 
 export type PlasmicRadioGroupLiom__ArgsType = {
@@ -144,6 +147,7 @@ export interface DefaultRadioGroupLiomProps {
   icon?: SingleBooleanChoiceArg<"icon">;
   style2?: SingleChoiceArg<"cycle">;
   direction?: SingleChoiceArg<"v">;
+  noselect?: SingleBooleanChoiceArg<"noselect">;
   className?: string;
 }
 
@@ -257,6 +261,12 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.direction
+      },
+      {
+        path: "noselect",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.noselect
       }
     ],
     [$props, $ctx, $refs]
@@ -339,6 +349,11 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
                 "moulty",
                 "moulty"
               ),
+              [sty.radioGropnoselect__xDgqn07Vi2]: hasVariant(
+                $state,
+                "noselect",
+                "noselect"
+              ),
               [sty.radioGropsize_mini__xDgqnaMdd]: hasVariant(
                 $state,
                 "size",
@@ -412,19 +427,38 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
                 $steps["updateSelected2"] = await $steps["updateSelected2"];
               }
             }}
-            selected={(() => {
-              try {
-                return $state.selected == currentItem.value;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return [];
-                }
-                throw e;
-              }
-            })()}
+            selected={
+              hasVariant($state, "noselect", "noselect")
+                ? (() => {
+                    try {
+                      return (() => {
+                        $state.selected == currentItem.value;
+                        return false;
+                      })();
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                : (() => {
+                    try {
+                      return $state.selected == currentItem.value;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+            }
             size={
               hasVariant($state, "size", "mini")
                 ? "mini"

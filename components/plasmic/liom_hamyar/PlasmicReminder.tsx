@@ -71,6 +71,7 @@ import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import Line from "../../Line"; // plasmic-import: tYgE5kAlYGXB/component
 import ReminderSetting from "../../ReminderSetting"; // plasmic-import: VZcPBQBUFNbT/component
 import { SwiperSlider } from "@/components/SwiperSlider"; // plasmic-import: hd-bzFw1zcpE/codeComponent
+import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
 import { AntdTooltip } from "@plasmicpkgs/antd5/skinny/registerTooltip";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -89,6 +90,7 @@ import Icon295Icon from "./icons/PlasmicIcon__Icon295"; // plasmic-import: SfM64
 import Icon322Icon from "./icons/PlasmicIcon__Icon322"; // plasmic-import: YXpo7oAohDig/icon
 import Icon291Icon from "./icons/PlasmicIcon__Icon291"; // plasmic-import: U9F0Jow4owN9/icon
 import Icon283Icon from "./icons/PlasmicIcon__Icon283"; // plasmic-import: d6oFXeX9yzDi/icon
+import Icon349Icon from "./icons/PlasmicIcon__Icon349"; // plasmic-import: EddWTnUv3Qwo/icon
 import Icon50Icon from "./icons/PlasmicIcon__Icon50"; // plasmic-import: OWul-aq2fF6T/icon
 
 createPlasmicElementProxy;
@@ -194,8 +196,10 @@ export type PlasmicReminder__OverridesType = {
   slide2?: Flex__<"div">;
   button8?: Flex__<typeof Button>;
   button?: Flex__<typeof Button>;
+  popover?: Flex__<typeof AntdPopover>;
+  button9?: Flex__<typeof Button>;
   tooltip?: Flex__<typeof AntdTooltip>;
-  button7?: Flex__<typeof Button>;
+  button10?: Flex__<typeof Button>;
 };
 
 export interface DefaultReminderProps {
@@ -1153,25 +1157,6 @@ function PlasmicReminder__RenderFunc(props: {
         ]
       },
       {
-        path: "button7.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
-      },
-      {
-        path: "button7.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button7.load",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant(globalVariants, "screen", "mobile") ? false : false
-      },
-      {
         path: "slide3",
         type: "writable",
         variableType: "variant",
@@ -1236,6 +1221,49 @@ function PlasmicReminder__RenderFunc(props: {
 
         valueProp: "reminderSettingReminderCategory2Data",
         onChangeProp: "onReminderSettingReminderCategory2DataChange"
+      },
+      {
+        path: "button9.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
+      },
+      {
+        path: "button9.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button9.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button10.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "button10.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button10.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobile") ? false : false
+      },
+      {
+        path: "popover.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -2030,7 +2058,9 @@ function PlasmicReminder__RenderFunc(props: {
         <HeaderLiom
           data-plasmic-name={"headerLiom"}
           data-plasmic-override={overrides.headerLiom}
-          className={classNames("__wab_instance", sty.headerLiom)}
+          className={classNames("__wab_instance", sty.headerLiom, {
+            [sty.headerLiomhamyar]: hasVariant($state, "hamyar", "hamyar")
+          })}
           slot={
             <Button
               data-plasmic-name={"button2"}
@@ -5367,41 +5397,93 @@ function PlasmicReminder__RenderFunc(props: {
         })}
       >
         <div className={classNames(projectcss.all, sty.freeBox__nYlDo)}>
-          <AntdTooltip
-            data-plasmic-name={"tooltip"}
-            data-plasmic-override={overrides.tooltip}
-            className={classNames("__wab_instance", sty.tooltip)}
-            placement={"left"}
-            titleText={
-              "\u0627\u0641\u0632\u0648\u062f\u0646 \u0631\u0648\u06cc\u062f\u0627\u062f \u062c\u062f\u06cc\u062f"
-            }
-          >
-            <div
-              className={classNames(projectcss.all, sty.freeBox__dIgSy, {
-                [sty.freeBoxslide3__dIgSyWyFt]: hasVariant(
-                  $state,
-                  "slide3",
-                  "slide3"
-                )
+          <div className={classNames(projectcss.all, sty.freeBox__sjaPa)}>
+            <AntdPopover
+              data-plasmic-name={"popover"}
+              data-plasmic-override={overrides.popover}
+              arrow={true}
+              className={classNames("__wab_instance", sty.popover, {
+                [sty.popoverhamyar]: hasVariant($state, "hamyar", "hamyar")
               })}
+              color={true ? "var(--antd-colorPrimaryBorder)" : undefined}
+              content={
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___9SiB
+                  )}
+                >
+                  {
+                    "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0648 \u062a\u0646\u0638\u06cc\u0645\u0627\u062a"
+                  }
+                </div>
+              }
+              contentText={
+                "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0648 \u062a\u0646\u0638\u06cc\u0645\u0627\u062a"
+              }
+              defaultOpen={true}
+              defaultStylesClassName={classNames(
+                projectcss.root_reset,
+                projectcss.plasmic_default_styles,
+                projectcss.plasmic_mixins,
+                styleTokensClassNames
+              )}
+              mouseEnterDelay={0}
+              mouseLeaveDelay={0}
+              onOpenChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["popover", "open"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              open={generateStateValueProp($state, ["popover", "open"])}
+              overlayClassName={classNames({
+                [sty["pcls_oykQmtJcsXyY"]]: true
+              })}
+              placement={"right"}
+              popoverContentClassName={classNames({
+                [sty["pcls_z5hc6ZxoSnbI"]]: true
+              })}
+              popoverScopeClassName={sty["popover__popover"]}
+              title={null}
+              trigger={"hover"}
             >
               <Button
-                data-plasmic-name={"button7"}
-                data-plasmic-override={overrides.button7}
-                className={classNames("__wab_instance", sty.button7, {
-                  [sty.button7slide3]: hasVariant($state, "slide3", "slide3")
+                data-plasmic-name={"button9"}
+                data-plasmic-override={overrides.button9}
+                className={classNames("__wab_instance", sty.button9, {
+                  [sty.button9slide3]: hasVariant($state, "slide3", "slide3")
                 })}
-                color={generateStateValueProp($state, ["button7", "color"])}
-                load={generateStateValueProp($state, ["button7", "load"])}
-                loading={generateStateValueProp($state, ["button7", "loading"])}
+                color={generateStateValueProp($state, ["button9", "color"])}
+                endIcon={null}
+                load={generateStateValueProp($state, ["button9", "load"])}
+                loading={generateStateValueProp($state, ["button9", "loading"])}
                 onClick={async event => {
                   const $steps = {};
+
+                  $steps["runSetting"] =
+                    $props.data.length > 0
+                      ? (() => {
+                          const actionArgs = { eventRef: $props["setting"] };
+                          return (({ eventRef, args }) => {
+                            return eventRef?.(...(args ?? []));
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                  if (
+                    $steps["runSetting"] != null &&
+                    typeof $steps["runSetting"] === "object" &&
+                    typeof $steps["runSetting"].then === "function"
+                  ) {
+                    $steps["runSetting"] = await $steps["runSetting"];
+                  }
 
                   $steps["runCode"] = true
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return ($state.reminderSetting.dialogOpendialog3 = true);
+                            return ($state.refresh = +"1");
                           }
                         };
                         return (({ customFunction }) => {
@@ -5416,10 +5498,31 @@ function PlasmicReminder__RenderFunc(props: {
                   ) {
                     $steps["runCode"] = await $steps["runCode"];
                   }
+
+                  $steps["runCode2"] =
+                    $props.data.length == 0
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return ($state.reminderSetting.dialogOpendialog3 = true);
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                  if (
+                    $steps["runCode2"] != null &&
+                    typeof $steps["runCode2"] === "object" &&
+                    typeof $steps["runCode2"].then === "function"
+                  ) {
+                    $steps["runCode2"] = await $steps["runCode2"];
+                  }
                 }}
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button7", "color"])(
+                    generateStateOnChangeProp($state, ["button9", "color"])(
                       eventArgs[0]
                     );
                   }).apply(null, eventArgs);
@@ -5434,7 +5537,7 @@ function PlasmicReminder__RenderFunc(props: {
                 }}
                 onLoadChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button7", "load"])(
+                    generateStateOnChangeProp($state, ["button9", "load"])(
                       eventArgs[0]
                     );
                   }).apply(null, eventArgs);
@@ -5449,7 +5552,7 @@ function PlasmicReminder__RenderFunc(props: {
                 }}
                 onLoadingChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button7", "loading"])(
+                    generateStateOnChangeProp($state, ["button9", "loading"])(
                       eventArgs[0]
                     );
                   }).apply(null, eventArgs);
@@ -5463,14 +5566,123 @@ function PlasmicReminder__RenderFunc(props: {
                   }
                 }}
                 shape={"round"}
+                size={"compact"}
               >
-                <Icon50Icon
-                  className={classNames(projectcss.all, sty.svg__kmnTy)}
+                <Icon349Icon
+                  className={classNames(projectcss.all, sty.svg___36Xo1)}
                   role={"img"}
                 />
               </Button>
-            </div>
-          </AntdTooltip>
+            </AntdPopover>
+            <AntdTooltip
+              data-plasmic-name={"tooltip"}
+              data-plasmic-override={overrides.tooltip}
+              className={classNames("__wab_instance", sty.tooltip)}
+              placement={"left"}
+              titleText={
+                "\u0627\u0641\u0632\u0648\u062f\u0646 \u0631\u0648\u06cc\u062f\u0627\u062f \u062c\u062f\u06cc\u062f"
+              }
+            >
+              <div
+                className={classNames(projectcss.all, sty.freeBox__pDska, {
+                  [sty.freeBoxslide3__pDskaWyFt]: hasVariant(
+                    $state,
+                    "slide3",
+                    "slide3"
+                  )
+                })}
+              >
+                <Button
+                  data-plasmic-name={"button10"}
+                  data-plasmic-override={overrides.button10}
+                  className={classNames("__wab_instance", sty.button10, {
+                    [sty.button10slide3]: hasVariant($state, "slide3", "slide3")
+                  })}
+                  color={generateStateValueProp($state, ["button10", "color"])}
+                  load={generateStateValueProp($state, ["button10", "load"])}
+                  loading={generateStateValueProp($state, [
+                    "button10",
+                    "loading"
+                  ])}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return ($state.reminderSetting.dialogOpendialog3 = true);
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button10", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button10", "load"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadingChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "button10",
+                        "loading"
+                      ])(eventArgs[0]);
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  shape={"round"}
+                >
+                  <Icon50Icon
+                    className={classNames(projectcss.all, sty.svg__rSu4)}
+                    role={"img"}
+                  />
+                </Button>
+              </div>
+            </AntdTooltip>
+          </div>
         </div>
       </section>
     </div>
@@ -5513,8 +5725,10 @@ const PlasmicDescendants = {
     "slide2",
     "button8",
     "button",
+    "popover",
+    "button9",
     "tooltip",
-    "button7"
+    "button10"
   ],
   dialog: ["dialog", "input", "select", "switchbest3", "button5"],
   input: ["input"],
@@ -5556,8 +5770,10 @@ const PlasmicDescendants = {
   slide2: ["slide2"],
   button8: ["button8"],
   button: ["button"],
-  tooltip: ["tooltip", "button7"],
-  button7: ["button7"]
+  popover: ["popover", "button9"],
+  button9: ["button9"],
+  tooltip: ["tooltip", "button10"],
+  button10: ["button10"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -5597,8 +5813,10 @@ type NodeDefaultElementType = {
   slide2: "div";
   button8: typeof Button;
   button: typeof Button;
+  popover: typeof AntdPopover;
+  button9: typeof Button;
   tooltip: typeof AntdTooltip;
-  button7: typeof Button;
+  button10: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -5696,8 +5914,10 @@ export const PlasmicReminder = Object.assign(
     slide2: makeNodeComponent("slide2"),
     button8: makeNodeComponent("button8"),
     button: makeNodeComponent("button"),
+    popover: makeNodeComponent("popover"),
+    button9: makeNodeComponent("button9"),
     tooltip: makeNodeComponent("tooltip"),
-    button7: makeNodeComponent("button7"),
+    button10: makeNodeComponent("button10"),
 
     // Metadata about props expected for PlasmicReminder
     internalVariantProps: PlasmicReminder__VariantProps,

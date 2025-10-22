@@ -930,6 +930,7 @@ function PlasmicReminderCategory__RenderFunc(props: {
                         __plasmic_idx_0,
                         "list"
                       ]),
+                      noselect: true,
                       onListChange: async (...eventArgs: any) => {
                         generateStateOnChangeProp($state, [
                           "radioGroupLiom2",
