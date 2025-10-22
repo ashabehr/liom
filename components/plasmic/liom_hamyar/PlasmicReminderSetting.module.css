@@ -47,6 +47,9 @@
     grid-column: 4;
   }
 }
+.rootadd > * {
+  grid-column: 4;
+}
 .section {
   display: grid;
   position: fixed;

@@ -33,6 +33,24 @@
 .calendar2page_self:global(.__wab_instance) {
   display: none;
 }
+.reveal__drlM:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.revealpage_calendar__drlMWAq1O:global(.__wab_instance) {
+  width: 100%;
+  min-width: 0;
+}
+.revealpage_self__drlML9LaN:global(.__wab_instance) {
+  display: none;
+}
+.reminder:global(.__wab_instance) {
+  max-width: 100%;
+  display: none;
+}
+.reminderpage_reminder:global(.__wab_instance) {
+  display: grid;
+}
 .reveal___7EWm4:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -58,4 +76,49 @@
 }
 .selfCare2page_self:global(.__wab_instance) {
   display: grid;
+}
+.reminderApi:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.apiRequest:global(.__wab_instance) {
+  animation: none;
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__rf7YR {
+  animation: none;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  color: #535353;
+  text-align: left;
+  text-transform: none;
+  line-height: 1.5;
+  letter-spacing: normal;
+  white-space: pre-wrap;
+  min-width: 0;
+}
+.text__woJkM {
+  animation: none;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  color: #535353;
+  text-align: left;
+  text-transform: none;
+  line-height: 1.5;
+  letter-spacing: normal;
+  white-space: pre-wrap;
+  min-width: 0;
 }

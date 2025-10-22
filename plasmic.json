@@ -4765,6 +4765,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicSnackbar.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "I76qJ2lGMM3H",
+          "name": "AddReminder",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicAddReminder.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/add-reminder.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicAddReminder.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/add-reminder"
         }
       ],
       "icons": [

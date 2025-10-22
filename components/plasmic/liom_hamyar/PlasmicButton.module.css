@@ -109,6 +109,9 @@
 .rootcolor_grayLigth {
   background: #00000033;
 }
+.rootcolor_gray {
+  background: var(--token-AwpLXbw5AmtS);
+}
 .rootfilterX {
   background: #8254c600;
 }

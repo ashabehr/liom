@@ -67,13 +67,13 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicFooterMain.module.css"; // plasmic-import: ev8_tr4YKTDz/css
 
-import Icon347Icon from "./icons/PlasmicIcon__Icon347"; // plasmic-import: -pyZg3nYEp1D/icon
-import Icon348Icon from "./icons/PlasmicIcon__Icon348"; // plasmic-import: ogGslejJC5sV/icon
 import Icon314Icon from "./icons/PlasmicIcon__Icon314"; // plasmic-import: fOMDsiNEQBOb/icon
 import Icon315Icon from "./icons/PlasmicIcon__Icon315"; // plasmic-import: NN9rG0boKpcL/icon
 import Icon316Icon from "./icons/PlasmicIcon__Icon316"; // plasmic-import: 0cmpPg7jI64F/icon
 import Icon137Icon from "./icons/PlasmicIcon__Icon137"; // plasmic-import: DXdLIMYRuTVZ/icon
 import Icon317Icon from "./icons/PlasmicIcon__Icon317"; // plasmic-import: A8wb-T8GiE4Q/icon
+import Icon347Icon from "./icons/PlasmicIcon__Icon347"; // plasmic-import: -pyZg3nYEp1D/icon
+import Icon348Icon from "./icons/PlasmicIcon__Icon348"; // plasmic-import: ogGslejJC5sV/icon
 import Icon318Icon from "./icons/PlasmicIcon__Icon318"; // plasmic-import: LgkeupPgZrI7/icon
 import Icon319Icon from "./icons/PlasmicIcon__Icon319"; // plasmic-import: aWqRVbwtYjuq/icon
 import Icon213Icon from "./icons/PlasmicIcon__Icon213"; // plasmic-import: mG0VeezaR1mF/icon
@@ -274,148 +274,6 @@ function PlasmicFooterMain__RenderFunc(props: {
               hasVariant($state, "hamyar", "hamyar")
           })}
         >
-          <div
-            className={classNames(projectcss.all, sty.freeBox__j5Log, {
-              [sty.freeBoxfooter2_hamyar__j5LogcU6G5]: hasVariant(
-                $state,
-                "footer2",
-                "hamyar"
-              ),
-              [sty.freeBoxfooter2_reminder__j5LogqKid7]: hasVariant(
-                $state,
-                "footer2",
-                "reminder"
-              ),
-              [sty.freeBoxfooter2_self__j5LogtRqqb]: hasVariant(
-                $state,
-                "footer2",
-                "self"
-              ),
-              [sty.freeBoxhamyar__j5LogIriP]: hasVariant(
-                $state,
-                "hamyar",
-                "hamyar"
-              ),
-              [sty.freeBoxhamyar_footer2_hamyar__j5LogIriPCU6G5]:
-                hasVariant($state, "hamyar", "hamyar") &&
-                hasVariant($state, "footer2", "hamyar"),
-              [sty.freeBoxhamyar_footer2_reminder__j5LogIriPQKid7]:
-                hasVariant($state, "hamyar", "hamyar") &&
-                hasVariant($state, "footer2", "reminder")
-            })}
-            onClick={async event => {
-              const $steps = {};
-
-              $steps["updateType"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["type"]
-                      },
-                      operation: 0,
-                      value: "reminder"
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateType"] != null &&
-                typeof $steps["updateType"] === "object" &&
-                typeof $steps["updateType"].then === "function"
-              ) {
-                $steps["updateType"] = await $steps["updateType"];
-              }
-
-              $steps["updateType2"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          return window.sessionStorage.setItem(
-                            "footer",
-                            "reminder"
-                          );
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateType2"] != null &&
-                typeof $steps["updateType2"] === "object" &&
-                typeof $steps["updateType2"].then === "function"
-              ) {
-                $steps["updateType2"] = await $steps["updateType2"];
-              }
-            }}
-          >
-            <PlasmicIcon__
-              PlasmicIconType={
-                hasVariant($state, "footer2", "reminder")
-                  ? Icon348Icon
-                  : hasVariant($state, "footer2", "hamyar")
-                    ? Icon347Icon
-                    : Icon347Icon
-              }
-              className={classNames(projectcss.all, sty.svg__i4AIi, {
-                [sty.svgfooter2_hamyar__i4AIicU6G5]: hasVariant(
-                  $state,
-                  "footer2",
-                  "hamyar"
-                ),
-                [sty.svgfooter2_reminder__i4AIiqKid7]: hasVariant(
-                  $state,
-                  "footer2",
-                  "reminder"
-                )
-              })}
-              role={"img"}
-            />
-
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__lgqVo,
-                {
-                  [sty.textfooter2_bot__lgqVo9Lw3]: hasVariant(
-                    $state,
-                    "footer2",
-                    "bot"
-                  ),
-                  [sty.textfooter2_calendar__lgqVo6MXal]: hasVariant(
-                    $state,
-                    "footer2",
-                    "calendar"
-                  ),
-                  [sty.textfooter2_hamyar__lgqVocU6G5]: hasVariant(
-                    $state,
-                    "footer2",
-                    "hamyar"
-                  ),
-                  [sty.textfooter2_reminder__lgqVoqKid7]: hasVariant(
-                    $state,
-                    "footer2",
-                    "reminder"
-                  )
-                }
-              )}
-            >
-              {"\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc"}
-            </div>
-          </div>
           <div
             className={classNames(projectcss.all, sty.freeBox__i6PSp, {
               [sty.freeBoxfooter2_hamyar__i6PSPcU6G5]: hasVariant(
@@ -681,6 +539,171 @@ function PlasmicFooterMain__RenderFunc(props: {
               {"\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc"}
             </div>
           </div>
+          {(
+            hasVariant($state, "hamyar", "hamyar")
+              ? true
+              : (() => {
+                  try {
+                    return window.localStorage.getItem("test") == "true";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()
+          ) ? (
+            <div
+              className={classNames(projectcss.all, sty.freeBox__j5Log, {
+                [sty.freeBoxfooter2_hamyar__j5LogcU6G5]: hasVariant(
+                  $state,
+                  "footer2",
+                  "hamyar"
+                ),
+                [sty.freeBoxfooter2_reminder__j5LogqKid7]: hasVariant(
+                  $state,
+                  "footer2",
+                  "reminder"
+                ),
+                [sty.freeBoxfooter2_self__j5LogtRqqb]: hasVariant(
+                  $state,
+                  "footer2",
+                  "self"
+                ),
+                [sty.freeBoxhamyar__j5LogIriP]: hasVariant(
+                  $state,
+                  "hamyar",
+                  "hamyar"
+                ),
+                [sty.freeBoxhamyar_footer2_hamyar__j5LogIriPCU6G5]:
+                  hasVariant($state, "hamyar", "hamyar") &&
+                  hasVariant($state, "footer2", "hamyar"),
+                [sty.freeBoxhamyar_footer2_reminder__j5LogIriPQKid7]:
+                  hasVariant($state, "hamyar", "hamyar") &&
+                  hasVariant($state, "footer2", "reminder")
+              })}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["updateType"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["type"]
+                        },
+                        operation: 0,
+                        value: "reminder"
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateType"] != null &&
+                  typeof $steps["updateType"] === "object" &&
+                  typeof $steps["updateType"].then === "function"
+                ) {
+                  $steps["updateType"] = await $steps["updateType"];
+                }
+
+                $steps["updateType2"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            return window.sessionStorage.setItem(
+                              "footer",
+                              "reminder"
+                            );
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateType2"] != null &&
+                  typeof $steps["updateType2"] === "object" &&
+                  typeof $steps["updateType2"].then === "function"
+                ) {
+                  $steps["updateType2"] = await $steps["updateType2"];
+                }
+              }}
+            >
+              <PlasmicIcon__
+                PlasmicIconType={
+                  hasVariant($state, "footer2", "reminder")
+                    ? Icon348Icon
+                    : hasVariant($state, "footer2", "hamyar")
+                      ? Icon347Icon
+                      : Icon347Icon
+                }
+                className={classNames(projectcss.all, sty.svg__i4AIi, {
+                  [sty.svgfooter2_hamyar__i4AIicU6G5]: hasVariant(
+                    $state,
+                    "footer2",
+                    "hamyar"
+                  ),
+                  [sty.svgfooter2_reminder__i4AIiqKid7]: hasVariant(
+                    $state,
+                    "footer2",
+                    "reminder"
+                  )
+                })}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__lgqVo,
+                  {
+                    [sty.textfooter2_bot__lgqVo9Lw3]: hasVariant(
+                      $state,
+                      "footer2",
+                      "bot"
+                    ),
+                    [sty.textfooter2_calendar__lgqVo6MXal]: hasVariant(
+                      $state,
+                      "footer2",
+                      "calendar"
+                    ),
+                    [sty.textfooter2_hamyar__lgqVocU6G5]: hasVariant(
+                      $state,
+                      "footer2",
+                      "hamyar"
+                    ),
+                    [sty.textfooter2_reminder__lgqVoqKid7]: hasVariant(
+                      $state,
+                      "footer2",
+                      "reminder"
+                    )
+                  }
+                )}
+              >
+                {"\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc"}
+              </div>
+            </div>
+          ) : null}
           <div
             className={classNames(projectcss.all, sty.freeBox__eSfbJ, {
               [sty.freeBoxfooter2_bot__eSfbJ9Lw3]: hasVariant(

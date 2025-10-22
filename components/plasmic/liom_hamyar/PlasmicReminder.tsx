@@ -1226,7 +1226,7 @@ function PlasmicReminder__RenderFunc(props: {
         path: "button9.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
+        initFunc: ({ $props, $state, $queries, $ctx }) => "gray"
       },
       {
         path: "button9.loading",
@@ -5405,7 +5405,7 @@ function PlasmicReminder__RenderFunc(props: {
               className={classNames("__wab_instance", sty.popover, {
                 [sty.popoverhamyar]: hasVariant($state, "hamyar", "hamyar")
               })}
-              color={true ? "var(--antd-colorPrimaryBorder)" : undefined}
+              color={true ? "#B1B1B1" : undefined}
               content={
                 <div
                   className={classNames(

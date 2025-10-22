@@ -100,7 +100,8 @@ export type PlasmicButton__VariantMembers = {
     | "whiteYellowLine"
     | "softBlack"
     | "softPurple"
-    | "grayLigth";
+    | "grayLigth"
+    | "gray";
   filterX: "filterX";
   loading: "loading";
   filter: "filter";
@@ -135,6 +136,7 @@ export type PlasmicButton__VariantsArgs = {
     | "softBlack"
     | "softPurple"
     | "grayLigth"
+    | "gray"
   >;
   filterX?: SingleBooleanChoiceArg<"filterX">;
   loading?: SingleBooleanChoiceArg<"loading">;
@@ -226,6 +228,7 @@ export interface DefaultButtonProps extends pp.BaseButtonProps {
     | "softBlack"
     | "softPurple"
     | "grayLigth"
+    | "gray"
   >;
   filterX?: SingleBooleanChoiceArg<"filterX">;
   loading?: SingleBooleanChoiceArg<"loading">;
@@ -408,6 +411,7 @@ function PlasmicButton__RenderFunc(props: {
           [sty.rootcolor_blue]: hasVariant($state, "color", "blue"),
           [sty.rootcolor_clear]: hasVariant($state, "color", "clear"),
           [sty.rootcolor_grayLigth]: hasVariant($state, "color", "grayLigth"),
+          [sty.rootcolor_gray]: hasVariant($state, "color", "gray"),
           [sty.rootcolor_green]: hasVariant($state, "color", "green"),
           [sty.rootcolor_line]: hasVariant($state, "color", "line"),
           [sty.rootcolor_line_color_yellow]:
@@ -794,10 +798,10 @@ function PlasmicButton__RenderFunc(props: {
         hasVariant($state, "loading", "loading")
           ? true
           : hasVariant($state, "filterX", "filterX")
-          ? true
-          : hasVariant($state, "showEndIcon", "showEndIcon")
-          ? true
-          : false
+            ? true
+            : hasVariant($state, "showEndIcon", "showEndIcon")
+              ? true
+              : false
       ) ? (
         <div
           data-plasmic-name={"endIconContainer"}
@@ -969,7 +973,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicButton__VariantsArgs;
     args?: PlasmicButton__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicButton__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicButton__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicButton__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

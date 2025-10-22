@@ -105,15 +105,18 @@ createPlasmicElementProxy;
 export type PlasmicReminderSetting__VariantMembers = {
   slide: "_1" | "_2";
   hamyar: "hamyar";
+  add: "add";
 };
 export type PlasmicReminderSetting__VariantsArgs = {
   slide?: SingleChoiceArg<"_1" | "_2">;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
+  add?: SingleBooleanChoiceArg<"add">;
 };
 type VariantPropType = keyof PlasmicReminderSetting__VariantsArgs;
 export const PlasmicReminderSetting__VariantProps = new Array<VariantPropType>(
   "slide",
-  "hamyar"
+  "hamyar",
+  "add"
 );
 
 export type PlasmicReminderSetting__ArgsType = {
@@ -247,6 +250,7 @@ export interface DefaultReminderSettingProps {
   onReminderCategory2DataChange?: (val: any) => void;
   slide?: SingleChoiceArg<"_1" | "_2">;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
+  add?: SingleBooleanChoiceArg<"add">;
   className?: string;
 }
 
@@ -1436,6 +1440,12 @@ function PlasmicReminderSetting__RenderFunc(props: {
 
         valueProp: "reminderCategory2Data",
         onChangeProp: "onReminderCategory2DataChange"
+      },
+      {
+        path: "add",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.add
       }
     ],
     [$props, $ctx, $refs]
@@ -1463,6 +1473,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         styleTokensClassNames,
         sty.root,
         {
+          [sty.rootadd]: hasVariant($state, "add", "add"),
           [sty.roothamyar]: hasVariant($state, "hamyar", "hamyar"),
           [sty.rootslide__1]: hasVariant($state, "slide", "_1"),
           [sty.rootslide__2]: hasVariant($state, "slide", "_2")
@@ -1514,13 +1525,14 @@ function PlasmicReminderSetting__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__wEvVl
+                sty.text__wEvVl,
+                { [sty.textadd__wEvVluWxSg]: hasVariant($state, "add", "add") }
               )}
               id={"myTarget"}
             >
-              {
-                "\u062a\u0646\u0638\u06cc\u0645\u0627\u062a \u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627"
-              }
+              {hasVariant($state, "add", "add")
+                ? "\u0627\u0641\u0632\u0648\u062f\u0646 \u0631\u0648\u06cc\u062f\u0627\u062f"
+                : "\u062a\u0646\u0638\u06cc\u0645\u0627\u062a \u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627"}
             </div>
           </div>
         </HeaderLiom>
