@@ -1123,6 +1123,12 @@ function PlasmicMain__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "reminderSetting.add2Variable",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -2917,6 +2923,10 @@ function PlasmicMain__RenderFunc(props: {
             <ReminderSetting
               data-plasmic-name={"reminderSetting"}
               data-plasmic-override={overrides.reminderSetting}
+              add2Variable={generateStateValueProp($state, [
+                "reminderSetting",
+                "add2Variable"
+              ])}
               addSelect={generateStateValueProp($state, [
                 "reminderSetting",
                 "addSelect"
@@ -3371,6 +3381,20 @@ function PlasmicMain__RenderFunc(props: {
                   throw e;
                 }
               })()}
+              onAdd2VariableChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminderSetting",
+                  "add2Variable"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
               onAddSelectChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "reminderSetting",
@@ -3563,7 +3587,19 @@ function PlasmicMain__RenderFunc(props: {
                   throw e;
                 }
               })()}
-              token={``}
+              token={(() => {
+                try {
+                  return $state.mainPage.token;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
             />
           </Reveal>
           <BackHandler

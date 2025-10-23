@@ -77,11 +77,15 @@ export const PlasmicAdd__VariantProps = new Array<VariantPropType>();
 export type PlasmicAdd__ArgsType = {
   select?: any;
   onSelectChange?: (val: string) => void;
+  variable?: boolean;
+  onVariableChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicAdd__ArgsType;
 export const PlasmicAdd__ArgProps = new Array<ArgPropType>(
   "select",
-  "onSelectChange"
+  "onSelectChange",
+  "variable",
+  "onVariableChange"
 );
 
 export type PlasmicAdd__OverridesType = {
@@ -91,6 +95,8 @@ export type PlasmicAdd__OverridesType = {
 export interface DefaultAddProps {
   select?: any;
   onSelectChange?: (val: string) => void;
+  variable?: boolean;
+  onVariableChange?: (val: string) => void;
   className?: string;
 }
 
@@ -146,6 +152,14 @@ function PlasmicAdd__RenderFunc(props: {
 
         valueProp: "select",
         onChangeProp: "onSelectChange"
+      },
+      {
+        path: "variable",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "variable",
+        onChangeProp: "onVariableChange"
       }
     ],
     [$props, $ctx, $refs]

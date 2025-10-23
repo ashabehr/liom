@@ -147,6 +147,8 @@ export type PlasmicReminderSetting__ArgsType = {
   onReminderCategory2DataChange?: (val: any) => void;
   addSelect?: any;
   onAddSelectChange?: (val: any) => void;
+  add2Variable?: boolean;
+  onAdd2VariableChange?: (val: boolean) => void;
 };
 type ArgPropType = keyof PlasmicReminderSetting__ArgsType;
 export const PlasmicReminderSetting__ArgProps = new Array<ArgPropType>(
@@ -175,7 +177,9 @@ export const PlasmicReminderSetting__ArgProps = new Array<ArgPropType>(
   "reminderCategory2Data",
   "onReminderCategory2DataChange",
   "addSelect",
-  "onAddSelectChange"
+  "onAddSelectChange",
+  "add2Variable",
+  "onAdd2VariableChange"
 );
 
 export type PlasmicReminderSetting__OverridesType = {
@@ -258,6 +262,8 @@ export interface DefaultReminderSettingProps {
   onReminderCategory2DataChange?: (val: any) => void;
   addSelect?: any;
   onAddSelectChange?: (val: any) => void;
+  add2Variable?: boolean;
+  onAdd2VariableChange?: (val: boolean) => void;
   slide?: SingleChoiceArg<"_1" | "_2">;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
   add?: SingleBooleanChoiceArg<"add">;
@@ -1585,6 +1591,14 @@ function PlasmicReminderSetting__RenderFunc(props: {
 
         valueProp: "addSelect",
         onChangeProp: "onAddSelectChange"
+      },
+      {
+        path: "add2.variable",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "add2Variable",
+        onChangeProp: "onAdd2VariableChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -11444,7 +11458,42 @@ function PlasmicReminderSetting__RenderFunc(props: {
             }
           }).apply(null, eventArgs);
         }}
+        onVariableChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["add2", "variable"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+
+          (async val => {
+            const $steps = {};
+
+            $steps["invokeGlobalAction"] = true
+              ? (() => {
+                  const actionArgs = { args: [undefined, "dfdfddfddfd"] };
+                  return $globalActions["Fragment.showToast"]?.apply(null, [
+                    ...actionArgs.args
+                  ]);
+                })()
+              : undefined;
+            if (
+              $steps["invokeGlobalAction"] != null &&
+              typeof $steps["invokeGlobalAction"] === "object" &&
+              typeof $steps["invokeGlobalAction"].then === "function"
+            ) {
+              $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
+            }
+          }).apply(null, eventArgs);
+        }}
         select={generateStateValueProp($state, ["add2", "select"])}
+        variable={generateStateValueProp($state, ["add2", "variable"])}
       />
     </div>
   ) as React.ReactElement | null;

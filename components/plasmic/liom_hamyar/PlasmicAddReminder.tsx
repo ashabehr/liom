@@ -132,6 +132,8 @@ function PlasmicAddReminder__RenderFunc(props: {
 
   const globalVariants = _useGlobalVariants();
 
+  const $globalActions = useGlobalActions?.();
+
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
@@ -529,6 +531,12 @@ function PlasmicAddReminder__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "reminderSetting.add2Variable",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -571,6 +579,10 @@ function PlasmicAddReminder__RenderFunc(props: {
             data-plasmic-name={"reminderSetting"}
             data-plasmic-override={overrides.reminderSetting}
             add={true}
+            add2Variable={generateStateValueProp($state, [
+              "reminderSetting",
+              "add2Variable"
+            ])}
             addSelect={generateStateValueProp($state, [
               "reminderSetting",
               "addSelect"
@@ -595,7 +607,7 @@ function PlasmicAddReminder__RenderFunc(props: {
             ])}
             manId={(() => {
               try {
-                return $ctx.query.userId;
+                return $state.apiRequest?.data?.user?.id;
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -606,6 +618,41 @@ function PlasmicAddReminder__RenderFunc(props: {
                 throw e;
               }
             })()}
+            onAdd2VariableChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "reminderSetting",
+                "add2Variable"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+
+              (async val => {
+                const $steps = {};
+
+                $steps["invokeGlobalAction"] = true
+                  ? (() => {
+                      const actionArgs = { args: [undefined, "gsgdggdg"] };
+                      return $globalActions["Fragment.showToast"]?.apply(null, [
+                        ...actionArgs.args
+                      ]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["invokeGlobalAction"] != null &&
+                  typeof $steps["invokeGlobalAction"] === "object" &&
+                  typeof $steps["invokeGlobalAction"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction"] =
+                    await $steps["invokeGlobalAction"];
+                }
+              }).apply(null, eventArgs);
+            }}
             onAddSelectChange={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, [
                 "reminderSetting",
@@ -704,6 +751,19 @@ function PlasmicAddReminder__RenderFunc(props: {
                 return;
               }
             }}
+            phoneNumber={(() => {
+              try {
+                return $state.apiRequest?.data?.user?.mobile;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
             refresh={generateStateValueProp($state, [
               "reminderSetting",
               "refresh"
@@ -718,7 +778,45 @@ function PlasmicAddReminder__RenderFunc(props: {
             ])}
             sms={generateStateValueProp($state, ["reminderSetting", "sms"])}
             tel={generateStateValueProp($state, ["reminderSetting", "tel"])}
-            token={``}
+            telegramId={(() => {
+              try {
+                return $state.apiRequest?.data?.user?.telegramId;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            telegramOn={(() => {
+              try {
+                return $state.apiRequest?.data?.user?.telegramId ? true : false;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()}
+            token={(() => {
+              try {
+                return $ctx.query.token;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
           />
 
           <ApiRequest
@@ -726,6 +824,23 @@ function PlasmicAddReminder__RenderFunc(props: {
             data-plasmic-override={overrides.apiRequest}
             children={null}
             className={classNames("__wab_instance", sty.apiRequest)}
+            config={(() => {
+              try {
+                return {
+                  headers: {
+                    Authorization: $ctx.query.token
+                  }
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
             errorDisplay={null}
             loadingDisplay={null}
             method={"GET"}
@@ -773,12 +888,48 @@ function PlasmicAddReminder__RenderFunc(props: {
                 ) {
                   $steps["runCode"] = await $steps["runCode"];
                 }
+
+                $steps["updateReminderSettingAdd2Variable"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["reminderSetting", "add2Variable"]
+                        },
+                        operation: 4
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        const oldValue = $stateGet(objRoot, variablePath);
+                        $stateSet(objRoot, variablePath, !oldValue);
+                        return !oldValue;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateReminderSettingAdd2Variable"] != null &&
+                  typeof $steps["updateReminderSettingAdd2Variable"] ===
+                    "object" &&
+                  typeof $steps["updateReminderSettingAdd2Variable"].then ===
+                    "function"
+                ) {
+                  $steps["updateReminderSettingAdd2Variable"] =
+                    await $steps["updateReminderSettingAdd2Variable"];
+                }
               }).apply(null, eventArgs);
             }}
             params={(() => {
               try {
                 return {
-                  id: $ctx.query.userId,
                   type: $ctx.query.type
                 };
               } catch (e) {
