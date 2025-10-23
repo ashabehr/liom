@@ -11251,6 +11251,198 @@ function PlasmicReminderSetting__RenderFunc(props: {
           ) {
             return;
           }
+
+          (async val => {
+            const $steps = {};
+
+            $steps["updateSelect2"] = true
+              ? (() => {
+                  const actionArgs = {
+                    variable: {
+                      objRoot: $state,
+                      variablePath: ["select2"]
+                    },
+                    operation: 0,
+                    value: (() => {
+                      return {
+                        liomId: $props.manId,
+                        telegramId: $props.telegramId,
+                        phoneNumber: $props.phoneNumber,
+                        name: $state.add2.select.name,
+                        text:
+                          $state.add2.select.text || $state.add2.select.type,
+                        schedule_type: $state.add2.select.schedule_type,
+                        type: $state.add2.select.type,
+                        dates: $state.add2.select.date
+                          ? JSON.stringify([$state.add2.select.date])
+                          : "[]",
+                        channels: '["notification","telegram"]',
+                        times: "[]",
+                        weekdays:
+                          $state.add2.select.schedule_type == "everyDay"
+                            ? JSON.stringify([
+                                "saturday",
+                                "sunday",
+                                "monday",
+                                "tuesday",
+                                "wednesday",
+                                "thursday",
+                                "friday"
+                              ])
+                            : null,
+                        active: 1,
+                        add: true
+                      };
+                    })()
+                  };
+                  return (({ variable, value, startIndex, deleteCount }) => {
+                    if (!variable) {
+                      return;
+                    }
+                    const { objRoot, variablePath } = variable;
+
+                    $stateSet(objRoot, variablePath, value);
+                    return value;
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["updateSelect2"] != null &&
+              typeof $steps["updateSelect2"] === "object" &&
+              typeof $steps["updateSelect2"].then === "function"
+            ) {
+              $steps["updateSelect2"] = await $steps["updateSelect2"];
+            }
+
+            $steps["runCode"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        try {
+                          const dates = JSON.parse($state.select2.dates);
+                          function faToEnDigits(str) {
+                            return str.replace(/[۰-۹]/g, d =>
+                              "۰۱۲۳۴۵۶۷۸۹".indexOf(d)
+                            );
+                          }
+                          $state.date = dates.map(m => {
+                            const today = new Date(m);
+                            const f = today.toISOString().split("T")[0];
+                            const g = new Intl.DateTimeFormat("fa-IR", {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric"
+                            }).format(today);
+                            const jy = Number(
+                              faToEnDigits(
+                                new Intl.DateTimeFormat("fa-IR", {
+                                  year: "numeric"
+                                }).format(today)
+                              )
+                            );
+                            const jm = Number(
+                              faToEnDigits(
+                                new Intl.DateTimeFormat("fa-IR", {
+                                  month: "numeric"
+                                }).format(today)
+                              )
+                            );
+                            const jd = Number(
+                              faToEnDigits(
+                                new Intl.DateTimeFormat("fa-IR", {
+                                  day: "numeric"
+                                }).format(today)
+                              )
+                            );
+                            return {
+                              start: {
+                                f,
+                                g,
+                                year: jy,
+                                month: jm,
+                                day: jd
+                              }
+                            };
+                          });
+                        } catch {
+                          $state.date = [];
+                        }
+                        try {
+                          $state.week = JSON.parse($state.select2.weekdays);
+                        } catch {}
+                        try {
+                          function formatTimeString(value) {
+                            if (!value) return ["0", "0"];
+
+                            return value.split(":");
+                          }
+                          const times = JSON.parse($state.select2.times);
+                          $state.time2 = times.map(t => {
+                            const [hh, mm] = formatTimeString(t);
+                            return {
+                              hour: parseInt(hh),
+                              minute: parseInt(mm)
+                            };
+                          });
+                        } catch {
+                          $state.time2 = [];
+                        }
+                        try {
+                          function arraysEqualIgnoreOrder(a, b) {
+                            if (a.length !== b.length) return false;
+                            return [...a]
+                              .sort()
+                              .every(
+                                (val, index) => val === [...b].sort()[index]
+                              );
+                          }
+                          if ($state.week.length === 0) {
+                            return ($state.repead.selected = "once");
+                          } else if (
+                            arraysEqualIgnoreOrder($state.week, [
+                              "saturday",
+                              "sunday",
+                              "monday",
+                              "tuesday",
+                              "wednesday",
+                              "thursday",
+                              "friday"
+                            ])
+                          ) {
+                            return ($state.repead.selected = "daily");
+                          } else if (
+                            arraysEqualIgnoreOrder($state.week, [
+                              "saturday",
+                              "sunday",
+                              "monday",
+                              "tuesday",
+                              "wednesday"
+                            ])
+                          ) {
+                            return ($state.repead.selected = "sat_to_wed");
+                          } else {
+                            return ($state.repead.selected = "custom");
+                          }
+                        } catch {
+                          return ($state.week = []);
+                        }
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
+            }
+          }).apply(null, eventArgs);
         }}
         select={generateStateValueProp($state, ["add2", "select"])}
       />

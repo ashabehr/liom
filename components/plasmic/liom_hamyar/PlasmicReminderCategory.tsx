@@ -118,7 +118,6 @@ export type PlasmicReminderCategory__OverridesType = {
   sort?: Flex__<typeof RadioGroupLiom>;
   more?: Flex__<"div">;
   radioGroupLiom2?: Flex__<typeof RadioGroupLiom>;
-  radioGroupLiom3?: Flex__<typeof RadioGroupLiom>;
 };
 
 export interface DefaultReminderCategoryProps {
@@ -254,43 +253,6 @@ function PlasmicReminderCategory__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       },
       {
-        path: "radioGroupLiom3.selected",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
-        path: "radioGroupLiom3.list",
-        type: "private",
-        variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (() => {
-                $state.more3.items.forEach(i => {
-                  i.label = i.type_fa;
-                  i.value = i.type;
-                });
-                return $state.more3.items;
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return [];
-              }
-              throw e;
-            }
-          })()
-      },
-      {
-        path: "radioGroupLiom3.selects",
-        type: "private",
-        variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
-      },
-      {
         path: "show",
         type: "writable",
         variableType: "boolean",
@@ -372,7 +334,11 @@ function PlasmicReminderCategory__RenderFunc(props: {
         const $steps = {};
       }}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__dYrxe)}>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__dYrxe, {
+          [sty.freeBoxmore2__dYrxe3WEwR]: hasVariant($state, "more2", "more2")
+        })}
+      >
         <div className={classNames(projectcss.all, sty.freeBox__bs98W)}>
           <input
             data-plasmic-name={"htmlInput"}
@@ -636,7 +602,7 @@ function PlasmicReminderCategory__RenderFunc(props: {
           onScroll={async event => {
             const $steps = {};
 
-            $steps["runCode"] = true
+            $steps["runCode"] = false
               ? (() => {
                   const actionArgs = {
                     customFunction: async () => {
@@ -1038,133 +1004,6 @@ function PlasmicReminderCategory__RenderFunc(props: {
           })}
         </div>
       ) : null}
-      {(hasVariant($state, "more2", "more2") ? true : false) ? (
-        <div
-          className={classNames(projectcss.all, sty.freeBox__yyjSq, {
-            [sty.freeBoxmore2__yyjSq3WEwR]: hasVariant($state, "more2", "more2")
-          })}
-        >
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox__gzb0A,
-              "section",
-              {
-                [sty.freeBoxmore2__gzb0A3WEwR]: hasVariant(
-                  $state,
-                  "more2",
-                  "more2"
-                )
-              }
-            )}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                sty.freeBox___1QsXy,
-                "container-scroll"
-              )}
-            >
-              <RadioGroupLiom
-                data-plasmic-name={"radioGroupLiom3"}
-                data-plasmic-override={overrides.radioGroupLiom3}
-                className={classNames("__wab_instance", sty.radioGroupLiom3, {
-                  [sty.radioGroupLiom3more2]: hasVariant(
-                    $state,
-                    "more2",
-                    "more2"
-                  )
-                })}
-                click={async () => {
-                  const $steps = {};
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              $state.select = $state.more3.items.find(
-                                i => i.type == $state.radioGroupLiom3.selected
-                              );
-                              return ($state.title = $state.select.type_fa);
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
-                }}
-                color={"line"}
-                direction={"v"}
-                icon={true}
-                list={generateStateValueProp($state, [
-                  "radioGroupLiom3",
-                  "list"
-                ])}
-                onListChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "radioGroupLiom3",
-                    "list"
-                  ]).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onSelectedChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "radioGroupLiom3",
-                    "selected"
-                  ]).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onSelectsChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "radioGroupLiom3",
-                    "selects"
-                  ]).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                selected={generateStateValueProp($state, [
-                  "radioGroupLiom3",
-                  "selected"
-                ])}
-                selects={generateStateValueProp($state, [
-                  "radioGroupLiom3",
-                  "selects"
-                ])}
-              />
-            </div>
-          </div>
-        </div>
-      ) : null}
       {(() => {
         try {
           return Object.keys($state.data).length == 0;
@@ -1202,21 +1041,12 @@ function PlasmicReminderCategory__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "htmlInput",
-    "reveal",
-    "sort",
-    "more",
-    "radioGroupLiom2",
-    "radioGroupLiom3"
-  ],
+  root: ["root", "htmlInput", "reveal", "sort", "more", "radioGroupLiom2"],
   htmlInput: ["htmlInput"],
   reveal: ["reveal"],
   sort: ["sort"],
   more: ["more"],
-  radioGroupLiom2: ["radioGroupLiom2"],
-  radioGroupLiom3: ["radioGroupLiom3"]
+  radioGroupLiom2: ["radioGroupLiom2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1228,7 +1058,6 @@ type NodeDefaultElementType = {
   sort: typeof RadioGroupLiom;
   more: "div";
   radioGroupLiom2: typeof RadioGroupLiom;
-  radioGroupLiom3: typeof RadioGroupLiom;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1298,7 +1127,6 @@ export const PlasmicReminderCategory = Object.assign(
     sort: makeNodeComponent("sort"),
     more: makeNodeComponent("more"),
     radioGroupLiom2: makeNodeComponent("radioGroupLiom2"),
-    radioGroupLiom3: makeNodeComponent("radioGroupLiom3"),
 
     // Metadata about props expected for PlasmicReminderCategory
     internalVariantProps: PlasmicReminderCategory__VariantProps,
