@@ -3272,6 +3272,14 @@
   bottom: auto;
   display: none;
 }
-.add2:global(.__wab_instance) {
+.pageselect {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 0px;
+  height: 0px;
   max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px;
 }

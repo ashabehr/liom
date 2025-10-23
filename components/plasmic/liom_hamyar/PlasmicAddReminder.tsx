@@ -132,8 +132,6 @@ function PlasmicAddReminder__RenderFunc(props: {
 
   const globalVariants = _useGlobalVariants();
 
-  const $globalActions = useGlobalActions?.();
-
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
@@ -527,16 +525,10 @@ function PlasmicAddReminder__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "reminderSetting.addSelect",
+        path: "reminderSetting.pageSelect",
         type: "private",
-        variableType: "object",
+        variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
-      },
-      {
-        path: "reminderSetting.add2Variable",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -579,14 +571,6 @@ function PlasmicAddReminder__RenderFunc(props: {
             data-plasmic-name={"reminderSetting"}
             data-plasmic-override={overrides.reminderSetting}
             add={true}
-            add2Variable={generateStateValueProp($state, [
-              "reminderSetting",
-              "add2Variable"
-            ])}
-            addSelect={generateStateValueProp($state, [
-              "reminderSetting",
-              "addSelect"
-            ])}
             className={classNames("__wab_instance", sty.reminderSetting)}
             data={(() => {
               try {
@@ -618,59 +602,24 @@ function PlasmicAddReminder__RenderFunc(props: {
                 throw e;
               }
             })()}
-            onAdd2VariableChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, [
-                "reminderSetting",
-                "add2Variable"
-              ]).apply(null, eventArgs);
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-
-              (async val => {
-                const $steps = {};
-
-                $steps["invokeGlobalAction"] = true
-                  ? (() => {
-                      const actionArgs = { args: [undefined, "gsgdggdg"] };
-                      return $globalActions["Fragment.showToast"]?.apply(null, [
-                        ...actionArgs.args
-                      ]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["invokeGlobalAction"] != null &&
-                  typeof $steps["invokeGlobalAction"] === "object" &&
-                  typeof $steps["invokeGlobalAction"].then === "function"
-                ) {
-                  $steps["invokeGlobalAction"] =
-                    await $steps["invokeGlobalAction"];
-                }
-              }).apply(null, eventArgs);
-            }}
-            onAddSelectChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, [
-                "reminderSetting",
-                "addSelect"
-              ]).apply(null, eventArgs);
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
             onDialogOpendialog3Change={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, [
                 "reminderSetting",
                 "dialogOpendialog3"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onPageSelectChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "reminderSetting",
+                "pageSelect"
               ]).apply(null, eventArgs);
 
               if (
@@ -751,6 +700,10 @@ function PlasmicAddReminder__RenderFunc(props: {
                 return;
               }
             }}
+            pageSelect={generateStateValueProp($state, [
+              "reminderSetting",
+              "pageSelect"
+            ])}
             phoneNumber={(() => {
               try {
                 return $state.apiRequest?.data?.user?.mobile;
@@ -865,14 +818,16 @@ function PlasmicAddReminder__RenderFunc(props: {
               (async data => {
                 const $steps = {};
 
-                $steps["runCode"] = ($state.apiRequest?.data ? true : false)
+                $steps["runCode"] = $state.apiRequest?.data
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
                           return (() => {
-                            if (!$state.apiRequest.data.hasReminder)
-                              return ($state.reminderSetting.addSelect =
-                                $state.apiRequest.data.type);
+                            $state.reminderSetting.pageSelect =
+                              $state.apiRequest.data.type;
+                            return window.document
+                              .getElementById("pageSelect")
+                              .click();
                           })();
                         }
                       };
@@ -887,43 +842,6 @@ function PlasmicAddReminder__RenderFunc(props: {
                   typeof $steps["runCode"].then === "function"
                 ) {
                   $steps["runCode"] = await $steps["runCode"];
-                }
-
-                $steps["updateReminderSettingAdd2Variable"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["reminderSetting", "add2Variable"]
-                        },
-                        operation: 4
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        const oldValue = $stateGet(objRoot, variablePath);
-                        $stateSet(objRoot, variablePath, !oldValue);
-                        return !oldValue;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateReminderSettingAdd2Variable"] != null &&
-                  typeof $steps["updateReminderSettingAdd2Variable"] ===
-                    "object" &&
-                  typeof $steps["updateReminderSettingAdd2Variable"].then ===
-                    "function"
-                ) {
-                  $steps["updateReminderSettingAdd2Variable"] =
-                    await $steps["updateReminderSettingAdd2Variable"];
                 }
               }).apply(null, eventArgs);
             }}

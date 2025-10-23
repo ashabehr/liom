@@ -74,7 +74,6 @@ import CheckboxGroup from "../../CheckboxGroup"; // plasmic-import: AhgoIztCTzjf
 import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import Snackbar from "../../Snackbar"; // plasmic-import: DESzdq_iEiZG/component
-import Add from "../../Add"; // plasmic-import: eDP9PSSwknqW/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -145,10 +144,8 @@ export type PlasmicReminderSetting__ArgsType = {
   onDialogOpendialog3Change?: (val: boolean) => void;
   reminderCategory2Data?: any;
   onReminderCategory2DataChange?: (val: any) => void;
-  addSelect?: any;
-  onAddSelectChange?: (val: any) => void;
-  add2Variable?: boolean;
-  onAdd2VariableChange?: (val: boolean) => void;
+  pageSelect?: any;
+  onPageSelectChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicReminderSetting__ArgsType;
 export const PlasmicReminderSetting__ArgProps = new Array<ArgPropType>(
@@ -176,10 +173,8 @@ export const PlasmicReminderSetting__ArgProps = new Array<ArgPropType>(
   "onDialogOpendialog3Change",
   "reminderCategory2Data",
   "onReminderCategory2DataChange",
-  "addSelect",
-  "onAddSelectChange",
-  "add2Variable",
-  "onAdd2VariableChange"
+  "pageSelect",
+  "onPageSelectChange"
 );
 
 export type PlasmicReminderSetting__OverridesType = {
@@ -232,7 +227,7 @@ export type PlasmicReminderSetting__OverridesType = {
   snackbar?: Flex__<typeof Snackbar>;
   button?: Flex__<typeof Button>;
   button3?: Flex__<typeof Button>;
-  add2?: Flex__<typeof Add>;
+  pageselect?: Flex__<"div">;
 };
 
 export interface DefaultReminderSettingProps {
@@ -260,10 +255,8 @@ export interface DefaultReminderSettingProps {
   onDialogOpendialog3Change?: (val: boolean) => void;
   reminderCategory2Data?: any;
   onReminderCategory2DataChange?: (val: any) => void;
-  addSelect?: any;
-  onAddSelectChange?: (val: any) => void;
-  add2Variable?: boolean;
-  onAdd2VariableChange?: (val: boolean) => void;
+  pageSelect?: any;
+  onPageSelectChange?: (val: string) => void;
   slide?: SingleChoiceArg<"_1" | "_2">;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
   add?: SingleBooleanChoiceArg<"add">;
@@ -1585,20 +1578,12 @@ function PlasmicReminderSetting__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "add2.select",
+        path: "pageSelect",
         type: "writable",
         variableType: "object",
 
-        valueProp: "addSelect",
-        onChangeProp: "onAddSelectChange"
-      },
-      {
-        path: "add2.variable",
-        type: "writable",
-        variableType: "boolean",
-
-        valueProp: "add2Variable",
-        onChangeProp: "onAdd2VariableChange"
+        valueProp: "pageSelect",
+        onChangeProp: "onPageSelectChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -11248,173 +11233,39 @@ function PlasmicReminderSetting__RenderFunc(props: {
           </Button>
         </div>
       </Snackbar>
-      <Add
-        data-plasmic-name={"add2"}
-        data-plasmic-override={overrides.add2}
-        className={classNames("__wab_instance", sty.add2)}
-        onSelectChange={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, ["add2", "select"]).apply(
-            null,
-            eventArgs
-          );
+      <div
+        data-plasmic-name={"pageselect"}
+        data-plasmic-override={overrides.pageselect}
+        className={classNames(projectcss.all, sty.pageselect)}
+        id={"pageSelect"}
+        onClick={async event => {
+          const $steps = {};
 
-          if (
-            eventArgs.length > 1 &&
-            eventArgs[1] &&
-            eventArgs[1]._plasmic_state_init_
-          ) {
-            return;
-          }
-
-          (async val => {
-            const $steps = {};
-
-            $steps["updateSelect2"] = true
-              ? (() => {
-                  const actionArgs = {
-                    variable: {
-                      objRoot: $state,
-                      variablePath: ["select2"]
-                    },
-                    operation: 0,
-                    value: (() => {
-                      return {
-                        liomId: $props.manId,
-                        telegramId: $props.telegramId,
-                        phoneNumber: $props.phoneNumber,
-                        name: $state.add2.select.name,
-                        text:
-                          $state.add2.select.text || $state.add2.select.type,
-                        schedule_type: $state.add2.select.schedule_type,
-                        type: $state.add2.select.type,
-                        dates: $state.add2.select.date
-                          ? JSON.stringify([$state.add2.select.date])
-                          : "[]",
-                        channels: '["notification","telegram"]',
-                        times: "[]",
-                        weekdays:
-                          $state.add2.select.schedule_type == "everyDay"
-                            ? JSON.stringify([
-                                "saturday",
-                                "sunday",
-                                "monday",
-                                "tuesday",
-                                "wednesday",
-                                "thursday",
-                                "friday"
-                              ])
-                            : null,
-                        active: 1,
-                        add: true
-                      };
-                    })()
-                  };
-                  return (({ variable, value, startIndex, deleteCount }) => {
-                    if (!variable) {
-                      return;
-                    }
-                    const { objRoot, variablePath } = variable;
-
-                    $stateSet(objRoot, variablePath, value);
-                    return value;
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["updateSelect2"] != null &&
-              typeof $steps["updateSelect2"] === "object" &&
-              typeof $steps["updateSelect2"].then === "function"
-            ) {
-              $steps["updateSelect2"] = await $steps["updateSelect2"];
-            }
-
-            $steps["runCode"] = true
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return (() => {
-                        try {
-                          const dates = JSON.parse($state.select2.dates);
-                          function faToEnDigits(str) {
-                            return str.replace(/[۰-۹]/g, d =>
-                              "۰۱۲۳۴۵۶۷۸۹".indexOf(d)
-                            );
-                          }
-                          $state.date = dates.map(m => {
-                            const today = new Date(m);
-                            const f = today.toISOString().split("T")[0];
-                            const g = new Intl.DateTimeFormat("fa-IR", {
-                              year: "numeric",
-                              month: "long",
-                              day: "numeric"
-                            }).format(today);
-                            const jy = Number(
-                              faToEnDigits(
-                                new Intl.DateTimeFormat("fa-IR", {
-                                  year: "numeric"
-                                }).format(today)
-                              )
-                            );
-                            const jm = Number(
-                              faToEnDigits(
-                                new Intl.DateTimeFormat("fa-IR", {
-                                  month: "numeric"
-                                }).format(today)
-                              )
-                            );
-                            const jd = Number(
-                              faToEnDigits(
-                                new Intl.DateTimeFormat("fa-IR", {
-                                  day: "numeric"
-                                }).format(today)
-                              )
-                            );
-                            return {
-                              start: {
-                                f,
-                                g,
-                                year: jy,
-                                month: jm,
-                                day: jd
-                              }
-                            };
-                          });
-                        } catch {
-                          $state.date = [];
-                        }
-                        try {
-                          $state.week = JSON.parse($state.select2.weekdays);
-                        } catch {}
-                        try {
-                          function formatTimeString(value) {
-                            if (!value) return ["0", "0"];
-
-                            return value.split(":");
-                          }
-                          const times = JSON.parse($state.select2.times);
-                          $state.time2 = times.map(t => {
-                            const [hh, mm] = formatTimeString(t);
-                            return {
-                              hour: parseInt(hh),
-                              minute: parseInt(mm)
-                            };
-                          });
-                        } catch {
-                          $state.time2 = [];
-                        }
-                        try {
-                          function arraysEqualIgnoreOrder(a, b) {
-                            if (a.length !== b.length) return false;
-                            return [...a]
-                              .sort()
-                              .every(
-                                (val, index) => val === [...b].sort()[index]
-                              );
-                          }
-                          if ($state.week.length === 0) {
-                            return ($state.repead.selected = "once");
-                          } else if (
-                            arraysEqualIgnoreOrder($state.week, [
+          $steps["updateSelect2"] = true
+            ? (() => {
+                const actionArgs = {
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["select2"]
+                  },
+                  operation: 0,
+                  value: (() => {
+                    return {
+                      liomId: $props.manId,
+                      telegramId: $props.telegramId,
+                      phoneNumber: $props.phoneNumber,
+                      name: $state.pageSelect.type_fa,
+                      text: $state.pageSelect.text || $state.pageSelect.type,
+                      schedule_type: $state.pageSelect.schedule_type,
+                      type: $state.pageSelect.type,
+                      dates: $state.pageSelect.date
+                        ? JSON.stringify([$state.pageSelect.date])
+                        : "[]",
+                      channels: '["notification","telegram"]',
+                      times: "[]",
+                      weekdays:
+                        $state.pageSelect.schedule_type == "everyDay"
+                          ? JSON.stringify([
                               "saturday",
                               "sunday",
                               "monday",
@@ -11423,77 +11274,160 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               "thursday",
                               "friday"
                             ])
-                          ) {
-                            return ($state.repead.selected = "daily");
-                          } else if (
-                            arraysEqualIgnoreOrder($state.week, [
-                              "saturday",
-                              "sunday",
-                              "monday",
-                              "tuesday",
-                              "wednesday"
-                            ])
-                          ) {
-                            return ($state.repead.selected = "sat_to_wed");
-                          } else {
-                            return ($state.repead.selected = "custom");
-                          }
-                        } catch {
-                          return ($state.week = []);
-                        }
-                      })();
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["runCode"] != null &&
-              typeof $steps["runCode"] === "object" &&
-              typeof $steps["runCode"].then === "function"
-            ) {
-              $steps["runCode"] = await $steps["runCode"];
-            }
-          }).apply(null, eventArgs);
-        }}
-        onVariableChange={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, ["add2", "variable"]).apply(
-            null,
-            eventArgs
-          );
+                          : null,
+                      active: 1,
+                      add: true
+                    };
+                  })()
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
 
+                  $stateSet(objRoot, variablePath, value);
+                  return value;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
           if (
-            eventArgs.length > 1 &&
-            eventArgs[1] &&
-            eventArgs[1]._plasmic_state_init_
+            $steps["updateSelect2"] != null &&
+            typeof $steps["updateSelect2"] === "object" &&
+            typeof $steps["updateSelect2"].then === "function"
           ) {
-            return;
+            $steps["updateSelect2"] = await $steps["updateSelect2"];
           }
 
-          (async val => {
-            const $steps = {};
+          $steps["runCode"] = true
+            ? (() => {
+                const actionArgs = {
+                  customFunction: async () => {
+                    return (() => {
+                      try {
+                        const dates = JSON.parse($state.select2.dates);
+                        function faToEnDigits(str) {
+                          return str.replace(/[۰-۹]/g, d =>
+                            "۰۱۲۳۴۵۶۷۸۹".indexOf(d)
+                          );
+                        }
+                        $state.date = dates.map(m => {
+                          const today = new Date(m);
+                          const f = today.toISOString().split("T")[0];
+                          const g = new Intl.DateTimeFormat("fa-IR", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric"
+                          }).format(today);
+                          const jy = Number(
+                            faToEnDigits(
+                              new Intl.DateTimeFormat("fa-IR", {
+                                year: "numeric"
+                              }).format(today)
+                            )
+                          );
+                          const jm = Number(
+                            faToEnDigits(
+                              new Intl.DateTimeFormat("fa-IR", {
+                                month: "numeric"
+                              }).format(today)
+                            )
+                          );
+                          const jd = Number(
+                            faToEnDigits(
+                              new Intl.DateTimeFormat("fa-IR", {
+                                day: "numeric"
+                              }).format(today)
+                            )
+                          );
+                          return {
+                            start: {
+                              f,
+                              g,
+                              year: jy,
+                              month: jm,
+                              day: jd
+                            }
+                          };
+                        });
+                      } catch {
+                        $state.date = [];
+                      }
+                      try {
+                        $state.week = JSON.parse($state.select2.weekdays);
+                      } catch {}
+                      try {
+                        function formatTimeString(value) {
+                          if (!value) return ["0", "0"];
 
-            $steps["invokeGlobalAction"] = true
-              ? (() => {
-                  const actionArgs = { args: [undefined, "dfdfddfddfd"] };
-                  return $globalActions["Fragment.showToast"]?.apply(null, [
-                    ...actionArgs.args
-                  ]);
-                })()
-              : undefined;
-            if (
-              $steps["invokeGlobalAction"] != null &&
-              typeof $steps["invokeGlobalAction"] === "object" &&
-              typeof $steps["invokeGlobalAction"].then === "function"
-            ) {
-              $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
-            }
-          }).apply(null, eventArgs);
+                          return value.split(":");
+                        }
+                        const times = JSON.parse($state.select2.times);
+                        $state.time2 = times.map(t => {
+                          const [hh, mm] = formatTimeString(t);
+                          return {
+                            hour: parseInt(hh),
+                            minute: parseInt(mm)
+                          };
+                        });
+                      } catch {
+                        $state.time2 = [];
+                      }
+                      try {
+                        function arraysEqualIgnoreOrder(a, b) {
+                          if (a.length !== b.length) return false;
+                          return [...a]
+                            .sort()
+                            .every(
+                              (val, index) => val === [...b].sort()[index]
+                            );
+                        }
+                        if ($state.week.length === 0) {
+                          return ($state.repead.selected = "once");
+                        } else if (
+                          arraysEqualIgnoreOrder($state.week, [
+                            "saturday",
+                            "sunday",
+                            "monday",
+                            "tuesday",
+                            "wednesday",
+                            "thursday",
+                            "friday"
+                          ])
+                        ) {
+                          return ($state.repead.selected = "daily");
+                        } else if (
+                          arraysEqualIgnoreOrder($state.week, [
+                            "saturday",
+                            "sunday",
+                            "monday",
+                            "tuesday",
+                            "wednesday"
+                          ])
+                        ) {
+                          return ($state.repead.selected = "sat_to_wed");
+                        } else {
+                          return ($state.repead.selected = "custom");
+                        }
+                      } catch {
+                        return ($state.week = []);
+                      }
+                    })();
+                  }
+                };
+                return (({ customFunction }) => {
+                  return customFunction();
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["runCode"] != null &&
+            typeof $steps["runCode"] === "object" &&
+            typeof $steps["runCode"].then === "function"
+          ) {
+            $steps["runCode"] = await $steps["runCode"];
+          }
         }}
-        select={generateStateValueProp($state, ["add2", "select"])}
-        variable={generateStateValueProp($state, ["add2", "variable"])}
       />
     </div>
   ) as React.ReactElement | null;
@@ -11550,7 +11484,7 @@ const PlasmicDescendants = {
     "snackbar",
     "button",
     "button3",
-    "add2"
+    "pageselect"
   ],
   headerLiom: ["headerLiom"],
   dialog: [
@@ -11651,7 +11585,7 @@ const PlasmicDescendants = {
   snackbar: ["snackbar", "button", "button3"],
   button: ["button"],
   button3: ["button3"],
-  add2: ["add2"]
+  pageselect: ["pageselect"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -11706,7 +11640,7 @@ type NodeDefaultElementType = {
   snackbar: typeof Snackbar;
   button: typeof Button;
   button3: typeof Button;
-  add2: typeof Add;
+  pageselect: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -11819,7 +11753,7 @@ export const PlasmicReminderSetting = Object.assign(
     snackbar: makeNodeComponent("snackbar"),
     button: makeNodeComponent("button"),
     button3: makeNodeComponent("button3"),
-    add2: makeNodeComponent("add2"),
+    pageselect: makeNodeComponent("pageselect"),
 
     // Metadata about props expected for PlasmicReminderSetting
     internalVariantProps: PlasmicReminderSetting__VariantProps,

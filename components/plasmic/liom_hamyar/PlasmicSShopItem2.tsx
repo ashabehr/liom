@@ -410,6 +410,19 @@ function PlasmicSShopItem2__RenderFunc(props: {
                     }
                   }}
                   open={generateStateValueProp($state, ["shopBoxRef2", "open"])}
+                  redirectUrl={(() => {
+                    try {
+                      return window.location.href;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
                   refcode={(() => {
                     try {
                       return $state.refCode;

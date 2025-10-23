@@ -2908,16 +2908,10 @@ function PlasmicHamyar2__RenderFunc(props: {
         })
       },
       {
-        path: "reminderSetting.addSelect",
+        path: "reminderSetting.pageSelect",
         type: "private",
-        variableType: "object",
+        variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
-      },
-      {
-        path: "reminderSetting.add2Variable",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -21805,14 +21799,6 @@ function PlasmicHamyar2__RenderFunc(props: {
         <ReminderSetting
           data-plasmic-name={"reminderSetting"}
           data-plasmic-override={overrides.reminderSetting}
-          add2Variable={generateStateValueProp($state, [
-            "reminderSetting",
-            "add2Variable"
-          ])}
-          addSelect={generateStateValueProp($state, [
-            "reminderSetting",
-            "addSelect"
-          ])}
           back={async () => {
             const $steps = {};
 
@@ -21914,38 +21900,24 @@ function PlasmicHamyar2__RenderFunc(props: {
                   }
                 })()
           }
-          onAdd2VariableChange={async (...eventArgs: any) => {
-            generateStateOnChangeProp($state, [
-              "reminderSetting",
-              "add2Variable"
-            ]).apply(null, eventArgs);
-
-            if (
-              eventArgs.length > 1 &&
-              eventArgs[1] &&
-              eventArgs[1]._plasmic_state_init_
-            ) {
-              return;
-            }
-          }}
-          onAddSelectChange={async (...eventArgs: any) => {
-            generateStateOnChangeProp($state, [
-              "reminderSetting",
-              "addSelect"
-            ]).apply(null, eventArgs);
-
-            if (
-              eventArgs.length > 1 &&
-              eventArgs[1] &&
-              eventArgs[1]._plasmic_state_init_
-            ) {
-              return;
-            }
-          }}
           onDialogOpendialog3Change={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, [
               "reminderSetting",
               "dialogOpendialog3"
+            ]).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          onPageSelectChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, [
+              "reminderSetting",
+              "pageSelect"
             ]).apply(null, eventArgs);
 
             if (
@@ -22026,6 +21998,10 @@ function PlasmicHamyar2__RenderFunc(props: {
               return;
             }
           }}
+          pageSelect={generateStateValueProp($state, [
+            "reminderSetting",
+            "pageSelect"
+          ])}
           phoneNumber={(() => {
             try {
               return $state.mobile;
