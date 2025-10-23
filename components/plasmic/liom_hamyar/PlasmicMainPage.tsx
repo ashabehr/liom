@@ -390,6 +390,7 @@ function PlasmicMainPage__RenderFunc(props: {
         sty.root,
         {
           [sty.rootpage_calendar]: hasVariant($state, "page", "calendar"),
+          [sty.rootpage_reminder]: hasVariant($state, "page", "reminder"),
           [sty.rootpage_self]: hasVariant($state, "page", "self")
         }
       )}

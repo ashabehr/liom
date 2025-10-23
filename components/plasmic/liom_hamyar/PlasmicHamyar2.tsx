@@ -2906,6 +2906,12 @@ function PlasmicHamyar2__RenderFunc(props: {
             }
           ]
         })
+      },
+      {
+        path: "reminderSetting.addSelect",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -21793,6 +21799,10 @@ function PlasmicHamyar2__RenderFunc(props: {
         <ReminderSetting
           data-plasmic-name={"reminderSetting"}
           data-plasmic-override={overrides.reminderSetting}
+          addSelect={generateStateValueProp($state, [
+            "reminderSetting",
+            "addSelect"
+          ])}
           back={async () => {
             const $steps = {};
 
@@ -21894,6 +21904,20 @@ function PlasmicHamyar2__RenderFunc(props: {
                   }
                 })()
           }
+          onAddSelectChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, [
+              "reminderSetting",
+              "addSelect"
+            ]).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
           onDialogOpendialog3Change={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, [
               "reminderSetting",

@@ -74,6 +74,7 @@ import CheckboxGroup from "../../CheckboxGroup"; // plasmic-import: AhgoIztCTzjf
 import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import Snackbar from "../../Snackbar"; // plasmic-import: DESzdq_iEiZG/component
+import Add from "../../Add"; // plasmic-import: eDP9PSSwknqW/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -144,6 +145,8 @@ export type PlasmicReminderSetting__ArgsType = {
   onDialogOpendialog3Change?: (val: boolean) => void;
   reminderCategory2Data?: any;
   onReminderCategory2DataChange?: (val: any) => void;
+  addSelect?: any;
+  onAddSelectChange?: (val: any) => void;
 };
 type ArgPropType = keyof PlasmicReminderSetting__ArgsType;
 export const PlasmicReminderSetting__ArgProps = new Array<ArgPropType>(
@@ -170,7 +173,9 @@ export const PlasmicReminderSetting__ArgProps = new Array<ArgPropType>(
   "dialogOpendialog3",
   "onDialogOpendialog3Change",
   "reminderCategory2Data",
-  "onReminderCategory2DataChange"
+  "onReminderCategory2DataChange",
+  "addSelect",
+  "onAddSelectChange"
 );
 
 export type PlasmicReminderSetting__OverridesType = {
@@ -223,6 +228,7 @@ export type PlasmicReminderSetting__OverridesType = {
   snackbar?: Flex__<typeof Snackbar>;
   button?: Flex__<typeof Button>;
   button3?: Flex__<typeof Button>;
+  add2?: Flex__<typeof Add>;
 };
 
 export interface DefaultReminderSettingProps {
@@ -250,6 +256,8 @@ export interface DefaultReminderSettingProps {
   onDialogOpendialog3Change?: (val: boolean) => void;
   reminderCategory2Data?: any;
   onReminderCategory2DataChange?: (val: any) => void;
+  addSelect?: any;
+  onAddSelectChange?: (val: any) => void;
   slide?: SingleChoiceArg<"_1" | "_2">;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
   add?: SingleBooleanChoiceArg<"add">;
@@ -1569,6 +1577,14 @@ function PlasmicReminderSetting__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "add2.select",
+        type: "writable",
+        variableType: "object",
+
+        valueProp: "addSelect",
+        onChangeProp: "onAddSelectChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -11218,6 +11234,26 @@ function PlasmicReminderSetting__RenderFunc(props: {
           </Button>
         </div>
       </Snackbar>
+      <Add
+        data-plasmic-name={"add2"}
+        data-plasmic-override={overrides.add2}
+        className={classNames("__wab_instance", sty.add2)}
+        onSelectChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["add2", "select"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        select={generateStateValueProp($state, ["add2", "select"])}
+      />
     </div>
   ) as React.ReactElement | null;
 }
@@ -11272,7 +11308,8 @@ const PlasmicDescendants = {
     "button12",
     "snackbar",
     "button",
-    "button3"
+    "button3",
+    "add2"
   ],
   headerLiom: ["headerLiom"],
   dialog: [
@@ -11372,7 +11409,8 @@ const PlasmicDescendants = {
   button12: ["button12"],
   snackbar: ["snackbar", "button", "button3"],
   button: ["button"],
-  button3: ["button3"]
+  button3: ["button3"],
+  add2: ["add2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -11427,6 +11465,7 @@ type NodeDefaultElementType = {
   snackbar: typeof Snackbar;
   button: typeof Button;
   button3: typeof Button;
+  add2: typeof Add;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -11539,6 +11578,7 @@ export const PlasmicReminderSetting = Object.assign(
     snackbar: makeNodeComponent("snackbar"),
     button: makeNodeComponent("button"),
     button3: makeNodeComponent("button3"),
+    add2: makeNodeComponent("add2"),
 
     // Metadata about props expected for PlasmicReminderSetting
     internalVariantProps: PlasmicReminderSetting__VariantProps,

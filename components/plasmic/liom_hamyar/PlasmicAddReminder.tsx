@@ -523,6 +523,12 @@ function PlasmicAddReminder__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "reminderSetting.addSelect",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -666,6 +672,10 @@ function PlasmicAddReminder__RenderFunc(props: {
               data-plasmic-name={"reminderSetting"}
               data-plasmic-override={overrides.reminderSetting}
               add={true}
+              addSelect={generateStateValueProp($state, [
+                "reminderSetting",
+                "addSelect"
+              ])}
               className={classNames("__wab_instance", sty.reminderSetting)}
               data={(() => {
                 try {
@@ -699,6 +709,20 @@ function PlasmicAddReminder__RenderFunc(props: {
                   throw e;
                 }
               })()}
+              onAddSelectChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminderSetting",
+                  "addSelect"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
               onDialogOpendialog3Change={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "reminderSetting",

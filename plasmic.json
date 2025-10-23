@@ -4779,6 +4779,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/add-reminder"
+        },
+        {
+          "id": "eDP9PSSwknqW",
+          "name": "Add",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicAdd.tsx",
+          "importSpec": {
+            "modulePath": "Add.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicAdd.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
