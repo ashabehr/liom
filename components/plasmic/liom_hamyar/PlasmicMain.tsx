@@ -1117,6 +1117,12 @@ function PlasmicMain__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "reminderSetting.select2",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -1156,6 +1162,11 @@ function PlasmicMain__RenderFunc(props: {
             {
               [sty.rootcycle]: hasVariant($state, "cycle", "cycle"),
               [sty.rootedit]: hasVariant($state, "edit", "edit"),
+              [sty.rootreminderSetting2]: hasVariant(
+                $state,
+                "reminderSetting2",
+                "reminderSetting2"
+              ),
               [sty.rootsetting]: hasVariant($state, "setting", "setting"),
               [sty.rootsubItem]: hasVariant($state, "subItem", "subItem")
             }
@@ -1185,6 +1196,11 @@ function PlasmicMain__RenderFunc(props: {
               className={classNames("__wab_instance", sty.mainPage, {
                 [sty.mainPagecycle]: hasVariant($state, "cycle", "cycle"),
                 [sty.mainPageedit]: hasVariant($state, "edit", "edit"),
+                [sty.mainPagereminderSetting2]: hasVariant(
+                  $state,
+                  "reminderSetting2",
+                  "reminderSetting2"
+                ),
                 [sty.mainPagesubItem]: hasVariant($state, "subItem", "subItem")
               })}
               editTime={generateStateValueProp($state, [
@@ -3337,6 +3353,7 @@ function PlasmicMain__RenderFunc(props: {
                 "reminderSetting",
                 "dialogOpendialog3"
               ])}
+              hamyar={true}
               manId={(() => {
                 try {
                   return $state.mainPage.userInfo?.result?.user?.id;
@@ -3445,6 +3462,20 @@ function PlasmicMain__RenderFunc(props: {
                   return;
                 }
               }}
+              onSelect2Change={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminderSetting",
+                  "select2"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
               onSmsChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "reminderSetting",
@@ -3473,6 +3504,19 @@ function PlasmicMain__RenderFunc(props: {
                   return;
                 }
               }}
+              phoneNumber={(() => {
+                try {
+                  return $state.mainPage.userInfo?.result?.user?.phoneNumber;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
               refresh={generateStateValueProp($state, [
                 "reminderSetting",
                 "refresh"
@@ -3485,8 +3529,40 @@ function PlasmicMain__RenderFunc(props: {
                 "reminderSetting",
                 "reminderCategory2Data"
               ])}
+              select2={generateStateValueProp($state, [
+                "reminderSetting",
+                "select2"
+              ])}
               sms={generateStateValueProp($state, ["reminderSetting", "sms"])}
               tel={generateStateValueProp($state, ["reminderSetting", "tel"])}
+              telegramId={(() => {
+                try {
+                  return $state.mainPage.userInfo?.result?.user?.telegramId;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              telegramOn={(() => {
+                try {
+                  return $state.mainPage.userInfo?.result?.user?.telegramId
+                    ? true
+                    : false;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })()}
               token={``}
             />
           </Reveal>

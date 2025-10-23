@@ -1131,6 +1131,19 @@ function PlasmicMainPage__RenderFunc(props: {
               return;
             }
           }}
+          phone={(() => {
+            try {
+              return $state.calendar2.userInfo?.result?.user?.phoneNumber;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
           refresh={generateStateValueProp($state, ["reminder", "refresh"])}
           reminderSettingReminderCategory2Data={generateStateValueProp($state, [
             "reminder",
@@ -1141,6 +1154,34 @@ function PlasmicMainPage__RenderFunc(props: {
           sms={generateStateValueProp($state, ["reminder", "sms"])}
           subscription={false}
           tel={generateStateValueProp($state, ["reminder", "tel"])}
+          telegram={(() => {
+            try {
+              return $state.calendar2.userInfo?.result?.user?.telegramId
+                ? true
+                : false;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()}
+          telegramId={(() => {
+            try {
+              return $state.calendar2.userInfo?.result?.user?.telegramId;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
         />
       </Reveal>
       <Reveal
@@ -1278,28 +1319,8 @@ function PlasmicMainPage__RenderFunc(props: {
         data-plasmic-name={"apiRequest"}
         data-plasmic-override={overrides.apiRequest}
         className={classNames("__wab_instance", sty.apiRequest)}
-        errorDisplay={
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__woJkM
-            )}
-          >
-            {"Error fetching data"}
-          </div>
-        }
-        loadingDisplay={
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__rf7YR
-            )}
-          >
-            {"Loading..."}
-          </div>
-        }
+        errorDisplay={null}
+        loadingDisplay={null}
         method={"GET"}
         onError={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(

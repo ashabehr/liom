@@ -641,8 +641,7 @@ function PlasmicReminderCategory__RenderFunc(props: {
                   const actionArgs = {
                     customFunction: async () => {
                       return (() => {
-                        const scrollMid =
-                          window.scrollY + window.innerHeight / 2;
+                        const scrollMid = 400;
                         const sections =
                           window.document.querySelectorAll(".section");
                         console.log(sections);

@@ -71,7 +71,6 @@ import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import Line from "../../Line"; // plasmic-import: tYgE5kAlYGXB/component
 import ReminderSetting from "../../ReminderSetting"; // plasmic-import: VZcPBQBUFNbT/component
 import { SwiperSlider } from "@/components/SwiperSlider"; // plasmic-import: hd-bzFw1zcpE/codeComponent
-import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
 import { AntdTooltip } from "@plasmicpkgs/antd5/skinny/registerTooltip";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -196,7 +195,6 @@ export type PlasmicReminder__OverridesType = {
   slide2?: Flex__<"div">;
   button8?: Flex__<typeof Button>;
   button?: Flex__<typeof Button>;
-  popover?: Flex__<typeof AntdPopover>;
   button9?: Flex__<typeof Button>;
   tooltip?: Flex__<typeof AntdTooltip>;
   button10?: Flex__<typeof Button>;
@@ -1260,10 +1258,10 @@ function PlasmicReminder__RenderFunc(props: {
           hasVariant(globalVariants, "screen", "mobile") ? false : false
       },
       {
-        path: "popover.open",
+        path: "reminderSetting.select2",
         type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -4740,6 +4738,20 @@ function PlasmicReminder__RenderFunc(props: {
                     return;
                   }
                 }}
+                onSelect2Change={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "reminderSetting",
+                    "select2"
+                  ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
                 onSmsChange={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, [
                     "reminderSetting",
@@ -4840,6 +4852,10 @@ function PlasmicReminder__RenderFunc(props: {
                 reminderCategory2Data={generateStateValueProp($state, [
                   "reminderSetting",
                   "reminderCategory2Data"
+                ])}
+                select2={generateStateValueProp($state, [
+                  "reminderSetting",
+                  "select2"
                 ])}
                 shop={async () => {
                   const $steps = {};
@@ -5398,92 +5414,62 @@ function PlasmicReminder__RenderFunc(props: {
       >
         <div className={classNames(projectcss.all, sty.freeBox__nYlDo)}>
           <div className={classNames(projectcss.all, sty.freeBox__sjaPa)}>
-            <AntdPopover
-              data-plasmic-name={"popover"}
-              data-plasmic-override={overrides.popover}
-              arrow={true}
-              className={classNames("__wab_instance", sty.popover, {
-                [sty.popoverhamyar]: hasVariant($state, "hamyar", "hamyar")
+            <Button
+              data-plasmic-name={"button9"}
+              data-plasmic-override={overrides.button9}
+              className={classNames("__wab_instance", sty.button9, {
+                [sty.button9slide3]: hasVariant($state, "slide3", "slide3")
               })}
-              color={true ? "#B1B1B1" : undefined}
-              content={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___9SiB
-                  )}
-                >
-                  {
-                    "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0648 \u062a\u0646\u0638\u06cc\u0645\u0627\u062a"
-                  }
-                </div>
-              }
-              contentText={
-                "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0648 \u062a\u0646\u0638\u06cc\u0645\u0627\u062a"
-              }
-              defaultOpen={true}
-              defaultStylesClassName={classNames(
-                projectcss.root_reset,
-                projectcss.plasmic_default_styles,
-                projectcss.plasmic_mixins,
-                styleTokensClassNames
-              )}
-              mouseEnterDelay={0}
-              mouseLeaveDelay={0}
-              onOpenChange={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["popover", "open"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              open={generateStateValueProp($state, ["popover", "open"])}
-              overlayClassName={classNames({
-                [sty["pcls_oykQmtJcsXyY"]]: true
-              })}
-              placement={"right"}
-              popoverContentClassName={classNames({
-                [sty["pcls_z5hc6ZxoSnbI"]]: true
-              })}
-              popoverScopeClassName={sty["popover__popover"]}
-              title={null}
-              trigger={"hover"}
-            >
-              <Button
-                data-plasmic-name={"button9"}
-                data-plasmic-override={overrides.button9}
-                className={classNames("__wab_instance", sty.button9, {
-                  [sty.button9slide3]: hasVariant($state, "slide3", "slide3")
-                })}
-                color={generateStateValueProp($state, ["button9", "color"])}
-                endIcon={null}
-                load={generateStateValueProp($state, ["button9", "load"])}
-                loading={generateStateValueProp($state, ["button9", "loading"])}
-                onClick={async event => {
-                  const $steps = {};
+              color={generateStateValueProp($state, ["button9", "color"])}
+              endIcon={null}
+              load={generateStateValueProp($state, ["button9", "load"])}
+              loading={generateStateValueProp($state, ["button9", "loading"])}
+              onClick={async event => {
+                const $steps = {};
 
-                  $steps["runSetting"] =
-                    $props.data.length > 0
-                      ? (() => {
-                          const actionArgs = { eventRef: $props["setting"] };
-                          return (({ eventRef, args }) => {
-                            return eventRef?.(...(args ?? []));
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                  if (
-                    $steps["runSetting"] != null &&
-                    typeof $steps["runSetting"] === "object" &&
-                    typeof $steps["runSetting"].then === "function"
-                  ) {
-                    $steps["runSetting"] = await $steps["runSetting"];
-                  }
+                $steps["runSetting"] =
+                  $props.data.length > 0
+                    ? (() => {
+                        const actionArgs = { eventRef: $props["setting"] };
+                        return (({ eventRef, args }) => {
+                          return eventRef?.(...(args ?? []));
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["runSetting"] != null &&
+                  typeof $steps["runSetting"] === "object" &&
+                  typeof $steps["runSetting"].then === "function"
+                ) {
+                  $steps["runSetting"] = await $steps["runSetting"];
+                }
 
-                  $steps["runCode"] = true
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return ($state.refresh = +"1");
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+
+                $steps["runCode2"] =
+                  $props.data.length == 0
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return ($state.refresh = +"1");
+                            return ($state.reminderSetting.dialogOpendialog3 = true);
                           }
                         };
                         return (({ customFunction }) => {
@@ -5491,89 +5477,67 @@ function PlasmicReminder__RenderFunc(props: {
                         })?.apply(null, [actionArgs]);
                       })()
                     : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
+                if (
+                  $steps["runCode2"] != null &&
+                  typeof $steps["runCode2"] === "object" &&
+                  typeof $steps["runCode2"].then === "function"
+                ) {
+                  $steps["runCode2"] = await $steps["runCode2"];
+                }
+              }}
+              onColorChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button9", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
 
-                  $steps["runCode2"] =
-                    $props.data.length == 0
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return ($state.reminderSetting.dialogOpendialog3 = true);
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                  if (
-                    $steps["runCode2"] != null &&
-                    typeof $steps["runCode2"] === "object" &&
-                    typeof $steps["runCode2"].then === "function"
-                  ) {
-                    $steps["runCode2"] = await $steps["runCode2"];
-                  }
-                }}
-                onColorChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button9", "color"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onLoadChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button9", "load"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
 
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onLoadChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button9", "load"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onLoadingChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button9", "loading"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
 
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onLoadingChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button9", "loading"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                shape={"round"}
-                size={"compact"}
-              >
-                <Icon349Icon
-                  className={classNames(projectcss.all, sty.svg___36Xo1)}
-                  role={"img"}
-                />
-              </Button>
-            </AntdPopover>
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              shape={"round"}
+              size={"compact"}
+            >
+              <Icon349Icon
+                className={classNames(projectcss.all, sty.svg___36Xo1)}
+                role={"img"}
+              />
+            </Button>
             <AntdTooltip
               data-plasmic-name={"tooltip"}
               data-plasmic-override={overrides.tooltip}
@@ -5725,7 +5689,6 @@ const PlasmicDescendants = {
     "slide2",
     "button8",
     "button",
-    "popover",
     "button9",
     "tooltip",
     "button10"
@@ -5770,7 +5733,6 @@ const PlasmicDescendants = {
   slide2: ["slide2"],
   button8: ["button8"],
   button: ["button"],
-  popover: ["popover", "button9"],
   button9: ["button9"],
   tooltip: ["tooltip", "button10"],
   button10: ["button10"]
@@ -5813,7 +5775,6 @@ type NodeDefaultElementType = {
   slide2: "div";
   button8: typeof Button;
   button: typeof Button;
-  popover: typeof AntdPopover;
   button9: typeof Button;
   tooltip: typeof AntdTooltip;
   button10: typeof Button;
@@ -5914,7 +5875,6 @@ export const PlasmicReminder = Object.assign(
     slide2: makeNodeComponent("slide2"),
     button8: makeNodeComponent("button8"),
     button: makeNodeComponent("button"),
-    popover: makeNodeComponent("popover"),
     button9: makeNodeComponent("button9"),
     tooltip: makeNodeComponent("tooltip"),
     button10: makeNodeComponent("button10"),
