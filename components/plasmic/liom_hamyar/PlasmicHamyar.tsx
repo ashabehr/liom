@@ -2561,12 +2561,6 @@ function PlasmicHamyar__RenderFunc(props: {
             }
           ]
         })
-      },
-      {
-        path: "reminderSetting.select2",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -7203,20 +7197,6 @@ function PlasmicHamyar__RenderFunc(props: {
                   return;
                 }
               }}
-              onSelect2Change={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "reminderSetting",
-                  "select2"
-                ]).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
               onSmsChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "reminderSetting",
@@ -7269,10 +7249,6 @@ function PlasmicHamyar__RenderFunc(props: {
               reminderCategory2Data={generateStateValueProp($state, [
                 "reminderSetting",
                 "reminderCategory2Data"
-              ])}
-              select2={generateStateValueProp($state, [
-                "reminderSetting",
-                "select2"
               ])}
               setMobile={async () => {
                 const $steps = {};

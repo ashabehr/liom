@@ -523,12 +523,6 @@ function PlasmicAddReminder__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "reminderSetting.select2",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -601,7 +595,7 @@ function PlasmicAddReminder__RenderFunc(props: {
                         customFunction: async () => {
                           return (() => {
                             if (!$state.apiRequest.data.hasReminder)
-                              return ($state.reminderSetting.select2 = {
+                              return {
                                 name: $state.apiRequest.data.type.type_fa,
                                 text:
                                   $state.apiRequest.data.type.text ||
@@ -631,7 +625,7 @@ function PlasmicAddReminder__RenderFunc(props: {
                                     : null,
                                 active: 1,
                                 add: true
-                              });
+                              };
                           })();
                         }
                       };
@@ -761,20 +755,6 @@ function PlasmicAddReminder__RenderFunc(props: {
                   return;
                 }
               }}
-              onSelect2Change={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "reminderSetting",
-                  "select2"
-                ]).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
               onSmsChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "reminderSetting",
@@ -814,10 +794,6 @@ function PlasmicAddReminder__RenderFunc(props: {
               reminderCategory2Data={generateStateValueProp($state, [
                 "reminderSetting",
                 "reminderCategory2Data"
-              ])}
-              select2={generateStateValueProp($state, [
-                "reminderSetting",
-                "select2"
               ])}
               sms={generateStateValueProp($state, ["reminderSetting", "sms"])}
               tel={generateStateValueProp($state, ["reminderSetting", "tel"])}

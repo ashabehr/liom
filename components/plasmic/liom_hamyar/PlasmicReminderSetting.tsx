@@ -122,8 +122,6 @@ export const PlasmicReminderSetting__VariantProps = new Array<VariantPropType>(
 export type PlasmicReminderSetting__ArgsType = {
   data?: any;
   manId?: string;
-  select2?: any;
-  onSelect2Change?: (val: string) => void;
   subscription?: boolean;
   refresh?: string;
   onRefreshChange?: (val: string) => void;
@@ -151,8 +149,6 @@ type ArgPropType = keyof PlasmicReminderSetting__ArgsType;
 export const PlasmicReminderSetting__ArgProps = new Array<ArgPropType>(
   "data",
   "manId",
-  "select2",
-  "onSelect2Change",
   "subscription",
   "refresh",
   "onRefreshChange",
@@ -232,8 +228,6 @@ export type PlasmicReminderSetting__OverridesType = {
 export interface DefaultReminderSettingProps {
   data?: any;
   manId?: string;
-  select2?: any;
-  onSelect2Change?: (val: string) => void;
   subscription?: boolean;
   refresh?: string;
   onRefreshChange?: (val: string) => void;
@@ -837,11 +831,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
       },
       {
         path: "select2",
-        type: "writable",
+        type: "private",
         variableType: "object",
-
-        valueProp: "select2",
-        onChangeProp: "onSelect2Change"
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       },
       {
         path: "refresh",
@@ -4057,41 +4049,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
               ok={async () => {
                 const $steps = {};
 
-                $steps["updateDialogOpendialog"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["dialog", "opendialog"]
-                        },
-                        operation: 0,
-                        value: true
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateDialogOpendialog"] != null &&
-                  typeof $steps["updateDialogOpendialog"] === "object" &&
-                  typeof $steps["updateDialogOpendialog"].then === "function"
-                ) {
-                  $steps["updateDialogOpendialog"] =
-                    await $steps["updateDialogOpendialog"];
-                }
-
                 $steps["updateSelect2"] = true
                   ? (() => {
                       const actionArgs = {
@@ -4288,6 +4245,41 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   typeof $steps["runCode"].then === "function"
                 ) {
                   $steps["runCode"] = await $steps["runCode"];
+                }
+
+                $steps["updateDialogOpendialog"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["dialog", "opendialog"]
+                        },
+                        operation: 0,
+                        value: true
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateDialogOpendialog"] != null &&
+                  typeof $steps["updateDialogOpendialog"] === "object" &&
+                  typeof $steps["updateDialogOpendialog"].then === "function"
+                ) {
+                  $steps["updateDialogOpendialog"] =
+                    await $steps["updateDialogOpendialog"];
                 }
               }}
               onDataChange={async (...eventArgs: any) => {
@@ -7121,59 +7113,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                               await $steps["updateSelect2"];
                                           }
 
-                                          $steps["updateDialogOpendialog"] =
-                                            true
-                                              ? (() => {
-                                                  const actionArgs = {
-                                                    variable: {
-                                                      objRoot: $state,
-                                                      variablePath: [
-                                                        "dialog",
-                                                        "opendialog"
-                                                      ]
-                                                    },
-                                                    operation: 0,
-                                                    value: true
-                                                  };
-                                                  return (({
-                                                    variable,
-                                                    value,
-                                                    startIndex,
-                                                    deleteCount
-                                                  }) => {
-                                                    if (!variable) {
-                                                      return;
-                                                    }
-                                                    const {
-                                                      objRoot,
-                                                      variablePath
-                                                    } = variable;
-
-                                                    $stateSet(
-                                                      objRoot,
-                                                      variablePath,
-                                                      value
-                                                    );
-                                                    return value;
-                                                  })?.apply(null, [actionArgs]);
-                                                })()
-                                              : undefined;
-                                          if (
-                                            $steps["updateDialogOpendialog"] !=
-                                              null &&
-                                            typeof $steps[
-                                              "updateDialogOpendialog"
-                                            ] === "object" &&
-                                            typeof $steps[
-                                              "updateDialogOpendialog"
-                                            ].then === "function"
-                                          ) {
-                                            $steps["updateDialogOpendialog"] =
-                                              await $steps[
-                                                "updateDialogOpendialog"
-                                              ];
-                                          }
-
                                           $steps["runCode"] = true
                                             ? (() => {
                                                 const actionArgs = {
@@ -7453,6 +7392,59 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           ) {
                                             $steps["runCode"] =
                                               await $steps["runCode"];
+                                          }
+
+                                          $steps["updateDialogOpendialog"] =
+                                            true
+                                              ? (() => {
+                                                  const actionArgs = {
+                                                    variable: {
+                                                      objRoot: $state,
+                                                      variablePath: [
+                                                        "dialog",
+                                                        "opendialog"
+                                                      ]
+                                                    },
+                                                    operation: 0,
+                                                    value: true
+                                                  };
+                                                  return (({
+                                                    variable,
+                                                    value,
+                                                    startIndex,
+                                                    deleteCount
+                                                  }) => {
+                                                    if (!variable) {
+                                                      return;
+                                                    }
+                                                    const {
+                                                      objRoot,
+                                                      variablePath
+                                                    } = variable;
+
+                                                    $stateSet(
+                                                      objRoot,
+                                                      variablePath,
+                                                      value
+                                                    );
+                                                    return value;
+                                                  })?.apply(null, [actionArgs]);
+                                                })()
+                                              : undefined;
+                                          if (
+                                            $steps["updateDialogOpendialog"] !=
+                                              null &&
+                                            typeof $steps[
+                                              "updateDialogOpendialog"
+                                            ] === "object" &&
+                                            typeof $steps[
+                                              "updateDialogOpendialog"
+                                            ].then === "function"
+                                          ) {
+                                            $steps["updateDialogOpendialog"] =
+                                              await $steps[
+                                                "updateDialogOpendialog"
+                                              ];
                                           }
                                         },
                                         onColorChange: async (
@@ -10938,36 +10930,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 $steps["updateSelect2"] = await $steps["updateSelect2"];
               }
 
-              $steps["updateDialogOpendialog"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["dialog", "opendialog"]
-                      },
-                      operation: 0,
-                      value: true
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateDialogOpendialog"] != null &&
-                typeof $steps["updateDialogOpendialog"] === "object" &&
-                typeof $steps["updateDialogOpendialog"].then === "function"
-              ) {
-                $steps["updateDialogOpendialog"] =
-                  await $steps["updateDialogOpendialog"];
-              }
-
               $steps["runCode"] = true
                 ? (() => {
                     const actionArgs = {
@@ -11144,6 +11106,36 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 typeof $steps["runCode"].then === "function"
               ) {
                 $steps["runCode"] = await $steps["runCode"];
+              }
+
+              $steps["updateDialogOpendialog"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["dialog", "opendialog"]
+                      },
+                      operation: 0,
+                      value: true
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateDialogOpendialog"] != null &&
+                typeof $steps["updateDialogOpendialog"] === "object" &&
+                typeof $steps["updateDialogOpendialog"].then === "function"
+              ) {
+                $steps["updateDialogOpendialog"] =
+                  await $steps["updateDialogOpendialog"];
               }
 
               $steps["updateSnackbarOpendialog"] = true
