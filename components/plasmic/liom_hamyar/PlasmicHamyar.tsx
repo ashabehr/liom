@@ -2909,29 +2909,29 @@ function PlasmicHamyar__RenderFunc(props: {
               reminderOpen={async event => {
                 const $steps = {};
 
-                $steps["updatePage"] = true
+                $steps["updateRemindersetting"] = true
                   ? (() => {
                       const actionArgs = {
-                        vgroup: "page",
-                        operation: 0,
-                        value: "reminder"
+                        vgroup: "remindersetting",
+                        operation: 4
                       };
                       return (({ vgroup, value }) => {
                         if (typeof value === "string") {
                           value = [value];
                         }
 
-                        $stateSet($state, vgroup, value);
-                        return value;
+                        $stateSet($state, vgroup, true);
+                        return true;
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["updatePage"] != null &&
-                  typeof $steps["updatePage"] === "object" &&
-                  typeof $steps["updatePage"].then === "function"
+                  $steps["updateRemindersetting"] != null &&
+                  typeof $steps["updateRemindersetting"] === "object" &&
+                  typeof $steps["updateRemindersetting"].then === "function"
                 ) {
-                  $steps["updatePage"] = await $steps["updatePage"];
+                  $steps["updateRemindersetting"] =
+                    await $steps["updateRemindersetting"];
                 }
               }}
               reminderSetting={async () => {
@@ -3189,29 +3189,30 @@ function PlasmicHamyar__RenderFunc(props: {
                   reminder={async () => {
                     const $steps = {};
 
-                    $steps["updatePage"] = true
+                    $steps["updateRemindersetting"] = true
                       ? (() => {
                           const actionArgs = {
-                            vgroup: "page",
-                            operation: 0,
-                            value: "reminder"
+                            vgroup: "remindersetting",
+                            operation: 2
                           };
                           return (({ vgroup, value }) => {
                             if (typeof value === "string") {
                               value = [value];
                             }
 
-                            $stateSet($state, vgroup, value);
-                            return value;
+                            const oldValue = $stateGet($state, vgroup);
+                            $stateSet($state, vgroup, !oldValue);
+                            return !oldValue;
                           })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
                     if (
-                      $steps["updatePage"] != null &&
-                      typeof $steps["updatePage"] === "object" &&
-                      typeof $steps["updatePage"].then === "function"
+                      $steps["updateRemindersetting"] != null &&
+                      typeof $steps["updateRemindersetting"] === "object" &&
+                      typeof $steps["updateRemindersetting"].then === "function"
                     ) {
-                      $steps["updatePage"] = await $steps["updatePage"];
+                      $steps["updateRemindersetting"] =
+                        await $steps["updateRemindersetting"];
                     }
                   }}
                   slot={

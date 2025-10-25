@@ -1911,6 +1911,7 @@
 }
 .todayMeetingslide__1 {
   box-shadow: none;
+  display: none;
   padding: 0px 0px 30px;
 }
 .todayMeetingslide__2 {
@@ -3273,6 +3274,17 @@
   display: none;
 }
 .pageselect {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 0px;
+  height: 0px;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px;
+}
+.pageselect2 {
   display: flex;
   flex-direction: column;
   position: relative;

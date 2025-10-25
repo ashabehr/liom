@@ -818,7 +818,7 @@ function PlasmicAddReminder__RenderFunc(props: {
               (async data => {
                 const $steps = {};
 
-                $steps["runCode"] = $state.apiRequest?.data
+                $steps["runCode"] = !$state.apiRequest.data.hasReminder
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
@@ -842,6 +842,32 @@ function PlasmicAddReminder__RenderFunc(props: {
                   typeof $steps["runCode"].then === "function"
                 ) {
                   $steps["runCode"] = await $steps["runCode"];
+                }
+
+                $steps["runCode2"] = $state.apiRequest.data.hasReminder
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            $state.reminderSetting.pageSelect =
+                              $state.apiRequest.data.reminders[0].json;
+                            return window.document
+                              .getElementById("pageSelect1")
+                              .click();
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode2"] != null &&
+                  typeof $steps["runCode2"] === "object" &&
+                  typeof $steps["runCode2"].then === "function"
+                ) {
+                  $steps["runCode2"] = await $steps["runCode2"];
                 }
               }).apply(null, eventArgs);
             }}

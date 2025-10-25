@@ -228,6 +228,7 @@ export type PlasmicReminderSetting__OverridesType = {
   button?: Flex__<typeof Button>;
   button3?: Flex__<typeof Button>;
   pageselect?: Flex__<"div">;
+  pageselect2?: Flex__<"div">;
 };
 
 export interface DefaultReminderSettingProps {
@@ -6036,7 +6037,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
               })()
             : hasVariant($state, "slide", "_2")
               ? true
-              : true
+              : hasVariant($state, "slide", "_1")
+                ? true
+                : true
         ) ? (
           <div
             data-plasmic-name={"todayMeeting"}
@@ -6121,6 +6124,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         "add",
                         "add"
                       ),
+                      [sty.freeBoxslide__1__fN6Veedcqc]: hasVariant(
+                        $state,
+                        "slide",
+                        "_1"
+                      ),
                       [sty.freeBoxslide__2__fN6VeVJmCw]: hasVariant(
                         $state,
                         "slide",
@@ -6145,7 +6153,17 @@ function PlasmicReminderSetting__RenderFunc(props: {
                     )}
                   >
                     <div
-                      className={classNames(projectcss.all, sty.freeBox___3Qy8)}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___3Qy8,
+                        {
+                          [sty.freeBoxslide__1___3Qy8Edcqc]: hasVariant(
+                            $state,
+                            "slide",
+                            "_1"
+                          )
+                        }
+                      )}
                     >
                       <div
                         className={classNames(
@@ -11429,6 +11447,223 @@ function PlasmicReminderSetting__RenderFunc(props: {
           }
         }}
       />
+
+      <div
+        data-plasmic-name={"pageselect2"}
+        data-plasmic-override={overrides.pageselect2}
+        className={classNames(projectcss.all, sty.pageselect2)}
+        id={"pageSelect1"}
+        onClick={async event => {
+          const $steps = {};
+
+          $steps["updateSelect2"] = true
+            ? (() => {
+                const actionArgs = {
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["select2"]
+                  },
+                  operation: 0,
+                  value: $state.pageSelect
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  $stateSet(objRoot, variablePath, value);
+                  return value;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateSelect2"] != null &&
+            typeof $steps["updateSelect2"] === "object" &&
+            typeof $steps["updateSelect2"].then === "function"
+          ) {
+            $steps["updateSelect2"] = await $steps["updateSelect2"];
+          }
+
+          $steps["runCode"] = true
+            ? (() => {
+                const actionArgs = {
+                  customFunction: async () => {
+                    return (() => {
+                      try {
+                        const dates = JSON.parse($state.select2.dates);
+                        function faToEnDigits(str) {
+                          return str.replace(/[۰-۹]/g, d =>
+                            "۰۱۲۳۴۵۶۷۸۹".indexOf(d)
+                          );
+                        }
+                        $state.date = dates.map(m => {
+                          const today = new Date(m);
+                          const f = today.toISOString().split("T")[0];
+                          const g = new Intl.DateTimeFormat("fa-IR", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric"
+                          }).format(today);
+                          const jy = Number(
+                            faToEnDigits(
+                              new Intl.DateTimeFormat("fa-IR", {
+                                year: "numeric"
+                              }).format(today)
+                            )
+                          );
+                          const jm = Number(
+                            faToEnDigits(
+                              new Intl.DateTimeFormat("fa-IR", {
+                                month: "numeric"
+                              }).format(today)
+                            )
+                          );
+                          const jd = Number(
+                            faToEnDigits(
+                              new Intl.DateTimeFormat("fa-IR", {
+                                day: "numeric"
+                              }).format(today)
+                            )
+                          );
+                          return {
+                            start: {
+                              f,
+                              g,
+                              year: jy,
+                              month: jm,
+                              day: jd
+                            }
+                          };
+                        });
+                      } catch {
+                        $state.date = [];
+                      }
+                      try {
+                        $state.week = JSON.parse(currentItem.weekdays);
+                      } catch {}
+                      try {
+                        function formatTimeString(value) {
+                          if (!value) return ["0", "0"];
+
+                          return value.split(":");
+                        }
+                        const times = JSON.parse($state.select2.times);
+                        $state.time2 = times.map(t => {
+                          const [hh, mm] = formatTimeString(t);
+                          return {
+                            hour: parseInt(hh),
+                            minute: parseInt(mm)
+                          };
+                        });
+                      } catch {
+                        $state.time2 = [];
+                      }
+                      try {
+                        function arraysEqualIgnoreOrder(a, b) {
+                          if (a.length !== b.length) return false;
+                          return [...a]
+                            .sort()
+                            .every(
+                              (val, index) => val === [...b].sort()[index]
+                            );
+                        }
+                        if ($state.week.length === 0) {
+                          $state.repead.selected = "once";
+                        } else if (
+                          arraysEqualIgnoreOrder($state.week, [
+                            "saturday",
+                            "sunday",
+                            "monday",
+                            "tuesday",
+                            "wednesday",
+                            "thursday",
+                            "friday"
+                          ])
+                        ) {
+                          $state.repead.selected = "daily";
+                        } else if (
+                          arraysEqualIgnoreOrder($state.week, [
+                            "saturday",
+                            "sunday",
+                            "monday",
+                            "tuesday",
+                            "wednesday"
+                          ])
+                        ) {
+                          $state.repead.selected = "sat_to_wed";
+                        } else {
+                          $state.repead.selected = "custom";
+                        }
+                      } catch {
+                        $state.week = [];
+                      }
+                      try {
+                        const finish = $state.select2.finishTime;
+                        if (finish) {
+                          const today = new Date(finish);
+                          function faToEnDigits(str) {
+                            return str.replace(/[۰-۹]/g, d =>
+                              "۰۱۲۳۴۵۶۷۸۹".indexOf(d)
+                            );
+                          }
+                          const f = today.toISOString().split("T")[0];
+                          const g = new Intl.DateTimeFormat("fa-IR", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric"
+                          }).format(today);
+                          const jy = Number(
+                            faToEnDigits(
+                              new Intl.DateTimeFormat("fa-IR", {
+                                year: "numeric"
+                              }).format(today)
+                            )
+                          );
+                          const jm = Number(
+                            faToEnDigits(
+                              new Intl.DateTimeFormat("fa-IR", {
+                                month: "numeric"
+                              }).format(today)
+                            )
+                          );
+                          const jd = Number(
+                            faToEnDigits(
+                              new Intl.DateTimeFormat("fa-IR", {
+                                day: "numeric"
+                              }).format(today)
+                            )
+                          );
+                          return ($state.finishDate = {
+                            f,
+                            g,
+                            year: jy,
+                            month: jm,
+                            day: jd
+                          });
+                        } else {
+                          return ($state.finishDate = {});
+                        }
+                      } catch {
+                        return ($state.finishDate = {});
+                      }
+                    })();
+                  }
+                };
+                return (({ customFunction }) => {
+                  return customFunction();
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["runCode"] != null &&
+            typeof $steps["runCode"] === "object" &&
+            typeof $steps["runCode"].then === "function"
+          ) {
+            $steps["runCode"] = await $steps["runCode"];
+          }
+        }}
+      />
     </div>
   ) as React.ReactElement | null;
 }
@@ -11484,7 +11719,8 @@ const PlasmicDescendants = {
     "snackbar",
     "button",
     "button3",
-    "pageselect"
+    "pageselect",
+    "pageselect2"
   ],
   headerLiom: ["headerLiom"],
   dialog: [
@@ -11585,7 +11821,8 @@ const PlasmicDescendants = {
   snackbar: ["snackbar", "button", "button3"],
   button: ["button"],
   button3: ["button3"],
-  pageselect: ["pageselect"]
+  pageselect: ["pageselect"],
+  pageselect2: ["pageselect2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -11641,6 +11878,7 @@ type NodeDefaultElementType = {
   button: typeof Button;
   button3: typeof Button;
   pageselect: "div";
+  pageselect2: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -11754,6 +11992,7 @@ export const PlasmicReminderSetting = Object.assign(
     button: makeNodeComponent("button"),
     button3: makeNodeComponent("button3"),
     pageselect: makeNodeComponent("pageselect"),
+    pageselect2: makeNodeComponent("pageselect2"),
 
     // Metadata about props expected for PlasmicReminderSetting
     internalVariantProps: PlasmicReminderSetting__VariantProps,
