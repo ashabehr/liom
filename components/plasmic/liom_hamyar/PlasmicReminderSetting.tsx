@@ -1679,6 +1679,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
           data-plasmic-name={"dialog"}
           data-plasmic-override={overrides.dialog}
           className={classNames("__wab_instance", sty.dialog, {
+            [sty.dialogadd]: hasVariant($state, "add", "add"),
             [sty.dialogslide__1]: hasVariant($state, "slide", "_1")
           })}
           onOpendialogChange={async (...eventArgs: any) => {
@@ -8994,23 +8995,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         </div>
                       ) : null}
                     </div>
-                  ) : null}
-                  {(() => {
-                    try {
-                      return $state.select2.text == "occasion";
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return true;
-                      }
-                      throw e;
-                    }
-                  })() ? (
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__kbflv)}
-                    />
                   ) : null}
                 </div>
                 {(() => {

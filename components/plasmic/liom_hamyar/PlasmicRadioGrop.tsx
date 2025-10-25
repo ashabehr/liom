@@ -378,6 +378,10 @@ function PlasmicRadioGrop__RenderFunc(props: {
           [sty.rootstyle2_lineligt_icon]:
             hasVariant($state, "icon", "icon") &&
             hasVariant($state, "style2", "lineligt"),
+          [sty.rootstyle2_lineligt_icon_color_light]:
+            hasVariant($state, "icon", "icon") &&
+            hasVariant($state, "style2", "lineligt") &&
+            hasVariant($state, "color", "light"),
           [sty.rootstyle2_lineligt_selected]:
             hasVariant($state, "style2", "lineligt") &&
             hasVariant($state, "selected", "selected"),

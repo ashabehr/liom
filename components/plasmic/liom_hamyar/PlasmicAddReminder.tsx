@@ -535,6 +535,12 @@ function PlasmicAddReminder__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -576,6 +582,7 @@ function PlasmicAddReminder__RenderFunc(props: {
           <ApiRequest
             data-plasmic-name={"apiRequest"}
             data-plasmic-override={overrides.apiRequest}
+            children={null}
             className={classNames("__wab_instance", sty.apiRequest)}
             config={(() => {
               try {
@@ -595,20 +602,7 @@ function PlasmicAddReminder__RenderFunc(props: {
               }
             })()}
             errorDisplay={null}
-            loadingDisplay={
-              <div
-                data-plasmic-name={"freeBox"}
-                data-plasmic-override={overrides.freeBox}
-                className={classNames(projectcss.all, sty.freeBox)}
-              >
-                <Icon115Icon
-                  data-plasmic-name={"svg"}
-                  data-plasmic-override={overrides.svg}
-                  className={classNames(projectcss.all, sty.svg)}
-                  role={"img"}
-                />
-              </div>
-            }
+            loadingDisplay={null}
             method={"GET"}
             onError={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(
@@ -733,6 +727,40 @@ function PlasmicAddReminder__RenderFunc(props: {
                 ) {
                   $steps["runCode4"] = await $steps["runCode4"];
                 }
+
+                $steps["updateLoading"] = $state.apiRequest?.data?.user
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["loading"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateLoading"] != null &&
+                  typeof $steps["updateLoading"] === "object" &&
+                  typeof $steps["updateLoading"].then === "function"
+                ) {
+                  $steps["updateLoading"] = await $steps["updateLoading"];
+                }
               }).apply(null, eventArgs);
             }}
             params={(() => {
@@ -752,230 +780,238 @@ function PlasmicAddReminder__RenderFunc(props: {
             })()}
             shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/reminder/page/data"}
-          >
-            {(() => {
+          />
+
+          {(() => {
+            try {
+              return $state.loading;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <div
+              data-plasmic-name={"freeBox"}
+              data-plasmic-override={overrides.freeBox}
+              className={classNames(projectcss.all, sty.freeBox)}
+            >
+              <Icon115Icon
+                data-plasmic-name={"svg"}
+                data-plasmic-override={overrides.svg}
+                className={classNames(projectcss.all, sty.svg)}
+                role={"img"}
+              />
+            </div>
+          ) : null}
+          <ReminderSetting
+            data-plasmic-name={"reminderSetting"}
+            data-plasmic-override={overrides.reminderSetting}
+            add={true}
+            className={classNames("__wab_instance", sty.reminderSetting)}
+            data={(() => {
               try {
-                return !$state.apiRequest.loading;
+                return $state.apiRequest.data.reminders.map(i => i.json) || [];
               } catch (e) {
                 if (
                   e instanceof TypeError ||
                   e?.plasmicType === "PlasmicUndefinedDataError"
                 ) {
-                  return true;
+                  return [];
                 }
                 throw e;
               }
-            })() ? (
-              <ReminderSetting
-                data-plasmic-name={"reminderSetting"}
-                data-plasmic-override={overrides.reminderSetting}
-                add={true}
-                className={classNames("__wab_instance", sty.reminderSetting)}
-                data={(() => {
-                  try {
-                    return (
-                      $state.apiRequest.data.reminders.map(i => i.json) || []
-                    );
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return [];
-                    }
-                    throw e;
-                  }
-                })()}
-                dialogOpendialog3={generateStateValueProp($state, [
-                  "reminderSetting",
-                  "dialogOpendialog3"
-                ])}
-                manId={(() => {
-                  try {
-                    return $state.apiRequest?.data?.user?.id;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-                onDialogOpendialog3Change={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "reminderSetting",
-                    "dialogOpendialog3"
-                  ]).apply(null, eventArgs);
+            })()}
+            dialogOpendialog3={generateStateValueProp($state, [
+              "reminderSetting",
+              "dialogOpendialog3"
+            ])}
+            manId={(() => {
+              try {
+                return $state.apiRequest?.data?.user?.id;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            onDialogOpendialog3Change={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "reminderSetting",
+                "dialogOpendialog3"
+              ]).apply(null, eventArgs);
 
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onPageSelectChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "reminderSetting",
-                    "pageSelect"
-                  ]).apply(null, eventArgs);
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onPageSelectChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "reminderSetting",
+                "pageSelect"
+              ]).apply(null, eventArgs);
 
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onRefreshChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "reminderSetting",
-                    "refresh"
-                  ]).apply(null, eventArgs);
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onRefreshChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "reminderSetting",
+                "refresh"
+              ]).apply(null, eventArgs);
 
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onRefreshTimeChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "reminderSetting",
-                    "refreshTime"
-                  ]).apply(null, eventArgs);
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onRefreshTimeChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "reminderSetting",
+                "refreshTime"
+              ]).apply(null, eventArgs);
 
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onReminderCategory2DataChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "reminderSetting",
-                    "reminderCategory2Data"
-                  ]).apply(null, eventArgs);
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onReminderCategory2DataChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "reminderSetting",
+                "reminderCategory2Data"
+              ]).apply(null, eventArgs);
 
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onSmsChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "reminderSetting",
-                    "sms"
-                  ]).apply(null, eventArgs);
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onSmsChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "reminderSetting",
+                "sms"
+              ]).apply(null, eventArgs);
 
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onTelChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "reminderSetting",
-                    "tel"
-                  ]).apply(null, eventArgs);
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onTelChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "reminderSetting",
+                "tel"
+              ]).apply(null, eventArgs);
 
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                pageSelect={generateStateValueProp($state, [
-                  "reminderSetting",
-                  "pageSelect"
-                ])}
-                phoneNumber={(() => {
-                  try {
-                    return $state.apiRequest?.data?.user?.mobile;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-                refresh={generateStateValueProp($state, [
-                  "reminderSetting",
-                  "refresh"
-                ])}
-                refreshTime={generateStateValueProp($state, [
-                  "reminderSetting",
-                  "refreshTime"
-                ])}
-                reminderCategory2Data={generateStateValueProp($state, [
-                  "reminderSetting",
-                  "reminderCategory2Data"
-                ])}
-                sms={generateStateValueProp($state, ["reminderSetting", "sms"])}
-                tel={generateStateValueProp($state, ["reminderSetting", "tel"])}
-                telegramId={(() => {
-                  try {
-                    return $state.apiRequest?.data?.user?.telegramId;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-                telegramOn={(() => {
-                  try {
-                    return $state.apiRequest?.data?.user?.telegramId
-                      ? true
-                      : false;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return false;
-                    }
-                    throw e;
-                  }
-                })()}
-                token={(() => {
-                  try {
-                    return $ctx.query.token;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-              />
-            ) : null}
-          </ApiRequest>
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            pageSelect={generateStateValueProp($state, [
+              "reminderSetting",
+              "pageSelect"
+            ])}
+            phoneNumber={(() => {
+              try {
+                return $state.apiRequest?.data?.user?.mobile;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            refresh={generateStateValueProp($state, [
+              "reminderSetting",
+              "refresh"
+            ])}
+            refreshTime={generateStateValueProp($state, [
+              "reminderSetting",
+              "refreshTime"
+            ])}
+            reminderCategory2Data={generateStateValueProp($state, [
+              "reminderSetting",
+              "reminderCategory2Data"
+            ])}
+            sms={generateStateValueProp($state, ["reminderSetting", "sms"])}
+            tel={generateStateValueProp($state, ["reminderSetting", "tel"])}
+            telegramId={(() => {
+              try {
+                return $state.apiRequest?.data?.user?.telegramId;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            telegramOn={(() => {
+              try {
+                return $state.apiRequest?.data?.user?.telegramId ? true : false;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()}
+            token={(() => {
+              try {
+                return $ctx.query.token;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -984,7 +1020,7 @@ function PlasmicAddReminder__RenderFunc(props: {
 
 const PlasmicDescendants = {
   root: ["root", "apiRequest", "freeBox", "svg", "reminderSetting"],
-  apiRequest: ["apiRequest", "freeBox", "svg", "reminderSetting"],
+  apiRequest: ["apiRequest"],
   freeBox: ["freeBox", "svg"],
   svg: ["svg"],
   reminderSetting: ["reminderSetting"]
