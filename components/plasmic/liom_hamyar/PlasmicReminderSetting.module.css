@@ -1057,8 +1057,7 @@
 }
 @media (max-width: 640px) {
   .freeBox__zVmP4 {
-    width: 100%;
-    min-width: 0;
+    width: auto;
   }
 }
 .reminderCategory2:global(.__wab_instance) {
@@ -1071,8 +1070,7 @@
 @media (max-width: 640px) {
   .reminderCategory2:global(.__wab_instance) {
     height: auto;
-    width: 100%;
-    min-width: 0;
+    width: auto;
   }
 }
 .reminderCategory2hamyar:global(.__wab_instance) {

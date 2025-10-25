@@ -556,7 +556,11 @@ function PlasmicReminderCategory__RenderFunc(props: {
         </div>
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox__kuwFr)}
+        className={classNames(
+          projectcss.all,
+          sty.freeBox__kuwFr,
+          "container-scroll"
+        )}
         id={"scrollSection"}
         onScroll={async event => {
           const $steps = {};
@@ -569,8 +573,7 @@ function PlasmicReminderCategory__RenderFunc(props: {
                       const section =
                         window.document.getElementById("scrollSection");
                       const sections = section.querySelectorAll(".section");
-                      const scrollMid =
-                        section.scrollTop + section.clientHeight / 2;
+                      const scrollMid = section.scrollTop;
                       let currentSectionId = null;
                       sections.forEach(child => {
                         const top = child.offsetTop;
