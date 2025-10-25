@@ -2225,23 +2225,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       ) : null}
                     </div>
                   ) : null}
-                  {(() => {
-                    try {
-                      return $state.select2.text == "occasion";
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return true;
-                      }
-                      throw e;
-                    }
-                  })() ? (
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__vpcxq)}
-                    />
-                  ) : null}
                 </div>
                 {(() => {
                   try {
