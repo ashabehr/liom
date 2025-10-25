@@ -65,6 +65,7 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import ShopBox from "../../ShopBox"; // plasmic-import: 3zHG5W2BDVZ9/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
+import Load from "../../Load"; // plasmic-import: MJo5g_R-znVP/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -92,6 +93,7 @@ export type PlasmicShopItem2__OverridesType = {
   shopBox?: Flex__<typeof ShopBox>;
   button?: Flex__<typeof Button>;
   sideEffect?: Flex__<typeof SideEffect>;
+  load2?: Flex__<typeof Load>;
 };
 
 export interface DefaultShopItem2Props {}
@@ -247,6 +249,25 @@ function PlasmicShopItem2__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "load2.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return window.document.cookie.includes("loading=true");
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -982,6 +1003,57 @@ function PlasmicShopItem2__RenderFunc(props: {
               />
             </div>
           ) : null}
+          {(() => {
+            const child$Props = {
+              className: classNames("__wab_instance", sty.load2),
+              loading: generateStateValueProp($state, ["load2", "loading"]),
+              onLoadingChange: async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["load2", "loading"]).apply(
+                  null,
+                  eventArgs
+                );
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }
+            };
+
+            initializePlasmicStates(
+              $state,
+              [
+                {
+                  name: "load2.loading",
+                  initFunc: ({ $props, $state, $queries }) =>
+                    (() => {
+                      try {
+                        return window.document.cookie.includes("loading=true");
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })()
+                }
+              ],
+              []
+            );
+            return (
+              <Load
+                data-plasmic-name={"load2"}
+                data-plasmic-override={overrides.load2}
+                {...child$Props}
+              />
+            );
+          })()}
         </div>
       </div>
     </React.Fragment>
@@ -989,10 +1061,11 @@ function PlasmicShopItem2__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "shopBox", "button", "sideEffect"],
+  root: ["root", "shopBox", "button", "sideEffect", "load2"],
   shopBox: ["shopBox"],
   button: ["button"],
-  sideEffect: ["sideEffect"]
+  sideEffect: ["sideEffect"],
+  load2: ["load2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1002,6 +1075,7 @@ type NodeDefaultElementType = {
   shopBox: typeof ShopBox;
   button: typeof Button;
   sideEffect: typeof SideEffect;
+  load2: typeof Load;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1094,6 +1168,7 @@ export const PlasmicShopItem2 = Object.assign(
     shopBox: makeNodeComponent("shopBox"),
     button: makeNodeComponent("button"),
     sideEffect: makeNodeComponent("sideEffect"),
+    load2: makeNodeComponent("load2"),
 
     // Metadata about props expected for PlasmicShopItem2
     internalVariantProps: PlasmicShopItem2__VariantProps,

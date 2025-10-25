@@ -1135,7 +1135,9 @@ function PlasmicShopBox__RenderFunc(props: {
                                   "buyId",
                                   $state.topShop.id
                                 );
-                                return ($props.redirectUrl = url.toString());
+                                $props.redirectUrl = url.toString();
+                                return (window.document.cookie =
+                                  "loading=true; path=/; domain=.liom.app; secure; SameSite=Lax");
                               })();
                             }
                           };
