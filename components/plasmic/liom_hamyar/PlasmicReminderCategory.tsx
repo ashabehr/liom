@@ -302,6 +302,12 @@ function PlasmicReminderCategory__RenderFunc(props: {
 
         valueProp: "data",
         onChangeProp: "onDataChange"
+      },
+      {
+        path: "scroll",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -468,49 +474,21 @@ function PlasmicReminderCategory__RenderFunc(props: {
             click={async () => {
               const $steps = {};
 
-              $steps["updateMore2"] = $state.more2
-                ? (() => {
-                    const actionArgs = {
-                      vgroup: "more2",
-                      operation: 6,
-                      value: "more2"
-                    };
-                    return (({ vgroup, value }) => {
-                      if (typeof value === "string") {
-                        value = [value];
-                      }
-
-                      $stateSet($state, vgroup, false);
-                      return false;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateMore2"] != null &&
-                typeof $steps["updateMore2"] === "object" &&
-                typeof $steps["updateMore2"].then === "function"
-              ) {
-                $steps["updateMore2"] = await $steps["updateMore2"];
-              }
-
               $steps["runCode"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
                         return (() => {
-                          const el = document.querySelector(
-                            `#${$state.sort.selected}`
+                          const section =
+                            window.document.getElementById("scrollSection");
+                          const target = window.document.getElementById(
+                            $state.sort.selected
                           );
-                          if (el) {
-                            el.scrollIntoView({
-                              behavior: "smooth",
-                              block: "start"
-                            });
-                            el.classList.add("highlight");
-                            return setTimeout(() => {
-                              el.classList.remove("highlight");
-                            }, 500);
-                          }
+                          console.log(target);
+                          return section.scrollTo({
+                            top: target.offsetTop,
+                            behavior: "smooth"
+                          });
                         })();
                       }
                     };
@@ -599,29 +577,30 @@ function PlasmicReminderCategory__RenderFunc(props: {
           className={classNames(projectcss.all, sty.freeBox__pI1Hb, {
             [sty.freeBoxmore2__pI1Hb3WEwR]: hasVariant($state, "more2", "more2")
           })}
+          id={"scrollSection"}
           onScroll={async event => {
             const $steps = {};
 
-            $steps["runCode"] = false
+            $steps["runCode"] = $state.scroll
               ? (() => {
                   const actionArgs = {
                     customFunction: async () => {
                       return (() => {
-                        const scrollMid = 400;
-                        const sections =
-                          window.document.querySelectorAll(".section");
-                        console.log(sections);
+                        const section =
+                          window.document.getElementById("scrollSection");
+                        const sections = section.querySelectorAll(".section");
+                        const scrollMid = section.scrollTop;
                         let currentSectionId = null;
-                        sections.forEach(section => {
-                          const rect = section.getBoundingClientRect();
-                          const top = window.scrollY + rect.top;
-                          const bottom = top + section.offsetHeight;
+                        sections.forEach(child => {
+                          const top = child.offsetTop;
+                          const bottom = top + child.offsetHeight;
                           if (scrollMid >= top && scrollMid < bottom) {
-                            currentSectionId = section.id;
+                            currentSectionId = child.id;
                           }
                         });
                         if (currentSectionId) {
-                          return ($state.sort.selected = currentSectionId);
+                          $state.sort.selected = currentSectionId;
+                          return console.log("بخش فعال:", currentSectionId);
                         }
                       })();
                     }

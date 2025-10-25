@@ -1057,7 +1057,8 @@
 }
 @media (max-width: 640px) {
   .freeBox__zVmP4 {
-    width: 300px;
+    width: 100%;
+    min-width: 0;
   }
 }
 .reminderCategory2:global(.__wab_instance) {
@@ -1070,7 +1071,16 @@
 @media (max-width: 640px) {
   .reminderCategory2:global(.__wab_instance) {
     height: auto;
-    width: auto;
+    width: 100%;
+    min-width: 0;
+  }
+}
+.reminderCategory2hamyar:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .reminderCategory2hamyar:global(.__wab_instance) {
+    flex-shrink: 0;
   }
 }
 .dateDiolog:global(.__wab_instance):global(.__wab_instance) {
