@@ -1482,7 +1482,11 @@ function PlasmicHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return window.localStorage.getItem("reminder") == "false";
+              return (() => {
+                if ($state.slide3 == true || $state.slide3 == "slide3")
+                  return true;
+                else return window.localStorage.getItem("reminder") == "false";
+              })();
             } catch (e) {
               if (
                 e instanceof TypeError ||
