@@ -72,8 +72,9 @@ import Icon315Icon from "./icons/PlasmicIcon__Icon315"; // plasmic-import: NN9rG
 import Icon316Icon from "./icons/PlasmicIcon__Icon316"; // plasmic-import: 0cmpPg7jI64F/icon
 import Icon137Icon from "./icons/PlasmicIcon__Icon137"; // plasmic-import: DXdLIMYRuTVZ/icon
 import Icon317Icon from "./icons/PlasmicIcon__Icon317"; // plasmic-import: A8wb-T8GiE4Q/icon
+import Icon351Icon from "./icons/PlasmicIcon__Icon351"; // plasmic-import: bcs3lArccYdo/icon
 import Icon347Icon from "./icons/PlasmicIcon__Icon347"; // plasmic-import: -pyZg3nYEp1D/icon
-import Icon348Icon from "./icons/PlasmicIcon__Icon348"; // plasmic-import: ogGslejJC5sV/icon
+import Icon350Icon from "./icons/PlasmicIcon__Icon350"; // plasmic-import: Kl49WrbEMTxg/icon
 import Icon318Icon from "./icons/PlasmicIcon__Icon318"; // plasmic-import: LgkeupPgZrI7/icon
 import Icon319Icon from "./icons/PlasmicIcon__Icon319"; // plasmic-import: aWqRVbwtYjuq/icon
 import Icon213Icon from "./icons/PlasmicIcon__Icon213"; // plasmic-import: mG0VeezaR1mF/icon
@@ -268,6 +269,11 @@ function PlasmicFooterMain__RenderFunc(props: {
               $state,
               "footer2",
               "self"
+            ),
+            [sty.freeBoxhamyar__vbOadIriP]: hasVariant(
+              $state,
+              "hamyar",
+              "hamyar"
             ),
             [sty.freeBoxhamyar_footer2_reminder__vbOadIriPQKid7]:
               hasVariant($state, "footer2", "reminder") &&
@@ -629,10 +635,10 @@ function PlasmicFooterMain__RenderFunc(props: {
             <PlasmicIcon__
               PlasmicIconType={
                 hasVariant($state, "footer2", "reminder")
-                  ? Icon348Icon
+                  ? Icon350Icon
                   : hasVariant($state, "footer2", "hamyar")
                     ? Icon347Icon
-                    : Icon347Icon
+                    : Icon351Icon
               }
               className={classNames(projectcss.all, sty.svg__i4AIi, {
                 [sty.svgfooter2_hamyar__i4AIicU6G5]: hasVariant(
@@ -644,6 +650,11 @@ function PlasmicFooterMain__RenderFunc(props: {
                   $state,
                   "footer2",
                   "reminder"
+                ),
+                [sty.svghamyar__i4AIiIriP]: hasVariant(
+                  $state,
+                  "hamyar",
+                  "hamyar"
                 )
               })}
               role={"img"}

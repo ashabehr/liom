@@ -3010,14 +3010,14 @@ function PlasmicReminder__RenderFunc(props: {
                     try {
                       return (() => {
                         let color;
-                        switch (currentday.text) {
-                          case "drinkWater":
+                        switch (currentday.type) {
+                          case "water_time":
                             color = "blue";
                             break;
-                          case "Water_time":
+                          case "water_time":
                             color = "blue";
                             break;
-                          case "routineSkinMorning":
+                          case "medicine_time":
                             color = "warning";
                             break;
                           default:
@@ -3039,7 +3039,7 @@ function PlasmicReminder__RenderFunc(props: {
                   icons={(() => {
                     try {
                       return (() => {
-                        if (typeof currentday?.text === "string") {
+                        if (typeof currentday?.type === "string") {
                           let text = currentday.text.replace(
                             /_([a-zA-Z])/g,
                             (_, c) => c.toUpperCase()

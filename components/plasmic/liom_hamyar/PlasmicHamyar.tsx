@@ -3230,7 +3230,10 @@ function PlasmicHamyar__RenderFunc(props: {
                     <React.Fragment>
                       {(() => {
                         try {
-                          return $state.userdata?.result?.man?.telegramId;
+                          return (
+                            $state.userdata?.result?.man?.telegramId &&
+                            $state.footerMain.type != "reminder"
+                          );
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
