@@ -185,6 +185,7 @@ export type PlasmicReminder__OverridesType = {
   button3?: Flex__<typeof Button>;
   button9?: Flex__<typeof Button>;
   button10?: Flex__<typeof Button>;
+  button?: Flex__<typeof Button>;
   reminderSetting?: Flex__<typeof ReminderSetting>;
 };
 
@@ -245,7 +246,7 @@ function PlasmicReminder__RenderFunc(props: {
               telegramId: "5384384618",
               phoneNumber: null,
               schedule_type: "everyDay",
-              type: null,
+              type: "water_time",
               name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628",
               text: "drinkWater",
               token1: null,
@@ -279,37 +280,37 @@ function PlasmicReminder__RenderFunc(props: {
             {
               id: 256,
               liomId: "1",
-              telegramId: "573538820",
-              phoneNumber: "",
+              telegramId: "372883527",
+              phoneNumber: "09154807701",
               schedule_type: "everyDay",
-              type: null,
+              type: "medicine_time",
               name: "\u0642\u0631\u0635 \u0645\u0641\u0646\u0627\u0646\u06cc\u06a9 \u0627\u0633\u06cc\u062f",
               text: "pill",
               token1: null,
               dates: null,
               weekdays:
                 '["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]',
-              times: '["10:00","18:00","02:00"]',
-              finishTime: "2025-09-30 23:59:59",
-              chanels: '["notification","telegram"]',
+              times: '["10:00","18:00"]',
+              finishTime: "2025-09-30 00:00:00",
+              chanels: '["notification"]',
               active: 1
             },
             {
               id: 257,
               liomId: "1",
-              telegramId: "33263188",
-              phoneNumber: "",
+              telegramId: "372883527",
+              phoneNumber: "09154807701",
               schedule_type: "everyYear",
               type: null,
               name: "\u062a\u0648\u0644\u062f \u062d\u0644\u0645\u0627",
               text: "birthday",
               token1: null,
-              dates: '["2026-03-29"]',
+              dates: '["2026-03-29","2026-06-30"]',
               weekdays:
                 '["sunday","monday","tuesday","wednesday","friday","saturday"]',
-              times: '["10:00"]',
-              finishTime: "2026-12-11 23:59:02",
-              chanels: '["notification","telegram"]',
+              times: '["10:00","04:05"]',
+              finishTime: "2026-12-11 00:00:00",
+              chanels: '["notification"]',
               active: 1
             },
             {
@@ -336,7 +337,7 @@ function PlasmicReminder__RenderFunc(props: {
               telegramId: "372883527",
               phoneNumber: "09154807701",
               schedule_type: "everyDay",
-              type: null,
+              type: "routine_skin",
               name: "\u0631\u0648\u062a\u06cc\u0646 \u067e\u0648\u0633\u062a ",
               text: "routineSkinMorning",
               token1: null,
@@ -345,7 +346,7 @@ function PlasmicReminder__RenderFunc(props: {
                 '["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]',
               times: '["10:07"]',
               finishTime: null,
-              chanels: '["notification","telegram","sms"]',
+              chanels: "[]",
               active: 1
             },
             {
@@ -354,7 +355,7 @@ function PlasmicReminder__RenderFunc(props: {
               telegramId: "372883527",
               phoneNumber: "09154807701",
               schedule_type: "everyDay",
-              type: null,
+              type: "water_time",
               name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628 ",
               text: "drinkWater",
               token1: null,
@@ -364,7 +365,7 @@ function PlasmicReminder__RenderFunc(props: {
               times: '["08:00","10:00","11:46","22:00","00:30"]',
               finishTime: null,
               chanels: '["notification","telegram","sms"]',
-              active: 0
+              active: 1
             },
             {
               id: 279,
@@ -557,17 +558,17 @@ function PlasmicReminder__RenderFunc(props: {
               id: 509,
               liomId: "1",
               telegramId: "372883527",
-              phoneNumber: "",
+              phoneNumber: "09154807701",
               schedule_type: "everyDay",
-              type: "Water_time",
-              name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628qq",
-              text: "Water_time",
+              type: "water_time",
+              name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628q",
+              text: "water_time",
               token1: null,
               dates: null,
               weekdays: null,
               times: '["00:00","00:05"]',
               finishTime: null,
-              chanels: '["notification","telegram"]',
+              chanels: '["notification"]',
               active: 1
             },
             {
@@ -576,9 +577,9 @@ function PlasmicReminder__RenderFunc(props: {
               telegramId: "372883527",
               phoneNumber: "",
               schedule_type: "everyDay",
-              type: "Water_time",
+              type: "water_time",
               name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628",
-              text: "Water_time",
+              text: "water_time",
               token1: null,
               dates: null,
               weekdays: null,
@@ -591,15 +592,16 @@ function PlasmicReminder__RenderFunc(props: {
               id: 511,
               liomId: "1",
               telegramId: "372883527",
-              phoneNumber: "",
+              phoneNumber: "09154807701",
               schedule_type: "everyDay",
-              type: "Water_time",
-              name: "\u0646\u0648\u0634\u06cc\u062f\u0646 ddddd\u0622\u0628",
-              text: "Water_time",
+              type: "water_time",
+              name: "\u0646\u0648\u0634\u06cc\u062f\u0646 ddd\u0622\u0628",
+              text: "water_time",
               token1: null,
               dates: null,
-              weekdays: null,
-              times: '["22:50","23:05"]',
+              weekdays:
+                '["saturday","sunday","monday","tuesday","wednesday","thursday","friday"]',
+              times: '["23:05"]',
               finishTime: null,
               chanels: '["notification","telegram"]',
               active: 1
@@ -616,28 +618,257 @@ function PlasmicReminder__RenderFunc(props: {
               token1: null,
               dates: null,
               weekdays:
-                '["sunday","monday","tuesday","wednesday","friday","saturday"]',
+                '["saturday","sunday","monday","tuesday","wednesday","thursday","friday"]',
+              times: '["09:30"]',
+              finishTime: null,
+              chanels: '["telegram","notification"]',
+              active: 1
+            },
+            {
+              id: 539,
+              liomId: "1",
+              telegramId: "372883527",
+              phoneNumber: "",
+              schedule_type: "everyYear",
+              type: "spouse_birthday",
+              name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
+              text: "spouse_birthday",
+              token1: null,
+              dates: '["2025-12-31"]',
+              weekdays: null,
               times: '["09:30"]',
               finishTime: null,
               chanels: '["notification","telegram"]',
               active: 1
             },
             {
-              id: 511,
+              id: 541,
               liomId: "1",
               telegramId: "372883527",
-              phoneNumber: "",
+              phoneNumber: "09154807701",
               schedule_type: "everyDay",
-              type: "Water_time",
-              name: "\u0646\u0648\u0634\u06cc\u062f\u0646 ddddd\u0622\u0628",
-              text: "Water_time",
+              type: "checkup",
+              name: "\u0686\u06a9\u0627\u067e \u062f\u0648\u0631\u0647\u200c\u0627\u06cc",
+              text: "checkup",
               token1: null,
               dates: null,
               weekdays:
-                '["sunday","monday","tuesday","wednesday","friday","saturday"]',
-              times: '["22:50","23:05"]',
+                '["saturday","sunday","monday","tuesday","wednesday","thursday","friday"]',
+              times: '["03:30"]',
               finishTime: null,
               chanels: '["notification","telegram"]',
+              active: 1
+            },
+            {
+              id: 542,
+              liomId: "1",
+              telegramId: "372883527",
+              phoneNumber: "",
+              schedule_type: "everyYear",
+              type: "father_birthday",
+              name: "\u062a\u0648\u0644\u062f \u067e\u062f\u0631",
+              text: "father_birthday",
+              token1: null,
+              dates: '["2026-03-04"]',
+              weekdays: null,
+              times: "[]",
+              finishTime: null,
+              chanels: '["notification","telegram"]',
+              active: 1
+            },
+            {
+              id: 546,
+              liomId: "1",
+              telegramId: "9112135563",
+              phoneNumber: "0911111111",
+              schedule_type: "everyYear",
+              type: "checklllup",
+              name: "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc",
+              text: "checklllup",
+              token1: null,
+              dates: '["2025-11-19","2026-06-24"]',
+              weekdays: null,
+              times: '["09:00"]',
+              finishTime: null,
+              chanels: '["notification","telegram"]',
+              active: 0
+            },
+            {
+              id: 550,
+              liomId: "1",
+              telegramId: "372883527",
+              phoneNumber: "09154807701",
+              schedule_type: "everyDay",
+              type: "water_time",
+              name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628",
+              text: "water_time",
+              token1: null,
+              dates: null,
+              weekdays:
+                '["saturday","sunday","monday","tuesday","wednesday","thursday","friday"]',
+              times: '["12:30"]',
+              finishTime: null,
+              chanels: '["notification","telegram"]',
+              active: 1
+            },
+            {
+              id: 551,
+              liomId: "1",
+              telegramId: null,
+              phoneNumber: "09154807701",
+              schedule_type: "everyYear",
+              type: "periodEnd",
+              name: "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc",
+              text: "periodEnd",
+              token1: null,
+              dates:
+                '["2025-10-17","2025-11-05","2025-11-24","2025-12-13","2026-01-01"]',
+              weekdays: null,
+              times: '["09:00"]',
+              finishTime: null,
+              chanels: '["notification","telegram","sms"]',
+              active: 0
+            },
+            {
+              id: 561,
+              liomId: "1",
+              telegramId: "372883527",
+              phoneNumber: "09154807701",
+              schedule_type: "everyYear",
+              type: "periodStart",
+              name: "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc",
+              text: "periodStart",
+              token1: null,
+              dates:
+                '["2025-10-12","2025-10-31","2025-11-19","2025-12-08","2025-12-27"]',
+              weekdays: null,
+              times: '["09:00"]',
+              finishTime: null,
+              chanels: '["notification","telegram","sms"]',
+              active: 0
+            },
+            {
+              id: 562,
+              liomId: "1",
+              telegramId: "372883527",
+              phoneNumber: "09154807701",
+              schedule_type: "everyYear",
+              type: "pmsStart",
+              name: "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc",
+              text: "pmsStart",
+              token1: null,
+              dates:
+                '["2025-10-26","2025-11-14","2025-12-03","2025-12-22","2026-01-10"]',
+              weekdays: null,
+              times: '["09:00"]',
+              finishTime: null,
+              chanels: '["notification","telegram","sms"]',
+              active: 0
+            },
+            {
+              id: 563,
+              liomId: "1",
+              telegramId: "372883527",
+              phoneNumber: "09154807701",
+              schedule_type: "everyYear",
+              type: "pmsEnd",
+              name: "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc",
+              text: "pmsEnd",
+              token1: null,
+              dates:
+                '["2025-10-31","2025-11-19","2025-12-08","2025-12-27","2026-01-15"]',
+              weekdays: null,
+              times: '["09:00"]',
+              finishTime: null,
+              chanels: '["notification","telegram","sms"]',
+              active: 0
+            },
+            {
+              id: 564,
+              liomId: "1",
+              telegramId: "372883527",
+              phoneNumber: "09154807701",
+              schedule_type: "everyYear",
+              type: "fertilityStart",
+              name: "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc",
+              text: "fertilityStart",
+              token1: null,
+              dates:
+                '["2025-10-17","2025-11-05","2025-11-24","2025-12-13","2026-01-01"]',
+              weekdays: null,
+              times: '["09:00"]',
+              finishTime: null,
+              chanels: '["notification","telegram","sms"]',
+              active: 0
+            },
+            {
+              id: 565,
+              liomId: "1",
+              telegramId: "372883527",
+              phoneNumber: "09154807701",
+              schedule_type: "everyYear",
+              type: "fertilityEnd",
+              name: "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc",
+              text: "fertilityEnd",
+              token1: null,
+              dates:
+                '["2025-10-21","2025-11-09","2025-11-28","2025-12-17","2026-01-05"]',
+              weekdays: null,
+              times: '["09:00"]',
+              finishTime: null,
+              chanels: '["notification","telegram","sms"]',
+              active: 0
+            },
+            {
+              id: 566,
+              liomId: "1",
+              telegramId: "372883527",
+              phoneNumber: "09154807701",
+              schedule_type: "everyYear",
+              type: "breastCancer",
+              name: "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc",
+              text: "breastCancer",
+              token1: null,
+              dates:
+                '["2025-10-18","2025-11-06","2025-11-25","2025-12-14","2026-01-02"]',
+              weekdays: null,
+              times: '["09:00"]',
+              finishTime: null,
+              chanels: '["notification","telegram","sms"]',
+              active: 0
+            },
+            {
+              id: 572,
+              liomId: "1",
+              telegramId: "372883527",
+              phoneNumber: "09154807701",
+              schedule_type: "everyYear",
+              type: "mothers_day",
+              name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
+              text: "occasion",
+              token1: null,
+              dates: '["2026-03-08"]',
+              weekdays: null,
+              times: "[]",
+              finishTime: null,
+              chanels: "[]",
+              active: 1
+            },
+            {
+              id: 573,
+              liomId: "1",
+              telegramId: "372883527",
+              phoneNumber: "09154807701",
+              schedule_type: "everyYear",
+              type: "islamic_mens_day",
+              name: "\u0631\u0648\u0632 \u0645\u0631\u062f",
+              text: "occasion",
+              token1: null,
+              dates: '["2026-01-03"]',
+              weekdays: null,
+              times: "[]",
+              finishTime: null,
+              chanels: "[]",
               active: 1
             }
           ],
@@ -946,150 +1177,165 @@ function PlasmicReminder__RenderFunc(props: {
             telegramId: null,
             phoneNumber: null,
             schedule_type: "everyYear",
-            name: "\u0631\u0648\u0632  \u0632\u0646 \u0648 \u0645\u0627\u062f\u0631",
+            type: "occasion",
+            name: "\u0631\u0648\u0632 \u0632\u0646 \u0648 \u0645\u0627\u062f\u0631",
             text: "occasion",
-            token1: null,
             dates: '["2025-12-11"]',
             weekdays: null,
             times: '["10:00"]',
             finishTime: null,
             active: 0,
-            chanels: ["notification", "telegram"]
+            chanels: '["notification","telegram"]'
           },
           {
             liomId: null,
             telegramId: null,
             phoneNumber: null,
             schedule_type: "everyYear",
+            type: "occasion",
             name: "\u0631\u0648\u0632 \u062f\u062e\u062a\u0631",
             text: "occasion",
-            token1: null,
             dates: '["2026-04-19"]',
             weekdays: null,
             times: '["10:00"]',
             finishTime: null,
             active: 0,
-            chanels: ["notification", "telegram"]
+            chanels: '["notification","telegram"]'
           },
           {
             liomId: null,
             telegramId: null,
             phoneNumber: null,
             schedule_type: "everyYear",
-            name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
+            type: "occasion",
+            name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
             text: "occasion",
-            token1: null,
             dates: '["2026-03-08"]',
             weekdays: null,
             times: '["10:00"]',
             finishTime: null,
             active: 0,
-            chanels: ["notification", "telegram"]
+            chanels: '["notification","telegram"]'
           },
           {
             liomId: null,
             telegramId: null,
             phoneNumber: null,
             schedule_type: "everyYear",
-            name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
+            type: "occasion",
+            name: "\u0631\u0648\u0632 \u0648\u0644\u0646\u062a\u0627\u06cc\u0646",
             text: "occasion",
-            token1: null,
             dates: '["2026-02-14"]',
             weekdays: null,
             times: '["10:00"]',
             finishTime: null,
             active: 0,
-            chanels: ["notification", "telegram"]
+            chanels: '["notification","telegram"]'
           },
           {
             liomId: null,
             telegramId: null,
             phoneNumber: null,
             schedule_type: "everyYear",
-            name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
+            type: "occasion",
+            name: "\u0631\u0648\u0632 \u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646",
             text: "occasion",
-            token1: null,
             dates: '["2026-02-18"]',
             weekdays: null,
             times: '["10:00"]',
             finishTime: null,
             active: 0,
-            chanels: ["notification", "telegram"]
+            chanels: '["notification","telegram"]'
           },
           {
             liomId: null,
             telegramId: null,
             phoneNumber: null,
             schedule_type: "everyYear",
-            name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
+            type: "occasion",
+            name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631",
             text: "occasion",
-            token1: null,
             dates: '["2026-10-11"]',
             weekdays: null,
             times: '["10:00"]',
             finishTime: null,
             active: 0,
-            chanels: ["notification", "telegram"]
+            chanels: '["notification","telegram"]'
           },
           {
             liomId: null,
             telegramId: null,
             phoneNumber: null,
             schedule_type: "everyYear",
-            name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631\u0645",
-            text: "wife_birthday",
-            token1: null,
+            type: "occasion",
+            name: "\u0631\u0648\u0632 \u0645\u0631\u062f",
+            text: "occasion",
+            dates: '["2026-11-19"]',
+            weekdays: null,
+            times: '["10:00"]',
+            finishTime: null,
+            active: 0,
+            chanels: '["notification","telegram"]'
+          },
+          {
+            liomId: null,
+            telegramId: null,
+            phoneNumber: null,
+            schedule_type: "everyYear",
+            type: "spouse_birthday",
+            name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
+            text: "spouse_birthday",
             dates: null,
             weekdays: null,
             times: '["10:00"]',
             finishTime: null,
             active: 0,
-            chanels: ["notification", "telegram"]
+            chanels: '["notification","telegram"]'
           },
           {
             liomId: null,
             telegramId: null,
             phoneNumber: null,
             schedule_type: "everyYear",
+            type: "wedding_anniversary",
             name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c",
             text: "wedding_anniversary",
-            token1: null,
             dates: null,
             weekdays: null,
             times: '["10:00"]',
             finishTime: null,
             active: 0,
-            chanels: ["notification", "telegram"]
+            chanels: '["notification","telegram"]'
           },
           {
             liomId: null,
             telegramId: null,
             phoneNumber: null,
             schedule_type: "everyYear",
+            type: "relationship_anniversary",
             name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc",
             text: "relationship_anniversary",
-            token1: null,
             dates: null,
             weekdays: null,
             times: '["10:00"]',
             finishTime: null,
             active: 0,
-            chanels: ["notification", "telegram"]
+            chanels: '["notification","telegram"]'
           },
           {
             liomId: null,
             telegramId: null,
             phoneNumber: null,
             schedule_type: "everyYear",
+            type: "child_birthday",
             name: "\u062a\u0648\u0644\u062f \u0641\u0631\u0632\u0646\u062f",
-            text: "birthday_child",
-            token1: null,
+            text: "child_birthday",
             dates: null,
             weekdays: null,
             times: '["10:00"]',
             finishTime: null,
             active: 0,
-            chanels: ["notification", "telegram"]
+            chanels: '["notification","telegram"]'
           }
         ]
       },
@@ -1183,6 +1429,24 @@ function PlasmicReminder__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -2304,7 +2568,15 @@ function PlasmicReminder__RenderFunc(props: {
             throw e;
           }
         })() ? (
-          <div className={classNames(projectcss.all, sty.freeBox___8U23F)}>
+          <div
+            className={classNames(projectcss.all, sty.freeBox___8U23F, {
+              [sty.freeBoxslide3___8U23FWyFt]: hasVariant(
+                $state,
+                "slide3",
+                "slide3"
+              )
+            })}
+          >
             <div
               className={classNames(
                 projectcss.all,
@@ -3020,6 +3292,9 @@ function PlasmicReminder__RenderFunc(props: {
                           case "medicine_time":
                             color = "warning";
                             break;
+                          case "routine_skin":
+                            color = "warning";
+                            break;
                           default:
                             color = "fuchsia";
                             break;
@@ -3040,7 +3315,7 @@ function PlasmicReminder__RenderFunc(props: {
                     try {
                       return (() => {
                         if (typeof currentday?.type === "string") {
-                          let text = currentday.text.replace(
+                          let text = currentday.type.replace(
                             /_([a-zA-Z])/g,
                             (_, c) => c.toUpperCase()
                           );
@@ -4146,625 +4421,793 @@ function PlasmicReminder__RenderFunc(props: {
           </div>
         </div>
       </section>
-      <ReminderSetting
-        data-plasmic-name={"reminderSetting"}
-        data-plasmic-override={overrides.reminderSetting}
-        className={classNames("__wab_instance", sty.reminderSetting, {
-          [sty.reminderSettingslide3]: hasVariant($state, "slide3", "slide3")
-        })}
-        data={
-          hasVariant($state, "slide3", "slide3")
-            ? (() => {
-                try {
-                  return (() => {
-                    const merged = $state.ofline.map(i => {
-                      const found = $props.data.find(a =>
-                        i.text !== "occasion"
-                          ? a.text === i.text
-                          : a.name === i.name
-                      );
-                      return found ? found : i;
-                    });
-                    return merged;
-                  })();
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return [
-                      {
-                        id: "04d77165-ab7d-4537-86ba-1099e4f66091-1",
-                        progressGroupId: null,
-                        userId: "1",
-                        doctorId: "21353",
-                        name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
-                        text: "",
-                        actionText: null,
-                        canSkip: null,
-                        actionIcon: null,
-                        actionType: null,
-                        action: null,
-                        type: "SpouseBirthday",
-                        category: "personal",
-                        category_fa:
-                          "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
-                        status: "waiting",
-                        done: false,
-                        date: "2025-09-10T00:00:00.000Z",
-                        dependId: null,
-                        dependAt: null,
-                        exclude: [],
-                        order: 7,
-                        priority: 10,
-                        createdAt: "2025-09-08T07:45:09.172Z",
-                        updatedAt: "2025-09-08T07:45:09.172Z"
-                      },
-                      {
-                        id: "d2e905f3-2837-4bda-8404-368f6a63527b-1",
-                        progressGroupId: null,
-                        userId: "1",
-                        doctorId: "21353",
-                        name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c",
-                        text: "",
-                        actionText: null,
-                        canSkip: null,
-                        actionIcon: null,
-                        actionType: null,
-                        action: null,
-                        type: "WeddingAnniversary",
-                        category: "notification",
-                        category_fa:
-                          "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-                        status: "waiting",
-                        done: false,
-                        date: "2025-10-01T00:00:00.000Z",
-                        dependId: null,
-                        dependAt: null,
-                        exclude: [],
-                        order: 9,
-                        priority: 10,
-                        createdAt: "2025-09-08T08:47:52.446Z",
-                        updatedAt: "2025-09-08T08:47:52.446Z"
-                      },
-                      {
-                        id: "04d77165-ab7d-4537-86ba-1099e4f66091-2",
-                        progressGroupId: null,
-                        userId: "1",
-                        doctorId: "21353",
-                        name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
-                        text: "\u0631\u0648\u0632 \u0639\u0634\u0642 \u062c\u0647\u0627\u0646\u06cc",
-                        actionText: null,
-                        canSkip: null,
-                        actionIcon: null,
-                        actionType: null,
-                        action: null,
-                        type: "occasion",
-                        category: "notification",
-                        category_fa:
-                          "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-                        status: "waiting",
-                        done: false,
-                        date: "2026-02-14T00:00:00.000Z",
-                        dependId: null,
-                        dependAt: null,
-                        exclude: [],
-                        order: 4,
-                        priority: 10,
-                        createdAt: "2025-09-08T07:50:00.000Z",
-                        updatedAt: "2025-09-08T07:50:00.000Z"
-                      },
-                      {
-                        id: "04d77165-ab7d-4537-86ba-1099e4f66091-3",
-                        progressGroupId: null,
-                        userId: "1",
-                        doctorId: "21353",
-                        name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
-                        text: "\u0631\u0648\u0632 \u0632\u0646 \u0648 \u0639\u0634\u0642 \u062f\u0631 \u0627\u06cc\u0631\u0627\u0646 \u0628\u0627\u0633\u062a\u0627\u0646",
-                        actionText: null,
-                        canSkip: null,
-                        actionIcon: null,
-                        actionType: null,
-                        action: null,
-                        type: "occasion",
-                        category: "notification",
-                        category_fa:
-                          "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-                        status: "waiting",
-                        done: false,
-                        date: "2026-02-18T00:00:00.000Z",
-                        dependId: null,
-                        dependAt: null,
-                        exclude: [],
-                        order: 5,
-                        priority: 10,
-                        createdAt: "2025-09-08T07:51:00.000Z",
-                        updatedAt: "2025-09-08T07:51:00.000Z"
-                      },
-                      {
-                        id: "04d77165-ab7d-4537-86ba-1099e4f66091-4",
-                        progressGroupId: null,
-                        userId: "1",
-                        doctorId: "21353",
-                        name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
-                        text: "International Women's Day",
-                        actionText: null,
-                        canSkip: null,
-                        actionIcon: null,
-                        actionType: null,
-                        action: null,
-                        type: "occasion",
-                        category: "notification",
-                        category_fa:
-                          "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-                        status: "waiting",
-                        done: false,
-                        date: "2026-03-08T00:00:00.000Z",
-                        dependId: null,
-                        dependAt: null,
-                        exclude: [],
-                        order: 3,
-                        priority: 10,
-                        createdAt: "2025-09-08T07:52:00.000Z",
-                        updatedAt: "2025-09-08T07:52:00.000Z"
-                      }
-                    ];
-                  }
-                  throw e;
+      {(hasVariant($state, "slide3", "slide3") ? true : false) ? (
+        <section
+          className={classNames(projectcss.all, sty.section__ekiQp, {
+            [sty.sectionhamyar__ekiQPxX8Tw]: hasVariant(
+              $state,
+              "hamyar",
+              "hamyar"
+            ),
+            [sty.sectionslide3__ekiQpWyFt]: hasVariant(
+              $state,
+              "slide3",
+              "slide3"
+            ),
+            [sty.sectionslide3_hamyar__ekiQpWyFtXX8Tw]:
+              hasVariant($state, "hamyar", "hamyar") &&
+              hasVariant($state, "slide3", "slide3")
+          })}
+        >
+          <div className={classNames(projectcss.all, sty.freeBox__xFtDc)}>
+            <Button
+              data-plasmic-name={"button"}
+              data-plasmic-override={overrides.button}
+              className={classNames("__wab_instance", sty.button, {
+                [sty.buttonslide3]: hasVariant($state, "slide3", "slide3")
+              })}
+              color={generateStateValueProp($state, ["button", "color"])}
+              load={generateStateValueProp($state, ["button", "load"])}
+              loading={generateStateValueProp($state, ["button", "loading"])}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            window.localStorage.setItem("reminder", "true");
+                            return ($state.slide3 = false);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
                 }
-              })()
-            : (() => {
-                try {
-                  return $state.ofline.filter(
-                    i => !$props.data.find(a => a.text === i.text)
+              }}
+              onColorChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button", "color"])(
+                    eventArgs[0]
                   );
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return [
-                      {
-                        id: "04d77165-ab7d-4537-86ba-1099e4f66091-1",
-                        progressGroupId: null,
-                        userId: "1",
-                        doctorId: "21353",
-                        name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
-                        text: "",
-                        actionText: null,
-                        canSkip: null,
-                        actionIcon: null,
-                        actionType: null,
-                        action: null,
-                        type: "SpouseBirthday",
-                        category: "personal",
-                        category_fa:
-                          "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
-                        status: "waiting",
-                        done: false,
-                        date: "2025-09-10T00:00:00.000Z",
-                        dependId: null,
-                        dependAt: null,
-                        exclude: [],
-                        order: 7,
-                        priority: 10,
-                        createdAt: "2025-09-08T07:45:09.172Z",
-                        updatedAt: "2025-09-08T07:45:09.172Z"
-                      },
-                      {
-                        id: "d2e905f3-2837-4bda-8404-368f6a63527b-1",
-                        progressGroupId: null,
-                        userId: "1",
-                        doctorId: "21353",
-                        name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c",
-                        text: "",
-                        actionText: null,
-                        canSkip: null,
-                        actionIcon: null,
-                        actionType: null,
-                        action: null,
-                        type: "WeddingAnniversary",
-                        category: "notification",
-                        category_fa:
-                          "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-                        status: "waiting",
-                        done: false,
-                        date: "2025-10-01T00:00:00.000Z",
-                        dependId: null,
-                        dependAt: null,
-                        exclude: [],
-                        order: 9,
-                        priority: 10,
-                        createdAt: "2025-09-08T08:47:52.446Z",
-                        updatedAt: "2025-09-08T08:47:52.446Z"
-                      },
-                      {
-                        id: "04d77165-ab7d-4537-86ba-1099e4f66091-2",
-                        progressGroupId: null,
-                        userId: "1",
-                        doctorId: "21353",
-                        name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
-                        text: "\u0631\u0648\u0632 \u0639\u0634\u0642 \u062c\u0647\u0627\u0646\u06cc",
-                        actionText: null,
-                        canSkip: null,
-                        actionIcon: null,
-                        actionType: null,
-                        action: null,
-                        type: "occasion",
-                        category: "notification",
-                        category_fa:
-                          "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-                        status: "waiting",
-                        done: false,
-                        date: "2026-02-14T00:00:00.000Z",
-                        dependId: null,
-                        dependAt: null,
-                        exclude: [],
-                        order: 4,
-                        priority: 10,
-                        createdAt: "2025-09-08T07:50:00.000Z",
-                        updatedAt: "2025-09-08T07:50:00.000Z"
-                      },
-                      {
-                        id: "04d77165-ab7d-4537-86ba-1099e4f66091-3",
-                        progressGroupId: null,
-                        userId: "1",
-                        doctorId: "21353",
-                        name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
-                        text: "\u0631\u0648\u0632 \u0632\u0646 \u0648 \u0639\u0634\u0642 \u062f\u0631 \u0627\u06cc\u0631\u0627\u0646 \u0628\u0627\u0633\u062a\u0627\u0646",
-                        actionText: null,
-                        canSkip: null,
-                        actionIcon: null,
-                        actionType: null,
-                        action: null,
-                        type: "occasion",
-                        category: "notification",
-                        category_fa:
-                          "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-                        status: "waiting",
-                        done: false,
-                        date: "2026-02-18T00:00:00.000Z",
-                        dependId: null,
-                        dependAt: null,
-                        exclude: [],
-                        order: 5,
-                        priority: 10,
-                        createdAt: "2025-09-08T07:51:00.000Z",
-                        updatedAt: "2025-09-08T07:51:00.000Z"
-                      },
-                      {
-                        id: "04d77165-ab7d-4537-86ba-1099e4f66091-4",
-                        progressGroupId: null,
-                        userId: "1",
-                        doctorId: "21353",
-                        name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
-                        text: "International Women's Day",
-                        actionText: null,
-                        canSkip: null,
-                        actionIcon: null,
-                        actionType: null,
-                        action: null,
-                        type: "occasion",
-                        category: "notification",
-                        category_fa:
-                          "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-                        status: "waiting",
-                        done: false,
-                        date: "2026-03-08T00:00:00.000Z",
-                        dependId: null,
-                        dependAt: null,
-                        exclude: [],
-                        order: 3,
-                        priority: 10,
-                        createdAt: "2025-09-08T07:52:00.000Z",
-                        updatedAt: "2025-09-08T07:52:00.000Z"
-                      }
-                    ];
-                  }
-                  throw e;
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
                 }
-              })()
-        }
-        dialogOpendialog3={generateStateValueProp($state, [
-          "reminderSetting",
-          "dialogOpendialog3"
-        ])}
-        manId={(() => {
-          try {
-            return $props.manId;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return undefined;
-            }
-            throw e;
+              }}
+              onLoadChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button", "load"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onLoadingChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button", "loading"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__zbXcn
+                )}
+              >
+                {"\u062a\u0627\u06cc\u06cc\u062f"}
+              </div>
+            </Button>
+          </div>
+        </section>
+      ) : null}
+      <div
+        className={classNames(projectcss.all, sty.freeBox__uUg9N, {
+          [sty.freeBoxslide3__uUg9NWyFt]: hasVariant($state, "slide3", "slide3")
+        })}
+      >
+        <div
+          className={classNames(projectcss.all, sty.freeBox__epwed, {
+            [sty.freeBoxslide3__epwedWyFt]: hasVariant(
+              $state,
+              "slide3",
+              "slide3"
+            )
+          })}
+        >
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__rOniw,
+              {
+                [sty.textslide3__rOniwWyFt]: hasVariant(
+                  $state,
+                  "slide3",
+                  "slide3"
+                )
+              }
+            )}
+          >
+            {"\u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627"}
+          </div>
+          {(hasVariant($state, "slide3", "slide3") ? true : false) ? (
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__abeZp,
+                {
+                  [sty.textslide3__abeZpWyFt]: hasVariant(
+                    $state,
+                    "slide3",
+                    "slide3"
+                  )
+                }
+              )}
+            >
+              {
+                "\u0631\u0648\u06cc\u062f\u0627\u062f\u0647\u0627 \u0631\u0648 \u0627\u0636\u0627\u0641\u0647 \u06a9\u0646 \u0648 \u0646\u0630\u0627\u0631 \u0647\u06cc\u0686 \u0686\u06cc\u0632 \u0641\u0631\u0627\u0645\u0648\u0634 \u0628\u0634\u0647."
+              }
+            </div>
+          ) : null}
+        </div>
+        <ReminderSetting
+          data-plasmic-name={"reminderSetting"}
+          data-plasmic-override={overrides.reminderSetting}
+          className={classNames("__wab_instance", sty.reminderSetting, {
+            [sty.reminderSettingslide3]: hasVariant($state, "slide3", "slide3")
+          })}
+          data={
+            hasVariant($state, "slide3", "slide3")
+              ? (() => {
+                  try {
+                    return (() => {
+                      const merged = $state.ofline.map(i => {
+                        const found = $props.data.find(a =>
+                          i.text !== "occasion"
+                            ? a.text === i.text
+                            : a.name === i.name
+                        );
+                        return found ? found : i;
+                      });
+                      return merged;
+                    })();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [
+                        {
+                          id: "04d77165-ab7d-4537-86ba-1099e4f66091-1",
+                          progressGroupId: null,
+                          userId: "1",
+                          doctorId: "21353",
+                          name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
+                          text: "",
+                          actionText: null,
+                          canSkip: null,
+                          actionIcon: null,
+                          actionType: null,
+                          action: null,
+                          type: "SpouseBirthday",
+                          category: "personal",
+                          category_fa:
+                            "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
+                          status: "waiting",
+                          done: false,
+                          date: "2025-09-10T00:00:00.000Z",
+                          dependId: null,
+                          dependAt: null,
+                          exclude: [],
+                          order: 7,
+                          priority: 10,
+                          createdAt: "2025-09-08T07:45:09.172Z",
+                          updatedAt: "2025-09-08T07:45:09.172Z"
+                        },
+                        {
+                          id: "d2e905f3-2837-4bda-8404-368f6a63527b-1",
+                          progressGroupId: null,
+                          userId: "1",
+                          doctorId: "21353",
+                          name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c",
+                          text: "",
+                          actionText: null,
+                          canSkip: null,
+                          actionIcon: null,
+                          actionType: null,
+                          action: null,
+                          type: "WeddingAnniversary",
+                          category: "notification",
+                          category_fa:
+                            "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
+                          status: "waiting",
+                          done: false,
+                          date: "2025-10-01T00:00:00.000Z",
+                          dependId: null,
+                          dependAt: null,
+                          exclude: [],
+                          order: 9,
+                          priority: 10,
+                          createdAt: "2025-09-08T08:47:52.446Z",
+                          updatedAt: "2025-09-08T08:47:52.446Z"
+                        },
+                        {
+                          id: "04d77165-ab7d-4537-86ba-1099e4f66091-2",
+                          progressGroupId: null,
+                          userId: "1",
+                          doctorId: "21353",
+                          name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
+                          text: "\u0631\u0648\u0632 \u0639\u0634\u0642 \u062c\u0647\u0627\u0646\u06cc",
+                          actionText: null,
+                          canSkip: null,
+                          actionIcon: null,
+                          actionType: null,
+                          action: null,
+                          type: "occasion",
+                          category: "notification",
+                          category_fa:
+                            "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
+                          status: "waiting",
+                          done: false,
+                          date: "2026-02-14T00:00:00.000Z",
+                          dependId: null,
+                          dependAt: null,
+                          exclude: [],
+                          order: 4,
+                          priority: 10,
+                          createdAt: "2025-09-08T07:50:00.000Z",
+                          updatedAt: "2025-09-08T07:50:00.000Z"
+                        },
+                        {
+                          id: "04d77165-ab7d-4537-86ba-1099e4f66091-3",
+                          progressGroupId: null,
+                          userId: "1",
+                          doctorId: "21353",
+                          name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
+                          text: "\u0631\u0648\u0632 \u0632\u0646 \u0648 \u0639\u0634\u0642 \u062f\u0631 \u0627\u06cc\u0631\u0627\u0646 \u0628\u0627\u0633\u062a\u0627\u0646",
+                          actionText: null,
+                          canSkip: null,
+                          actionIcon: null,
+                          actionType: null,
+                          action: null,
+                          type: "occasion",
+                          category: "notification",
+                          category_fa:
+                            "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
+                          status: "waiting",
+                          done: false,
+                          date: "2026-02-18T00:00:00.000Z",
+                          dependId: null,
+                          dependAt: null,
+                          exclude: [],
+                          order: 5,
+                          priority: 10,
+                          createdAt: "2025-09-08T07:51:00.000Z",
+                          updatedAt: "2025-09-08T07:51:00.000Z"
+                        },
+                        {
+                          id: "04d77165-ab7d-4537-86ba-1099e4f66091-4",
+                          progressGroupId: null,
+                          userId: "1",
+                          doctorId: "21353",
+                          name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
+                          text: "International Women's Day",
+                          actionText: null,
+                          canSkip: null,
+                          actionIcon: null,
+                          actionType: null,
+                          action: null,
+                          type: "occasion",
+                          category: "notification",
+                          category_fa:
+                            "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
+                          status: "waiting",
+                          done: false,
+                          date: "2026-03-08T00:00:00.000Z",
+                          dependId: null,
+                          dependAt: null,
+                          exclude: [],
+                          order: 3,
+                          priority: 10,
+                          createdAt: "2025-09-08T07:52:00.000Z",
+                          updatedAt: "2025-09-08T07:52:00.000Z"
+                        }
+                      ];
+                    }
+                    throw e;
+                  }
+                })()
+              : (() => {
+                  try {
+                    return $state.ofline.filter(
+                      i => !$props.data.find(a => a.text === i.text)
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [
+                        {
+                          id: "04d77165-ab7d-4537-86ba-1099e4f66091-1",
+                          progressGroupId: null,
+                          userId: "1",
+                          doctorId: "21353",
+                          name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
+                          text: "",
+                          actionText: null,
+                          canSkip: null,
+                          actionIcon: null,
+                          actionType: null,
+                          action: null,
+                          type: "SpouseBirthday",
+                          category: "personal",
+                          category_fa:
+                            "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
+                          status: "waiting",
+                          done: false,
+                          date: "2025-09-10T00:00:00.000Z",
+                          dependId: null,
+                          dependAt: null,
+                          exclude: [],
+                          order: 7,
+                          priority: 10,
+                          createdAt: "2025-09-08T07:45:09.172Z",
+                          updatedAt: "2025-09-08T07:45:09.172Z"
+                        },
+                        {
+                          id: "d2e905f3-2837-4bda-8404-368f6a63527b-1",
+                          progressGroupId: null,
+                          userId: "1",
+                          doctorId: "21353",
+                          name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c",
+                          text: "",
+                          actionText: null,
+                          canSkip: null,
+                          actionIcon: null,
+                          actionType: null,
+                          action: null,
+                          type: "WeddingAnniversary",
+                          category: "notification",
+                          category_fa:
+                            "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
+                          status: "waiting",
+                          done: false,
+                          date: "2025-10-01T00:00:00.000Z",
+                          dependId: null,
+                          dependAt: null,
+                          exclude: [],
+                          order: 9,
+                          priority: 10,
+                          createdAt: "2025-09-08T08:47:52.446Z",
+                          updatedAt: "2025-09-08T08:47:52.446Z"
+                        },
+                        {
+                          id: "04d77165-ab7d-4537-86ba-1099e4f66091-2",
+                          progressGroupId: null,
+                          userId: "1",
+                          doctorId: "21353",
+                          name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
+                          text: "\u0631\u0648\u0632 \u0639\u0634\u0642 \u062c\u0647\u0627\u0646\u06cc",
+                          actionText: null,
+                          canSkip: null,
+                          actionIcon: null,
+                          actionType: null,
+                          action: null,
+                          type: "occasion",
+                          category: "notification",
+                          category_fa:
+                            "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
+                          status: "waiting",
+                          done: false,
+                          date: "2026-02-14T00:00:00.000Z",
+                          dependId: null,
+                          dependAt: null,
+                          exclude: [],
+                          order: 4,
+                          priority: 10,
+                          createdAt: "2025-09-08T07:50:00.000Z",
+                          updatedAt: "2025-09-08T07:50:00.000Z"
+                        },
+                        {
+                          id: "04d77165-ab7d-4537-86ba-1099e4f66091-3",
+                          progressGroupId: null,
+                          userId: "1",
+                          doctorId: "21353",
+                          name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
+                          text: "\u0631\u0648\u0632 \u0632\u0646 \u0648 \u0639\u0634\u0642 \u062f\u0631 \u0627\u06cc\u0631\u0627\u0646 \u0628\u0627\u0633\u062a\u0627\u0646",
+                          actionText: null,
+                          canSkip: null,
+                          actionIcon: null,
+                          actionType: null,
+                          action: null,
+                          type: "occasion",
+                          category: "notification",
+                          category_fa:
+                            "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
+                          status: "waiting",
+                          done: false,
+                          date: "2026-02-18T00:00:00.000Z",
+                          dependId: null,
+                          dependAt: null,
+                          exclude: [],
+                          order: 5,
+                          priority: 10,
+                          createdAt: "2025-09-08T07:51:00.000Z",
+                          updatedAt: "2025-09-08T07:51:00.000Z"
+                        },
+                        {
+                          id: "04d77165-ab7d-4537-86ba-1099e4f66091-4",
+                          progressGroupId: null,
+                          userId: "1",
+                          doctorId: "21353",
+                          name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
+                          text: "International Women's Day",
+                          actionText: null,
+                          canSkip: null,
+                          actionIcon: null,
+                          actionType: null,
+                          action: null,
+                          type: "occasion",
+                          category: "notification",
+                          category_fa:
+                            "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
+                          status: "waiting",
+                          done: false,
+                          date: "2026-03-08T00:00:00.000Z",
+                          dependId: null,
+                          dependAt: null,
+                          exclude: [],
+                          order: 3,
+                          priority: 10,
+                          createdAt: "2025-09-08T07:52:00.000Z",
+                          updatedAt: "2025-09-08T07:52:00.000Z"
+                        }
+                      ];
+                    }
+                    throw e;
+                  }
+                })()
           }
-        })()}
-        onDialogOpendialog3Change={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, [
+          dialogOpendialog3={generateStateValueProp($state, [
             "reminderSetting",
             "dialogOpendialog3"
-          ]).apply(null, eventArgs);
+          ])}
+          manId={(() => {
+            try {
+              return $props.manId;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+          onDialogOpendialog3Change={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, [
+              "reminderSetting",
+              "dialogOpendialog3"
+            ]).apply(null, eventArgs);
 
-          if (
-            eventArgs.length > 1 &&
-            eventArgs[1] &&
-            eventArgs[1]._plasmic_state_init_
-          ) {
-            return;
-          }
-        }}
-        onPageSelectChange={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, [
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          onPageSelectChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, [
+              "reminderSetting",
+              "pageSelect"
+            ]).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          onRefreshChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, [
+              "reminderSetting",
+              "refresh"
+            ]).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+
+            (async val => {
+              const $steps = {};
+
+              $steps["updateRefresh"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["refresh"]
+                      },
+                      operation: 0,
+                      value: $state.refresh + 1
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateRefresh"] != null &&
+                typeof $steps["updateRefresh"] === "object" &&
+                typeof $steps["updateRefresh"].then === "function"
+              ) {
+                $steps["updateRefresh"] = await $steps["updateRefresh"];
+              }
+            }).apply(null, eventArgs);
+          }}
+          onRefreshTimeChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, [
+              "reminderSetting",
+              "refreshTime"
+            ]).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          onReminderCategory2DataChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, [
+              "reminderSetting",
+              "reminderCategory2Data"
+            ]).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          onSmsChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["reminderSetting", "sms"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+
+            (async val => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return ($state.sms = $state.reminderSetting.sms);
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }).apply(null, eventArgs);
+          }}
+          onTelChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["reminderSetting", "tel"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+
+            (async val => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return ($state.tel = $state.reminderSetting.tel);
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }).apply(null, eventArgs);
+          }}
+          pageSelect={generateStateValueProp($state, [
             "reminderSetting",
             "pageSelect"
-          ]).apply(null, eventArgs);
-
-          if (
-            eventArgs.length > 1 &&
-            eventArgs[1] &&
-            eventArgs[1]._plasmic_state_init_
-          ) {
-            return;
-          }
-        }}
-        onRefreshChange={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, [
+          ])}
+          phoneNumber={(() => {
+            try {
+              return $props.phone;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+          refresh={generateStateValueProp($state, [
             "reminderSetting",
             "refresh"
-          ]).apply(null, eventArgs);
-
-          if (
-            eventArgs.length > 1 &&
-            eventArgs[1] &&
-            eventArgs[1]._plasmic_state_init_
-          ) {
-            return;
-          }
-
-          (async val => {
-            const $steps = {};
-
-            $steps["updateRefresh"] = true
-              ? (() => {
-                  const actionArgs = {
-                    variable: {
-                      objRoot: $state,
-                      variablePath: ["refresh"]
-                    },
-                    operation: 0,
-                    value: $state.refresh + 1
-                  };
-                  return (({ variable, value, startIndex, deleteCount }) => {
-                    if (!variable) {
-                      return;
-                    }
-                    const { objRoot, variablePath } = variable;
-
-                    $stateSet(objRoot, variablePath, value);
-                    return value;
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["updateRefresh"] != null &&
-              typeof $steps["updateRefresh"] === "object" &&
-              typeof $steps["updateRefresh"].then === "function"
-            ) {
-              $steps["updateRefresh"] = await $steps["updateRefresh"];
-            }
-          }).apply(null, eventArgs);
-        }}
-        onRefreshTimeChange={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, [
+          ])}
+          refreshTime={generateStateValueProp($state, [
             "reminderSetting",
             "refreshTime"
-          ]).apply(null, eventArgs);
-
-          if (
-            eventArgs.length > 1 &&
-            eventArgs[1] &&
-            eventArgs[1]._plasmic_state_init_
-          ) {
-            return;
-          }
-        }}
-        onReminderCategory2DataChange={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, [
+          ])}
+          reminderCategory2Data={generateStateValueProp($state, [
             "reminderSetting",
             "reminderCategory2Data"
-          ]).apply(null, eventArgs);
-
-          if (
-            eventArgs.length > 1 &&
-            eventArgs[1] &&
-            eventArgs[1]._plasmic_state_init_
-          ) {
-            return;
-          }
-        }}
-        onSmsChange={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, ["reminderSetting", "sms"]).apply(
-            null,
-            eventArgs
-          );
-
-          if (
-            eventArgs.length > 1 &&
-            eventArgs[1] &&
-            eventArgs[1]._plasmic_state_init_
-          ) {
-            return;
-          }
-
-          (async val => {
+          ])}
+          shop={async () => {
             const $steps = {};
 
-            $steps["runCode"] = true
+            $steps["runShop"] = true
               ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return ($state.sms = $state.reminderSetting.sms);
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
+                  const actionArgs = { eventRef: $props["shop"] };
+                  return (({ eventRef, args }) => {
+                    return eventRef?.(...(args ?? []));
                   })?.apply(null, [actionArgs]);
                 })()
               : undefined;
             if (
-              $steps["runCode"] != null &&
-              typeof $steps["runCode"] === "object" &&
-              typeof $steps["runCode"].then === "function"
+              $steps["runShop"] != null &&
+              typeof $steps["runShop"] === "object" &&
+              typeof $steps["runShop"].then === "function"
             ) {
-              $steps["runCode"] = await $steps["runCode"];
+              $steps["runShop"] = await $steps["runShop"];
             }
-          }).apply(null, eventArgs);
-        }}
-        onTelChange={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, ["reminderSetting", "tel"]).apply(
-            null,
-            eventArgs
-          );
-
-          if (
-            eventArgs.length > 1 &&
-            eventArgs[1] &&
-            eventArgs[1]._plasmic_state_init_
-          ) {
-            return;
-          }
-
-          (async val => {
-            const $steps = {};
-
-            $steps["runCode"] = true
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return ($state.tel = $state.reminderSetting.tel);
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["runCode"] != null &&
-              typeof $steps["runCode"] === "object" &&
-              typeof $steps["runCode"].then === "function"
-            ) {
-              $steps["runCode"] = await $steps["runCode"];
+          }}
+          slide={"_1"}
+          sms={generateStateValueProp($state, ["reminderSetting", "sms"])}
+          subscription={(() => {
+            try {
+              return (
+                // $props.subscription
+                true
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
             }
-          }).apply(null, eventArgs);
-        }}
-        pageSelect={generateStateValueProp($state, [
-          "reminderSetting",
-          "pageSelect"
-        ])}
-        phoneNumber={(() => {
-          try {
-            return $props.phone;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return undefined;
+          })()}
+          tel={generateStateValueProp($state, ["reminderSetting", "tel"])}
+          telegramId={(() => {
+            try {
+              return $props.telegramId;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
             }
-            throw e;
-          }
-        })()}
-        refresh={generateStateValueProp($state, ["reminderSetting", "refresh"])}
-        refreshTime={generateStateValueProp($state, [
-          "reminderSetting",
-          "refreshTime"
-        ])}
-        reminderCategory2Data={generateStateValueProp($state, [
-          "reminderSetting",
-          "reminderCategory2Data"
-        ])}
-        shop={async () => {
-          const $steps = {};
-
-          $steps["runShop"] = true
-            ? (() => {
-                const actionArgs = { eventRef: $props["shop"] };
-                return (({ eventRef, args }) => {
-                  return eventRef?.(...(args ?? []));
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["runShop"] != null &&
-            typeof $steps["runShop"] === "object" &&
-            typeof $steps["runShop"].then === "function"
-          ) {
-            $steps["runShop"] = await $steps["runShop"];
-          }
-        }}
-        slide={"_1"}
-        sms={generateStateValueProp($state, ["reminderSetting", "sms"])}
-        subscription={(() => {
-          try {
-            return (
-              // $props.subscription
-              true
-            );
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return false;
+          })()}
+          telegramOn={(() => {
+            try {
+              return $props.telegram;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
             }
-            throw e;
-          }
-        })()}
-        tel={generateStateValueProp($state, ["reminderSetting", "tel"])}
-        telegramId={(() => {
-          try {
-            return $props.telegramId;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return undefined;
+          })()}
+          token={(() => {
+            try {
+              return $props.token;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
             }
-            throw e;
-          }
-        })()}
-        telegramOn={(() => {
-          try {
-            return $props.telegram;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return false;
-            }
-            throw e;
-          }
-        })()}
-        token={(() => {
-          try {
-            return $props.token;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return undefined;
-            }
-            throw e;
-          }
-        })()}
-      />
+          })()}
+        />
+      </div>
     </div>
   ) as React.ReactElement | null;
 }
@@ -4799,6 +5242,7 @@ const PlasmicDescendants = {
     "button3",
     "button9",
     "button10",
+    "button",
     "reminderSetting"
   ],
   dialog: ["dialog", "input", "select", "switchbest3", "button5"],
@@ -4835,6 +5279,7 @@ const PlasmicDescendants = {
   button3: ["button3"],
   button9: ["button9"],
   button10: ["button10"],
+  button: ["button"],
   reminderSetting: ["reminderSetting"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -4869,6 +5314,7 @@ type NodeDefaultElementType = {
   button3: typeof Button;
   button9: typeof Button;
   button10: typeof Button;
+  button: typeof Button;
   reminderSetting: typeof ReminderSetting;
 };
 
@@ -4961,6 +5407,7 @@ export const PlasmicReminder = Object.assign(
     button3: makeNodeComponent("button3"),
     button9: makeNodeComponent("button9"),
     button10: makeNodeComponent("button10"),
+    button: makeNodeComponent("button"),
     reminderSetting: makeNodeComponent("reminderSetting"),
 
     // Metadata about props expected for PlasmicReminder

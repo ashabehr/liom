@@ -1906,8 +1906,8 @@
 }
 .todayMeetingslide__1 {
   box-shadow: none;
-  display: none;
-  padding: 0px 0px 30px;
+  display: flex;
+  padding: var(--token-1KusGK5GePTh) 0px;
 }
 .todayMeetingslide__2 {
   box-shadow: none;
@@ -1933,6 +1933,9 @@
   overflow: visible;
   min-width: 0;
   padding: 8px;
+}
+.freeBoxslide__1__fN6Veedcqc {
+  padding: 8px var(--token-1KusGK5GePTh);
 }
 .freeBoxadd__fN6VeuWxSg {
   padding: 0px;
@@ -1964,6 +1967,9 @@
   align-self: flex-start;
   min-width: 0;
   padding: 0px;
+}
+.freeBoxslide__1___3Qy8Edcqc {
+  display: none;
 }
 .text__tWbb {
   width: auto;
@@ -2222,6 +2228,9 @@
   width: 25px;
   height: 25px;
   flex-shrink: 0;
+}
+.editItemslide__1:global(.__wab_instance) {
+  display: none;
 }
 .svg__rGfGr {
   position: relative;

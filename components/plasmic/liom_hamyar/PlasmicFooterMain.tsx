@@ -72,9 +72,8 @@ import Icon315Icon from "./icons/PlasmicIcon__Icon315"; // plasmic-import: NN9rG
 import Icon316Icon from "./icons/PlasmicIcon__Icon316"; // plasmic-import: 0cmpPg7jI64F/icon
 import Icon137Icon from "./icons/PlasmicIcon__Icon137"; // plasmic-import: DXdLIMYRuTVZ/icon
 import Icon317Icon from "./icons/PlasmicIcon__Icon317"; // plasmic-import: A8wb-T8GiE4Q/icon
-import Icon351Icon from "./icons/PlasmicIcon__Icon351"; // plasmic-import: bcs3lArccYdo/icon
-import Icon347Icon from "./icons/PlasmicIcon__Icon347"; // plasmic-import: -pyZg3nYEp1D/icon
-import Icon350Icon from "./icons/PlasmicIcon__Icon350"; // plasmic-import: Kl49WrbEMTxg/icon
+import Icon353Icon from "./icons/PlasmicIcon__Icon353"; // plasmic-import: atHyMeB-yZxW/icon
+import Icon354Icon from "./icons/PlasmicIcon__Icon354"; // plasmic-import: CaXVVzodVxFK/icon
 import Icon318Icon from "./icons/PlasmicIcon__Icon318"; // plasmic-import: LgkeupPgZrI7/icon
 import Icon319Icon from "./icons/PlasmicIcon__Icon319"; // plasmic-import: aWqRVbwtYjuq/icon
 import Icon213Icon from "./icons/PlasmicIcon__Icon213"; // plasmic-import: mG0VeezaR1mF/icon
@@ -635,12 +634,17 @@ function PlasmicFooterMain__RenderFunc(props: {
             <PlasmicIcon__
               PlasmicIconType={
                 hasVariant($state, "footer2", "reminder")
-                  ? Icon350Icon
+                  ? Icon354Icon
                   : hasVariant($state, "footer2", "hamyar")
-                    ? Icon347Icon
-                    : Icon351Icon
+                    ? Icon353Icon
+                    : Icon353Icon
               }
               className={classNames(projectcss.all, sty.svg__i4AIi, {
+                [sty.svgfooter2_calendar__i4AIi6MXal]: hasVariant(
+                  $state,
+                  "footer2",
+                  "calendar"
+                ),
                 [sty.svgfooter2_hamyar__i4AIicU6G5]: hasVariant(
                   $state,
                   "footer2",

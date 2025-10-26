@@ -1479,7 +1479,20 @@ function PlasmicHamyar__RenderFunc(props: {
         path: "reminder2.slide3",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return window.localStorage.getItem("reminder") == "false";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "mainHamyar.hamyarShop",
@@ -7923,76 +7936,35 @@ function PlasmicHamyar__RenderFunc(props: {
                   $steps["updateRemind"] = await $steps["updateRemind"];
                 }
 
-                $steps["updateReminder2First"] =
-                  $state.remind.length == 0
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["reminder2", "first"]
-                          },
-                          operation: 0,
-                          value: true
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            if ($state.remind.length > 0)
+                              return window.localStorage.setItem(
+                                "reminder",
+                                "true"
+                              );
+                            else
+                              return window.localStorage.setItem(
+                                "reminder",
+                                "false"
+                              );
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
                 if (
-                  $steps["updateReminder2First"] != null &&
-                  typeof $steps["updateReminder2First"] === "object" &&
-                  typeof $steps["updateReminder2First"].then === "function"
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
                 ) {
-                  $steps["updateReminder2First"] =
-                    await $steps["updateReminder2First"];
-                }
-
-                $steps["updateReminder2First2"] =
-                  $state.remind.length > 0
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["reminder2", "first"]
-                          },
-                          operation: 0,
-                          value: false
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                if (
-                  $steps["updateReminder2First2"] != null &&
-                  typeof $steps["updateReminder2First2"] === "object" &&
-                  typeof $steps["updateReminder2First2"].then === "function"
-                ) {
-                  $steps["updateReminder2First2"] =
-                    await $steps["updateReminder2First2"];
+                  $steps["runCode"] = await $steps["runCode"];
                 }
               }).apply(null, eventArgs);
             }}

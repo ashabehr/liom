@@ -6132,6 +6132,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           $state,
                           "add",
                           "add"
+                        ),
+                        [sty.freeBoxslide__1__laNy3Edcqc]: hasVariant(
+                          $state,
+                          "slide",
+                          "_1"
                         )
                       }
                     )}
@@ -6159,6 +6164,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               $state,
                               "add",
                               "add"
+                            ),
+                            [sty.textslide__1__tWbbedcqc]: hasVariant(
+                              $state,
+                              "slide",
+                              "_1"
                             )
                           }
                         )}
@@ -7025,30 +7035,34 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   }
                                 })()}
                               >
-                                {(() => {
-                                  try {
-                                    return (() => {
-                                      const datesStr =
-                                        currentItem.dates || "[]";
-                                      const parsed = JSON.parse(
-                                        datesStr || "[]"
-                                      );
-                                      return (
-                                        parsed.length != 0 ||
-                                        currentItem.id != null
-                                      );
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return true;
-                                    }
-                                    throw e;
-                                  }
-                                })()
+                                {(
+                                  hasVariant($state, "slide", "_1")
+                                    ? true
+                                    : (() => {
+                                        try {
+                                          return (() => {
+                                            const datesStr =
+                                              currentItem.dates || "[]";
+                                            const parsed = JSON.parse(
+                                              datesStr || "[]"
+                                            );
+                                            return (
+                                              parsed.length != 0 ||
+                                              currentItem.id != null
+                                            );
+                                          })();
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return true;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                )
                                   ? (() => {
                                       const child$Props = {
                                         className: classNames(
@@ -11418,7 +11432,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
       <div
         data-plasmic-name={"pageselect2"}
         data-plasmic-override={overrides.pageselect2}
-        className={classNames(projectcss.all, sty.pageselect2)}
+        className={classNames(projectcss.all, sty.pageselect2, {
+          [sty.pageselect2slide__1]: hasVariant($state, "slide", "_1")
+        })}
         id={"pageSelect1"}
         onClick={async event => {
           const $steps = {};
