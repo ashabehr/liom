@@ -1027,9 +1027,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       finishTime: r.finishTime || null,
                       active: r.active ?? 0,
                       channels:
-                        r.channels === "{" || !r.channels
+                        r.channels === "{" || !r.chanels
                           ? '["notification"]'
-                          : r.channels
+                          : r.chanels
                     };
                     updatedList.push(newEvent);
                   });
