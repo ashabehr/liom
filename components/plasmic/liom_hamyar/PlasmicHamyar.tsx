@@ -7940,7 +7940,18 @@ function PlasmicHamyar__RenderFunc(props: {
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
-                          return undefined;
+                          return (() => {
+                            if ($state.remind.length > 0)
+                              return window.localStorage.setItem(
+                                "reminder",
+                                "true"
+                              );
+                            else if (!window.localStorage.getItem("reminder"))
+                              return window.localStorage.setItem(
+                                "reminder",
+                                "false"
+                              );
+                          })();
                         }
                       };
                       return (({ customFunction }) => {
