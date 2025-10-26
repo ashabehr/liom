@@ -2909,34 +2909,6 @@ function PlasmicHamyar__RenderFunc(props: {
               reminderOpen={async event => {
                 const $steps = {};
 
-                $steps["updateRemindersetting"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        vgroup: "remindersetting",
-                        operation: 4
-                      };
-                      return (({ vgroup, value }) => {
-                        if (typeof value === "string") {
-                          value = [value];
-                        }
-
-                        $stateSet($state, vgroup, true);
-                        return true;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateRemindersetting"] != null &&
-                  typeof $steps["updateRemindersetting"] === "object" &&
-                  typeof $steps["updateRemindersetting"].then === "function"
-                ) {
-                  $steps["updateRemindersetting"] =
-                    await $steps["updateRemindersetting"];
-                }
-              }}
-              reminderSetting={async () => {
-                const $steps = {};
-
                 $steps["updateFooterMainType"] = true
                   ? (() => {
                       const actionArgs = {
@@ -2970,6 +2942,35 @@ function PlasmicHamyar__RenderFunc(props: {
                 ) {
                   $steps["updateFooterMainType"] =
                     await $steps["updateFooterMainType"];
+                }
+              }}
+              reminderSetting={async () => {
+                const $steps = {};
+
+                $steps["updateRemindersetting"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        vgroup: "remindersetting",
+                        operation: 2
+                      };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        const oldValue = $stateGet($state, vgroup);
+                        $stateSet($state, vgroup, !oldValue);
+                        return !oldValue;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateRemindersetting"] != null &&
+                  typeof $steps["updateRemindersetting"] === "object" &&
+                  typeof $steps["updateRemindersetting"].then === "function"
+                ) {
+                  $steps["updateRemindersetting"] =
+                    await $steps["updateRemindersetting"];
                 }
               }}
               token={generateStateValueProp($state, ["mainHamyar", "token"])}
