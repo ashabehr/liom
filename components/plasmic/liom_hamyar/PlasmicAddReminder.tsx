@@ -778,7 +778,19 @@ function PlasmicAddReminder__RenderFunc(props: {
                 throw e;
               }
             })()}
-            shouldFetch={true}
+            shouldFetch={(() => {
+              try {
+                return $ctx.query.token != null;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })()}
             url={"https://n8n.staas.ir/webhook/reminder/page/data"}
           />
 
@@ -815,7 +827,9 @@ function PlasmicAddReminder__RenderFunc(props: {
             className={classNames("__wab_instance", sty.reminderSetting)}
             data={(() => {
               try {
-                return $state.apiRequest.data.reminders.map(i => i.json) || [];
+                return (
+                  $state.apiRequest?.data?.reminders?.map(i => i.json) || []
+                );
               } catch (e) {
                 if (
                   e instanceof TypeError ||

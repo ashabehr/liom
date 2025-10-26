@@ -2937,29 +2937,39 @@ function PlasmicHamyar__RenderFunc(props: {
               reminderSetting={async () => {
                 const $steps = {};
 
-                $steps["updateRemindersetting"] = true
+                $steps["updateFooterMainType"] = true
                   ? (() => {
                       const actionArgs = {
-                        vgroup: "remindersetting",
-                        operation: 4
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["footerMain", "type"]
+                        },
+                        operation: 0,
+                        value: "reminder"
                       };
-                      return (({ vgroup, value }) => {
-                        if (typeof value === "string") {
-                          value = [value];
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
                         }
+                        const { objRoot, variablePath } = variable;
 
-                        $stateSet($state, vgroup, true);
-                        return true;
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["updateRemindersetting"] != null &&
-                  typeof $steps["updateRemindersetting"] === "object" &&
-                  typeof $steps["updateRemindersetting"].then === "function"
+                  $steps["updateFooterMainType"] != null &&
+                  typeof $steps["updateFooterMainType"] === "object" &&
+                  typeof $steps["updateFooterMainType"].then === "function"
                 ) {
-                  $steps["updateRemindersetting"] =
-                    await $steps["updateRemindersetting"];
+                  $steps["updateFooterMainType"] =
+                    await $steps["updateFooterMainType"];
                 }
               }}
               token={generateStateValueProp($state, ["mainHamyar", "token"])}
