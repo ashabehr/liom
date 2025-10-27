@@ -3596,7 +3596,15 @@ function PlasmicReminder__RenderFunc(props: {
             hasVariant($state, "slide3", "slide3")
         })}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__nYlDo)}>
+        <div
+          className={classNames(projectcss.all, sty.freeBox__nYlDo, {
+            [sty.freeBoxslide3__nYlDoWyFt]: hasVariant(
+              $state,
+              "slide3",
+              "slide3"
+            )
+          })}
+        >
           <div className={classNames(projectcss.all, sty.freeBox__sjaPa)}>
             <Button
               data-plasmic-name={"button9"}
