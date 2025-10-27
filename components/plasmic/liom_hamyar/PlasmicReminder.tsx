@@ -854,8 +854,32 @@ function PlasmicReminder__RenderFunc(props: {
             hasVariant($state, "slide3", "slide3")
         }
       )}
-      onAnimationIteration={async event => {
+      onMouseEnter={async event => {
         const $steps = {};
+
+        $steps["runCode"] = true
+          ? (() => {
+              const actionArgs = {
+                customFunction: async () => {
+                  return (() => {
+                    if ($state.slide3 != true && $state.slide3 != "slide3")
+                      return ($state.slide3 =
+                        window.localStorage.getItem("reminder") == "false");
+                  })();
+                }
+              };
+              return (({ customFunction }) => {
+                return customFunction();
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["runCode"] != null &&
+          typeof $steps["runCode"] === "object" &&
+          typeof $steps["runCode"].then === "function"
+        ) {
+          $steps["runCode"] = await $steps["runCode"];
+        }
       }}
     >
       <section
@@ -3832,11 +3856,10 @@ function PlasmicReminder__RenderFunc(props: {
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
-                          return window.localStorage.setItem(
-                            "reminder",
-                            "true"
-                          );
-                          // $state.slide3=false
+                          return (() => {
+                            window.localStorage.setItem("reminder", "true");
+                            return ($state.slide3 = false);
+                          })();
                         }
                       };
                       return (({ customFunction }) => {
