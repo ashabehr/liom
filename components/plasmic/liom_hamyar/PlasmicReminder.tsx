@@ -4163,9 +4163,7 @@ function PlasmicReminder__RenderFunc(props: {
                 })()
               : (() => {
                   try {
-                    return $state.ofline.filter(
-                      i => !$props.data.find(a => a.text === i.text)
-                    );
+                    return $state.ofline;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
