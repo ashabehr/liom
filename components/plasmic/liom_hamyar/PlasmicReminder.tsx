@@ -846,6 +846,7 @@ function PlasmicReminder__RenderFunc(props: {
         projectcss.plasmic_mixins,
         styleTokensClassNames,
         sty.root,
+        "fade-in",
         {
           [sty.roothamyar]: hasVariant($state, "hamyar", "hamyar"),
           [sty.rootslide3]: hasVariant($state, "slide3", "slide3"),
@@ -854,7 +855,7 @@ function PlasmicReminder__RenderFunc(props: {
             hasVariant($state, "slide3", "slide3")
         }
       )}
-      onMouseEnter={async event => {
+      onAnimationStart={async event => {
         const $steps = {};
 
         $steps["runCode"] = true
