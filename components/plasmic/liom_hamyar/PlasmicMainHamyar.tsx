@@ -385,11 +385,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return (() => {
-                if ($state.slide3 == true || $state.slide3 == "slide3")
-                  return true;
-                else return window.localStorage.getItem("reminder") == "false";
-              })();
+              return $state.first;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -400,12 +396,6 @@ function PlasmicMainHamyar__RenderFunc(props: {
               throw e;
             }
           })()
-      },
-      {
-        path: "reminder.first",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "reminder.reminderSettingReminderCategory2Data",
@@ -1242,7 +1232,6 @@ function PlasmicMainHamyar__RenderFunc(props: {
             throw e;
           }
         })()}
-        first={generateStateValueProp($state, ["reminder", "first"])}
         manId={(() => {
           try {
             return $state.hamyar2.userdata?.result?.man?.id;
@@ -1256,20 +1245,6 @@ function PlasmicMainHamyar__RenderFunc(props: {
             throw e;
           }
         })()}
-        onFirstChange={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, ["reminder", "first"]).apply(
-            null,
-            eventArgs
-          );
-
-          if (
-            eventArgs.length > 1 &&
-            eventArgs[1] &&
-            eventArgs[1]._plasmic_state_init_
-          ) {
-            return;
-          }
-        }}
         onRefreshChange={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, ["reminder", "refresh"]).apply(
             null,

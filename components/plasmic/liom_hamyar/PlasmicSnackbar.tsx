@@ -96,6 +96,8 @@ export type PlasmicSnackbar__ArgsType = {
   onOpendialogChange?: (val: string) => void;
   data?: any;
   onDataChange?: (val: string) => void;
+  index?: any;
+  onIndexChange?: (val: string) => void;
   slot?: React.ReactNode;
   slot2?: React.ReactNode;
   children?: React.ReactNode;
@@ -106,6 +108,8 @@ export const PlasmicSnackbar__ArgProps = new Array<ArgPropType>(
   "onOpendialogChange",
   "data",
   "onDataChange",
+  "index",
+  "onIndexChange",
   "slot",
   "slot2",
   "children"
@@ -124,6 +128,8 @@ export interface DefaultSnackbarProps {
   onOpendialogChange?: (val: string) => void;
   data?: any;
   onDataChange?: (val: string) => void;
+  index?: any;
+  onIndexChange?: (val: string) => void;
   slot?: React.ReactNode;
   slot2?: React.ReactNode;
   children?: React.ReactNode;
@@ -234,6 +240,14 @@ function PlasmicSnackbar__RenderFunc(props: {
 
         valueProp: "data",
         onChangeProp: "onDataChange"
+      },
+      {
+        path: "index",
+        type: "writable",
+        variableType: "array",
+
+        valueProp: "index",
+        onChangeProp: "onIndexChange"
       }
     ],
     [$props, $ctx, $refs]

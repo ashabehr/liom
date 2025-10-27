@@ -1585,6 +1585,12 @@ function PlasmicReminderSetting__RenderFunc(props: {
 
         valueProp: "pageSelect",
         onChangeProp: "onPageSelectChange"
+      },
+      {
+        path: "snackbar.index",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       }
     ],
     [$props, $ctx, $refs]
@@ -6319,68 +6325,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               )}
                               onClick={async event => {
                                 const $steps = {};
-
-                                $steps["runCode"] = false
-                                  ? (() => {
-                                      const actionArgs = {
-                                        customFunction: async () => {
-                                          return (() => {
-                                            const daysContainer =
-                                              document.querySelector(".days");
-                                            if (!daysContainer) return;
-                                            const firstChild =
-                                              daysContainer.children[dayIndex];
-                                            if (!firstChild) return;
-                                            const itemDay =
-                                              firstChild.querySelector(
-                                                ".itemdays"
-                                              );
-                                            if (!itemDay) return;
-                                            const targetChild =
-                                              itemDay.children[currentIndex];
-                                            if (!targetChild) return;
-                                            const datesStr =
-                                              currentItem?.dates || "[]";
-                                            const parsedDates = JSON.parse(
-                                              datesStr || "[]"
-                                            );
-                                            if (parsedDates.length === 0) {
-                                              const firstButton =
-                                                targetChild.querySelector(
-                                                  "button"
-                                                );
-                                              if (firstButton)
-                                                return firstButton.click();
-                                            } else {
-                                              const checkbox =
-                                                targetChild.querySelector(
-                                                  'input[type="checkbox"]'
-                                                );
-                                              if (checkbox) {
-                                                checkbox.click();
-                                                return ($state.switchSetting[
-                                                  dayIndex
-                                                ][currentIndex].isChecked =
-                                                  !$state.switchSetting[
-                                                    dayIndex
-                                                  ][currentIndex].isChecked);
-                                              }
-                                            }
-                                          })();
-                                        }
-                                      };
-                                      return (({ customFunction }) => {
-                                        return customFunction();
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["runCode"] != null &&
-                                  typeof $steps["runCode"] === "object" &&
-                                  typeof $steps["runCode"].then === "function"
-                                ) {
-                                  $steps["runCode"] = await $steps["runCode"];
-                                }
                               }}
                             >
                               <div
@@ -7787,54 +7731,13 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                             $steps["add"] = await $steps["add"];
                                           }
 
-                                          $steps["runCode3"] = (
-                                            currentItem.id &&
-                                            $state.switchSetting[dayIndex][
-                                              currentIndex
-                                            ].isChecked
-                                              ? false
-                                              : true
-                                          )
-                                            ? (() => {
-                                                const actionArgs = {
-                                                  customFunction: async () => {
-                                                    return (() => {
-                                                      $state.snackbar.opendialog = true;
-                                                      $state.snackbar.data =
-                                                        currentItem;
-                                                      return ($state.switchSetting[
-                                                        dayIndex
-                                                      ][
-                                                        currentIndex
-                                                      ].isChecked = true);
-                                                    })();
-                                                  }
-                                                };
-                                                return (({
-                                                  customFunction
-                                                }) => {
-                                                  return customFunction();
-                                                })?.apply(null, [actionArgs]);
-                                              })()
-                                            : undefined;
-                                          if (
-                                            $steps["runCode3"] != null &&
-                                            typeof $steps["runCode3"] ===
-                                              "object" &&
-                                            typeof $steps["runCode3"].then ===
-                                              "function"
-                                          ) {
-                                            $steps["runCode3"] =
-                                              await $steps["runCode3"];
-                                          }
-
                                           $steps["remove"] = (
                                             currentItem.id &&
                                             $state.switchSetting[dayIndex][
                                               currentIndex
                                             ].isChecked
                                               ? true
-                                              : false
+                                              : false && !$steps.add?.data
                                           )
                                             ? (() => {
                                                 const actionArgs = {
@@ -7887,6 +7790,77 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                               await $steps["remove"];
                                           }
 
+                                          $steps["runCode3"] = (
+                                            currentItem.id &&
+                                            $state.switchSetting[dayIndex][
+                                              currentIndex
+                                            ].isChecked
+                                              ? false
+                                              : true && !$steps.add?.data
+                                          )
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  customFunction: async () => {
+                                                    return (() => {
+                                                      $state.snackbar.opendialog = true;
+                                                      $state.snackbar.data =
+                                                        currentItem;
+                                                      $state.snackbar.index = [
+                                                        dayIndex,
+                                                        currentIndex
+                                                      ];
+
+                                                      return ($state.switchSetting[
+                                                        dayIndex
+                                                      ][
+                                                        currentIndex
+                                                      ].isChecked = true);
+                                                    })();
+                                                  }
+                                                };
+                                                return (({
+                                                  customFunction
+                                                }) => {
+                                                  return customFunction();
+                                                })?.apply(null, [actionArgs]);
+                                              })()
+                                            : undefined;
+                                          if (
+                                            $steps["runCode3"] != null &&
+                                            typeof $steps["runCode3"] ===
+                                              "object" &&
+                                            typeof $steps["runCode3"].then ===
+                                              "function"
+                                          ) {
+                                            $steps["runCode3"] =
+                                              await $steps["runCode3"];
+                                          }
+
+                                          $steps["runCode4"] = true
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  customFunction: async () => {
+                                                    return ($state.refresh += 1);
+                                                  }
+                                                };
+                                                return (({
+                                                  customFunction
+                                                }) => {
+                                                  return customFunction();
+                                                })?.apply(null, [actionArgs]);
+                                              })()
+                                            : undefined;
+                                          if (
+                                            $steps["runCode4"] != null &&
+                                            typeof $steps["runCode4"] ===
+                                              "object" &&
+                                            typeof $steps["runCode4"].then ===
+                                              "function"
+                                          ) {
+                                            $steps["runCode4"] =
+                                              await $steps["runCode4"];
+                                          }
+
                                           $steps["runCode2"] =
                                             $steps.add?.data?.success == true
                                               ? (() => {
@@ -7913,31 +7887,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           ) {
                                             $steps["runCode2"] =
                                               await $steps["runCode2"];
-                                          }
-
-                                          $steps["runCode4"] = true
-                                            ? (() => {
-                                                const actionArgs = {
-                                                  customFunction: async () => {
-                                                    return ($state.refresh += 1);
-                                                  }
-                                                };
-                                                return (({
-                                                  customFunction
-                                                }) => {
-                                                  return customFunction();
-                                                })?.apply(null, [actionArgs]);
-                                              })()
-                                            : undefined;
-                                          if (
-                                            $steps["runCode4"] != null &&
-                                            typeof $steps["runCode4"] ===
-                                              "object" &&
-                                            typeof $steps["runCode4"].then ===
-                                              "function"
-                                          ) {
-                                            $steps["runCode4"] =
-                                              await $steps["runCode4"];
                                           }
                                         }).apply(null, eventArgs);
                                       },
@@ -8508,16 +8457,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 </div>
               );
             })}
-            <div
-              className={classNames(projectcss.all, sty.freeBox__s8QQw, {
-                [sty.freeBoxslide__1__s8QQwedcqc]: hasVariant(
-                  $state,
-                  "slide",
-                  "_1"
-                )
-              })}
-              id={"shadowBottom"}
-            />
           </div>
         ) : null}
         {(
@@ -10674,8 +10613,23 @@ function PlasmicReminderSetting__RenderFunc(props: {
         data-plasmic-override={overrides.snackbar}
         className={classNames("__wab_instance", sty.snackbar)}
         data={generateStateValueProp($state, ["snackbar", "data"])}
+        index={generateStateValueProp($state, ["snackbar", "index"])}
         onDataChange={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, ["snackbar", "data"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        onIndexChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["snackbar", "index"]).apply(
             null,
             eventArgs
           );
@@ -10766,6 +10720,36 @@ function PlasmicReminderSetting__RenderFunc(props: {
             onClick={async event => {
               const $steps = {};
 
+              $steps["updateSnackbarOpendialog"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["snackbar", "opendialog"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateSnackbarOpendialog"] != null &&
+                typeof $steps["updateSnackbarOpendialog"] === "object" &&
+                typeof $steps["updateSnackbarOpendialog"].then === "function"
+              ) {
+                $steps["updateSnackbarOpendialog"] =
+                  await $steps["updateSnackbarOpendialog"];
+              }
+
               $steps["invokeGlobalAction"] = true
                 ? (() => {
                     const actionArgs = {
@@ -10805,54 +10789,30 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   await $steps["invokeGlobalAction"];
               }
 
-              $steps["runCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return ($state.refresh += 1);
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
+              $steps["runCode"] =
+                $steps.invokeGlobalAction.data.success == true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            $state.switchSetting[$state.snackbar.index[0]][
+                              $state.snackbar.index[1]
+                            ].isChecked = false;
+                            return ($state.refresh += 1);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
               if (
                 $steps["runCode"] != null &&
                 typeof $steps["runCode"] === "object" &&
                 typeof $steps["runCode"].then === "function"
               ) {
                 $steps["runCode"] = await $steps["runCode"];
-              }
-
-              $steps["updateSnackbarOpendialog"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["snackbar", "opendialog"]
-                      },
-                      operation: 0,
-                      value: false
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateSnackbarOpendialog"] != null &&
-                typeof $steps["updateSnackbarOpendialog"] === "object" &&
-                typeof $steps["updateSnackbarOpendialog"].then === "function"
-              ) {
-                $steps["updateSnackbarOpendialog"] =
-                  await $steps["updateSnackbarOpendialog"];
               }
             }}
             onColorChange={async (...eventArgs: any) => {

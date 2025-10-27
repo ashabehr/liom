@@ -1237,7 +1237,9 @@
   }
 }
 .sectionslide3__ekiQpWyFt {
-  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  background: linear-gradient(0deg, #f8f8f8 0%, #f8f8f8e4 61%, #f8f8f800 100%);
+  padding-top: var(--token-1KusGK5GePTh);
   display: grid;
 }
 .sectionslide3__ekiQpWyFt > * {

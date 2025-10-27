@@ -124,8 +124,6 @@ export type PlasmicReminder__ArgsType = {
   onTelChange?: (val: string) => void;
   onSlide3Change?: (val: any) => void;
   ferst?: boolean;
-  first?: boolean;
-  onFirstChange?: (val: string) => void;
   reminderSettingReminderCategory2Data?: any;
   onReminderSettingReminderCategory2DataChange?: (val: any) => void;
 };
@@ -150,8 +148,6 @@ export const PlasmicReminder__ArgProps = new Array<ArgPropType>(
   "onTelChange",
   "onSlide3Change",
   "ferst",
-  "first",
-  "onFirstChange",
   "reminderSettingReminderCategory2Data",
   "onReminderSettingReminderCategory2DataChange"
 );
@@ -209,8 +205,6 @@ export interface DefaultReminderProps {
   onTelChange?: (val: string) => void;
   onSlide3Change?: (val: any) => void;
   ferst?: boolean;
-  first?: boolean;
-  onFirstChange?: (val: string) => void;
   reminderSettingReminderCategory2Data?: any;
   onReminderSettingReminderCategory2DataChange?: (val: any) => void;
   slide3?: SingleBooleanChoiceArg<"slide3">;
@@ -239,639 +233,7 @@ function PlasmicReminder__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          data: [
-            {
-              id: 243,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: null,
-              schedule_type: "everyDay",
-              type: "water_time",
-              name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628",
-              text: "drinkWater",
-              token1: null,
-              dates: null,
-              weekdays:
-                '["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]',
-              times:
-                '["08:00","10:00","12:00","15:20","18:00","22:00","00:30"]',
-              finishTime: "2026-08-27 00:00:00",
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 255,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: null,
-              schedule_type: "everyYear",
-              type: null,
-              name: "\u062a\u0648\u0644\u062f \u0641\u0631\u0632\u0646\u062f",
-              text: "birthdayBoyChild",
-              token1: null,
-              dates: '["2025-11-19","2026-06-24"]',
-              weekdays:
-                '["sunday","monday","tuesday","wednesday","friday","saturday"]',
-              times: '["10:00"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 256,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyDay",
-              type: "medicine_time",
-              name: "\u0642\u0631\u0635 \u0645\u0641\u0646\u0627\u0646\u06cc\u06a9 \u0627\u0633\u06cc\u062f",
-              text: "pill",
-              token1: null,
-              dates: null,
-              weekdays:
-                '["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]',
-              times: '["10:00","18:00"]',
-              finishTime: "2025-09-30 00:00:00",
-              chanels: '["notification"]',
-              active: 1
-            },
-            {
-              id: 257,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyYear",
-              type: null,
-              name: "\u062a\u0648\u0644\u062f \u062d\u0644\u0645\u0627",
-              text: "birthday",
-              token1: null,
-              dates: '["2026-03-29","2026-06-30"]',
-              weekdays:
-                '["sunday","monday","tuesday","wednesday","friday","saturday"]',
-              times: '["10:00","04:05"]',
-              finishTime: "2026-12-11 00:00:00",
-              chanels: '["notification"]',
-              active: 1
-            },
-            {
-              id: 258,
-              liomId: "1",
-              telegramId: "33263188",
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: null,
-              name: "\u0631\u0648\u0632 \u0645\u0627\u062f\u0631 ",
-              text: "motherAndWifeDayIran",
-              token1: null,
-              dates: '["2025-12-11"]',
-              weekdays:
-                '["sunday","monday","tuesday","wednesday","friday","saturday"]',
-              times: '["10:00"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 259,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyDay",
-              type: "routine_skin",
-              name: "\u0631\u0648\u062a\u06cc\u0646 \u067e\u0648\u0633\u062a ",
-              text: "routineSkinMorning",
-              token1: null,
-              dates: null,
-              weekdays:
-                '["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]',
-              times: '["10:07"]',
-              finishTime: null,
-              chanels: "[]",
-              active: 1
-            },
-            {
-              id: 260,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyDay",
-              type: "water_time",
-              name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628 ",
-              text: "drinkWater",
-              token1: null,
-              dates: null,
-              weekdays:
-                '["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]',
-              times: '["08:00","10:00","11:46","22:00","00:30"]',
-              finishTime: null,
-              chanels: '["notification","telegram","sms"]',
-              active: 1
-            },
-            {
-              id: 279,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: null,
-              name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
-              text: "occasion",
-              token1: null,
-              dates: '["2026-03-08"]',
-              weekdays: null,
-              times: '["09:00"]',
-              finishTime: "2025-10-04 15:04:26",
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 358,
-              liomId: "1ce6e0a9-217c-4c9e-9b59-2faefdc51487",
-              telegramId: null,
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: null,
-              name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
-              text: "occasion",
-              token1: null,
-              dates: '["2026-02-14"]',
-              weekdays: null,
-              times: '["09:00"]',
-              finishTime: null,
-              chanels: "{",
-              active: 1
-            },
-            {
-              id: 359,
-              liomId: "1ce6e0a9-217c-4c9e-9b59-2faefdc51487",
-              telegramId: null,
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: null,
-              name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
-              text: "occasion",
-              token1: null,
-              dates: '["2026-02-18"]',
-              weekdays: null,
-              times: '["09:00"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 360,
-              liomId: "1ce6e0a9-217c-4c9e-9b59-2faefdc51487",
-              telegramId: null,
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: null,
-              name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
-              text: "occasion",
-              token1: null,
-              dates: '["2026-02-18"]',
-              weekdays: null,
-              times: '["09:00"]',
-              finishTime: null,
-              chanels: "{",
-              active: 1
-            },
-            {
-              id: 361,
-              liomId: "1ce6e0a9-217c-4c9e-9b59-2faefdc51487",
-              telegramId: null,
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: null,
-              name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c",
-              text: "wedding_anniversary",
-              token1: null,
-              dates: '["2025-12-31"]',
-              weekdays: null,
-              times: '["10:00"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 365,
-              liomId: "1ce6e0a9-217c-4c9e-9b59-2faefdc51487",
-              telegramId: null,
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: null,
-              name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
-              text: "occasion",
-              token1: null,
-              dates: '["2026-10-11"]',
-              weekdays: null,
-              times: '["09:00"]',
-              finishTime: null,
-              chanels: "{",
-              active: 1
-            },
-            {
-              id: 491,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: null,
-              name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631",
-              text: "occasion",
-              token1: null,
-              dates: '["2026-04-19"]',
-              weekdays: null,
-              times: '["10:00"]',
-              finishTime: null,
-              chanels: '["notification"]',
-              active: 1
-            },
-            {
-              id: 492,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: null,
-              name: "\u0631\u0648\u0632 \u0648\u0644\u0646\u062a\u0627\u06cc\u0646",
-              text: "occasion",
-              token1: null,
-              dates: '["2026-02-14"]',
-              weekdays: null,
-              times: '["10:00"]',
-              finishTime: null,
-              chanels: '["notification"]',
-              active: 1
-            },
-            {
-              id: 500,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: "wedding_anniversary",
-              name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c",
-              text: "wedding_anniversary",
-              token1: null,
-              dates: '["2026-01-01"]',
-              weekdays: null,
-              times: "[]",
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 507,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: "religious_womens_day",
-              name: "\u0631\u0648\u0632 \u0632\u0646 (\u0627\u0633\u0644\u0627\u0645\u06cc)",
-              text: "occasion",
-              token1: null,
-              dates: '["2025-12-11"]',
-              weekdays: null,
-              times: '["09:30"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 508,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: "sepandarmazgan",
-              name: "\u0631\u0648\u0632 \u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646",
-              text: "occasion",
-              token1: null,
-              dates: '["2026-02-18"]',
-              weekdays: null,
-              times: "[]",
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 509,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyDay",
-              type: "water_time",
-              name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628q",
-              text: "water_time",
-              token1: null,
-              dates: null,
-              weekdays: null,
-              times: '["00:00","00:05"]',
-              finishTime: null,
-              chanels: '["notification"]',
-              active: 1
-            },
-            {
-              id: 510,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "",
-              schedule_type: "everyDay",
-              type: "water_time",
-              name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628",
-              text: "water_time",
-              token1: null,
-              dates: null,
-              weekdays: null,
-              times: '["15:15"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 511,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyDay",
-              type: "water_time",
-              name: "\u0646\u0648\u0634\u06cc\u062f\u0646 ddd\u0622\u0628",
-              text: "water_time",
-              token1: null,
-              dates: null,
-              weekdays:
-                '["saturday","sunday","monday","tuesday","wednesday","thursday","friday"]',
-              times: '["23:05"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 538,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "",
-              schedule_type: "everyDay",
-              type: "medicine_time",
-              name: "\u0645\u0635\u0631\u0641 \u062f\u0627\u0631\u0648",
-              text: "medicine_time",
-              token1: null,
-              dates: null,
-              weekdays:
-                '["saturday","sunday","monday","tuesday","wednesday","thursday","friday"]',
-              times: '["09:30"]',
-              finishTime: null,
-              chanels: '["telegram","notification"]',
-              active: 1
-            },
-            {
-              id: 539,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: "spouse_birthday",
-              name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
-              text: "spouse_birthday",
-              token1: null,
-              dates: '["2025-12-31"]',
-              weekdays: null,
-              times: '["09:30"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 541,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyDay",
-              type: "checkup",
-              name: "\u0686\u06a9\u0627\u067e \u062f\u0648\u0631\u0647\u200c\u0627\u06cc",
-              text: "checkup",
-              token1: null,
-              dates: null,
-              weekdays:
-                '["saturday","sunday","monday","tuesday","wednesday","thursday","friday"]',
-              times: '["03:30"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 542,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: "father_birthday",
-              name: "\u062a\u0648\u0644\u062f \u067e\u062f\u0631",
-              text: "father_birthday",
-              token1: null,
-              dates: '["2026-03-04"]',
-              weekdays: null,
-              times: "[]",
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 546,
-              liomId: "1",
-              telegramId: "9112135563",
-              phoneNumber: "0911111111",
-              schedule_type: "everyYear",
-              type: "checklllup",
-              name: "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc",
-              text: "checklllup",
-              token1: null,
-              dates: '["2025-11-19","2026-06-24"]',
-              weekdays: null,
-              times: '["09:00"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 0
-            },
-            {
-              id: 550,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyDay",
-              type: "water_time",
-              name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628",
-              text: "water_time",
-              token1: null,
-              dates: null,
-              weekdays:
-                '["saturday","sunday","monday","tuesday","wednesday","thursday","friday"]',
-              times: '["12:30"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 551,
-              liomId: "1",
-              telegramId: null,
-              phoneNumber: "09154807701",
-              schedule_type: "everyYear",
-              type: "periodEnd",
-              name: "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc",
-              text: "periodEnd",
-              token1: null,
-              dates:
-                '["2025-10-17","2025-11-05","2025-11-24","2025-12-13","2026-01-01"]',
-              weekdays: null,
-              times: '["09:00"]',
-              finishTime: null,
-              chanels: '["notification","telegram","sms"]',
-              active: 0
-            },
-            {
-              id: 561,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyYear",
-              type: "periodStart",
-              name: "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc",
-              text: "periodStart",
-              token1: null,
-              dates:
-                '["2025-10-12","2025-10-31","2025-11-19","2025-12-08","2025-12-27"]',
-              weekdays: null,
-              times: '["09:00"]',
-              finishTime: null,
-              chanels: '["notification","telegram","sms"]',
-              active: 0
-            },
-            {
-              id: 562,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyYear",
-              type: "pmsStart",
-              name: "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc",
-              text: "pmsStart",
-              token1: null,
-              dates:
-                '["2025-10-26","2025-11-14","2025-12-03","2025-12-22","2026-01-10"]',
-              weekdays: null,
-              times: '["09:00"]',
-              finishTime: null,
-              chanels: '["notification","telegram","sms"]',
-              active: 0
-            },
-            {
-              id: 563,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyYear",
-              type: "pmsEnd",
-              name: "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc",
-              text: "pmsEnd",
-              token1: null,
-              dates:
-                '["2025-10-31","2025-11-19","2025-12-08","2025-12-27","2026-01-15"]',
-              weekdays: null,
-              times: '["09:00"]',
-              finishTime: null,
-              chanels: '["notification","telegram","sms"]',
-              active: 0
-            },
-            {
-              id: 564,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyYear",
-              type: "fertilityStart",
-              name: "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc",
-              text: "fertilityStart",
-              token1: null,
-              dates:
-                '["2025-10-17","2025-11-05","2025-11-24","2025-12-13","2026-01-01"]',
-              weekdays: null,
-              times: '["09:00"]',
-              finishTime: null,
-              chanels: '["notification","telegram","sms"]',
-              active: 0
-            },
-            {
-              id: 565,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyYear",
-              type: "fertilityEnd",
-              name: "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc",
-              text: "fertilityEnd",
-              token1: null,
-              dates:
-                '["2025-10-21","2025-11-09","2025-11-28","2025-12-17","2026-01-05"]',
-              weekdays: null,
-              times: '["09:00"]',
-              finishTime: null,
-              chanels: '["notification","telegram","sms"]',
-              active: 0
-            },
-            {
-              id: 566,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyYear",
-              type: "breastCancer",
-              name: "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc",
-              text: "breastCancer",
-              token1: null,
-              dates:
-                '["2025-10-18","2025-11-06","2025-11-25","2025-12-14","2026-01-02"]',
-              weekdays: null,
-              times: '["09:00"]',
-              finishTime: null,
-              chanels: '["notification","telegram","sms"]',
-              active: 0
-            },
-            {
-              id: 572,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyYear",
-              type: "mothers_day",
-              name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
-              text: "occasion",
-              token1: null,
-              dates: '["2026-03-08"]',
-              weekdays: null,
-              times: "[]",
-              finishTime: null,
-              chanels: "[]",
-              active: 1
-            },
-            {
-              id: 573,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyYear",
-              type: "islamic_mens_day",
-              name: "\u0631\u0648\u0632 \u0645\u0631\u062f",
-              text: "occasion",
-              token1: null,
-              dates: '["2026-01-03"]',
-              weekdays: null,
-              times: "[]",
-              finishTime: null,
-              chanels: "[]",
-              active: 1
-            }
-          ],
+          data: [],
           subscription: true,
           telegram: false,
           activeSmsNotif: false,
@@ -1177,9 +539,9 @@ function PlasmicReminder__RenderFunc(props: {
             telegramId: null,
             phoneNumber: null,
             schedule_type: "everyYear",
-            type: "occasion",
+            type: "religious_womens_day",
             name: "\u0631\u0648\u0632 \u0632\u0646 \u0648 \u0645\u0627\u062f\u0631",
-            text: "occasion",
+            text: "religious_womens_day",
             dates: '["2025-12-11"]',
             weekdays: null,
             times: '["10:00"]',
@@ -1192,9 +554,9 @@ function PlasmicReminder__RenderFunc(props: {
             telegramId: null,
             phoneNumber: null,
             schedule_type: "everyYear",
-            type: "occasion",
+            type: "religious_girl_day",
             name: "\u0631\u0648\u0632 \u062f\u062e\u062a\u0631",
-            text: "occasion",
+            text: "religious_girl_day",
             dates: '["2026-04-19"]',
             weekdays: null,
             times: '["10:00"]',
@@ -1207,9 +569,9 @@ function PlasmicReminder__RenderFunc(props: {
             telegramId: null,
             phoneNumber: null,
             schedule_type: "everyYear",
-            type: "occasion",
+            type: "mothers_day",
             name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
-            text: "occasion",
+            text: "mothers_day",
             dates: '["2026-03-08"]',
             weekdays: null,
             times: '["10:00"]',
@@ -1222,9 +584,9 @@ function PlasmicReminder__RenderFunc(props: {
             telegramId: null,
             phoneNumber: null,
             schedule_type: "everyYear",
-            type: "occasion",
+            type: "valentine_day",
             name: "\u0631\u0648\u0632 \u0648\u0644\u0646\u062a\u0627\u06cc\u0646",
-            text: "occasion",
+            text: "valentine_day",
             dates: '["2026-02-14"]',
             weekdays: null,
             times: '["10:00"]',
@@ -1237,9 +599,9 @@ function PlasmicReminder__RenderFunc(props: {
             telegramId: null,
             phoneNumber: null,
             schedule_type: "everyYear",
-            type: "occasion",
+            type: "sepandarmazgan",
             name: "\u0631\u0648\u0632 \u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646",
-            text: "occasion",
+            text: "sepandarmazgan",
             dates: '["2026-02-18"]',
             weekdays: null,
             times: '["10:00"]',
@@ -1252,9 +614,9 @@ function PlasmicReminder__RenderFunc(props: {
             telegramId: null,
             phoneNumber: null,
             schedule_type: "everyYear",
-            type: "occasion",
+            type: "womens_day",
             name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631",
-            text: "occasion",
+            text: "womens_day",
             dates: '["2026-10-11"]',
             weekdays: null,
             times: '["10:00"]',
@@ -1267,9 +629,9 @@ function PlasmicReminder__RenderFunc(props: {
             telegramId: null,
             phoneNumber: null,
             schedule_type: "everyYear",
-            type: "occasion",
+            type: "mens_day",
             name: "\u0631\u0648\u0632 \u0645\u0631\u062f",
-            text: "occasion",
+            text: "mens_day",
             dates: '["2026-11-19"]',
             weekdays: null,
             times: '["10:00"]',
@@ -1355,11 +717,22 @@ function PlasmicReminder__RenderFunc(props: {
       },
       {
         path: "first",
-        type: "writable",
+        type: "private",
         variableType: "boolean",
-
-        valueProp: "first",
-        onChangeProp: "onFirstChange"
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return window.localStorage.getItem("reminder") == "false";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "reminderSetting.refreshTime",
@@ -1481,6 +854,9 @@ function PlasmicReminder__RenderFunc(props: {
             hasVariant($state, "slide3", "slide3")
         }
       )}
+      onAnimationIteration={async event => {
+        const $steps = {};
+      }}
     >
       <section
         className={classNames(projectcss.all, sty.section__wVsy2, {
@@ -4456,10 +3832,11 @@ function PlasmicReminder__RenderFunc(props: {
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
-                          return (() => {
-                            window.localStorage.setItem("reminder", "true");
-                            return ($state.slide3 = false);
-                          })();
+                          return window.localStorage.setItem(
+                            "reminder",
+                            "true"
+                          );
+                          // $state.slide3=false
                         }
                       };
                       return (({ customFunction }) => {
