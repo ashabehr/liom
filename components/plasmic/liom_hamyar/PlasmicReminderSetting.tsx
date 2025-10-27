@@ -7836,7 +7836,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                               await $steps["runCode3"];
                                           }
 
-                                          $steps["runCode4"] = false
+                                          $steps["runCode4"] = true
                                             ? (() => {
                                                 const actionArgs = {
                                                   customFunction: async () => {

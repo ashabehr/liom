@@ -1931,6 +1931,7 @@
   align-self: stretch;
   column-gap: var(--token-O5TjkXII_aat);
   overflow: visible;
+  transform: none;
   min-width: 0;
   padding: 8px;
 }
@@ -1995,8 +1996,14 @@
   width: 100%;
   margin-bottom: 0px;
   row-gap: 12px;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
   min-width: 0;
   min-height: 0;
+  -webkit-transition-property: all;
+  -webkit-transition-timing-function: ease-out;
+  -webkit-transition-duration: 0.5s;
   border-radius: 12px;
   padding: 12px;
 }
