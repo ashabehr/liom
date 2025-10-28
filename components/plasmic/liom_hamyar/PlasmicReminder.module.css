@@ -1368,3 +1368,14 @@
 .reminderSetting:global(.__wab_instance) {
   max-width: 100%;
 }
+.creaditButten:global(.__wab_instance) {
+  position: fixed;
+  top: var(--token-uOLZE7OyOW-J);
+  left: var(--token-uOLZE7OyOW-J);
+  right: auto;
+  z-index: 50;
+}
+.wallet:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}

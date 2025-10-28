@@ -283,6 +283,10 @@
   --plasmic-token-icon-color-gray: var(--token-AwpLXbw5AmtS);
   --token-rjNyvhiWWn_F: 16px;
   --plasmic-token-unnamed-style-token-3: var(--token-rjNyvhiWWn_F);
+  --token-IboIm-JRA2_i: #2b4dcc;
+  --plasmic-token-primary-dark: var(--token-IboIm-JRA2_i);
+  --token-BdabbwY33dHf: 4px;
+  --plasmic-token-unnamed-style-token-4: var(--token-BdabbwY33dHf);
 }
 
 @media (max-width: 640px) {

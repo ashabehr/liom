@@ -69,6 +69,8 @@ import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/compo
 import MenuIcon from "../../MenuIcon"; // plasmic-import: JBF-V8Q5mpWl/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import ReminderSetting from "../../ReminderSetting"; // plasmic-import: VZcPBQBUFNbT/component
+import CreaditButten from "../../CreaditButten"; // plasmic-import: 1skTNuQS9BUR/component
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -183,6 +185,8 @@ export type PlasmicReminder__OverridesType = {
   button10?: Flex__<typeof Button>;
   button?: Flex__<typeof Button>;
   reminderSetting?: Flex__<typeof ReminderSetting>;
+  creaditButten?: Flex__<typeof CreaditButten>;
+  wallet?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultReminderProps {
@@ -820,6 +824,43 @@ function PlasmicReminder__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "creaditButten.creadit",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.wallet?.data?.balance || null;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 6556565565;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "wallet.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "wallet.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "wallet.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -4615,6 +4656,117 @@ function PlasmicReminder__RenderFunc(props: {
           })()}
         />
       </div>
+      {(
+        hasVariant(globalVariants, "screen", "mobile")
+          ? true
+          : (() => {
+              try {
+                return $props.manId == "1";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })()
+      ) ? (
+        <CreaditButten
+          data-plasmic-name={"creaditButten"}
+          data-plasmic-override={overrides.creaditButten}
+          className={classNames("__wab_instance", sty.creaditButten)}
+          creadit={generateStateValueProp($state, ["creaditButten", "creadit"])}
+          onClick={async event => {
+            const $steps = {};
+
+            $steps["goToMojodi"] = true
+              ? (() => {
+                  const actionArgs = { destination: `/mojod/[home]` };
+                  return (({ destination }) => {
+                    if (
+                      typeof destination === "string" &&
+                      destination.startsWith("#")
+                    ) {
+                      document
+                        .getElementById(destination.substr(1))
+                        .scrollIntoView({ behavior: "smooth" });
+                    } else {
+                      __nextRouter?.push(destination);
+                    }
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["goToMojodi"] != null &&
+              typeof $steps["goToMojodi"] === "object" &&
+              typeof $steps["goToMojodi"].then === "function"
+            ) {
+              $steps["goToMojodi"] = await $steps["goToMojodi"];
+            }
+          }}
+          onCreaditChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, [
+              "creaditButten",
+              "creadit"
+            ]).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+        />
+      ) : null}
+      <ApiRequest
+        data-plasmic-name={"wallet"}
+        data-plasmic-override={overrides.wallet}
+        className={classNames("__wab_instance", sty.wallet)}
+        config={(() => {
+          try {
+            return {
+              headers: {
+                authorization: $props.token
+              }
+            };
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
+        errorDisplay={null}
+        loadingDisplay={null}
+        method={"GET"}
+        onError={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["wallet", "error"]).apply(
+            null,
+            eventArgs
+          );
+        }}
+        onLoading={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["wallet", "loading"]).apply(
+            null,
+            eventArgs
+          );
+        }}
+        onSuccess={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["wallet", "data"]).apply(
+            null,
+            eventArgs
+          );
+        }}
+        shouldFetch={true}
+        url={"https://n8n.staas.ir/webhook/wallet"}
+      />
     </div>
   ) as React.ReactElement | null;
 }
@@ -4650,7 +4802,9 @@ const PlasmicDescendants = {
     "button9",
     "button10",
     "button",
-    "reminderSetting"
+    "reminderSetting",
+    "creaditButten",
+    "wallet"
   ],
   dialog: ["dialog", "input", "select", "switchbest3", "button5"],
   input: ["input"],
@@ -4687,7 +4841,9 @@ const PlasmicDescendants = {
   button9: ["button9"],
   button10: ["button10"],
   button: ["button"],
-  reminderSetting: ["reminderSetting"]
+  reminderSetting: ["reminderSetting"],
+  creaditButten: ["creaditButten"],
+  wallet: ["wallet"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -4723,6 +4879,8 @@ type NodeDefaultElementType = {
   button10: typeof Button;
   button: typeof Button;
   reminderSetting: typeof ReminderSetting;
+  creaditButten: typeof CreaditButten;
+  wallet: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -4816,6 +4974,8 @@ export const PlasmicReminder = Object.assign(
     button10: makeNodeComponent("button10"),
     button: makeNodeComponent("button"),
     reminderSetting: makeNodeComponent("reminderSetting"),
+    creaditButten: makeNodeComponent("creaditButten"),
+    wallet: makeNodeComponent("wallet"),
 
     // Metadata about props expected for PlasmicReminder
     internalVariantProps: PlasmicReminder__VariantProps,

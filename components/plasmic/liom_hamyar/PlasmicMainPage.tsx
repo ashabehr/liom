@@ -1162,6 +1162,19 @@ function PlasmicMainPage__RenderFunc(props: {
               throw e;
             }
           })()}
+          token={(() => {
+            try {
+              return $state.token;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
         />
       </Reveal>
       <Reveal

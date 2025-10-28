@@ -148,6 +148,9 @@
 .rootcolor_line_color_yellow {
   border-color: var(--token-bASdKwkcGC-_);
 }
+.rootcolor_line_color_white {
+  border-color: var(--token-R_Rsn0nP9oIv);
+}
 .root___focusVisibleWithin {
   box-shadow: none;
   outline: none;

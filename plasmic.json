@@ -4792,6 +4792,86 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicAdd.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "esrmcWMeqrsz",
+          "name": "Mojodi",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMojodi.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/mojod/[home].tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicMojodi.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/mojod/[home]"
+        },
+        {
+          "id": "P9oD_7GviRum",
+          "name": "Backgrond",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicBackgrond.tsx",
+          "importSpec": {
+            "modulePath": "Backgrond.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicBackgrond.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "HHYIWkHLbs3n",
+          "name": "LoadingConclusion",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicLoadingConclusion.tsx",
+          "importSpec": {
+            "modulePath": "LoadingConclusion.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicLoadingConclusion.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "1skTNuQS9BUR",
+          "name": "CreaditButten",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicCreaditButten.tsx",
+          "importSpec": {
+            "modulePath": "CreaditButten.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicCreaditButten.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "GnOiSfG6XOMz",
+          "name": "Tariff",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicTariff.tsx",
+          "importSpec": {
+            "modulePath": "Tariff.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicTariff.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "4wEldhsM09tv",
+          "name": "Report",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicReport.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/report.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicReport.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/report"
         }
       ],
       "icons": [
@@ -7054,6 +7134,71 @@
           "id": "CaXVVzodVxFK",
           "name": "Icon354Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon354.tsx"
+        },
+        {
+          "id": "let5A1CcCJmV",
+          "name": "Icon355Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon355.tsx"
+        },
+        {
+          "id": "PNGh2_rKcs7x",
+          "name": "Icon356Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon356.tsx"
+        },
+        {
+          "id": "-i4XZN6oQySz",
+          "name": "Icon357Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon357.tsx"
+        },
+        {
+          "id": "NYKoHXeHd50r",
+          "name": "Icon358Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon358.tsx"
+        },
+        {
+          "id": "NXVr0t_7T4oe",
+          "name": "Icon359Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon359.tsx"
+        },
+        {
+          "id": "4klAmO7dMfT8",
+          "name": "Icon360Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon360.tsx"
+        },
+        {
+          "id": "F0dcdZJwtgLB",
+          "name": "Icon361Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon361.tsx"
+        },
+        {
+          "id": "jxc6_q11fhBP",
+          "name": "Icon362Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon362.tsx"
+        },
+        {
+          "id": "JaU_EHFrnLuc",
+          "name": "Icon363Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon363.tsx"
+        },
+        {
+          "id": "8Oju6Tf9Jd65",
+          "name": "Icon364Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon364.tsx"
+        },
+        {
+          "id": "CQv_uXPCughx",
+          "name": "Icon365Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon365.tsx"
+        },
+        {
+          "id": "VnKEMM0pySS5",
+          "name": "Icon366Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon366.tsx"
+        },
+        {
+          "id": "9EVbJgSegdgi",
+          "name": "Icon367Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon367.tsx"
         }
       ],
       "images": [

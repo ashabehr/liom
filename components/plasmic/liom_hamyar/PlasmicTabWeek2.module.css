@@ -32,6 +32,9 @@
 .freeBoxsize_small__zg8BKyQij9 {
   display: none;
 }
+.freeBoxreport__zg8Bk7KnbM {
+  display: none;
+}
 .slotTargetSlot {
   text-align: center;
   font-size: 12px;
@@ -126,6 +129,9 @@
 .freeBoxsize_small__z7MRqyQij9 {
   padding: 2px;
 }
+.freeBoxreport__z7MRq7KnbM {
+  width: auto;
+}
 .freeBoxcurrentWeek_selected__z7MRqMNoLjBlp4 {
   border-top-right-radius: 100px;
   border-top-left-radius: 100px;
@@ -139,6 +145,12 @@
 }
 .freeBoxselected_color_pms__z7MRqBlp4KTqgi {
   outline-color: var(--token-SX03PBUzWAqr);
+}
+.freeBoxreport_selected__z7MRq7KnbMBlp4 {
+  width: auto;
+  background: var(--token-R_Rsn0nP9oIv);
+  outline-style: solid;
+  outline-color: var(--token-rGxK1TpZE_rW);
 }
 .text__gJiGf {
   position: relative;
