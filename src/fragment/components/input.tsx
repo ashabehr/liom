@@ -4,8 +4,8 @@ import * as InputPrimitive from "@/components/ui/input";
 import {
   HTMLInputTypeAttribute,
   RefAttributes,
+  useState,
   useEffect,
-  useRef,
 } from "react";
 
 type InputType = {
@@ -15,10 +15,11 @@ type InputType = {
   disabled?: boolean;
   className?: string;
   name?: string;
-  type?: HTMLInputTypeAttribute;
+  type?: HTMLInputTypeAttribute | "amount";
   attributes?: InputPrimitive.InputProps & RefAttributes<HTMLInputElement>;
   multiple?: boolean;
   accept?: string;
+  maxLength?: number; // 🔥 محدودیت تعداد کاراکتر
 };
 
 export const Input = (props: InputType) => {
@@ -33,46 +34,68 @@ export const Input = (props: InputType) => {
     attributes,
     multiple,
     accept,
+    maxLength,
   } = props;
 
   const fragmentConfig = useSelector("Fragment");
-  const inputRef = useRef<HTMLInputElement>(null);
+
+  // حالت نمایش فرمت‌شده برای amount
+  const [displayValue, setDisplayValue] = useState(value ?? "");
 
   useEffect(() => {
-    const input = inputRef.current;
-    if (!input) return;
+    if (type === "amount") {
+      const raw = value?.toString().replace(/\D/g, "") || "";
+      const formatted = raw.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      setDisplayValue(formatted);
+    } else {
+      setDisplayValue(value ?? "");
+    }
+  }, [value, type]);
 
-    // حذف فوکوس اولیه (autoFocus) یا فوکوس‌های اجباری Plasmic
-    input.blur();
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let inputVal = e.target.value;
 
-    // گوش بده به فوکوس‌های غیرکاربری و حذفشون
-    const observer = new MutationObserver(() => {
-      if (document.activeElement === input && !input.matches(":focus-visible")) {
-        input.blur();
-      }
-    });
+    // اعمال محدودیت تعداد کاراکتر
+    if (maxLength && inputVal.length > maxLength) {
+      inputVal = inputVal.slice(0, maxLength);
+    }
 
-    observer.observe(document, { subtree: true, childList: false, attributes: true });
-
-    return () => observer.disconnect();
-  }, []);
-
-  // حذف autoFocus از attributes (حتی اگر Plasmic ست کرده باشه)
-  const { autoFocus, ...restAttributes } = attributes ?? {};
+    if (type === "amount") {
+      // حذف هر چیزی جز عدد
+      const raw = inputVal.replace(/\D/g, "");
+      const limitedRaw =
+        maxLength && raw.length > maxLength ? raw.slice(0, maxLength) : raw;
+      onChange?.(limitedRaw); // خروجی فقط عدد خام
+      const formatted = limitedRaw.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      setDisplayValue(formatted);
+    } else {
+      onChange?.(inputVal);
+      setDisplayValue(inputVal);
+    }
+  };
 
   return (
     <InputPrimitive.Input
-      ref={inputRef}
       disabled={disabled}
-      onChange={(e) => onChange?.(e.target?.value ?? "")}
-      value={value}
-      dir={type !== "text" ? "ltr" : fragmentConfig.rtl ? "rtl" : "ltr"}
+      onChange={handleChange}
+      value={displayValue}
+      dir={
+        type !== "text" && type !== "amount"
+          ? "ltr"
+          : fragmentConfig.rtl
+          ? "rtl"
+          : "ltr"
+      }
       name={name}
       placeholder={placeholder}
       className={className}
-      type={type}
-      {...(type === "file" && { multiple, accept })}
-      {...restAttributes}
+      type={type === "amount" ? "text" : type}
+      {...(type == "file" && {
+        multiple,
+        accept,
+      })}
+      maxLength={maxLength} // 🔥 برای HTML input
+      {...attributes}
     />
   );
 };
@@ -101,6 +124,7 @@ export const inputMeta: CodeComponentMeta<InputType> = {
         "email",
         "tel",
         "file",
+        "amount", // 🔥 حالت جدید
       ],
       defaultValue: "text",
       defaultValueHint: "text",
@@ -108,11 +132,11 @@ export const inputMeta: CodeComponentMeta<InputType> = {
     disabled: "boolean",
     multiple: {
       type: "boolean",
-      hidden: (ps) => ps.type !== "file",
+      hidden: (ps) => ps.type != "file",
     },
     accept: {
       type: "string",
-      hidden: (ps) => ps.type !== "file",
+      hidden: (ps) => ps.type != "file",
     },
     name: {
       type: "string",
@@ -122,6 +146,10 @@ export const inputMeta: CodeComponentMeta<InputType> = {
     attributes: {
       type: "object",
       advanced: true,
+    },
+    maxLength: {
+      type: "number",
+      description: "حداکثر تعداد کاراکتر مجاز", // 🔥 اضافه شد
     },
     onChange: {
       type: "eventHandler",
