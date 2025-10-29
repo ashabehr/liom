@@ -14,6 +14,7 @@ import {
   GlobalContextMeta,
 } from "@plasmicapp/host";
 import axios from "axios";
+import moment from "jalali-moment";
 
 type FragmentProps = React.PropsWithChildren<{
   previewApiConfig: Record<string, any>;
@@ -106,7 +107,10 @@ export const Fragment = ({
       wait: (duration: number = 1000) => {
         return new Promise((resolve) => setTimeout(resolve, duration));
       },
-      
+      convertJalaliToGregorian: (year: number | string, month: number | string, day: number | string) => {
+        const jalaliDate = `${year}/${month}/${day}`;
+        return moment(jalaliDate, "jYYYY/jMM/jDD").format("YYYY-MM-DD");
+      },
       deepLink: (action: string, token: string, userId: string, inApp: string, theme : string ,inWebViow : boolean =false, params: Record<string, string | string[]> = {},) => { 
         
             if (typeof window !== "undefined") {
@@ -588,6 +592,26 @@ export const fragmentMeta: GlobalContextMeta<FragmentProps> = {
           }
         },
       ]
+    },
+    convertJalaliToGregorian: {
+      displayName: "Convert Jalali To Gregorian",
+      parameters: [
+        { name: "year", type: {
+            type: "string",
+            defaultValueHint: "1403",
+            required: true,
+          }},
+        { name: "month", type: {
+            type: "string",
+            defaultValueHint: "9",
+            required: true,
+          }},
+        { name: "day", type: {
+            type: "string",
+            defaultValueHint: "3",
+            required: true,
+          }}
+      ],
     },
     apiRequest: {
       displayName: "API Request",
