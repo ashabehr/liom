@@ -66,6 +66,8 @@ import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import TabWeek2 from "../../TabWeek2"; // plasmic-import: -tuOknPDFuNb/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import MenuIcon from "../../MenuIcon"; // plasmic-import: JBF-V8Q5mpWl/component
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -95,6 +97,8 @@ export type PlasmicReport__OverridesType = {
   button?: Flex__<typeof Button>;
   svg?: Flex__<"svg">;
   menuIcon?: Flex__<typeof MenuIcon>;
+  apiRequest?: Flex__<typeof ApiRequest>;
+  embedHtml?: Flex__<typeof Embed>;
 };
 
 export interface DefaultReportProps {}
@@ -208,7 +212,7 @@ function PlasmicReport__RenderFunc(props: {
         path: "button.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ["line", "white"]
+        initFunc: ({ $props, $state, $queries, $ctx }) => "line"
       },
       {
         path: "button.loading",
@@ -221,6 +225,42 @@ function PlasmicReport__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "apiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "token",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "start",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "end",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -299,6 +339,49 @@ function PlasmicReport__RenderFunc(props: {
                 typeof $steps["runCode"].then === "function"
               ) {
                 $steps["runCode"] = await $steps["runCode"];
+              }
+
+              $steps["runCode2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const { toGregorian, isLeapJalaaliYear } = jalaali;
+                          function getGregorianMonthBounds(jy, jm) {
+                            const daysInMonth =
+                              jm <= 6
+                                ? 31
+                                : jm <= 11
+                                  ? 30
+                                  : isLeapJalaaliYear(jy)
+                                    ? 30
+                                    : 29;
+                            const first = toGregorian(jy, jm, 1);
+                            const last = toGregorian(jy, jm, daysInMonth);
+                            const fmt = d => `${d.gy}/${d.gm}/${d.gd}`;
+                            return {
+                              first: fmt(first),
+                              last: fmt(last)
+                            };
+                          }
+                          return getGregorianMonthBounds(
+                            $state.selectYear,
+                            $state.selectMoon
+                          );
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode2"] != null &&
+                typeof $steps["runCode2"] === "object" &&
+                typeof $steps["runCode2"].then === "function"
+              ) {
+                $steps["runCode2"] = await $steps["runCode2"];
               }
             }}
           />
@@ -766,6 +849,80 @@ function PlasmicReport__RenderFunc(props: {
               );
             })}
           </div>
+          <ApiRequest
+            data-plasmic-name={"apiRequest"}
+            data-plasmic-override={overrides.apiRequest}
+            className={classNames("__wab_instance", sty.apiRequest)}
+            errorDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__xcn7P
+                )}
+              >
+                {"Error fetching data"}
+              </div>
+            }
+            loadingDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__cU6Nx
+                )}
+              >
+                {"Loading..."}
+              </div>
+            }
+            method={"GET"}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "apiRequest",
+                "loading"
+              ]).apply(null, eventArgs);
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            params={(() => {
+              try {
+                return {
+                  userId: 1,
+                  start: "",
+                  end: ""
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            shouldFetch={true}
+            url={"https://n8n.staas.ir/webhook/report"}
+          />
+
+          <Embed
+            data-plasmic-name={"embedHtml"}
+            data-plasmic-override={overrides.embedHtml}
+            className={classNames("__wab_instance", sty.embedHtml)}
+            code={
+              '<script src="https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js"></script>\r\n'
+            }
+          />
         </div>
       </div>
     </React.Fragment>
@@ -773,12 +930,23 @@ function PlasmicReport__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "sideEffect", "tabWeek2", "button", "svg", "menuIcon"],
+  root: [
+    "root",
+    "sideEffect",
+    "tabWeek2",
+    "button",
+    "svg",
+    "menuIcon",
+    "apiRequest",
+    "embedHtml"
+  ],
   sideEffect: ["sideEffect"],
   tabWeek2: ["tabWeek2"],
   button: ["button", "svg"],
   svg: ["svg"],
-  menuIcon: ["menuIcon"]
+  menuIcon: ["menuIcon"],
+  apiRequest: ["apiRequest"],
+  embedHtml: ["embedHtml"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -790,6 +958,8 @@ type NodeDefaultElementType = {
   button: typeof Button;
   svg: "svg";
   menuIcon: typeof MenuIcon;
+  apiRequest: typeof ApiRequest;
+  embedHtml: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -884,6 +1054,8 @@ export const PlasmicReport = Object.assign(
     button: makeNodeComponent("button"),
     svg: makeNodeComponent("svg"),
     menuIcon: makeNodeComponent("menuIcon"),
+    apiRequest: makeNodeComponent("apiRequest"),
+    embedHtml: makeNodeComponent("embedHtml"),
 
     // Metadata about props expected for PlasmicReport
     internalVariantProps: PlasmicReport__VariantProps,
