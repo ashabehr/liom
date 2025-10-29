@@ -62,6 +62,8 @@ import {
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import TabWeek2 from "../../TabWeek2"; // plasmic-import: -tuOknPDFuNb/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
+import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import MenuIcon from "../../MenuIcon"; // plasmic-import: JBF-V8Q5mpWl/component
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
@@ -72,8 +74,6 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicReport.module.css"; // plasmic-import: 4wEldhsM09tv/css
 
-import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
-import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 
 createPlasmicElementProxy;
@@ -89,19 +89,29 @@ export const PlasmicReport__VariantProps = new Array<VariantPropType>(
   "select2"
 );
 
-export type PlasmicReport__ArgsType = {};
+export type PlasmicReport__ArgsType = {
+  refresh?: string;
+  onRefreshChange?: (val: string) => void;
+};
 type ArgPropType = keyof PlasmicReport__ArgsType;
-export const PlasmicReport__ArgProps = new Array<ArgPropType>();
+export const PlasmicReport__ArgProps = new Array<ArgPropType>(
+  "refresh",
+  "onRefreshChange"
+);
 
 export type PlasmicReport__OverridesType = {
   root?: Flex__<"div">;
   sideEffect?: Flex__<typeof SideEffect>;
   tabWeek2?: Flex__<typeof TabWeek2>;
   apiRequest?: Flex__<typeof ApiRequest>;
+  collapse?: Flex__<typeof AntdSingleCollapse>;
   headerLiom?: Flex__<typeof HeaderLiom>;
+  svg?: Flex__<"svg">;
 };
 
 export interface DefaultReportProps {
+  refresh?: string;
+  onRefreshChange?: (val: string) => void;
   select2?: SingleBooleanChoiceArg<"select2">;
   className?: string;
 }
@@ -266,6 +276,21 @@ function PlasmicReport__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.select2
+      },
+      {
+        path: "refresh",
+        type: "writable",
+        variableType: "text",
+
+        valueProp: "refresh",
+        onChangeProp: "onRefreshChange"
+      },
+      {
+        path: "collapse[].open",
+        type: "private",
+        variableType: "boolean",
+
+        onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
       }
     ],
     [$props, $ctx, $refs]
@@ -1062,478 +1087,583 @@ function PlasmicReport__RenderFunc(props: {
               }
             })()
           ).map((__plasmic_item_0, __plasmic_idx_0) => {
-            const currentItem = __plasmic_item_0;
+            const master = __plasmic_item_0;
             const currentIndex = __plasmic_idx_0;
             return (
               <div
                 className={classNames(projectcss.all, sty.freeBox___7Nw4H)}
                 key={currentIndex}
               >
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__r1Upj, {
-                    [sty.freeBoxselect2__r1Upj3VVTl]: hasVariant(
-                      $state,
-                      "select2",
-                      "select2"
-                    )
-                  })}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["updateSelect"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["select"]
-                            },
-                            operation: 0,
-                            value: currentItem
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateSelect"] != null &&
-                      typeof $steps["updateSelect"] === "object" &&
-                      typeof $steps["updateSelect"].then === "function"
-                    ) {
-                      $steps["updateSelect"] = await $steps["updateSelect"];
-                    }
-
-                    $steps["updateSelect2"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            vgroup: "select2",
-                            operation: 2,
-                            value: "select2"
-                          };
-                          return (({ vgroup, value }) => {
-                            if (typeof value === "string") {
-                              value = [value];
-                            }
-
-                            const oldValue = $stateGet($state, vgroup);
-                            $stateSet($state, vgroup, !oldValue);
-                            return !oldValue;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateSelect2"] != null &&
-                      typeof $steps["updateSelect2"] === "object" &&
-                      typeof $steps["updateSelect2"].then === "function"
-                    ) {
-                      $steps["updateSelect2"] = await $steps["updateSelect2"];
-                    }
-                  }}
-                  style={(() => {
-                    try {
-                      return {
-                        border:
-                          $state.apiRequest.data.totalPerChannel.length ==
-                          currentIndex + 1
-                            ? "none"
-                            : ""
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__yhj1N, {
-                      [sty.freeBoxselect2__yhj1N3VVTl]: hasVariant(
-                        $state,
-                        "select2",
-                        "select2"
-                      )
-                    })}
-                  >
-                    <MenuIcon
-                      className={classNames(
-                        "__wab_instance",
-                        sty.menuIcon__mdbsm
-                      )}
-                      color={(() => {
-                        try {
-                          return (() => {
-                            switch (currentItem.type) {
-                              case "telegram":
-                                return "blue";
-                              case "sms":
-                                return "fuchsia";
-                              case "notification":
-                                return "warning";
-                            }
-                          })();
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "fuchsia";
-                          }
-                          throw e;
-                        }
-                      })()}
-                      icons={(() => {
-                        try {
-                          return currentItem.type;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
-                        }
-                      })()}
-                      outline={true}
-                      size={"_25"}
-                    />
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__gxmVs)}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__vspEj)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__pkOvm
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return `${currentItem.name}`;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "\u062a\u0633\u062a adhd";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__snMvK
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return (
-                                currentItem.value.toLocaleString() + " تومان "
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "2865so \u062a\u0648\u0645\u0646";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                    </div>
-                  </div>
-                  <ChevronLeftIcon
-                    className={classNames(projectcss.all, sty.svg__pojZn)}
-                    role={"img"}
-                  />
-                </div>
-              </div>
-            );
-          })}
-        </div>
-        <div
-          className={classNames(projectcss.all, sty.freeBox__osJl0, "fade-in", {
-            [sty.freeBoxselect2__osJl03VVTl]: hasVariant(
-              $state,
-              "select2",
-              "select2"
-            )
-          })}
-        >
-          <div
-            className={classNames(projectcss.all, sty.freeBox__qJuSr, {
-              [sty.freeBoxselect2__qJuSr3VVTl]: hasVariant(
-                $state,
-                "select2",
-                "select2"
-              )
-            })}
-            onClick={async event => {
-              const $steps = {};
-
-              $steps["updateSelect2"] = true
-                ? (() => {
-                    const actionArgs = {
-                      vgroup: "select2",
-                      operation: 2,
-                      value: "select2"
-                    };
-                    return (({ vgroup, value }) => {
-                      if (typeof value === "string") {
-                        value = [value];
-                      }
-
-                      const oldValue = $stateGet($state, vgroup);
-                      $stateSet($state, vgroup, !oldValue);
-                      return !oldValue;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateSelect2"] != null &&
-                typeof $steps["updateSelect2"] === "object" &&
-                typeof $steps["updateSelect2"].then === "function"
-              ) {
-                $steps["updateSelect2"] = await $steps["updateSelect2"];
-              }
-            }}
-          >
-            <ChevronRightIcon
-              className={classNames(projectcss.all, sty.svg__hz5ST, {
-                [sty.svgselect2__hz5ST3VVTl]: hasVariant(
-                  $state,
-                  "select2",
-                  "select2"
-                )
-              })}
-              role={"img"}
-            />
-
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__xy9Bp
-              )}
-            >
-              <React.Fragment>
                 {(() => {
-                  try {
-                    return `هزینه ارسال یادآوری` + ` ${$state.select.name} `;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "\u0647\u0632\u06cc\u0646\u0647 \u0627\u0631\u0633\u0627\u0644 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc";
-                    }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
-          </div>
-          {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-            (() => {
-              try {
-                return $state.apiRequest.data.results.filter(i =>
-                  i.channels.includes($state.select.type)
-                );
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return [];
-                }
-                throw e;
-              }
-            })()
-          ).map((__plasmic_item_0, __plasmic_idx_0) => {
-            const currentItem = __plasmic_item_0;
-            const currentIndex = __plasmic_idx_0;
-            return (
-              <div
-                className={classNames(projectcss.all, sty.freeBox__dVwd)}
-                key={currentIndex}
-              >
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___03OhY)}
-                >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___4G5O6, {
-                      [sty.freeBoxselect2___4G5O63VVTl]: hasVariant(
-                        $state,
-                        "select2",
-                        "select2"
-                      )
-                    })}
-                  >
-                    <MenuIcon
-                      className={classNames(
-                        "__wab_instance",
-                        sty.menuIcon__trQFl
-                      )}
-                      color={(() => {
-                        try {
-                          return (() => {
-                            switch (currentItem.type) {
-                              case "telegram":
-                                return "blue";
-                              case "sms":
-                                return "fuchsia";
-                              case "notification":
-                                return "warning";
-                            }
-                          })();
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "fuchsia";
-                          }
-                          throw e;
-                        }
-                      })()}
-                      icons={(() => {
-                        try {
-                          return $state.select.type;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
-                        }
-                      })()}
-                      outline={true}
-                    />
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__xP5Yb)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___9Qjo4
-                      )}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___1Ow1T
-                        )}
-                      >
+                  const child$Props = {
+                    bordered: true,
+                    className: classNames("__wab_instance", sty.collapse),
+                    expandIcon: null,
+                    expandIconPosition: "end",
+                    extra: null,
+                    ghost: true,
+                    label2: (
+                      <React.Fragment>
                         <div
                           className={classNames(
                             projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__yiaZq
+                            sty.freeBox__r1Upj,
+                            {
+                              [sty.freeBoxselect2__r1Upj3VVTl]: hasVariant(
+                                $state,
+                                "select2",
+                                "select2"
+                              )
+                            }
                           )}
                         >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return `${currentItem.name}`;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "\u062a\u0633\u062a adhd";
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__yhj1N,
+                              {
+                                [sty.freeBoxselect2__yhj1N3VVTl]: hasVariant(
+                                  $state,
+                                  "select2",
+                                  "select2"
+                                )
+                              }
+                            )}
+                          >
+                            <MenuIcon
+                              className={classNames(
+                                "__wab_instance",
+                                sty.menuIcon__mdbsm
+                              )}
+                              color={(() => {
+                                try {
+                                  return (() => {
+                                    switch (master.type) {
+                                      case "telegram":
+                                        return "blue";
+                                      case "sms":
+                                        return "fuchsia";
+                                      case "notification":
+                                        return "warning";
+                                    }
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "fuchsia";
+                                  }
+                                  throw e;
                                 }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
+                              })()}
+                              icons={(() => {
+                                try {
+                                  return master.type;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                              outline={true}
+                              size={"_25"}
+                            />
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__gxmVs
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__vspEj
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__pkOvm
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return `${master.name}`;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "\u062a\u0633\u062a adhd";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__snMvK
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return (
+                                        master.value.toLocaleString() +
+                                        " تومان "
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "2865so \u062a\u0648\u0645\u0646";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__aX8Mn
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return (
-                                currentItem.costs[
-                                  $state.select.type
-                                ].toLocaleString() + " تومان "
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "2865so \u062a\u0648\u0645\u0646";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__sfndX
-                      )}
-                    >
-                      <React.Fragment>
                         {(() => {
                           try {
-                            return (() => {
-                              const text = `یادآوری در ${currentItem.activeDays} روز از ماه، روزی ${currentItem.timesPerDay} بار انجام می‌شود.`;
-                              return text;
-                            })();
+                            return !$state.collapse[currentIndex].open;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
                               e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              return "\u062a\u0633\u062a adhd";
+                              return true;
                             }
                             throw e;
                           }
-                        })()}
+                        })()
+                          ? (_par =>
+                              !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                              (() => {
+                                try {
+                                  return $state.apiRequest.data.results
+                                    .filter(i =>
+                                      i.channels.includes(master.type)
+                                    )
+                                    .slice(0, 1);
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ).map((__plasmic_item_1, __plasmic_idx_1) => {
+                              const currentItem = __plasmic_item_1;
+                              const currentIndex = __plasmic_idx_1;
+                              return (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__iClqq
+                                  )}
+                                  key={currentIndex}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__tqvpe
+                                    )}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox___2Fm3M,
+                                        {
+                                          [sty.freeBoxselect2___2Fm3M3VVTl]:
+                                            hasVariant(
+                                              $state,
+                                              "select2",
+                                              "select2"
+                                            )
+                                        }
+                                      )}
+                                    >
+                                      <MenuIcon
+                                        className={classNames(
+                                          "__wab_instance",
+                                          sty.menuIcon__sRmyW
+                                        )}
+                                        icons={(() => {
+                                          try {
+                                            return master.type;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return [];
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                        outline={true}
+                                      />
+                                    </div>
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox__yAlwa
+                                      )}
+                                    >
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.freeBox__nxeiq
+                                        )}
+                                      >
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            sty.freeBox__wu4VP
+                                          )}
+                                        >
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text__xIm3D
+                                            )}
+                                          >
+                                            <React.Fragment>
+                                              {(() => {
+                                                try {
+                                                  return `${currentItem.name}`;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return "\u062a\u0633\u062a adhd";
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()}
+                                            </React.Fragment>
+                                          </div>
+                                        </div>
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__lloig
+                                          )}
+                                        >
+                                          <React.Fragment>
+                                            {(() => {
+                                              try {
+                                                return (
+                                                  currentItem.costs[
+                                                    master.type
+                                                  ].toLocaleString() + " تومان "
+                                                );
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return "2865so \u062a\u0648\u0645\u0646";
+                                                }
+                                                throw e;
+                                              }
+                                            })()}
+                                          </React.Fragment>
+                                        </div>
+                                      </div>
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.__wab_text,
+                                          sty.text__yf4Xr
+                                        )}
+                                      >
+                                        <React.Fragment>
+                                          {(() => {
+                                            try {
+                                              return (() => {
+                                                const text = `یادآوری در ${currentItem.activeDays} روز از ماه، روزی ${currentItem.timesPerDay} بار انجام می‌شود.`;
+                                                return text;
+                                              })();
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return "\u062a\u0633\u062a adhd";
+                                              }
+                                              throw e;
+                                            }
+                                          })()}
+                                        </React.Fragment>
+                                      </div>
+                                    </div>
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox__dRPqL
+                                      )}
+                                    />
+                                  </div>
+                                </div>
+                              );
+                            })
+                          : null}
                       </React.Fragment>
-                    </div>
-                  </div>
-                </div>
+                    ),
+                    onChange: async (...eventArgs: any) => {
+                      generateStateOnChangePropForCodeComponents(
+                        $state,
+                        "open",
+                        ["collapse", __plasmic_idx_0, "open"],
+                        AntdSingleCollapse_Helpers
+                      ).apply(null, eventArgs);
+                    },
+                    open: generateStateValueProp($state, [
+                      "collapse",
+                      __plasmic_idx_0,
+                      "open"
+                    ]),
+                    showArrow: true
+                  };
+                  initializeCodeComponentStates(
+                    $state,
+                    [
+                      {
+                        name: "open",
+                        plasmicStateName: "collapse[].open"
+                      }
+                    ],
+                    [__plasmic_idx_0],
+                    AntdSingleCollapse_Helpers ?? {},
+                    child$Props
+                  );
+                  initializePlasmicStates(
+                    $state,
+                    [
+                      {
+                        name: "collapse[].open",
+                        initFunc: ({ $props, $state, $queries }) => undefined
+                      }
+                    ],
+                    [__plasmic_idx_0]
+                  );
+                  return (
+                    <AntdSingleCollapse
+                      data-plasmic-name={"collapse"}
+                      data-plasmic-override={overrides.collapse}
+                      {...child$Props}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__aaXyH
+                        )}
+                      >
+                        {(_par =>
+                          !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                          (() => {
+                            try {
+                              return $state.apiRequest.data.results.filter(i =>
+                                i.channels.includes(master.type)
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                        ).map((__plasmic_item_1, __plasmic_idx_1) => {
+                          const currentItem = __plasmic_item_1;
+                          const currentIndex = __plasmic_idx_1;
+                          return (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__dVwd
+                              )}
+                              key={currentIndex}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox___03OhY
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox___4G5O6,
+                                    {
+                                      [sty.freeBoxselect2___4G5O63VVTl]:
+                                        hasVariant($state, "select2", "select2")
+                                    }
+                                  )}
+                                >
+                                  <MenuIcon
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.menuIcon__trQFl
+                                    )}
+                                    icons={(() => {
+                                      try {
+                                        return master.type;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return [];
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                    outline={true}
+                                  />
+                                </div>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__xP5Yb
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox___9Qjo4
+                                    )}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox___1Ow1T
+                                      )}
+                                    >
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.__wab_text,
+                                          sty.text__yiaZq
+                                        )}
+                                      >
+                                        <React.Fragment>
+                                          {(() => {
+                                            try {
+                                              return `${currentItem.name}`;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return "\u062a\u0633\u062a adhd";
+                                              }
+                                              throw e;
+                                            }
+                                          })()}
+                                        </React.Fragment>
+                                      </div>
+                                    </div>
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__aX8Mn
+                                      )}
+                                    >
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return (
+                                              currentItem.costs[
+                                                master.type
+                                              ].toLocaleString() + " تومان "
+                                            );
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "2865so \u062a\u0648\u0645\u0646";
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                      </React.Fragment>
+                                    </div>
+                                  </div>
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__sfndX
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return (() => {
+                                            const text = `یادآوری در ${currentItem.activeDays} روز از ماه، روزی ${currentItem.timesPerDay} بار انجام می‌شود.`;
+                                            return text;
+                                          })();
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "\u062a\u0633\u062a adhd";
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    </React.Fragment>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </AntdSingleCollapse>
+                  );
+                })()}
               </div>
             );
           })}
@@ -1546,7 +1676,9 @@ function PlasmicReport__RenderFunc(props: {
       >
         <div className={classNames(projectcss.all, sty.freeBox___0GcKm)}>
           <XIcon
-            className={classNames(projectcss.all, sty.svg__zt8N)}
+            data-plasmic-name={"svg"}
+            data-plasmic-override={overrides.svg}
+            className={classNames(projectcss.all, sty.svg)}
             onClick={async event => {
               const $steps = {};
 
@@ -1593,11 +1725,21 @@ function PlasmicReport__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "sideEffect", "tabWeek2", "apiRequest", "headerLiom"],
+  root: [
+    "root",
+    "sideEffect",
+    "tabWeek2",
+    "apiRequest",
+    "collapse",
+    "headerLiom",
+    "svg"
+  ],
   sideEffect: ["sideEffect"],
   tabWeek2: ["tabWeek2"],
-  apiRequest: ["apiRequest"],
-  headerLiom: ["headerLiom"]
+  apiRequest: ["apiRequest", "collapse"],
+  collapse: ["collapse"],
+  headerLiom: ["headerLiom", "svg"],
+  svg: ["svg"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1607,7 +1749,9 @@ type NodeDefaultElementType = {
   sideEffect: typeof SideEffect;
   tabWeek2: typeof TabWeek2;
   apiRequest: typeof ApiRequest;
+  collapse: typeof AntdSingleCollapse;
   headerLiom: typeof HeaderLiom;
+  svg: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1675,7 +1819,9 @@ export const PlasmicReport = Object.assign(
     sideEffect: makeNodeComponent("sideEffect"),
     tabWeek2: makeNodeComponent("tabWeek2"),
     apiRequest: makeNodeComponent("apiRequest"),
+    collapse: makeNodeComponent("collapse"),
     headerLiom: makeNodeComponent("headerLiom"),
+    svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicReport
     internalVariantProps: PlasmicReport__VariantProps,

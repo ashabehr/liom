@@ -66,12 +66,10 @@ import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-impor
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import MenuIcon from "../../MenuIcon"; // plasmic-import: JBF-V8Q5mpWl/component
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
+import ReminderShop from "../../ReminderShop"; // plasmic-import: 3q6J_8ClWpvX/component
 import Tariff from "../../Tariff"; // plasmic-import: GnOiSfG6XOMz/component
 import Report from "../../../src/pages/report"; // plasmic-import: 4wEldhsM09tv/component
-import ReminderShop from "../../ReminderShop"; // plasmic-import: 3q6J_8ClWpvX/component
-import { DialogTitle } from "@plasmicpkgs/radix-ui";
-import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
-import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -91,8 +89,6 @@ import Icon144Icon from "./icons/PlasmicIcon__Icon144"; // plasmic-import: 1DQk0
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon367Icon from "./icons/PlasmicIcon__Icon367"; // plasmic-import: 9EVbJgSegdgi/icon
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
-import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
-import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 
 createPlasmicElementProxy;
 
@@ -121,9 +117,10 @@ export type PlasmicMojodi__OverridesType = {
   button2?: Flex__<typeof Button>;
   menuIcon?: Flex__<typeof MenuIcon>;
   headerLiom?: Flex__<typeof HeaderLiom>;
+  reminderShop?: Flex__<typeof ReminderShop>;
   tariff?: Flex__<typeof Tariff>;
   report?: Flex__<typeof Report>;
-  reminderShop?: Flex__<typeof ReminderShop>;
+  sideEffect?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultMojodiProps {}
@@ -275,69 +272,19 @@ function PlasmicMojodi__RenderFunc(props: {
         path: "reminderShop.opendialog",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
-      },
-      {
-        path: "apiRequest.data",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "apiRequest.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "apiRequest.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "input.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-
-        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
-      },
-      {
-        path: "button3.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button3.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button3.load",
-        type: "private",
-        variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "button4.color",
+        path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       },
       {
-        path: "button4.loading",
+        path: "report.refresh",
         type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button4.load",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -406,6 +353,23 @@ function PlasmicMojodi__RenderFunc(props: {
               [sty.historyfull2]: hasVariant($state, "full2", "full2"),
               [sty.historypage_tariff]: hasVariant($state, "page", "tariff")
             })}
+            config={(() => {
+              try {
+                return {
+                  headers: {
+                    authorization: $state.token
+                  }
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
             errorDisplay={
               <div className={classNames(projectcss.all, sty.freeBox__z5V5X)}>
                 <div
@@ -709,7 +673,19 @@ function PlasmicMojodi__RenderFunc(props: {
                 eventArgs
               );
             }}
-            shouldFetch={true}
+            shouldFetch={(() => {
+              try {
+                return $state.token != "";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })()}
             url={"https://n8n.staas.ir/webhook/walletHistory"}
           >
             <div
@@ -839,6 +815,21 @@ function PlasmicMojodi__RenderFunc(props: {
                       )
                     }
                   )}
+                  style={(() => {
+                    try {
+                      return {
+                        color: $state.history.data.balance < 0 ? "red" : ""
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
                 >
                   <React.Fragment>
                     {(() => {
@@ -877,7 +868,32 @@ function PlasmicMojodi__RenderFunc(props: {
                 {"\u0627\u0639\u062a\u0628\u0627\u0631 \u0634\u0645\u0627"}
               </div>
               <div className={classNames(projectcss.all, sty.freeBox___1ZVcl)}>
-                <div className={classNames(projectcss.all, sty.freeBox__nZ7YP)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__nZ7YP)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return ($state.reminderShop.opendialog = true);
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }}
+                >
                   <div
                     className={classNames(projectcss.all, sty.freeBox__zbaKg)}
                   >
@@ -1276,6 +1292,30 @@ function PlasmicMojodi__RenderFunc(props: {
             </div>
           </div>
         </HeaderLiom>
+        <ReminderShop
+          data-plasmic-name={"reminderShop"}
+          data-plasmic-override={overrides.reminderShop}
+          className={classNames("__wab_instance", sty.reminderShop)}
+          onOpendialogChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, [
+              "reminderShop",
+              "opendialog"
+            ]).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          opendialog={generateStateValueProp($state, [
+            "reminderShop",
+            "opendialog"
+          ])}
+        />
+
         <Tariff
           data-plasmic-name={"tariff"}
           data-plasmic-override={overrides.tariff}
@@ -1311,19 +1351,14 @@ function PlasmicMojodi__RenderFunc(props: {
           data-plasmic-name={"report"}
           data-plasmic-override={overrides.report}
           className={classNames("__wab_instance", sty.report, {
-            [sty.reportpage_report]: hasVariant($state, "page", "report")
+            [sty.reportpage_report]: hasVariant($state, "page", "report"),
+            [sty.reportpage_tariff]: hasVariant($state, "page", "tariff")
           })}
-        />
-
-        <ReminderShop
-          data-plasmic-name={"reminderShop"}
-          data-plasmic-override={overrides.reminderShop}
-          className={classNames("__wab_instance", sty.reminderShop)}
-          onOpendialogChange={async (...eventArgs: any) => {
-            generateStateOnChangeProp($state, [
-              "reminderShop",
-              "opendialog"
-            ]).apply(null, eventArgs);
+          onRefreshChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["report", "refresh"]).apply(
+              null,
+              eventArgs
+            );
 
             if (
               eventArgs.length > 1 &&
@@ -1333,10 +1368,48 @@ function PlasmicMojodi__RenderFunc(props: {
               return;
             }
           }}
-          opendialog={generateStateValueProp($state, [
-            "reminderShop",
-            "opendialog"
-          ])}
+          refresh={generateStateValueProp($state, ["report", "refresh"])}
+        />
+
+        <SideEffect
+          data-plasmic-name={"sideEffect"}
+          data-plasmic-override={overrides.sideEffect}
+          className={classNames("__wab_instance", sty.sideEffect, {
+            [sty.sideEffectpage_tariff]: hasVariant($state, "page", "tariff")
+          })}
+          onMount={async () => {
+            const $steps = {};
+
+            $steps["runCode"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        var getCookie = name => {
+                          const cookies = document.cookie.split("; ");
+                          for (let cookie of cookies) {
+                            const [key, value] = cookie.split("=");
+                            if (key === name) return JSON.parse(value)[0];
+                          }
+                          return "";
+                        };
+                        return ($state.token = getCookie("token"));
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
+            }
+          }}
         />
       </div>
     </React.Fragment>
@@ -1351,18 +1424,20 @@ const PlasmicDescendants = {
     "button2",
     "menuIcon",
     "headerLiom",
+    "reminderShop",
     "tariff",
     "report",
-    "reminderShop"
+    "sideEffect"
   ],
   history: ["history", "button", "button2", "menuIcon"],
   button: ["button"],
   button2: ["button2"],
   menuIcon: ["menuIcon"],
   headerLiom: ["headerLiom"],
+  reminderShop: ["reminderShop"],
   tariff: ["tariff"],
   report: ["report"],
-  reminderShop: ["reminderShop"]
+  sideEffect: ["sideEffect"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1374,9 +1449,10 @@ type NodeDefaultElementType = {
   button2: typeof Button;
   menuIcon: typeof MenuIcon;
   headerLiom: typeof HeaderLiom;
+  reminderShop: typeof ReminderShop;
   tariff: typeof Tariff;
   report: typeof Report;
-  reminderShop: typeof ReminderShop;
+  sideEffect: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1471,9 +1547,10 @@ export const PlasmicMojodi = Object.assign(
     button2: makeNodeComponent("button2"),
     menuIcon: makeNodeComponent("menuIcon"),
     headerLiom: makeNodeComponent("headerLiom"),
+    reminderShop: makeNodeComponent("reminderShop"),
     tariff: makeNodeComponent("tariff"),
     report: makeNodeComponent("report"),
-    reminderShop: makeNodeComponent("reminderShop"),
+    sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicMojodi
     internalVariantProps: PlasmicMojodi__VariantProps,

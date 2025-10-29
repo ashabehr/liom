@@ -7217,6 +7217,16 @@
           "id": "b_DOUX-Ryjc8",
           "name": "Icon368Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon368.tsx"
+        },
+        {
+          "id": "6v8yJA45JY1M",
+          "name": "Untitled1Svg2Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Untitled1Svg2.tsx"
+        },
+        {
+          "id": "mWa4pf2hHZTW",
+          "name": "TomanSvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__TomanSvg.tsx"
         }
       ],
       "images": [

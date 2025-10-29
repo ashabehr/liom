@@ -63,9 +63,9 @@ import { Dialog } from "@plasmicpkgs/radix-ui";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { DialogContent } from "@plasmicpkgs/radix-ui";
 import { DialogTitle } from "@plasmicpkgs/radix-ui";
-import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
-import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
-import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
+import Radio from "../../Radio"; // plasmic-import: hOINlBYPAtM2/component
+import { Input } from "@/fragment/components/input"; // plasmic-import: zZH7vV9pXyf8/codeComponent
+import RadioGroupLiom from "../../RadioGroupLiom"; // plasmic-import: tXN0uQ-uT9R3/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -76,10 +76,9 @@ import sty from "./PlasmicReminderShop.module.css"; // plasmic-import: 3q6J_8ClW
 
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
 import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: DnjmD0szshuz/icon
-import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
-import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
+import TomanSvgIcon from "./icons/PlasmicIcon__TomanSvg"; // plasmic-import: mWa4pf2hHZTW/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
-import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
 createPlasmicElementProxy;
 
@@ -89,13 +88,11 @@ type VariantPropType = keyof PlasmicReminderShop__VariantsArgs;
 export const PlasmicReminderShop__VariantProps = new Array<VariantPropType>();
 
 export type PlasmicReminderShop__ArgsType = {
-  children?: React.ReactNode;
   opendialog?: boolean;
   onOpendialogChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicReminderShop__ArgsType;
 export const PlasmicReminderShop__ArgProps = new Array<ArgPropType>(
-  "children",
   "opendialog",
   "onOpendialogChange"
 );
@@ -104,12 +101,14 @@ export type PlasmicReminderShop__OverridesType = {
   dialog3?: Flex__<typeof Dialog>;
   button3?: Flex__<typeof Button>;
   dialogContent?: Flex__<typeof DialogContent>;
-  dialogTitle?: Flex__<typeof DialogTitle>;
-  text?: Flex__<"div">;
+  h5?: Flex__<"h5">;
+  radio?: Flex__<typeof Radio>;
+  input?: Flex__<typeof Input>;
+  radioGroupLiom?: Flex__<typeof RadioGroupLiom>;
+  button?: Flex__<typeof Button>;
 };
 
 export interface DefaultReminderShopProps {
-  children?: React.ReactNode;
   opendialog?: boolean;
   onOpendialogChange?: (val: string) => void;
   className?: string;
@@ -204,6 +203,64 @@ function PlasmicReminderShop__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "radioGroupLiom.selected",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "radioGroupLiom.list",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          {
+            label:
+              "\u06f5\u06f0 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
+            value: "50000"
+          },
+          {
+            label:
+              "\u06f1\u06f0\u06f0 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
+            value: "100000"
+          },
+          {
+            label:
+              "\u06f2\u06f0\u06f0 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646",
+            value: "200000"
+          }
+        ]
+      },
+      {
+        path: "radioGroupLiom.selects",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "input.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -390,327 +447,462 @@ function PlasmicReminderShop__RenderFunc(props: {
         )}
       >
         <DialogTitle
-          data-plasmic-name={"dialogTitle"}
-          data-plasmic-override={overrides.dialogTitle}
-          className={classNames("__wab_instance", sty.dialogTitle)}
+          className={classNames("__wab_instance", sty.dialogTitle__pDxSr)}
         >
           <div
-            data-plasmic-name={"text"}
-            data-plasmic-override={overrides.text}
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text
+              sty.text___6Y6Yw
             )}
           >
             {"Sheet title"}
           </div>
         </DialogTitle>
-        {renderPlasmicSlot({
-          defaultContents: (
-            <ApiRequest
-              className={classNames(
-                "__wab_instance",
-                sty.fragmentApiRequest__hiEtl
-              )}
-              errorDisplay={
+        <div className={classNames(projectcss.all, sty.freeBox__h7SWx)}>
+          <div
+            className={classNames(projectcss.all, sty.freeBox__hbHmY)}
+            dir={"rtl"}
+          >
+            <div className={classNames(projectcss.all, sty.freeBox__mgQm3)} />
+
+            <DialogTitle
+              className={classNames("__wab_instance", sty.dialogTitle__qhn0N)}
+            >
+              <h5
+                data-plasmic-name={"h5"}
+                data-plasmic-override={overrides.h5}
+                className={classNames(projectcss.all, projectcss.h5, sty.h5)}
+              >
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text___3S2Ad
+                    sty.text__x5JtE
                   )}
                 >
-                  {"Error fetching data"}
+                  {
+                    "\u0627\u0641\u0632\u0627\u06cc\u0634 \u0627\u0639\u062a\u0628\u0627\u0631"
+                  }
                 </div>
-              }
-              loadingDisplay={
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___4NGZm)}
-                >
-                  <Icon115Icon
-                    className={classNames(projectcss.all, sty.svg___9HdE2)}
-                    role={"img"}
-                  />
-                </div>
-              }
-              method={"GET"}
-              shouldFetch={true}
+                <Radio
+                  data-plasmic-name={"radio"}
+                  data-plasmic-override={overrides.radio}
+                  className={classNames("__wab_instance", sty.radio)}
+                  label={null}
+                />
+              </h5>
+            </DialogTitle>
+          </div>
+          <div className={classNames(projectcss.all, sty.freeBox__doG54)}>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__dj26N)}
+              dir={"rtl"}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__h7SWx)}>
+              <Input
+                data-plasmic-name={"input"}
+                data-plasmic-override={overrides.input}
+                className={classNames("__wab_instance", sty.input)}
+                maxLength={9}
+                onChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["input", "value"]).apply(
+                    null,
+                    eventArgs
+                  );
+
+                  (async value => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                var selectedValue = $state.input.value;
+                                return ($state.radioGroupLiom.selected =
+                                  $state.radioGroupLiom.list.some(
+                                    item => item.value === selectedValue
+                                  )
+                                    ? selectedValue
+                                    : "");
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }).apply(null, eventArgs);
+                }}
+                placeholder={
+                  "\u0645\u0628\u0644\u063a \u062f\u0644\u062e\u0648\u0627\u0647 \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f"
+                }
+                type={"amount"}
+                value={generateStateValueProp($state, ["input", "value"])}
+              />
+
+              <TomanSvgIcon
+                className={classNames(projectcss.all, sty.svg__upiWq)}
+                role={"img"}
+              />
+
+              {(() => {
+                try {
+                  return parseInt($state.input.value) < 20000;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__hbHmY)}
-                  dir={"rtl"}
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__cvzTs
+                  )}
                 >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__mgQm3)}
-                  />
-
-                  <DialogTitle
-                    className={classNames(
-                      "__wab_instance",
-                      sty.dialogTitle__qhn0N
-                    )}
-                  >
-                    <h5
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.h5,
-                        sty.h5__bkh8S
-                      )}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text___7YjUc
-                        )}
-                      >
-                        {"Dialog title"}
-                      </div>
-                    </h5>
-                  </DialogTitle>
+                  {
+                    "\u0645\u0628\u0644\u063a \u0646\u0645\u06cc\u062a\u0648\u0627\u0646\u062f \u06a9\u0645\u062a\u0631 \u0627\u0632 20 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646 \u0628\u0627\u0634\u062f."
+                  }
                 </div>
+              ) : null}
+              {(() => {
+                try {
+                  return parseInt($state.input.value) >= 20000;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__dj26N)}
-                  dir={"rtl"}
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___3Hv7
+                  )}
                 >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__wSNzX
-                    )}
-                  >
-                    {"You can insert dialog body content here in this slot."}
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__lkaRz)}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__l2HTg)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__xs4Ir
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__hkJ71
-                          )}
-                        >
-                          {
-                            "\ud83c\udf39 \u0628\u0647 \u0635\u0631\u0641\u0647 \u062a\u0631\u06cc\u0646 \ud83c\udf39"
-                          }
-                        </div>
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___8Fdn
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__hTp5O
-                          )}
-                        >
-                          {"Enter some text"}
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__vCca9
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__yTzu
-                            )}
-                          >
-                            {"Enter some text"}
-                          </div>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__iXuga
-                            )}
-                          >
-                            {"Enter some text"}
-                          </div>
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__ctusr
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__aW0SN
-                            )}
-                          >
-                            {"1"}
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__q7Rp8
-                        )}
-                      >
-                        {
-                          "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f"
-                        }
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__rEmZc
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__kXtv7
-                          )}
-                        >
-                          {(() => {
-                            const child$Props = {
-                              allowClear: false,
-                              autoFocus: false,
-                              bordered: false,
-                              className: classNames(
-                                "__wab_instance",
-                                sty.input__aguKc
-                              ),
-                              disabled: false,
-                              placeholder:
-                                "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f",
-                              prefix: (
-                                <Icon10Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg___4WbmQ
-                                  )}
-                                  role={"img"}
-                                />
-                              ),
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return (() => {
+                          function numberToPersianText(number) {
+                            const yekan = [
+                              "",
+                              "یک",
+                              "دو",
+                              "سه",
+                              "چهار",
+                              "پنج",
+                              "شش",
+                              "هفت",
+                              "هشت",
+                              "نه"
+                            ];
 
-                              readOnly: false,
-                              size: "small",
-                              suffix: null
-                            };
+                            const dahgan = [
+                              "",
+                              "ده",
+                              "بیست",
+                              "سی",
+                              "چهل",
+                              "پنجاه",
+                              "شصت",
+                              "هفتاد",
+                              "هشتاد",
+                              "نود"
+                            ];
 
-                            return <AntdInput {...child$Props} />;
-                          })()}
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__wxir6
-                            )}
-                          />
-                        </div>
-                        <Button
-                          className={classNames(
-                            "__wab_instance",
-                            sty.button__uKgd4
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__nxee5
-                            )}
-                          >
-                            {"\u062a\u0627\u06cc\u06cc\u062f"}
-                          </div>
-                        </Button>
-                      </div>
-                      <Button
-                        className={classNames(
-                          "__wab_instance",
-                          sty.button__pqRi3
-                        )}
-                        endIcon={
-                          <Icon12Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__yebgl
-                            )}
-                            role={"img"}
-                          />
-                        }
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__rFqek
-                          )}
-                        >
-                          {
-                            "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647"
+                            const sadgan = [
+                              "",
+                              "صد",
+                              "دویست",
+                              "سیصد",
+                              "چهارصد",
+                              "پانصد",
+                              "ششصد",
+                              "هفتصد",
+                              "هشتصد",
+                              "نهصد"
+                            ];
+
+                            const dahYek = [
+                              "ده",
+                              "یازده",
+                              "دوازده",
+                              "سیزده",
+                              "چهارده",
+                              "پانزده",
+                              "شانزده",
+                              "هفده",
+                              "هجده",
+                              "نوزده"
+                            ];
+
+                            const hazarha = [
+                              "",
+                              "هزار",
+                              "میلیون",
+                              "میلیارد",
+                              "بیلیون"
+                            ];
+
+                            function threeDigitToText(num) {
+                              num = parseInt(num, 10);
+                              if (num === 0) return "";
+                              let result = "";
+                              if (Math.floor(num / 100) > 0) {
+                                result += sadgan[Math.floor(num / 100)];
+                              }
+                              num %= 100;
+                              if (num >= 10 && num <= 19) {
+                                result +=
+                                  (result ? " و " : "") + dahYek[num - 10];
+                              } else {
+                                if (Math.floor(num / 10) > 0) {
+                                  result +=
+                                    (result ? " و " : "") +
+                                    dahgan[Math.floor(num / 10)];
+                                }
+                                if (num % 10 > 0) {
+                                  result +=
+                                    (result ? " و " : "") + yekan[num % 10];
+                                }
+                              }
+                              return result;
+                            }
+                            if (number === 0) return "صفر";
+                            let numStr = number.toString();
+                            let chunks = [];
+                            while (numStr.length > 0) {
+                              chunks.push(numStr.slice(-3));
+                              numStr = numStr.slice(0, -3);
+                            }
+                            let parts = [];
+                            for (let i = 0; i < chunks.length; i++) {
+                              let chunk = parseInt(chunks[i], 10);
+                              if (chunk !== 0) {
+                                let text = threeDigitToText(chunk);
+                                if (hazarha[i]) {
+                                  text += " " + hazarha[i];
+                                }
+                                parts.unshift(text);
+                              }
+                            }
+                            return parts.join(" و ");
                           }
-                        </div>
-                      </Button>
-                      <p
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.p,
-                          projectcss.__wab_text,
-                          sty.p__uClWs
-                        )}
-                      >
-                        {
-                          "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
+                          return (
+                            numberToPersianText($state.input.value) + " تومان "
+                          );
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "\u0645\u0628\u0644\u063a \u0646\u0645\u06cc\u062a\u0648\u0627\u0646\u062f \u06a9\u0645\u062a\u0631 \u0627\u0632 20 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646 \u0628\u0627\u0634\u062f.";
                         }
-                      </p>
-                      <p
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.p,
-                          projectcss.__wab_text,
-                          sty.p__pM7Ox
-                        )}
-                      >
-                        {
-                          "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
-                        }
-                      </p>
-                    </div>
-                  </div>
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
                 </div>
-              </div>
-            </ApiRequest>
-          ),
-          value: args.children
-        })}
+              ) : null}
+            </div>
+            <RadioGroupLiom
+              data-plasmic-name={"radioGroupLiom"}
+              data-plasmic-override={overrides.radioGroupLiom}
+              className={classNames("__wab_instance", sty.radioGroupLiom)}
+              click={async () => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return ($state.input.value =
+                            $state.radioGroupLiom.selected);
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }}
+              list={generateStateValueProp($state, ["radioGroupLiom", "list"])}
+              onListChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "radioGroupLiom",
+                  "list"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onSelectedChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "radioGroupLiom",
+                  "selected"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onSelectsChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "radioGroupLiom",
+                  "selects"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              selected={generateStateValueProp($state, [
+                "radioGroupLiom",
+                "selected"
+              ])}
+              selects={generateStateValueProp($state, [
+                "radioGroupLiom",
+                "selects"
+              ])}
+              size={"small"}
+              unnamedVariant={true}
+            />
+          </div>
+        </div>
+        <Button
+          data-plasmic-name={"button"}
+          data-plasmic-override={overrides.button}
+          className={classNames("__wab_instance", sty.button)}
+          color={generateStateValueProp($state, ["button", "color"])}
+          load={generateStateValueProp($state, ["button", "load"])}
+          loading={generateStateValueProp($state, ["button", "loading"])}
+          onColorChange={async (...eventArgs: any) => {
+            ((...eventArgs) => {
+              generateStateOnChangeProp($state, ["button", "color"])(
+                eventArgs[0]
+              );
+            }).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          onLoadChange={async (...eventArgs: any) => {
+            ((...eventArgs) => {
+              generateStateOnChangeProp($state, ["button", "load"])(
+                eventArgs[0]
+              );
+            }).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          onLoadingChange={async (...eventArgs: any) => {
+            ((...eventArgs) => {
+              generateStateOnChangeProp($state, ["button", "loading"])(
+                eventArgs[0]
+              );
+            }).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+        >
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__yDfxd
+            )}
+          >
+            {"\u067e\u0631\u062f\u0627\u062e\u062a"}
+          </div>
+        </Button>
       </DialogContent>
     </Dialog>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  dialog3: ["dialog3", "button3", "dialogContent", "dialogTitle", "text"],
+  dialog3: [
+    "dialog3",
+    "button3",
+    "dialogContent",
+    "h5",
+    "radio",
+    "input",
+    "radioGroupLiom",
+    "button"
+  ],
   button3: ["button3"],
-  dialogContent: ["dialogContent", "dialogTitle", "text"],
-  dialogTitle: ["dialogTitle", "text"],
-  text: ["text"]
+  dialogContent: [
+    "dialogContent",
+    "h5",
+    "radio",
+    "input",
+    "radioGroupLiom",
+    "button"
+  ],
+  h5: ["h5", "radio"],
+  radio: ["radio"],
+  input: ["input"],
+  radioGroupLiom: ["radioGroupLiom"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -719,8 +911,11 @@ type NodeDefaultElementType = {
   dialog3: typeof Dialog;
   button3: typeof Button;
   dialogContent: typeof DialogContent;
-  dialogTitle: typeof DialogTitle;
-  text: "div";
+  h5: "h5";
+  radio: typeof Radio;
+  input: typeof Input;
+  radioGroupLiom: typeof RadioGroupLiom;
+  button: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -787,8 +982,11 @@ export const PlasmicReminderShop = Object.assign(
     // Helper components rendering sub-elements
     button3: makeNodeComponent("button3"),
     dialogContent: makeNodeComponent("dialogContent"),
-    dialogTitle: makeNodeComponent("dialogTitle"),
-    text: makeNodeComponent("text"),
+    h5: makeNodeComponent("h5"),
+    radio: makeNodeComponent("radio"),
+    input: makeNodeComponent("input"),
+    radioGroupLiom: makeNodeComponent("radioGroupLiom"),
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicReminderShop
     internalVariantProps: PlasmicReminderShop__VariantProps,
