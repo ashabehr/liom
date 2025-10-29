@@ -62,6 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import MenuIcon from "../../MenuIcon"; // plasmic-import: JBF-V8Q5mpWl/component
@@ -69,7 +70,6 @@ import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/compo
 import ReminderShop from "../../ReminderShop"; // plasmic-import: 3q6J_8ClWpvX/component
 import Tariff from "../../Tariff"; // plasmic-import: GnOiSfG6XOMz/component
 import Report from "../../../src/pages/report"; // plasmic-import: 4wEldhsM09tv/component
-import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -112,6 +112,7 @@ export const PlasmicMojodi__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicMojodi__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   history?: Flex__<typeof ApiRequest>;
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
@@ -120,7 +121,6 @@ export type PlasmicMojodi__OverridesType = {
   reminderShop?: Flex__<typeof ReminderShop>;
   tariff?: Flex__<typeof Tariff>;
   report?: Flex__<typeof Report>;
-  sideEffect?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultMojodiProps {}
@@ -359,6 +359,47 @@ function PlasmicMojodi__RenderFunc(props: {
           }
         )}
       >
+        <SideEffect
+          data-plasmic-name={"sideEffect"}
+          data-plasmic-override={overrides.sideEffect}
+          className={classNames("__wab_instance", sty.sideEffect, {
+            [sty.sideEffectpage_tariff]: hasVariant($state, "page", "tariff")
+          })}
+          onMount={async () => {
+            const $steps = {};
+
+            $steps["runCode"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        var getCookie = name => {
+                          const cookies = document.cookie.split("; ");
+                          for (let cookie of cookies) {
+                            const [key, value] = cookie.split("=");
+                            if (key === name) return JSON.parse(value)[0];
+                          }
+                          return "";
+                        };
+                        return ($state.token = getCookie("token"));
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
+            }
+          }}
+        />
+
         <div
           className={classNames(projectcss.all, sty.freeBox__eUsCf, {
             [sty.freeBoxfull2__eUsCfIXwbM]: hasVariant(
@@ -1376,6 +1417,7 @@ function PlasmicMojodi__RenderFunc(props: {
             }
           }}
           className={classNames("__wab_instance", sty.tariff, {
+            [sty.tariffpage_report]: hasVariant($state, "page", "report"),
             [sty.tariffpage_tariff]: hasVariant($state, "page", "tariff")
           })}
           onActiveChange={async (...eventArgs: any) => {
@@ -1443,47 +1485,6 @@ function PlasmicMojodi__RenderFunc(props: {
             }
           })()}
         />
-
-        <SideEffect
-          data-plasmic-name={"sideEffect"}
-          data-plasmic-override={overrides.sideEffect}
-          className={classNames("__wab_instance", sty.sideEffect, {
-            [sty.sideEffectpage_tariff]: hasVariant($state, "page", "tariff")
-          })}
-          onMount={async () => {
-            const $steps = {};
-
-            $steps["runCode"] = true
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return (() => {
-                        var getCookie = name => {
-                          const cookies = document.cookie.split("; ");
-                          for (let cookie of cookies) {
-                            const [key, value] = cookie.split("=");
-                            if (key === name) return JSON.parse(value)[0];
-                          }
-                          return "";
-                        };
-                        return ($state.token = getCookie("token"));
-                      })();
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["runCode"] != null &&
-              typeof $steps["runCode"] === "object" &&
-              typeof $steps["runCode"].then === "function"
-            ) {
-              $steps["runCode"] = await $steps["runCode"];
-            }
-          }}
-        />
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;
@@ -1492,6 +1493,7 @@ function PlasmicMojodi__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "sideEffect",
     "history",
     "button",
     "button2",
@@ -1499,9 +1501,9 @@ const PlasmicDescendants = {
     "headerLiom",
     "reminderShop",
     "tariff",
-    "report",
-    "sideEffect"
+    "report"
   ],
+  sideEffect: ["sideEffect"],
   history: ["history", "button", "button2", "menuIcon"],
   button: ["button"],
   button2: ["button2"],
@@ -1509,14 +1511,14 @@ const PlasmicDescendants = {
   headerLiom: ["headerLiom"],
   reminderShop: ["reminderShop"],
   tariff: ["tariff"],
-  report: ["report"],
-  sideEffect: ["sideEffect"]
+  report: ["report"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
   history: typeof ApiRequest;
   button: typeof Button;
   button2: typeof Button;
@@ -1525,7 +1527,6 @@ type NodeDefaultElementType = {
   reminderShop: typeof ReminderShop;
   tariff: typeof Tariff;
   report: typeof Report;
-  sideEffect: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1615,6 +1616,7 @@ export const PlasmicMojodi = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
     history: makeNodeComponent("history"),
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
@@ -1623,7 +1625,6 @@ export const PlasmicMojodi = Object.assign(
     reminderShop: makeNodeComponent("reminderShop"),
     tariff: makeNodeComponent("tariff"),
     report: makeNodeComponent("report"),
-    sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicMojodi
     internalVariantProps: PlasmicMojodi__VariantProps,

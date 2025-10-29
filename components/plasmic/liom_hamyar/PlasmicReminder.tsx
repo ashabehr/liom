@@ -923,11 +923,7 @@ function PlasmicReminder__RenderFunc(props: {
           ? (() => {
               const actionArgs = {
                 customFunction: async () => {
-                  return (() => {
-                    if ($state.slide3 != true && $state.slide3 != "slide3")
-                      return ($state.slide3 =
-                        window.localStorage.getItem("reminder") == "false");
-                  })();
+                  return (() => {})();
                 }
               };
               return (({ customFunction }) => {
@@ -4819,7 +4815,7 @@ function PlasmicReminder__RenderFunc(props: {
         }}
         shouldFetch={(() => {
           try {
-            return $props.token != "" && $state.balance == 0 && $state.active;
+            return $props.token != "" && $state.active;
           } catch (e) {
             if (
               e instanceof TypeError ||
