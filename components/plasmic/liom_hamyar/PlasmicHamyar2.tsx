@@ -2906,6 +2906,12 @@ function PlasmicHamyar2__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "reminder2.active",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -21216,6 +21222,7 @@ function PlasmicHamyar2__RenderFunc(props: {
         <Reminder
           data-plasmic-name={"reminder2"}
           data-plasmic-override={overrides.reminder2}
+          active={generateStateValueProp($state, ["reminder2", "active"])}
           activeSmsNotif={(() => {
             try {
               return $state.userdata?.result?.man?.activeSmsNotif
@@ -21438,6 +21445,20 @@ function PlasmicHamyar2__RenderFunc(props: {
               throw e;
             }
           })()}
+          onActiveChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["reminder2", "active"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
           onRefreshChange={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, ["reminder2", "refresh"]).apply(
               null,

@@ -391,6 +391,12 @@ function PlasmicMainHamyar__RenderFunc(props: {
 
         valueProp: "reminderCategory",
         onChangeProp: "onReminderCategoryChange"
+      },
+      {
+        path: "reminder.active",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -786,6 +792,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
       <Reminder
         data-plasmic-name={"reminder"}
         data-plasmic-override={overrides.reminder}
+        active={generateStateValueProp($state, ["reminder", "active"])}
         activeSmsNotif={(() => {
           try {
             return $state.hamyar2.userdata?.result?.man?.activeSmsNotif
@@ -1232,6 +1239,20 @@ function PlasmicMainHamyar__RenderFunc(props: {
             throw e;
           }
         })()}
+        onActiveChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["reminder", "active"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
         onRefreshChange={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, ["reminder", "refresh"]).apply(
             null,

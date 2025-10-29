@@ -1410,10 +1410,7 @@ function PlasmicReport__RenderFunc(props: {
                                         <React.Fragment>
                                           {(() => {
                                             try {
-                                              return (() => {
-                                                const text = `یادآوری در ${currentItem.activeDays} روز از ماه، روزی ${currentItem.timesPerDay} بار انجام می‌شود.`;
-                                                return text;
-                                              })();
+                                              return `این یادآوری در ماه ${currentItem.activeDays * currentItem.timesPerDay} بار اسال می شود`;
                                             } catch (e) {
                                               if (
                                                 e instanceof TypeError ||

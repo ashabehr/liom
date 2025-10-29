@@ -128,6 +128,8 @@ export type PlasmicReminder__ArgsType = {
   ferst?: boolean;
   reminderSettingReminderCategory2Data?: any;
   onReminderSettingReminderCategory2DataChange?: (val: any) => void;
+  active?: boolean;
+  onActiveChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicReminder__ArgsType;
 export const PlasmicReminder__ArgProps = new Array<ArgPropType>(
@@ -151,7 +153,9 @@ export const PlasmicReminder__ArgProps = new Array<ArgPropType>(
   "onSlide3Change",
   "ferst",
   "reminderSettingReminderCategory2Data",
-  "onReminderSettingReminderCategory2DataChange"
+  "onReminderSettingReminderCategory2DataChange",
+  "active",
+  "onActiveChange"
 );
 
 export type PlasmicReminder__OverridesType = {
@@ -211,6 +215,8 @@ export interface DefaultReminderProps {
   ferst?: boolean;
   reminderSettingReminderCategory2Data?: any;
   onReminderSettingReminderCategory2DataChange?: (val: any) => void;
+  active?: boolean;
+  onActiveChange?: (val: string) => void;
   slide3?: SingleBooleanChoiceArg<"slide3">;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
   className?: string;
@@ -867,6 +873,14 @@ function PlasmicReminder__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "active",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "active",
+        onChangeProp: "onActiveChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -4805,7 +4819,7 @@ function PlasmicReminder__RenderFunc(props: {
         }}
         shouldFetch={(() => {
           try {
-            return $props.token != "";
+            return $props.token != "" && $state.balance == 0 && $state.active;
           } catch (e) {
             if (
               e instanceof TypeError ||
