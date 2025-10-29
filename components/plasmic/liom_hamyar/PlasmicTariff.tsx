@@ -80,9 +80,19 @@ export type PlasmicTariff__VariantsArgs = {};
 type VariantPropType = keyof PlasmicTariff__VariantsArgs;
 export const PlasmicTariff__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicTariff__ArgsType = { back?: () => void };
+export type PlasmicTariff__ArgsType = {
+  back?: () => void;
+  token?: string;
+  active?: boolean;
+  onActiveChange?: (val: string) => void;
+};
 type ArgPropType = keyof PlasmicTariff__ArgsType;
-export const PlasmicTariff__ArgProps = new Array<ArgPropType>("back");
+export const PlasmicTariff__ArgProps = new Array<ArgPropType>(
+  "back",
+  "token",
+  "active",
+  "onActiveChange"
+);
 
 export type PlasmicTariff__OverridesType = {
   root?: Flex__<"div">;
@@ -93,6 +103,9 @@ export type PlasmicTariff__OverridesType = {
 
 export interface DefaultTariffProps {
   back?: () => void;
+  token?: string;
+  active?: boolean;
+  onActiveChange?: (val: string) => void;
   className?: string;
 }
 
@@ -158,6 +171,14 @@ function PlasmicTariff__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "active",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "active",
+        onChangeProp: "onActiveChange"
       }
     ],
     [$props, $ctx, $refs]

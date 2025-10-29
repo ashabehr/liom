@@ -90,13 +90,15 @@ export const PlasmicReport__VariantProps = new Array<VariantPropType>(
 );
 
 export type PlasmicReport__ArgsType = {
-  refresh?: string;
-  onRefreshChange?: (val: string) => void;
+  token2?: string;
+  active?: boolean;
+  onActiveChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicReport__ArgsType;
 export const PlasmicReport__ArgProps = new Array<ArgPropType>(
-  "refresh",
-  "onRefreshChange"
+  "token2",
+  "active",
+  "onActiveChange"
 );
 
 export type PlasmicReport__OverridesType = {
@@ -110,8 +112,9 @@ export type PlasmicReport__OverridesType = {
 };
 
 export interface DefaultReportProps {
-  refresh?: string;
-  onRefreshChange?: (val: string) => void;
+  token2?: string;
+  active?: boolean;
+  onActiveChange?: (val: string) => void;
   select2?: SingleBooleanChoiceArg<"select2">;
   className?: string;
 }
@@ -278,19 +281,19 @@ function PlasmicReport__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.select2
       },
       {
-        path: "refresh",
-        type: "writable",
-        variableType: "text",
-
-        valueProp: "refresh",
-        onChangeProp: "onRefreshChange"
-      },
-      {
         path: "collapse[].open",
         type: "private",
         variableType: "boolean",
 
         onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
+      },
+      {
+        path: "active",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "active",
+        onChangeProp: "onActiveChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -1003,7 +1006,7 @@ function PlasmicReport__RenderFunc(props: {
         })()}
         shouldFetch={(() => {
           try {
-            return $state.end && $state.start;
+            return $state.end && $state.start && $props.token2 && $state.active;
           } catch (e) {
             if (
               e instanceof TypeError ||

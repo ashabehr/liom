@@ -281,10 +281,42 @@ function PlasmicMojodi__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
       },
       {
-        path: "report.refresh",
+        path: "tariff.active",
         type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.page == "tariff";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "report.active",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.page == "report";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -1319,6 +1351,7 @@ function PlasmicMojodi__RenderFunc(props: {
         <Tariff
           data-plasmic-name={"tariff"}
           data-plasmic-override={overrides.tariff}
+          active={generateStateValueProp($state, ["tariff", "active"])}
           back={async () => {
             const $steps = {};
 
@@ -1345,17 +1378,8 @@ function PlasmicMojodi__RenderFunc(props: {
           className={classNames("__wab_instance", sty.tariff, {
             [sty.tariffpage_tariff]: hasVariant($state, "page", "tariff")
           })}
-        />
-
-        <Report
-          data-plasmic-name={"report"}
-          data-plasmic-override={overrides.report}
-          className={classNames("__wab_instance", sty.report, {
-            [sty.reportpage_report]: hasVariant($state, "page", "report"),
-            [sty.reportpage_tariff]: hasVariant($state, "page", "tariff")
-          })}
-          onRefreshChange={async (...eventArgs: any) => {
-            generateStateOnChangeProp($state, ["report", "refresh"]).apply(
+          onActiveChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["tariff", "active"]).apply(
               null,
               eventArgs
             );
@@ -1368,7 +1392,56 @@ function PlasmicMojodi__RenderFunc(props: {
               return;
             }
           }}
-          refresh={generateStateValueProp($state, ["report", "refresh"])}
+          token={(() => {
+            try {
+              return $state.token;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+        />
+
+        <Report
+          data-plasmic-name={"report"}
+          data-plasmic-override={overrides.report}
+          active={generateStateValueProp($state, ["report", "active"])}
+          className={classNames("__wab_instance", sty.report, {
+            [sty.reportpage_report]: hasVariant($state, "page", "report"),
+            [sty.reportpage_tariff]: hasVariant($state, "page", "tariff")
+          })}
+          onActiveChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["report", "active"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          token2={(() => {
+            try {
+              return $state.token;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
         />
 
         <SideEffect

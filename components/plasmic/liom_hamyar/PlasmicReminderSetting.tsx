@@ -3494,124 +3494,33 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         await $steps["updateButton5Loading"];
                     }
 
-                    $steps["insert"] = !$state.select2.id
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              "POST",
-                              "https://n8n.staas.ir/webhook/user/task/add",
-                              undefined,
-                              (() => {
-                                try {
-                                  return (() => {
-                                    $state.select2.weekdays = $state.week
-                                      ?.length
-                                      ? JSON.stringify($state.week)
-                                      : undefined;
-                                    if ($state.date.length > 0) {
-                                      let dates = $state.date.map(
-                                        i => i.start.f
-                                      );
-                                      if (
-                                        $state.select2.schedule_type ===
-                                        "everyYear"
-                                      ) {
-                                        dates = $state.date.map(i => {
-                                          let parts = i.start.f.split(/[-/]/);
-                                          parts[0] = "0000";
-                                          return i.start.f.includes("-")
-                                            ? parts.join("-")
-                                            : parts.join("/");
-                                        });
-                                      }
-                                      $state.select2.dates =
-                                        JSON.stringify(dates);
-                                    } else {
-                                      $state.select2.dates = undefined;
-                                    }
-                                    if ($state.finishDate?.f) {
-                                      $state.select2.finishTime =
-                                        $state.finishDate.f;
-                                    } else {
-                                      $state.select2.finishTime = undefined;
-                                    }
-                                    $state.select2.active = 1;
-                                    $state.select2.times = JSON.stringify(
-                                      $state.time2.map(
-                                        t =>
-                                          `${String(t.hour).padStart(2, "0")}:${String(t.minute).padStart(2, "0")}`
-                                      )
-                                    );
-                                    $state.select2.name = $state.title;
-                                    $state.select2.channels = JSON.stringify(
-                                      $state.radioGroupLiom.selects
-                                    );
-                                    return $state.select2;
-                                  })();
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })(),
-                              undefined
-                            ]
-                          };
-                          return $globalActions["Fragment.apiRequest"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["insert"] != null &&
-                      typeof $steps["insert"] === "object" &&
-                      typeof $steps["insert"].then === "function"
-                    ) {
-                      $steps["insert"] = await $steps["insert"];
-                    }
-
-                    $steps["edit"] = $state.select2.id
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              "POST",
-                              "https://n8n.staas.ir/webhook/user/task/edit",
-                              undefined,
-                              (() => {
-                                try {
-                                  return (() => {
-                                    try {
-                                      if (
-                                        Array.isArray($state.week) &&
-                                        $state.week.length > 0
-                                      ) {
-                                        $state.select2.weekdays =
-                                          JSON.stringify($state.week);
-                                      } else {
-                                        $state.select2.weekdays = undefined;
-                                      }
-                                      if (
-                                        Array.isArray($state.date) &&
-                                        $state.date.length > 0
-                                      ) {
-                                        let dates = $state.date
-                                          .map(i => i?.start?.f || "")
-                                          .filter(Boolean);
+                    $steps["insert"] =
+                      !$state.select2.id && $state.time2.length > 0
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://n8n.staas.ir/webhook/user/task/add",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return (() => {
+                                      $state.select2.weekdays = $state.week
+                                        ?.length
+                                        ? JSON.stringify($state.week)
+                                        : undefined;
+                                      if ($state.date.length > 0) {
+                                        let dates = $state.date.map(
+                                          i => i.start.f
+                                        );
                                         if (
                                           $state.select2.schedule_type ===
                                           "everyYear"
                                         ) {
-                                          dates = dates.map(f => {
-                                            let parts = f.split(/[-/]/);
-                                            if (parts.length > 1)
-                                              parts[0] = "0000";
-                                            return f.includes("-")
+                                          dates = $state.date.map(i => {
+                                            let parts = i.start.f.split(/[-/]/);
+                                            parts[0] = "0000";
+                                            return i.start.f.includes("-")
                                               ? parts.join("-")
                                               : parts.join("/");
                                           });
@@ -3621,61 +3530,155 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                       } else {
                                         $state.select2.dates = undefined;
                                       }
-                                      $state.select2.finishTime =
-                                        $state?.finishDate?.f || undefined;
-                                      $state.select2.active = 1;
-                                      if (
-                                        Array.isArray($state.time2) &&
-                                        $state.time2.length > 0
-                                      ) {
-                                        $state.select2.times = JSON.stringify(
-                                          $state.time2.map(
-                                            t =>
-                                              `${String(t?.hour ?? 0).padStart(2, "0")}:${String(t?.minute ?? 0).padStart(2, "0")}`
-                                          )
-                                        );
+                                      if ($state.finishDate?.f) {
+                                        $state.select2.finishTime =
+                                          $state.finishDate.f;
                                       } else {
-                                        $state.select2.times = JSON.stringify(
-                                          []
-                                        );
+                                        $state.select2.finishTime = undefined;
                                       }
-                                      $state.select2.name = $state?.title ?? "";
-                                      const selects =
-                                        $state?.radioGroupLiom?.selects ?? [];
-                                      $state.select2.channels =
-                                        JSON.stringify(selects);
-                                    } catch (err) {
-                                      $state.select2 = {
-                                        weekdays: undefined,
-                                        dates: undefined,
-                                        finishTime: undefined,
-                                        active: 0,
-                                        times: "[]",
-                                        name: "",
-                                        channels: "[]"
-                                      };
+                                      $state.select2.active = 1;
+                                      $state.select2.times = JSON.stringify(
+                                        $state.time2.map(
+                                          t =>
+                                            `${String(t.hour).padStart(2, "0")}:${String(t.minute).padStart(2, "0")}`
+                                        )
+                                      );
+                                      $state.select2.name = $state.title;
+                                      $state.select2.channels = JSON.stringify(
+                                        $state.radioGroupLiom.selects
+                                      );
+                                      return $state.select2;
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
                                     }
-                                    return $state.select2;
-                                  })();
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
+                                    throw e;
                                   }
-                                  throw e;
-                                }
-                              })()
-                            ]
-                          };
-                          return $globalActions["Fragment.apiRequest"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
+                                })(),
+                                undefined
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                    if (
+                      $steps["insert"] != null &&
+                      typeof $steps["insert"] === "object" &&
+                      typeof $steps["insert"].then === "function"
+                    ) {
+                      $steps["insert"] = await $steps["insert"];
+                    }
+
+                    $steps["edit"] =
+                      $state.select2.id && $state.time2.length > 0
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://n8n.staas.ir/webhook/user/task/edit",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return (() => {
+                                      try {
+                                        if (
+                                          Array.isArray($state.week) &&
+                                          $state.week.length > 0
+                                        ) {
+                                          $state.select2.weekdays =
+                                            JSON.stringify($state.week);
+                                        } else {
+                                          $state.select2.weekdays = undefined;
+                                        }
+                                        if (
+                                          Array.isArray($state.date) &&
+                                          $state.date.length > 0
+                                        ) {
+                                          let dates = $state.date
+                                            .map(i => i?.start?.f || "")
+                                            .filter(Boolean);
+                                          if (
+                                            $state.select2.schedule_type ===
+                                            "everyYear"
+                                          ) {
+                                            dates = dates.map(f => {
+                                              let parts = f.split(/[-/]/);
+                                              if (parts.length > 1)
+                                                parts[0] = "0000";
+                                              return f.includes("-")
+                                                ? parts.join("-")
+                                                : parts.join("/");
+                                            });
+                                          }
+                                          $state.select2.dates =
+                                            JSON.stringify(dates);
+                                        } else {
+                                          $state.select2.dates = undefined;
+                                        }
+                                        $state.select2.finishTime =
+                                          $state?.finishDate?.f || undefined;
+                                        $state.select2.active = 1;
+                                        if (
+                                          Array.isArray($state.time2) &&
+                                          $state.time2.length > 0
+                                        ) {
+                                          $state.select2.times = JSON.stringify(
+                                            $state.time2.map(
+                                              t =>
+                                                `${String(t?.hour ?? 0).padStart(2, "0")}:${String(t?.minute ?? 0).padStart(2, "0")}`
+                                            )
+                                          );
+                                        } else {
+                                          $state.select2.times = JSON.stringify(
+                                            []
+                                          );
+                                        }
+                                        $state.select2.name =
+                                          $state?.title ?? "";
+                                        const selects =
+                                          $state?.radioGroupLiom?.selects ?? [];
+                                        $state.select2.channels =
+                                          JSON.stringify(selects);
+                                      } catch (err) {
+                                        $state.select2 = {
+                                          weekdays: undefined,
+                                          dates: undefined,
+                                          finishTime: undefined,
+                                          active: 0,
+                                          times: "[]",
+                                          name: "",
+                                          channels: "[]"
+                                        };
+                                      }
+                                      return $state.select2;
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
                     if (
                       $steps["edit"] != null &&
                       typeof $steps["edit"] === "object" &&
@@ -3814,6 +3817,31 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       typeof $steps["runCode4"].then === "function"
                     ) {
                       $steps["runCode4"] = await $steps["runCode4"];
+                    }
+
+                    $steps["invokeGlobalAction"] =
+                      $state.time2.length == 0
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "error",
+                                "\u0632\u0645\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0631\u0627 \u0645\u0634\u062e\u0635 \u06a9\u0646\u06cc\u062f.",
+                                "bottom-center"
+                              ]
+                            };
+                            return $globalActions["Fragment.showToast"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                    if (
+                      $steps["invokeGlobalAction"] != null &&
+                      typeof $steps["invokeGlobalAction"] === "object" &&
+                      typeof $steps["invokeGlobalAction"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
@@ -4081,7 +4109,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                 ])
                               : "[]",
                             channels: '["notification","telegram"]',
-                            times: "[]",
+                            times: '["9:30"]',
                             weekdays:
                               $state.reminderCategory2.select.schedule_type ==
                               "everyDay"
