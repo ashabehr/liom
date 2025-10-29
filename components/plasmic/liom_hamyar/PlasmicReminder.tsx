@@ -832,7 +832,7 @@ function PlasmicReminder__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.wallet?.data?.balance || null;
+              return $state.balance || null;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -861,6 +861,12 @@ function PlasmicReminder__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "balance",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       }
     ],
     [$props, $ctx, $refs]
@@ -4683,7 +4689,7 @@ function PlasmicReminder__RenderFunc(props: {
 
             $steps["goToMojodi"] = true
               ? (() => {
-                  const actionArgs = { destination: `/mojod/[home]` };
+                  const actionArgs = { destination: `/mojod/${"home"}` };
                   return (({ destination }) => {
                     if (
                       typeof destination === "string" &&
@@ -4763,10 +4769,43 @@ function PlasmicReminder__RenderFunc(props: {
             null,
             eventArgs
           );
+
+          (async data => {
+            const $steps = {};
+
+            $steps["updateBalance"] = $state.wallet?.data?.balance
+              ? (() => {
+                  const actionArgs = {
+                    variable: {
+                      objRoot: $state,
+                      variablePath: ["balance"]
+                    },
+                    operation: 0,
+                    value: $state.wallet?.data?.balance
+                  };
+                  return (({ variable, value, startIndex, deleteCount }) => {
+                    if (!variable) {
+                      return;
+                    }
+                    const { objRoot, variablePath } = variable;
+
+                    $stateSet(objRoot, variablePath, value);
+                    return value;
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["updateBalance"] != null &&
+              typeof $steps["updateBalance"] === "object" &&
+              typeof $steps["updateBalance"].then === "function"
+            ) {
+              $steps["updateBalance"] = await $steps["updateBalance"];
+            }
+          }).apply(null, eventArgs);
         }}
         shouldFetch={(() => {
           try {
-            return $props.token != "" && $props.token != null;
+            return $props.token != "";
           } catch (e) {
             if (
               e instanceof TypeError ||
