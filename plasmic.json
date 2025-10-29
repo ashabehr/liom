@@ -4870,8 +4870,21 @@
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicReport.module.css",
           "scheme": "blackbox",
-          "componentType": "page",
+          "componentType": "component",
           "path": "/report"
+        },
+        {
+          "id": "3q6J_8ClWpvX",
+          "name": "ReminderShop",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicReminderShop.tsx",
+          "importSpec": {
+            "modulePath": "ReminderShop.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicReminderShop.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -7199,6 +7212,11 @@
           "id": "9EVbJgSegdgi",
           "name": "Icon367Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon367.tsx"
+        },
+        {
+          "id": "b_DOUX-Ryjc8",
+          "name": "Icon368Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon368.tsx"
         }
       ],
       "images": [

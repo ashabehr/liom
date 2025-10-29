@@ -67,6 +67,11 @@ import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import MenuIcon from "../../MenuIcon"; // plasmic-import: JBF-V8Q5mpWl/component
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import Tariff from "../../Tariff"; // plasmic-import: GnOiSfG6XOMz/component
+import Report from "../../../src/pages/report"; // plasmic-import: 4wEldhsM09tv/component
+import ReminderShop from "../../ReminderShop"; // plasmic-import: 3q6J_8ClWpvX/component
+import { DialogTitle } from "@plasmicpkgs/radix-ui";
+import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -86,16 +91,18 @@ import Icon144Icon from "./icons/PlasmicIcon__Icon144"; // plasmic-import: 1DQk0
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon367Icon from "./icons/PlasmicIcon__Icon367"; // plasmic-import: 9EVbJgSegdgi/icon
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
+import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
+import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 
 createPlasmicElementProxy;
 
 export type PlasmicMojodi__VariantMembers = {
   full2: "full2";
-  page: "tariff";
+  page: "tariff" | "report";
 };
 export type PlasmicMojodi__VariantsArgs = {
   full2?: SingleBooleanChoiceArg<"full2">;
-  page?: SingleChoiceArg<"tariff">;
+  page?: SingleChoiceArg<"tariff" | "report">;
 };
 type VariantPropType = keyof PlasmicMojodi__VariantsArgs;
 export const PlasmicMojodi__VariantProps = new Array<VariantPropType>(
@@ -115,6 +122,8 @@ export type PlasmicMojodi__OverridesType = {
   menuIcon?: Flex__<typeof MenuIcon>;
   headerLiom?: Flex__<typeof HeaderLiom>;
   tariff?: Flex__<typeof Tariff>;
+  report?: Flex__<typeof Report>;
+  reminderShop?: Flex__<typeof ReminderShop>;
 };
 
 export interface DefaultMojodiProps {}
@@ -261,6 +270,74 @@ function PlasmicMojodi__RenderFunc(props: {
               throw e;
             }
           })() ?? $props.page
+      },
+      {
+        path: "reminderShop.opendialog",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "apiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "input.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "button3.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button3.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button3.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button4.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button4.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button4.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -298,6 +375,7 @@ function PlasmicMojodi__RenderFunc(props: {
           sty.root,
           {
             [sty.rootfull2]: hasVariant($state, "full2", "full2"),
+            [sty.rootpage_report]: hasVariant($state, "page", "report"),
             [sty.rootpage_tariff]: hasVariant($state, "page", "tariff")
           }
         )}
@@ -308,6 +386,11 @@ function PlasmicMojodi__RenderFunc(props: {
               $state,
               "full2",
               "full2"
+            ),
+            [sty.freeBoxpage_report__eUsCftxlqB]: hasVariant(
+              $state,
+              "page",
+              "report"
             ),
             [sty.freeBoxpage_tariff__eUsCfwNoaK]: hasVariant(
               $state,
@@ -813,7 +896,45 @@ function PlasmicMojodi__RenderFunc(props: {
                     {"\u0634\u0627\u0631\u0698 \u062d\u0633\u0627\u0628"}
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__ok9S)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__ok9S, {
+                    [sty.freeBoxpage_report__ok9STxlqB]: hasVariant(
+                      $state,
+                      "page",
+                      "report"
+                    )
+                  })}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToMojodi"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: `/mojod/${"report"}`
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToMojodi"] != null &&
+                      typeof $steps["goToMojodi"] === "object" &&
+                      typeof $steps["goToMojodi"].then === "function"
+                    ) {
+                      $steps["goToMojodi"] = await $steps["goToMojodi"];
+                    }
+                  }}
+                >
                   <div
                     className={classNames(projectcss.all, sty.freeBox__cpsHd)}
                   >
@@ -846,13 +967,18 @@ function PlasmicMojodi__RenderFunc(props: {
               </div>
             </div>
             <div
-              className={classNames(projectcss.all, sty.freeBox___8JsV3, {
-                [sty.freeBoxfull2___8JsV3IXwbM]: hasVariant(
-                  $state,
-                  "full2",
-                  "full2"
-                )
-              })}
+              className={classNames(
+                projectcss.all,
+                sty.freeBox___8JsV3,
+                hasVariant($state, "full2", "full2") ? "fade-in" : undefined,
+                {
+                  [sty.freeBoxfull2___8JsV3IXwbM]: hasVariant(
+                    $state,
+                    "full2",
+                    "full2"
+                  )
+                }
+              )}
               onScroll={async event => {
                 const $steps = {};
 
@@ -1101,6 +1227,7 @@ function PlasmicMojodi__RenderFunc(props: {
           data-plasmic-name={"headerLiom"}
           data-plasmic-override={overrides.headerLiom}
           className={classNames("__wab_instance", sty.headerLiom, {
+            [sty.headerLiompage_report]: hasVariant($state, "page", "report"),
             [sty.headerLiompage_tariff]: hasVariant($state, "page", "tariff")
           })}
           slot={null}
@@ -1179,6 +1306,38 @@ function PlasmicMojodi__RenderFunc(props: {
             [sty.tariffpage_tariff]: hasVariant($state, "page", "tariff")
           })}
         />
+
+        <Report
+          data-plasmic-name={"report"}
+          data-plasmic-override={overrides.report}
+          className={classNames("__wab_instance", sty.report, {
+            [sty.reportpage_report]: hasVariant($state, "page", "report")
+          })}
+        />
+
+        <ReminderShop
+          data-plasmic-name={"reminderShop"}
+          data-plasmic-override={overrides.reminderShop}
+          className={classNames("__wab_instance", sty.reminderShop)}
+          onOpendialogChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, [
+              "reminderShop",
+              "opendialog"
+            ]).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          opendialog={generateStateValueProp($state, [
+            "reminderShop",
+            "opendialog"
+          ])}
+        />
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;
@@ -1192,14 +1351,18 @@ const PlasmicDescendants = {
     "button2",
     "menuIcon",
     "headerLiom",
-    "tariff"
+    "tariff",
+    "report",
+    "reminderShop"
   ],
   history: ["history", "button", "button2", "menuIcon"],
   button: ["button"],
   button2: ["button2"],
   menuIcon: ["menuIcon"],
   headerLiom: ["headerLiom"],
-  tariff: ["tariff"]
+  tariff: ["tariff"],
+  report: ["report"],
+  reminderShop: ["reminderShop"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1212,6 +1375,8 @@ type NodeDefaultElementType = {
   menuIcon: typeof MenuIcon;
   headerLiom: typeof HeaderLiom;
   tariff: typeof Tariff;
+  report: typeof Report;
+  reminderShop: typeof ReminderShop;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1307,6 +1472,8 @@ export const PlasmicMojodi = Object.assign(
     menuIcon: makeNodeComponent("menuIcon"),
     headerLiom: makeNodeComponent("headerLiom"),
     tariff: makeNodeComponent("tariff"),
+    report: makeNodeComponent("report"),
+    reminderShop: makeNodeComponent("reminderShop"),
 
     // Metadata about props expected for PlasmicMojodi
     internalVariantProps: PlasmicMojodi__VariantProps,
