@@ -1225,10 +1225,10 @@ function PlasmicReport__RenderFunc(props: {
                                 <React.Fragment>
                                   {(() => {
                                     try {
-                                      return (
-                                        master.value.toLocaleString() +
-                                        " تومان "
-                                      );
+                                      return master.value === 0
+                                        ? "رایگان"
+                                        : master.value.toLocaleString() +
+                                            " تومان ";
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -1384,11 +1384,14 @@ function PlasmicReport__RenderFunc(props: {
                                           <React.Fragment>
                                             {(() => {
                                               try {
-                                                return (
-                                                  currentItem.costs[
-                                                    master.type
-                                                  ].toLocaleString() + " تومان "
-                                                );
+                                                return currentItem.costs[
+                                                  master.type
+                                                ] === 0
+                                                  ? "رایگان"
+                                                  : currentItem.costs[
+                                                      master.type
+                                                    ].toLocaleString() +
+                                                      " تومان ";
                                               } catch (e) {
                                                 if (
                                                   e instanceof TypeError ||

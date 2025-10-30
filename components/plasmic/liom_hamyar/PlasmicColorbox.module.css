@@ -17,7 +17,7 @@
 }
 .rootcolor_green {
   background: var(--token-wanfdaz51TKl);
-  box-shadow: 0px 4px 20px 0px #008d337d;
+  box-shadow: 0px 4px 10px 0px #00a63c5c;
 }
 .menuIcon:global(.__wab_instance) {
   max-width: 100%;

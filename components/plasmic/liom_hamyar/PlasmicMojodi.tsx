@@ -1372,12 +1372,12 @@ function PlasmicMojodi__RenderFunc(props: {
                                       try {
                                         return `${
                                           currentItem.val === 0
-                                            ? '<span style="background-color:rgba(34,197,94,0.2); padding:2px 6px; border-radius:6px; font-weight:bold;">رایگان</span>'
+                                            ? '<span class="swiper-ltr" style="background-color:rgba(34,197,94,0.2); padding:2px 6px; border-radius:6px; font-weight:bold;">رایگان</span>'
                                             : currentItem.val < 0
-                                              ? '<span style="background-color:rgba(239,68,68,0.2); padding:2px 6px; border-radius:6px; font-weight:bold;">' +
+                                              ? '<span class="swiper-ltr" style="background-color:rgba(239,68,68,0.2); padding:2px 6px; border-radius:6px; font-weight:bold;">' +
                                                 currentItem.val.toLocaleString() +
                                                 " تومان</span>"
-                                              : "<span>" +
+                                              : '<span class="swiper-ltr">' +
                                                 currentItem.val.toLocaleString() +
                                                 " تومان</span>"
                                         }`;
