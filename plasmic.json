@@ -4885,6 +4885,32 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicReminderShop.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "xZTBh-jwY-OV",
+          "name": "Tariff2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicTariff2.tsx",
+          "importSpec": {
+            "modulePath": "Tariff2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicTariff2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "DMT3tgr7OiU1",
+          "name": "Colorbox",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicColorbox.tsx",
+          "importSpec": {
+            "modulePath": "Colorbox.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicColorbox.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -7227,6 +7253,26 @@
           "id": "mWa4pf2hHZTW",
           "name": "TomanSvgIcon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__TomanSvg.tsx"
+        },
+        {
+          "id": "PgJ2FcB_rASP",
+          "name": "Jkhkh01SvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Jkhkh01Svg.tsx"
+        },
+        {
+          "id": "xSQs3bX0_Zq7",
+          "name": "Icon369Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon369.tsx"
+        },
+        {
+          "id": "3Iw_7ahmqMwn",
+          "name": "Icon370Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon370.tsx"
+        },
+        {
+          "id": "lTbnpPc1LzW6",
+          "name": "Icon371Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon371.tsx"
         }
       ],
       "images": [

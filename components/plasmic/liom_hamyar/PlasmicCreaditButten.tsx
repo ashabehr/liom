@@ -87,13 +87,13 @@ export const PlasmicCreaditButten__VariantProps = new Array<VariantPropType>(
 
 export type PlasmicCreaditButten__ArgsType = {
   creadit?: number;
-  onCreaditChange?: (val: string) => void;
+  onCreaditChange2?: (val: string) => void;
   onClick?: (event: any) => void;
 };
 type ArgPropType = keyof PlasmicCreaditButten__ArgsType;
 export const PlasmicCreaditButten__ArgProps = new Array<ArgPropType>(
   "creadit",
-  "onCreaditChange",
+  "onCreaditChange2",
   "onClick"
 );
 
@@ -104,7 +104,7 @@ export type PlasmicCreaditButten__OverridesType = {
 
 export interface DefaultCreaditButtenProps {
   creadit?: number;
-  onCreaditChange?: (val: string) => void;
+  onCreaditChange2?: (val: string) => void;
   onClick?: (event: any) => void;
   action?: SingleChoiceArg<"red" | "load" | "add">;
   className?: string;
@@ -179,7 +179,7 @@ function PlasmicCreaditButten__RenderFunc(props: {
         variableType: "number",
 
         valueProp: "creadit",
-        onChangeProp: "onCreaditChange"
+        onChangeProp: "onCreaditChange2"
       },
       {
         path: "action",
@@ -229,7 +229,11 @@ function PlasmicCreaditButten__RenderFunc(props: {
         projectcss.plasmic_mixins,
         styleTokensClassNames,
         sty.root,
-        { [sty.rootaction_add]: hasVariant($state, "action", "add") }
+        {
+          [sty.rootaction_add]: hasVariant($state, "action", "add"),
+          [sty.rootaction_load]: hasVariant($state, "action", "load"),
+          [sty.rootaction_red]: hasVariant($state, "action", "red")
+        }
       )}
       onClick={args.onClick}
     >
@@ -256,11 +260,17 @@ function PlasmicCreaditButten__RenderFunc(props: {
               projectcss.all,
               projectcss.__wab_text,
               sty.text__yvOe,
+              "swiper-ltr",
               {
                 [sty.textaction_add__yvOEaUqTp]: hasVariant(
                   $state,
                   "action",
                   "add"
+                ),
+                [sty.textaction_load__yvOEzmZa6]: hasVariant(
+                  $state,
+                  "action",
+                  "load"
                 ),
                 [sty.textaction_red__yvOeWe6Q]: hasVariant(
                   $state,

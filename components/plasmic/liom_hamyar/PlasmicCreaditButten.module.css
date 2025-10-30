@@ -66,7 +66,6 @@
 @media (max-width: 640px) {
   .svg__cSlIz {
     animation: none;
-    display: block;
   }
 }
 .svgaction_load__cSlIzzmZa6 {
@@ -90,6 +89,9 @@
 }
 .textaction_red__yvOeWe6Q {
   color: var(--token-4RAe7M2gInqR);
+}
+.textaction_load__yvOEzmZa6 {
+  display: none;
 }
 .buttonLiom4:global(.__wab_instance) {
   animation: none;

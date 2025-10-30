@@ -4722,7 +4722,7 @@ function PlasmicReminder__RenderFunc(props: {
               $steps["goToMojodi"] = await $steps["goToMojodi"];
             }
           }}
-          onCreaditChange={async (...eventArgs: any) => {
+          onCreaditChange2={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, [
               "creaditButten",
               "creadit"

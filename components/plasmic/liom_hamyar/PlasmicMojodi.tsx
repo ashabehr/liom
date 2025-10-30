@@ -68,7 +68,8 @@ import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import MenuIcon from "../../MenuIcon"; // plasmic-import: JBF-V8Q5mpWl/component
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import ReminderShop from "../../ReminderShop"; // plasmic-import: 3q6J_8ClWpvX/component
-import Tariff from "../../Tariff"; // plasmic-import: GnOiSfG6XOMz/component
+import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
+import Tariff2 from "../../Tariff2"; // plasmic-import: xZTBh-jwY-OV/component
 import Report from "../../../src/pages/report"; // plasmic-import: 4wEldhsM09tv/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -88,6 +89,8 @@ import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-imp
 import Icon144Icon from "./icons/PlasmicIcon__Icon144"; // plasmic-import: 1DQk0pCQHybZ/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon367Icon from "./icons/PlasmicIcon__Icon367"; // plasmic-import: 9EVbJgSegdgi/icon
+import Icon290Icon from "./icons/PlasmicIcon__Icon290"; // plasmic-import: jLdE-DKzPlst/icon
+import Icon291Icon from "./icons/PlasmicIcon__Icon291"; // plasmic-import: U9F0Jow4owN9/icon
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 
 createPlasmicElementProxy;
@@ -119,7 +122,7 @@ export type PlasmicMojodi__OverridesType = {
   menuIcon?: Flex__<typeof MenuIcon>;
   headerLiom?: Flex__<typeof HeaderLiom>;
   reminderShop?: Flex__<typeof ReminderShop>;
-  tariff?: Flex__<typeof Tariff>;
+  tariff2?: Flex__<typeof Tariff2>;
   report?: Flex__<typeof Report>;
 };
 
@@ -278,16 +281,17 @@ function PlasmicMojodi__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc2MTc0MDUyNn0.zABSPblXM-e17_bHDdw-0Hl7LiivKgbA_d8BI2nCqyQ"
       },
       {
-        path: "tariff.active",
+        path: "report.active",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.page == "tariff";
+              return $state.page == "report";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -300,7 +304,7 @@ function PlasmicMojodi__RenderFunc(props: {
           })()
       },
       {
-        path: "report.active",
+        path: "tariff2.active",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
@@ -880,6 +884,7 @@ function PlasmicMojodi__RenderFunc(props: {
                     projectcss.all,
                     projectcss.__wab_text,
                     sty.text__vftRm,
+                    "swiper-ltr",
                     {
                       [sty.textfull2__vftRmiXwbM]: hasVariant(
                         $state,
@@ -891,7 +896,7 @@ function PlasmicMojodi__RenderFunc(props: {
                   style={(() => {
                     try {
                       return {
-                        color: $state.history.data.balance < 0 ? "red" : ""
+                        color: $state.history.data.balance < 0 ? "#ff4d6d" : ""
                       };
                     } catch (e) {
                       if (
@@ -1148,6 +1153,35 @@ function PlasmicMojodi__RenderFunc(props: {
                           data-plasmic-name={"menuIcon"}
                           data-plasmic-override={overrides.menuIcon}
                           className={classNames("__wab_instance", sty.menuIcon)}
+                          icons={(() => {
+                            try {
+                              return (() => {
+                                let source = "";
+                                if (
+                                  currentItem.origin.includes("Notification")
+                                ) {
+                                  return (source = "notification");
+                                } else if (
+                                  currentItem.origin.includes("Telegram")
+                                ) {
+                                  return (source = "telegram");
+                                } else if (currentItem.origin.includes("Sms")) {
+                                  return (source = "sms");
+                                } else {
+                                  return (source = "unknown");
+                                }
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()}
+                          outline={true}
                         />
                       </div>
                       <div
@@ -1205,6 +1239,7 @@ function PlasmicMojodi__RenderFunc(props: {
                               projectcss.all,
                               projectcss.__wab_text,
                               sty.text__i1ADb,
+                              "swiper-ltr",
                               {
                                 [sty.textfull2__i1ADbiXwbM]: hasVariant(
                                   $state,
@@ -1214,86 +1249,195 @@ function PlasmicMojodi__RenderFunc(props: {
                               }
                             )}
                           >
-                            <React.Fragment>
-                              {(() => {
+                            <div
+                              className={projectcss.__wab_expr_html_text}
+                              dangerouslySetInnerHTML={{
+                                __html: (() => {
+                                  try {
+                                    return `${
+                                      currentItem.val === 0
+                                        ? '<span style="background-color:rgba(34,197,94,0.2); padding:2px 6px; border-radius:6px; font-weight:bold;">رایگان</span>'
+                                        : currentItem.val < 0
+                                          ? '<span style="background-color:rgba(239,68,68,0.2); padding:2px 6px; border-radius:6px; font-weight:bold;">' +
+                                            currentItem.val.toLocaleString() +
+                                            " تومان</span>"
+                                          : "<span>" +
+                                            currentItem.val.toLocaleString() +
+                                            " تومان</span>"
+                                    }`;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "2865so \u062a\u0648\u0645\u0646";
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              }}
+                            />
+                          </div>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__gRdwO
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__hgU8Y
+                            )}
+                          >
+                            <Icon290Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__laFc
+                              )}
+                              role={"img"}
+                            />
+
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__cIqm1,
+                                {
+                                  [sty.textfull2__cIqm1IXwbM]: hasVariant(
+                                    $state,
+                                    "full2",
+                                    "full2"
+                                  )
+                                }
+                              )}
+                              style={(() => {
                                 try {
-                                  return (
-                                    currentItem.val.toLocaleString() + " تومان "
-                                  );
+                                  return { direction: "ltr" };
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
                                     e?.plasmicType ===
                                       "PlasmicUndefinedDataError"
                                   ) {
-                                    return "2865so \u062a\u0648\u0645\u0646";
+                                    return undefined;
                                   }
                                   throw e;
                                 }
                               })()}
-                            </React.Fragment>
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return (() => {
+                                      const date = new Date(
+                                        currentItem.timestamp
+                                      );
+                                      const options = {
+                                        weekday: "long",
+                                        month: "long",
+                                        day: "numeric",
+                                        timeZone: "Asia/Tehran",
+                                        calendar: "persian"
+                                      };
+                                      const persianDate = date.toLocaleString(
+                                        "fa-IR-u-ca-persian",
+                                        options
+                                      );
+                                      return persianDate;
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u067e\u0646\u062c \u0634\u0646\u0628\u0647 \u0641\u0644\u0627\u0646";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
                           </div>
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__cIqm1,
-                            {
-                              [sty.textfull2__cIqm1IXwbM]: hasVariant(
-                                $state,
-                                "full2",
-                                "full2"
-                              )
-                            }
-                          )}
-                          style={(() => {
-                            try {
-                              return { direction: "ltr" };
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (() => {
-                                  const date = new Date(currentItem.timestamp);
-                                  const options = {
-                                    weekday: "long",
-                                    year: "numeric",
-                                    month: "long",
-                                    day: "numeric",
-                                    hour: "2-digit",
-                                    minute: "2-digit",
-                                    hour12: false,
-                                    timeZone: "Asia/Tehran",
-                                    calendar: "persian"
-                                  };
-                                  const persianDate = date.toLocaleString(
-                                    "fa-IR-u-ca-persian",
-                                    options
-                                  );
-                                  return persianDate;
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "\u067e\u0646\u062c \u0634\u0646\u0628\u0647 \u0641\u0644\u0627\u0646";
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__hKBw2
+                            )}
+                          >
+                            <Icon291Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__izIJh
+                              )}
+                              role={"img"}
+                            />
+
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__z6KsZ,
+                                {
+                                  [sty.textfull2__z6KsZiXwbM]: hasVariant(
+                                    $state,
+                                    "full2",
+                                    "full2"
+                                  )
                                 }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
+                              )}
+                              style={(() => {
+                                try {
+                                  return { direction: "ltr" };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return (() => {
+                                      const date = new Date(
+                                        currentItem.timestamp
+                                      );
+                                      const options = {
+                                        hour: "2-digit",
+                                        minute: "2-digit",
+                                        hour12: false,
+                                        timeZone: "Asia/Tehran",
+                                        calendar: "persian"
+                                      };
+                                      const persianDate = date.toLocaleString(
+                                        "fa-IR-u-ca-persian",
+                                        options
+                                      );
+                                      return persianDate;
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u067e\u0646\u062c \u0634\u0646\u0628\u0647 \u0641\u0644\u0627\u0646";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1389,102 +1533,105 @@ function PlasmicMojodi__RenderFunc(props: {
           ])}
         />
 
-        <Tariff
-          data-plasmic-name={"tariff"}
-          data-plasmic-override={overrides.tariff}
-          active={generateStateValueProp($state, ["tariff", "active"])}
-          back={async () => {
-            const $steps = {};
-
-            $steps["runCode"] = true
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return window.history.back();
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["runCode"] != null &&
-              typeof $steps["runCode"] === "object" &&
-              typeof $steps["runCode"].then === "function"
-            ) {
-              $steps["runCode"] = await $steps["runCode"];
-            }
-          }}
-          className={classNames("__wab_instance", sty.tariff, {
-            [sty.tariffpage_report]: hasVariant($state, "page", "report"),
-            [sty.tariffpage_tariff]: hasVariant($state, "page", "tariff")
+        <Reveal
+          className={classNames("__wab_instance", sty.reveal__ef9Vr, {
+            [sty.revealpage_tariff__ef9VRwNoaK]: hasVariant(
+              $state,
+              "page",
+              "tariff"
+            )
           })}
-          onActiveChange={async (...eventArgs: any) => {
-            generateStateOnChangeProp($state, ["tariff", "active"]).apply(
-              null,
-              eventArgs
-            );
+          triggerOnce={true}
+        >
+          <Tariff2
+            data-plasmic-name={"tariff2"}
+            data-plasmic-override={overrides.tariff2}
+            active={generateStateValueProp($state, ["tariff2", "active"])}
+            className={classNames("__wab_instance", sty.tariff2, {
+              [sty.tariff2page_report]: hasVariant($state, "page", "report"),
+              [sty.tariff2page_tariff]: hasVariant($state, "page", "tariff")
+            })}
+            onActiveChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["tariff2", "active"]).apply(
+                null,
+                eventArgs
+              );
 
-            if (
-              eventArgs.length > 1 &&
-              eventArgs[1] &&
-              eventArgs[1]._plasmic_state_init_
-            ) {
-              return;
-            }
-          }}
-          token={(() => {
-            try {
-              return $state.token;
-            } catch (e) {
               if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
               ) {
-                return undefined;
+                return;
               }
-              throw e;
-            }
-          })()}
-        />
-
-        <Report
-          data-plasmic-name={"report"}
-          data-plasmic-override={overrides.report}
-          active={generateStateValueProp($state, ["report", "active"])}
-          className={classNames("__wab_instance", sty.report, {
-            [sty.reportpage_report]: hasVariant($state, "page", "report"),
-            [sty.reportpage_tariff]: hasVariant($state, "page", "tariff")
+            }}
+            token={(() => {
+              try {
+                return $state.token;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+          />
+        </Reveal>
+        <Reveal
+          className={classNames("__wab_instance", sty.reveal__kUpWd, {
+            [sty.revealpage_report__kUpWDtxlqB]: hasVariant(
+              $state,
+              "page",
+              "report"
+            ),
+            [sty.revealpage_tariff__kUpWDwNoaK]: hasVariant(
+              $state,
+              "page",
+              "tariff"
+            )
           })}
-          onActiveChange={async (...eventArgs: any) => {
-            generateStateOnChangeProp($state, ["report", "active"]).apply(
-              null,
-              eventArgs
-            );
+          triggerOnce={true}
+        >
+          <Report
+            data-plasmic-name={"report"}
+            data-plasmic-override={overrides.report}
+            active={generateStateValueProp($state, ["report", "active"])}
+            className={classNames("__wab_instance", sty.report, {
+              [sty.reportpage_report]: hasVariant($state, "page", "report"),
+              [sty.reportpage_tariff]: hasVariant($state, "page", "tariff")
+            })}
+            onActiveChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["report", "active"]).apply(
+                null,
+                eventArgs
+              );
 
-            if (
-              eventArgs.length > 1 &&
-              eventArgs[1] &&
-              eventArgs[1]._plasmic_state_init_
-            ) {
-              return;
-            }
-          }}
-          token2={(() => {
-            try {
-              return $state.token;
-            } catch (e) {
               if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
               ) {
-                return undefined;
+                return;
               }
-              throw e;
-            }
-          })()}
-        />
+            }}
+            token2={(() => {
+              try {
+                return $state.token;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+          />
+        </Reveal>
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;
@@ -1500,7 +1647,7 @@ const PlasmicDescendants = {
     "menuIcon",
     "headerLiom",
     "reminderShop",
-    "tariff",
+    "tariff2",
     "report"
   ],
   sideEffect: ["sideEffect"],
@@ -1510,7 +1657,7 @@ const PlasmicDescendants = {
   menuIcon: ["menuIcon"],
   headerLiom: ["headerLiom"],
   reminderShop: ["reminderShop"],
-  tariff: ["tariff"],
+  tariff2: ["tariff2"],
   report: ["report"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -1525,7 +1672,7 @@ type NodeDefaultElementType = {
   menuIcon: typeof MenuIcon;
   headerLiom: typeof HeaderLiom;
   reminderShop: typeof ReminderShop;
-  tariff: typeof Tariff;
+  tariff2: typeof Tariff2;
   report: typeof Report;
 };
 
@@ -1623,7 +1770,7 @@ export const PlasmicMojodi = Object.assign(
     menuIcon: makeNodeComponent("menuIcon"),
     headerLiom: makeNodeComponent("headerLiom"),
     reminderShop: makeNodeComponent("reminderShop"),
-    tariff: makeNodeComponent("tariff"),
+    tariff2: makeNodeComponent("tariff2"),
     report: makeNodeComponent("report"),
 
     // Metadata about props expected for PlasmicMojodi
