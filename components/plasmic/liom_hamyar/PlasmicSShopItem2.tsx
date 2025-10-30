@@ -65,6 +65,7 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import ShopBoxRef2 from "../../ShopBoxRef2"; // plasmic-import: b0wHmbLNagu-/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
+import Load from "../../Load"; // plasmic-import: MJo5g_R-znVP/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -92,6 +93,7 @@ export type PlasmicSShopItem2__OverridesType = {
   shopBoxRef2?: Flex__<typeof ShopBoxRef2>;
   button?: Flex__<typeof Button>;
   sideEffect?: Flex__<typeof SideEffect>;
+  load2?: Flex__<typeof Load>;
 };
 
 export interface DefaultSShopItem2Props {}
@@ -253,6 +255,38 @@ function PlasmicSShopItem2__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "load2.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                if (window.document.readyState === "complete") {
+                  false;
+                } else {
+                  window.addEventListener("load", () => true);
+                }
+                return $state.shopBoxRef2.loading;
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "shopBoxRef2.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -381,6 +415,24 @@ function PlasmicSShopItem2__RenderFunc(props: {
                       throw e;
                     }
                   })()}
+                  loading={generateStateValueProp($state, [
+                    "shopBoxRef2",
+                    "loading"
+                  ])}
+                  onLoadingChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "shopBoxRef2",
+                      "loading"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
                   onOpenChange={async (...eventArgs: any) => {
                     generateStateOnChangeProp($state, [
                       "shopBoxRef2",
@@ -885,6 +937,64 @@ function PlasmicSShopItem2__RenderFunc(props: {
               />
             </div>
           ) : null}
+          {(() => {
+            const child$Props = {
+              className: classNames("__wab_instance", sty.load2),
+              loading: generateStateValueProp($state, ["load2", "loading"]),
+              onLoadingChange: async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["load2", "loading"]).apply(
+                  null,
+                  eventArgs
+                );
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }
+            };
+
+            initializePlasmicStates(
+              $state,
+              [
+                {
+                  name: "load2.loading",
+                  initFunc: ({ $props, $state, $queries }) =>
+                    (() => {
+                      try {
+                        return (() => {
+                          if (window.document.readyState === "complete") {
+                            false;
+                          } else {
+                            window.addEventListener("load", () => true);
+                          }
+                          return $state.shopBoxRef2.loading;
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })()
+                }
+              ],
+              []
+            );
+            return (
+              <Load
+                data-plasmic-name={"load2"}
+                data-plasmic-override={overrides.load2}
+                {...child$Props}
+              />
+            );
+          })()}
         </div>
       </div>
     </React.Fragment>
@@ -892,10 +1002,11 @@ function PlasmicSShopItem2__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "shopBoxRef2", "button", "sideEffect"],
+  root: ["root", "shopBoxRef2", "button", "sideEffect", "load2"],
   shopBoxRef2: ["shopBoxRef2"],
   button: ["button"],
-  sideEffect: ["sideEffect"]
+  sideEffect: ["sideEffect"],
+  load2: ["load2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -905,6 +1016,7 @@ type NodeDefaultElementType = {
   shopBoxRef2: typeof ShopBoxRef2;
   button: typeof Button;
   sideEffect: typeof SideEffect;
+  load2: typeof Load;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -997,6 +1109,7 @@ export const PlasmicSShopItem2 = Object.assign(
     shopBoxRef2: makeNodeComponent("shopBoxRef2"),
     button: makeNodeComponent("button"),
     sideEffect: makeNodeComponent("sideEffect"),
+    load2: makeNodeComponent("load2"),
 
     // Metadata about props expected for PlasmicSShopItem2
     internalVariantProps: PlasmicSShopItem2__VariantProps,

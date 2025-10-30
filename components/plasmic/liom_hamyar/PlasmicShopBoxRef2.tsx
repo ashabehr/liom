@@ -89,6 +89,8 @@ export type PlasmicShopBoxRef2__ArgsType = {
   type?: string;
   token?: string;
   desc?: string;
+  loading?: boolean;
+  onLoadingChange?: (val: string) => void;
   redirectUrl?: string;
   onSelectShopChange?: (val: string) => void;
   open?: boolean;
@@ -102,6 +104,8 @@ export const PlasmicShopBoxRef2__ArgProps = new Array<ArgPropType>(
   "type",
   "token",
   "desc",
+  "loading",
+  "onLoadingChange",
   "redirectUrl",
   "onSelectShopChange",
   "open",
@@ -129,6 +133,8 @@ export interface DefaultShopBoxRef2Props {
   type?: string;
   token?: string;
   desc?: string;
+  loading?: boolean;
+  onLoadingChange?: (val: string) => void;
   redirectUrl?: string;
   onSelectShopChange?: (val: string) => void;
   open?: boolean;
@@ -191,9 +197,11 @@ function PlasmicShopBoxRef2__RenderFunc(props: {
     () => [
       {
         path: "loading",
-        type: "private",
+        type: "writable",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+
+        valueProp: "loading",
+        onChangeProp: "onLoadingChange"
       },
       {
         path: "selectShop",
@@ -1272,7 +1280,7 @@ function PlasmicShopBoxRef2__RenderFunc(props: {
                         await $steps["invokeGlobalAction2"];
                     }
 
-                    $steps["updateLoading2"] = true
+                    $steps["updateLoading2"] = false
                       ? (() => {
                           const actionArgs = {
                             variable: {
