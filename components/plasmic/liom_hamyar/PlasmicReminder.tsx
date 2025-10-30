@@ -4697,29 +4697,24 @@ function PlasmicReminder__RenderFunc(props: {
           onClick={async event => {
             const $steps = {};
 
-            $steps["goToMojodi"] = true
+            $steps["runCode"] = true
               ? (() => {
-                  const actionArgs = { destination: `/mojod/${"home"}` };
-                  return (({ destination }) => {
-                    if (
-                      typeof destination === "string" &&
-                      destination.startsWith("#")
-                    ) {
-                      document
-                        .getElementById(destination.substr(1))
-                        .scrollIntoView({ behavior: "smooth" });
-                    } else {
-                      __nextRouter?.push(destination);
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return window.open("/mojod/home/", "_self");
                     }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
                   })?.apply(null, [actionArgs]);
                 })()
               : undefined;
             if (
-              $steps["goToMojodi"] != null &&
-              typeof $steps["goToMojodi"] === "object" &&
-              typeof $steps["goToMojodi"].then === "function"
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
             ) {
-              $steps["goToMojodi"] = await $steps["goToMojodi"];
+              $steps["runCode"] = await $steps["runCode"];
             }
           }}
           onCreaditChange2={async (...eventArgs: any) => {
