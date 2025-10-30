@@ -895,9 +895,17 @@ function PlasmicMojodi__RenderFunc(props: {
                   )}
                   style={(() => {
                     try {
-                      return {
-                        color: $state.history.data.balance < 0 ? "#ff4d6d" : ""
-                      };
+                      return $state.history.data.balance < 0
+                        ? {
+                            color: "#EB464A",
+                            textShadow: `
+        -1px 0 white,
+         1px 0 white,
+         0 -1px white,
+         0 1px white
+      `
+                          }
+                        : {};
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -912,10 +920,7 @@ function PlasmicMojodi__RenderFunc(props: {
                   <React.Fragment>
                     {(() => {
                       try {
-                        return (
-                          $state.history.data.balance.toLocaleString() +
-                          " تومان "
-                        );
+                        return $state.history.data.balance.toLocaleString();
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -927,6 +932,38 @@ function PlasmicMojodi__RenderFunc(props: {
                       }
                     })()}
                   </React.Fragment>
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__pW6EN
+                  )}
+                  style={(() => {
+                    try {
+                      return $state.history.data.balance < 0
+                        ? {
+                            color: "#EB464A",
+                            textShadow: `
+        -1px 0 white,
+         1px 0 white,
+         0 -1px white,
+         0 1px white
+      `
+                          }
+                        : {};
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                >
+                  {" \u062a\u0648\u0645\u0627\u0646 "}
                 </div>
               </div>
               <div
@@ -1355,7 +1392,7 @@ function PlasmicMojodi__RenderFunc(props: {
                                   projectcss.all,
                                   projectcss.__wab_text,
                                   sty.text__i1ADb,
-                                  "swiper-ltr",
+                                  ``,
                                   {
                                     [sty.textfull2__i1ADbiXwbM]: hasVariant(
                                       $state,
@@ -1375,13 +1412,20 @@ function PlasmicMojodi__RenderFunc(props: {
                                             ? '<span class="swiper-ltr" style="background-color:rgba(34,197,94,0.2); padding:2px 6px; border-radius:6px; font-weight:bold;">رایگان</span>'
                                             : currentItem.val < 0
                                               ? '<span class="swiper-ltr" style="background-color:rgba(239,68,68,0.2); padding:2px 6px; border-radius:6px; font-weight:bold;">' +
+                                                "<span>" +
                                                 Math.abs(
                                                   currentItem.val
-                                                ).toLocaleString() + // عدد بدون منفی
-                                                " تومان -</span>" // منفی در سمت راست
+                                                ).toLocaleString() +
+                                                "</span>" + // عدد
+                                                "<span>-</span>" + // علامت منفی
+                                                '<span style="margin: 0 4px;">تومان</span>' + // تومان
+                                                "</span>"
                                               : '<span class="swiper-ltr">' +
+                                                "<span>" +
                                                 currentItem.val.toLocaleString() +
-                                                " تومان</span>"
+                                                "</span>" + // عدد
+                                                '<span style="margin: 0 4px;">تومان</span>' + // تومان
+                                                "</span>"
                                         }`;
                                       } catch (e) {
                                         if (
