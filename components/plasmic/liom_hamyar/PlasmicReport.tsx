@@ -1612,11 +1612,13 @@ function PlasmicReport__RenderFunc(props: {
                                       <React.Fragment>
                                         {(() => {
                                           try {
-                                            return (
-                                              currentItem.costs[
-                                                master.type
-                                              ].toLocaleString() + " تومان "
-                                            );
+                                            return currentItem.costs[
+                                              master.type
+                                            ] === 0
+                                              ? "رایگان"
+                                              : currentItem.costs[
+                                                  master.type
+                                                ].toLocaleString() + " تومان ";
                                           } catch (e) {
                                             if (
                                               e instanceof TypeError ||

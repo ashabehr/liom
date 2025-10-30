@@ -1375,8 +1375,10 @@ function PlasmicMojodi__RenderFunc(props: {
                                             ? '<span class="swiper-ltr" style="background-color:rgba(34,197,94,0.2); padding:2px 6px; border-radius:6px; font-weight:bold;">رایگان</span>'
                                             : currentItem.val < 0
                                               ? '<span class="swiper-ltr" style="background-color:rgba(239,68,68,0.2); padding:2px 6px; border-radius:6px; font-weight:bold;">' +
-                                                currentItem.val.toLocaleString() +
-                                                " تومان</span>"
+                                                Math.abs(
+                                                  currentItem.val
+                                                ).toLocaleString() + // عدد بدون منفی
+                                                " تومان -</span>" // منفی در سمت راست
                                               : '<span class="swiper-ltr">' +
                                                 currentItem.val.toLocaleString() +
                                                 " تومان</span>"
@@ -1595,9 +1597,7 @@ function PlasmicMojodi__RenderFunc(props: {
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
-                          return (() => {
-                            return window.history.back();
-                          })();
+                          return window.history.back();
                         }
                       };
                       return (({ customFunction }) => {
