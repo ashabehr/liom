@@ -88,7 +88,6 @@ export const PlasmicColorbox__ArgProps = new Array<ArgPropType>("currentItem");
 export type PlasmicColorbox__OverridesType = {
   root?: Flex__<"div">;
   menuIcon?: Flex__<typeof MenuIcon>;
-  freeBox?: Flex__<"div">;
 };
 
 export interface DefaultColorboxProps {
@@ -176,76 +175,82 @@ function PlasmicColorbox__RenderFunc(props: {
         { [sty.rootcolor_green]: hasVariant($state, "color", "green") }
       )}
     >
-      <MenuIcon
-        data-plasmic-name={"menuIcon"}
-        data-plasmic-override={overrides.menuIcon}
-        className={classNames("__wab_instance", sty.menuIcon)}
-        color={(() => {
-          try {
-            return (() => {
-              switch ($props.currentItem.icon) {
-                case "telegram":
-                  return "blue";
-                case "sms":
-                  return "fuchsia";
-                case "notif":
-                  return "warning";
-              }
-            })();
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return "blue";
-            }
-            throw e;
-          }
-        })()}
-        icons={(() => {
-          try {
-            return $props.currentItem.icon;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return [];
-            }
-            throw e;
-          }
-        })()}
-        size={"_25"}
-      />
-
       <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__rbm3F
-        )}
+        className={classNames(projectcss.all, sty.freeBox__sw5JM, {
+          [sty.freeBoxcolor_green__sw5JMpy28H]: hasVariant(
+            $state,
+            "color",
+            "green"
+          )
+        })}
       >
-        <React.Fragment>
-          {(() => {
+        <MenuIcon
+          data-plasmic-name={"menuIcon"}
+          data-plasmic-override={overrides.menuIcon}
+          className={classNames("__wab_instance", sty.menuIcon)}
+          color={(() => {
             try {
-              return $props.currentItem.name;
+              return (() => {
+                switch ($props.currentItem.icon) {
+                  case "telegram":
+                    return "blue";
+                  case "sms":
+                    return "fuchsia";
+                  case "notif":
+                    return "warning";
+                }
+              })();
             } catch (e) {
               if (
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return "";
+                return "blue";
               }
               throw e;
             }
           })()}
-        </React.Fragment>
+          icons={(() => {
+            try {
+              return $props.currentItem.icon;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()}
+          size={"_25"}
+        />
+
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__rbm3F
+          )}
+        >
+          <React.Fragment>
+            {(() => {
+              try {
+                return $props.currentItem.name;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
+        </div>
       </div>
-      <div
-        data-plasmic-name={"freeBox"}
-        data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox)}
-      >
+      <div className={classNames(projectcss.all, sty.freeBox__w9MGi)}>
         <div
           className={classNames(
             projectcss.all,
@@ -318,9 +323,8 @@ function PlasmicColorbox__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "menuIcon", "freeBox"],
-  menuIcon: ["menuIcon"],
-  freeBox: ["freeBox"]
+  root: ["root", "menuIcon"],
+  menuIcon: ["menuIcon"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -328,7 +332,6 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   menuIcon: typeof MenuIcon;
-  freeBox: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -394,7 +397,6 @@ export const PlasmicColorbox = Object.assign(
   {
     // Helper components rendering sub-elements
     menuIcon: makeNodeComponent("menuIcon"),
-    freeBox: makeNodeComponent("freeBox"),
 
     // Metadata about props expected for PlasmicColorbox
     internalVariantProps: PlasmicColorbox__VariantProps,
