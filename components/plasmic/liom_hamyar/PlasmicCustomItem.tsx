@@ -300,48 +300,74 @@ function PlasmicCustomItem__RenderFunc(props: {
           )
         })}
       >
-        <PlasmicImg__
-          data-plasmic-name={"img"}
-          data-plasmic-override={overrides.img}
-          alt={""}
-          className={classNames(sty.img, "shimmer", {
-            [sty.imgverticalBox]: hasVariant(
-              $state,
-              "verticalBox",
-              "verticalBox"
-            )
-          })}
-          displayHeight={"50px"}
-          displayMaxHeight={"none"}
-          displayMaxWidth={"100%"}
-          displayMinHeight={"0"}
-          displayMinWidth={"0"}
-          displayWidth={"50px"}
-          loading={"eager"}
-          onLoad={async event => {
-            const $steps = {};
-          }}
-          src={(() => {
-            try {
-              return $props.listItem.items[0].image;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return {
-                  src: "/plasmic/liom_hamyar/images/image10.ico",
-                  fullWidth: 256,
-                  fullHeight: 256,
-                  aspectRatio: undefined
-                };
-              }
-              throw e;
-            }
-          })()}
-          width={"50"}
-        />
+        <div
+          className={classNames(projectcss.all, sty.freeBox__eUgnr, "shimmer")}
+        >
+          <PlasmicImg__
+            data-plasmic-name={"img"}
+            data-plasmic-override={overrides.img}
+            alt={""}
+            className={classNames(sty.img, ``, {
+              [sty.imgverticalBox]: hasVariant(
+                $state,
+                "verticalBox",
+                "verticalBox"
+              )
+            })}
+            displayHeight={"50px"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"50px"}
+            loading={"eager"}
+            onError={async event => {
+              const $steps = {};
 
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (event.target.style.opacity = "0");
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
+            onLoad={async event => {
+              const $steps = {};
+            }}
+            src={(() => {
+              try {
+                return $props.listItem.items[0].image;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return {
+                    src: "/plasmic/liom_hamyar/images/image10.ico",
+                    fullWidth: 256,
+                    fullHeight: 256,
+                    aspectRatio: undefined
+                  };
+                }
+                throw e;
+              }
+            })()}
+            width={"50"}
+          />
+        </div>
         <div
           className={classNames(projectcss.all, sty.freeBox__uTcN, {
             [sty.freeBoxverticalBox__uTcNs8Cq]: hasVariant(
@@ -810,10 +836,22 @@ function PlasmicCustomItem__RenderFunc(props: {
                   startIcon={null}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__zOm1Q)}
+                    className={classNames(projectcss.all, sty.freeBox__zOm1Q, {
+                      [sty.freeBoxselect__zOm1QnBxYl]: hasVariant(
+                        $state,
+                        "select",
+                        "select"
+                      )
+                    })}
                   >
                     <Icon294Icon
-                      className={classNames(projectcss.all, sty.svg__e82Ys)}
+                      className={classNames(projectcss.all, sty.svg__e82Ys, {
+                        [sty.svgselect__e82YsnBxYl]: hasVariant(
+                          $state,
+                          "select",
+                          "select"
+                        )
+                      })}
                       role={"img"}
                     />
                   </div>
@@ -921,9 +959,23 @@ function PlasmicCustomItem__RenderFunc(props: {
                 size={"minimal"}
                 startIcon={null}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__aIlW8)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__aIlW8, {
+                    [sty.freeBoxselect__aIlW8NBxYl]: hasVariant(
+                      $state,
+                      "select",
+                      "select"
+                    )
+                  })}
+                >
                   <Icon155Icon
-                    className={classNames(projectcss.all, sty.svg__lFjmF)}
+                    className={classNames(projectcss.all, sty.svg__lFjmF, {
+                      [sty.svgselect__lFjmFnBxYl]: hasVariant(
+                        $state,
+                        "select",
+                        "select"
+                      )
+                    })}
                     role={"img"}
                   />
                 </div>

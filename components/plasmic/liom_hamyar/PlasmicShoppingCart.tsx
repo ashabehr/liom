@@ -971,7 +971,6 @@ function PlasmicShoppingCart__RenderFunc(props: {
                               await $steps["updateItemSelect"];
                           }
                         }}
-                        shopBox={true}
                         verticalBox={true}
                       />
                     );
@@ -1300,7 +1299,7 @@ function PlasmicShoppingCart__RenderFunc(props: {
                   className={classNames(
                     projectcss.all,
                     sty.freeBox__umjd1,
-                    "bounce"
+                    "Palpitations"
                   )}
                 >
                   <Button

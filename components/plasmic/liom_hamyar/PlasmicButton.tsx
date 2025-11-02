@@ -641,6 +641,10 @@ function PlasmicButton__RenderFunc(props: {
             data-plasmic-name={"svg"}
             data-plasmic-override={overrides.svg}
             className={classNames(projectcss.all, sty.svg, {
+              [sty.svgbox]: hasVariant($state, "box", "box"),
+              [sty.svgbox_loading]:
+                hasVariant($state, "box", "box") &&
+                hasVariant($state, "loading", "loading"),
               [sty.svgisDisabled]: hasVariant(
                 $state,
                 "isDisabled",

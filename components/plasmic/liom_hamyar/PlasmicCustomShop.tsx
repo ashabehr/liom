@@ -3446,7 +3446,14 @@ function PlasmicCustomShop__RenderFunc(props: {
                               }}
                               className={classNames(
                                 "__wab_instance",
-                                sty.customItem
+                                sty.customItem,
+                                {
+                                  [sty.customItemsubitem]: hasVariant(
+                                    $state,
+                                    "subitem",
+                                    "subitem"
+                                  )
+                                }
                               )}
                               edit={async event => {
                                 const $steps = {};

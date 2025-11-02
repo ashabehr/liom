@@ -368,6 +368,9 @@
   bottom: auto;
   right: auto;
 }
+.svgbox {
+  height: 90px;
+}
 .svgloading_size_compact {
   height: 40px;
 }
