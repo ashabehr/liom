@@ -4090,6 +4090,34 @@ function PlasmicCustomShop__RenderFunc(props: {
           onMount={async () => {
             const $steps = {};
 
+            $steps["runCode2"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        const queryString = window.location.search;
+                        const urlParams = new window.URLSearchParams(
+                          queryString
+                        );
+                        return urlParams.forEach((value, key) => {
+                          $state.paramsObject[key] = value;
+                        });
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode2"] != null &&
+              typeof $steps["runCode2"] === "object" &&
+              typeof $steps["runCode2"].then === "function"
+            ) {
+              $steps["runCode2"] = await $steps["runCode2"];
+            }
+
             $steps["runCode"] = true
               ? (() => {
                   const actionArgs = {
