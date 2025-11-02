@@ -4122,7 +4122,19 @@ function PlasmicCustomShop__RenderFunc(props: {
               ? (() => {
                   const actionArgs = {
                     customFunction: async () => {
-                      return (() => {})();
+                      return (() => {
+                        var getCookie = name => {
+                          const cookies = window.document.cookie.split("; ");
+                          for (let cookie of cookies) {
+                            const [key, value] = cookie.split("=");
+                            if (key === name) return JSON.parse(value)[0];
+                          }
+                          return "";
+                        };
+                        return $state.paramsObject.token
+                          ? ($state.token = $state.paramsObject.token)
+                          : ($state.token = getCookie("token"));
+                      })();
                     }
                   };
                   return (({ customFunction }) => {
