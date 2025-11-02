@@ -685,6 +685,23 @@ function PlasmicShoppingCart__RenderFunc(props: {
                     _delete={async event => {
                       const $steps = {};
 
+                      $steps["runBack"] =
+                        $state.itemSelect.length == 1
+                          ? (() => {
+                              const actionArgs = { eventRef: $props["back"] };
+                              return (({ eventRef, args }) => {
+                                return eventRef?.(...(args ?? []));
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["runBack"] != null &&
+                        typeof $steps["runBack"] === "object" &&
+                        typeof $steps["runBack"].then === "function"
+                      ) {
+                        $steps["runBack"] = await $steps["runBack"];
+                      }
+
                       $steps["runCode"] =
                         $state.itemSelect.includes(listItem.shop.id) &&
                         $state.itemSelect.length > 1
@@ -708,23 +725,6 @@ function PlasmicShoppingCart__RenderFunc(props: {
                         typeof $steps["runCode"].then === "function"
                       ) {
                         $steps["runCode"] = await $steps["runCode"];
-                      }
-
-                      $steps["runBack"] =
-                        $state.itemSelect.length == 1
-                          ? (() => {
-                              const actionArgs = { eventRef: $props["back"] };
-                              return (({ eventRef, args }) => {
-                                return eventRef?.(...(args ?? []));
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["runBack"] != null &&
-                        typeof $steps["runBack"] === "object" &&
-                        typeof $steps["runBack"].then === "function"
-                      ) {
-                        $steps["runBack"] = await $steps["runBack"];
                       }
                     }}
                     className={classNames(
