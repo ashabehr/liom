@@ -844,9 +844,8 @@ function PlasmicChat__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction"] === "object" &&
                 typeof $steps["invokeGlobalAction"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
               }
 
               $steps["updateVariable"] = (
@@ -1002,9 +1001,7 @@ function PlasmicChat__RenderFunc(props: {
                         const actionArgs = {
                           destination: (() => {
                             try {
-                              return `/chatviow?gender=${new URLSearchParams(
-                                new URL(window.location.href).search
-                              ).get("gender")}`;
+                              return `/chatviow?gender=${new URLSearchParams(new URL(window.location.href).search).get("gender")}`;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -1122,11 +1119,7 @@ function PlasmicChat__RenderFunc(props: {
                         const actionArgs = {
                           destination: (() => {
                             try {
-                              return `/Questionnaire?listID=${
-                                $ctx.query.listID
-                              }&gender=${new URLSearchParams(
-                                new URL(window.location.href).search
-                              ).get("gender")}`;
+                              return `/Questionnaire?listID=${$ctx.query.listID}&gender=${new URLSearchParams(new URL(window.location.href).search).get("gender")}`;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -1310,9 +1303,8 @@ function PlasmicChat__RenderFunc(props: {
                           typeof $steps["updateLoading"] === "object" &&
                           typeof $steps["updateLoading"].then === "function"
                         ) {
-                          $steps["updateLoading"] = await $steps[
-                            "updateLoading"
-                          ];
+                          $steps["updateLoading"] =
+                            await $steps["updateLoading"];
                         }
 
                         $steps["invokeGlobalAction"] = true
@@ -1352,9 +1344,8 @@ function PlasmicChat__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
 
                         $steps["updateModal2Open"] = true
@@ -1388,9 +1379,8 @@ function PlasmicChat__RenderFunc(props: {
                           typeof $steps["updateModal2Open"] === "object" &&
                           typeof $steps["updateModal2Open"].then === "function"
                         ) {
-                          $steps["updateModal2Open"] = await $steps[
-                            "updateModal2Open"
-                          ];
+                          $steps["updateModal2Open"] =
+                            await $steps["updateModal2Open"];
                         }
 
                         $steps["updateLoading2"] = true
@@ -1427,9 +1417,8 @@ function PlasmicChat__RenderFunc(props: {
                           typeof $steps["updateLoading2"] === "object" &&
                           typeof $steps["updateLoading2"].then === "function"
                         ) {
-                          $steps["updateLoading2"] = await $steps[
-                            "updateLoading2"
-                          ];
+                          $steps["updateLoading2"] =
+                            await $steps["updateLoading2"];
                         }
                       },
                       onLoadingChange: async (...eventArgs: any) => {
@@ -1684,9 +1673,8 @@ function PlasmicChat__RenderFunc(props: {
                             typeof $steps["updateTextAreaValue2"].then ===
                               "function"
                           ) {
-                            $steps["updateTextAreaValue2"] = await $steps[
-                              "updateTextAreaValue2"
-                            ];
+                            $steps["updateTextAreaValue2"] =
+                              await $steps["updateTextAreaValue2"];
                           }
 
                           $steps["updateTextAreaValue"] = true
@@ -1721,9 +1709,8 @@ function PlasmicChat__RenderFunc(props: {
                             typeof $steps["updateTextAreaValue"].then ===
                               "function"
                           ) {
-                            $steps["updateTextAreaValue"] = await $steps[
-                              "updateTextAreaValue"
-                            ];
+                            $steps["updateTextAreaValue"] =
+                              await $steps["updateTextAreaValue"];
                           }
 
                           $steps["updateTextAreaValue3"] = true
@@ -1748,9 +1735,8 @@ function PlasmicChat__RenderFunc(props: {
                             typeof $steps["updateTextAreaValue3"].then ===
                               "function"
                           ) {
-                            $steps["updateTextAreaValue3"] = await $steps[
-                              "updateTextAreaValue3"
-                            ];
+                            $steps["updateTextAreaValue3"] =
+                              await $steps["updateTextAreaValue3"];
                           }
 
                           $steps["sendstart"] = $state.start
@@ -1860,9 +1846,8 @@ function PlasmicChat__RenderFunc(props: {
                             typeof $steps["updateTextAreaValue4"].then ===
                               "function"
                           ) {
-                            $steps["updateTextAreaValue4"] = await $steps[
-                              "updateTextAreaValue4"
-                            ];
+                            $steps["updateTextAreaValue4"] =
+                              await $steps["updateTextAreaValue4"];
                           }
 
                           $steps["updateTextAreaValue7"] =
@@ -1891,9 +1876,8 @@ function PlasmicChat__RenderFunc(props: {
                             typeof $steps["updateTextAreaValue7"].then ===
                               "function"
                           ) {
-                            $steps["updateTextAreaValue7"] = await $steps[
-                              "updateTextAreaValue7"
-                            ];
+                            $steps["updateTextAreaValue7"] =
+                              await $steps["updateTextAreaValue7"];
                           }
 
                           $steps["updateTextAreaValue5"] = true
@@ -1929,9 +1913,8 @@ function PlasmicChat__RenderFunc(props: {
                             typeof $steps["updateTextAreaValue5"].then ===
                               "function"
                           ) {
-                            $steps["updateTextAreaValue5"] = await $steps[
-                              "updateTextAreaValue5"
-                            ];
+                            $steps["updateTextAreaValue5"] =
+                              await $steps["updateTextAreaValue5"];
                           }
 
                           $steps["updateTextAreaValue8"] =
@@ -1974,9 +1957,8 @@ function PlasmicChat__RenderFunc(props: {
                             typeof $steps["updateTextAreaValue8"].then ===
                               "function"
                           ) {
-                            $steps["updateTextAreaValue8"] = await $steps[
-                              "updateTextAreaValue8"
-                            ];
+                            $steps["updateTextAreaValue8"] =
+                              await $steps["updateTextAreaValue8"];
                           }
 
                           $steps["updateTextAreaValue9"] =
@@ -2000,9 +1982,8 @@ function PlasmicChat__RenderFunc(props: {
                             typeof $steps["updateTextAreaValue9"].then ===
                               "function"
                           ) {
-                            $steps["updateTextAreaValue9"] = await $steps[
-                              "updateTextAreaValue9"
-                            ];
+                            $steps["updateTextAreaValue9"] =
+                              await $steps["updateTextAreaValue9"];
                           }
 
                           $steps["updateTextAreaValue10"] =
@@ -2022,9 +2003,8 @@ function PlasmicChat__RenderFunc(props: {
                             typeof $steps["updateTextAreaValue10"].then ===
                               "function"
                           ) {
-                            $steps["updateTextAreaValue10"] = await $steps[
-                              "updateTextAreaValue10"
-                            ];
+                            $steps["updateTextAreaValue10"] =
+                              await $steps["updateTextAreaValue10"];
                           }
 
                           $steps["updateTextAreaValue6"] = true
@@ -2047,9 +2027,8 @@ function PlasmicChat__RenderFunc(props: {
                             typeof $steps["updateTextAreaValue6"].then ===
                               "function"
                           ) {
-                            $steps["updateTextAreaValue6"] = await $steps[
-                              "updateTextAreaValue6"
-                            ];
+                            $steps["updateTextAreaValue6"] =
+                              await $steps["updateTextAreaValue6"];
                           }
                         }}
                         role={"img"}
@@ -2461,9 +2440,8 @@ function PlasmicChat__RenderFunc(props: {
                                       typeof $steps["runCode"].then ===
                                         "function"
                                     ) {
-                                      $steps["runCode"] = await $steps[
-                                        "runCode"
-                                      ];
+                                      $steps["runCode"] =
+                                        await $steps["runCode"];
                                     }
                                   }).apply(null, eventArgs);
                                 },
@@ -2569,9 +2547,8 @@ function PlasmicChat__RenderFunc(props: {
                                       typeof $steps["runCode"].then ===
                                         "function"
                                     ) {
-                                      $steps["runCode"] = await $steps[
-                                        "runCode"
-                                      ];
+                                      $steps["runCode"] =
+                                        await $steps["runCode"];
                                     }
                                   }).apply(null, eventArgs);
                                 },
@@ -2693,9 +2670,8 @@ function PlasmicChat__RenderFunc(props: {
                                       typeof $steps["runCode"].then ===
                                         "function"
                                     ) {
-                                      $steps["runCode"] = await $steps[
-                                        "runCode"
-                                      ];
+                                      $steps["runCode"] =
+                                        await $steps["runCode"];
                                     }
                                   }).apply(null, eventArgs);
                                 },
@@ -2826,9 +2802,8 @@ function PlasmicChat__RenderFunc(props: {
                           typeof $steps["updateLoading"] === "object" &&
                           typeof $steps["updateLoading"].then === "function"
                         ) {
-                          $steps["updateLoading"] = await $steps[
-                            "updateLoading"
-                          ];
+                          $steps["updateLoading"] =
+                            await $steps["updateLoading"];
                         }
 
                         $steps["invokeGlobalAction"] = (
@@ -2873,9 +2848,8 @@ function PlasmicChat__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
 
                         $steps["invokeGlobalAction2"] = (
@@ -2901,9 +2875,8 @@ function PlasmicChat__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction2"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction2"] = await $steps[
-                            "invokeGlobalAction2"
-                          ];
+                          $steps["invokeGlobalAction2"] =
+                            await $steps["invokeGlobalAction2"];
                         }
 
                         $steps["updateMasseg"] = (
@@ -2980,9 +2953,8 @@ function PlasmicChat__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction3"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction3"] = await $steps[
-                            "invokeGlobalAction3"
-                          ];
+                          $steps["invokeGlobalAction3"] =
+                            await $steps["invokeGlobalAction3"];
                         }
 
                         $steps["updateLoading2"] = true
@@ -3019,9 +2991,8 @@ function PlasmicChat__RenderFunc(props: {
                           typeof $steps["updateLoading2"] === "object" &&
                           typeof $steps["updateLoading2"].then === "function"
                         ) {
-                          $steps["updateLoading2"] = await $steps[
-                            "updateLoading2"
-                          ];
+                          $steps["updateLoading2"] =
+                            await $steps["updateLoading2"];
                         }
 
                         $steps["updateModalOpen"] = (
@@ -3059,9 +3030,8 @@ function PlasmicChat__RenderFunc(props: {
                           typeof $steps["updateModalOpen"] === "object" &&
                           typeof $steps["updateModalOpen"].then === "function"
                         ) {
-                          $steps["updateModalOpen"] = await $steps[
-                            "updateModalOpen"
-                          ];
+                          $steps["updateModalOpen"] =
+                            await $steps["updateModalOpen"];
                         }
                       }}
                       onColorChange={async (...eventArgs: any) => {
@@ -3163,9 +3133,8 @@ function PlasmicChat__RenderFunc(props: {
                           typeof $steps["updateModalOpen"] === "object" &&
                           typeof $steps["updateModalOpen"].then === "function"
                         ) {
-                          $steps["updateModalOpen"] = await $steps[
-                            "updateModalOpen"
-                          ];
+                          $steps["updateModalOpen"] =
+                            await $steps["updateModalOpen"];
                         }
                       }}
                       onColorChange={async (...eventArgs: any) => {
@@ -3444,9 +3413,8 @@ function PlasmicChat__RenderFunc(props: {
                     typeof $steps["invokeGlobalAction"] === "object" &&
                     typeof $steps["invokeGlobalAction"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
+                    $steps["invokeGlobalAction"] =
+                      await $steps["invokeGlobalAction"];
                   }
 
                   $steps["goToPage"] = true
@@ -3454,9 +3422,7 @@ function PlasmicChat__RenderFunc(props: {
                         const actionArgs = {
                           destination: (() => {
                             try {
-                              return `/clinic?gender=${new URLSearchParams(
-                                new URL(window.location.href).search
-                              ).get("gender")}`;
+                              return `/clinic?gender=${new URLSearchParams(new URL(window.location.href).search).get("gender")}`;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -3521,9 +3487,8 @@ function PlasmicChat__RenderFunc(props: {
                     typeof $steps["updateTextAreaValue2"] === "object" &&
                     typeof $steps["updateTextAreaValue2"].then === "function"
                   ) {
-                    $steps["updateTextAreaValue2"] = await $steps[
-                      "updateTextAreaValue2"
-                    ];
+                    $steps["updateTextAreaValue2"] =
+                      await $steps["updateTextAreaValue2"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
@@ -3813,7 +3778,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicChat__VariantsArgs;
     args?: PlasmicChat__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicChat__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicChat__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicChat__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

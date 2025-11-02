@@ -440,9 +440,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                             searchParams.delete("userId");
                             searchParams.delete("user_id");
                             searchParams.delete("origin_user_id");
-                            const newUrl = `${
-                              window.location.pathname
-                            }?${searchParams.toString()}`;
+                            const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                             return window.history.replaceState(
                               null,
                               "",
@@ -751,9 +749,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                     typeof $steps["invokeGlobalAction"] === "object" &&
                     typeof $steps["invokeGlobalAction"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
+                    $steps["invokeGlobalAction"] =
+                      await $steps["invokeGlobalAction"];
                   }
                 }).apply(null, eventArgs);
               }}
@@ -1572,9 +1569,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                               typeof $steps["invokeGlobalAction"].then ===
                                 "function"
                             ) {
-                              $steps["invokeGlobalAction"] = await $steps[
-                                "invokeGlobalAction"
-                              ];
+                              $steps["invokeGlobalAction"] =
+                                await $steps["invokeGlobalAction"];
                             }
 
                             $steps["updateReload"] = true
@@ -1608,9 +1604,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                               typeof $steps["updateReload"] === "object" &&
                               typeof $steps["updateReload"].then === "function"
                             ) {
-                              $steps["updateReload"] = await $steps[
-                                "updateReload"
-                              ];
+                              $steps["updateReload"] =
+                                await $steps["updateReload"];
                             }
                           }}
                         >
@@ -1696,9 +1691,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                                 thenDay = false;
                               }
                               return {
-                                boxShadow: `0 0px 4px 2px ${
-                                  thenDay == false ? "#00C371" : "#EB464A"
-                                }`
+                                boxShadow: `0 0px 4px 2px ${thenDay == false ? "#00C371" : "#EB464A"}`
                               };
                             })();
                           } catch (e) {
@@ -2019,9 +2012,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                               typeof $steps["updateLoading"] === "object" &&
                               typeof $steps["updateLoading"].then === "function"
                             ) {
-                              $steps["updateLoading"] = await $steps[
-                                "updateLoading"
-                              ];
+                              $steps["updateLoading"] =
+                                await $steps["updateLoading"];
                             }
 
                             $steps["runCode"] =
@@ -2049,7 +2041,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                             }
 
                             $steps["invokeGlobalAction"] =
-                              $state?.state ?? false
+                              ($state?.state ?? false)
                                 ? (() => {
                                     const actionArgs = {
                                       args: [
@@ -2088,9 +2080,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                               typeof $steps["invokeGlobalAction"].then ===
                                 "function"
                             ) {
-                              $steps["invokeGlobalAction"] = await $steps[
-                                "invokeGlobalAction"
-                              ];
+                              $steps["invokeGlobalAction"] =
+                                await $steps["invokeGlobalAction"];
                             }
 
                             $steps["updateButtonColor3"] = !(
@@ -2134,9 +2125,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                               typeof $steps["updateButtonColor3"].then ===
                                 "function"
                             ) {
-                              $steps["updateButtonColor3"] = await $steps[
-                                "updateButtonColor3"
-                              ];
+                              $steps["updateButtonColor3"] =
+                                await $steps["updateButtonColor3"];
                             }
 
                             $steps["updateLoading2"] = true
@@ -2174,9 +2164,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                               typeof $steps["updateLoading2"].then ===
                                 "function"
                             ) {
-                              $steps["updateLoading2"] = await $steps[
-                                "updateLoading2"
-                              ];
+                              $steps["updateLoading2"] =
+                                await $steps["updateLoading2"];
                             }
 
                             $steps["updateState"] = true
@@ -2213,9 +2202,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                               typeof $steps["updateState"] === "object" &&
                               typeof $steps["updateState"].then === "function"
                             ) {
-                              $steps["updateState"] = await $steps[
-                                "updateState"
-                              ];
+                              $steps["updateState"] =
+                                await $steps["updateState"];
                             }
 
                             $steps["wait"] = true
@@ -2253,9 +2241,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                               typeof $steps["refreshData"] === "object" &&
                               typeof $steps["refreshData"].then === "function"
                             ) {
-                              $steps["refreshData"] = await $steps[
-                                "refreshData"
-                              ];
+                              $steps["refreshData"] =
+                                await $steps["refreshData"];
                             }
                           }}
                           onColorChange={async (...eventArgs: any) => {
@@ -2474,9 +2461,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           typeof $steps["updateLoading"] === "object" &&
                           typeof $steps["updateLoading"].then === "function"
                         ) {
-                          $steps["updateLoading"] = await $steps[
-                            "updateLoading"
-                          ];
+                          $steps["updateLoading"] =
+                            await $steps["updateLoading"];
                         }
 
                         $steps["runCode"] =
@@ -2515,7 +2501,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                         }
 
                         $steps["invokeGlobalAction"] =
-                          $state?.state ?? false
+                          ($state?.state ?? false)
                             ? (() => {
                                 const actionArgs = {
                                   args: [
@@ -2553,9 +2539,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
 
                         $steps["updateButtonColor3"] = !($state?.state ?? false)
@@ -2596,9 +2581,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           typeof $steps["updateButtonColor3"].then ===
                             "function"
                         ) {
-                          $steps["updateButtonColor3"] = await $steps[
-                            "updateButtonColor3"
-                          ];
+                          $steps["updateButtonColor3"] =
+                            await $steps["updateButtonColor3"];
                         }
 
                         $steps["updateLoading2"] = true
@@ -2635,9 +2619,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           typeof $steps["updateLoading2"] === "object" &&
                           typeof $steps["updateLoading2"].then === "function"
                         ) {
-                          $steps["updateLoading2"] = await $steps[
-                            "updateLoading2"
-                          ];
+                          $steps["updateLoading2"] =
+                            await $steps["updateLoading2"];
                         }
 
                         $steps["updateState"] = true
@@ -36960,7 +36943,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSelfSmsPage__VariantsArgs;
     args?: PlasmicSelfSmsPage__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSelfSmsPage__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSelfSmsPage__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSelfSmsPage__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

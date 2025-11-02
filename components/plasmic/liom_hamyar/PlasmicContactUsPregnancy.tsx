@@ -401,9 +401,8 @@ function PlasmicContactUsPregnancy__RenderFunc(props: {
                       typeof $steps["goToHttpsTMeLiomSupport"].then ===
                         "function"
                     ) {
-                      $steps["goToHttpsTMeLiomSupport"] = await $steps[
-                        "goToHttpsTMeLiomSupport"
-                      ];
+                      $steps["goToHttpsTMeLiomSupport"] =
+                        await $steps["goToHttpsTMeLiomSupport"];
                     }
                   }}
                 >
@@ -475,9 +474,8 @@ function PlasmicContactUsPregnancy__RenderFunc(props: {
                       typeof $steps["goToHttpsTMeLiomSupport"].then ===
                         "function"
                     ) {
-                      $steps["goToHttpsTMeLiomSupport"] = await $steps[
-                        "goToHttpsTMeLiomSupport"
-                      ];
+                      $steps["goToHttpsTMeLiomSupport"] =
+                        await $steps["goToHttpsTMeLiomSupport"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
@@ -678,7 +676,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicContactUsPregnancy__VariantsArgs;
     args?: PlasmicContactUsPregnancy__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicContactUsPregnancy__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicContactUsPregnancy__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicContactUsPregnancy__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -404,10 +404,10 @@ function PlasmicNotification__RenderFunc(props: {
                 hasVariant(globalVariants, "screen", "mobile")
                   ? "50%"
                   : hasVariant($state, "noNotification", "noNotification")
-                  ? "30%"
-                  : hasVariant(globalVariants, "screen", "mobile")
-                  ? "50%"
-                  : "30%"
+                    ? "30%"
+                    : hasVariant(globalVariants, "screen", "mobile")
+                      ? "50%"
+                      : "30%"
               }
               displayMinHeight={"0"}
               displayMinWidth={"0"}
@@ -656,9 +656,8 @@ function PlasmicNotification__RenderFunc(props: {
                                     typeof $steps["goToPage"].then ===
                                       "function"
                                   ) {
-                                    $steps["goToPage"] = await $steps[
-                                      "goToPage"
-                                    ];
+                                    $steps["goToPage"] =
+                                      await $steps["goToPage"];
                                   }
 
                                   $steps["invokeGlobalAction"] =
@@ -694,9 +693,8 @@ function PlasmicNotification__RenderFunc(props: {
                                     typeof $steps["invokeGlobalAction"].then ===
                                       "function"
                                   ) {
-                                    $steps["invokeGlobalAction"] = await $steps[
-                                      "invokeGlobalAction"
-                                    ];
+                                    $steps["invokeGlobalAction"] =
+                                      await $steps["invokeGlobalAction"];
                                   }
                                 }}
                                 style={(() => {
@@ -818,9 +816,8 @@ function PlasmicNotification__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["runCode"] = true
@@ -1187,9 +1184,7 @@ function PlasmicNotification__RenderFunc(props: {
                           searchParams.delete("token");
                           searchParams.delete("userId");
                           searchParams.delete("user_id");
-                          const newUrl = `${
-                            window.location.pathname
-                          }?${searchParams.toString()}`;
+                          const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                           return window.history.replaceState(null, "", newUrl);
                         })();
                       }
@@ -1255,7 +1250,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicNotification__VariantsArgs;
     args?: PlasmicNotification__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicNotification__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicNotification__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicNotification__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

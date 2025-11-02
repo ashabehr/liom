@@ -584,9 +584,8 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                   typeof $steps["invokeGlobalAction"] === "object" &&
                   typeof $steps["invokeGlobalAction"].then === "function"
                 ) {
-                  $steps["invokeGlobalAction"] = await $steps[
-                    "invokeGlobalAction"
-                  ];
+                  $steps["invokeGlobalAction"] =
+                    await $steps["invokeGlobalAction"];
                 }
 
                 $steps["runCode"] = true
@@ -670,7 +669,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                               week = "0" + ($state.agePregnant.week + 1);
                             else week = "" + ($state.agePregnant.week + 1);
                             return (
-                              "https://teh-1.s3.poshtiban.com/liom/config/pregnancy/week" +
+                              "https://liom.storage.c2.liara.space/config/pregnancy/week" +
                               week +
                               ".png"
                             );
@@ -2633,9 +2632,8 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                         typeof $steps["goToAgePregnant"] === "object" &&
                         typeof $steps["goToAgePregnant"].then === "function"
                       ) {
-                        $steps["goToAgePregnant"] = await $steps[
-                          "goToAgePregnant"
-                        ];
+                        $steps["goToAgePregnant"] =
+                          await $steps["goToAgePregnant"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -2724,9 +2722,8 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                         typeof $steps["goToAgePregnant"] === "object" &&
                         typeof $steps["goToAgePregnant"].then === "function"
                       ) {
-                        $steps["goToAgePregnant"] = await $steps[
-                          "goToAgePregnant"
-                        ];
+                        $steps["goToAgePregnant"] =
+                          await $steps["goToAgePregnant"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -2843,7 +2840,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicResultAgePregnant__VariantsArgs;
     args?: PlasmicResultAgePregnant__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicResultAgePregnant__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicResultAgePregnant__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicResultAgePregnant__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

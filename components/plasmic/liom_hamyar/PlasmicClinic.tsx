@@ -831,9 +831,7 @@ function PlasmicClinic__RenderFunc(props: {
                           searchParams.delete("userId");
                           searchParams.delete("user_id");
                           searchParams.delete("origin_user_id");
-                          const newUrl = `${
-                            window.location.pathname
-                          }?${searchParams.toString()}`;
+                          const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                           return window.history.replaceState(null, "", newUrl);
                         })();
                       }
@@ -974,10 +972,7 @@ function PlasmicClinic__RenderFunc(props: {
                                     if (
                                       /Mac OS X (\d+[\._]\d+)/.test(userAgent)
                                     )
-                                      return `macOS ${RegExp.$1.replace(
-                                        "_",
-                                        "."
-                                      )}`;
+                                      return `macOS ${RegExp.$1.replace("_", ".")}`;
                                     if (/Android (\d+(\.\d+)?)/.test(userAgent))
                                       return `Android ${RegExp.$1}`;
                                     if (
@@ -985,10 +980,7 @@ function PlasmicClinic__RenderFunc(props: {
                                         userAgent
                                       )
                                     )
-                                      return `iOS ${RegExp.$2.replace(
-                                        "_",
-                                        "."
-                                      )}`;
+                                      return `iOS ${RegExp.$2.replace("_", ".")}`;
                                     return "Unknown Version";
                                   })(),
                                   sex: $state.gender || "",
@@ -1046,7 +1038,7 @@ function PlasmicClinic__RenderFunc(props: {
               }
 
               $steps["setCookieGuset"] =
-                $steps.userGuset?.data?.success ?? false
+                ($steps.userGuset?.data?.success ?? false)
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
@@ -1100,9 +1092,7 @@ function PlasmicClinic__RenderFunc(props: {
                               chatstart.listID == 6
                             ) {
                               urlParams.set("gender", "male");
-                              const newUrl = `${
-                                window.location.pathname
-                              }?${urlParams.toString()}`;
+                              const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
                               window.history.pushState({}, "", newUrl);
                             }
                             $state.status = "false";
@@ -1179,9 +1169,8 @@ function PlasmicClinic__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction2"] === "object" &&
                 typeof $steps["invokeGlobalAction2"].then === "function"
               ) {
-                $steps["invokeGlobalAction2"] = await $steps[
-                  "invokeGlobalAction2"
-                ];
+                $steps["invokeGlobalAction2"] =
+                  await $steps["invokeGlobalAction2"];
               }
 
               $steps["updateGetData"] = $steps.invokeGlobalAction2?.data
@@ -1304,9 +1293,8 @@ function PlasmicClinic__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction"] === "object" &&
                 typeof $steps["invokeGlobalAction"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
               }
 
               $steps["invokeGlobalAction3"] = true
@@ -1340,9 +1328,8 @@ function PlasmicClinic__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction3"] === "object" &&
                 typeof $steps["invokeGlobalAction3"].then === "function"
               ) {
-                $steps["invokeGlobalAction3"] = await $steps[
-                  "invokeGlobalAction3"
-                ];
+                $steps["invokeGlobalAction3"] =
+                  await $steps["invokeGlobalAction3"];
               }
             }}
           />
@@ -1379,9 +1366,7 @@ function PlasmicClinic__RenderFunc(props: {
                   dangerouslySetInnerHTML={{
                     __html: (() => {
                       try {
-                        return `<b> موجودی شما :</b>\n${
-                          $state.getData.userAllowance * 1000
-                        } تومان`;
+                        return `<b> موجودی شما :</b>\n${$state.getData.userAllowance * 1000} تومان`;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -1572,13 +1557,7 @@ function PlasmicClinic__RenderFunc(props: {
                               const actionArgs = {
                                 destination: (() => {
                                   try {
-                                    return `/docter?id=${
-                                      currentItem.id
-                                    }&gender=${new URLSearchParams(
-                                      window.location.search
-                                    ).get("gender")}&userId=${
-                                      $ctx.query.userId
-                                    }`;
+                                    return `/docter?id=${currentItem.id}&gender=${new URLSearchParams(window.location.search).get("gender")}&userId=${$ctx.query.userId}`;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -1737,9 +1716,7 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/docter?id=5&gender=${new URLSearchParams(
-                                    new URL(window.location.href).search
-                                  ).get("gender")}`;
+                                  return `/docter?id=5&gender=${new URLSearchParams(new URL(window.location.href).search).get("gender")}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -1924,9 +1901,7 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/docter?id=5&gender=${new URLSearchParams(
-                                    new URL(window.location.href).search
-                                  ).get("gender")}`;
+                                  return `/docter?id=5&gender=${new URLSearchParams(new URL(window.location.href).search).get("gender")}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -2118,9 +2093,7 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/docter?id=5&gender=${new URLSearchParams(
-                                    new URL(window.location.href).search
-                                  ).get("gender")}`;
+                                  return `/docter?id=5&gender=${new URLSearchParams(new URL(window.location.href).search).get("gender")}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -2390,9 +2363,7 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/docter?id=7&gender=${new URLSearchParams(
-                                    window.location.search
-                                  ).get("gender")}`;
+                                  return `/docter?id=7&gender=${new URLSearchParams(window.location.search).get("gender")}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -2469,9 +2440,7 @@ function PlasmicClinic__RenderFunc(props: {
                               const actionArgs = {
                                 destination: (() => {
                                   try {
-                                    return `/docter?id=7&gender=${new URLSearchParams(
-                                      new URL(window.location.href).search
-                                    ).get("gender")}`;
+                                    return `/docter?id=7&gender=${new URLSearchParams(new URL(window.location.href).search).get("gender")}`;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -2582,9 +2551,7 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/docter?id=7&gender=${new URLSearchParams(
-                                    window.location.search
-                                  ).get("gender")}`;
+                                  return `/docter?id=7&gender=${new URLSearchParams(window.location.search).get("gender")}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -2668,9 +2635,7 @@ function PlasmicClinic__RenderFunc(props: {
                               const actionArgs = {
                                 destination: (() => {
                                   try {
-                                    return `/docter?id=7&gender=${new URLSearchParams(
-                                      new URL(window.location.href).search
-                                    ).get("gender")}`;
+                                    return `/docter?id=7&gender=${new URLSearchParams(new URL(window.location.href).search).get("gender")}`;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -2781,9 +2746,7 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/docter?id=7&gender=${new URLSearchParams(
-                                    window.location.search
-                                  ).get("gender")}`;
+                                  return `/docter?id=7&gender=${new URLSearchParams(window.location.search).get("gender")}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -2863,9 +2826,7 @@ function PlasmicClinic__RenderFunc(props: {
                               const actionArgs = {
                                 destination: (() => {
                                   try {
-                                    return `/docter?id=7&gender=${new URLSearchParams(
-                                      new URL(window.location.href).search
-                                    ).get("gender")}`;
+                                    return `/docter?id=7&gender=${new URLSearchParams(new URL(window.location.href).search).get("gender")}`;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -3061,9 +3022,7 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/docter?id=2&gender=${new URLSearchParams(
-                                    new URL(window.location.href).search
-                                  ).get("gender")}`;
+                                  return `/docter?id=2&gender=${new URLSearchParams(new URL(window.location.href).search).get("gender")}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -3248,9 +3207,7 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/docter?id=2&gender=${new URLSearchParams(
-                                    new URL(window.location.href).search
-                                  ).get("gender")}`;
+                                  return `/docter?id=2&gender=${new URLSearchParams(new URL(window.location.href).search).get("gender")}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -3458,9 +3415,7 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/docter?id=2&gender=${new URLSearchParams(
-                                    new URL(window.location.href).search
-                                  ).get("gender")}`;
+                                  return `/docter?id=2&gender=${new URLSearchParams(new URL(window.location.href).search).get("gender")}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -3850,11 +3805,11 @@ function PlasmicClinic__RenderFunc(props: {
                   hasVariant(globalVariants, "screen", "mobile")
                     ? "60px"
                     : hasVariant($state, "_1", "docters") &&
-                      hasVariant(globalVariants, "screen", "mobile")
-                    ? "50px"
-                    : hasVariant($state, "_1", "docters")
-                    ? "80px"
-                    : "79px"
+                        hasVariant(globalVariants, "screen", "mobile")
+                      ? "50px"
+                      : hasVariant($state, "_1", "docters")
+                        ? "80px"
+                        : "79px"
                 }
                 displayMaxHeight={"none"}
                 displayMaxWidth={"100%"}
@@ -3865,11 +3820,11 @@ function PlasmicClinic__RenderFunc(props: {
                   hasVariant(globalVariants, "screen", "mobile")
                     ? "60px"
                     : hasVariant($state, "_1", "docters") &&
-                      hasVariant(globalVariants, "screen", "mobile")
-                    ? "50px"
-                    : hasVariant($state, "_1", "docters")
-                    ? "80px"
-                    : "79px"
+                        hasVariant(globalVariants, "screen", "mobile")
+                      ? "50px"
+                      : hasVariant($state, "_1", "docters")
+                        ? "80px"
+                        : "79px"
                 }
                 loading={"lazy"}
                 src={
@@ -3882,19 +3837,19 @@ function PlasmicClinic__RenderFunc(props: {
                         aspectRatio: undefined
                       }
                     : hasVariant($state, "_1", "docters") &&
-                      hasVariant(globalVariants, "screen", "mobile")
-                    ? {
-                        src: "/plasmic/liom_hamyar/images/image10.ico",
-                        fullWidth: 256,
-                        fullHeight: 256,
-                        aspectRatio: undefined
-                      }
-                    : {
-                        src: "/plasmic/liom_hamyar/images/imagePlaceholder.svg",
-                        fullWidth: 79,
-                        fullHeight: 79,
-                        aspectRatio: 1
-                      }
+                        hasVariant(globalVariants, "screen", "mobile")
+                      ? {
+                          src: "/plasmic/liom_hamyar/images/image10.ico",
+                          fullWidth: 256,
+                          fullHeight: 256,
+                          aspectRatio: undefined
+                        }
+                      : {
+                          src: "/plasmic/liom_hamyar/images/imagePlaceholder.svg",
+                          fullWidth: 79,
+                          fullHeight: 79,
+                          aspectRatio: 1
+                        }
                 }
               />
 
@@ -4026,9 +3981,9 @@ function PlasmicClinic__RenderFunc(props: {
                       hasVariant(globalVariants, "screen", "mobile")
                         ? undefined
                         : hasVariant($state, "_1", "docters") &&
-                          hasVariant(globalVariants, "screen", "mobile")
-                        ? undefined
-                        : true
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? undefined
+                          : true
                     }
                     className={classNames("__wab_instance", sty.star__g2KKc, {
                       [sty.star_1_chatviow__g2KKcaYJmT]: hasVariant(
@@ -4177,9 +4132,8 @@ function PlasmicClinic__RenderFunc(props: {
                       typeof $steps["updateLoadingPage"] === "object" &&
                       typeof $steps["updateLoadingPage"].then === "function"
                     ) {
-                      $steps["updateLoadingPage"] = await $steps[
-                        "updateLoadingPage"
-                      ];
+                      $steps["updateLoadingPage"] =
+                        await $steps["updateLoadingPage"];
                     }
 
                     $steps["update1"] = true
@@ -4244,9 +4198,8 @@ function PlasmicClinic__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
 
                     $steps["updateGetList"] = true
@@ -4348,9 +4301,8 @@ function PlasmicClinic__RenderFunc(props: {
                       typeof $steps["updateLoadingPage2"] === "object" &&
                       typeof $steps["updateLoadingPage2"].then === "function"
                     ) {
-                      $steps["updateLoadingPage2"] = await $steps[
-                        "updateLoadingPage2"
-                      ];
+                      $steps["updateLoadingPage2"] =
+                        await $steps["updateLoadingPage2"];
                     }
                   }}
                 >
@@ -4408,11 +4360,11 @@ function PlasmicClinic__RenderFunc(props: {
                       hasVariant(globalVariants, "screen", "mobile")
                         ? "60px"
                         : hasVariant($state, "_1", "docters") &&
-                          hasVariant(globalVariants, "screen", "mobile")
-                        ? "50px"
-                        : hasVariant($state, "_1", "docters")
-                        ? "60px"
-                        : "79px"
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "50px"
+                          : hasVariant($state, "_1", "docters")
+                            ? "60px"
+                            : "79px"
                     }
                     displayMaxHeight={"none"}
                     displayMaxWidth={"100%"}
@@ -4423,11 +4375,11 @@ function PlasmicClinic__RenderFunc(props: {
                       hasVariant(globalVariants, "screen", "mobile")
                         ? "60px"
                         : hasVariant($state, "_1", "docters") &&
-                          hasVariant(globalVariants, "screen", "mobile")
-                        ? "50px"
-                        : hasVariant($state, "_1", "docters")
-                        ? "60px"
-                        : "79px"
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "50px"
+                          : hasVariant($state, "_1", "docters")
+                            ? "60px"
+                            : "79px"
                     }
                     loading={"lazy"}
                     src={
@@ -4440,16 +4392,16 @@ function PlasmicClinic__RenderFunc(props: {
                             aspectRatio: undefined
                           }
                         : hasVariant($state, "_1", "docters") &&
-                          hasVariant(globalVariants, "screen", "mobile")
-                        ? "https://static.vecteezy.com/system/resources/previews/008/957/225/non_2x/female-doctor-avatar-clipart-icon-in-flat-design-vector.jpg"
-                        : hasVariant($state, "_1", "docters")
-                        ? "https://static.vecteezy.com/system/resources/previews/008/957/225/non_2x/female-doctor-avatar-clipart-icon-in-flat-design-vector.jpg"
-                        : {
-                            src: "/plasmic/liom_hamyar/images/imagePlaceholder.svg",
-                            fullWidth: 79,
-                            fullHeight: 79,
-                            aspectRatio: 1
-                          }
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "https://static.vecteezy.com/system/resources/previews/008/957/225/non_2x/female-doctor-avatar-clipart-icon-in-flat-design-vector.jpg"
+                          : hasVariant($state, "_1", "docters")
+                            ? "https://static.vecteezy.com/system/resources/previews/008/957/225/non_2x/female-doctor-avatar-clipart-icon-in-flat-design-vector.jpg"
+                            : {
+                                src: "/plasmic/liom_hamyar/images/imagePlaceholder.svg",
+                                fullWidth: 79,
+                                fullHeight: 79,
+                                aspectRatio: 1
+                              }
                     }
                   />
 
@@ -4629,9 +4581,9 @@ function PlasmicClinic__RenderFunc(props: {
                           hasVariant(globalVariants, "screen", "mobile")
                             ? undefined
                             : hasVariant($state, "_1", "docters") &&
-                              hasVariant(globalVariants, "screen", "mobile")
-                            ? true
-                            : true
+                                hasVariant(globalVariants, "screen", "mobile")
+                              ? true
+                              : true
                         }
                         className={classNames(
                           "__wab_instance",
@@ -4734,8 +4686,8 @@ function PlasmicClinic__RenderFunc(props: {
                       hasVariant(globalVariants, "screen", "mobile")
                         ? "\u0627\u0645\u062a\u06cc\u0627\u0632 \u067e\u0632\u0634\u06a9"
                         : hasVariant($state, "_1", "docters")
-                        ? "\u0627\u0645\u062a\u06cc\u0627\u0632 \u067e\u0632\u0634\u06a9"
-                        : "\u062a\u0639\u062f\u0627\u062f \u0645\u0631\u0627\u062c\u0639 (150)"}
+                          ? "\u0627\u0645\u062a\u06cc\u0627\u0632 \u067e\u0632\u0634\u06a9"
+                          : "\u062a\u0639\u062f\u0627\u062f \u0645\u0631\u0627\u062c\u0639 (150)"}
                     </div>
                   </div>
                 </div>
@@ -4746,8 +4698,8 @@ function PlasmicClinic__RenderFunc(props: {
             hasVariant($state, "_1", "chatviow")
               ? true
               : hasVariant($state, "_1", "docters")
-              ? true
-              : false
+                ? true
+                : false
           ) ? (
             <div
               className={classNames(projectcss.all, sty.freeBox__dh5Mr, {
@@ -4966,11 +4918,11 @@ function PlasmicClinic__RenderFunc(props: {
                         hasVariant(globalVariants, "screen", "mobile")
                           ? "40px"
                           : hasVariant($state, "_1", "chatviow")
-                          ? "50px"
-                          : hasVariant($state, "_1", "docters") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "60px"
-                          : "79px"
+                            ? "50px"
+                            : hasVariant($state, "_1", "docters") &&
+                                hasVariant(globalVariants, "screen", "mobile")
+                              ? "60px"
+                              : "79px"
                       }
                       displayMaxHeight={"none"}
                       displayMaxWidth={"100%"}
@@ -4981,11 +4933,11 @@ function PlasmicClinic__RenderFunc(props: {
                         hasVariant(globalVariants, "screen", "mobile")
                           ? "40px"
                           : hasVariant($state, "_1", "chatviow")
-                          ? "50px"
-                          : hasVariant($state, "_1", "docters") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "60px"
-                          : "79px"
+                            ? "50px"
+                            : hasVariant($state, "_1", "docters") &&
+                                hasVariant(globalVariants, "screen", "mobile")
+                              ? "60px"
+                              : "79px"
                       }
                       loading={"lazy"}
                       src={
@@ -4993,14 +4945,14 @@ function PlasmicClinic__RenderFunc(props: {
                         hasVariant(globalVariants, "screen", "mobile")
                           ? "https://static.vecteezy.com/system/resources/previews/008/957/225/non_2x/female-doctor-avatar-clipart-icon-in-flat-design-vector.jpg"
                           : hasVariant($state, "_1", "docters") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? {
-                              src: "/plasmic/liom_hamyar/images/image10.ico",
-                              fullWidth: 256,
-                              fullHeight: 256,
-                              aspectRatio: undefined
-                            }
-                          : "https://static.vecteezy.com/system/resources/previews/008/957/225/non_2x/female-doctor-avatar-clipart-icon-in-flat-design-vector.jpg"
+                              hasVariant(globalVariants, "screen", "mobile")
+                            ? {
+                                src: "/plasmic/liom_hamyar/images/image10.ico",
+                                fullWidth: 256,
+                                fullHeight: 256,
+                                aspectRatio: undefined
+                              }
+                            : "https://static.vecteezy.com/system/resources/previews/008/957/225/non_2x/female-doctor-avatar-clipart-icon-in-flat-design-vector.jpg"
                       }
                     />
 
@@ -5451,9 +5403,9 @@ function PlasmicClinic__RenderFunc(props: {
                             hasVariant(globalVariants, "screen", "mobile")
                               ? undefined
                               : hasVariant($state, "_1", "docters") &&
-                                hasVariant(globalVariants, "screen", "mobile")
-                              ? undefined
-                              : true
+                                  hasVariant(globalVariants, "screen", "mobile")
+                                ? undefined
+                                : true
                           }
                           className={classNames(
                             "__wab_instance",
@@ -5618,13 +5570,13 @@ function PlasmicClinic__RenderFunc(props: {
             hasVariant(globalVariants, "screen", "mobile")
               ? true
               : hasVariant($state, "_1", "chatviow")
-              ? true
-              : hasVariant($state, "_1", "docter") &&
-                hasVariant(globalVariants, "screen", "mobile")
-              ? true
-              : hasVariant($state, "_1", "docter")
-              ? true
-              : false
+                ? true
+                : hasVariant($state, "_1", "docter") &&
+                    hasVariant(globalVariants, "screen", "mobile")
+                  ? true
+                  : hasVariant($state, "_1", "docter")
+                    ? true
+                    : false
           ) ? (
             <div
               data-plasmic-name={"doctorsDetails"}
@@ -5647,8 +5599,8 @@ function PlasmicClinic__RenderFunc(props: {
                   hasVariant($state, "_1", "chatviow")
                     ? Icon2Icon
                     : hasVariant($state, "_1", "docter")
-                    ? Icon2Icon
-                    : "div"
+                      ? Icon2Icon
+                      : "div"
                 }
                 className={classNames(projectcss.all, sty.svg__coMsb, {
                   [sty.svg_1_chatviow__coMsBaYJmT]: hasVariant(
@@ -5895,8 +5847,8 @@ function PlasmicClinic__RenderFunc(props: {
                     {hasVariant($state, "_1", "chatviow")
                       ? "\u0622\u0634\u0646\u0627\u06cc\u06cc \u0628\u0627 \u067e\u0632\u0634\u06a9"
                       : hasVariant($state, "_1", "docter")
-                      ? "\u0622\u0634\u0646\u0627\u06cc\u06cc \u0628\u0627 \u067e\u0632\u0634\u06a9"
-                      : "About Doctor"}
+                        ? "\u0622\u0634\u0646\u0627\u06cc\u06cc \u0628\u0627 \u067e\u0632\u0634\u06a9"
+                        : "About Doctor"}
                   </div>
                   <div
                     data-plasmic-name={"drBellamyNicholas"}
@@ -5994,8 +5946,8 @@ function PlasmicClinic__RenderFunc(props: {
                     {hasVariant($state, "_1", "chatviow")
                       ? "\u0633\u0627\u0639\u0627\u062a \u067e\u0627\u0633\u062e\u06af\u0648\u06cc\u06cc"
                       : hasVariant($state, "_1", "docter")
-                      ? "\u0645\u06cc\u0627\u0646\u06af\u06cc\u0646 \u0632\u0645\u0627\u0646 \u067e\u0627\u0633\u062e\u06af\u0648\u06cc\u06cc"
-                      : "Working time"}
+                        ? "\u0645\u06cc\u0627\u0646\u06af\u06cc\u0646 \u0632\u0645\u0627\u0646 \u067e\u0627\u0633\u062e\u06af\u0648\u06cc\u06cc"
+                        : "Working time"}
                   </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox___8Zuwg, {
@@ -6120,18 +6072,18 @@ function PlasmicClinic__RenderFunc(props: {
                       hasVariant(globalVariants, "screen", "mobile")
                         ? true
                         : hasVariant($state, "_1", "docter")
-                        ? true
-                        : undefined
+                          ? true
+                          : undefined
                     }
                     numberOfLine={
                       hasVariant($state, "_1", "docter") &&
                       hasVariant(globalVariants, "screen", "mobile")
                         ? 2
                         : hasVariant($state, "_1", "docter")
-                        ? 2
-                        : hasVariant(globalVariants, "screen", "mobile")
-                        ? 2
-                        : undefined
+                          ? 2
+                          : hasVariant(globalVariants, "screen", "mobile")
+                            ? 2
+                            : undefined
                     }
                     onLineChange={async (...eventArgs: any) => {
                       generateStateOnChangeProp($state, [
@@ -6279,9 +6231,8 @@ function PlasmicClinic__RenderFunc(props: {
                               typeof $steps["updateDialogOpendialog"].then ===
                                 "function"
                             ) {
-                              $steps["updateDialogOpendialog"] = await $steps[
-                                "updateDialogOpendialog"
-                              ];
+                              $steps["updateDialogOpendialog"] =
+                                await $steps["updateDialogOpendialog"];
                             }
 
                             $steps["updateSublist"] = true
@@ -6315,9 +6266,8 @@ function PlasmicClinic__RenderFunc(props: {
                               typeof $steps["updateSublist"] === "object" &&
                               typeof $steps["updateSublist"].then === "function"
                             ) {
-                              $steps["updateSublist"] = await $steps[
-                                "updateSublist"
-                              ];
+                              $steps["updateSublist"] =
+                                await $steps["updateSublist"];
                             }
                           }}
                           style={
@@ -6618,9 +6568,8 @@ function PlasmicClinic__RenderFunc(props: {
                       typeof $steps["updateDialogOpendialog"].then ===
                         "function"
                     ) {
-                      $steps["updateDialogOpendialog"] = await $steps[
-                        "updateDialogOpendialog"
-                      ];
+                      $steps["updateDialogOpendialog"] =
+                        await $steps["updateDialogOpendialog"];
                     }
 
                     $steps["updateSublist"] = true
@@ -6728,13 +6677,13 @@ function PlasmicClinic__RenderFunc(props: {
                     hasVariant(globalVariants, "screen", "mobile")
                       ? "\u06af\u0641\u062a\u200c\u0648\u06af\u0648\u06cc \u0622\u0646\u0644\u0627\u06cc\u0646 \u0628\u0627 \u067e\u0632\u0634\u06a9"
                       : hasVariant($state, "_1", "chatviow")
-                      ? "\u06af\u0641\u062a\u200c\u0648\u06af\u0648\u06cc \u0622\u0646\u0644\u0627\u06cc\u0646 \u0628\u0627 \u067e\u0632\u0634\u06a9"
-                      : hasVariant($state, "_1", "docter") &&
-                        hasVariant(globalVariants, "screen", "mobile")
-                      ? "\u06af\u0641\u062a\u200c\u0648\u06af\u0648\u06cc \u0622\u0646\u0644\u0627\u06cc\u0646 \u0628\u0627 \u067e\u0632\u0634\u06a9"
-                      : hasVariant($state, "_1", "docter")
-                      ? "\u06af\u0641\u062a\u200c\u0648\u06af\u0648\u06cc \u0622\u0646\u0644\u0627\u06cc\u0646 \u0628\u0627 \u067e\u0632\u0634\u06a9"
-                      : "Button"}
+                        ? "\u06af\u0641\u062a\u200c\u0648\u06af\u0648\u06cc \u0622\u0646\u0644\u0627\u06cc\u0646 \u0628\u0627 \u067e\u0632\u0634\u06a9"
+                        : hasVariant($state, "_1", "docter") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "\u06af\u0641\u062a\u200c\u0648\u06af\u0648\u06cc \u0622\u0646\u0644\u0627\u06cc\u0646 \u0628\u0627 \u067e\u0632\u0634\u06a9"
+                          : hasVariant($state, "_1", "docter")
+                            ? "\u06af\u0641\u062a\u200c\u0648\u06af\u0648\u06cc \u0622\u0646\u0644\u0627\u06cc\u0646 \u0628\u0627 \u067e\u0632\u0634\u06a9"
+                            : "Button"}
                   </div>
                 </Button>
               </section>
@@ -7349,9 +7298,8 @@ function PlasmicClinic__RenderFunc(props: {
                                 typeof $steps["updateBtnloading"].then ===
                                   "function"
                               ) {
-                                $steps["updateBtnloading"] = await $steps[
-                                  "updateBtnloading"
-                                ];
+                                $steps["updateBtnloading"] =
+                                  await $steps["updateBtnloading"];
                               }
 
                               $steps["invokeGlobalAction"] = true
@@ -7392,9 +7340,8 @@ function PlasmicClinic__RenderFunc(props: {
                                 typeof $steps["invokeGlobalAction"].then ===
                                   "function"
                               ) {
-                                $steps["invokeGlobalAction"] = await $steps[
-                                  "invokeGlobalAction"
-                                ];
+                                $steps["invokeGlobalAction"] =
+                                  await $steps["invokeGlobalAction"];
                               }
 
                               $steps["goToPage"] =
@@ -7511,9 +7458,8 @@ function PlasmicClinic__RenderFunc(props: {
                                 typeof $steps["updateBtnloading2"].then ===
                                   "function"
                               ) {
-                                $steps["updateBtnloading2"] = await $steps[
-                                  "updateBtnloading2"
-                                ];
+                                $steps["updateBtnloading2"] =
+                                  await $steps["updateBtnloading2"];
                               }
                             }}
                             onColorChange={async (...eventArgs: any) => {
@@ -7852,9 +7798,8 @@ function PlasmicClinic__RenderFunc(props: {
                         typeof $steps["updateBtnloading"] === "object" &&
                         typeof $steps["updateBtnloading"].then === "function"
                       ) {
-                        $steps["updateBtnloading"] = await $steps[
-                          "updateBtnloading"
-                        ];
+                        $steps["updateBtnloading"] =
+                          await $steps["updateBtnloading"];
                       }
 
                       $steps["invokeGlobalAction"] = true
@@ -7894,9 +7839,8 @@ function PlasmicClinic__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["goToPage"] =
@@ -7971,9 +7915,8 @@ function PlasmicClinic__RenderFunc(props: {
                         typeof $steps["updateBtnloading2"] === "object" &&
                         typeof $steps["updateBtnloading2"].then === "function"
                       ) {
-                        $steps["updateBtnloading2"] = await $steps[
-                          "updateBtnloading2"
-                        ];
+                        $steps["updateBtnloading2"] =
+                          await $steps["updateBtnloading2"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -8059,20 +8002,20 @@ function PlasmicClinic__RenderFunc(props: {
                   hasVariant($state, "_1", "docter")
                     ? true
                     : hasVariant($state, "_1", "docters")
-                    ? true
-                    : (() => {
-                        try {
-                          return !$state.loadingPage;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
+                      ? true
+                      : (() => {
+                          try {
+                            return !$state.loadingPage;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
                           }
-                          throw e;
-                        }
-                      })()
+                        })()
                 ) ? (
                   <Button
                     data-plasmic-name={"button16"}
@@ -8106,9 +8049,7 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/chatviow?gender=${new URLSearchParams(
-                                    new URL(window.location.href).search
-                                  ).get("gender")}`;
+                                  return `/chatviow?gender=${new URLSearchParams(new URL(window.location.href).search).get("gender")}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -8398,20 +8339,20 @@ function PlasmicClinic__RenderFunc(props: {
               hasVariant(globalVariants, "screen", "mobile")
                 ? true
                 : hasVariant($state, "_1", "chatviow")
-                ? (() => {
-                    try {
-                      return !$state.loadingPage;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return true;
+                  ? (() => {
+                      try {
+                        return !$state.loadingPage;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
                       }
-                      throw e;
-                    }
-                  })()
-                : true
+                    })()
+                  : true
             ) ? (
               <Search
                 data-plasmic-name={"search"}
@@ -8972,7 +8913,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicClinic__VariantsArgs;
     args?: PlasmicClinic__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicClinic__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicClinic__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicClinic__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

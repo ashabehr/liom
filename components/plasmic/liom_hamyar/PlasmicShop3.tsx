@@ -715,7 +715,7 @@ function PlasmicShop3__RenderFunc(props: {
                         smsSub: true,
                         price: 16000,
                         fullscreenBanner:
-                          "https://teh-1.s3.poshtiban.com/liom/banner1specialoffr.png",
+                          "https://liom.storage.c2.liara.space/banner1specialoffr.png",
                         int_id: 38,
                         text: "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06f2 \u0645\u0627\u0647\u0647",
                         id: "8862e720-3977-4a82-a07b-2fbfd0b7ce03",
@@ -723,7 +723,7 @@ function PlasmicShop3__RenderFunc(props: {
                         value: 2,
                         order: 3,
                         image:
-                          "https://teh-1.s3.poshtiban.com/liom/config/self_care/icon_brest_cancer.png",
+                          "https://liom.storage.c2.liara.space/config/self_care/icon_brest_cancer.png",
                         buyCount: 33,
                         pregnancy: false,
                         isVisible: true,
@@ -767,7 +767,7 @@ function PlasmicShop3__RenderFunc(props: {
                         smsSub: true,
                         price: 19000,
                         fullscreenBanner:
-                          "https://teh-1.s3.poshtiban.com/liom/banner1specialoffr.png",
+                          "https://liom.storage.c2.liara.space/banner1specialoffr.png",
                         int_id: 37,
                         text: "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06f3 \u0645\u0627\u0647\u0647",
                         id: "b34ea769-ee91-4913-ba30-0fb78cf5e4a9",
@@ -775,7 +775,7 @@ function PlasmicShop3__RenderFunc(props: {
                         value: 3,
                         order: 3,
                         image:
-                          "https://teh-1.s3.poshtiban.com/liom/config/self_care/icon_brest_cancer.png",
+                          "https://liom.storage.c2.liara.space/config/self_care/icon_brest_cancer.png",
                         buyCount: 13,
                         pregnancy: false,
                         isVisible: true,
@@ -820,7 +820,7 @@ function PlasmicShop3__RenderFunc(props: {
                         smsSub: true,
                         price: 29000,
                         fullscreenBanner:
-                          "https://teh-1.s3.poshtiban.com/liom/banner1specialoffr.png",
+                          "https://liom.storage.c2.liara.space/banner1specialoffr.png",
                         int_id: 36,
                         text: "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06f6 \u0645\u0627\u0647\u0647",
                         id: "92bc0061-5edd-414f-8f3a-618ed010e6fd",
@@ -829,7 +829,7 @@ function PlasmicShop3__RenderFunc(props: {
                         selected: 1,
                         order: 3,
                         image:
-                          "https://teh-1.s3.poshtiban.com/liom/config/self_care/icon_brest_cancer.png",
+                          "https://liom.storage.c2.liara.space/config/self_care/icon_brest_cancer.png",
                         buyCount: 183,
                         pregnancy: false,
                         isVisible: true,
@@ -892,7 +892,7 @@ function PlasmicShop3__RenderFunc(props: {
                         smsSub: true,
                         price: 19000,
                         fullscreenBanner:
-                          "https://teh-1.s3.poshtiban.com/liom/banner1specialoffr.png",
+                          "https://liom.storage.c2.liara.space/banner1specialoffr.png",
                         int_id: 31,
                         text: "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06f1 \u0645\u0627\u0647\u0647",
                         id: "a3037587-69d2-45f2-b191-66cba4e12457",
@@ -901,7 +901,7 @@ function PlasmicShop3__RenderFunc(props: {
                         value: 1,
                         order: 1,
                         image:
-                          "https://teh-1.s3.poshtiban.com/liom/config/self_care/icon_hamyar.png",
+                          "https://liom.storage.c2.liara.space/config/self_care/icon_hamyar.png",
                         buyCount: 551,
                         upsellingIds: [
                           "58fd0b44-8903-4987-aa76-142c0af8c02f",
@@ -951,7 +951,7 @@ function PlasmicShop3__RenderFunc(props: {
                         smsSub: true,
                         price: 44000,
                         fullscreenBanner:
-                          "https://teh-1.s3.poshtiban.com/liom/banner1specialoffr.png",
+                          "https://liom.storage.c2.liara.space/banner1specialoffr.png",
                         int_id: 30,
                         text: "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06f3 \u0645\u0627\u0647\u0647",
                         id: "1b803c3f-c4d3-44fd-98aa-fcc782cca297",
@@ -960,7 +960,7 @@ function PlasmicShop3__RenderFunc(props: {
                         value: 3,
                         order: 1,
                         image:
-                          "https://teh-1.s3.poshtiban.com/liom/config/self_care/icon_hamyar.png",
+                          "https://liom.storage.c2.liara.space/config/self_care/icon_hamyar.png",
                         buyCount: 476,
                         pregnancy: false,
                         isVisible: true,
@@ -1006,7 +1006,7 @@ function PlasmicShop3__RenderFunc(props: {
                         smsSub: true,
                         price: 69000,
                         fullscreenBanner:
-                          "https://teh-1.s3.poshtiban.com/liom/banner1specialoffr.png",
+                          "https://liom.storage.c2.liara.space/banner1specialoffr.png",
                         int_id: 29,
                         text: "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06f6 \u0645\u0627\u0647\u0647",
                         id: "5318b234-02c2-49b2-8d81-8b8861f0bba5",
@@ -1016,7 +1016,7 @@ function PlasmicShop3__RenderFunc(props: {
                         selected: 1,
                         order: 1,
                         image:
-                          "https://teh-1.s3.poshtiban.com/liom/config/self_care/icon_hamyar.png",
+                          "https://liom.storage.c2.liara.space/config/self_care/icon_hamyar.png",
                         buyCount: 795,
                         pregnancy: false,
                         isVisible: true,
@@ -1080,7 +1080,7 @@ function PlasmicShop3__RenderFunc(props: {
                         smsSub: true,
                         price: 19000,
                         fullscreenBanner:
-                          "https://teh-1.s3.poshtiban.com/liom/banner1specialoffr.png",
+                          "https://liom.storage.c2.liara.space/banner1specialoffr.png",
                         int_id: 66,
                         text: "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06f1 \u0645\u0627\u0647\u0647",
                         id: "07d77b7d-2e99-4e2a-817d-54e7d12a1ab7",
@@ -1089,7 +1089,7 @@ function PlasmicShop3__RenderFunc(props: {
                         value: 1,
                         order: 1,
                         image:
-                          "https://teh-1.s3.poshtiban.com/liom/config/self_care/icon_hamyar.png",
+                          "https://liom.storage.c2.liara.space/config/self_care/icon_hamyar.png",
                         buyCount: 14,
                         pregnancy: false,
                         isVisible: true,
@@ -1135,7 +1135,7 @@ function PlasmicShop3__RenderFunc(props: {
                         smsSub: true,
                         price: 44000,
                         fullscreenBanner:
-                          "https://teh-1.s3.poshtiban.com/liom/banner1specialoffr.png",
+                          "https://liom.storage.c2.liara.space/banner1specialoffr.png",
                         int_id: 67,
                         text: "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06f3 \u0645\u0627\u0647\u0647",
                         id: "31a7ef66-4d18-41e7-979a-68fc67bbebed",
@@ -1144,7 +1144,7 @@ function PlasmicShop3__RenderFunc(props: {
                         value: 3,
                         order: 1,
                         image:
-                          "https://teh-1.s3.poshtiban.com/liom/config/self_care/icon_hamyar.png",
+                          "https://liom.storage.c2.liara.space/config/self_care/icon_hamyar.png",
                         buyCount: 14,
                         pregnancy: false,
                         isVisible: true,
@@ -1191,7 +1191,7 @@ function PlasmicShop3__RenderFunc(props: {
                         smsSub: true,
                         price: 69000,
                         fullscreenBanner:
-                          "https://teh-1.s3.poshtiban.com/liom/banner1specialoffr.png",
+                          "https://liom.storage.c2.liara.space/banner1specialoffr.png",
                         int_id: 68,
                         text: "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06f6 \u0645\u0627\u0647\u0647",
                         id: "6e5bbe5c-281b-44b3-9a63-837c7f5f9726",
@@ -1201,7 +1201,7 @@ function PlasmicShop3__RenderFunc(props: {
                         selected: 1,
                         order: 1,
                         image:
-                          "https://teh-1.s3.poshtiban.com/liom/config/self_care/icon_hamyar.png",
+                          "https://liom.storage.c2.liara.space/config/self_care/icon_hamyar.png",
                         buyCount: 43,
                         pregnancy: false,
                         isVisible: true,
@@ -1265,7 +1265,7 @@ function PlasmicShop3__RenderFunc(props: {
                         smsSub: true,
                         price: 16000,
                         fullscreenBanner:
-                          "https://teh-1.s3.poshtiban.com/liom/banner1specialoffr.png",
+                          "https://liom.storage.c2.liara.space/banner1specialoffr.png",
                         int_id: 35,
                         text: "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06f1 \u0645\u0627\u0647\u0647",
                         id: "90d0b109-ff19-4e54-a04f-9172519708d3",
@@ -1273,7 +1273,7 @@ function PlasmicShop3__RenderFunc(props: {
                         value: 1,
                         order: 2,
                         image:
-                          "https://teh-1.s3.poshtiban.com/liom/config/self_care/icon_hamyar.png",
+                          "https://liom.storage.c2.liara.space/config/self_care/icon_hamyar.png",
                         buyCount: 202,
                         pregnancy: false,
                         isVisible: true,
@@ -1319,7 +1319,7 @@ function PlasmicShop3__RenderFunc(props: {
                         smsSub: true,
                         price: 36000,
                         fullscreenBanner:
-                          "https://teh-1.s3.poshtiban.com/liom/banner1specialoffr.png",
+                          "https://liom.storage.c2.liara.space/banner1specialoffr.png",
                         int_id: 34,
                         text: "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06f3 \u0645\u0627\u0647\u0647",
                         id: "aecbacb7-9ba4-4881-9fe3-943dba24610c",
@@ -1327,7 +1327,7 @@ function PlasmicShop3__RenderFunc(props: {
                         value: 3,
                         order: 2,
                         image:
-                          "https://teh-1.s3.poshtiban.com/liom/config/self_care/icon_hamyar.png",
+                          "https://liom.storage.c2.liara.space/config/self_care/icon_hamyar.png",
                         buyCount: 137,
                         pregnancy: false,
                         isVisible: true,
@@ -1374,7 +1374,7 @@ function PlasmicShop3__RenderFunc(props: {
                         smsSub: true,
                         price: 54000,
                         fullscreenBanner:
-                          "https://teh-1.s3.poshtiban.com/liom/banner1specialoffr.png",
+                          "https://liom.storage.c2.liara.space/banner1specialoffr.png",
                         int_id: 33,
                         text: "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06f6 \u0645\u0627\u0647\u0647",
                         id: "d6d364f7-3e02-4e92-b8d3-ba559d61d64e",
@@ -1383,7 +1383,7 @@ function PlasmicShop3__RenderFunc(props: {
                         selected: 1,
                         order: 2,
                         image:
-                          "https://teh-1.s3.poshtiban.com/liom/config/self_care/icon_hamyar.png",
+                          "https://liom.storage.c2.liara.space/config/self_care/icon_hamyar.png",
                         buyCount: 460,
                         pregnancy: false,
                         isVisible: true,
@@ -1453,7 +1453,7 @@ function PlasmicShop3__RenderFunc(props: {
                         ],
                         price: 15000,
                         fullscreenBanner:
-                          "https://teh-1.s3.poshtiban.com/liom/banner1specialoffr.png",
+                          "https://liom.storage.c2.liara.space/banner1specialoffr.png",
                         int_id: 28,
                         text: "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06f1 \u0645\u0627\u0647\u0647",
                         id: "23e605d7-117d-413c-b0d2-09e7aab7b716",
@@ -1508,7 +1508,7 @@ function PlasmicShop3__RenderFunc(props: {
                         ],
                         price: 36000,
                         fullscreenBanner:
-                          "https://teh-1.s3.poshtiban.com/liom/banner1specialoffr.png",
+                          "https://liom.storage.c2.liara.space/banner1specialoffr.png",
                         int_id: 27,
                         text: "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06f3 \u0645\u0627\u0647\u0647",
                         id: "84fb150e-fd30-43d9-8c01-b1d31c9fccbb",
@@ -1564,7 +1564,7 @@ function PlasmicShop3__RenderFunc(props: {
                         ],
                         price: 54000,
                         fullscreenBanner:
-                          "https://teh-1.s3.poshtiban.com/liom/banner1specialoffr.png",
+                          "https://liom.storage.c2.liara.space/banner1specialoffr.png",
                         int_id: 26,
                         text: "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06f6 \u0645\u0627\u0647\u0647",
                         id: "9bfe33a2-77c5-4252-a200-185a6139bdd3",
@@ -1627,7 +1627,7 @@ function PlasmicShop3__RenderFunc(props: {
                         smsSub: true,
                         price: 99000,
                         fullscreenBanner:
-                          "https://teh-1.s3.poshtiban.com/liom/banner1specialoffr.png",
+                          "https://liom.storage.c2.liara.space/banner1specialoffr.png",
                         int_id: 60,
                         text: "\u0645\u0634\u0627\u0648\u0631\u0647 \u0628\u0627 \u06a9\u0627\u0631\u0634\u0646\u0627\u0633 \u0644\u06cc\u0648\u0645",
                         id: "563e47c6-83ea-4c71-81fc-9b987b05b7d0",
@@ -1635,7 +1635,7 @@ function PlasmicShop3__RenderFunc(props: {
                         value: 1,
                         order: 3,
                         image:
-                          "https://teh-1.s3.poshtiban.com/liom/icon_clinik.png",
+                          "https://liom.storage.c2.liara.space/icon_clinik.png",
                         buyCount: 52,
                         pregnancy: true,
                         isVisible: true,
@@ -1693,7 +1693,7 @@ function PlasmicShop3__RenderFunc(props: {
                         ],
                         price: 29000,
                         fullscreenBanner:
-                          "https://teh-1.s3.poshtiban.com/liom/banner1specialoffr.png",
+                          "https://liom.storage.c2.liara.space/banner1specialoffr.png",
                         lable:
                           "\u06cc\u06a9\u0628\u0627\u0631 \u062e\u0631\u06cc\u062f",
                         int_id: 79,
@@ -1703,7 +1703,7 @@ function PlasmicShop3__RenderFunc(props: {
                         value: 1,
                         percentItem: 40,
                         order: 6,
-                        image: "https://teh-1.s3.poshtiban.com/liom/adhd.png",
+                        image: "https://liom.storage.c2.liara.space/adhd.png",
                         buyCount: 115,
                         pregnancy: true,
                         isVisible: true,
@@ -1750,7 +1750,7 @@ function PlasmicShop3__RenderFunc(props: {
                         },
                         price: 69000,
                         fullscreenBanner:
-                          "https://teh-1.s3.poshtiban.com/liom/banner1specialoffr.png",
+                          "https://liom.storage.c2.liara.space/banner1specialoffr.png",
                         lable:
                           "\u06cc\u06a9\u0628\u0627\u0631 \u062e\u0631\u06cc\u062f",
                         int_id: 65,
@@ -1814,7 +1814,7 @@ function PlasmicShop3__RenderFunc(props: {
                         ],
                         price: 69000,
                         fullscreenBanner:
-                          "https://teh-1.s3.poshtiban.com/liom/banner1specialoffr.png",
+                          "https://liom.storage.c2.liara.space/banner1specialoffr.png",
                         lable:
                           "\u06cc\u06a9\u0628\u0627\u0631 \u062e\u0631\u06cc\u062f",
                         int_id: 80,
@@ -1879,7 +1879,7 @@ function PlasmicShop3__RenderFunc(props: {
                         ],
                         price: 39000,
                         fullscreenBanner:
-                          "https://teh-1.s3.poshtiban.com/liom/banner1specialoffr.png",
+                          "https://liom.storage.c2.liara.space/banner1specialoffr.png",
                         lable:
                           "\u06cc\u06a9\u0628\u0627\u0631 \u062e\u0631\u06cc\u062f",
                         int_id: 64,
@@ -1890,7 +1890,7 @@ function PlasmicShop3__RenderFunc(props: {
                         percentItem: 40,
                         order: 6,
                         image:
-                          "https://teh-1.s3.poshtiban.com/liom/needTrasphy.png",
+                          "https://liom.storage.c2.liara.space/needTrasphy.png",
                         buyCount: 44,
                         pregnancy: true,
                         isVisible: true,
@@ -1944,7 +1944,7 @@ function PlasmicShop3__RenderFunc(props: {
                         ],
                         price: 44000,
                         fullscreenBanner:
-                          "https://teh-1.s3.poshtiban.com/liom/banner1specialoffr.png",
+                          "https://liom.storage.c2.liara.space/banner1specialoffr.png",
                         lable:
                           "\u06cc\u06a9\u0628\u0627\u0631 \u062e\u0631\u06cc\u062f",
                         int_id: 57,
@@ -1954,7 +1954,7 @@ function PlasmicShop3__RenderFunc(props: {
                         value: 1,
                         percentItem: 40,
                         order: 6,
-                        image: "https://teh-1.s3.poshtiban.com/liom/skin3.png",
+                        image: "https://liom.storage.c2.liara.space/skin3.png",
                         buyCount: 213,
                         pregnancy: true,
                         isVisible: true,
@@ -1973,7 +1973,7 @@ function PlasmicShop3__RenderFunc(props: {
             ],
             text: "\u2764\ufe0f \u062a\u062e\u0641\u06cc\u0641 \u0628\u06cc\u0634\u062a\u0631 \u0628\u0647 \u0645\u0646\u0627\u0633\u0628\u062a \u0631\u0648\u0632 \u062f\u062e\u062a\u0631 \ud83d\udc96",
             desc: "\u0628\u0647 \u06a9\u062f\u0627\u0645 \u06cc\u06a9 \u0627\u0632 \u0648\u06cc\u0698\u06af\u06cc\u200c\u0647\u0627\u06cc \u0632\u06cc\u0631 \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u06cc\u062f\u061f \u0645\u0648\u0627\u0631\u062f \u062f\u0644\u062e\u0648\u0627\u0647 \u062e\u0648\u062f \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f \u0648 \u0633\u067e\u0633 \u0631\u0648\u06cc \u062f\u06a9\u0645\u0647 \u067e\u0631\u062f\u0627\u062e\u062a \u062f\u0631 \u067e\u0627\u06cc\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0628\u0632\u0646\u06cc\u062f.",
-            image: "https://teh-1.s3.poshtiban.com/liom/offCustomItems.JPG",
+            image: "https://liom.storage.c2.liara.space/offCustomItems.JPG",
             selectAll: false,
             timer: null,
             timeBgColor: "#ab1d72",

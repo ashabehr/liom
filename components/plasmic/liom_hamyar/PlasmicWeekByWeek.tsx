@@ -1413,9 +1413,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
 
                           $steps["updateSelectedWeek"] = true
@@ -1450,9 +1449,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                             typeof $steps["updateSelectedWeek"].then ===
                               "function"
                           ) {
-                            $steps["updateSelectedWeek"] = await $steps[
-                              "updateSelectedWeek"
-                            ];
+                            $steps["updateSelectedWeek"] =
+                              await $steps["updateSelectedWeek"];
                           }
                         }}
                         selected={
@@ -1561,9 +1559,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                       typeof $steps["updateSelectedWeek"] === "object" &&
                       typeof $steps["updateSelectedWeek"].then === "function"
                     ) {
-                      $steps["updateSelectedWeek"] = await $steps[
-                        "updateSelectedWeek"
-                      ];
+                      $steps["updateSelectedWeek"] =
+                        await $steps["updateSelectedWeek"];
                     }
                   }}
                 >
@@ -1613,7 +1610,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                                 week = "0" + $state.selectedWeek;
                               else week = "" + $state.selectedWeek;
                               return (
-                                "https://teh-1.s3.poshtiban.com/liom/config/pregnancy/week" +
+                                "https://liom.storage.c2.liara.space/config/pregnancy/week" +
                                 week +
                                 ".png"
                               );
@@ -2097,9 +2094,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                             typeof $steps["updateModalOpen"] === "object" &&
                             typeof $steps["updateModalOpen"].then === "function"
                           ) {
-                            $steps["updateModalOpen"] = await $steps[
-                              "updateModalOpen"
-                            ];
+                            $steps["updateModalOpen"] =
+                              await $steps["updateModalOpen"];
                           }
 
                           $steps["updateModalDarkOpen"] =
@@ -2138,9 +2134,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                             typeof $steps["updateModalDarkOpen"].then ===
                               "function"
                           ) {
-                            $steps["updateModalDarkOpen"] = await $steps[
-                              "updateModalDarkOpen"
-                            ];
+                            $steps["updateModalDarkOpen"] =
+                              await $steps["updateModalDarkOpen"];
                           }
                         }}
                       >
@@ -2620,9 +2615,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
                         }).apply(null, eventArgs);
                       },
@@ -2883,9 +2877,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
                         }).apply(null, eventArgs);
                       },
@@ -3134,9 +3127,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
                         }).apply(null, eventArgs);
                       },
@@ -3318,7 +3310,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicWeekByWeek__VariantsArgs;
     args?: PlasmicWeekByWeek__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicWeekByWeek__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicWeekByWeek__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicWeekByWeek__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

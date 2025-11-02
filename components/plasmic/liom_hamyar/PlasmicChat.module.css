@@ -7,7 +7,9 @@
   justify-items: center;
   justify-content: flex-start;
   align-items: center;
-  background: url("/plasmic/liom_hamyar/images/group111Svg2.svg") top 50% left 50% / cover repeat, #f7f7f7;
+  background:
+    url("/plasmic/liom_hamyar/images/group111Svg2.svg") top 50% left 50% / cover repeat,
+    #f7f7f7;
   position: relative;
   min-width: 0;
   min-height: 0;

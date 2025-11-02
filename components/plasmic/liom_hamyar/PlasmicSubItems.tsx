@@ -254,7 +254,7 @@ function PlasmicSubItems__RenderFunc(props: {
                         btn_textV2: "",
                         style: "rectangle",
                         image:
-                          "https://teh-1.s3.poshtiban.com/liom/config/self_care/skin_care.png",
+                          "https://liom.storage.c2.liara.space/config/self_care/skin_care.png",
                         isPremium: true,
                         isNew: true,
                         checkSub: true,
@@ -271,7 +271,7 @@ function PlasmicSubItems__RenderFunc(props: {
                         btn_textV2: "",
                         style: "rectangle",
                         image:
-                          "https://teh-1.s3.poshtiban.com/liom/config/self_care/stretch_marks.png",
+                          "https://liom.storage.c2.liara.space/config/self_care/stretch_marks.png",
                         isPremium: true,
                         isNew: true,
                         checkSub: true,
@@ -503,9 +503,7 @@ function PlasmicSubItems__RenderFunc(props: {
                           searchParams.delete("token");
                           searchParams.delete("userId");
                           searchParams.delete("user_id");
-                          const newUrl = `${
-                            window.location.pathname
-                          }?${searchParams.toString()}`;
+                          const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                           return window.history.replaceState(null, "", newUrl);
                         })();
                       }
@@ -624,9 +622,8 @@ function PlasmicSubItems__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction"] === "object" &&
                 typeof $steps["invokeGlobalAction"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
               }
 
               $steps["updateSelfCare2"] = false
@@ -820,9 +817,8 @@ function PlasmicSubItems__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
 
                           $steps["updateDirectDialog2Open"] =
@@ -859,9 +855,8 @@ function PlasmicSubItems__RenderFunc(props: {
                             typeof $steps["updateDirectDialog2Open"].then ===
                               "function"
                           ) {
-                            $steps["updateDirectDialog2Open"] = await $steps[
-                              "updateDirectDialog2Open"
-                            ];
+                            $steps["updateDirectDialog2Open"] =
+                              await $steps["updateDirectDialog2Open"];
                           }
                         }}
                       >
@@ -1195,9 +1190,8 @@ function PlasmicSubItems__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
 
                           $steps["updateNumber2"] = currentItem.action.includes(
@@ -1233,9 +1227,8 @@ function PlasmicSubItems__RenderFunc(props: {
                             typeof $steps["updateNumber2"] === "object" &&
                             typeof $steps["updateNumber2"].then === "function"
                           ) {
-                            $steps["updateNumber2"] = await $steps[
-                              "updateNumber2"
-                            ];
+                            $steps["updateNumber2"] =
+                              await $steps["updateNumber2"];
                           }
                         }}
                       >
@@ -1556,9 +1549,8 @@ function PlasmicSubItems__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
 
                           $steps["updateDirectDialog2Open"] =
@@ -1595,9 +1587,8 @@ function PlasmicSubItems__RenderFunc(props: {
                             typeof $steps["updateDirectDialog2Open"].then ===
                               "function"
                           ) {
-                            $steps["updateDirectDialog2Open"] = await $steps[
-                              "updateDirectDialog2Open"
-                            ];
+                            $steps["updateDirectDialog2Open"] =
+                              await $steps["updateDirectDialog2Open"];
                           }
                         }}
                       >
@@ -2064,7 +2055,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSubItems__VariantsArgs;
     args?: PlasmicSubItems__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSubItems__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSubItems__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSubItems__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

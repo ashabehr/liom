@@ -996,9 +996,7 @@ function PlasmicMonthlist__RenderFunc(props: {
                           searchParams.delete("token");
                           searchParams.delete("userId");
                           searchParams.delete("user_id");
-                          const newUrl = `${
-                            window.location.pathname
-                          }?${searchParams.toString()}`;
+                          const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                           return window.history.replaceState(null, "", newUrl);
                         })();
                       }
@@ -1137,7 +1135,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicMonthlist__VariantsArgs;
     args?: PlasmicMonthlist__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicMonthlist__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicMonthlist__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicMonthlist__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

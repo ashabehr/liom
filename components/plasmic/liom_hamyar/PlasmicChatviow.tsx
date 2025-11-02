@@ -385,9 +385,7 @@ function PlasmicChatviow__RenderFunc(props: {
                         const actionArgs = {
                           destination: (() => {
                             try {
-                              return `/clinic?gender=${new URLSearchParams(
-                                new URL(window.location.href).search
-                              ).get("gender")}`;
+                              return `/clinic?gender=${new URLSearchParams(new URL(window.location.href).search).get("gender")}`;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -515,9 +513,8 @@ function PlasmicChatviow__RenderFunc(props: {
                             typeof $steps["updateFilter"] === "object" &&
                             typeof $steps["updateFilter"].then === "function"
                           ) {
-                            $steps["updateFilter"] = await $steps[
-                              "updateFilter"
-                            ];
+                            $steps["updateFilter"] =
+                              await $steps["updateFilter"];
                           }
                         }).apply(null, eventArgs);
                       },
@@ -582,9 +579,8 @@ function PlasmicChatviow__RenderFunc(props: {
                       typeof $steps["updateAntdInputValue"] === "object" &&
                       typeof $steps["updateAntdInputValue"].then === "function"
                     ) {
-                      $steps["updateAntdInputValue"] = await $steps[
-                        "updateAntdInputValue"
-                      ];
+                      $steps["updateAntdInputValue"] =
+                        await $steps["updateAntdInputValue"];
                     }
 
                     $steps["updateFilter"] = true
@@ -813,15 +809,7 @@ function PlasmicChatviow__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/chat?sessionID=${
-                                    currentItem.id
-                                  }&listID=${currentItem.listID}&subList=${
-                                    currentItem.subList
-                                  }&doctorID=${
-                                    currentItem.doctorID
-                                  }&gender=${new URLSearchParams(
-                                    new URL(window.location.href).search
-                                  ).get("gender")}`;
+                                  return `/chat?sessionID=${currentItem.id}&listID=${currentItem.listID}&subList=${currentItem.subList}&doctorID=${currentItem.doctorID}&gender=${new URLSearchParams(new URL(window.location.href).search).get("gender")}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -1299,7 +1287,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicChatviow__VariantsArgs;
     args?: PlasmicChatviow__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicChatviow__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicChatviow__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicChatviow__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -477,7 +477,8 @@
   padding: 0px;
 }
 .card9 {
-  background: url("/plasmic/liom_hamyar/images/image63.png") top 50% left 50% / cover repeat,
+  background:
+    url("/plasmic/liom_hamyar/images/image63.png") top 50% left 50% / cover repeat,
     var(--token-jgohepLVeKvh);
   width: 300px;
   height: 200px;
@@ -551,7 +552,8 @@
   }
 }
 .card10 {
-  background: url("/plasmic/liom_hamyar/images/newProjectPng.png") top 50% left 50% / cover repeat,
+  background:
+    url("/plasmic/liom_hamyar/images/newProjectPng.png") top 50% left 50% / cover repeat,
     var(--token-jgohepLVeKvh);
   width: 300px;
   height: 200px;
@@ -623,7 +625,8 @@
   }
 }
 .card11 {
-  background: url("/plasmic/liom_hamyar/images/shutterstock1240917451MinJpg2.jpg") top 50% left 50% / cover repeat,
+  background:
+    url("/plasmic/liom_hamyar/images/shutterstock1240917451MinJpg2.jpg") top 50% left 50% / cover repeat,
     var(--token-jgohepLVeKvh);
   width: 300px;
   height: 200px;
@@ -697,7 +700,8 @@
   }
 }
 .card16 {
-  background: url("/plasmic/liom_hamyar/images/shutterstock1240917451MinJpg2.jpg") top 50% left 50% / cover repeat,
+  background:
+    url("/plasmic/liom_hamyar/images/shutterstock1240917451MinJpg2.jpg") top 50% left 50% / cover repeat,
     var(--token-jgohepLVeKvh);
   width: 300px;
   height: 200px;
@@ -844,7 +848,8 @@
   padding: 0px;
 }
 .card18 {
-  background: url("/plasmic/liom_hamyar/images/newProjectPng2.png") top 50% left 50% / cover repeat,
+  background:
+    url("/plasmic/liom_hamyar/images/newProjectPng2.png") top 50% left 50% / cover repeat,
     var(--token-jgohepLVeKvh);
   width: 300px;
   height: 200px;
@@ -918,7 +923,8 @@
   }
 }
 .card19 {
-  background: url("/plasmic/liom_hamyar/images/newProjectPng.png") top 50% left 50% / cover repeat,
+  background:
+    url("/plasmic/liom_hamyar/images/newProjectPng.png") top 50% left 50% / cover repeat,
     var(--token-jgohepLVeKvh);
   width: 300px;
   height: 200px;
@@ -991,7 +997,8 @@
   }
 }
 .card20 {
-  background: url("/plasmic/liom_hamyar/images/shutterstock1240917451MinJpg2.jpg") top 50% left 50% / cover repeat,
+  background:
+    url("/plasmic/liom_hamyar/images/shutterstock1240917451MinJpg2.jpg") top 50% left 50% / cover repeat,
     var(--token-jgohepLVeKvh);
   width: 300px;
   height: 200px;
@@ -1065,7 +1072,8 @@
   }
 }
 .card21 {
-  background: url("/plasmic/liom_hamyar/images/shutterstock1240917451MinJpg2.jpg") top 50% left 50% / cover repeat,
+  background:
+    url("/plasmic/liom_hamyar/images/shutterstock1240917451MinJpg2.jpg") top 50% left 50% / cover repeat,
     var(--token-jgohepLVeKvh);
   width: 300px;
   height: 200px;
@@ -1217,7 +1225,8 @@
   padding: 0px;
 }
 .card12 {
-  background: url("/plasmic/liom_hamyar/images/image65.png") top 50% left 50% / cover repeat,
+  background:
+    url("/plasmic/liom_hamyar/images/image65.png") top 50% left 50% / cover repeat,
     var(--token-jgohepLVeKvh);
   width: 300px;
   height: 200px;
@@ -1294,7 +1303,8 @@
   }
 }
 .card13 {
-  background: url("/plasmic/liom_hamyar/images/image68.png") top 50% left 50% / cover repeat,
+  background:
+    url("/plasmic/liom_hamyar/images/image68.png") top 50% left 50% / cover repeat,
     var(--token-jgohepLVeKvh);
   width: 300px;
   height: 200px;
@@ -1319,7 +1329,8 @@
     position: relative;
     height: 130px;
     width: 200px;
-    background: url("/plasmic/liom_hamyar/images/image68.png") top 50% left 50% / cover repeat,
+    background:
+      url("/plasmic/liom_hamyar/images/image68.png") top 50% left 50% / cover repeat,
       var(--token-jgohepLVeKvh);
     flex-shrink: 0;
     border-radius: 8px;
@@ -1382,7 +1393,8 @@
   }
 }
 .card14 {
-  background: url("/plasmic/liom_hamyar/images/image69.png") top 50% left 50% / cover repeat,
+  background:
+    url("/plasmic/liom_hamyar/images/image69.png") top 50% left 50% / cover repeat,
     var(--token-jgohepLVeKvh);
   width: 300px;
   height: 200px;
@@ -1470,7 +1482,8 @@
   }
 }
 .card17 {
-  background: url("/plasmic/liom_hamyar/images/shutterstock1240917451MinJpg2.jpg") top 50% left 50% / cover repeat,
+  background:
+    url("/plasmic/liom_hamyar/images/shutterstock1240917451MinJpg2.jpg") top 50% left 50% / cover repeat,
     var(--token-jgohepLVeKvh);
   width: 300px;
   height: 200px;
@@ -2658,7 +2671,8 @@
   }
 }
 .bg2 {
-  background: linear-gradient(
+  background:
+    linear-gradient(
         180deg,
         rgba(255, 255, 255, 1) 0%,
         rgba(251, 249, 249, 1) 99.99%
@@ -3254,7 +3268,8 @@
   }
 }
 .card15 {
-  background: url("/plasmic/liom_hamyar/images/newProjectPng2.png") top 50% left 50% / cover repeat,
+  background:
+    url("/plasmic/liom_hamyar/images/newProjectPng2.png") top 50% left 50% / cover repeat,
     var(--token-jgohepLVeKvh);
   width: 300px;
   height: 200px;

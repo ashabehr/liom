@@ -359,9 +359,8 @@ function PlasmicFdbdf__RenderFunc(props: {
                 typeof $steps["updateSwiperSliderActiveSlideIndex"].then ===
                   "function"
               ) {
-                $steps["updateSwiperSliderActiveSlideIndex"] = await $steps[
-                  "updateSwiperSliderActiveSlideIndex"
-                ];
+                $steps["updateSwiperSliderActiveSlideIndex"] =
+                  await $steps["updateSwiperSliderActiveSlideIndex"];
               }
             }}
             onColorChange={async (...eventArgs: any) => {
@@ -441,7 +440,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicFdbdf__VariantsArgs;
     args?: PlasmicFdbdf__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicFdbdf__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicFdbdf__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicFdbdf__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -432,7 +432,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicWebViow__VariantsArgs;
     args?: PlasmicWebViow__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicWebViow__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicWebViow__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicWebViow__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -68,6 +68,9 @@
 .rootcolor_light_selected {
   background: var(--token-xZSjH46lB6C3);
 }
+.rootstyle2_grayBackgerand_selected {
+  background: var(--token-qvl81LxkOSoe);
+}
 .rootstyle2_lineligt_selected {
   background: var(--token-lIvc0WM5-V4N);
   border-width: 1px;

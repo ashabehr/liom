@@ -359,9 +359,8 @@ function PlasmicCommonError__RenderFunc(props: {
                       typeof $steps["goToHttpsTMeLiomSupport"].then ===
                         "function"
                     ) {
-                      $steps["goToHttpsTMeLiomSupport"] = await $steps[
-                        "goToHttpsTMeLiomSupport"
-                      ];
+                      $steps["goToHttpsTMeLiomSupport"] =
+                        await $steps["goToHttpsTMeLiomSupport"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
@@ -614,7 +613,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicCommonError__VariantsArgs;
     args?: PlasmicCommonError__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicCommonError__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicCommonError__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicCommonError__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

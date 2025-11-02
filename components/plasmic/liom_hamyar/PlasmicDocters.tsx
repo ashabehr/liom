@@ -631,9 +631,8 @@ function PlasmicDocters__RenderFunc(props: {
                         typeof $steps["updateBtnloading"] === "object" &&
                         typeof $steps["updateBtnloading"].then === "function"
                       ) {
-                        $steps["updateBtnloading"] = await $steps[
-                          "updateBtnloading"
-                        ];
+                        $steps["updateBtnloading"] =
+                          await $steps["updateBtnloading"];
                       }
 
                       $steps["invokeGlobalAction"] = true
@@ -673,9 +672,8 @@ function PlasmicDocters__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["goToPage"] =
@@ -750,9 +748,8 @@ function PlasmicDocters__RenderFunc(props: {
                         typeof $steps["updateBtnloading2"] === "object" &&
                         typeof $steps["updateBtnloading2"].then === "function"
                       ) {
-                        $steps["updateBtnloading2"] = await $steps[
-                          "updateBtnloading2"
-                        ];
+                        $steps["updateBtnloading2"] =
+                          await $steps["updateBtnloading2"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -852,15 +849,15 @@ function PlasmicDocters__RenderFunc(props: {
                 hasVariant($state, "_1", "chatviow")
                   ? ChevronRightIcon
                   : hasVariant($state, "_1", "docter")
-                  ? ChevronRightIcon
-                  : hasVariant($state, "_1", "docters") &&
-                    hasVariant(globalVariants, "screen", "mobile")
-                  ? ChevronRightIcon
-                  : hasVariant($state, "_1", "docters")
-                  ? ChevronRightIcon
-                  : hasVariant(globalVariants, "screen", "mobile")
-                  ? ChevronRightIcon
-                  : ChevronRightIcon
+                    ? ChevronRightIcon
+                    : hasVariant($state, "_1", "docters") &&
+                        hasVariant(globalVariants, "screen", "mobile")
+                      ? ChevronRightIcon
+                      : hasVariant($state, "_1", "docters")
+                        ? ChevronRightIcon
+                        : hasVariant(globalVariants, "screen", "mobile")
+                          ? ChevronRightIcon
+                          : ChevronRightIcon
               }
               className={classNames(projectcss.all, sty.svg__my44E, {
                 [sty.svg_1_chatviow__my44EV0Ufv]: hasVariant(
@@ -887,9 +884,7 @@ function PlasmicDocters__RenderFunc(props: {
                       const actionArgs = {
                         destination: (() => {
                           try {
-                            return `/clinic?gender=${new URLSearchParams(
-                              new URL(window.location.href).search
-                            ).get("gender")}`;
+                            return `/clinic?gender=${new URLSearchParams(new URL(window.location.href).search).get("gender")}`;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -996,9 +991,8 @@ function PlasmicDocters__RenderFunc(props: {
                   typeof $steps["updateLoadingPage"] === "object" &&
                   typeof $steps["updateLoadingPage"].then === "function"
                 ) {
-                  $steps["updateLoadingPage"] = await $steps[
-                    "updateLoadingPage"
-                  ];
+                  $steps["updateLoadingPage"] =
+                    await $steps["updateLoadingPage"];
                 }
 
                 $steps["update1"] = true
@@ -1058,9 +1052,8 @@ function PlasmicDocters__RenderFunc(props: {
                   typeof $steps["invokeGlobalAction"] === "object" &&
                   typeof $steps["invokeGlobalAction"].then === "function"
                 ) {
-                  $steps["invokeGlobalAction"] = await $steps[
-                    "invokeGlobalAction"
-                  ];
+                  $steps["invokeGlobalAction"] =
+                    await $steps["invokeGlobalAction"];
                 }
 
                 $steps["updateChats"] = (
@@ -1130,9 +1123,8 @@ function PlasmicDocters__RenderFunc(props: {
                   typeof $steps["updateLoadingPage2"] === "object" &&
                   typeof $steps["updateLoadingPage2"].then === "function"
                 ) {
-                  $steps["updateLoadingPage2"] = await $steps[
-                    "updateLoadingPage2"
-                  ];
+                  $steps["updateLoadingPage2"] =
+                    await $steps["updateLoadingPage2"];
                 }
 
                 $steps["runCode"] = true
@@ -1317,20 +1309,20 @@ function PlasmicDocters__RenderFunc(props: {
               hasVariant(globalVariants, "screen", "mobile")
                 ? true
                 : hasVariant($state, "_1", "chatviow")
-                ? (() => {
-                    try {
-                      return !$state.loadingPage;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return true;
+                  ? (() => {
+                      try {
+                        return !$state.loadingPage;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
                       }
-                      throw e;
-                    }
-                  })()
-                : true
+                    })()
+                  : true
             ) ? (
               <Search
                 data-plasmic-name={"search"}
@@ -1632,11 +1624,7 @@ function PlasmicDocters__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/docter?id=${
-                                    currentItem.id
-                                  }&gender=${new URLSearchParams(
-                                    new URL(window.location.href).search
-                                  ).get("gender")}`;
+                                  return `/docter?id=${currentItem.id}&gender=${new URLSearchParams(new URL(window.location.href).search).get("gender")}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -1720,13 +1708,13 @@ function PlasmicDocters__RenderFunc(props: {
                         hasVariant(globalVariants, "screen", "mobile")
                           ? "60px"
                           : hasVariant($state, "_1", "docters") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "50px"
-                          : hasVariant($state, "_1", "docters")
-                          ? "60px"
-                          : hasVariant(globalVariants, "screen", "mobile")
-                          ? "50px"
-                          : "60px"
+                              hasVariant(globalVariants, "screen", "mobile")
+                            ? "50px"
+                            : hasVariant($state, "_1", "docters")
+                              ? "60px"
+                              : hasVariant(globalVariants, "screen", "mobile")
+                                ? "50px"
+                                : "60px"
                       }
                       displayMaxHeight={"none"}
                       displayMaxWidth={"100%"}
@@ -1737,13 +1725,13 @@ function PlasmicDocters__RenderFunc(props: {
                         hasVariant(globalVariants, "screen", "mobile")
                           ? "60px"
                           : hasVariant($state, "_1", "docters") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "50px"
-                          : hasVariant($state, "_1", "docters")
-                          ? "60px"
-                          : hasVariant(globalVariants, "screen", "mobile")
-                          ? "50px"
-                          : "60px"
+                              hasVariant(globalVariants, "screen", "mobile")
+                            ? "50px"
+                            : hasVariant($state, "_1", "docters")
+                              ? "60px"
+                              : hasVariant(globalVariants, "screen", "mobile")
+                                ? "50px"
+                                : "60px"
                       }
                       loading={"lazy"}
                       src={
@@ -1756,13 +1744,13 @@ function PlasmicDocters__RenderFunc(props: {
                               aspectRatio: undefined
                             }
                           : hasVariant($state, "_1", "docters") &&
-                            hasVariant(globalVariants, "screen", "mobile")
-                          ? "https://static.vecteezy.com/system/resources/previews/008/957/225/non_2x/female-doctor-avatar-clipart-icon-in-flat-design-vector.jpg"
-                          : hasVariant($state, "_1", "docters")
-                          ? "https://static.vecteezy.com/system/resources/previews/008/957/225/non_2x/female-doctor-avatar-clipart-icon-in-flat-design-vector.jpg"
-                          : hasVariant(globalVariants, "screen", "mobile")
-                          ? "https://static.vecteezy.com/system/resources/previews/008/957/225/non_2x/female-doctor-avatar-clipart-icon-in-flat-design-vector.jpg"
-                          : "https://static.vecteezy.com/system/resources/previews/008/957/225/non_2x/female-doctor-avatar-clipart-icon-in-flat-design-vector.jpg"
+                              hasVariant(globalVariants, "screen", "mobile")
+                            ? "https://static.vecteezy.com/system/resources/previews/008/957/225/non_2x/female-doctor-avatar-clipart-icon-in-flat-design-vector.jpg"
+                            : hasVariant($state, "_1", "docters")
+                              ? "https://static.vecteezy.com/system/resources/previews/008/957/225/non_2x/female-doctor-avatar-clipart-icon-in-flat-design-vector.jpg"
+                              : hasVariant(globalVariants, "screen", "mobile")
+                                ? "https://static.vecteezy.com/system/resources/previews/008/957/225/non_2x/female-doctor-avatar-clipart-icon-in-flat-design-vector.jpg"
+                                : "https://static.vecteezy.com/system/resources/previews/008/957/225/non_2x/female-doctor-avatar-clipart-icon-in-flat-design-vector.jpg"
                       }
                     />
 
@@ -1982,11 +1970,11 @@ function PlasmicDocters__RenderFunc(props: {
                             hasVariant(globalVariants, "screen", "mobile")
                               ? undefined
                               : hasVariant($state, "_1", "docters") &&
-                                hasVariant(globalVariants, "screen", "mobile")
-                              ? true
-                              : hasVariant(globalVariants, "screen", "mobile")
-                              ? true
-                              : true
+                                  hasVariant(globalVariants, "screen", "mobile")
+                                ? true
+                                : hasVariant(globalVariants, "screen", "mobile")
+                                  ? true
+                                  : true
                           }
                           className={classNames(
                             "__wab_instance",
@@ -2089,10 +2077,10 @@ function PlasmicDocters__RenderFunc(props: {
                         hasVariant(globalVariants, "screen", "mobile")
                           ? "\u0627\u0645\u062a\u06cc\u0627\u0632 \u067e\u0632\u0634\u06a9"
                           : hasVariant($state, "_1", "docters")
-                          ? "\u0627\u0645\u062a\u06cc\u0627\u0632 \u067e\u0632\u0634\u06a9"
-                          : hasVariant(globalVariants, "screen", "mobile")
-                          ? "\u0627\u0645\u062a\u06cc\u0627\u0632 \u067e\u0632\u0634\u06a9"
-                          : "\u0627\u0645\u062a\u06cc\u0627\u0632 \u067e\u0632\u0634\u06a9"}
+                            ? "\u0627\u0645\u062a\u06cc\u0627\u0632 \u067e\u0632\u0634\u06a9"
+                            : hasVariant(globalVariants, "screen", "mobile")
+                              ? "\u0627\u0645\u062a\u06cc\u0627\u0632 \u067e\u0632\u0634\u06a9"
+                              : "\u0627\u0645\u062a\u06cc\u0627\u0632 \u067e\u0632\u0634\u06a9"}
                       </div>
                     </div>
                   </div>
@@ -2162,7 +2150,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicDocters__VariantsArgs;
     args?: PlasmicDocters__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicDocters__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicDocters__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicDocters__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

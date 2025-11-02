@@ -271,9 +271,8 @@ function PlasmicNoname3__RenderFunc(props: {
                       typeof $steps["updateInfoOpendialog"] === "object" &&
                       typeof $steps["updateInfoOpendialog"].then === "function"
                     ) {
-                      $steps["updateInfoOpendialog"] = await $steps[
-                        "updateInfoOpendialog"
-                      ];
+                      $steps["updateInfoOpendialog"] =
+                        await $steps["updateInfoOpendialog"];
                     }
                   }}
                 >
@@ -349,9 +348,8 @@ function PlasmicNoname3__RenderFunc(props: {
                       typeof $steps["updateInfoOpendialog"] === "object" &&
                       typeof $steps["updateInfoOpendialog"].then === "function"
                     ) {
-                      $steps["updateInfoOpendialog"] = await $steps[
-                        "updateInfoOpendialog"
-                      ];
+                      $steps["updateInfoOpendialog"] =
+                        await $steps["updateInfoOpendialog"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
@@ -623,9 +621,8 @@ function PlasmicNoname3__RenderFunc(props: {
                     typeof $steps["updateInfoOpendialog"] === "object" &&
                     typeof $steps["updateInfoOpendialog"].then === "function"
                   ) {
-                    $steps["updateInfoOpendialog"] = await $steps[
-                      "updateInfoOpendialog"
-                    ];
+                    $steps["updateInfoOpendialog"] =
+                      await $steps["updateInfoOpendialog"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
@@ -717,7 +714,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicNoname3__VariantsArgs;
     args?: PlasmicNoname3__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicNoname3__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicNoname3__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicNoname3__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

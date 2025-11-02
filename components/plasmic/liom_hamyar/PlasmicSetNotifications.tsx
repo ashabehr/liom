@@ -270,7 +270,7 @@ function PlasmicSetNotifications__RenderFunc(props: {
                         btn_textV2: "",
                         style: "rectangle",
                         image:
-                          "https://teh-1.s3.poshtiban.com/liom/config/self_care/skin_care.png",
+                          "https://liom.storage.c2.liara.space/config/self_care/skin_care.png",
                         isPremium: true,
                         isNew: true,
                         checkSub: true,
@@ -287,7 +287,7 @@ function PlasmicSetNotifications__RenderFunc(props: {
                         btn_textV2: "",
                         style: "rectangle",
                         image:
-                          "https://teh-1.s3.poshtiban.com/liom/config/self_care/stretch_marks.png",
+                          "https://liom.storage.c2.liara.space/config/self_care/stretch_marks.png",
                         isPremium: true,
                         isNew: true,
                         checkSub: true,
@@ -482,9 +482,8 @@ function PlasmicSetNotifications__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction"] === "object" &&
                 typeof $steps["invokeGlobalAction"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
               }
 
               $steps["updateSelfCare2"] = false
@@ -680,9 +679,8 @@ function PlasmicSetNotifications__RenderFunc(props: {
                           typeof $steps["updateDirectDialog2Open"].then ===
                             "function"
                         ) {
-                          $steps["updateDirectDialog2Open"] = await $steps[
-                            "updateDirectDialog2Open"
-                          ];
+                          $steps["updateDirectDialog2Open"] =
+                            await $steps["updateDirectDialog2Open"];
                         }
                       }}
                     >
@@ -1152,7 +1150,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSetNotifications__VariantsArgs;
     args?: PlasmicSetNotifications__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSetNotifications__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSetNotifications__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSetNotifications__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

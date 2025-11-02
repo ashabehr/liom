@@ -1215,8 +1215,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                                       return diffDays <= 280
                                         ? "تاریخ زایمانی که وارد کردی برای قبل امروز است"
                                         : $state.typeInterDate == "lastTime"
-                                        ? "تاریخ آخرین قاعدگی ای که وارد کردی برای بعد از امروز است"
-                                        : "تاریخ زایمانی که وارد کردی برای بیشتر از 9 ماه بعد است";
+                                          ? "تاریخ آخرین قاعدگی ای که وارد کردی برای بعد از امروز است"
+                                          : "تاریخ زایمانی که وارد کردی برای بیشتر از 9 ماه بعد است";
                                     })();
                                   } catch (e) {
                                     if (
@@ -1243,9 +1243,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction3"] === "object" &&
                         typeof $steps["invokeGlobalAction3"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction3"] = await $steps[
-                          "invokeGlobalAction3"
-                        ];
+                        $steps["invokeGlobalAction3"] =
+                          await $steps["invokeGlobalAction3"];
                       }
 
                       $steps["invokeGlobalAction2"] = (() => {
@@ -1343,9 +1342,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction2"] === "object" &&
                         typeof $steps["invokeGlobalAction2"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction2"] = await $steps[
-                          "invokeGlobalAction2"
-                        ];
+                        $steps["invokeGlobalAction2"] =
+                          await $steps["invokeGlobalAction2"];
                       }
 
                       $steps["invokeGlobalAction"] = (() => {
@@ -1492,9 +1490,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["goToPage"] = (() => {
@@ -1772,9 +1769,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction4"] === "object" &&
                         typeof $steps["invokeGlobalAction4"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction4"] = await $steps[
-                          "invokeGlobalAction4"
-                        ];
+                        $steps["invokeGlobalAction4"] =
+                          await $steps["invokeGlobalAction4"];
                       }
                     }}
                   >
@@ -1895,9 +1891,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                         typeof $steps["updateSlideinModalClick"].then ===
                           "function"
                       ) {
-                        $steps["updateSlideinModalClick"] = await $steps[
-                          "updateSlideinModalClick"
-                        ];
+                        $steps["updateSlideinModalClick"] =
+                          await $steps["updateSlideinModalClick"];
                       }
                     }}
                   >
@@ -2021,9 +2016,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                         typeof $steps["updateSlideinModalClick"].then ===
                           "function"
                       ) {
-                        $steps["updateSlideinModalClick"] = await $steps[
-                          "updateSlideinModalClick"
-                        ];
+                        $steps["updateSlideinModalClick"] =
+                          await $steps["updateSlideinModalClick"];
                       }
                     }}
                   >
@@ -2165,9 +2159,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                         typeof $steps["updateSlideinModalClick"].then ===
                           "function"
                       ) {
-                        $steps["updateSlideinModalClick"] = await $steps[
-                          "updateSlideinModalClick"
-                        ];
+                        $steps["updateSlideinModalClick"] =
+                          await $steps["updateSlideinModalClick"];
                       }
 
                       $steps["invokeGlobalAction"] =
@@ -2192,9 +2185,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
                     }}
                   >
@@ -2345,9 +2337,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                           typeof $steps["updateSlideinModalClick"].then ===
                             "function"
                         ) {
-                          $steps["updateSlideinModalClick"] = await $steps[
-                            "updateSlideinModalClick"
-                          ];
+                          $steps["updateSlideinModalClick"] =
+                            await $steps["updateSlideinModalClick"];
                         }
 
                         $steps["invokeGlobalAction"] =
@@ -2373,9 +2364,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
                       }}
                     >
@@ -2531,15 +2521,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                                     return {
                                       cycle: $state.cycle,
                                       length: $state.lengh,
-                                      last_time: `${
-                                        $state.lastTime.gy
-                                      }-${String($state.lastTime.gm).padStart(
-                                        2,
-                                        "0"
-                                      )}-${String($state.lastTime.gd).padStart(
-                                        2,
-                                        "0"
-                                      )}`,
+                                      last_time: `${$state.lastTime.gy}-${String($state.lastTime.gm).padStart(2, "0")}-${String($state.lastTime.gd).padStart(2, "0")}`,
                                       type: "add",
                                       authorization: $state.token
                                     };
@@ -2640,9 +2622,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction2"] === "object" &&
                         typeof $steps["invokeGlobalAction2"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction2"] = await $steps[
-                          "invokeGlobalAction2"
-                        ];
+                        $steps["invokeGlobalAction2"] =
+                          await $steps["invokeGlobalAction2"];
                       }
 
                       $steps["invokeGlobalAction"] =
@@ -2666,9 +2647,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["runCode"] =
@@ -2725,9 +2705,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                         typeof $steps["updateLoadbtn2"] === "object" &&
                         typeof $steps["updateLoadbtn2"].then === "function"
                       ) {
-                        $steps["updateLoadbtn2"] = await $steps[
-                          "updateLoadbtn2"
-                        ];
+                        $steps["updateLoadbtn2"] =
+                          await $steps["updateLoadbtn2"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -2943,9 +2922,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                     typeof $steps["updateDateOfBirth"] === "object" &&
                     typeof $steps["updateDateOfBirth"].then === "function"
                   ) {
-                    $steps["updateDateOfBirth"] = await $steps[
-                      "updateDateOfBirth"
-                    ];
+                    $steps["updateDateOfBirth"] =
+                      await $steps["updateDateOfBirth"];
                   }
 
                   $steps["updateSlideinModalClick"] = true
@@ -2979,9 +2957,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                     typeof $steps["updateSlideinModalClick"] === "object" &&
                     typeof $steps["updateSlideinModalClick"].then === "function"
                   ) {
-                    $steps["updateSlideinModalClick"] = await $steps[
-                      "updateSlideinModalClick"
-                    ];
+                    $steps["updateSlideinModalClick"] =
+                      await $steps["updateSlideinModalClick"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
@@ -3068,9 +3045,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                     typeof $steps["updateSlideinModalClick"] === "object" &&
                     typeof $steps["updateSlideinModalClick"].then === "function"
                   ) {
-                    $steps["updateSlideinModalClick"] = await $steps[
-                      "updateSlideinModalClick"
-                    ];
+                    $steps["updateSlideinModalClick"] =
+                      await $steps["updateSlideinModalClick"];
                   }
                 }}
               >
@@ -3239,9 +3215,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                     typeof $steps["updateDateOfBirth"] === "object" &&
                     typeof $steps["updateDateOfBirth"].then === "function"
                   ) {
-                    $steps["updateDateOfBirth"] = await $steps[
-                      "updateDateOfBirth"
-                    ];
+                    $steps["updateDateOfBirth"] =
+                      await $steps["updateDateOfBirth"];
                   }
 
                   $steps["updateSlideinModalClick"] = true
@@ -3275,9 +3250,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                     typeof $steps["updateSlideinModalClick"] === "object" &&
                     typeof $steps["updateSlideinModalClick"].then === "function"
                   ) {
-                    $steps["updateSlideinModalClick"] = await $steps[
-                      "updateSlideinModalClick"
-                    ];
+                    $steps["updateSlideinModalClick"] =
+                      await $steps["updateSlideinModalClick"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
@@ -3364,9 +3338,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                     typeof $steps["updateSlideinModalClick"] === "object" &&
                     typeof $steps["updateSlideinModalClick"].then === "function"
                   ) {
-                    $steps["updateSlideinModalClick"] = await $steps[
-                      "updateSlideinModalClick"
-                    ];
+                    $steps["updateSlideinModalClick"] =
+                      await $steps["updateSlideinModalClick"];
                   }
                 }}
               >
@@ -3505,9 +3478,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                     typeof $steps["updateDateOfBirth"] === "object" &&
                     typeof $steps["updateDateOfBirth"].then === "function"
                   ) {
-                    $steps["updateDateOfBirth"] = await $steps[
-                      "updateDateOfBirth"
-                    ];
+                    $steps["updateDateOfBirth"] =
+                      await $steps["updateDateOfBirth"];
                   }
 
                   $steps["updateSlideinModalClick"] = true
@@ -3541,9 +3513,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                     typeof $steps["updateSlideinModalClick"] === "object" &&
                     typeof $steps["updateSlideinModalClick"].then === "function"
                   ) {
-                    $steps["updateSlideinModalClick"] = await $steps[
-                      "updateSlideinModalClick"
-                    ];
+                    $steps["updateSlideinModalClick"] =
+                      await $steps["updateSlideinModalClick"];
                   }
 
                   $steps["updateNex"] =
@@ -3750,9 +3721,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                     typeof $steps["updateSlideinModalClick"] === "object" &&
                     typeof $steps["updateSlideinModalClick"].then === "function"
                   ) {
-                    $steps["updateSlideinModalClick"] = await $steps[
-                      "updateSlideinModalClick"
-                    ];
+                    $steps["updateSlideinModalClick"] =
+                      await $steps["updateSlideinModalClick"];
                   }
                 }}
               >
@@ -3923,9 +3893,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                     typeof $steps["updateDialog4Opendialog"] === "object" &&
                     typeof $steps["updateDialog4Opendialog"].then === "function"
                   ) {
-                    $steps["updateDialog4Opendialog"] = await $steps[
-                      "updateDialog4Opendialog"
-                    ];
+                    $steps["updateDialog4Opendialog"] =
+                      await $steps["updateDialog4Opendialog"];
                   }
 
                   $steps["updateLastTime"] = true
@@ -4057,9 +4026,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                     typeof $steps["updateSlideinModalClick"] === "object" &&
                     typeof $steps["updateSlideinModalClick"].then === "function"
                   ) {
-                    $steps["updateSlideinModalClick"] = await $steps[
-                      "updateSlideinModalClick"
-                    ];
+                    $steps["updateSlideinModalClick"] =
+                      await $steps["updateSlideinModalClick"];
                   }
                 }}
               >
@@ -4167,7 +4135,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSettingCycle3__VariantsArgs;
     args?: PlasmicSettingCycle3__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSettingCycle3__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSettingCycle3__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSettingCycle3__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

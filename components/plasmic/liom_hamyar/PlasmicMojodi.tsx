@@ -275,14 +275,26 @@ function PlasmicMojodi__RenderFunc(props: {
         path: "reminderShop.opendialog",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc2MTc0MDUyNn0.zABSPblXM-e17_bHDdw-0Hl7LiivKgbA_d8BI2nCqyQ"
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "report.active",
@@ -988,7 +1000,7 @@ function PlasmicMojodi__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["runCode"] = true
+                    $steps["runCode"] = false
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
@@ -1006,6 +1018,33 @@ function PlasmicMojodi__RenderFunc(props: {
                       typeof $steps["runCode"].then === "function"
                     ) {
                       $steps["runCode"] = await $steps["runCode"];
+                    }
+
+                    $steps["goToMojodi"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: `/mojod/${"home"}#${"shop"}`
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToMojodi"] != null &&
+                      typeof $steps["goToMojodi"] === "object" &&
+                      typeof $steps["goToMojodi"].then === "function"
+                    ) {
+                      $steps["goToMojodi"] = await $steps["goToMojodi"];
                     }
                   }}
                 >

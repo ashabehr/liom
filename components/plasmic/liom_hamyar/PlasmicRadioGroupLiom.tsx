@@ -75,7 +75,7 @@ export type PlasmicRadioGroupLiom__VariantMembers = {
   unnamedVariant: "unnamedVariant";
   size: "small" | "mini";
   moulty: "moulty";
-  color: "line";
+  color: "line" | "base2";
   icon: "icon";
   style2: "cycle";
   direction: "v";
@@ -85,7 +85,7 @@ export type PlasmicRadioGroupLiom__VariantsArgs = {
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
   size?: SingleChoiceArg<"small" | "mini">;
   moulty?: SingleBooleanChoiceArg<"moulty">;
-  color?: SingleChoiceArg<"line">;
+  color?: SingleChoiceArg<"line" | "base2">;
   icon?: SingleBooleanChoiceArg<"icon">;
   style2?: SingleChoiceArg<"cycle">;
   direction?: SingleChoiceArg<"v">;
@@ -143,7 +143,7 @@ export interface DefaultRadioGroupLiomProps {
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
   size?: SingleChoiceArg<"small" | "mini">;
   moulty?: SingleBooleanChoiceArg<"moulty">;
-  color?: SingleChoiceArg<"line">;
+  color?: SingleChoiceArg<"line" | "base2">;
   icon?: SingleBooleanChoiceArg<"icon">;
   style2?: SingleChoiceArg<"cycle">;
   direction?: SingleChoiceArg<"v">;
@@ -294,6 +294,7 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
         styleTokensClassNames,
         sty.root,
         {
+          [sty.rootcolor_base2]: hasVariant($state, "color", "base2"),
           [sty.rootcolor_line]: hasVariant($state, "color", "line"),
           [sty.rootdirection_v]: hasVariant($state, "direction", "v"),
           [sty.rooticon]: hasVariant($state, "icon", "icon"),
@@ -329,6 +330,11 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
         return (
           <RadioGrop
             className={classNames("__wab_instance", sty.radioGrop__xDgqn, {
+              [sty.radioGropcolor_base2__xDgqn2SC01]: hasVariant(
+                $state,
+                "color",
+                "base2"
+              ),
               [sty.radioGropcolor_line__xDgqna6Qw]: hasVariant(
                 $state,
                 "color",
@@ -375,7 +381,7 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
                 "unnamedVariant"
               )
             })}
-            color={"light"}
+            color={hasVariant($state, "color", "base2") ? undefined : "light"}
             direction={hasVariant($state, "direction", "v") ? "v" : undefined}
             icon={hasVariant($state, "icon", "icon") ? true : undefined}
             key={currentIndex}

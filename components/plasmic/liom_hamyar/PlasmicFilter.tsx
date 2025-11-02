@@ -663,9 +663,8 @@ function PlasmicFilter__RenderFunc(props: {
                       typeof $steps["updateModalOpen"] === "object" &&
                       typeof $steps["updateModalOpen"].then === "function"
                     ) {
-                      $steps["updateModalOpen"] = await $steps[
-                        "updateModalOpen"
-                      ];
+                      $steps["updateModalOpen"] =
+                        await $steps["updateModalOpen"];
                     }
                   }).apply(null, eventArgs);
                 },
@@ -909,9 +908,8 @@ function PlasmicFilter__RenderFunc(props: {
                   typeof $steps["invokeGlobalAction"] === "object" &&
                   typeof $steps["invokeGlobalAction"].then === "function"
                 ) {
-                  $steps["invokeGlobalAction"] = await $steps[
-                    "invokeGlobalAction"
-                  ];
+                  $steps["invokeGlobalAction"] =
+                    await $steps["invokeGlobalAction"];
                 }
 
                 $steps["updateDaroo"] = $steps.invokeGlobalAction?.data
@@ -1135,9 +1133,8 @@ function PlasmicFilter__RenderFunc(props: {
                           typeof $steps["updateSexValue"] === "object" &&
                           typeof $steps["updateSexValue"].then === "function"
                         ) {
-                          $steps["updateSexValue"] = await $steps[
-                            "updateSexValue"
-                          ];
+                          $steps["updateSexValue"] =
+                            await $steps["updateSexValue"];
                         }
                       }}
                     >
@@ -1235,9 +1232,8 @@ function PlasmicFilter__RenderFunc(props: {
                           typeof $steps["updateJobValue"] === "object" &&
                           typeof $steps["updateJobValue"].then === "function"
                         ) {
-                          $steps["updateJobValue"] = await $steps[
-                            "updateJobValue"
-                          ];
+                          $steps["updateJobValue"] =
+                            await $steps["updateJobValue"];
                         }
                       }}
                     >
@@ -1351,9 +1347,8 @@ function PlasmicFilter__RenderFunc(props: {
                           typeof $steps["updateMaritalStatusValue"].then ===
                             "function"
                         ) {
-                          $steps["updateMaritalStatusValue"] = await $steps[
-                            "updateMaritalStatusValue"
-                          ];
+                          $steps["updateMaritalStatusValue"] =
+                            await $steps["updateMaritalStatusValue"];
                         }
                       }}
                     >
@@ -1459,9 +1454,8 @@ function PlasmicFilter__RenderFunc(props: {
                           typeof $steps["updateEducationValue"].then ===
                             "function"
                         ) {
-                          $steps["updateEducationValue"] = await $steps[
-                            "updateEducationValue"
-                          ];
+                          $steps["updateEducationValue"] =
+                            await $steps["updateEducationValue"];
                         }
                       }}
                     >
@@ -1559,9 +1553,8 @@ function PlasmicFilter__RenderFunc(props: {
                           typeof $steps["updateAge2Value"] === "object" &&
                           typeof $steps["updateAge2Value"].then === "function"
                         ) {
-                          $steps["updateAge2Value"] = await $steps[
-                            "updateAge2Value"
-                          ];
+                          $steps["updateAge2Value"] =
+                            await $steps["updateAge2Value"];
                         }
                       }}
                     >
@@ -1661,9 +1654,8 @@ function PlasmicFilter__RenderFunc(props: {
                           typeof $steps["updateHeight2Value"].then ===
                             "function"
                         ) {
-                          $steps["updateHeight2Value"] = await $steps[
-                            "updateHeight2Value"
-                          ];
+                          $steps["updateHeight2Value"] =
+                            await $steps["updateHeight2Value"];
                         }
                       }}
                     >
@@ -1994,9 +1986,8 @@ function PlasmicFilter__RenderFunc(props: {
                   typeof $steps["updateButtonLoading"] === "object" &&
                   typeof $steps["updateButtonLoading"].then === "function"
                 ) {
-                  $steps["updateButtonLoading"] = await $steps[
-                    "updateButtonLoading"
-                  ];
+                  $steps["updateButtonLoading"] =
+                    await $steps["updateButtonLoading"];
                 }
 
                 $steps["updateBody"] = true
@@ -2140,9 +2131,8 @@ function PlasmicFilter__RenderFunc(props: {
                   typeof $steps["invokeGlobalAction2"] === "object" &&
                   typeof $steps["invokeGlobalAction2"].then === "function"
                 ) {
-                  $steps["invokeGlobalAction2"] = await $steps[
-                    "invokeGlobalAction2"
-                  ];
+                  $steps["invokeGlobalAction2"] =
+                    await $steps["invokeGlobalAction2"];
                 }
 
                 $steps["updatePanelUsername"] = $steps?.invokeGlobalAction2
@@ -2177,9 +2167,8 @@ function PlasmicFilter__RenderFunc(props: {
                   typeof $steps["updatePanelUsername"] === "object" &&
                   typeof $steps["updatePanelUsername"].then === "function"
                 ) {
-                  $steps["updatePanelUsername"] = await $steps[
-                    "updatePanelUsername"
-                  ];
+                  $steps["updatePanelUsername"] =
+                    await $steps["updatePanelUsername"];
                 }
 
                 $steps["invokeGlobalAction"] =
@@ -2203,9 +2192,8 @@ function PlasmicFilter__RenderFunc(props: {
                   typeof $steps["invokeGlobalAction"] === "object" &&
                   typeof $steps["invokeGlobalAction"].then === "function"
                 ) {
-                  $steps["invokeGlobalAction"] = await $steps[
-                    "invokeGlobalAction"
-                  ];
+                  $steps["invokeGlobalAction"] =
+                    await $steps["invokeGlobalAction"];
                 }
 
                 $steps["updateButtonLoading2"] = true
@@ -2239,9 +2227,8 @@ function PlasmicFilter__RenderFunc(props: {
                   typeof $steps["updateButtonLoading2"] === "object" &&
                   typeof $steps["updateButtonLoading2"].then === "function"
                 ) {
-                  $steps["updateButtonLoading2"] = await $steps[
-                    "updateButtonLoading2"
-                  ];
+                  $steps["updateButtonLoading2"] =
+                    await $steps["updateButtonLoading2"];
                 }
               }}
               onColorChange={async (...eventArgs: any) => {
@@ -2383,9 +2370,8 @@ function PlasmicFilter__RenderFunc(props: {
                       typeof $steps["updateModal4Open"] === "object" &&
                       typeof $steps["updateModal4Open"].then === "function"
                     ) {
-                      $steps["updateModal4Open"] = await $steps[
-                        "updateModal4Open"
-                      ];
+                      $steps["updateModal4Open"] =
+                        await $steps["updateModal4Open"];
                     }
                   }}
                 >
@@ -2630,9 +2616,8 @@ function PlasmicFilter__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
 
                           $steps["updateDaroo2"] = $steps.invokeGlobalAction
@@ -2667,9 +2652,8 @@ function PlasmicFilter__RenderFunc(props: {
                             typeof $steps["updateDaroo2"] === "object" &&
                             typeof $steps["updateDaroo2"].then === "function"
                           ) {
-                            $steps["updateDaroo2"] = await $steps[
-                              "updateDaroo2"
-                            ];
+                            $steps["updateDaroo2"] =
+                              await $steps["updateDaroo2"];
                           }
                         }).apply(null, eventArgs);
                       },
@@ -2957,9 +2941,8 @@ function PlasmicFilter__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
 
                           $steps["updateDaroo"] = $steps.invokeGlobalAction
@@ -3274,9 +3257,8 @@ function PlasmicFilter__RenderFunc(props: {
                       typeof $steps["updateInputValue"] === "object" &&
                       typeof $steps["updateInputValue"].then === "function"
                     ) {
-                      $steps["updateInputValue"] = await $steps[
-                        "updateInputValue"
-                      ];
+                      $steps["updateInputValue"] =
+                        await $steps["updateInputValue"];
                     }
                   }).apply(null, eventArgs);
                 },
@@ -3544,7 +3526,7 @@ function PlasmicFilter__RenderFunc(props: {
                       <React.Fragment>
                         {(() => {
                           try {
-                            return $state.info.sex ? "زن" : "مرد" ?? "__";
+                            return $state.info.sex ? "زن" : ("مرد" ?? "__");
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -3569,7 +3551,7 @@ function PlasmicFilter__RenderFunc(props: {
                           try {
                             return $state.info.job
                               ? "شاغل هستم "
-                              : "شاغل نیستم" ?? "__";
+                              : ("شاغل نیستم" ?? "__");
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -3594,7 +3576,7 @@ function PlasmicFilter__RenderFunc(props: {
                           try {
                             return $state.info.married
                               ? "متاهل"
-                              : "مجرد" ?? "__";
+                              : ("مجرد" ?? "__");
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -3619,7 +3601,7 @@ function PlasmicFilter__RenderFunc(props: {
                           try {
                             return $state.education.value
                               ? "در حال تحصیلم"
-                              : "فارغ التحصیلم" ?? "__";
+                              : ("فارغ التحصیلم" ?? "__");
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -4170,7 +4152,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicFilter__VariantsArgs;
     args?: PlasmicFilter__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicFilter__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicFilter__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicFilter__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

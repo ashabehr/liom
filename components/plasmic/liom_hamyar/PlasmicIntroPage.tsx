@@ -694,9 +694,7 @@ function PlasmicIntroPage__RenderFunc(props: {
                             window.location.search
                           );
                           searchParams.delete("token");
-                          const newUrl = `${
-                            window.location.pathname
-                          }?${searchParams.toString()}`;
+                          const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                           return window.history.replaceState(null, "", newUrl);
                         })();
                       }
@@ -832,10 +830,7 @@ function PlasmicIntroPage__RenderFunc(props: {
                                   if (/Windows NT 6.1/.test(userAgent))
                                     return "Windows 7";
                                   if (/Mac OS X (\d+[\._]\d+)/.test(userAgent))
-                                    return `macOS ${RegExp.$1.replace(
-                                      "_",
-                                      "."
-                                    )}`;
+                                    return `macOS ${RegExp.$1.replace("_", ".")}`;
                                   if (/Android (\d+(\.\d+)?)/.test(userAgent))
                                     return `Android ${RegExp.$1}`;
                                   if (
@@ -1058,9 +1053,8 @@ function PlasmicIntroPage__RenderFunc(props: {
                 typeof $steps["updateShopComponentShopList"] === "object" &&
                 typeof $steps["updateShopComponentShopList"].then === "function"
               ) {
-                $steps["updateShopComponentShopList"] = await $steps[
-                  "updateShopComponentShopList"
-                ];
+                $steps["updateShopComponentShopList"] =
+                  await $steps["updateShopComponentShopList"];
               }
             }}
           />
@@ -1213,9 +1207,8 @@ function PlasmicIntroPage__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["invokeGlobalAction2"] =
@@ -1241,9 +1234,8 @@ function PlasmicIntroPage__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction2"] === "object" &&
                         typeof $steps["invokeGlobalAction2"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction2"] = await $steps[
-                          "invokeGlobalAction2"
-                        ];
+                        $steps["invokeGlobalAction2"] =
+                          await $steps["invokeGlobalAction2"];
                       }
 
                       $steps["invokeGlobalAction3"] =
@@ -1291,9 +1283,8 @@ function PlasmicIntroPage__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction3"] === "object" &&
                         typeof $steps["invokeGlobalAction3"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction3"] = await $steps[
-                          "invokeGlobalAction3"
-                        ];
+                        $steps["invokeGlobalAction3"] =
+                          await $steps["invokeGlobalAction3"];
                       }
 
                       $steps["invokeGlobalAction4"] =
@@ -1318,9 +1309,8 @@ function PlasmicIntroPage__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction4"] === "object" &&
                         typeof $steps["invokeGlobalAction4"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction4"] = await $steps[
-                          "invokeGlobalAction4"
-                        ];
+                        $steps["invokeGlobalAction4"] =
+                          await $steps["invokeGlobalAction4"];
                       }
 
                       $steps["updateMessage"] =
@@ -1432,9 +1422,8 @@ function PlasmicIntroPage__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction5"] === "object" &&
                         typeof $steps["invokeGlobalAction5"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction5"] = await $steps[
-                          "invokeGlobalAction5"
-                        ];
+                        $steps["invokeGlobalAction5"] =
+                          await $steps["invokeGlobalAction5"];
                       }
 
                       $steps["updateHamyarAddComponentGoNext"] =
@@ -1475,9 +1464,8 @@ function PlasmicIntroPage__RenderFunc(props: {
                         typeof $steps["updateHamyarAddComponentGoNext"].then ===
                           "function"
                       ) {
-                        $steps["updateHamyarAddComponentGoNext"] = await $steps[
-                          "updateHamyarAddComponentGoNext"
-                        ];
+                        $steps["updateHamyarAddComponentGoNext"] =
+                          await $steps["updateHamyarAddComponentGoNext"];
                       }
 
                       $steps["updateSwiperSliderLockSlides"] =
@@ -1515,9 +1503,8 @@ function PlasmicIntroPage__RenderFunc(props: {
                         typeof $steps["updateSwiperSliderLockSlides"].then ===
                           "function"
                       ) {
-                        $steps["updateSwiperSliderLockSlides"] = await $steps[
-                          "updateSwiperSliderLockSlides"
-                        ];
+                        $steps["updateSwiperSliderLockSlides"] =
+                          await $steps["updateSwiperSliderLockSlides"];
                       }
 
                       $steps["updateSwiperSliderActiveSlideIndex"] =
@@ -1593,9 +1580,8 @@ function PlasmicIntroPage__RenderFunc(props: {
                         typeof $steps["updateLoading2"] === "object" &&
                         typeof $steps["updateLoading2"].then === "function"
                       ) {
-                        $steps["updateLoading2"] = await $steps[
-                          "updateLoading2"
-                        ];
+                        $steps["updateLoading2"] =
+                          await $steps["updateLoading2"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -1661,8 +1647,8 @@ function PlasmicIntroPage__RenderFunc(props: {
                               $state.swiperSlider.activeSlideIndex == 6
                               ? "ذخیره و ادامه"
                               : $state.swiperSlider.activeSlideIndex == 4
-                              ? "ذخیره و ادامه"
-                              : "ادامه";
+                                ? "ذخیره و ادامه"
+                                : "ادامه";
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -1729,9 +1715,8 @@ function PlasmicIntroPage__RenderFunc(props: {
                     typeof $steps["updateSwiperSliderLockSlides"].then ===
                       "function"
                   ) {
-                    $steps["updateSwiperSliderLockSlides"] = await $steps[
-                      "updateSwiperSliderLockSlides"
-                    ];
+                    $steps["updateSwiperSliderLockSlides"] =
+                      await $steps["updateSwiperSliderLockSlides"];
                   }
                 }).apply(null, eventArgs);
               }}
@@ -1978,9 +1963,8 @@ function PlasmicIntroPage__RenderFunc(props: {
                         typeof $steps["updateSwiperSliderLockSlides"].then ===
                           "function"
                       ) {
-                        $steps["updateSwiperSliderLockSlides"] = await $steps[
-                          "updateSwiperSliderLockSlides"
-                        ];
+                        $steps["updateSwiperSliderLockSlides"] =
+                          await $steps["updateSwiperSliderLockSlides"];
                       }
                     }).apply(null, eventArgs);
                   }}
@@ -2554,7 +2538,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicIntroPage__VariantsArgs;
     args?: PlasmicIntroPage__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicIntroPage__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicIntroPage__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicIntroPage__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

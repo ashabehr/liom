@@ -1,0 +1,119 @@
+.root {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-width: 0;
+}
+.dialog2:global(.__wab_instance):global(.__wab_instance) {
+  max-width: 100%;
+  z-index: 101;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.freeBox__lCl2I {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  row-gap: 16px;
+  min-width: 0;
+  padding: 0px;
+}
+.freeBox___5DgqV {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  row-gap: 8px;
+  min-width: 0;
+  padding: 8px 16px;
+}
+.subscription3:global(.__wab_instance) {
+  max-width: 100%;
+}
+.freeBox___5IjEe {
+  display: block;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  align-self: center;
+  background: var(--token-kjnzcds1FoVY);
+  left: auto;
+  top: auto;
+  z-index: 1;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  padding: 3px 8px 2px;
+}
+.text__p5Ekm {
+  position: sticky;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  left: 0px;
+  top: 0px;
+  text-align: center;
+  font-weight: 500;
+  z-index: 1;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  color: var(--token-R_Rsn0nP9oIv);
+  text-transform: none;
+  line-height: 1.5;
+  letter-spacing: normal;
+  white-space: pre-wrap;
+  min-width: 0;
+  min-height: 0;
+}
+.button9:global(.__wab_instance) {
+  max-width: 100%;
+  margin-right: 8px;
+  margin-left: 8px;
+  width: 100%;
+  min-width: 0;
+}
+.svg__jusyk {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.text__ome6W {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  font-style: normal;
+  text-align: left;
+  text-transform: none;
+  line-height: 1.5;
+  letter-spacing: normal;
+  white-space: pre-wrap;
+  user-select: text;
+  text-decoration-line: none !important;
+  text-overflow: clip !important;
+  font-family: "Roboto", sans-serif;
+  min-width: 0;
+}
+.svg {
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20%;
+  color: var(--token-zy6xhYnWF8Y7);
+}

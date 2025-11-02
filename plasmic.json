@@ -4911,6 +4911,45 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicColorbox.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "pJx-OeYDO7eh",
+          "name": "EditCustom",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicEditCustom.tsx",
+          "importSpec": {
+            "modulePath": "EditCustom.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicEditCustom.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "VT2ZBL1VWtAn",
+          "name": "CustomItem",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicCustomItem.tsx",
+          "importSpec": {
+            "modulePath": "CustomItem.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicCustomItem.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "5aMoEGgKi3S7",
+          "name": "ShoppingCart",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicShoppingCart.tsx",
+          "importSpec": {
+            "modulePath": "ShoppingCart.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicShoppingCart.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -8250,6 +8289,12 @@
         "name": "NewView",
         "projectId": "suVPi77vb6vv9K5rYJwyxC",
         "contextFilePath": "plasmic/liom_hamyar/PlasmicGlobalVariant__NewView.tsx"
+      },
+      {
+        "id": "88aEuuoDr_g6",
+        "name": "UnnamedGlobalGroupOfVariants7",
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "contextFilePath": "plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants7.tsx"
       }
     ]
   },

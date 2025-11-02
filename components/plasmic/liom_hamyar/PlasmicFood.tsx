@@ -1431,9 +1431,8 @@ function PlasmicFood__RenderFunc(props: {
                                 typeof $steps["updateFilter"].then ===
                                   "function"
                               ) {
-                                $steps["updateFilter"] = await $steps[
-                                  "updateFilter"
-                                ];
+                                $steps["updateFilter"] =
+                                  await $steps["updateFilter"];
                               }
                             }).apply(null, eventArgs);
                           }}
@@ -1536,9 +1535,8 @@ function PlasmicFood__RenderFunc(props: {
                                     typeof $steps["runCode2"].then ===
                                       "function"
                                   ) {
-                                    $steps["runCode2"] = await $steps[
-                                      "runCode2"
-                                    ];
+                                    $steps["runCode2"] =
+                                      await $steps["runCode2"];
                                   }
                                 }}
                               >
@@ -1787,9 +1785,8 @@ function PlasmicFood__RenderFunc(props: {
                                       typeof $steps["updateInputValue"].then ===
                                         "function"
                                     ) {
-                                      $steps["updateInputValue"] = await $steps[
-                                        "updateInputValue"
-                                      ];
+                                      $steps["updateInputValue"] =
+                                        await $steps["updateInputValue"];
                                     }
 
                                     $steps["updateFilter"] = true
@@ -1830,9 +1827,8 @@ function PlasmicFood__RenderFunc(props: {
                                       typeof $steps["updateFilter"].then ===
                                         "function"
                                     ) {
-                                      $steps["updateFilter"] = await $steps[
-                                        "updateFilter"
-                                      ];
+                                      $steps["updateFilter"] =
+                                        await $steps["updateFilter"];
                                     }
                                   }}
                                 >
@@ -1959,9 +1955,8 @@ function PlasmicFood__RenderFunc(props: {
                                 typeof $steps["updateModalOpen"].then ===
                                   "function"
                               ) {
-                                $steps["updateModalOpen"] = await $steps[
-                                  "updateModalOpen"
-                                ];
+                                $steps["updateModalOpen"] =
+                                  await $steps["updateModalOpen"];
                               }
                             }}
                             onColorChange={async (...eventArgs: any) => {
@@ -3296,9 +3291,8 @@ function PlasmicFood__RenderFunc(props: {
                                       typeof $steps["updateLoadingbtn"].then ===
                                         "function"
                                     ) {
-                                      $steps["updateLoadingbtn"] = await $steps[
-                                        "updateLoadingbtn"
-                                      ];
+                                      $steps["updateLoadingbtn"] =
+                                        await $steps["updateLoadingbtn"];
                                     }
 
                                     $steps["invokeGlobalAction"] = true
@@ -3427,9 +3421,8 @@ function PlasmicFood__RenderFunc(props: {
                                       typeof $steps["updateSlide"].then ===
                                         "function"
                                     ) {
-                                      $steps["updateSlide"] = await $steps[
-                                        "updateSlide"
-                                      ];
+                                      $steps["updateSlide"] =
+                                        await $steps["updateSlide"];
                                     }
 
                                     $steps["updateLoadingbtn2"] = true
@@ -3625,8 +3618,8 @@ function PlasmicFood__RenderFunc(props: {
                                       !_par
                                         ? []
                                         : Array.isArray(_par)
-                                        ? _par
-                                        : [_par])(
+                                          ? _par
+                                          : [_par])(
                                       (() => {
                                         try {
                                           return $state.selectedfood;
@@ -3861,9 +3854,10 @@ function PlasmicFood__RenderFunc(props: {
                                                     ) {
                                                       $steps[
                                                         "invokeGlobalAction"
-                                                      ] = await $steps[
-                                                        "invokeGlobalAction"
-                                                      ];
+                                                      ] =
+                                                        await $steps[
+                                                          "invokeGlobalAction"
+                                                        ];
                                                     }
                                                   }}
                                                   role={"img"}
@@ -4027,9 +4021,10 @@ function PlasmicFood__RenderFunc(props: {
                                                       ) {
                                                         $steps[
                                                           "invokeGlobalAction"
-                                                        ] = await $steps[
-                                                          "invokeGlobalAction"
-                                                        ];
+                                                        ] =
+                                                          await $steps[
+                                                            "invokeGlobalAction"
+                                                          ];
                                                       }
                                                     }}
                                                     role={"img"}
@@ -4127,9 +4122,8 @@ function PlasmicFood__RenderFunc(props: {
                                       typeof $steps["updateModal2Open"].then ===
                                         "function"
                                     ) {
-                                      $steps["updateModal2Open"] = await $steps[
-                                        "updateModal2Open"
-                                      ];
+                                      $steps["updateModal2Open"] =
+                                        await $steps["updateModal2Open"];
                                     }
 
                                     $steps["runCode"] = true
@@ -4158,9 +4152,8 @@ function PlasmicFood__RenderFunc(props: {
                                       typeof $steps["runCode"].then ===
                                         "function"
                                     ) {
-                                      $steps["runCode"] = await $steps[
-                                        "runCode"
-                                      ];
+                                      $steps["runCode"] =
+                                        await $steps["runCode"];
                                     }
 
                                     $steps["refreshData"] = true
@@ -4189,9 +4182,8 @@ function PlasmicFood__RenderFunc(props: {
                                       typeof $steps["refreshData"].then ===
                                         "function"
                                     ) {
-                                      $steps["refreshData"] = await $steps[
-                                        "refreshData"
-                                      ];
+                                      $steps["refreshData"] =
+                                        await $steps["refreshData"];
                                     }
                                   }}
                                   onColorChange={async (...eventArgs: any) => {
@@ -4419,9 +4411,8 @@ function PlasmicFood__RenderFunc(props: {
                                       typeof $steps["updateSlide"].then ===
                                         "function"
                                     ) {
-                                      $steps["updateSlide"] = await $steps[
-                                        "updateSlide"
-                                      ];
+                                      $steps["updateSlide"] =
+                                        await $steps["updateSlide"];
                                     }
                                   }}
                                   onColorChange={async (...eventArgs: any) => {
@@ -4542,9 +4533,8 @@ function PlasmicFood__RenderFunc(props: {
                       typeof $steps["updateSlideinModalClick"].then ===
                         "function"
                     ) {
-                      $steps["updateSlideinModalClick"] = await $steps[
-                        "updateSlideinModalClick"
-                      ];
+                      $steps["updateSlideinModalClick"] =
+                        await $steps["updateSlideinModalClick"];
                     }
                   }}
                 >
@@ -4651,9 +4641,8 @@ function PlasmicFood__RenderFunc(props: {
                             typeof $steps["updateInfofood"] === "object" &&
                             typeof $steps["updateInfofood"].then === "function"
                           ) {
-                            $steps["updateInfofood"] = await $steps[
-                              "updateInfofood"
-                            ];
+                            $steps["updateInfofood"] =
+                              await $steps["updateInfofood"];
                           }
 
                           $steps["updateModal3Open"] = true
@@ -4688,9 +4677,8 @@ function PlasmicFood__RenderFunc(props: {
                             typeof $steps["updateModal3Open"].then ===
                               "function"
                           ) {
-                            $steps["updateModal3Open"] = await $steps[
-                              "updateModal3Open"
-                            ];
+                            $steps["updateModal3Open"] =
+                              await $steps["updateModal3Open"];
                           }
                         }}
                       >
@@ -4893,9 +4881,8 @@ function PlasmicFood__RenderFunc(props: {
                               typeof $steps["updateVariable2"].then ===
                                 "function"
                             ) {
-                              $steps["updateVariable2"] = await $steps[
-                                "updateVariable2"
-                              ];
+                              $steps["updateVariable2"] =
+                                await $steps["updateVariable2"];
                             }
 
                             $steps["invokeGlobalAction"] = true
@@ -4944,9 +4931,8 @@ function PlasmicFood__RenderFunc(props: {
                               typeof $steps["invokeGlobalAction"].then ===
                                 "function"
                             ) {
-                              $steps["invokeGlobalAction"] = await $steps[
-                                "invokeGlobalAction"
-                              ];
+                              $steps["invokeGlobalAction"] =
+                                await $steps["invokeGlobalAction"];
                             }
 
                             $steps["invokeGlobalAction2"] = (() => {
@@ -5012,9 +4998,8 @@ function PlasmicFood__RenderFunc(props: {
                               typeof $steps["invokeGlobalAction2"].then ===
                                 "function"
                             ) {
-                              $steps["invokeGlobalAction2"] = await $steps[
-                                "invokeGlobalAction2"
-                              ];
+                              $steps["invokeGlobalAction2"] =
+                                await $steps["invokeGlobalAction2"];
                             }
 
                             $steps["invokeGlobalAction3"] = (() => {
@@ -5061,9 +5046,8 @@ function PlasmicFood__RenderFunc(props: {
                               typeof $steps["invokeGlobalAction3"].then ===
                                 "function"
                             ) {
-                              $steps["invokeGlobalAction3"] = await $steps[
-                                "invokeGlobalAction3"
-                              ];
+                              $steps["invokeGlobalAction3"] =
+                                await $steps["invokeGlobalAction3"];
                             }
                           }}
                           role={"img"}
@@ -5169,9 +5153,8 @@ function PlasmicFood__RenderFunc(props: {
                                 typeof $steps["updateVariable2"].then ===
                                   "function"
                               ) {
-                                $steps["updateVariable2"] = await $steps[
-                                  "updateVariable2"
-                                ];
+                                $steps["updateVariable2"] =
+                                  await $steps["updateVariable2"];
                               }
 
                               $steps["invokeGlobalAction"] = true
@@ -5219,9 +5202,8 @@ function PlasmicFood__RenderFunc(props: {
                                 typeof $steps["invokeGlobalAction"].then ===
                                   "function"
                               ) {
-                                $steps["invokeGlobalAction"] = await $steps[
-                                  "invokeGlobalAction"
-                                ];
+                                $steps["invokeGlobalAction"] =
+                                  await $steps["invokeGlobalAction"];
                               }
                             }}
                             role={"img"}
@@ -5302,9 +5284,8 @@ function PlasmicFood__RenderFunc(props: {
                       typeof $steps["updateModalOpen"] === "object" &&
                       typeof $steps["updateModalOpen"].then === "function"
                     ) {
-                      $steps["updateModalOpen"] = await $steps[
-                        "updateModalOpen"
-                      ];
+                      $steps["updateModalOpen"] =
+                        await $steps["updateModalOpen"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
@@ -5536,9 +5517,8 @@ function PlasmicFood__RenderFunc(props: {
                   typeof $steps["updateSlideinModalClick"] === "object" &&
                   typeof $steps["updateSlideinModalClick"].then === "function"
                 ) {
-                  $steps["updateSlideinModalClick"] = await $steps[
-                    "updateSlideinModalClick"
-                  ];
+                  $steps["updateSlideinModalClick"] =
+                    await $steps["updateSlideinModalClick"];
                 }
 
                 $steps["invokeGlobalAction"] = true
@@ -5587,9 +5567,8 @@ function PlasmicFood__RenderFunc(props: {
                   typeof $steps["invokeGlobalAction"] === "object" &&
                   typeof $steps["invokeGlobalAction"].then === "function"
                 ) {
-                  $steps["invokeGlobalAction"] = await $steps[
-                    "invokeGlobalAction"
-                  ];
+                  $steps["invokeGlobalAction"] =
+                    await $steps["invokeGlobalAction"];
                 }
               }}
               onColorChange={async (...eventArgs: any) => {
@@ -5934,9 +5913,8 @@ function PlasmicFood__RenderFunc(props: {
                   typeof $steps["updateButton2Color2"] === "object" &&
                   typeof $steps["updateButton2Color2"].then === "function"
                 ) {
-                  $steps["updateButton2Color2"] = await $steps[
-                    "updateButton2Color2"
-                  ];
+                  $steps["updateButton2Color2"] =
+                    await $steps["updateButton2Color2"];
                 }
               }).apply(null, eventArgs);
             }}
@@ -8905,7 +8883,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicFood__VariantsArgs;
     args?: PlasmicFood__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicFood__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicFood__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicFood__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

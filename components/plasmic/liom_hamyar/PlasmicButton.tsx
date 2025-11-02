@@ -108,6 +108,7 @@ export type PlasmicButton__VariantMembers = {
   unnamedVariant2: "unnamedVariant2";
   buttonDataaa: "buttonDataaa";
   serface: "serface";
+  box: "box";
 };
 export type PlasmicButton__VariantsArgs = {
   showStartIcon?: SingleBooleanChoiceArg<"showStartIcon">;
@@ -144,6 +145,7 @@ export type PlasmicButton__VariantsArgs = {
   unnamedVariant2?: SingleBooleanChoiceArg<"unnamedVariant2">;
   buttonDataaa?: SingleBooleanChoiceArg<"buttonDataaa">;
   serface?: SingleBooleanChoiceArg<"serface">;
+  box?: SingleBooleanChoiceArg<"box">;
 };
 type VariantPropType = keyof PlasmicButton__VariantsArgs;
 export const PlasmicButton__VariantProps = new Array<VariantPropType>(
@@ -158,7 +160,8 @@ export const PlasmicButton__VariantProps = new Array<VariantPropType>(
   "filter",
   "unnamedVariant2",
   "buttonDataaa",
-  "serface"
+  "serface",
+  "box"
 );
 
 export type PlasmicButton__ArgsType = {
@@ -236,6 +239,7 @@ export interface DefaultButtonProps extends pp.BaseButtonProps {
   unnamedVariant2?: SingleBooleanChoiceArg<"unnamedVariant2">;
   buttonDataaa?: SingleBooleanChoiceArg<"buttonDataaa">;
   serface?: SingleBooleanChoiceArg<"serface">;
+  box?: SingleBooleanChoiceArg<"box">;
 }
 
 const $$ = {};
@@ -366,6 +370,12 @@ function PlasmicButton__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.serface
+      },
+      {
+        path: "box",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.box
       }
     ],
     [$props, $ctx, $refs]
@@ -403,6 +413,7 @@ function PlasmicButton__RenderFunc(props: {
         sty.root,
         {
           [sty.root___focusVisibleWithin]: triggers.focusVisibleWithin_root,
+          [sty.rootbox]: hasVariant($state, "box", "box"),
           [sty.rootbuttonDataaa]: hasVariant(
             $state,
             "buttonDataaa",
@@ -602,6 +613,7 @@ function PlasmicButton__RenderFunc(props: {
         className={classNames(projectcss.all, sty.contentContainer, {
           [sty.contentContainer___focusVisibleWithin]:
             triggers.focusVisibleWithin_root,
+          [sty.contentContainerbox]: hasVariant($state, "box", "box"),
           [sty.contentContainerisDisabled]: hasVariant(
             $state,
             "isDisabled",

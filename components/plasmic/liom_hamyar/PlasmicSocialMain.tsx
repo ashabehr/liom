@@ -533,9 +533,8 @@ function PlasmicSocialMain__RenderFunc(props: {
                       typeof $steps["updateDrawerOpen"] === "object" &&
                       typeof $steps["updateDrawerOpen"].then === "function"
                     ) {
-                      $steps["updateDrawerOpen"] = await $steps[
-                        "updateDrawerOpen"
-                      ];
+                      $steps["updateDrawerOpen"] =
+                        await $steps["updateDrawerOpen"];
                     }
                   }}
                   role={"img"}
@@ -598,9 +597,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                             searchParams.delete("token");
                             searchParams.delete("userId");
                             searchParams.delete("user_id");
-                            const newUrl = `${
-                              window.location.pathname
-                            }?${searchParams.toString()}`;
+                            const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                             return window.history.replaceState(
                               null,
                               "",
@@ -845,9 +842,8 @@ function PlasmicSocialMain__RenderFunc(props: {
                         typeof $steps["updateApiGetInfo"] === "object" &&
                         typeof $steps["updateApiGetInfo"].then === "function"
                       ) {
-                        $steps["updateApiGetInfo"] = await $steps[
-                          "updateApiGetInfo"
-                        ];
+                        $steps["updateApiGetInfo"] =
+                          await $steps["updateApiGetInfo"];
                       }
                     }}
                   >
@@ -1060,9 +1056,8 @@ function PlasmicSocialMain__RenderFunc(props: {
                       typeof $steps["updateApiGetInfo"] === "object" &&
                       typeof $steps["updateApiGetInfo"].then === "function"
                     ) {
-                      $steps["updateApiGetInfo"] = await $steps[
-                        "updateApiGetInfo"
-                      ];
+                      $steps["updateApiGetInfo"] =
+                        await $steps["updateApiGetInfo"];
                     }
                   }).apply(null, eventArgs);
                 }}
@@ -1167,9 +1162,8 @@ function PlasmicSocialMain__RenderFunc(props: {
                               typeof $steps["updateApiGetPost"].then ===
                                 "function"
                             ) {
-                              $steps["updateApiGetPost"] = await $steps[
-                                "updateApiGetPost"
-                              ];
+                              $steps["updateApiGetPost"] =
+                                await $steps["updateApiGetPost"];
                             }
 
                             $steps["updateChoiceType"] = true
@@ -1204,9 +1198,8 @@ function PlasmicSocialMain__RenderFunc(props: {
                               typeof $steps["updateChoiceType"].then ===
                                 "function"
                             ) {
-                              $steps["updateChoiceType"] = await $steps[
-                                "updateChoiceType"
-                              ];
+                              $steps["updateChoiceType"] =
+                                await $steps["updateChoiceType"];
                             }
 
                             $steps["updateFaType"] = true
@@ -1240,9 +1233,8 @@ function PlasmicSocialMain__RenderFunc(props: {
                               typeof $steps["updateFaType"] === "object" &&
                               typeof $steps["updateFaType"].then === "function"
                             ) {
-                              $steps["updateFaType"] = await $steps[
-                                "updateFaType"
-                              ];
+                              $steps["updateFaType"] =
+                                await $steps["updateFaType"];
                             }
 
                             $steps["invokeGlobalAction"] = true
@@ -1284,9 +1276,8 @@ function PlasmicSocialMain__RenderFunc(props: {
                               typeof $steps["invokeGlobalAction"].then ===
                                 "function"
                             ) {
-                              $steps["invokeGlobalAction"] = await $steps[
-                                "invokeGlobalAction"
-                              ];
+                              $steps["invokeGlobalAction"] =
+                                await $steps["invokeGlobalAction"];
                             }
                           }}
                           selected={(() => {
@@ -1510,9 +1501,8 @@ function PlasmicSocialMain__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction"] === "object" &&
                 typeof $steps["invokeGlobalAction"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
               }
 
               $steps["runCode2"] =
@@ -1703,9 +1693,8 @@ function PlasmicSocialMain__RenderFunc(props: {
                         typeof $steps["updateApiGetPost"] === "object" &&
                         typeof $steps["updateApiGetPost"].then === "function"
                       ) {
-                        $steps["updateApiGetPost"] = await $steps[
-                          "updateApiGetPost"
-                        ];
+                        $steps["updateApiGetPost"] =
+                          await $steps["updateApiGetPost"];
                       }
                     }}
                   >
@@ -2037,9 +2026,8 @@ function PlasmicSocialMain__RenderFunc(props: {
                                             typeof $steps["runCode"].then ===
                                               "function"
                                           ) {
-                                            $steps["runCode"] = await $steps[
-                                              "runCode"
-                                            ];
+                                            $steps["runCode"] =
+                                              await $steps["runCode"];
                                           }
                                         }}
                                       >
@@ -2127,9 +2115,8 @@ function PlasmicSocialMain__RenderFunc(props: {
                       typeof $steps["updatePostsData"] === "object" &&
                       typeof $steps["updatePostsData"].then === "function"
                     ) {
-                      $steps["updatePostsData"] = await $steps[
-                        "updatePostsData"
-                      ];
+                      $steps["updatePostsData"] =
+                        await $steps["updatePostsData"];
                     }
 
                     $steps["updateApiGetPost"] = true
@@ -2163,9 +2150,8 @@ function PlasmicSocialMain__RenderFunc(props: {
                       typeof $steps["updateApiGetPost"] === "object" &&
                       typeof $steps["updateApiGetPost"].then === "function"
                     ) {
-                      $steps["updateApiGetPost"] = await $steps[
-                        "updateApiGetPost"
-                      ];
+                      $steps["updateApiGetPost"] =
+                        await $steps["updateApiGetPost"];
                     }
 
                     $steps["runCode"] = true
@@ -2284,9 +2270,8 @@ function PlasmicSocialMain__RenderFunc(props: {
                                   typeof $steps["updateComingSoonOpen"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateComingSoonOpen"] = await $steps[
-                                    "updateComingSoonOpen"
-                                  ];
+                                  $steps["updateComingSoonOpen"] =
+                                    await $steps["updateComingSoonOpen"];
                                 }
                               },
                               comment: generateStateValueProp($state, [
@@ -2380,9 +2365,8 @@ function PlasmicSocialMain__RenderFunc(props: {
                                   typeof $steps["invokeGlobalAction"].then ===
                                     "function"
                                 ) {
-                                  $steps["invokeGlobalAction"] = await $steps[
-                                    "invokeGlobalAction"
-                                  ];
+                                  $steps["invokeGlobalAction"] =
+                                    await $steps["invokeGlobalAction"];
                                 }
 
                                 $steps["invokeGlobalAction2"] = true
@@ -2424,9 +2408,8 @@ function PlasmicSocialMain__RenderFunc(props: {
                                   typeof $steps["invokeGlobalAction2"].then ===
                                     "function"
                                 ) {
-                                  $steps["invokeGlobalAction2"] = await $steps[
-                                    "invokeGlobalAction2"
-                                  ];
+                                  $steps["invokeGlobalAction2"] =
+                                    await $steps["invokeGlobalAction2"];
                                 }
                               },
                               onCommentChange: async (...eventArgs: any) => {
@@ -2717,7 +2700,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSocialMain__VariantsArgs;
     args?: PlasmicSocialMain__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSocialMain__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSocialMain__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSocialMain__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

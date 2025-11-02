@@ -1605,8 +1605,8 @@ function PlasmicIntro__RenderFunc(props: {
                                 $state.slid == "slid1"
                                   ? "translateX(0px)"
                                   : $state.slid == "slid2"
-                                  ? "translateX(0px)"
-                                  : "translateX(-38px)"
+                                    ? "translateX(0px)"
+                                    : "translateX(-38px)"
                             };
                           } catch (e) {
                             if (
@@ -1625,8 +1625,8 @@ function PlasmicIntro__RenderFunc(props: {
                                 $state.slid == "slid1"
                                   ? "translateX(0px)"
                                   : $state.slid == "slid2"
-                                  ? "translateX(0px)"
-                                  : "translateX(-48px)"
+                                    ? "translateX(0px)"
+                                    : "translateX(-48px)"
                             };
                           } catch (e) {
                             if (
@@ -1652,8 +1652,8 @@ function PlasmicIntro__RenderFunc(props: {
                                 $state.slid == "slid1"
                                   ? "translateX(0px)"
                                   : $state.slid == "slid2"
-                                  ? "translateX(-38px)"
-                                  : "translateX(-38px)"
+                                    ? "translateX(-38px)"
+                                    : "translateX(-38px)"
                             };
                           } catch (e) {
                             if (
@@ -1672,8 +1672,8 @@ function PlasmicIntro__RenderFunc(props: {
                                 $state.slid == "slid1"
                                   ? "translateX(0px)"
                                   : $state.slid == "slid2"
-                                  ? "translateX(-48px)"
-                                  : "translateX(-48px)"
+                                    ? "translateX(-48px)"
+                                    : "translateX(-48px)"
                             };
                           } catch (e) {
                             if (
@@ -1699,8 +1699,8 @@ function PlasmicIntro__RenderFunc(props: {
                                 $state.slid == "slid1"
                                   ? "translateX(0px)"
                                   : $state.slid == "slid2"
-                                  ? "translateX(38px)"
-                                  : "translateX(76px)"
+                                    ? "translateX(38px)"
+                                    : "translateX(76px)"
                             };
                           } catch (e) {
                             if (
@@ -1719,8 +1719,8 @@ function PlasmicIntro__RenderFunc(props: {
                                 $state.slid == "slid1"
                                   ? "translateX(0px)"
                                   : $state.slid == "slid2"
-                                  ? "translateX(48px)"
-                                  : "translateX(96px)"
+                                    ? "translateX(48px)"
+                                    : "translateX(96px)"
                             };
                           } catch (e) {
                             if (
@@ -2263,9 +2263,8 @@ function PlasmicIntro__RenderFunc(props: {
                               typeof $steps["updateDiscountBox"].then ===
                                 "function"
                             ) {
-                              $steps["updateDiscountBox"] = await $steps[
-                                "updateDiscountBox"
-                              ];
+                              $steps["updateDiscountBox"] =
+                                await $steps["updateDiscountBox"];
                             }
                           }}
                         >
@@ -2417,9 +2416,8 @@ function PlasmicIntro__RenderFunc(props: {
                                     typeof $steps["updateDiscountOk"].then ===
                                       "function"
                                   ) {
-                                    $steps["updateDiscountOk"] = await $steps[
-                                      "updateDiscountOk"
-                                    ];
+                                    $steps["updateDiscountOk"] =
+                                      await $steps["updateDiscountOk"];
                                   }
                                 }}
                               />
@@ -2494,9 +2492,8 @@ function PlasmicIntro__RenderFunc(props: {
                                 typeof $steps["updateDiscountCode"].then ===
                                   "function"
                               ) {
-                                $steps["updateDiscountCode"] = await $steps[
-                                  "updateDiscountCode"
-                                ];
+                                $steps["updateDiscountCode"] =
+                                  await $steps["updateDiscountCode"];
                               }
 
                               $steps["updateDiscountOk"] = true
@@ -2533,9 +2530,8 @@ function PlasmicIntro__RenderFunc(props: {
                                 typeof $steps["updateDiscountOk"].then ===
                                   "function"
                               ) {
-                                $steps["updateDiscountOk"] = await $steps[
-                                  "updateDiscountOk"
-                                ];
+                                $steps["updateDiscountOk"] =
+                                  await $steps["updateDiscountOk"];
                               }
                             }}
                             onColorChange={async (...eventArgs: any) => {
@@ -2672,9 +2668,8 @@ function PlasmicIntro__RenderFunc(props: {
                             typeof $steps["updateLoadin"] === "object" &&
                             typeof $steps["updateLoadin"].then === "function"
                           ) {
-                            $steps["updateLoadin"] = await $steps[
-                              "updateLoadin"
-                            ];
+                            $steps["updateLoadin"] =
+                              await $steps["updateLoadin"];
                           }
 
                           $steps["runCode2"] = true
@@ -2747,9 +2742,8 @@ function PlasmicIntro__RenderFunc(props: {
                             typeof $steps["updateSelectedShop"].then ===
                               "function"
                           ) {
-                            $steps["updateSelectedShop"] = await $steps[
-                              "updateSelectedShop"
-                            ];
+                            $steps["updateSelectedShop"] =
+                              await $steps["updateSelectedShop"];
                           }
 
                           $steps["invokeGlobalAction"] = true
@@ -2832,9 +2826,8 @@ function PlasmicIntro__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
 
                           $steps["runCode"] =
@@ -2893,9 +2886,8 @@ function PlasmicIntro__RenderFunc(props: {
                             typeof $steps["updateLoadin2"] === "object" &&
                             typeof $steps["updateLoadin2"].then === "function"
                           ) {
-                            $steps["updateLoadin2"] = await $steps[
-                              "updateLoadin2"
-                            ];
+                            $steps["updateLoadin2"] =
+                              await $steps["updateLoadin2"];
                           }
 
                           $steps["invokeGlobalAction2"] =
@@ -2919,9 +2911,8 @@ function PlasmicIntro__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction2"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction2"] = await $steps[
-                              "invokeGlobalAction2"
-                            ];
+                            $steps["invokeGlobalAction2"] =
+                              await $steps["invokeGlobalAction2"];
                           }
 
                           $steps["runCode3"] = true
@@ -3064,9 +3055,8 @@ function PlasmicIntro__RenderFunc(props: {
                               typeof $steps["updateDialog2Opendialog"].then ===
                                 "function"
                             ) {
-                              $steps["updateDialog2Opendialog"] = await $steps[
-                                "updateDialog2Opendialog"
-                              ];
+                              $steps["updateDialog2Opendialog"] =
+                                await $steps["updateDialog2Opendialog"];
                             }
                           }}
                         >
@@ -3518,9 +3508,8 @@ function PlasmicIntro__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["runCode"] =
@@ -3602,9 +3591,8 @@ function PlasmicIntro__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction2"] === "object" &&
                         typeof $steps["invokeGlobalAction2"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction2"] = await $steps[
-                          "invokeGlobalAction2"
-                        ];
+                        $steps["invokeGlobalAction2"] =
+                          await $steps["invokeGlobalAction2"];
                       }
 
                       $steps["runCode2"] = true
@@ -3809,7 +3797,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicIntro__VariantsArgs;
     args?: PlasmicIntro__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicIntro__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicIntro__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicIntro__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

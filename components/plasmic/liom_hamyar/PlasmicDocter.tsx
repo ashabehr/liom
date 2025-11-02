@@ -793,9 +793,8 @@ function PlasmicDocter__RenderFunc(props: {
                         typeof $steps["updateBtnloading"] === "object" &&
                         typeof $steps["updateBtnloading"].then === "function"
                       ) {
-                        $steps["updateBtnloading"] = await $steps[
-                          "updateBtnloading"
-                        ];
+                        $steps["updateBtnloading"] =
+                          await $steps["updateBtnloading"];
                       }
 
                       $steps["invokeGlobalAction"] = true
@@ -835,9 +834,8 @@ function PlasmicDocter__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["goToPage"] =
@@ -912,9 +910,8 @@ function PlasmicDocter__RenderFunc(props: {
                         typeof $steps["updateBtnloading2"] === "object" &&
                         typeof $steps["updateBtnloading2"].then === "function"
                       ) {
-                        $steps["updateBtnloading2"] = await $steps[
-                          "updateBtnloading2"
-                        ];
+                        $steps["updateBtnloading2"] =
+                          await $steps["updateBtnloading2"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -1691,9 +1688,8 @@ function PlasmicDocter__RenderFunc(props: {
                                   typeof $steps["updateBtnloading"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateBtnloading"] = await $steps[
-                                    "updateBtnloading"
-                                  ];
+                                  $steps["updateBtnloading"] =
+                                    await $steps["updateBtnloading"];
                                 }
 
                                 $steps["invokeGlobalAction"] = true
@@ -1734,9 +1730,8 @@ function PlasmicDocter__RenderFunc(props: {
                                   typeof $steps["invokeGlobalAction"].then ===
                                     "function"
                                 ) {
-                                  $steps["invokeGlobalAction"] = await $steps[
-                                    "invokeGlobalAction"
-                                  ];
+                                  $steps["invokeGlobalAction"] =
+                                    await $steps["invokeGlobalAction"];
                                 }
 
                                 $steps["goToPage"] =
@@ -1854,9 +1849,8 @@ function PlasmicDocter__RenderFunc(props: {
                                   typeof $steps["updateBtnloading2"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateBtnloading2"] = await $steps[
-                                    "updateBtnloading2"
-                                  ];
+                                  $steps["updateBtnloading2"] =
+                                    await $steps["updateBtnloading2"];
                                 }
                               }}
                               onColorChange={async (...eventArgs: any) => {
@@ -2238,9 +2232,8 @@ function PlasmicDocter__RenderFunc(props: {
                               typeof $steps["updateDialogOpendialog"].then ===
                                 "function"
                             ) {
-                              $steps["updateDialogOpendialog"] = await $steps[
-                                "updateDialogOpendialog"
-                              ];
+                              $steps["updateDialogOpendialog"] =
+                                await $steps["updateDialogOpendialog"];
                             }
 
                             $steps["updateSublist"] = true
@@ -2274,9 +2267,8 @@ function PlasmicDocter__RenderFunc(props: {
                               typeof $steps["updateSublist"] === "object" &&
                               typeof $steps["updateSublist"].then === "function"
                             ) {
-                              $steps["updateSublist"] = await $steps[
-                                "updateSublist"
-                              ];
+                              $steps["updateSublist"] =
+                                await $steps["updateSublist"];
                             }
 
                             $steps["goToPage"] =
@@ -2417,9 +2409,8 @@ function PlasmicDocter__RenderFunc(props: {
                       typeof $steps["updateDialogOpendialog"].then ===
                         "function"
                     ) {
-                      $steps["updateDialogOpendialog"] = await $steps[
-                        "updateDialogOpendialog"
-                      ];
+                      $steps["updateDialogOpendialog"] =
+                        await $steps["updateDialogOpendialog"];
                     }
 
                     $steps["updateSublist"] = true
@@ -3017,9 +3008,8 @@ function PlasmicDocter__RenderFunc(props: {
                               typeof $steps["updateBtnloading"].then ===
                                 "function"
                             ) {
-                              $steps["updateBtnloading"] = await $steps[
-                                "updateBtnloading"
-                              ];
+                              $steps["updateBtnloading"] =
+                                await $steps["updateBtnloading"];
                             }
 
                             $steps["invokeGlobalAction"] = true
@@ -3060,9 +3050,8 @@ function PlasmicDocter__RenderFunc(props: {
                               typeof $steps["invokeGlobalAction"].then ===
                                 "function"
                             ) {
-                              $steps["invokeGlobalAction"] = await $steps[
-                                "invokeGlobalAction"
-                              ];
+                              $steps["invokeGlobalAction"] =
+                                await $steps["invokeGlobalAction"];
                             }
 
                             $steps["goToPage"] =
@@ -3171,9 +3160,8 @@ function PlasmicDocter__RenderFunc(props: {
                               typeof $steps["updateBtnloading2"].then ===
                                 "function"
                             ) {
-                              $steps["updateBtnloading2"] = await $steps[
-                                "updateBtnloading2"
-                              ];
+                              $steps["updateBtnloading2"] =
+                                await $steps["updateBtnloading2"];
                             }
 
                             $steps["invokeGlobalAction2"] =
@@ -3198,9 +3186,8 @@ function PlasmicDocter__RenderFunc(props: {
                               typeof $steps["invokeGlobalAction2"].then ===
                                 "function"
                             ) {
-                              $steps["invokeGlobalAction2"] = await $steps[
-                                "invokeGlobalAction2"
-                              ];
+                              $steps["invokeGlobalAction2"] =
+                                await $steps["invokeGlobalAction2"];
                             }
 
                             $steps["invokeGlobalAction3"] = true
@@ -3250,9 +3237,8 @@ function PlasmicDocter__RenderFunc(props: {
                               typeof $steps["invokeGlobalAction3"].then ===
                                 "function"
                             ) {
-                              $steps["invokeGlobalAction3"] = await $steps[
-                                "invokeGlobalAction3"
-                              ];
+                              $steps["invokeGlobalAction3"] =
+                                await $steps["invokeGlobalAction3"];
                             }
                           }}
                           onColorChange={async (...eventArgs: any) => {
@@ -3395,9 +3381,7 @@ function PlasmicDocter__RenderFunc(props: {
                           const actionArgs = {
                             destination: (() => {
                               try {
-                                return `/clinic?gender=${new URLSearchParams(
-                                  new URL(window.location.href).search
-                                ).get("gender")}`;
+                                return `/clinic?gender=${new URLSearchParams(new URL(window.location.href).search).get("gender")}`;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -3628,7 +3612,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicDocter__VariantsArgs;
     args?: PlasmicDocter__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicDocter__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicDocter__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicDocter__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
