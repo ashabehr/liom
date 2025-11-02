@@ -360,7 +360,7 @@ function PlasmicShoppingCart__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return `https://apps.liom.app/shopResult?buyId=${$state.selectShop.id}&?offCode=${$state.discountCode}&token=hjk812${localStorage.getItem("token")}jkp&redirectUrl=${window.document.referrer}`;
+              return window.encodeURIComponent(window.document.referrer);
             } catch (e) {
               if (
                 e instanceof TypeError ||
