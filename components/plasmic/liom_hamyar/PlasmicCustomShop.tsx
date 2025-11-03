@@ -3155,24 +3155,12 @@ function PlasmicCustomShop__RenderFunc(props: {
                     displayWidth={"100%"}
                     id={"image"}
                     loading={"lazy"}
-                    src={(() => {
-                      try {
-                        return $state.getData.data.result.image;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return {
-                            src: "/plasmic/liom_hamyar/images/image70.svg",
-                            fullWidth: 457,
-                            fullHeight: 172,
-                            aspectRatio: 2.656977
-                          };
-                        }
-                        throw e;
-                      }
-                    })()}
+                    src={{
+                      src: "/plasmic/liom_hamyar/images/csdcsacsdcsdcsJpg.jpg",
+                      fullWidth: 1500,
+                      fullHeight: 480,
+                      aspectRatio: undefined
+                    }}
                   />
 
                   <section
