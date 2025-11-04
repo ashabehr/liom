@@ -941,62 +941,59 @@ function PlasmicCustomShop__RenderFunc(props: {
                         const actionArgs = {
                           customFunction: async () => {
                             return (() => {
-                              var a = (
+                              let a = (
                                 $state.getData?.data?.result?.selectedTypes ||
                                 ""
                               )
                                 .split("-")
-                                .filter(x => x);
+                                .filter(Boolean);
+                              const lists =
+                                $state.getData?.data?.result?.list || [];
                               if (a.length === 0) {
-                                const firstList =
-                                  $state.getData?.data?.result?.list?.[0];
+                                const firstList = lists[0];
                                 const firstData = firstList?.data?.[0];
                                 const firstItem = firstData?.items?.[0];
-                                if (firstItem) {
+                                if (firstItem && firstData) {
                                   firstData.shop = firstItem;
                                   firstData.items.forEach(
                                     x =>
                                       (x.selected =
                                         x.id === firstItem.id ? 1 : 0)
                                   );
-                                  return $state.itemSelect.push(firstItem.id);
+                                  $state.itemSelect.push(firstItem.id);
                                 }
-                              } else {
-                                return ($state.getData.data.result.list =
-                                  $state.getData.data.result.list.map(
-                                    currentItem => {
-                                      const updatedData = currentItem.data.map(
-                                        i => {
-                                          let shop = null;
-                                          if (i.items.length === 1) {
-                                            shop = i.items[0];
-                                          } else {
-                                            shop =
-                                              i.items.find(
-                                                x => x.selected === 1
-                                              ) || null;
-                                          }
-                                          if (a.includes(i.type) && shop) {
-                                            i.items.forEach(
-                                              x =>
-                                                (x.selected =
-                                                  x.id === shop.id ? 1 : 0)
-                                            );
-                                            $state.itemSelect.push(shop.id);
-                                          }
-                                          return {
-                                            ...i,
-                                            shop
-                                          };
-                                        }
-                                      );
+                              }
+                              return ($state.getData.data.result.list =
+                                lists.map(list => {
+                                  const updatedData = (list.data || []).map(
+                                    i => {
+                                      let shop = null;
+                                      if (i.items?.length === 1) {
+                                        shop = i.items[0];
+                                      } else {
+                                        shop =
+                                          i.items.find(x => x.selected === 1) ||
+                                          null;
+                                      }
+                                      if (a.includes(i.type) && shop) {
+                                        i.items.forEach(
+                                          x =>
+                                            (x.selected =
+                                              x.id === shop.id ? 1 : 0)
+                                        );
+                                        $state.itemSelect.push(shop.id);
+                                      }
                                       return {
-                                        ...currentItem,
-                                        data: updatedData
+                                        ...i,
+                                        shop
                                       };
                                     }
-                                  ));
-                              }
+                                  );
+                                  return {
+                                    ...list,
+                                    data: updatedData
+                                  };
+                                }));
                             })();
                           }
                         };
