@@ -601,12 +601,26 @@
   justify-self: center;
   right: 0;
   bottom: auto;
+  transform-style: preserve-3d;
   padding: 16px;
   margin: 0px;
 }
 .modal2__modal :global(.ant-modal-content) {
   background: #f4ecff;
   outline: none;
+}
+.modal2 * {
+  transform-style: preserve-3d;
+}
+@media (max-width: 640px) {
+  .modal2:global(.__wab_instance) {
+    transform-style: preserve-3d;
+  }
+}
+@media (max-width: 640px) {
+  .modal2 * {
+    transform-style: preserve-3d;
+  }
 }
 .freeBox__eAcJ0 {
   display: flex;

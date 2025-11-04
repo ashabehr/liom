@@ -25,6 +25,10 @@
   color: var(--token-4RAe7M2gInqR);
 }
 .root:hover .svg {
-  transform: scaleX(1.2) scaleY(1.2) scaleZ(1);
+  transform: scale3d(1.2, 1.2, 1);
   color: var(--token-4RAe7M2gInqR);
+  transform-style: preserve-3d;
+}
+.root:hover .svg * {
+  transform-style: preserve-3d;
 }

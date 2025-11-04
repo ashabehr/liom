@@ -69,8 +69,12 @@
   position: absolute;
   left: 0px;
   top: 0px;
+  transform-style: preserve-3d;
   min-width: 0;
   border-width: 1px;
+}
+.svg__gEcqU * {
+  transform-style: preserve-3d;
 }
 .frame51 {
   width: 100%;
@@ -348,7 +352,11 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  transform: rotateX(0deg) rotateY(0deg) rotateZ(180deg);
+  transform: rotate3d(0, 0, 1, 180deg);
+  transform-style: preserve-3d;
+}
+.svg__o6Bu * {
+  transform-style: preserve-3d;
 }
 .freeBox__nt6Cl {
   display: flex;

@@ -242,13 +242,23 @@
   display: flex;
   transform-origin: top left;
   flex-direction: column;
+  transform-style: preserve-3d;
   flex-shrink: 0;
+}
+.pngtreeRamadanIllustrationMuslimFamilyPraying74668381 * {
+  transform-style: preserve-3d;
 }
 @media (max-width: 640px) {
   .pngtreeRamadanIllustrationMuslimFamilyPraying74668381 {
     width: 180px;
     height: 180px;
+    transform-style: preserve-3d;
     flex-shrink: 0;
+  }
+}
+@media (max-width: 640px) {
+  .pngtreeRamadanIllustrationMuslimFamilyPraying74668381 * {
+    transform-style: preserve-3d;
   }
 }
 .mention:global(.__wab_instance) {

@@ -1097,6 +1097,47 @@ function PlasmicSubItems__RenderFunc(props: {
                         onClick={async event => {
                           const $steps = {};
 
+                          $steps["invokeGlobalAction2"] = currentItem.linkType
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "POST",
+                                    "https://n8n.staas.ir/webhook/tools/selfCare/linkV3",
+                                    undefined,
+                                    (() => {
+                                      try {
+                                        return {
+                                          authorization: $state.token,
+                                          type: currentItem.linkType
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["invokeGlobalAction2"] != null &&
+                            typeof $steps["invokeGlobalAction2"] === "object" &&
+                            typeof $steps["invokeGlobalAction2"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction2"] =
+                              await $steps["invokeGlobalAction2"];
+                          }
+
                           $steps["runCode2"] = currentItem.shopLink
                             ? (() => {
                                 const actionArgs = {
@@ -1124,7 +1165,7 @@ function PlasmicSubItems__RenderFunc(props: {
                             $steps["runCode2"] = await $steps["runCode2"];
                           }
 
-                          $steps["invokeGlobalAction"] = true
+                          $steps["invokeGlobalAction"] = !currentItem.linkType
                             ? (() => {
                                 const actionArgs = {
                                   args: [

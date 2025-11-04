@@ -205,6 +205,7 @@ export type PlasmicHamyar2__OverridesType = {
   noData?: Flex__<"div">;
   cyclebox?: Flex__<typeof Cyclebox>;
   lineClomp?: Flex__<typeof LineClomp>;
+  button3?: Flex__<typeof Button>;
   progress?: Flex__<typeof AntdProgress>;
   button21?: Flex__<typeof Button>;
   checkbox?: Flex__<typeof Checkbox>;
@@ -2909,6 +2910,24 @@ function PlasmicHamyar2__RenderFunc(props: {
       },
       {
         path: "reminder2.active",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button3.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "softBlack"
+      },
+      {
+        path: "button3.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button3.load",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
@@ -8440,67 +8459,230 @@ function PlasmicHamyar2__RenderFunc(props: {
                     }}
                   >
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__ncdMq
-                      )}
-                      style={
-                        hasVariant(globalVariants, "screen", "mobile")
-                          ? (() => {
-                              try {
-                                return (() => {
-                                  if ($state.cyclebox.cycle == "Pregnancy")
-                                    return { color: "black" };
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return {
-                                    overflow: "hidden",
-                                    "-webkit-line-clamp": "2",
-                                    "-webkit-box-orient": "vertical",
-                                    display: "-webkit-box"
-                                  };
-                                }
-                                throw e;
-                              }
-                            })()
-                          : (() => {
-                              try {
-                                return (() => {
-                                  if ($state.cyclebox.cycle == "Pregnancy")
-                                    return { color: "black" };
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                      }
+                      className={classNames(projectcss.all, sty.freeBox__wV0S2)}
                     >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return "وضعیت " + $state.name + " : ";
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "-";
-                            }
-                            throw e;
+                      {(() => {
+                        try {
+                          return $state.userdata?.result?.rel.active === true;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
                           }
-                        })()}
-                      </React.Fragment>
+                          throw e;
+                        }
+                      })() ? (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__ncdMq
+                          )}
+                          style={
+                            hasVariant(globalVariants, "screen", "mobile")
+                              ? (() => {
+                                  try {
+                                    return (() => {
+                                      if ($state.cyclebox.cycle == "Pregnancy")
+                                        return { color: "black" };
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return {
+                                        overflow: "hidden",
+                                        "-webkit-line-clamp": "2",
+                                        "-webkit-box-orient": "vertical",
+                                        display: "-webkit-box"
+                                      };
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              : (() => {
+                                  try {
+                                    return (() => {
+                                      if ($state.cyclebox.cycle == "Pregnancy")
+                                        return { color: "black" };
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                          }
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return "وضعیت " + $state.name + " : ";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "-";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      ) : null}
+                      {(() => {
+                        try {
+                          return $state.userdata?.result?.rel.active === false;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <Button
+                          data-plasmic-name={"button3"}
+                          data-plasmic-override={overrides.button3}
+                          className={classNames("__wab_instance", sty.button3)}
+                          color={generateStateValueProp($state, [
+                            "button3",
+                            "color"
+                          ])}
+                          load={generateStateValueProp($state, [
+                            "button3",
+                            "load"
+                          ])}
+                          loading={generateStateValueProp($state, [
+                            "button3",
+                            "loading"
+                          ])}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["updateIgnore"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["ignore"]
+                                    },
+                                    operation: 0,
+                                    value: true
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateIgnore"] != null &&
+                              typeof $steps["updateIgnore"] === "object" &&
+                              typeof $steps["updateIgnore"].then === "function"
+                            ) {
+                              $steps["updateIgnore"] =
+                                await $steps["updateIgnore"];
+                            }
+                          }}
+                          onColorChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button3",
+                                "color"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                          onLoadChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button3",
+                                "load"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                          onLoadingChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button3",
+                                "loading"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                          size={"compact"}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__ciThQ
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return `آیا ${$state.name} همیار شما است؟`;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "$state.name";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </Button>
+                      ) : null}
                     </div>
                   </LineClomp>
                   <div
@@ -26343,6 +26525,7 @@ const PlasmicDescendants = {
     "noData",
     "cyclebox",
     "lineClomp",
+    "button3",
     "progress",
     "button21",
     "checkbox",
@@ -26407,6 +26590,7 @@ const PlasmicDescendants = {
     "noData",
     "cyclebox",
     "lineClomp",
+    "button3",
     "progress",
     "button21",
     "checkbox",
@@ -26431,8 +26615,9 @@ const PlasmicDescendants = {
   createWife: ["createWife"],
   button17: ["button17"],
   noData: ["noData"],
-  cyclebox: ["cyclebox", "lineClomp", "progress"],
-  lineClomp: ["lineClomp"],
+  cyclebox: ["cyclebox", "lineClomp", "button3", "progress"],
+  lineClomp: ["lineClomp", "button3"],
+  button3: ["button3"],
   progress: ["progress"],
   button21: ["button21"],
   checkbox: ["checkbox"],
@@ -26530,6 +26715,7 @@ type NodeDefaultElementType = {
   noData: "div";
   cyclebox: typeof Cyclebox;
   lineClomp: typeof LineClomp;
+  button3: typeof Button;
   progress: typeof AntdProgress;
   button21: typeof Button;
   checkbox: typeof Checkbox;
@@ -26656,6 +26842,7 @@ export const PlasmicHamyar2 = Object.assign(
     noData: makeNodeComponent("noData"),
     cyclebox: makeNodeComponent("cyclebox"),
     lineClomp: makeNodeComponent("lineClomp"),
+    button3: makeNodeComponent("button3"),
     progress: makeNodeComponent("progress"),
     button21: makeNodeComponent("button21"),
     checkbox: makeNodeComponent("checkbox"),

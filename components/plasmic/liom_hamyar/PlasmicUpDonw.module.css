@@ -4,16 +4,23 @@
   width: 15px;
   height: 20px;
   color: var(--token-y50Rafqey4Ec);
-  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  transform: skew(0deg, 0deg);
   transition-property: all;
   transition-duration: 0.1s;
   transition-timing-function: ease-in-out;
   position: relative;
+  transform-style: preserve-3d;
   -webkit-transition-property: all;
   -webkit-transition-timing-function: ease-in-out;
   -webkit-transition-duration: 0.1s;
 }
+.root * {
+  transform-style: preserve-3d;
+}
 .rootup {
-  transform: rotateX(0deg) rotateY(0deg) rotateZ(180deg) rotateX(0deg)
-    rotateY(0deg) rotateZ(0deg);
+  transform: rotate3d(0, 0, 1, 180deg) skew(0deg, 0deg);
+  transform-style: preserve-3d;
+}
+.rootup * {
+  transform-style: preserve-3d;
 }

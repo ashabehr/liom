@@ -331,7 +331,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicMedisene__VariantsArgs;
     args?: PlasmicMedisene__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicMedisene__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicMedisene__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicMedisene__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

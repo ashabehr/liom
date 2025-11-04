@@ -432,9 +432,8 @@ function PlasmicTabPage__RenderFunc(props: {
                   typeof $steps["updateReportsSelect"] === "object" &&
                   typeof $steps["updateReportsSelect"].then === "function"
                 ) {
-                  $steps["updateReportsSelect"] = await $steps[
-                    "updateReportsSelect"
-                  ];
+                  $steps["updateReportsSelect"] =
+                    await $steps["updateReportsSelect"];
                 }
 
                 $steps["runOnClick"] = true
@@ -669,7 +668,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicTabPage__VariantsArgs;
     args?: PlasmicTabPage__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicTabPage__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicTabPage__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicTabPage__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

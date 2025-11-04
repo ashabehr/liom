@@ -208,7 +208,7 @@
   max-width: 100%;
   width: 15px;
   margin-top: -20px;
-  transform: rotateX(0deg) rotateY(-180deg) rotateZ(0deg);
+  transform: rotate3d(0, 1, 0, -180deg);
   transform-style: preserve-3d;
 }
 .img___4JxkN > picture > img {

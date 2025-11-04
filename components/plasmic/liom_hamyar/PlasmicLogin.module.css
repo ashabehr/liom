@@ -693,7 +693,7 @@
   top: auto;
   z-index: 1;
   color: var(--token-zy6xhYnWF8Y7);
-  transform: rotateX(0deg) rotateY(180deg) rotateZ(0deg);
+  transform: rotate3d(0, 1, 0, 180deg);
   transform-style: preserve-3d;
   height: 1em;
   flex-shrink: 0;
@@ -1870,7 +1870,7 @@
   top: auto;
   z-index: 1;
   color: var(--token-zy6xhYnWF8Y7);
-  transform: rotateX(0deg) rotateY(180deg) rotateZ(0deg);
+  transform: rotate3d(0, 1, 0, 180deg);
   transform-style: preserve-3d;
   height: 1em;
   flex-shrink: 0;
@@ -3493,7 +3493,7 @@
   top: auto;
   z-index: 1;
   color: var(--token-zy6xhYnWF8Y7);
-  transform: rotateX(0deg) rotateY(180deg) rotateZ(0deg);
+  transform: rotate3d(0, 1, 0, 180deg);
   transform-style: preserve-3d;
   height: 1em;
   flex-shrink: 0;
@@ -5424,7 +5424,7 @@
   top: auto;
   z-index: 1;
   color: var(--token-zy6xhYnWF8Y7);
-  transform: rotateX(0deg) rotateY(180deg) rotateZ(0deg);
+  transform: rotate3d(0, 1, 0, 180deg);
   transform-style: preserve-3d;
   height: 1em;
   flex-shrink: 0;
@@ -7629,7 +7629,7 @@
   top: auto;
   z-index: 1;
   color: var(--token-zy6xhYnWF8Y7);
-  transform: rotateX(0deg) rotateY(180deg) rotateZ(0deg);
+  transform: rotate3d(0, 1, 0, 180deg);
   transform-style: preserve-3d;
   height: 1em;
   flex-shrink: 0;
@@ -9496,7 +9496,7 @@
   top: auto;
   z-index: 1;
   color: var(--token-zy6xhYnWF8Y7);
-  transform: rotateX(0deg) rotateY(180deg) rotateZ(0deg);
+  transform: rotate3d(0, 1, 0, 180deg);
   transform-style: preserve-3d;
   height: 1em;
   flex-shrink: 0;
@@ -11172,7 +11172,7 @@
   top: auto;
   z-index: 1;
   color: var(--token-zy6xhYnWF8Y7);
-  transform: rotateX(0deg) rotateY(180deg) rotateZ(0deg);
+  transform: rotate3d(0, 1, 0, 180deg);
   transform-style: preserve-3d;
   height: 1em;
   flex-shrink: 0;
@@ -12801,7 +12801,7 @@
   top: auto;
   z-index: 1;
   color: var(--token-zy6xhYnWF8Y7);
-  transform: rotateX(0deg) rotateY(180deg) rotateZ(0deg);
+  transform: rotate3d(0, 1, 0, 180deg);
   transform-style: preserve-3d;
   height: 1em;
   flex-shrink: 0;
@@ -14181,7 +14181,7 @@
   top: auto;
   z-index: 1;
   color: var(--token-zy6xhYnWF8Y7);
-  transform: rotateX(0deg) rotateY(180deg) rotateZ(0deg);
+  transform: rotate3d(0, 1, 0, 180deg);
   transform-style: preserve-3d;
   height: 1em;
   flex-shrink: 0;

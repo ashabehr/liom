@@ -327,13 +327,23 @@
   width: 100%;
   transform: translate(0.35600000000000165px, -0.058000000000006935px);
   font-weight: 700;
+  transform-style: preserve-3d;
   min-width: 0;
+}
+.text___1NoxP * {
+  transform-style: preserve-3d;
 }
 @media (max-width: 640px) {
   .text___1NoxP {
     font-size: 14px;
     font-weight: 700;
     width: auto;
+    transform-style: preserve-3d;
+  }
+}
+@media (max-width: 640px) {
+  .text___1NoxP * {
+    transform-style: preserve-3d;
   }
 }
 .freeBox___0TwY4 {
@@ -350,8 +360,12 @@
 }
 .seen:global(.__wab_instance) {
   max-width: 100%;
-  transform: scaleX(1.2) scaleY(1.2) scaleZ(1);
+  transform: scale3d(1.2, 1.2, 1);
+  transform-style: preserve-3d;
   flex-shrink: 0;
+}
+.seen * {
+  transform-style: preserve-3d;
 }
 .text__c2W9 {
   display: block;
@@ -363,10 +377,20 @@
   color: rgba(106, 118, 154, 1);
   width: auto;
   transform: translate(-0.48300000000000054px, 0.4019999999999868px);
+  transform-style: preserve-3d;
+}
+.text__c2W9 * {
+  transform-style: preserve-3d;
 }
 @media (max-width: 640px) {
   .text__c2W9 {
     font-weight: 700;
+    transform-style: preserve-3d;
+  }
+}
+@media (max-width: 640px) {
+  .text__c2W9 * {
+    transform-style: preserve-3d;
   }
 }
 .freeBox__nda1B {
@@ -413,10 +437,20 @@
   color: rgba(106, 118, 154, 1);
   width: auto;
   transform: translate(-0.48300000000000054px, 0.4019999999999868px);
+  transform-style: preserve-3d;
+}
+.text__uc4P9 * {
+  transform-style: preserve-3d;
 }
 @media (max-width: 640px) {
   .text__uc4P9 {
     font-weight: 700;
+    transform-style: preserve-3d;
+  }
+}
+@media (max-width: 640px) {
+  .text__uc4P9 * {
+    transform-style: preserve-3d;
   }
 }
 .freeBox___7GcZw {
@@ -457,8 +491,22 @@
   width: 100%;
   transform: none;
   height: 100%;
+  transform-style: preserve-3d;
   min-width: 0;
   min-height: 0;
+}
+.text__kEaWr * {
+  transform-style: preserve-3d;
+}
+@media (max-width: 640px) {
+  .text__kEaWr {
+    transform-style: preserve-3d;
+  }
+}
+@media (max-width: 640px) {
+  .text__kEaWr * {
+    transform-style: preserve-3d;
+  }
 }
 .freeBox___4Of3 {
   display: flex;

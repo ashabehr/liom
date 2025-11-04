@@ -3514,7 +3514,7 @@
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
           "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicCustomShop.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/shop-2.tsx"
+            "modulePath": "../src/pages/custom-shop.tsx"
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicCustomShop.module.css",
           "scheme": "blackbox",

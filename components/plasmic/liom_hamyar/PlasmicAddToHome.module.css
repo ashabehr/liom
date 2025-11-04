@@ -246,6 +246,20 @@
   align-items: center;
   justify-content: flex-start;
   justify-self: flex-start;
+  transform-style: preserve-3d;
   grid-column-start: 1 !important;
   grid-column-end: -1 !important;
+}
+.rectangle126 * {
+  transform-style: preserve-3d;
+}
+@media (max-width: 640px) {
+  .rectangle126 {
+    transform-style: preserve-3d;
+  }
+}
+@media (max-width: 640px) {
+  .rectangle126 * {
+    transform-style: preserve-3d;
+  }
 }

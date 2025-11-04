@@ -420,7 +420,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicAddToHome__VariantsArgs;
     args?: PlasmicAddToHome__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicAddToHome__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicAddToHome__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicAddToHome__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

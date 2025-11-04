@@ -728,7 +728,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSendmessage__VariantsArgs;
     args?: PlasmicSendmessage__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSendmessage__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSendmessage__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSendmessage__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

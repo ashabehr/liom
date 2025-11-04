@@ -484,7 +484,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicMenu__VariantsArgs;
     args?: PlasmicMenu__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicMenu__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicMenu__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicMenu__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -719,9 +719,13 @@
   font-size: var(--token-16_cC9w3e0Nk);
   background: none;
   text-align: center;
-  transform: rotateX(0deg) rotateY(0deg) rotateZ(90deg);
+  transform: rotate3d(0, 0, 1, 90deg);
   line-height: 0.5;
+  transform-style: preserve-3d;
   min-width: 0;
+}
+.text__poj8Y * {
+  transform-style: preserve-3d;
 }
 .svg___1Ke {
   object-fit: cover;

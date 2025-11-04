@@ -634,14 +634,25 @@
 .lineClomp:global(.__wab_instance) {
   max-width: 100%;
 }
-.text__ncdMq {
+.freeBox__wV0S2 {
+  display: flex;
+  flex-direction: row;
   position: relative;
+  align-items: center;
+  justify-content: center;
   width: 100%;
+  height: auto;
+  max-width: 100%;
+  align-self: center;
+  min-width: 0;
+  padding: 0px;
+}
+.text__ncdMq {
+  width: auto;
   height: auto;
   max-width: 100%;
   color: var(--token-O-63NKRcNhLJ);
   text-align: center;
-  align-self: center;
   font-size: 18px;
   font-weight: 400;
   font-style: normal;
@@ -650,14 +661,39 @@
   letter-spacing: normal;
   white-space: pre-wrap;
   user-select: text;
-  text-decoration-line: none !important;
-  text-overflow: clip !important;
-  min-width: 0;
+  text-decoration-line: none;
+  text-overflow: clip;
 }
 @media (max-width: 640px) {
   .text__ncdMq {
     font-size: 14px;
   }
+}
+.button3:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__q6A7N {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.text__ciThQ {
+  color: var(--token-R_Rsn0nP9oIv);
+}
+.svg__rtWrj {
+  object-fit: cover;
+  max-width: 100%;
+  width: 40px;
+  height: 50px;
+  position: relative;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  color: var(--token-jgohepLVeKvh);
+  right: auto;
+  bottom: auto;
+  display: none;
 }
 .text___3Slw5 {
   position: relative;
@@ -2211,7 +2247,13 @@
     padding-right: 1px;
     column-gap: 16px;
     row-gap: 0px;
+    transform-style: preserve-3d;
     min-height: 0;
+  }
+}
+@media (max-width: 640px) {
+  .freeBox__rOs83 * {
+    transform-style: preserve-3d;
   }
 }
 .harmful2:global(.__wab_instance) {
@@ -3522,11 +3564,16 @@
 }
 @media (max-width: 640px) {
   .heart:global(.__wab_instance) {
-    transform: translateX(-1px) translateY(15px) translateZ(0px) scaleX(2)
-      scaleY(2) scaleZ(1);
+    transform: translate3d(-1px, 15px, 0px) scale3d(2, 2, 1);
     position: sticky;
     left: 0px;
     top: 0px;
+    transform-style: preserve-3d;
+  }
+}
+@media (max-width: 640px) {
+  .heart * {
+    transform-style: preserve-3d;
   }
 }
 .text__zmY3J {
@@ -3540,11 +3587,15 @@
   left: auto;
   top: auto;
   z-index: 1;
-  transform: translateX(20px) translateY(20%) translateZ(0px);
+  transform: translate3d(20px, 20%, 0px);
   font-size: 18px;
+  transform-style: preserve-3d;
   min-height: 0;
   border-radius: 8px;
   padding: 4px 24px 4px 4px;
+}
+.text__zmY3J * {
+  transform-style: preserve-3d;
 }
 .loading {
   display: flex;

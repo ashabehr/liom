@@ -60,7 +60,27 @@
   top: 0;
   right: 0;
   bottom: 0;
-  transform: scaleX(3) scaleY(3) scaleZ(1);
+  transform: scale3d(3, 3, 1);
+  transform-style: preserve-3d;
+}
+.lottie * {
+  transform-style: preserve-3d;
+}
+@media (max-width: 640px) {
+  .lottie:global(.__wab_instance) {
+    transform-style: preserve-3d;
+  }
+}
+@media (max-width: 640px) {
+  .lottie * {
+    transform-style: preserve-3d;
+  }
+}
+.lottieloading:global(.__wab_instance) {
+  transform-style: preserve-3d;
+}
+.lottieloading * {
+  transform-style: preserve-3d;
 }
 .text {
   position: relative;

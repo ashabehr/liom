@@ -1936,8 +1936,9 @@ function PlasmicSelfCare__RenderFunc(props: {
           {(() => {
             try {
               return (
-                new URLSearchParams(window.location.search).get("footer") !=
-                "false"
+                new window.URLSearchParams(window.location.search).get(
+                  "footer"
+                ) != "false"
               );
             } catch (e) {
               if (

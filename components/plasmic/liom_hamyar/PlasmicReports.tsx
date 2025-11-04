@@ -580,9 +580,8 @@ function PlasmicReports__RenderFunc(props: {
                         typeof $steps["updateTabSelected"] === "object" &&
                         typeof $steps["updateTabSelected"].then === "function"
                       ) {
-                        $steps["updateTabSelected"] = await $steps[
-                          "updateTabSelected"
-                        ];
+                        $steps["updateTabSelected"] =
+                          await $steps["updateTabSelected"];
                       }
 
                       $steps["invokeGlobalAction"] = false
@@ -621,9 +620,8 @@ function PlasmicReports__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["updateTabData"] = false
@@ -721,9 +719,8 @@ function PlasmicReports__RenderFunc(props: {
                         typeof $steps["updateLoading2"] === "object" &&
                         typeof $steps["updateLoading2"].then === "function"
                       ) {
-                        $steps["updateLoading2"] = await $steps[
-                          "updateLoading2"
-                        ];
+                        $steps["updateLoading2"] =
+                          await $steps["updateLoading2"];
                       }
                     }}
                     style={(() => {
@@ -908,9 +905,8 @@ function PlasmicReports__RenderFunc(props: {
                       typeof $steps["updateReportsSelect"] === "object" &&
                       typeof $steps["updateReportsSelect"].then === "function"
                     ) {
-                      $steps["updateReportsSelect"] = await $steps[
-                        "updateReportsSelect"
-                      ];
+                      $steps["updateReportsSelect"] =
+                        await $steps["updateReportsSelect"];
                     }
 
                     $steps["runOnClick"] = true
@@ -933,11 +929,7 @@ function PlasmicReports__RenderFunc(props: {
                     try {
                       return {
                         "background-color": "#f7f7f7",
-                        border: `2px solid ${
-                          currentItem.backColor == ""
-                            ? "#f7f7f7"
-                            : currentItem.backColor
-                        }`
+                        border: `2px solid ${currentItem.backColor == "" ? "#f7f7f7" : currentItem.backColor}`
                       };
                     } catch (e) {
                       if (
@@ -1305,7 +1297,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicReports__VariantsArgs;
     args?: PlasmicReports__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicReports__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicReports__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicReports__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

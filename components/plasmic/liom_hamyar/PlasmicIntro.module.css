@@ -532,16 +532,26 @@
   transition-property: all;
   transition-duration: 0.3s;
   transform: none;
+  transform-style: preserve-3d;
   flex-shrink: 0;
   -webkit-transition-property: all;
   -webkit-transition-duration: 0.3s;
   border-radius: 100px;
   padding: 0px;
 }
+.freeBox__pHr7Z * {
+  transform-style: preserve-3d;
+}
 @media (max-width: 640px) {
   .freeBox__pHr7Z {
     width: 30px;
+    transform-style: preserve-3d;
     flex-shrink: 0;
+  }
+}
+@media (max-width: 640px) {
+  .freeBox__pHr7Z * {
+    transform-style: preserve-3d;
   }
 }
 .button4:global(.__wab_instance) {

@@ -782,9 +782,8 @@ function PlasmicCharts__RenderFunc(props: {
                         typeof $steps["updatePayment4"] === "object" &&
                         typeof $steps["updatePayment4"].then === "function"
                       ) {
-                        $steps["updatePayment4"] = await $steps[
-                          "updatePayment4"
-                        ];
+                        $steps["updatePayment4"] =
+                          await $steps["updatePayment4"];
                       }
 
                       $steps["updatePayment2"] = true
@@ -807,9 +806,8 @@ function PlasmicCharts__RenderFunc(props: {
                         typeof $steps["updatePayment2"] === "object" &&
                         typeof $steps["updatePayment2"].then === "function"
                       ) {
-                        $steps["updatePayment2"] = await $steps[
-                          "updatePayment2"
-                        ];
+                        $steps["updatePayment2"] =
+                          await $steps["updatePayment2"];
                       }
 
                       $steps["invokeGlobalAction"] = true
@@ -864,9 +862,8 @@ function PlasmicCharts__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["updatePayment"] = $steps.invokeGlobalAction?.data
@@ -921,9 +918,8 @@ function PlasmicCharts__RenderFunc(props: {
                         typeof $steps["updatePayment3"] === "object" &&
                         typeof $steps["updatePayment3"].then === "function"
                       ) {
-                        $steps["updatePayment3"] = await $steps[
-                          "updatePayment3"
-                        ];
+                        $steps["updatePayment3"] =
+                          await $steps["updatePayment3"];
                       }
 
                       $steps["updatePayment5"] = true
@@ -941,9 +937,8 @@ function PlasmicCharts__RenderFunc(props: {
                         typeof $steps["updatePayment5"] === "object" &&
                         typeof $steps["updatePayment5"].then === "function"
                       ) {
-                        $steps["updatePayment5"] = await $steps[
-                          "updatePayment5"
-                        ];
+                        $steps["updatePayment5"] =
+                          await $steps["updatePayment5"];
                       }
                     },
                     onColorChange: async (...eventArgs: any) => {
@@ -1091,7 +1086,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicCharts__VariantsArgs;
     args?: PlasmicCharts__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicCharts__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicCharts__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicCharts__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

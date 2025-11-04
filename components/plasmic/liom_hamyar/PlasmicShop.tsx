@@ -92,8 +92,8 @@ import Icon214Icon from "./icons/PlasmicIcon__Icon214"; // plasmic-import: gfITg
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
-import Icon141Icon from "./icons/PlasmicIcon__Icon141"; // plasmic-import: AP97-wr5VCl4/icon
 import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
+import Icon141Icon from "./icons/PlasmicIcon__Icon141"; // plasmic-import: AP97-wr5VCl4/icon
 import Icon142Icon from "./icons/PlasmicIcon__Icon142"; // plasmic-import: SJsM-_NDX4Yl/icon
 import Icon215Icon from "./icons/PlasmicIcon__Icon215"; // plasmic-import: VvAUQSc8cOrq/icon
 
@@ -2476,6 +2476,63 @@ function PlasmicShop__RenderFunc(props: {
                           sty.freeBox__eeiRi
                         )}
                       >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__aoZu
+                          )}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["goToCustomShop"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    destination: `/custom-shop?order=${"drawn"}`
+                                  };
+                                  return (({ destination }) => {
+                                    if (
+                                      typeof destination === "string" &&
+                                      destination.startsWith("#")
+                                    ) {
+                                      document
+                                        .getElementById(destination.substr(1))
+                                        .scrollIntoView({ behavior: "smooth" });
+                                    } else {
+                                      __nextRouter?.push(destination);
+                                    }
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["goToCustomShop"] != null &&
+                              typeof $steps["goToCustomShop"] === "object" &&
+                              typeof $steps["goToCustomShop"].then ===
+                                "function"
+                            ) {
+                              $steps["goToCustomShop"] =
+                                await $steps["goToCustomShop"];
+                            }
+                          }}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text___7DyrD
+                            )}
+                          >
+                            {
+                              "\u0633\u0627\u062e\u062a \u0628\u0633\u062a\u0647 \u0633\u0641\u0627\u0631\u0634\u06cc"
+                            }
+                          </div>
+                          <ChevronLeftIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__jk84
+                            )}
+                            role={"img"}
+                          />
+                        </div>
                         <div
                           className={classNames(
                             projectcss.all,
