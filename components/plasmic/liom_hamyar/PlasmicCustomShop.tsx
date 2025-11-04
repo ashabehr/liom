@@ -382,8 +382,7 @@ function PlasmicCustomShop__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAwN2VmNTA1LTY0ZTItNGU1Yy1iMmFmLTAwZDBjYTQzZTM1ZSIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzQzNDA5NzY1fQ.clzjX_16yS0C3c5kIqaTArB2T9iMEMN-4-dQrFsKHK8"
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "paramsObject",
@@ -692,7 +691,7 @@ function PlasmicCustomShop__RenderFunc(props: {
         path: "order",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "all"
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       }
     ],
     [$props, $ctx, $refs]
@@ -942,39 +941,62 @@ function PlasmicCustomShop__RenderFunc(props: {
                         const actionArgs = {
                           customFunction: async () => {
                             return (() => {
-                              var a =
-                                $state.getData.data.result.selectedTypes.split(
-                                  "-"
-                                );
-                              return ($state.getData.data.result.list =
-                                $state.getData.data.result.list.map(
-                                  currentItem => {
-                                    const updatedData = currentItem.data.map(
-                                      i => {
-                                        let shop = null;
-                                        if (i.items.length === 1) {
-                                          shop = i.items[0];
-                                        } else {
-                                          shop =
-                                            i.items.find(
-                                              x => x.selected === 1
-                                            ) || null;
+                              var a = (
+                                $state.getData?.data?.result?.selectedTypes ||
+                                ""
+                              )
+                                .split("-")
+                                .filter(x => x);
+                              if (a.length === 0) {
+                                const firstList =
+                                  $state.getData?.data?.result?.list?.[0];
+                                const firstData = firstList?.data?.[0];
+                                const firstItem = firstData?.items?.[0];
+                                if (firstItem) {
+                                  firstData.shop = firstItem;
+                                  firstData.items.forEach(
+                                    x =>
+                                      (x.selected =
+                                        x.id === firstItem.id ? 1 : 0)
+                                  );
+                                  return $state.itemSelect.push(firstItem.id);
+                                }
+                              } else {
+                                return ($state.getData.data.result.list =
+                                  $state.getData.data.result.list.map(
+                                    currentItem => {
+                                      const updatedData = currentItem.data.map(
+                                        i => {
+                                          let shop = null;
+                                          if (i.items.length === 1) {
+                                            shop = i.items[0];
+                                          } else {
+                                            shop =
+                                              i.items.find(
+                                                x => x.selected === 1
+                                              ) || null;
+                                          }
+                                          if (a.includes(i.type) && shop) {
+                                            i.items.forEach(
+                                              x =>
+                                                (x.selected =
+                                                  x.id === shop.id ? 1 : 0)
+                                            );
+                                            $state.itemSelect.push(shop.id);
+                                          }
+                                          return {
+                                            ...i,
+                                            shop
+                                          };
                                         }
-                                        if (a.includes(i.type) && shop) {
-                                          $state.itemSelect.push(shop.id);
-                                        }
-                                        return {
-                                          ...i,
-                                          shop
-                                        };
-                                      }
-                                    );
-                                    return {
-                                      ...currentItem,
-                                      data: updatedData
-                                    };
-                                  }
-                                ));
+                                      );
+                                      return {
+                                        ...currentItem,
+                                        data: updatedData
+                                      };
+                                    }
+                                  ));
+                              }
                             })();
                           }
                         };
@@ -1010,7 +1032,7 @@ function PlasmicCustomShop__RenderFunc(props: {
               })()}
               shouldFetch={(() => {
                 try {
-                  return $state.token != "";
+                  return $state.token != "" && $state.order != "";
                 } catch (e) {
                   if (
                     e instanceof TypeError ||

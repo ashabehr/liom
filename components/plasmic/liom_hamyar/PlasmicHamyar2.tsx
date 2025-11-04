@@ -205,7 +205,6 @@ export type PlasmicHamyar2__OverridesType = {
   noData?: Flex__<"div">;
   cyclebox?: Flex__<typeof Cyclebox>;
   lineClomp?: Flex__<typeof LineClomp>;
-  button3?: Flex__<typeof Button>;
   progress?: Flex__<typeof AntdProgress>;
   button21?: Flex__<typeof Button>;
   checkbox?: Flex__<typeof Checkbox>;
@@ -2913,24 +2912,6 @@ function PlasmicHamyar2__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "button3.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "softBlack"
-      },
-      {
-        path: "button3.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button3.load",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -4384,6 +4365,135 @@ function PlasmicHamyar2__RenderFunc(props: {
                     </div>
                     <Icon22Icon
                       className={classNames(projectcss.all, sty.svg__lfRX)}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateGuideShow"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["guideShow"]
+                                },
+                                operation: 0,
+                                value: false
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateGuideShow"] != null &&
+                          typeof $steps["updateGuideShow"] === "object" &&
+                          typeof $steps["updateGuideShow"].then === "function"
+                        ) {
+                          $steps["updateGuideShow"] =
+                            await $steps["updateGuideShow"];
+                        }
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    return localStorage.setItem(
+                                      "guideShow",
+                                      "false"
+                                    );
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      }}
+                      role={"img"}
+                    />
+                  </div>
+                ) : null}
+                {(
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? true
+                    : (() => {
+                        try {
+                          return $state.cyclebox.cycle != "white";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })()
+                ) ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__duF8A, {
+                      [sty.freeBoxlackOfCourseInformation__duF8AMyTcU]:
+                        hasVariant(
+                          $state,
+                          "lackOfCourseInformation",
+                          "lackOfCourseInformation"
+                        )
+                    })}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__tYb3E
+                      )}
+                    >
+                      {hasVariant(globalVariants, "screen", "mobile") ? (
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (
+                                "با محتوای این صفحه می‌تونی بهتر تغییرات جسمی و روحی همیارت رو درک کنی و حمایتی که نیاز داره، بهش بدی. این همراهی باعث آرامش و بهبود حال هر " +
+                                ($state.cyclebox.cycle == "Pregnancy"
+                                  ? "سه"
+                                  : "دو") +
+                                " شما می‌شه."
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u0628\u0627 \u0645\u062d\u062a\u0648\u0627\u06cc \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u0647\u062a\u0631 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062c\u0633\u0645\u06cc \u0648 \u0631\u0648\u062d\u06cc \u0647\u0645\u06cc\u0627\u0631\u062a \u0631\u0648 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u062d\u0645\u0627\u06cc\u062a\u06cc \u06a9\u0647 \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u0647\u060c \u0628\u0647\u0634 \u0628\u062f\u06cc. \u0627\u06cc\u0646 \u0647\u0645\u0631\u0627\u0647\u06cc \u0628\u0627\u0639\u062b \u0622\u0631\u0627\u0645\u0634 \u0648 \u0628\u0647\u0628\u0648\u062f \u062d\u0627\u0644 \u0647\u0631 \u062f\u0648\u06cc \u0634\u0645\u0627 \u0645\u06cc\u200c\u0634\u0647.";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      ) : (
+                        "\u0628\u0627 \u0645\u062d\u062a\u0648\u0627\u06cc \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u0647\u062a\u0631 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062c\u0633\u0645\u06cc \u0648 \u0631\u0648\u062d\u06cc \u0647\u0645\u06cc\u0627\u0631\u062a \u0631\u0648 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u062d\u0645\u0627\u06cc\u062a\u06cc \u06a9\u0647 \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u0647\u060c \u0628\u0647\u0634 \u0628\u062f\u06cc. \u0627\u06cc\u0646 \u0647\u0645\u0631\u0627\u0647\u06cc \u0628\u0627\u0639\u062b \u0622\u0631\u0627\u0645\u0634 \u0648 \u0628\u0647\u0628\u0648\u062f \u062d\u0627\u0644 \u0647\u0631 \u062f\u0648\u06cc \u0634\u0645\u0627 \u0645\u06cc\u200c\u0634\u0647."
+                      )}
+                    </div>
+                    <Icon22Icon
+                      className={classNames(projectcss.all, sty.svg___9Ezyd)}
                       onClick={async event => {
                         const $steps = {};
 
@@ -8539,149 +8649,6 @@ function PlasmicHamyar2__RenderFunc(props: {
                             })()}
                           </React.Fragment>
                         </div>
-                      ) : null}
-                      {(() => {
-                        try {
-                          return $state.userdata?.result?.rel.active === false;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })() ? (
-                        <Button
-                          data-plasmic-name={"button3"}
-                          data-plasmic-override={overrides.button3}
-                          className={classNames("__wab_instance", sty.button3)}
-                          color={generateStateValueProp($state, [
-                            "button3",
-                            "color"
-                          ])}
-                          load={generateStateValueProp($state, [
-                            "button3",
-                            "load"
-                          ])}
-                          loading={generateStateValueProp($state, [
-                            "button3",
-                            "loading"
-                          ])}
-                          onClick={async event => {
-                            const $steps = {};
-
-                            $steps["updateIgnore"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["ignore"]
-                                    },
-                                    operation: 0,
-                                    value: true
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
-
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateIgnore"] != null &&
-                              typeof $steps["updateIgnore"] === "object" &&
-                              typeof $steps["updateIgnore"].then === "function"
-                            ) {
-                              $steps["updateIgnore"] =
-                                await $steps["updateIgnore"];
-                            }
-                          }}
-                          onColorChange={async (...eventArgs: any) => {
-                            ((...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "button3",
-                                "color"
-                              ])(eventArgs[0]);
-                            }).apply(null, eventArgs);
-
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          }}
-                          onLoadChange={async (...eventArgs: any) => {
-                            ((...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "button3",
-                                "load"
-                              ])(eventArgs[0]);
-                            }).apply(null, eventArgs);
-
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          }}
-                          onLoadingChange={async (...eventArgs: any) => {
-                            ((...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "button3",
-                                "loading"
-                              ])(eventArgs[0]);
-                            }).apply(null, eventArgs);
-
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          }}
-                          size={"compact"}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__ciThQ
-                            )}
-                          >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return `آیا ${$state.name} همیار شما است؟`;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "$state.name";
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
-                          </div>
-                        </Button>
                       ) : null}
                     </div>
                   </LineClomp>
@@ -26525,7 +26492,6 @@ const PlasmicDescendants = {
     "noData",
     "cyclebox",
     "lineClomp",
-    "button3",
     "progress",
     "button21",
     "checkbox",
@@ -26590,7 +26556,6 @@ const PlasmicDescendants = {
     "noData",
     "cyclebox",
     "lineClomp",
-    "button3",
     "progress",
     "button21",
     "checkbox",
@@ -26615,9 +26580,8 @@ const PlasmicDescendants = {
   createWife: ["createWife"],
   button17: ["button17"],
   noData: ["noData"],
-  cyclebox: ["cyclebox", "lineClomp", "button3", "progress"],
-  lineClomp: ["lineClomp", "button3"],
-  button3: ["button3"],
+  cyclebox: ["cyclebox", "lineClomp", "progress"],
+  lineClomp: ["lineClomp"],
   progress: ["progress"],
   button21: ["button21"],
   checkbox: ["checkbox"],
@@ -26715,7 +26679,6 @@ type NodeDefaultElementType = {
   noData: "div";
   cyclebox: typeof Cyclebox;
   lineClomp: typeof LineClomp;
-  button3: typeof Button;
   progress: typeof AntdProgress;
   button21: typeof Button;
   checkbox: typeof Checkbox;
@@ -26842,7 +26805,6 @@ export const PlasmicHamyar2 = Object.assign(
     noData: makeNodeComponent("noData"),
     cyclebox: makeNodeComponent("cyclebox"),
     lineClomp: makeNodeComponent("lineClomp"),
-    button3: makeNodeComponent("button3"),
     progress: makeNodeComponent("progress"),
     button21: makeNodeComponent("button21"),
     checkbox: makeNodeComponent("checkbox"),

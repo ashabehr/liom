@@ -341,6 +341,87 @@
     flex-shrink: 0;
   }
 }
+.freeBox__duF8A {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  background: #8254c61a;
+  box-shadow: none;
+  column-gap: 5px;
+  min-width: 0;
+  border-radius: 8px;
+  padding: 20px;
+}
+@media (max-width: 640px) {
+  .freeBox__duF8A {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    box-shadow: none;
+    row-gap: 5px;
+    column-gap: 0px;
+    min-height: 0;
+    padding: 10px;
+  }
+}
+.text__tYb3E {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: justify;
+  font-size: 14px;
+  font-weight: 400;
+  padding-right: 0px;
+  padding-left: var(--token-8irlKe4dtuKs);
+  font-style: normal;
+  color: var(--token-55cSeNPovQFh);
+  text-transform: none;
+  line-height: 1.5;
+  letter-spacing: normal;
+  white-space: pre-wrap;
+  user-select: text;
+  text-decoration-line: none;
+  text-overflow: clip;
+  padding-bottom: 0px;
+  min-width: 0;
+}
+@media (max-width: 640px) {
+  .text__tYb3E {
+    font-size: 12px;
+    padding: 0px 5px 8px 15px;
+  }
+}
+.svg___9Ezyd {
+  object-fit: cover;
+  max-width: 100%;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 20px;
+  height: 20px;
+  z-index: 1;
+  align-self: flex-start;
+  color: var(--token-2aHIw8xI62Xi);
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .svg___9Ezyd {
+    width: 15px;
+    height: 15px;
+    top: 2px;
+    left: 5px;
+    color: var(--token-2aHIw8xI62Xi);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+}
 .freeBox__sGeVl {
   display: flex;
   flex-direction: row;
@@ -668,32 +749,6 @@
   .text__ncdMq {
     font-size: 14px;
   }
-}
-.button3:global(.__wab_instance) {
-  max-width: 100%;
-}
-.svg__q6A7N {
-  position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
-}
-.text__ciThQ {
-  color: var(--token-R_Rsn0nP9oIv);
-}
-.svg__rtWrj {
-  object-fit: cover;
-  max-width: 100%;
-  width: 40px;
-  height: 50px;
-  position: relative;
-  left: auto;
-  top: auto;
-  z-index: 1;
-  color: var(--token-jgohepLVeKvh);
-  right: auto;
-  bottom: auto;
-  display: none;
 }
 .text___3Slw5 {
   position: relative;

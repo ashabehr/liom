@@ -67,6 +67,7 @@ import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import DirectDialog2 from "../../DirectDialog2"; // plasmic-import: TQdexUKMB_Ec/component
+import Load from "../../Load"; // plasmic-import: MJo5g_R-znVP/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -99,6 +100,7 @@ export type PlasmicSubItems__OverridesType = {
   sideEffect?: Flex__<typeof SideEffect>;
   button2?: Flex__<typeof Button>;
   directDialog2?: Flex__<typeof DirectDialog2>;
+  load?: Flex__<typeof Load>;
 };
 
 export interface DefaultSubItemsProps {}
@@ -990,6 +992,12 @@ function PlasmicSubItems__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "load.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -2212,6 +2220,42 @@ function PlasmicSubItems__RenderFunc(props: {
                         onClick={async event => {
                           const $steps = {};
 
+                          $steps["updateLoadLoading"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["load", "loading"]
+                                  },
+                                  operation: 0,
+                                  value: true
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateLoadLoading"] != null &&
+                            typeof $steps["updateLoadLoading"] === "object" &&
+                            typeof $steps["updateLoadLoading"].then ===
+                              "function"
+                          ) {
+                            $steps["updateLoadLoading"] =
+                              await $steps["updateLoadLoading"];
+                          }
+
                           $steps["runCode2"] = currentItem.action.includes(
                             "directDialog"
                           )
@@ -2330,6 +2374,42 @@ function PlasmicSubItems__RenderFunc(props: {
                           ) {
                             $steps["updateDirectDialog2Open"] =
                               await $steps["updateDirectDialog2Open"];
+                          }
+
+                          $steps["updateLoadLoading2"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["load", "loading"]
+                                  },
+                                  operation: 0,
+                                  value: false
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateLoadLoading2"] != null &&
+                            typeof $steps["updateLoadLoading2"] === "object" &&
+                            typeof $steps["updateLoadLoading2"].then ===
+                              "function"
+                          ) {
+                            $steps["updateLoadLoading2"] =
+                              await $steps["updateLoadLoading2"];
                           }
                         }}
                       >
@@ -2752,6 +2832,27 @@ function PlasmicSubItems__RenderFunc(props: {
               }
             })()}
           />
+
+          <Load
+            data-plasmic-name={"load"}
+            data-plasmic-override={overrides.load}
+            className={classNames("__wab_instance", sty.load)}
+            loading={generateStateValueProp($state, ["load", "loading"])}
+            onLoadingChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["load", "loading"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -2765,13 +2866,15 @@ const PlasmicDescendants = {
     "headerLiom",
     "sideEffect",
     "button2",
-    "directDialog2"
+    "directDialog2",
+    "load"
   ],
   section: ["section", "headerLiom"],
   headerLiom: ["headerLiom"],
   sideEffect: ["sideEffect"],
   button2: ["button2"],
-  directDialog2: ["directDialog2"]
+  directDialog2: ["directDialog2"],
+  load: ["load"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -2783,6 +2886,7 @@ type NodeDefaultElementType = {
   sideEffect: typeof SideEffect;
   button2: typeof Button;
   directDialog2: typeof DirectDialog2;
+  load: typeof Load;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2877,6 +2981,7 @@ export const PlasmicSubItems = Object.assign(
     sideEffect: makeNodeComponent("sideEffect"),
     button2: makeNodeComponent("button2"),
     directDialog2: makeNodeComponent("directDialog2"),
+    load: makeNodeComponent("load"),
 
     // Metadata about props expected for PlasmicSubItems
     internalVariantProps: PlasmicSubItems__VariantProps,

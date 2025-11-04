@@ -802,3 +802,11 @@
 .directDialog2:global(.__wab_instance) {
   max-width: 100%;
 }
+.load:global(.__wab_instance) {
+  max-width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  position: fixed;
+  right: 0;
+}
