@@ -175,7 +175,7 @@ function PlasmicSelfCare2__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc2MTgxNDUxMX0.kI3P-k2zy4V-TvWuV_kJoqowxWID0Vkthr624oOg9f8"
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0ZTViZjI5LWUwODQtNDEwMS1iYTFjLTMxNTk0MDRjMGM1NiIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzYyMjQ2NTA5fQ.kJdVbhPzfRCaUAH1jqKaaC-iIJhTCPPunlMaLhXxa2"
       },
       {
         path: "relation",

@@ -1097,7 +1097,7 @@ function PlasmicSubItems__RenderFunc(props: {
                         onClick={async event => {
                           const $steps = {};
 
-                          $steps["invokeGlobalAction2"] = currentItem.linkType
+                          $steps["invokeGlobalAction2"] = false
                             ? (() => {
                                 const actionArgs = {
                                   args: [
@@ -1165,7 +1165,7 @@ function PlasmicSubItems__RenderFunc(props: {
                             $steps["runCode2"] = await $steps["runCode2"];
                           }
 
-                          $steps["invokeGlobalAction"] = !currentItem.linkType
+                          $steps["invokeGlobalAction"] = true
                             ? (() => {
                                 const actionArgs = {
                                   args: [
