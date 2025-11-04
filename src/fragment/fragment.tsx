@@ -397,6 +397,12 @@ export const Fragment = ({
             }
 
             default:
+              if (action.startsWith("#newCustomSubscriptionV3")) {
+                const a = action.split("#newCustomSubscriptionV3-");
+                let order = a[1];
+                  let link = `https://apps.liom.app/custom-shop/?token=${token}&order=${order}`;
+                  sendMessage("خرید سفارشی",link,inWebViow);
+              }            
             if (action.startsWith("#inAppWebView")) {
               const link = action.split("**@@**");
               let url = new URL(link[2]);
