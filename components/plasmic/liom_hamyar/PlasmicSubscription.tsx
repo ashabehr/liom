@@ -93,6 +93,7 @@ export type PlasmicSubscription__ArgsType = {
   fullprice?: number;
   onFullpriceChange?: (val: string) => void;
   children?: React.ReactNode;
+  item?: any;
 };
 type ArgPropType = keyof PlasmicSubscription__ArgsType;
 export const PlasmicSubscription__ArgProps = new Array<ArgPropType>(
@@ -107,7 +108,8 @@ export const PlasmicSubscription__ArgProps = new Array<ArgPropType>(
   "onDiscountChange",
   "fullprice",
   "onFullpriceChange",
-  "children"
+  "children",
+  "item"
 );
 
 export type PlasmicSubscription__OverridesType = {
@@ -127,6 +129,7 @@ export interface DefaultSubscriptionProps {
   fullprice?: number;
   onFullpriceChange?: (val: string) => void;
   children?: React.ReactNode;
+  item?: any;
   click?: SingleBooleanChoiceArg<"click">;
   className?: string;
 }
@@ -497,7 +500,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSubscription__VariantsArgs;
     args?: PlasmicSubscription__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSubscription__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSubscription__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSubscription__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

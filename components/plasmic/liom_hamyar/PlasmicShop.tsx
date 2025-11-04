@@ -2487,7 +2487,7 @@ function PlasmicShop__RenderFunc(props: {
                             $steps["goToCustomShop"] = true
                               ? (() => {
                                   const actionArgs = {
-                                    destination: `/custom-shop?order=${"drawn"}`
+                                    destination: `/custom-shop?order=${"all"}`
                                   };
                                   return (({ destination }) => {
                                     if (

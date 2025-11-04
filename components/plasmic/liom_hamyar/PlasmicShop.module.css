@@ -712,6 +712,7 @@
   padding: 16px 16px 0px;
 }
 .freeBox__aoZu {
+  display: flex;
   flex-direction: row;
   position: relative;
   align-items: center;
@@ -722,7 +723,6 @@
   background: var(--token-Gne_lZD4DyXd);
   margin-bottom: var(--token-uOLZE7OyOW-J);
   min-width: 0;
-  display: none;
   border-radius: var(--token-O5TjkXII_aat);
   padding: var(--token-B5WvIYiqPJW-) var(--token-uOLZE7OyOW-J);
   border: 1px solid var(--token-G-IZ_XhVdlqp);

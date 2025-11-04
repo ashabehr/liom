@@ -230,57 +230,706 @@ function PlasmicSubItems__RenderFunc(props: {
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
                 return {
-                  title:
-                    "\u0633\u0644\u0627\u0645\u062a \u067e\u0648\u0633\u062a",
-                  text: "-\u0631\u0648\u062a\u06cc\u0646 \u067e\u0648\u0633\u062a\u06cc \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\n -\u062f\u0631\u0645\u0627\u0646 \u062a\u0631\u06a9 \u0634\u06a9\u0645\u06cc",
-                  image: "",
-                  btn_text: "\u0648\u0631\u0648\u062f",
-                  btn_textV2: "\u0648\u0631\u0648\u062f",
-                  style: "square",
-                  badge: "\u062c\u062f\u06cc\u062f",
-                  text_color: "#005f10",
-                  backgorund_color1: "#e9edd2",
-                  backgorund_color2: "",
-                  type: "pregnancy_skin_care_health",
-                  subItems: {
-                    self_test: [],
-                    self_treatment: [
+                  list: {
+                    items: [
+                      {
+                        title: "\u0631\u062d\u0645",
+                        text: "-\u0646\u0627\u0645\u0646\u0638\u0645\u06cc \u067e\u0631\u06cc\u0648\u062f\n-\u062a\u0646\u0628\u0644\u06cc \u062a\u062e\u0645\u062f\u0627\u0646\n-\u0648\u0636\u0639\u06cc\u062a \u0628\u0627\u0631\u062f\u0627\u0631\u06cc ",
+                        image: "",
+                        btn_text: "\u0648\u0631\u0648\u062f",
+                        btn_textV2: "\u0648\u0631\u0648\u062f",
+                        style: "square",
+                        badge: "\u062c\u062f\u06cc\u062f",
+                        text_color: "#000000",
+                        backgorund_color1: "#FEF5FF",
+                        backgorund_color2: "",
+                        type: "uterine_health",
+                        subItems: {
+                          self_test: [
+                            {
+                              title:
+                                "\u062a\u0634\u062e\u06cc\u0635 \u062f\u0644\u06cc\u0644 \u0646\u0627\u0645\u0646\u0638\u0645\u06cc \u067e\u0631\u06cc\u0648\u062f",
+                              text: "\u067e\u06cc\u062f\u0627 \u06a9\u0631\u062f\u0646 \u062f\u0644\u06cc\u0644 \u0646\u0627\u0645\u0646\u0638\u0645\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc \u062e\u06cc\u0644\u06cc \u0645\u0647\u0645\u0647 \u0648 \u0645\u06cc\u062a\u0648\u0646\u0647 \u0627\u0632 \u0645\u0634\u06a9\u0644\u0627\u062a \u062c\u062f\u06cc \u0628\u0647\u062a \u0622\u06af\u0627\u0647\u06cc \u0628\u062f\u0647",
+                              action: "#irregularQuestion",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              style: "rectangle",
+                              btn_textV2: "",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/irregular.png",
+                              isPremium: false,
+                              isNew: false
+                            },
+                            {
+                              title:
+                                "(\u062d\u0631\u0641\u0647 \u0627\u06cc)\u062a\u0634\u062e\u06cc\u0635 \u062f\u0644\u06cc\u0644 \u0646\u0627\u0645\u0646\u0638\u0645\u06cc \u067e\u0631\u06cc\u0648\u062f",
+                              text: "\u0628\u0647 \u06a9\u0645\u06a9 \u0627\u06cc\u0646 \u062a\u0633\u062a \u062c\u062f\u06cc\u062f \u0648 \u062d\u0631\u0641\u0647 \u0627\u06cc \u062f\u0644\u06cc\u0644 \u0646\u0627\u0645\u0646\u0638\u0645 \u0634\u062f\u0646 \u0642\u0627\u0639\u062f\u06af\u06cc\u062a \u0631\u0648 \u067e\u06cc\u062f\u0627 \u06a9\u0646",
+                              action:
+                                "#inAppWebView**@@**\u062a\u0634\u062e\u06cc\u0635 \u062f\u0644\u06cc\u0644 \u0646\u0627\u0645\u0646\u0638\u0645\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc**@@**https://tools.liom.app/self-test/?app=liom&inApp=true&type=irregular&origin=liomSelfCare&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0ZTViZjI5LWUwODQtNDEwMS1iYTFjLTMxNTk0MDRjMGM1NiIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzYyMjQ2NTE0fQ.aOxkInQ2NB6pDPRhXHFRL4NEO7YYYZPjXHIh4GyOGhU&lang=fa&userId=5916daaf-e7b3-44e9-85bd-5d5dfe00e2db",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              style: "rectangle",
+                              btn_textV2: "",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/irregular.png",
+                              isPremium: false,
+                              isNew: false,
+                              linkType: "irregularSelfTestIsActive"
+                            },
+                            {
+                              title:
+                                "\u062a\u0634\u062e\u06cc\u0635 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0628\u0631 \u0627\u0633\u0627\u0633 \u0639\u0644\u0627\u0626\u0645",
+                              text: "\u0627\u06af\u0647 \u067e\u0631\u06cc\u0648\u062f\u062a \u0639\u0642\u0628 \u0627\u0641\u062a\u0627\u062f\u0647 \u0648 \u0641\u06a9\u0631 \u0645\u06cc\u06a9\u0646\u06cc \u0628\u0627\u0631\u062f\u0627\u0631 \u0647\u0633\u062a\u06cc\u060c \u062a\u0633\u062a \u0628\u062f\u0647",
+                              action: "#directDialog-pregnancy_self_test_sub",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              btn_textV2: "",
+                              style: "rectangle",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/pregnancyTest.png",
+                              isPremium: true,
+                              isNew: false,
+                              checkSub: true,
+                              subName: "pregnancySelfTestIsActive",
+                              shopLink: "#directDialog-pregnancy_self_test_sub",
+                              linkType: "pregnancySelfTest"
+                            }
+                          ],
+                          self_treatment: [
+                            {
+                              title:
+                                "\u062f\u0631\u0645\u0627\u0646 \u067e\u0631\u06cc\u0648\u062f \u0646\u0627\u0645\u0646\u0638\u0645",
+                              text: "\u0639\u062f\u0645 \u062f\u0631\u0645\u0627\u0646 \u0627\u06cc\u0646 \u0645\u0634\u06a9\u0644 \u0628\u0627\u0639\u062b \u0645\u0634\u06a9\u0644\u0627\u062a \u062c\u0628\u0631\u0627\u0646 \u0646\u0627\u067e\u0630\u06cc\u0631\u06cc \u0645\u06cc\u0634\u0647! \u0647\u0645\u06cc\u0646 \u0627\u0644\u0627\u0646 \u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              action: "#irregularPage",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              btn_textV2: "",
+                              style: "rectangle",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/irregular.png",
+                              isPremium: true,
+                              isNew: false,
+                              linkType: "irregularPeriod"
+                            },
+                            {
+                              title:
+                                "\u062f\u0631\u0645\u0627\u0646 \u062a\u0646\u0628\u0644\u06cc \u062a\u062e\u0645\u062f\u0627\u0646",
+                              text: "\u0628\u0631\u0627\u06cc \u062f\u0631\u0645\u0627\u0646 \u0627\u06cc\u0646 \u0645\u0634\u06a9\u0644\u060c \u0647\u0645\u06cc\u0646 \u0627\u0644\u0627\u0646 \u0627\u0642\u062f\u0627\u0645 \u06a9\u0646",
+                              action: "#pcos",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              style: "rectangle",
+                              btn_textV2: "",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/pcos.png",
+                              isPremium: true,
+                              isNew: false,
+                              linkType: "pcos"
+                            }
+                          ],
+                          self_care: [
+                            {
+                              title:
+                                "\u06a9\u0627\u0647\u0634 \u062f\u0631\u062f \u0642\u0627\u0639\u062f\u06af\u06cc",
+                              text: "\u0628\u0631\u0627\u06cc \u0631\u0627\u062d\u062a \u062a\u0631 \u0634\u062f\u0646 \u062f\u0648\u0631\u0627\u0646 \u0642\u0627\u0639\u062f\u06af\u06cc\u060c \u06a9\u0644\u06cc\u06a9 \u06a9\u0646",
+                              action: "#rediucePain",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              btn_textV2: "",
+                              style: "rectangle",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/painLess.png",
+                              isPremium: false,
+                              isNew: false
+                            },
+                            {
+                              title:
+                                "\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f ",
+                              text: "\u0647\u0631 \u0633\u0648\u0627\u0644\u06cc \u0631\u0627\u062c\u0639 \u0628\u0647 \u067e\u0631\u06cc\u0648\u062f \u0648 \u0645\u0634\u06a9\u0644\u0627\u062a \u0645\u0631\u0628\u0648\u0637 \u0628\u0647 \u0627\u0648\u0646 \u062f\u0627\u0631\u06cc\u060c \u0645\u06cc\u062a\u0648\u0646\u06cc \u0627\u0632 \u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f \u0644\u06cc\u0648\u0645 \u0628\u067e\u0631\u0633\u06cc!",
+                              action:
+                                "#inAppWebView**@@**\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f **@@**https://tools.liom.app/chat-bot/?origin_user_id=5916daaf-e7b3-44e9-85bd-5d5dfe00e2db&topic=uterusCare&inApp=true&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0ZTViZjI5LWUwODQtNDEwMS1iYTFjLTMxNTk0MDRjMGM1NiIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzYyMjQ2NTE0fQ.aOxkInQ2NB6pDPRhXHFRL4NEO7YYYZPjXHIh4GyOGhU&lang=fa&selectStep=0&userId=5916daaf-e7b3-44e9-85bd-5d5dfe00e2db",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              btn_textV2: "",
+                              style: "rectangle",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/chatBot.png",
+                              isPremium: false,
+                              isNew: false
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        title: "\u067e\u0633\u062a\u0627\u0646",
+                        text: "\u067e\u06cc\u0634\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0633\u0631\u0637\u0627\u0646 \u067e\u0633\u062a\u0627\u0646",
+                        image: "",
+                        btn_text: "\u0648\u0631\u0648\u062f",
+                        btn_textV2: "\u0648\u0631\u0648\u062f",
+                        style: "square",
+                        text_color: "#000000",
+                        backgorund_color1: "#FFF1DC",
+                        backgorund_color2: "",
+                        type: "breast_health",
+                        subItems: {
+                          self_test: [
+                            {
+                              title:
+                                "\u062a\u0634\u062e\u06cc\u0635 \u0627\u0628\u062a\u0644\u0627 \u0628\u0647 \u0633\u0631\u0637\u0627\u0646 \u0633\u06cc\u0646\u0647",
+                              text: "\u0628\u0631\u0627\u06cc \u0627\u0646\u062c\u0627\u0645 \u062a\u0633\u062a \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f",
+                              action: "#breastCancerTest",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              btn_textV2: "",
+                              style: "rectangle",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/breastCancer.png",
+                              isPremium: false,
+                              isNew: false
+                            }
+                          ],
+                          self_treatment: [],
+                          self_care: [
+                            {
+                              title:
+                                "\u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u0627\u0646\u062c\u0627\u0645 \u062e\u0648\u062f\u0622\u0632\u0645\u0627\u06cc\u06cc \u0633\u0631\u0637\u0627\u0646 \u0633\u06cc\u0646\u0647",
+                              text: "\u0628\u0631\u0627\u06cc \u062f\u0631\u0645\u0627\u0646 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f",
+                              action: "#breastCancerDatePage",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              btn_textV2: "",
+                              style: "rectangle",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/breastCancer.png",
+                              isPremium: false,
+                              isNew: false
+                            },
+                            {
+                              title:
+                                "\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f ",
+                              text: "\u0647\u0631 \u0633\u0648\u0627\u0644\u06cc \u0631\u0627\u062c\u0639 \u0628\u0647 \u0633\u0644\u0627\u0645\u062a \u067e\u0633\u062a\u0627\u0646 \u0647\u0627 \u062f\u0627\u0631\u06cc \u06cc\u0627 \u0646\u06af\u0631\u0627\u0646 \u0633\u0631\u0637\u0627\u0646 \u067e\u0633\u062a\u0627\u0646 \u0647\u0633\u062a\u06cc\u060c \u0645\u06cc\u062a\u0648\u0646\u06cc \u0627\u0632 \u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f \u0644\u06cc\u0648\u0645 \u0628\u067e\u0631\u0633\u06cc!",
+                              action:
+                                "#inAppWebView**@@**\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f **@@**https://tools.liom.app/chat-bot/?origin_user_id=5916daaf-e7b3-44e9-85bd-5d5dfe00e2db&topic=breastCare&inApp=true&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0ZTViZjI5LWUwODQtNDEwMS1iYTFjLTMxNTk0MDRjMGM1NiIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzYyMjQ2NTE0fQ.aOxkInQ2NB6pDPRhXHFRL4NEO7YYYZPjXHIh4GyOGhU&lang=fa&selectStep=0&userId=5916daaf-e7b3-44e9-85bd-5d5dfe00e2db",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              btn_textV2: "",
+                              style: "rectangle",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/chatBot.png",
+                              isPremium: false,
+                              isNew: false
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        title: "\u067e\u0648\u0633\u062a \u0648 \u0645\u0648",
+                        text: "-\u0631\u0648\u062a\u06cc\u0646 \u067e\u0648\u0633\u062a\u06cc \u067e\u0631\u06cc\u0648\u062f\n-\u0631\u0648\u062a\u06cc\u0646 \u0633\u0644\u0627\u0645\u062a \u0645\u0648",
+                        image: "",
+                        btn_text: "\u0648\u0631\u0648\u062f",
+                        btn_textV2: "\u0648\u0631\u0648\u062f",
+                        style: "square",
+                        badge: "\u062c\u062f\u06cc\u062f",
+                        text_color: "#000000",
+                        backgorund_color1: "#e9edd2",
+                        backgorund_color2: "",
+                        type: "skin_care_health",
+                        subItems: {
+                          self_test: [],
+                          self_treatment: [
+                            {
+                              title:
+                                "\u0631\u0648\u062a\u06cc\u0646 \u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u067e\u0648\u0633\u062a",
+                              text: "\u0628\u0627 \u0627\u0646\u062c\u0627\u0645 \u0627\u06cc\u0646 \u0628\u0631\u0646\u0627\u0645\u0647 \u0648 \u0645\u0631\u0627\u062d\u0644 \u06af\u0641\u062a\u0647\u200c\u0634\u062f\u0647\u060c \u06a9\u0647 \u0628\u0631 \u0627\u0633\u0627\u0633 \u062f\u0648\u0631\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc\u062a \u0637\u0631\u0627\u062d\u06cc \u0634\u062f\u0647\u060c \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0627\u0632 \u067e\u0648\u0633\u062a\u062a \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc \u0648 \u067e\u0648\u0633\u062a\u06cc \u0634\u0627\u062f\u0627\u0628 \u0648 \u062c\u0648\u0627\u0646 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc.",
+                              action: "#directDialog-skin_care_sub",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              btn_textV2: "",
+                              style: "rectangle",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/skinCareNew.png",
+                              isPremium: true,
+                              isNew: false,
+                              checkSub: true,
+                              subName: "skinCareIsActive",
+                              shopLink: "#directDialog-skin_care_sub",
+                              linkType: "skinCare"
+                            },
+                            {
+                              title:
+                                "\u0631\u0648\u062a\u06cc\u0646 \u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u0645\u0648",
+                              text: "\u0634\u0646\u0627\u062e\u062a \u0645\u0648,\u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u0648 \u0631\u0641\u0639 \u0645\u0648\u062e\u0648\u0631\u0647,\u062f\u0631\u0645\u0627\u0646 \u0631\u06cc\u0632\u0634 \u0645\u0648 \u0648...",
+                              action: "#directDialog-hair_care_sub",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              btn_textV2: "",
+                              style: "rectangle",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/hairCareNew.png",
+                              isPremium: true,
+                              isNew: false,
+                              checkSub: true,
+                              subName: "hairCareIsActive",
+                              shopLink: "#directDialog-hair_care_sub",
+                              linkType: "hairCare"
+                            },
+                            {
+                              title:
+                                "\u062f\u0631\u0645\u0627\u0646 \u06af\u0648\u062f\u06cc \u0648 \u0633\u06cc\u0627\u0647\u06cc \u0632\u06cc\u0631 \u0686\u0634\u0645",
+                              text: "\u0628\u0647 \u06a9\u0645\u06a9 \u0627\u06cc\u0646 \u0631\u0648\u062a\u06cc\u0646 \u0645\u06cc\u062a\u0648\u0646\u06cc \u0633\u06cc\u0627\u0647\u06cc \u0647\u0627 \u0648 \u06af\u0648\u062f\u06cc \u0632\u06cc\u0631 \u0686\u0634\u0645\u062a \u0631\u0648 \u0628\u0631\u0627\u06cc \u0647\u0645\u06cc\u0634\u0647 \u062f\u0631\u0645\u0627\u0646 \u06a9\u0646\u06cc.",
+                              action: "#directDialog-sunken_eyes_sub",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              btn_textV2: "",
+                              style: "rectangle",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/eye.png",
+                              isPremium: false,
+                              isNew: false,
+                              checkSub: true,
+                              subName: "sunkenEyesIsActive",
+                              shopLink: "#directDialog-sunken_eyes_sub",
+                              linkType: "sunkenEyes"
+                            }
+                          ],
+                          self_care: [
+                            {
+                              title:
+                                "\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f ",
+                              text: "\u0647\u0631 \u0633\u0648\u0627\u0644\u06cc \u0631\u0627\u062c\u0639 \u0628\u0647 \u0633\u0644\u0627\u0645\u062a \u0645\u0648 \u06cc\u0627 \u067e\u0648\u0633\u062a \u062f\u0627\u0631\u06cc\u060c \u0645\u06cc\u062a\u0648\u0646\u06cc \u0627\u0632 \u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f \u0644\u06cc\u0648\u0645 \u0628\u067e\u0631\u0633\u06cc!",
+                              action:
+                                "#inAppWebView**@@**\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f **@@**https://tools.liom.app/chat-bot/?origin_user_id=5916daaf-e7b3-44e9-85bd-5d5dfe00e2db&topic=hairCare&inApp=true&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0ZTViZjI5LWUwODQtNDEwMS1iYTFjLTMxNTk0MDRjMGM1NiIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzYyMjQ2NTE0fQ.aOxkInQ2NB6pDPRhXHFRL4NEO7YYYZPjXHIh4GyOGhU&lang=fa&selectStep=0&userId=5916daaf-e7b3-44e9-85bd-5d5dfe00e2db",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              btn_textV2: "",
+                              style: "rectangle",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/chatBot.png",
+                              isPremium: false,
+                              isNew: false
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        title: "\u0630\u0647\u0646",
+                        text: "\u062a\u0634\u062e\u06cc\u0635 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0645\u0634\u06a9\u0644\u0627\u062a \u0645\u0631\u0628\u0648\u0637 \u0628\u0647 \u0630\u0647\u0646",
+                        image: "",
+                        btn_text: "\u0648\u0631\u0648\u062f",
+                        btn_textV2: "\u0648\u0631\u0648\u062f",
+                        style: "square",
+                        badge: "\u062c\u062f\u06cc\u062f",
+                        text_color: "#000000",
+                        backgorund_color1: "#c2e9f2",
+                        backgorund_color2: "",
+                        type: "mind_care_health",
+                        subItems: {
+                          self_test: [
+                            {
+                              title:
+                                "\u062a\u0634\u062e\u06cc\u0635 \u0627\u0628\u062a\u0644\u0627 \u0628\u0647 ADHD",
+                              text: "\u0628\u06cc\u0645\u0627\u0631\u06cc ADHD \u0632\u0646\u062f\u06af\u06cc\u062a\u0648 \u0645\u062e\u062a\u0644 \u0645\u06cc\u06a9\u0646\u0647!",
+                              action: "#directDialog-adhd_sub",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              btn_textV2: "",
+                              style: "rectangle",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/adhd.png",
+                              isPremium: false,
+                              isNew: false,
+                              checkSub: true,
+                              subName: "adhdTestIsActive",
+                              shopLink: "#directDialog-adhd_sub",
+                              linkType: "adhdTest"
+                            },
+                            {
+                              title:
+                                "\u062a\u0634\u062e\u06cc\u0635 \u0648\u0636\u0639\u06cc\u062a \u0633\u0644\u0627\u0645\u062a \u0631\u0648\u0627\u0646",
+                              text: "\u062a\u0634\u062e\u06cc\u0635 \u0627\u06cc\u0646\u06a9\u0647\u060c \u0622\u06cc\u0627 \u0646\u06cc\u0627\u0632 \u0628\u0647 \u062a\u0631\u0627\u067e\u06cc\u0633\u062a \u062f\u0627\u0631\u06cc\u062f \u06cc\u0627 \u062e\u06cc\u0631\u061f ",
+                              action: "#directDialog-need_therapy_sub",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              btn_textV2: "",
+                              style: "rectangle",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/therapy.png",
+                              isPremium: false,
+                              isNew: false,
+                              checkSub: true,
+                              subName: "needTherapyTestIsActive",
+                              shopLink: "#directDialog-need_therapy_sub",
+                              linkType: "needTherapyTest"
+                            },
+                            {
+                              title:
+                                "\u062a\u0634\u062e\u06cc\u0635 \u0627\u0628\u062a\u0644\u0627 \u0628\u0647 \u0627\u0641\u0633\u0631\u062f\u06af\u06cc",
+                              text: "\u0628\u0639\u062f \u0627\u0632 \u062a\u0634\u062e\u06cc\u0635 \u0627\u0641\u0633\u0631\u062f\u06af\u06cc \u0647\u0645 \u0642\u0627\u0628\u0644 \u062f\u0631\u0645\u0627\u0646\u0647!",
+                              action:
+                                "#inAppWebView**@@**\u062a\u0634\u062e\u06cc\u0635 \u0627\u0641\u0633\u0631\u062f\u06af\u06cc \u0628\u0631 \u0627\u0633\u0627\u0633 \u0639\u0644\u0627\u0626\u0645**@@**https://tools.liom.app/self-test/?type=depression&app=liom&inApp=true&origin=liomSelfCare&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0ZTViZjI5LWUwODQtNDEwMS1iYTFjLTMxNTk0MDRjMGM1NiIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzYyMjQ2NTE0fQ.aOxkInQ2NB6pDPRhXHFRL4NEO7YYYZPjXHIh4GyOGhU&lang=fa&userId=5916daaf-e7b3-44e9-85bd-5d5dfe00e2db",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              btn_textV2: "",
+                              style: "rectangle",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/depressionNew.png",
+                              isPremium: false,
+                              isNew: false
+                            }
+                          ],
+                          self_treatment: [
+                            {
+                              title:
+                                "\u062f\u0631\u0645\u0627\u0646 \u0627\u062e\u062a\u0644\u0627\u0644 ADHD",
+                              text: "\u062f\u0631\u0645\u0627\u0646 \u0627\u06cc\u0646 \u0627\u062e\u062a\u0644\u0627\u0644 \u0645\u062b\u0644 \u0634\u0631\u0648\u0639 \u062f\u0648\u0628\u0627\u0631\u0647 \u0632\u0646\u062f\u06af\u06cc\u0647.",
+                              action: "#directDialog-adhd_treatment_sub",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              btn_textV2: "",
+                              style: "rectangle",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/adhd.png",
+                              isPremium: false,
+                              isNew: false,
+                              checkSub: true,
+                              subName: "adhdTreatmentIsActive",
+                              shopLink: "#directDialog-adhd_treatment_sub",
+                              linkType: "adhdTreatment"
+                            }
+                          ],
+                          self_care: [
+                            {
+                              title:
+                                "\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f ",
+                              text: "\u0647\u0631 \u0633\u0648\u0627\u0644\u06cc \u0631\u0627\u062c\u0639 \u0628\u0647 \u0633\u0644\u0627\u0645\u062a \u0630\u0647\u0646 \u0648 \u0631\u0648\u0627\u0646\u0634\u0646\u0627\u0633\u06cc \u062f\u0627\u0631\u06cc\u060c \u0645\u06cc\u062a\u0648\u0646\u06cc \u0627\u0632 \u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f \u0644\u06cc\u0648\u0645 \u0628\u067e\u0631\u0633\u06cc!",
+                              action:
+                                "#inAppWebView**@@**\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f **@@**https://tools.liom.app/chat-bot/?origin_user_id=5916daaf-e7b3-44e9-85bd-5d5dfe00e2db&topic=mindCare&inApp=true&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0ZTViZjI5LWUwODQtNDEwMS1iYTFjLTMxNTk0MDRjMGM1NiIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzYyMjQ2NTE0fQ.aOxkInQ2NB6pDPRhXHFRL4NEO7YYYZPjXHIh4GyOGhU&lang=fa&selectStep=0&userId=5916daaf-e7b3-44e9-85bd-5d5dfe00e2db",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              btn_textV2: "",
+                              style: "rectangle",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/chatBot.png",
+                              isPremium: false,
+                              isNew: false
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        title: "\u062e\u0648\u0646",
+                        text: "\u062a\u0634\u062e\u06cc\u0635 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0628\u06cc\u0645\u0627\u0631\u06cc \u0647\u0627\u06cc \u062e\u0648\u0646\u06cc",
+                        image: "",
+                        btn_text: "\u0648\u0631\u0648\u062f",
+                        btn_textV2: "\u0648\u0631\u0648\u062f",
+                        style: "square",
+                        badge: "\u062c\u062f\u06cc\u062f",
+                        text_color: "#000000",
+                        backgorund_color1: "#FEF5FF",
+                        backgorund_color2: "",
+                        type: "blood_care_health",
+                        subItems: {
+                          self_care: [
+                            {
+                              title:
+                                "\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f ",
+                              text: "\u0647\u0631 \u0633\u0648\u0627\u0644\u06cc \u0631\u0627\u062c\u0639 \u0628\u0647 \u0633\u0644\u0627\u0645\u062a \u062e\u0648\u062f\u062a \u062f\u0627\u0631\u06cc\u060c \u0645\u06cc\u062a\u0648\u0646\u06cc \u0627\u0632 \u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f \u0644\u06cc\u0648\u0645 \u0628\u067e\u0631\u0633\u06cc!",
+                              action:
+                                "#inAppWebView**@@**\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f **@@**https://tools.liom.app/chat-bot/?origin_user_id=5916daaf-e7b3-44e9-85bd-5d5dfe00e2db&topic=breastCare&inApp=true&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0ZTViZjI5LWUwODQtNDEwMS1iYTFjLTMxNTk0MDRjMGM1NiIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzYyMjQ2NTE0fQ.aOxkInQ2NB6pDPRhXHFRL4NEO7YYYZPjXHIh4GyOGhU&lang=fa&selectStep=0&userId=5916daaf-e7b3-44e9-85bd-5d5dfe00e2db",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              btn_textV2: "",
+                              style: "rectangle",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/chatBot.png",
+                              isPremium: false,
+                              isNew: false
+                            }
+                          ],
+                          self_treatment: [],
+                          self_test: [
+                            {
+                              title:
+                                "\u062a\u0634\u062e\u06cc\u0635 \u06a9\u0645\u0628\u0648\u062f \u0622\u0647\u0646",
+                              text: "\u0628\u0627 \u0627\u0646\u062c\u0627\u0645 \u062a\u0633\u062a\u060c \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0628\u0647 \u0637\u0648\u0631 \u0632\u0648\u062f\u0647\u0646\u06af\u0627\u0645 \u0627\u0632 \u0627\u06cc\u0646\u06a9\u0647 \u0622\u06cc\u0627 \u0628\u062f\u0646 \u0634\u0645\u0627 \u062f\u0686\u0627\u0631 \u06a9\u0645\u0628\u0648\u062f \u0622\u0647\u0646 \u0627\u0633\u062a \u06cc\u0627 \u062e\u06cc\u0631 \u0645\u0637\u0644\u0639 \u0634\u0648\u06cc\u062f.",
+                              action: "#directDialog-iron_deficiency_test_sub",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              btn_textV2: "",
+                              dr_name:
+                                "\u062f\u06a9\u062a\u0631 \u062d\u0633\u06cc\u0646 \u0645\u0646\u0635\u0648\u0631\u06a9\u06cc\u0627\u0626\u06cc",
+                              dr_image:
+                                "https://teh-1.s3.poshtiban.com/liom/dr_1.jpeg",
+                              tags: [
+                                {
+                                  name: "\u062b\u0628\u062a \u0646\u0633\u062e\u0647 \u0627\u0644\u06a9\u062a\u0631\u0648\u0646\u06cc\u06a9"
+                                },
+                                {
+                                  name: "\u0632\u0645\u0627\u0646 \u0627\u0646\u062c\u0627\u0645: \u06f5 \u062f\u0642\u06cc\u0642\u0647"
+                                }
+                              ],
+                              price: 69000,
+                              cStart: 150,
+                              stars: "4.8",
+                              selfTest_id: "23",
+                              commentsWebhook:
+                                "https://n8n.staas.ir/webhook/selfTest_comments?selfTest_id=23",
+                              style: "rectangle",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/iron.png",
+                              isPremium: true,
+                              isNew: false,
+                              checkSub: true,
+                              subName: "ironDeficiencyTestIsActive",
+                              shopLink:
+                                "#directDialog-iron_deficiency_test_sub",
+                              linkType: "iron_deficiency_test_sub"
+                            },
+                            {
+                              title:
+                                "\u062a\u0634\u062e\u06cc\u0635 \u0627\u062d\u062a\u0645\u0627\u0644 \u062f\u06cc\u0627\u0628\u062a",
+                              text: "\u0634\u0645\u0627 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0628\u0627 \u0627\u0646\u062c\u0627\u0645 \u062a\u0633\u062a \u0641\u0647\u0645\u06cc\u062f\u0646 \u0631\u06cc\u0633\u06a9 \u062f\u06cc\u0627\u0628\u062a \u0627\u0632 \u0648\u0636\u0639\u06cc\u062a \u0642\u0646\u062f \u062e\u0648\u0646 \u062e\u0648\u062f \u0645\u0637\u0645\u0626\u0646 \u0634\u0648\u06cc\u062f \u0648 \u0627\u0632 \u0633\u0644\u0627\u0645\u062a \u062e\u0648\u062f \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc\u062f.",
+                              action: "#directDialog-diabetes_test_sub",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              btn_textV2: "",
+                              dr_name:
+                                "\u062f\u06a9\u062a\u0631 \u0645\u0631\u062a\u0636\u06cc \u0631\u0648\u062d\u06cc\u200c\u0646\u0698\u0627\u062f ",
+                              dr_image:
+                                "https://teh-1.s3.poshtiban.com/liom/2025-05-21%2013.16.49.jpg",
+                              tags: [
+                                {
+                                  name: "\u062b\u0628\u062a \u0646\u0633\u062e\u0647 \u0627\u0644\u06a9\u062a\u0631\u0648\u0646\u06cc\u06a9"
+                                },
+                                {
+                                  name: "\u0632\u0645\u0627\u0646 \u0627\u0646\u062c\u0627\u0645: \u06f5 \u062f\u0642\u06cc\u0642\u0647"
+                                }
+                              ],
+                              price: 53000,
+                              cStart: 150,
+                              stars: "4.8",
+                              selfTest_id: "19",
+                              commentsWebhook:
+                                "https://n8n.staas.ir/webhook/selfTest_comments?selfTest_id=19",
+                              style: "rectangle",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/diabet.png",
+                              isPremium: true,
+                              isNew: false,
+                              checkSub: true,
+                              subName: "diabetesTestIsActive",
+                              shopLink: "#directDialog-diabetes_test_sub",
+                              linkType: "diabetes_test_sub"
+                            },
+                            {
+                              title:
+                                "\u062a\u0634\u062e\u06cc\u0635 \u0627\u062e\u062a\u0644\u0627\u0644 \u062a\u06cc\u0631\u0648\u0626\u06cc\u062f",
+                              text: "\u0634\u0645\u0627 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0628\u0627 \u0627\u0646\u062c\u0627\u0645 \u0627\u06cc\u0646 \u062a\u0633\u062a \u0627\u0632 \u0648\u0636\u0639\u06cc\u062a \u06a9\u0645 \u06a9\u0627\u0631 \u0628\u0648\u062f\u0646 \u06cc\u0627 \u067e\u0631 \u06a9\u0627\u0631 \u0628\u0648\u062f\u0646 \u062a\u06cc\u0631\u0648\u0626\u06cc\u062f \u062e\u0648\u062f \u0645\u0637\u0645\u0626\u0646 \u0634\u0648\u06cc\u062f \u0648 \u0627\u0632 \u0633\u0644\u0627\u0645\u062a \u062e\u0648\u062f \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc\u062f.",
+                              action: "#directDialog-thyroid_test_sub",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              btn_textV2: "",
+                              style: "rectangle",
+                              dr_name:
+                                "\u062f\u06a9\u062a\u0631 \u062d\u0633\u06cc\u0646 \u0645\u0646\u0635\u0648\u0631\u06a9\u06cc\u0627\u0626\u06cc",
+                              dr_image:
+                                "https://teh-1.s3.poshtiban.com/liom/dr_1.jpeg",
+                              tags: [
+                                {
+                                  name: "\u062b\u0628\u062a \u0646\u0633\u062e\u0647 \u0627\u0644\u06a9\u062a\u0631\u0648\u0646\u06cc\u06a9"
+                                },
+                                {
+                                  name: "\u0632\u0645\u0627\u0646 \u0627\u0646\u062c\u0627\u0645: \u06f7 \u062f\u0642\u06cc\u0642\u0647"
+                                }
+                              ],
+                              price: 61000,
+                              cStart: 150,
+                              stars: "4.8",
+                              selfTest_id: "21",
+                              commentsWebhook:
+                                "https://n8n.staas.ir/webhook/selfTest_comments?selfTest_id=21",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/thyroid.png",
+                              isPremium: true,
+                              isNew: false,
+                              checkSub: true,
+                              subName: "thyroidTestIsActive",
+                              shopLink: "#directDialog-thyroid_test_sub",
+                              linkType: "thyroid_test_sub"
+                            },
+                            {
+                              title:
+                                "\u062a\u0634\u062e\u06cc\u0635 \u0641\u0634\u0627\u0631 \u062e\u0648\u0646",
+                              text: "\u0634\u0645\u0627 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0628\u0627 \u0627\u0646\u062c\u0627\u0645 \u062a\u0633\u062a \u0641\u0647\u0645\u06cc\u062f\u0646 \u0641\u0634\u0627\u0631 \u062e\u0648\u0646 \u062e\u0648\u062f \u0645\u0637\u0645\u0626\u0646 \u0634\u0648\u06cc\u062f \u0648 \u0627\u0632 \u0633\u0644\u0627\u0645\u062a \u062e\u0648\u062f \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc\u062f.",
+                              action:
+                                "#directDialog-blood_pressure_calc_test_sub",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              btn_textV2: "",
+                              dr_name:
+                                "\u062f\u06a9\u062a\u0631 \u0645\u0631\u062a\u0636\u06cc \u0631\u0648\u062d\u06cc\u200c\u0646\u0698\u0627\u062f ",
+                              dr_image:
+                                "https://teh-1.s3.poshtiban.com/liom/2025-05-21%2013.16.49.jpg",
+                              tags: [
+                                {
+                                  name: "\u062b\u0628\u062a \u0646\u0633\u062e\u0647 \u0627\u0644\u06a9\u062a\u0631\u0648\u0646\u06cc\u06a9"
+                                },
+                                {
+                                  name: "\u0632\u0645\u0627\u0646 \u0627\u0646\u062c\u0627\u0645: \u06f5 \u062f\u0642\u06cc\u0642\u0647"
+                                }
+                              ],
+                              price: 48000,
+                              cStart: 150,
+                              stars: "4.5",
+                              selfTest_id: "22",
+                              commentsWebhook:
+                                "https://n8n.staas.ir/webhook/selfTest_comments?selfTest_id=22",
+                              style: "rectangle",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/bloodPressure.png",
+                              isPremium: true,
+                              isNew: false,
+                              checkSub: true,
+                              subName: "bloodPressureCalcTestIsActive",
+                              shopLink:
+                                "#directDialog-blood_pressure_calc_test_sub",
+                              linkType: "blood_pressure_calc_test_sub"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        title: "\u0648\u0627\u0698\u0646",
+                        text: "\u062a\u0634\u062e\u06cc\u0635 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0645\u0634\u06a9\u0644\u0627\u062a \u0645\u0631\u0628\u0648\u0637 \u0628\u0647 \u0648\u0627\u0698\u0646",
+                        image: "",
+                        btn_text: "\u0648\u0631\u0648\u062f",
+                        btn_textV2: "\u0648\u0631\u0648\u062f",
+                        style: "square",
+                        badge: "\u062c\u062f\u06cc\u062f",
+                        text_color: "#000000",
+                        backgorund_color1: "#c2e9f2",
+                        backgorund_color2: "",
+                        type: "vagen_care_health",
+                        subItems: {
+                          self_test: [
+                            {
+                              title:
+                                "\u062a\u0634\u062e\u06cc\u0635 \u0639\u0641\u0648\u0646\u062a \u0648\u0627\u0698\u0646",
+                              text: "\u0628\u0647 \u06a9\u0645\u06a9 \u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631 \u0645\u06cc\u062a\u0648\u0646\u06cc \u0627\u0632 \u0627\u06cc\u0646\u06a9\u0647 \u0622\u06cc\u0627 \u062f\u0686\u0627\u0631 \u0639\u0641\u0648\u0646\u062a \u0648\u0627\u0698\u0646 \u0647\u0633\u062a\u06cc \u06cc\u0627 \u062e\u06cc\u0631 \u0622\u06af\u0627\u0647\u06cc \u0628\u0634\u06cc. \u0636\u0645\u0646 \u0627\u06cc\u0646\u06a9\u0647 \u0628\u0647 \u0634\u0645\u0627 \u0631\u0627\u0647\u06a9\u0627\u0631 \u0647\u0627\u06cc\u06cc \u062f\u0631 \u062c\u0647\u062a \u0628\u0647\u0628\u0648\u062f \u0627\u0631\u0627\u064a\u0647 \u062e\u0648\u0627\u0647\u06cc\u0645 \u06a9\u0631\u062f",
+                              action:
+                                "#inAppWebView**@@**\u062a\u0634\u062e\u06cc\u0635 \u0639\u0641\u0648\u0646\u062a \u0648\u0627\u0698\u0646**@@**https://apps.liom.app/shop-item/?app=liom&type=buy&inApp=true&origin=liomSelfCare&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0ZTViZjI5LWUwODQtNDEwMS1iYTFjLTMxNTk0MDRjMGM1NiIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzYyMjQ2NTE0fQ.aOxkInQ2NB6pDPRhXHFRL4NEO7YYYZPjXHIh4GyOGhU&lang=fa&userId=5916daaf-e7b3-44e9-85bd-5d5dfe00e2db&shop_type=vaginal_infection_test_sub",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              btn_textV2: "",
+                              style: "rectangle",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/infection.png",
+                              isPremium: true,
+                              isNew: false,
+                              checkSub: true,
+                              subName: "vaginalInfectionTestIsActive",
+                              shopLink:
+                                "#inAppWebView**@@**\u062a\u0634\u062e\u06cc\u0635 \u0639\u0641\u0648\u0646\u062a \u0648\u0627\u0698\u0646**@@**https://apps.liom.app/shop-item/?app=liom&type=buy&inApp=true&origin=liomSelfCare&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0ZTViZjI5LWUwODQtNDEwMS1iYTFjLTMxNTk0MDRjMGM1NiIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzYyMjQ2NTE0fQ.aOxkInQ2NB6pDPRhXHFRL4NEO7YYYZPjXHIh4GyOGhU&lang=fa&userId=5916daaf-e7b3-44e9-85bd-5d5dfe00e2db&shop_type=vaginal_infection_test_sub",
+                              linkType: "vaginal_infection_test_sub"
+                            }
+                          ],
+                          self_treatment: [
+                            {
+                              title:
+                                "\u062f\u0631\u0645\u0627\u0646 \u0639\u0641\u0648\u0646\u062a \u0648 \u062a\u0631\u0634\u062d\u0627\u062a \u0648\u0627\u0698\u0646",
+                              text: "\u0628\u0647 \u06a9\u0645\u06a9 \u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0639\u0641\u0648\u0646\u062a\u200c\u0647\u0627 \u0648 \u062a\u0631\u0634\u062d\u0627\u062a \u0648\u0627\u0698\u0646 \u0631\u0627 \u062f\u0631\u0645\u0627\u0646 \u0648 \u0631\u0641\u0639 \u06a9\u0646\u06cc.",
+                              action:
+                                "#inAppWebView**@@**\u0639\u0641\u0648\u0646\u062a \u0648 \u062a\u0631\u0634\u062d\u0627\u062a \u0648\u0627\u0698\u0646**@@**https://tools.liom.app/self-medication/?type=vaginal_infection&theme=undefined&app=liom&type=buy&inApp=true&origin=liomSelfCare&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0ZTViZjI5LWUwODQtNDEwMS1iYTFjLTMxNTk0MDRjMGM1NiIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzYyMjQ2NTE0fQ.aOxkInQ2NB6pDPRhXHFRL4NEO7YYYZPjXHIh4GyOGhU&lang=fa&userId=5916daaf-e7b3-44e9-85bd-5d5dfe00e2db&shop_type=vaginal_infection_test_sub",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              style: "rectangle",
+                              btn_textV2: "",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/lioms3/config%2Finfection.png",
+                              isPremium: false,
+                              isNew: false,
+                              linkType: "vaginal_infection_sub",
+                              checkSub: true,
+                              subName: "vaginalInfectionIsActive",
+                              shopLink:
+                                "#inAppWebView**@@**\u0639\u0641\u0648\u0646\u062a \u0648 \u062a\u0631\u0634\u062d\u0627\u062a \u0648\u0627\u0698\u0646**@@**https://tools.liom.app/self-medication/?type=vaginal_infection&theme=undefined&app=liom&type=buy&inApp=true&origin=liomSelfCare&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0ZTViZjI5LWUwODQtNDEwMS1iYTFjLTMxNTk0MDRjMGM1NiIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzYyMjQ2NTE0fQ.aOxkInQ2NB6pDPRhXHFRL4NEO7YYYZPjXHIh4GyOGhU&lang=fa&userId=5916daaf-e7b3-44e9-85bd-5d5dfe00e2db&shop_type=vaginal_infection_test_sub"
+                            }
+                          ],
+                          self_care: [
+                            {
+                              title:
+                                "\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f ",
+                              text: "\u0647\u0631 \u0633\u0648\u0627\u0644\u06cc \u0631\u0627\u062c\u0639 \u0628\u0647 \u0633\u0644\u0627\u0645\u062a \u0648\u0627\u0698\u0646 \u062f\u0627\u0631\u06cc\u060c \u0645\u06cc\u062a\u0648\u0646\u06cc \u0627\u0632 \u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f \u0644\u06cc\u0648\u0645 \u0628\u067e\u0631\u0633\u06cc!",
+                              action:
+                                "#inAppWebView**@@**\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f **@@**https://tools.liom.app/chat-bot/?origin_user_id=5916daaf-e7b3-44e9-85bd-5d5dfe00e2db&topic=vagenCare&inApp=true&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0ZTViZjI5LWUwODQtNDEwMS1iYTFjLTMxNTk0MDRjMGM1NiIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzYyMjQ2NTE0fQ.aOxkInQ2NB6pDPRhXHFRL4NEO7YYYZPjXHIh4GyOGhU&lang=fa&selectStep=0&userId=5916daaf-e7b3-44e9-85bd-5d5dfe00e2db",
+                              btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                              btn_textV2: "",
+                              style: "rectangle",
+                              image:
+                                "https://teh-1.s3.poshtiban.com/liom/config/self_care/chatBot.png",
+                              isPremium: false,
+                              isNew: false
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    other: [
                       {
                         title:
-                          "\u0631\u0648\u062a\u06cc\u0646 \u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u067e\u0648\u0633\u062a",
-                        text: "\u0628\u0627 \u0627\u0646\u062c\u0627\u0645 \u0627\u06cc\u0646 \u0628\u0631\u0646\u0627\u0645\u0647 \u0648 \u0645\u0631\u0627\u062d\u0644 \u06af\u0641\u062a\u0647\u200c\u0634\u062f\u0647\u060c \u06a9\u0647 \u0628\u0631 \u0627\u0633\u0627\u0633 \u062f\u0648\u0631\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc\u062a \u0637\u0631\u0627\u062d\u06cc \u0634\u062f\u0647\u060c \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0627\u0632 \u067e\u0648\u0633\u062a\u062a \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc \u0648 \u067e\u0648\u0633\u062a\u06cc \u0634\u0627\u062f\u0627\u0628 \u0648 \u062c\u0648\u0627\u0646 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc.",
-                        action: "#directDialog-skin_care_sub",
-                        btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
+                          "\u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u067e\u0631\u06cc\u0648\u062f \u0628\u0647 \u062e\u0648\u062f\u062a",
+                        text: "\u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u0647\u0627 \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u0627\u0646\u062c\u0627\u0645 \u0645\u06cc\u0634\u0647 \u062a\u0627 \u0627\u06cc\u0646\u0628\u0627\u0631 \u062e\u0648\u062f\u062a \u0645\u0631\u0627\u0642\u0628 \u062e\u0648\u062f\u062a \u0628\u0627\u0634\u06cc \u0648 \u0686\u06cc\u0632\u06cc \u0631\u0648 \u0641\u0631\u0627\u0645\u0648\u0634 \u0646\u06a9\u0646\u06cc",
+                        action:
+                          "#inAppWebView**@@**\u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0628\u0647 \u062e\u0648\u062f\u062a**@@**https://apps.liom.app/self-sms-page/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0ZTViZjI5LWUwODQtNDEwMS1iYTFjLTMxNTk0MDRjMGM1NiIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzYyMjQ2NTE0fQ.aOxkInQ2NB6pDPRhXHFRL4NEO7YYYZPjXHIh4GyOGhU&lang=fa&userId=5916daaf-e7b3-44e9-85bd-5d5dfe00e2db&inApp=true",
+                        image:
+                          "https://teh-1.s3.poshtiban.com/liom/config/self_care/selfSms.png",
+                        btn_text:
+                          "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc",
                         btn_textV2: "",
                         style: "rectangle",
-                        image:
-                          "https://liom.storage.c2.liara.space/config/self_care/skin_care.png",
+                        text_color: "#F8EDFF",
+                        backgorund_color1: "#8254C6",
+                        backgorund_color2: "",
                         isPremium: true,
-                        isNew: true,
-                        checkSub: true,
-                        subName: "skinCareIsActive",
-                        shopLink: "#directDialog-skin_care_sub",
-                        linkType: "skinCare"
+                        isNew: false,
+                        linkType: "selfSms"
                       },
                       {
                         title:
-                          "\u067e\u06cc\u0634\u06af\u06cc\u0631\u06cc \u062a\u0631\u06a9 \u067e\u0648\u0633\u062a\u06cc \u062f\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
-                        text: " \u0628\u0627 \u0627\u0646\u062c\u0627\u0645 \u0627\u06cc\u0646 \u0628\u0631\u0646\u0627\u0645\u0647 \u0648 \u0645\u0631\u0627\u062d\u0644 \u06af\u0641\u062a\u0647\u200c\u0634\u062f\u0647\u060c \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0627\u0632 \u0627\u06cc\u062c\u0627\u062f \u062a\u0631\u06a9\u200c\u0647\u0627\u06cc \u067e\u0648\u0633\u062a\u06cc \u062d\u06cc\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u06a9\u0646\u06cc.",
-                        action: "#directDialog-stretch_marks_sub",
+                          "\u0647\u0645\u06cc\u0627\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc (\u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u0628\u0647 \u0647\u0645\u0633\u0631)",
+                        text: "\u0648\u0642\u062a\u06cc \u0647\u0645\u0633\u0631\u062a \u0627\u0632 \u067e\u0631\u06cc\u0648\u062f\u062a \u0628\u062f\u0648\u0646\u0647\u060c \u0628\u06cc\u0634\u062a\u0631 \u062f\u0631\u06a9\u062a \u0645\u06cc\u06a9\u0646\u0647!",
+                        action: "#hamyarInfo",
+                        image:
+                          "https://teh-1.s3.poshtiban.com/liom/config/self_care/hamyarNew.png",
+                        btn_text: "\u0628\u0632\u0646 \u0628\u0631\u06cc\u0645",
+                        btn_textV2: "",
+                        style: "rectangle",
+                        text_color: "#F8EDFF",
+                        backgorund_color1: "#8254C6",
+                        backgorund_color2: "",
+                        isPremium: false,
+                        isNew: false
+                      },
+                      {
+                        title:
+                          "\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f ",
+                        text: "\u0633\u0648\u0627\u0644\u0627\u062a \u067e\u0632\u0634\u06a9\u06cc \u062e\u0648\u062f\u062a\u0648 \u0627\u06cc\u0646\u062c\u0627 \u0628\u067e\u0631\u0633",
+                        action:
+                          "#inAppWebView**@@**\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f **@@**https://tools.liom.app/chat-bot/?origin_user_id=5916daaf-e7b3-44e9-85bd-5d5dfe00e2db&topic=liomSelfCare&inApp=true&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0ZTViZjI5LWUwODQtNDEwMS1iYTFjLTMxNTk0MDRjMGM1NiIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzYyMjQ2NTE0fQ.aOxkInQ2NB6pDPRhXHFRL4NEO7YYYZPjXHIh4GyOGhU&lang=fa&selectStep=0&userId=5916daaf-e7b3-44e9-85bd-5d5dfe00e2db",
                         btn_text: "\u0634\u0631\u0648\u0639 \u06a9\u0646",
                         btn_textV2: "",
                         style: "rectangle",
                         image:
-                          "https://liom.storage.c2.liara.space/config/self_care/stretch_marks.png",
-                        isPremium: true,
-                        isNew: true,
-                        checkSub: true,
-                        subName: "stretchMarksIsActive",
-                        shopLink: "#directDialog-stretch_marks_sub",
-                        linkType: "stretchMarks"
+                          "https://teh-1.s3.poshtiban.com/liom/config/self_care/chatBot.png",
+                        isPremium: false,
+                        isNew: false
+                      },
+                      {
+                        title: "\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645",
+                        text: "\u062d\u0627\u0644 \u0631\u0648\u0632\u0627\u0646\u0647 \u0627\u062a \u0631\u0648 \u0627\u0632 \u0627\u06cc\u0646\u062c\u0627 \u0628\u0628\u06cc\u0646",
+                        action: "#biorhythm",
+                        image:
+                          "https://teh-1.s3.poshtiban.com/liom/config/self_care/biorhythmNew.png",
+                        btn_text: "\u0628\u0632\u0646 \u0628\u0631\u06cc\u0645",
+                        style: "rectangle",
+                        btn_textV2: "",
+                        text_color: "#D6F5E8",
+                        backgorund_color1: "#00C371",
+                        backgorund_color2: "",
+                        isPremium: false,
+                        isNew: false
+                      },
+                      {
+                        title:
+                          "\u062a\u0646\u0638\u06cc\u0645 \u0627\u0639\u0644\u0627\u0646\u0627\u062a \u0642\u0627\u0639\u062f\u06af\u06cc",
+                        text: "\u0645\u0634\u062e\u0635 \u06a9\u0646 \u0686\u0647 \u0645\u0648\u0636\u0648\u0639\u0627\u062a\u06cc \u0631\u0648 \u0628\u0631\u0627\u062a \u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u06a9\u0646\u06cc\u0645",
+                        action: "#notifSettings",
+                        image:
+                          "https://teh-1.s3.poshtiban.com/liom/icon_notification.png",
+                        btn_text: "\u0628\u0632\u0646 \u0628\u0631\u06cc\u0645",
+                        btn_textV2: "",
+                        style: "rectangle",
+                        text_color: "#D6EFFF",
+                        backgorund_color1: "#3F9DEC",
+                        backgorund_color2: "",
+                        isPremium: false,
+                        isNew: false
                       }
-                    ],
-                    self_care: []
+                    ]
                   }
                 };
               }
@@ -1097,7 +1746,7 @@ function PlasmicSubItems__RenderFunc(props: {
                         onClick={async event => {
                           const $steps = {};
 
-                          $steps["invokeGlobalAction2"] = false
+                          $steps["invokeGlobalAction2"] = currentItem.linkType
                             ? (() => {
                                 const actionArgs = {
                                   args: [
@@ -1138,40 +1787,15 @@ function PlasmicSubItems__RenderFunc(props: {
                               await $steps["invokeGlobalAction2"];
                           }
 
-                          $steps["runCode2"] = currentItem.shopLink
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return (() => {
-                                      $state.shop =
-                                        currentItem.shopLink.split(
-                                          "directDialog-"
-                                        )[1];
-                                      return ($state.actionShop =
-                                        currentItem.action);
-                                    })();
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["runCode2"] != null &&
-                            typeof $steps["runCode2"] === "object" &&
-                            typeof $steps["runCode2"].then === "function"
-                          ) {
-                            $steps["runCode2"] = await $steps["runCode2"];
-                          }
-
-                          $steps["invokeGlobalAction"] = true
+                          $steps["invokeGlobalAction"] = $steps
+                            .invokeGlobalAction2?.data?.result?.link
                             ? (() => {
                                 const actionArgs = {
                                   args: [
                                     (() => {
                                       try {
-                                        return currentItem.action;
+                                        return $steps.invokeGlobalAction2?.data
+                                          ?.result?.link;
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
@@ -1186,27 +1810,6 @@ function PlasmicSubItems__RenderFunc(props: {
                                     (() => {
                                       try {
                                         return $state.token;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })(),
-                                    undefined,
-                                    "false",
-                                    undefined,
-                                    true,
-                                    (() => {
-                                      try {
-                                        return {
-                                          "home-page":
-                                            "https://apps.liom.app/subItems/"
-                                        };
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
@@ -1235,34 +1838,131 @@ function PlasmicSubItems__RenderFunc(props: {
                               await $steps["invokeGlobalAction"];
                           }
 
-                          $steps["updateNumber2"] = currentItem.action.includes(
-                            "directDialog"
-                          )
+                          $steps["runCode2"] = currentItem.shopLink
                             ? (() => {
                                 const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["directDialog2", "open"]
-                                  },
-                                  operation: 0,
-                                  value: true
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
+                                  customFunction: async () => {
+                                    return (() => {
+                                      $state.shop =
+                                        currentItem.shopLink.split(
+                                          "directDialog-"
+                                        )[1];
+                                      return ($state.actionShop =
+                                        currentItem.action);
+                                    })();
                                   }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
                                 })?.apply(null, [actionArgs]);
                               })()
                             : undefined;
+                          if (
+                            $steps["runCode2"] != null &&
+                            typeof $steps["runCode2"] === "object" &&
+                            typeof $steps["runCode2"].then === "function"
+                          ) {
+                            $steps["runCode2"] = await $steps["runCode2"];
+                          }
+
+                          $steps["action"] =
+                            !currentItem.linkType &&
+                            !$steps.invokeGlobalAction2?.data?.result?.link
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      (() => {
+                                        try {
+                                          return currentItem.action;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                      (() => {
+                                        try {
+                                          return $state.token;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                      undefined,
+                                      "false",
+                                      undefined,
+                                      true,
+                                      (() => {
+                                        try {
+                                          return {
+                                            "home-page":
+                                              "https://apps.liom.app/subItems/"
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.deepLink"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["action"] != null &&
+                            typeof $steps["action"] === "object" &&
+                            typeof $steps["action"].then === "function"
+                          ) {
+                            $steps["action"] = await $steps["action"];
+                          }
+
+                          $steps["updateNumber2"] =
+                            currentItem.action.includes("directDialog") &&
+                            !$steps.invokeGlobalAction2?.data?.result?.link
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["directDialog2", "open"]
+                                    },
+                                    operation: 0,
+                                    value: true
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
                           if (
                             $steps["updateNumber2"] != null &&
                             typeof $steps["updateNumber2"] === "object" &&

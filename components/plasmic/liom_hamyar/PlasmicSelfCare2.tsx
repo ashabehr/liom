@@ -174,8 +174,7 @@ function PlasmicSelfCare2__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0ZTViZjI5LWUwODQtNDEwMS1iYTFjLTMxNTk0MDRjMGM1NiIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzYyMjQ2NTA5fQ.kJdVbhPzfRCaUAH1jqKaaC-iIJhTCPPunlMaLhXxa2"
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "relation",
@@ -352,7 +351,7 @@ function PlasmicSelfCare2__RenderFunc(props: {
         onMount={async () => {
           const $steps = {};
 
-          $steps["params"] = false
+          $steps["params"] = true
             ? (() => {
                 const actionArgs = {
                   customFunction: async () => {
@@ -378,7 +377,7 @@ function PlasmicSelfCare2__RenderFunc(props: {
             $steps["params"] = await $steps["params"];
           }
 
-          $steps["clearParams"] = false
+          $steps["clearParams"] = true
             ? (() => {
                 const actionArgs = {
                   customFunction: async () => {
@@ -407,7 +406,7 @@ function PlasmicSelfCare2__RenderFunc(props: {
             $steps["clearParams"] = await $steps["clearParams"];
           }
 
-          $steps["setCookie"] = false
+          $steps["setCookie"] = true
             ? (() => {
                 const actionArgs = {
                   customFunction: async () => {
@@ -447,7 +446,7 @@ function PlasmicSelfCare2__RenderFunc(props: {
             $steps["setCookie"] = await $steps["setCookie"];
           }
 
-          $steps["getCookie"] = false
+          $steps["getCookie"] = true
             ? (() => {
                 const actionArgs = {
                   customFunction: async () => {

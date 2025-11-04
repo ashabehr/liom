@@ -687,6 +687,12 @@ function PlasmicCustomShop__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "order",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "all"
       }
     ],
     [$props, $ctx, $refs]
@@ -936,25 +942,31 @@ function PlasmicCustomShop__RenderFunc(props: {
                         const actionArgs = {
                           customFunction: async () => {
                             return (() => {
+                              var a =
+                                $state.getData.data.result.selectedTypes.split(
+                                  "-"
+                                );
                               return ($state.getData.data.result.list =
                                 $state.getData.data.result.list.map(
                                   currentItem => {
                                     const updatedData = currentItem.data.map(
                                       i => {
+                                        let shop = null;
                                         if (i.items.length === 1) {
-                                          return {
-                                            ...i,
-                                            shop: i.items[0]
-                                          };
+                                          shop = i.items[0];
                                         } else {
-                                          const selectedItem = i.items.find(
-                                            x => x.selected === 1
-                                          );
-                                          return {
-                                            ...i,
-                                            shop: selectedItem || null
-                                          };
+                                          shop =
+                                            i.items.find(
+                                              x => x.selected === 1
+                                            ) || null;
                                         }
+                                        if (a.includes(i.type) && shop) {
+                                          $state.itemSelect.push(shop.id);
+                                        }
+                                        return {
+                                          ...i,
+                                          shop
+                                        };
                                       }
                                     );
                                     return {
@@ -983,7 +995,7 @@ function PlasmicCustomShop__RenderFunc(props: {
               params={(() => {
                 try {
                   return {
-                    order: "",
+                    order: $state.order || "",
                     authorization: $state.token
                   };
                 } catch (e) {
@@ -4119,9 +4131,10 @@ function PlasmicCustomShop__RenderFunc(props: {
                           }
                           return "";
                         };
-                        return $state.paramsObject.token
+                        $state.paramsObject.token
                           ? ($state.token = $state.paramsObject.token)
                           : ($state.token = getCookie("token"));
+                        return ($state.order = $state.paramsObject.order);
                       })();
                     }
                   };
