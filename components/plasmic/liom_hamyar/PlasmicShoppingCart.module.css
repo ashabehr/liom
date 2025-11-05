@@ -196,8 +196,9 @@
   padding: var(--token-O5TjkXII_aat) 0px;
 }
 .customItem__dtEiw:global(.__wab_instance) {
-  width: 40%;
+  width: 200px;
   height: auto;
+  flex-shrink: 0;
 }
 .freeBox__zat20 {
   display: flex;

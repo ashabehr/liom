@@ -1207,11 +1207,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                     label: "پیامک",
                     value: "sms",
                     paid: true
-                  },
-                  {
-                    label: "تماس",
-                    value: "call",
-                    paid: true
                   }
                 ];
 
@@ -5706,9 +5701,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   sty.text___9HquP
                 )}
               >
-                {
-                  " \u067e\u06cc\u0627\u0645\u06a9 \u0648 \u062a\u0645\u0627\u0633"
-                }
+                {" \u067e\u06cc\u0627\u0645\u06a9 "}
               </div>
             </div>
             <div
