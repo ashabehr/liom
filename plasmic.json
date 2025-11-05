@@ -7298,6 +7298,11 @@
           "id": "lTbnpPc1LzW6",
           "name": "Icon371Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon371.tsx"
+        },
+        {
+          "id": "Wg9KoT29yh50",
+          "name": "Icon372Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon372.tsx"
         }
       ],
       "images": [

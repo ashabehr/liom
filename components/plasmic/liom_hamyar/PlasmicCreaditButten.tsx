@@ -70,7 +70,7 @@ import sty from "./PlasmicCreaditButten.module.css"; // plasmic-import: 1skTNuQS
 
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
-import Icon361Icon from "./icons/PlasmicIcon__Icon361"; // plasmic-import: F0dcdZJwtgLB/icon
+import Icon372Icon from "./icons/PlasmicIcon__Icon372"; // plasmic-import: Wg9KoT29yh50/icon
 
 createPlasmicElementProxy;
 
@@ -364,7 +364,7 @@ function PlasmicCreaditButten__RenderFunc(props: {
         >
           {"Button"}
         </div>
-        <Icon361Icon
+        <Icon372Icon
           className={classNames(projectcss.all, sty.svg__xXrFq)}
           role={"img"}
         />

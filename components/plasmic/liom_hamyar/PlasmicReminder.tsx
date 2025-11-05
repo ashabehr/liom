@@ -4672,67 +4672,50 @@ function PlasmicReminder__RenderFunc(props: {
           })()}
         />
       </div>
-      {(
-        hasVariant(globalVariants, "screen", "mobile")
-          ? true
-          : (() => {
-              try {
-                return $props.manId == "1";
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
-                }
-                throw e;
-              }
-            })()
-      ) ? (
-        <CreaditButten
-          data-plasmic-name={"creaditButten"}
-          data-plasmic-override={overrides.creaditButten}
-          className={classNames("__wab_instance", sty.creaditButten)}
-          creadit={generateStateValueProp($state, ["creaditButten", "creadit"])}
-          onClick={async event => {
-            const $steps = {};
+      <CreaditButten
+        data-plasmic-name={"creaditButten"}
+        data-plasmic-override={overrides.creaditButten}
+        className={classNames("__wab_instance", sty.creaditButten)}
+        creadit={generateStateValueProp($state, ["creaditButten", "creadit"])}
+        onClick={async event => {
+          const $steps = {};
 
-            $steps["runCode"] = true
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return window.open("/mojod/home/", "_self");
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["runCode"] != null &&
-              typeof $steps["runCode"] === "object" &&
-              typeof $steps["runCode"].then === "function"
-            ) {
-              $steps["runCode"] = await $steps["runCode"];
-            }
-          }}
-          onCreaditChange2={async (...eventArgs: any) => {
-            generateStateOnChangeProp($state, [
-              "creaditButten",
-              "creadit"
-            ]).apply(null, eventArgs);
+          $steps["runCode"] = true
+            ? (() => {
+                const actionArgs = {
+                  customFunction: async () => {
+                    return window.open("/mojod/home/", "_self");
+                  }
+                };
+                return (({ customFunction }) => {
+                  return customFunction();
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["runCode"] != null &&
+            typeof $steps["runCode"] === "object" &&
+            typeof $steps["runCode"].then === "function"
+          ) {
+            $steps["runCode"] = await $steps["runCode"];
+          }
+        }}
+        onCreaditChange2={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["creaditButten", "creadit"]).apply(
+            null,
+            eventArgs
+          );
 
-            if (
-              eventArgs.length > 1 &&
-              eventArgs[1] &&
-              eventArgs[1]._plasmic_state_init_
-            ) {
-              return;
-            }
-          }}
-        />
-      ) : null}
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+      />
+
       <ApiRequest
         data-plasmic-name={"wallet"}
         data-plasmic-override={overrides.wallet}

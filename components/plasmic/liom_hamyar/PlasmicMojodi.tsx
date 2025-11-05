@@ -169,6 +169,8 @@ function PlasmicMojodi__RenderFunc(props: {
 
   const globalVariants = _useGlobalVariants();
 
+  const $globalActions = useGlobalActions?.();
+
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
@@ -996,11 +998,17 @@ function PlasmicMojodi__RenderFunc(props: {
               </div>
               <div className={classNames(projectcss.all, sty.freeBox___1ZVcl)}>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__nZ7YP)}
+                  className={classNames(projectcss.all, sty.freeBox__nZ7YP, {
+                    [sty.freeBoxpage_report__nZ7YPtxlqB]: hasVariant(
+                      $state,
+                      "page",
+                      "report"
+                    )
+                  })}
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["runCode"] = false
+                    $steps["runCode"] = true
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
@@ -1020,7 +1028,7 @@ function PlasmicMojodi__RenderFunc(props: {
                       $steps["runCode"] = await $steps["runCode"];
                     }
 
-                    $steps["goToMojodi"] = true
+                    $steps["goToMojodi"] = false
                       ? (() => {
                           const actionArgs = {
                             destination: `/mojod/${"home"}#${"shop"}`
@@ -1046,10 +1054,40 @@ function PlasmicMojodi__RenderFunc(props: {
                     ) {
                       $steps["goToMojodi"] = await $steps["goToMojodi"];
                     }
+
+                    $steps["invokeGlobalAction"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              "custom",
+                              "\u0627\u06cc\u0646 \u06af\u0632\u06cc\u0646\u0647 \u0628\u0647 \u0632\u0648\u062f\u06cc \u0641\u0639\u0627\u0644 \u0645\u06cc \u0634\u0648\u062f.",
+                              "bottom-center"
+                            ]
+                          };
+                          return $globalActions["Fragment.showToast"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction"] != null &&
+                      typeof $steps["invokeGlobalAction"] === "object" &&
+                      typeof $steps["invokeGlobalAction"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
+                    }
                   }}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__zbaKg)}
+                    className={classNames(projectcss.all, sty.freeBox__zbaKg, {
+                      [sty.freeBoxpage_report__zbaKGtxlqB]: hasVariant(
+                        $state,
+                        "page",
+                        "report"
+                      )
+                    })}
                   >
                     <Icon364Icon
                       className={classNames(projectcss.all, sty.svg__o5LF4)}
@@ -1157,6 +1195,11 @@ function PlasmicMojodi__RenderFunc(props: {
                     $state,
                     "full2",
                     "full2"
+                  ),
+                  [sty.freeBoxpage_report___8JsV3TxlqB]: hasVariant(
+                    $state,
+                    "page",
+                    "report"
                   )
                 }
               )}
