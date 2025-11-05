@@ -5686,10 +5686,10 @@ function PlasmicReminderSetting__RenderFunc(props: {
               }
               loading={"lazy"}
               src={{
-                src: "/plasmic/liom_hamyar/images/image120.svg",
-                fullWidth: 34,
-                fullHeight: 34,
-                aspectRatio: 1
+                src: "/plasmic/liom_hamyar/images/image122.svg",
+                fullWidth: 660,
+                fullHeight: 462,
+                aspectRatio: 1.428571
               }}
             />
 
