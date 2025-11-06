@@ -1376,7 +1376,7 @@
   position: fixed;
   top: var(--token-uOLZE7OyOW-J);
   left: var(--token-uOLZE7OyOW-J);
-  z-index: 1000;
+  z-index: 10000;
   right: auto;
 }
 .wallet:global(.__wab_instance) {

@@ -4936,6 +4936,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicShoppingCart.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "gmdZmHDhwt9V",
+          "name": "Report2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicReport2.tsx",
+          "importSpec": {
+            "modulePath": "Report2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicReport2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -7303,6 +7316,11 @@
           "id": "Wg9KoT29yh50",
           "name": "Icon372Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon372.tsx"
+        },
+        {
+          "id": "ldJvSvgXiwYU",
+          "name": "Icon373Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon373.tsx"
         }
       ],
       "images": [

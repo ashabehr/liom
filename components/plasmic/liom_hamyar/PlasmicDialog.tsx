@@ -85,10 +85,16 @@ import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 
 createPlasmicElementProxy;
 
-export type PlasmicDialog__VariantMembers = {};
-export type PlasmicDialog__VariantsArgs = {};
+export type PlasmicDialog__VariantMembers = {
+  fullpage: "fullpage";
+};
+export type PlasmicDialog__VariantsArgs = {
+  fullpage?: SingleBooleanChoiceArg<"fullpage">;
+};
 type VariantPropType = keyof PlasmicDialog__VariantsArgs;
-export const PlasmicDialog__VariantProps = new Array<VariantPropType>();
+export const PlasmicDialog__VariantProps = new Array<VariantPropType>(
+  "fullpage"
+);
 
 export type PlasmicDialog__ArgsType = {
   children?: React.ReactNode;
@@ -115,6 +121,7 @@ export interface DefaultDialogProps {
   children?: React.ReactNode;
   opendialog?: boolean;
   onOpendialogChange?: (val: string) => void;
+  fullpage?: SingleBooleanChoiceArg<"fullpage">;
   className?: string;
 }
 
@@ -207,6 +214,12 @@ function PlasmicDialog__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "fullpage",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.fullpage
       }
     ],
     [$props, $ctx, $refs]
@@ -232,7 +245,8 @@ function PlasmicDialog__RenderFunc(props: {
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
         styleTokensClassNames,
-        sty.dialog3
+        sty.dialog3,
+        { [sty.dialog3fullpage]: hasVariant($state, "fullpage", "fullpage") }
       )}
       defaultOpen={(() => {
         try {
@@ -289,6 +303,7 @@ function PlasmicDialog__RenderFunc(props: {
       open={generateStateValueProp($state, ["dialog3", "open"])}
       overlayClassName={classNames({
         [sty["pcls_V4A9RdtGsbrj"]]: true,
+        [sty["pcls_lU8IdxovuiNH"]]: hasVariant($state, "fullpage", "fullpage"),
         [sty["pcls_xvwCuFcE7CwJ"]]: hasVariant(
           globalVariants,
           "screen",
@@ -373,7 +388,13 @@ function PlasmicDialog__RenderFunc(props: {
       <DialogContent
         data-plasmic-name={"dialogContent"}
         data-plasmic-override={overrides.dialogContent}
-        className={classNames("__wab_instance", sty.dialogContent)}
+        className={classNames("__wab_instance", sty.dialogContent, {
+          [sty.dialogContentfullpage]: hasVariant(
+            $state,
+            "fullpage",
+            "fullpage"
+          )
+        })}
         enterAnimations={
           hasVariant(globalVariants, "screen", "mobile")
             ? ["slide-in-from-bottom"]

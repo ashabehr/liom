@@ -360,7 +360,7 @@ function PlasmicShoppingCart__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return window.encodeURIComponent(window.document.referrer);
+              return window.document.referrer;
             } catch (e) {
               if (
                 e instanceof TypeError ||

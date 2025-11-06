@@ -75,6 +75,13 @@
     border-radius: 16px 16px 0px 0px;
   }
 }
+.dialogContentfullpage:global(.__wab_instance) {
+  min-width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  background: #f8f8f8;
+  border-radius: 0px;
+}
 .dialogTitle:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
