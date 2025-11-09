@@ -2469,7 +2469,7 @@
   flex-wrap: nowrap;
   align-content: stretch;
   min-width: 0;
-  padding: 3rem 0px 0px;
+  padding: var(--token-O5TjkXII_aat) 0px 0px;
 }
 .freeBox__djkJy {
   display: flex;

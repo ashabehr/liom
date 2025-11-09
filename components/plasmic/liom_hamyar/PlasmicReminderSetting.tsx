@@ -2006,7 +2006,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
             ? true
             : (() => {
                 try {
-                  return $state.dialog.opendialog;
+                  return $state.steps23.currentStep == 1;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -13505,7 +13505,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       dates: $state.pageSelect.date
                         ? JSON.stringify([$state.pageSelect.date])
                         : "[]",
-                      channels: '["notification","telegram"]',
+                      channels: '["notification"]',
                       times: "[]",
                       weekdays:
                         $state.pageSelect.schedule_type == "everyDay"

@@ -91,6 +91,8 @@ export type PlasmicAddReminder__OverridesType = {
   freeBox?: Flex__<"div">;
   svg?: Flex__<"svg">;
   reminderSetting?: Flex__<typeof ReminderSetting>;
+  img?: Flex__<typeof PlasmicImg__>;
+  text?: Flex__<"div">;
 };
 
 export interface DefaultAddReminderProps {}
@@ -540,7 +542,7 @@ function PlasmicAddReminder__RenderFunc(props: {
         path: "loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "reminderSetting.creaditButtenCreadit",
@@ -1049,7 +1051,62 @@ function PlasmicAddReminder__RenderFunc(props: {
                 throw e;
               }
             })()}
-          />
+          >
+            <PlasmicImg__
+              data-plasmic-name={"img"}
+              data-plasmic-override={overrides.img}
+              alt={""}
+              className={classNames(sty.img)}
+              displayHeight={"auto"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={
+                hasVariant(globalVariants, "screen", "mobile") ? "50%" : "30%"
+              }
+              loading={"lazy"}
+              src={{
+                src: "/plasmic/liom_hamyar/images/chatGptImageNov92025035618PmPng.png",
+                fullWidth: 1024,
+                fullHeight: 992,
+                aspectRatio: undefined
+              }}
+            />
+
+            <div
+              data-plasmic-name={"text"}
+              data-plasmic-override={overrides.text}
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text
+              )}
+            >
+              <div
+                className={projectcss.__wab_expr_html_text}
+                dangerouslySetInnerHTML={{
+                  __html: (() => {
+                    try {
+                      return `<p>
+  روزانه <strong style="color: #007BFF;">۸ لیوان آب</strong> بدن رو سالم و شاداب نگه می‌داره.<br>
+  <strong style="color: #007BFF;">یادآور آب</strong> رو تنظیم کن تا هیچ وقت فراموش نکنی!
+</p>
+`;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "";
+                      }
+                      throw e;
+                    }
+                  })()
+                }}
+              />
+            </div>
+          </ReminderSetting>
         </div>
       </div>
     </React.Fragment>
@@ -1057,11 +1114,21 @@ function PlasmicAddReminder__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "apiRequest", "freeBox", "svg", "reminderSetting"],
+  root: [
+    "root",
+    "apiRequest",
+    "freeBox",
+    "svg",
+    "reminderSetting",
+    "img",
+    "text"
+  ],
   apiRequest: ["apiRequest"],
   freeBox: ["freeBox", "svg"],
   svg: ["svg"],
-  reminderSetting: ["reminderSetting"]
+  reminderSetting: ["reminderSetting", "img", "text"],
+  img: ["img"],
+  text: ["text"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1072,6 +1139,8 @@ type NodeDefaultElementType = {
   freeBox: "div";
   svg: "svg";
   reminderSetting: typeof ReminderSetting;
+  img: typeof PlasmicImg__;
+  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1165,6 +1234,8 @@ export const PlasmicAddReminder = Object.assign(
     freeBox: makeNodeComponent("freeBox"),
     svg: makeNodeComponent("svg"),
     reminderSetting: makeNodeComponent("reminderSetting"),
+    img: makeNodeComponent("img"),
+    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicAddReminder
     internalVariantProps: PlasmicAddReminder__VariantProps,
