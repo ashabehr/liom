@@ -79,7 +79,7 @@
   min-width: 100vw;
   height: 100vh;
   max-height: 100vh;
-  background: #f8f8f8;
+  background: var(--token-R_Rsn0nP9oIv);
   border-radius: 0px;
 }
 .dialogTitle:global(.__wab_instance) {

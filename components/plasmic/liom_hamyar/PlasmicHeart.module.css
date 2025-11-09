@@ -27,8 +27,4 @@
 .root:hover .svg {
   transform: scale3d(1.2, 1.2, 1);
   color: var(--token-4RAe7M2gInqR);
-  transform-style: preserve-3d;
-}
-.root:hover .svg * {
-  transform-style: preserve-3d;
 }

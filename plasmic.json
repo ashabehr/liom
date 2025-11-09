@@ -4949,6 +4949,45 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicReport2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "vKRq0RilbYHc",
+          "name": "ReportItem",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicReportItem.tsx",
+          "importSpec": {
+            "modulePath": "ReportItem.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicReportItem.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "-WmKiY4f9MTC",
+          "name": "Steps2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSteps2.tsx",
+          "importSpec": {
+            "modulePath": "Steps2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSteps2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "XLDCHdHoFMEy",
+          "name": "Stepicon",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicStepicon.tsx",
+          "importSpec": {
+            "modulePath": "Stepicon.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicStepicon.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -8329,6 +8368,12 @@
         "name": "UnnamedGlobalGroupOfVariants7",
         "projectId": "suVPi77vb6vv9K5rYJwyxC",
         "contextFilePath": "plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants7.tsx"
+      },
+      {
+        "id": "yGsbvwKzor3A",
+        "name": "UnnamedGlobalGroupOfVariants8",
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "contextFilePath": "plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants8.tsx"
       }
     ]
   },

@@ -1563,15 +1563,11 @@
   width: 15px;
   transform: none;
   height: 15px;
-  transform-style: preserve-3d;
   flex-shrink: 0;
   margin: 0px;
 }
 .img__xhAvu > picture > img {
   object-fit: cover;
-}
-.img__xhAvu * {
-  transform-style: preserve-3d;
 }
 .img__mRCxi {
   object-fit: cover;
@@ -1602,14 +1598,10 @@
   width: 15px;
   transform: scale3d(-1, 1, 1);
   height: 15px;
-  transform-style: preserve-3d;
   margin: -20px 0px 0px;
 }
 .img__eBsyD > picture > img {
   object-fit: cover;
-}
-.img__eBsyD * {
-  transform-style: preserve-3d;
 }
 .img___4R17Y {
   object-fit: cover;

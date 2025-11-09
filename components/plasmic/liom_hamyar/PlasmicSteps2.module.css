@@ -1,0 +1,107 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+}
+.freeBox__utCix {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  column-gap: var(--token-O5TjkXII_aat);
+  min-width: 0;
+  padding: var(--token-O5TjkXII_aat) 0px;
+}
+.freeBox__jh8UK {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  transition-property: all;
+  transition-duration: 5s;
+  transition-timing-function: ease-in-out;
+  column-gap: var(--token-O5TjkXII_aat);
+  min-width: 0;
+  -webkit-transition-property: all;
+  -webkit-transition-timing-function: ease-in-out;
+  -webkit-transition-duration: 5s;
+  padding: 0px;
+}
+.freeBox__hqfi0 {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: var(--token-O5TjkXII_aat);
+  padding: 0px;
+}
+.stepicon:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .stepicon:global(.__wab_instance) {
+    flex-shrink: 0;
+  }
+}
+.text__iJcV4 {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  font-size: var(--token-Wa5tmrNKVUYF);
+  white-space: pre;
+  color: var(--token-DFwge94Hey3F);
+}
+.freeBox__dNe5R {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  column-gap: var(--token-uOLZE7OyOW-J);
+  min-height: 15px;
+  min-width: 0;
+  padding: 0px;
+}
+.text__zxqvd {
+  width: 100%;
+  height: 14px;
+  max-width: 100%;
+  text-align: right;
+  font-size: var(--token-Wa5tmrNKVUYF);
+  border-bottom-width: 2px;
+  border-bottom-style: dashed;
+  min-width: 0;
+}
+.freeBox__jsh8E {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 0px;
+}

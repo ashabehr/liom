@@ -284,7 +284,10 @@ function PlasmicCustomItem__RenderFunc(props: {
             $state,
             "verticalBox",
             "verticalBox"
-          )
+          ),
+          [sty.rootverticalBox_shopBox]:
+            hasVariant($state, "shopBox", "shopBox") &&
+            hasVariant($state, "verticalBox", "verticalBox")
         }
       )}
       onClick={args.onClick}

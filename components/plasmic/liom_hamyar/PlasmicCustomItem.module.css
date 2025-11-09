@@ -256,13 +256,9 @@
   border-bottom-width: 0px;
   border-left-width: 0px;
   transform: rotate3d(0, 0, 1, -10deg);
-  transform-style: preserve-3d;
   padding: 0px;
   border-style: solid;
   border-color: var(--token-ANZoaQ584ilJ);
-}
-.freeBox___6UhE0 * {
-  transform-style: preserve-3d;
 }
 .text__kEoQf {
   width: auto;

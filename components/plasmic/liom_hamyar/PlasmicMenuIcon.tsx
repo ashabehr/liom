@@ -145,7 +145,7 @@ export type PlasmicMenuIcon__VariantMembers = {
     | "sms"
     | "notif"
     | "telegram";
-  color: "waite" | "blue" | "green" | "warning" | "fuchsia";
+  color: "waite" | "blue" | "green" | "warning" | "fuchsia" | "p" | "iconColor";
   size: "_25";
   outline: "outline";
   mono: "mono";
@@ -192,7 +192,9 @@ export type PlasmicMenuIcon__VariantsArgs = {
     | "notif"
     | "telegram"
   >;
-  color?: SingleChoiceArg<"waite" | "blue" | "green" | "warning" | "fuchsia">;
+  color?: SingleChoiceArg<
+    "waite" | "blue" | "green" | "warning" | "fuchsia" | "p" | "iconColor"
+  >;
   size?: SingleChoiceArg<"_25">;
   outline?: SingleBooleanChoiceArg<"outline">;
   mono?: SingleBooleanChoiceArg<"mono">;
@@ -257,7 +259,9 @@ export interface DefaultMenuIconProps {
     | "notif"
     | "telegram"
   >;
-  color?: SingleChoiceArg<"waite" | "blue" | "green" | "warning" | "fuchsia">;
+  color?: SingleChoiceArg<
+    "waite" | "blue" | "green" | "warning" | "fuchsia" | "p" | "iconColor"
+  >;
   size?: SingleChoiceArg<"_25">;
   outline?: SingleBooleanChoiceArg<"outline">;
   mono?: SingleBooleanChoiceArg<"mono">;
@@ -571,6 +575,8 @@ function PlasmicMenuIcon__RenderFunc(props: {
           [sty.rootcolor_blue]: hasVariant($state, "color", "blue"),
           [sty.rootcolor_fuchsia]: hasVariant($state, "color", "fuchsia"),
           [sty.rootcolor_green]: hasVariant($state, "color", "green"),
+          [sty.rootcolor_iconColor]: hasVariant($state, "color", "iconColor"),
+          [sty.rootcolor_p]: hasVariant($state, "color", "p"),
           [sty.rootcolor_waite]: hasVariant($state, "color", "waite"),
           [sty.rootcolor_warning]: hasVariant($state, "color", "warning"),
           [sty.rooticons_alert]: hasVariant($state, "icons", "alert"),

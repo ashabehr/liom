@@ -25,7 +25,7 @@
   --plasmic-token-border-gray-light-dark: var(--token-d0xmvBfBUlz_);
   --token-DFwge94Hey3F: var(--token-aPMgnD4sVFAM);
   --plasmic-token-task-text: var(--token-DFwge94Hey3F);
-  --token-gonRSCNFEy7u: rgb(234, 234, 234);
+  --token-gonRSCNFEy7u: var(--token-MC6PcZje01vY);
   --plasmic-token-task-text-dark: var(--token-gonRSCNFEy7u);
   --token-Tjd5zvqBokaV: rgb(230, 230, 230);
   --plasmic-token-task-text-dim: var(--token-Tjd5zvqBokaV);
@@ -287,6 +287,10 @@
   --plasmic-token-primary-dark: var(--token-IboIm-JRA2_i);
   --token-BdabbwY33dHf: 4px;
   --plasmic-token-unnamed-style-token-4: var(--token-BdabbwY33dHf);
+  --token-HV1yo9ZRBIb5: 1ch;
+  --plasmic-token-unnamed-style-token-5: var(--token-HV1yo9ZRBIb5);
+  --token-E_ENx27PWERe: 14px;
+  --plasmic-token-unnamed-style-token-6: var(--token-E_ENx27PWERe);
 }
 
 @media (max-width: 640px) {
@@ -344,6 +348,9 @@
 .plasmic_default_styles:where(.global_newView_newView),
 .plasmic_default_styles:where(
   .global_unnamedGlobalGroupOfVariants7_unnamedVariant
+),
+.plasmic_default_styles:where(
+  .global_unnamedGlobalGroupOfVariants8_unnamedVariant
 ) {
   --mixin-WzkLzR3lM3YC_font-family: "Roboto", sans-serif;
   --mixin-WzkLzR3lM3YC_font-size: 14px;
@@ -477,7 +484,8 @@
 .plasmic_mixins:where(.global_unnamedGlobalGroupOfVariants5_unnamedVariant),
 .plasmic_mixins:where(.global_unnamedGlobalGroupOfVariants6_unnamedVariant),
 .plasmic_mixins:where(.global_newView_newView),
-.plasmic_mixins:where(.global_unnamedGlobalGroupOfVariants7_unnamedVariant) {
+.plasmic_mixins:where(.global_unnamedGlobalGroupOfVariants7_unnamedVariant),
+.plasmic_mixins:where(.global_unnamedGlobalGroupOfVariants8_unnamedVariant) {
   --mixin-T7cKHaMQlWhs_box-shadow: 0px 4px 16px 0px #c0bcbc14;
   --plasmic-mixin-card-shadow_box-shadow: var(--mixin-T7cKHaMQlWhs_box-shadow);
   --mixin-T7cKHaMQlWhs_white-space: pre-wrap;

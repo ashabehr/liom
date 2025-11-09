@@ -1347,14 +1347,10 @@
   max-width: 100%;
   width: 15px;
   transform: scale3d(-1, 1, 1);
-  transform-style: preserve-3d;
   margin: -20px 0px 0px;
 }
 .img___5C4Fb > picture > img {
   object-fit: cover;
-}
-.img___5C4Fb * {
-  transform-style: preserve-3d;
 }
 .img__tgcHt {
   object-fit: cover;
@@ -2460,23 +2456,13 @@
   object-fit: cover;
   width: 120px;
   transform: none;
-  transform-style: preserve-3d;
   flex-shrink: 0;
   margin: 0px;
-}
-.lottie__aroD3 * {
-  transform-style: preserve-3d;
 }
 @media (max-width: 640px) {
   .lottie__aroD3:global(.__wab_instance) {
     transform: none;
-    transform-style: preserve-3d;
     margin: 0px -25px 0px -20px;
-  }
-}
-@media (max-width: 640px) {
-  .lottie__aroD3 * {
-    transform-style: preserve-3d;
   }
 }
 .freeBox__m9FyL {
@@ -2774,14 +2760,10 @@
   max-width: 100%;
   width: 15px;
   transform: scale3d(-1, 1, 1);
-  transform-style: preserve-3d;
   margin: -20px 0px 0px;
 }
 .img___6V53F > picture > img {
   object-fit: cover;
-}
-.img___6V53F * {
-  transform-style: preserve-3d;
 }
 .img__ly5JL {
   object-fit: cover;
@@ -2976,14 +2958,10 @@
   max-width: 100%;
   width: 15px;
   transform: scale3d(-1, 1, 1);
-  transform-style: preserve-3d;
   margin: -20px 0px 0px;
 }
 .img__aSWzm > picture > img {
   object-fit: cover;
-}
-.img__aSWzm * {
-  transform-style: preserve-3d;
 }
 .img___6BFvf {
   object-fit: cover;
@@ -3139,14 +3117,10 @@
   max-width: 100%;
   width: 15px;
   transform: scale3d(-1, 1, 1);
-  transform-style: preserve-3d;
   margin: -20px 0px 0px;
 }
 .img__qoie > picture > img {
   object-fit: cover;
-}
-.img__qoie * {
-  transform-style: preserve-3d;
 }
 .img__a7OB {
   object-fit: cover;
@@ -3270,14 +3244,10 @@
   max-width: 100%;
   width: 15px;
   transform: scale3d(-1, 1, 1);
-  transform-style: preserve-3d;
   margin: -20px 0px 0px;
 }
 .img___8DRp > picture > img {
   object-fit: cover;
-}
-.img___8DRp * {
-  transform-style: preserve-3d;
 }
 .img__onTFg {
   object-fit: cover;
@@ -3530,14 +3500,10 @@
   max-width: 100%;
   width: 15px;
   transform: scale3d(-1, 1, 1);
-  transform-style: preserve-3d;
   margin: -20px 0px 0px;
 }
 .img__sZj8V > picture > img {
   object-fit: cover;
-}
-.img__sZj8V * {
-  transform-style: preserve-3d;
 }
 .img___7P6VO {
   object-fit: cover;
@@ -3659,14 +3625,10 @@
   max-width: 100%;
   width: 15px;
   transform: scale3d(-1, 1, 1);
-  transform-style: preserve-3d;
   margin: -20px 0px 0px;
 }
 .img__lmYbm > picture > img {
   object-fit: cover;
-}
-.img__lmYbm * {
-  transform-style: preserve-3d;
 }
 .img__lZlhV {
   object-fit: cover;

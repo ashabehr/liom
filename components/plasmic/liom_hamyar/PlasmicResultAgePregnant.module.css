@@ -634,14 +634,10 @@
   max-width: 100%;
   width: 15px;
   transform: scale3d(-1, 1, 1);
-  transform-style: preserve-3d;
   margin: -20px 0px 0px;
 }
 .img__fwKQo > picture > img {
   object-fit: cover;
-}
-.img__fwKQo * {
-  transform-style: preserve-3d;
 }
 .img__hvI8Q {
   object-fit: cover;
@@ -795,14 +791,10 @@
   max-width: 100%;
   width: 15px;
   transform: scale3d(-1, 1, 1);
-  transform-style: preserve-3d;
   margin: -20px 0px 0px;
 }
 .img___2P4Bt > picture > img {
   object-fit: cover;
-}
-.img___2P4Bt * {
-  transform-style: preserve-3d;
 }
 .img__tnjFv {
   object-fit: cover;

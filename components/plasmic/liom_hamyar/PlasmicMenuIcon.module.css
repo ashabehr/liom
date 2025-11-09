@@ -40,6 +40,12 @@
 .rootcolor_fuchsia {
   color: var(--token-4yyaCJT6oTu5);
 }
+.rootcolor_p {
+  color: var(--token-qvl81LxkOSoe);
+}
+.rootcolor_iconColor {
+  color: var(--token-AwpLXbw5AmtS);
+}
 .rootsize__25 {
   width: 25px;
   height: 25px;

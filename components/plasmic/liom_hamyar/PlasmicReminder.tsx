@@ -881,6 +881,25 @@ function PlasmicReminder__RenderFunc(props: {
 
         valueProp: "active",
         onChangeProp: "onActiveChange"
+      },
+      {
+        path: "reminderSetting.creaditButtenCreadit",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.balance;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -4057,6 +4076,10 @@ function PlasmicReminder__RenderFunc(props: {
           className={classNames("__wab_instance", sty.reminderSetting, {
             [sty.reminderSettingslide3]: hasVariant($state, "slide3", "slide3")
           })}
+          creaditButtenCreadit={generateStateValueProp($state, [
+            "reminderSetting",
+            "creaditButtenCreadit"
+          ])}
           data={
             hasVariant($state, "slide3", "slide3")
               ? (() => {
@@ -4385,6 +4408,20 @@ function PlasmicReminder__RenderFunc(props: {
               throw e;
             }
           })()}
+          onCreaditButtenCreaditChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, [
+              "reminderSetting",
+              "creaditButtenCreadit"
+            ]).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
           onDialogOpendialog3Change={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, [
               "reminderSetting",

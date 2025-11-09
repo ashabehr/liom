@@ -891,7 +891,9 @@ function PlasmicCustomShop__RenderFunc(props: {
             <ApiRequest
               data-plasmic-name={"getData"}
               data-plasmic-override={overrides.getData}
-              className={classNames("__wab_instance", sty.getData)}
+              className={classNames("__wab_instance", sty.getData, {
+                [sty.getDatasubitem]: hasVariant($state, "subitem", "subitem")
+              })}
               errorDisplay={null}
               loadingDisplay={
                 <div
@@ -3168,7 +3170,15 @@ function PlasmicCustomShop__RenderFunc(props: {
                   )
                 })}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__uj4W7)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__uj4W7, {
+                    [sty.freeBoxsubitem__uj4W7XaiuG]: hasVariant(
+                      $state,
+                      "subitem",
+                      "subitem"
+                    )
+                  })}
+                >
                   <PlasmicImg__
                     data-plasmic-name={"img"}
                     data-plasmic-override={overrides.img}
@@ -3348,7 +3358,15 @@ function PlasmicCustomShop__RenderFunc(props: {
                     </div>
                   </section>
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__lks5I)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__lks5I, {
+                    [sty.freeBoxsubitem__lks5IxaiuG]: hasVariant(
+                      $state,
+                      "subitem",
+                      "subitem"
+                    )
+                  })}
+                >
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
@@ -3371,7 +3389,14 @@ function PlasmicCustomShop__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__wwiV,
-                          "s"
+                          "s",
+                          {
+                            [sty.freeBoxsubitem__wwiVxaiuG]: hasVariant(
+                              $state,
+                              "subitem",
+                              "subitem"
+                            )
+                          }
                         )}
                         id={(() => {
                           try {

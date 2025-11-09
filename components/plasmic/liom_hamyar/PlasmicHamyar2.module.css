@@ -2363,13 +2363,7 @@
     padding-right: 1px;
     column-gap: 16px;
     row-gap: 0px;
-    transform-style: preserve-3d;
     min-height: 0;
-  }
-}
-@media (max-width: 640px) {
-  .freeBox__rOs83 * {
-    transform-style: preserve-3d;
   }
 }
 .harmful2:global(.__wab_instance) {
@@ -3684,12 +3678,6 @@
     position: sticky;
     left: 0px;
     top: 0px;
-    transform-style: preserve-3d;
-  }
-}
-@media (max-width: 640px) {
-  .heart * {
-    transform-style: preserve-3d;
   }
 }
 .text__zmY3J {
@@ -3705,13 +3693,9 @@
   z-index: 1;
   transform: translate3d(20px, 20%, 0px);
   font-size: 18px;
-  transform-style: preserve-3d;
   min-height: 0;
   border-radius: 8px;
   padding: 4px 24px 4px 4px;
-}
-.text__zmY3J * {
-  transform-style: preserve-3d;
 }
 .loading {
   display: flex;

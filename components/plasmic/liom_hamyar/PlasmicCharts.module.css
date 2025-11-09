@@ -71,12 +71,8 @@
   position: absolute;
   left: 0px;
   top: 0px;
-  transform-style: preserve-3d;
   min-width: 0;
   border-width: 1px;
-}
-.svg__oPc6Z * {
-  transform-style: preserve-3d;
 }
 .frame50 {
   width: 100%;

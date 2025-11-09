@@ -2781,6 +2781,26 @@
       }
     },
     {
+      "name": "Unnamed Style Token 5",
+      "type": "spacing",
+      "value": "1ch",
+      "category": "spacing",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "HV1yo9ZRBIb5"
+      }
+    },
+    {
+      "name": "Unnamed Style Token 6",
+      "type": "fontsize",
+      "value": "14px",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "E_ENx27PWERe"
+      }
+    },
+    {
       "name": "Warning/Warning",
       "type": "color",
       "value": "#FACC15",
@@ -3403,7 +3423,7 @@
     {
       "name": "task-text-dark",
       "type": "color",
-      "value": "rgb(234,234,234)",
+      "value": "rgb(245,245,245)",
       "category": "color",
       "meta": {
         "projectId": "suVPi77vb6vv9K5rYJwyxC",

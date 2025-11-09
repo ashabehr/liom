@@ -25,6 +25,10 @@ import {
   UnnamedGlobalGroupOfVariants7Value,
   useUnnamedGlobalGroupOfVariants7
 } from "./PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants7"; // plasmic-import: 88aEuuoDr_g6/globalVariant
+import {
+  UnnamedGlobalGroupOfVariants8Value,
+  useUnnamedGlobalGroupOfVariants8
+} from "./PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants8"; // plasmic-import: yGsbvwKzor3A/globalVariant
 
 export const _useGlobalVariants = createUseGlobalVariants({
   screen: useScreenVariants_6BytLjmha8VC,
@@ -32,5 +36,6 @@ export const _useGlobalVariants = createUseGlobalVariants({
   unnamedGlobalGroupOfVariants5: useUnnamedGlobalGroupOfVariants5,
   unnamedGlobalGroupOfVariants6: useUnnamedGlobalGroupOfVariants6,
   newView: useNewView,
-  unnamedGlobalGroupOfVariants7: useUnnamedGlobalGroupOfVariants7
+  unnamedGlobalGroupOfVariants7: useUnnamedGlobalGroupOfVariants7,
+  unnamedGlobalGroupOfVariants8: useUnnamedGlobalGroupOfVariants8
 });

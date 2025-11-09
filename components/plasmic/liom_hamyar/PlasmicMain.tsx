@@ -1123,6 +1123,12 @@ function PlasmicMain__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "reminderSetting.creaditButtenCreadit",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => -6556565565
       }
     ],
     [$props, $ctx, $refs]
@@ -2953,6 +2959,10 @@ function PlasmicMain__RenderFunc(props: {
                   "reminderSetting2"
                 )
               })}
+              creaditButtenCreadit={generateStateValueProp($state, [
+                "reminderSetting",
+                "creaditButtenCreadit"
+              ])}
               data={(() => {
                 try {
                   return $state.mainPage.remind;
@@ -3367,6 +3377,20 @@ function PlasmicMain__RenderFunc(props: {
                   throw e;
                 }
               })()}
+              onCreaditButtenCreaditChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminderSetting",
+                  "creaditButtenCreadit"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
               onDialogOpendialog3Change={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "reminderSetting",

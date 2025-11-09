@@ -2567,6 +2567,12 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "reminderSetting.creaditButtenCreadit",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => -6556565565
       }
     ],
     [$props, $ctx, $refs]
@@ -7101,6 +7107,10 @@ function PlasmicHamyar__RenderFunc(props: {
                   "remindersetting"
                 )
               })}
+              creaditButtenCreadit={generateStateValueProp($state, [
+                "reminderSetting",
+                "creaditButtenCreadit"
+              ])}
               data={(() => {
                 try {
                   return $state.remind;
@@ -7162,6 +7172,20 @@ function PlasmicHamyar__RenderFunc(props: {
                       }
                     })()
               }
+              onCreaditButtenCreaditChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminderSetting",
+                  "creaditButtenCreadit"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
               onDialogOpendialog3Change={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "reminderSetting",
