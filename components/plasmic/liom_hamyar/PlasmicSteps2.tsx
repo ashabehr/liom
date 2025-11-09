@@ -344,15 +344,52 @@ function PlasmicSteps2__RenderFunc(props: {
                 </div>
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__dNe5R)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__zxqvd
-                  )}
-                >
-                  {""}
-                </div>
+                {(() => {
+                  try {
+                    return $state.currentStep == currentIndex;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__zxqvd
+                    )}
+                  >
+                    {""}
+                  </div>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.currentStep > currentIndex;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__zFw3
+                    )}
+                  >
+                    {""}
+                  </div>
+                ) : null}
               </div>
             </div>
           );

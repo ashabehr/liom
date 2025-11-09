@@ -93,6 +93,15 @@
   border-bottom-style: dashed;
   min-width: 0;
 }
+.text__zFw3 {
+  width: 100%;
+  height: 14px;
+  max-width: 100%;
+  text-align: right;
+  font-size: var(--token-Wa5tmrNKVUYF);
+  min-width: 0;
+  border-bottom: 2px solid var(--token-qvl81LxkOSoe);
+}
 .freeBox__jsh8E {
   display: flex;
   flex-direction: column;

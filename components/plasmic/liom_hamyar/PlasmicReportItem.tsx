@@ -534,7 +534,7 @@ function PlasmicReportItem__RenderFunc(props: {
               <React.Fragment>
                 {(() => {
                   try {
-                    return `ارسال ${$props.apiRequestData.activeDays * $props.apiRequestData.timesPerDay} یاد آوری`;
+                    return `ارسال ${$props.apiRequestData.activeDays * $props.apiRequestData.timesPerDay} یادآوری`;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||

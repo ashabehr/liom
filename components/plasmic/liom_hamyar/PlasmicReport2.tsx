@@ -514,6 +514,15 @@ function PlasmicReport2__RenderFunc(props: {
             <div className={classNames(projectcss.all, sty.freeBox__hSJw)}>
               <div className={classNames(projectcss.all, sty.freeBox__cjfU)} />
 
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__a6D3Y
+                )}
+              >
+                {"\u0635\u0648\u0631\u062a\u062d\u0633\u0627\u0628"}
+              </div>
               <div className={classNames(projectcss.all, sty.freeBox__gnola)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
