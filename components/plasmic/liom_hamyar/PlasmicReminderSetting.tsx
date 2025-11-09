@@ -202,8 +202,6 @@ export type PlasmicReminderSetting__OverridesType = {
   radioGroupLiom?: Flex__<typeof RadioGroupLiom>;
   report2?: Flex__<typeof Report2>;
   button5?: Flex__<typeof Button>;
-  button13?: Flex__<typeof Button>;
-  button8?: Flex__<typeof Button>;
   dialog2?: Flex__<typeof Dialog>;
   reminderCategory2?: Flex__<typeof ReminderCategory>;
   dateDiolog?: Flex__<typeof Dialog>;
@@ -1375,24 +1373,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       },
       {
-        path: "button8.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
-      },
-      {
-        path: "button8.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button8.load",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
         path: "lineClomp[][].line",
         type: "private",
         variableType: "boolean"
@@ -1712,24 +1692,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => []
-      },
-      {
-        path: "button13.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button13.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button13.load",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "report",
@@ -2160,6 +2122,18 @@ function PlasmicReminderSetting__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "steps2.look",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "steps22.look",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -2555,11 +2529,26 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   "steps2",
                   "currentStep"
                 ])}
+                look={generateStateValueProp($state, ["steps2", "look"])}
                 onCurrentStepChange={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, [
                     "steps2",
                     "currentStep"
                   ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLookChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["steps2", "look"]).apply(
+                    null,
+                    eventArgs
+                  );
 
                   if (
                     eventArgs.length > 1 &&
@@ -4202,11 +4191,19 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         onClick={async event => {
                           const $steps = {};
 
-                          $steps["runCode"] = true
+                          $steps["runCode"] = (
+                            $state.select2.schedule_type === "everyYear"
+                              ? $state.time2.length != 0 &&
+                                $state.date.length != 0
+                              : $state.time2.length != 0
+                          )
                             ? (() => {
                                 const actionArgs = {
                                   customFunction: async () => {
-                                    return ($state.steps2.currentStep = 1);
+                                    return (() => {
+                                      $state.steps2.look = true;
+                                      return ($state.steps2.currentStep = 1);
+                                    })();
                                   }
                                 };
                                 return (({ customFunction }) => {
@@ -4220,6 +4217,57 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             typeof $steps["runCode"].then === "function"
                           ) {
                             $steps["runCode"] = await $steps["runCode"];
+                          }
+
+                          $steps["invokeGlobalAction"] =
+                            $state.time2.length == 0
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "error",
+                                      "\u0632\u0645\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0631\u0627 \u0645\u0634\u062e\u0635 \u06a9\u0646\u06cc\u062f.",
+                                      "bottom-center"
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.showToast"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
+                          }
+
+                          $steps["invokeGlobalAction2"] =
+                            $state.select2.schedule_type == "everyYear" &&
+                            $state.date.length == 0
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "error",
+                                      "\u062a\u0627\u0631\u06cc\u062e \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0631\u0627 \u0645\u0634\u062e\u0635 \u06a9\u0646\u06cc\u062f.",
+                                      "bottom-center"
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.showToast"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["invokeGlobalAction2"] != null &&
+                            typeof $steps["invokeGlobalAction2"] === "object" &&
+                            typeof $steps["invokeGlobalAction2"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction2"] =
+                              await $steps["invokeGlobalAction2"];
                           }
                         }}
                         onColorChange={async (...eventArgs: any) => {
@@ -5187,266 +5235,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   </div>
                 ) : null}
               </Steps2>
-              <div className={classNames(projectcss.all, sty.freeBox__wxPm)}>
-                <Button
-                  data-plasmic-name={"button13"}
-                  data-plasmic-override={overrides.button13}
-                  className={classNames("__wab_instance", sty.button13, {
-                    [sty.button13report]: hasVariant($state, "report", "report")
-                  })}
-                  color={generateStateValueProp($state, ["button13", "color"])}
-                  load={generateStateValueProp($state, ["button13", "load"])}
-                  loading={generateStateValueProp($state, [
-                    "button13",
-                    "loading"
-                  ])}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                $state.select2.weekdays = $state.week?.length
-                                  ? JSON.stringify($state.week)
-                                  : undefined;
-                                if ($state.date.length > 0) {
-                                  let dates = $state.date.map(i => i.start.f);
-                                  if (
-                                    $state.select2.schedule_type === "everyYear"
-                                  ) {
-                                    dates = $state.date.map(i => {
-                                      let parts = i.start.f.split(/[-/]/);
-                                      parts[0] = "0000";
-                                      return i.start.f.includes("-")
-                                        ? parts.join("-")
-                                        : parts.join("/");
-                                    });
-                                  }
-                                  $state.select2.dates = JSON.stringify(dates);
-                                } else {
-                                  $state.select2.dates = undefined;
-                                }
-                                if ($state.finishDate?.f) {
-                                  $state.select2.finishTime =
-                                    $state.finishDate.f;
-                                } else {
-                                  $state.select2.finishTime = undefined;
-                                }
-                                $state.select2.active = 1;
-                                $state.select2.times = JSON.stringify(
-                                  $state.time2.map(
-                                    t =>
-                                      `${String(t.hour).padStart(2, "0")}:${String(t.minute).padStart(2, "0")}`
-                                  )
-                                );
-                                $state.select2.name = $state.title;
-                                $state.select2.chanels = JSON.stringify(
-                                  $state.radioGroupLiom.selects
-                                );
-                                return ($state.report2.data2 = $state.select2);
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-
-                    $steps["runCode2"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return ($state.reportDialog.opendialog = true);
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode2"] != null &&
-                      typeof $steps["runCode2"] === "object" &&
-                      typeof $steps["runCode2"].then === "function"
-                    ) {
-                      $steps["runCode2"] = await $steps["runCode2"];
-                    }
-                  }}
-                  onColorChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button13", "color"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  onLoadChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button13", "load"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  onLoadingChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, [
-                        "button13",
-                        "loading"
-                      ])(eventArgs[0]);
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__ts07M
-                    )}
-                  >
-                    {"\u0627\u062f\u0627\u0645\u0647"}
-                  </div>
-                </Button>
-                <Button
-                  data-plasmic-name={"button8"}
-                  data-plasmic-override={overrides.button8}
-                  className={classNames("__wab_instance", sty.button8, {
-                    [sty.button8report]: hasVariant($state, "report", "report")
-                  })}
-                  color={generateStateValueProp($state, ["button8", "color"])}
-                  load={generateStateValueProp($state, ["button8", "load"])}
-                  loading={generateStateValueProp($state, [
-                    "button8",
-                    "loading"
-                  ])}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["updateDialogOpendialog"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["dialog", "opendialog"]
-                            },
-                            operation: 0,
-                            value: false
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateDialogOpendialog"] != null &&
-                      typeof $steps["updateDialogOpendialog"] === "object" &&
-                      typeof $steps["updateDialogOpendialog"].then ===
-                        "function"
-                    ) {
-                      $steps["updateDialogOpendialog"] =
-                        await $steps["updateDialogOpendialog"];
-                    }
-                  }}
-                  onColorChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button8", "color"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  onLoadChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button8", "load"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  onLoadingChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button8", "loading"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__g0RqO
-                    )}
-                  >
-                    {"\u0628\u0633\u062a\u0646"}
-                  </div>
-                </Button>
-              </div>
             </div>
           </div>
         </Dialog>
@@ -5549,7 +5337,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                 ])
                               : "[]",
                             channels: '["notification"]',
-                            times: '["9:30"]',
+                            times: "[]",
                             weekdays:
                               $state.reminderCategory2.select.schedule_type ==
                               "everyDay"
@@ -10043,11 +9831,26 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   "steps22",
                   "currentStep"
                 ])}
+                look={generateStateValueProp($state, ["steps22", "look"])}
                 onCurrentStepChange={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, [
                     "steps22",
                     "currentStep"
                   ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLookChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["steps22", "look"]).apply(
+                    null,
+                    eventArgs
+                  );
 
                   if (
                     eventArgs.length > 1 &&
@@ -13799,8 +13602,6 @@ const PlasmicDescendants = {
     "radioGroupLiom",
     "report2",
     "button5",
-    "button13",
-    "button8",
     "dialog2",
     "reminderCategory2",
     "dateDiolog",
@@ -13860,8 +13661,6 @@ const PlasmicDescendants = {
     "radioGroupLiom",
     "report2",
     "button5",
-    "button13",
-    "button8",
     "dialog2",
     "reminderCategory2",
     "dateDiolog",
@@ -13887,9 +13686,7 @@ const PlasmicDescendants = {
     "button14",
     "radioGroupLiom",
     "report2",
-    "button5",
-    "button13",
-    "button8"
+    "button5"
   ],
   creaditButten: ["creaditButten"],
   checkbox2: ["checkbox2"],
@@ -13908,8 +13705,6 @@ const PlasmicDescendants = {
   radioGroupLiom: ["radioGroupLiom"],
   report2: ["report2", "button5"],
   button5: ["button5"],
-  button13: ["button13"],
-  button8: ["button8"],
   dialog2: ["dialog2", "reminderCategory2"],
   reminderCategory2: ["reminderCategory2"],
   dateDiolog: ["dateDiolog", "datePickers", "button4"],
@@ -14024,8 +13819,6 @@ type NodeDefaultElementType = {
   radioGroupLiom: typeof RadioGroupLiom;
   report2: typeof Report2;
   button5: typeof Button;
-  button13: typeof Button;
-  button8: typeof Button;
   dialog2: typeof Dialog;
   reminderCategory2: typeof ReminderCategory;
   dateDiolog: typeof Dialog;
@@ -14147,8 +13940,6 @@ export const PlasmicReminderSetting = Object.assign(
     radioGroupLiom: makeNodeComponent("radioGroupLiom"),
     report2: makeNodeComponent("report2"),
     button5: makeNodeComponent("button5"),
-    button13: makeNodeComponent("button13"),
-    button8: makeNodeComponent("button8"),
     dialog2: makeNodeComponent("dialog2"),
     reminderCategory2: makeNodeComponent("reminderCategory2"),
     dateDiolog: makeNodeComponent("dateDiolog"),

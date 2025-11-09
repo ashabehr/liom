@@ -79,12 +79,16 @@ export type PlasmicSteps2__ArgsType = {
   currentStep?: string;
   onCurrentStepChange?: (val: string) => void;
   children?: React.ReactNode;
+  look?: boolean;
+  onLookChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicSteps2__ArgsType;
 export const PlasmicSteps2__ArgProps = new Array<ArgPropType>(
   "currentStep",
   "onCurrentStepChange",
-  "children"
+  "children",
+  "look",
+  "onLookChange"
 );
 
 export type PlasmicSteps2__OverridesType = {
@@ -96,6 +100,8 @@ export interface DefaultSteps2Props {
   currentStep?: string;
   onCurrentStepChange?: (val: string) => void;
   children?: React.ReactNode;
+  look?: boolean;
+  onLookChange?: (val: string) => void;
   className?: string;
 }
 
@@ -170,6 +176,14 @@ function PlasmicSteps2__RenderFunc(props: {
 
         valueProp: "currentStep",
         onChangeProp: "onCurrentStepChange"
+      },
+      {
+        path: "look",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "look",
+        onChangeProp: "onLookChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -223,7 +237,7 @@ function PlasmicSteps2__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["updateCurrentStep"] = true
+                $steps["updateCurrentStep"] = $state.look
                   ? (() => {
                       const actionArgs = {
                         variable: {

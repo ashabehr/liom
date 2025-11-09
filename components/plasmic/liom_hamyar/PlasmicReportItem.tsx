@@ -232,7 +232,15 @@ function PlasmicReportItem__RenderFunc(props: {
       )}
       onClick={args.onClick}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__mQuuA)}>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__mQuuA, {
+          [sty.freeBoxselect__mQuuAp3TGe]: hasVariant(
+            $state,
+            "select",
+            "select"
+          )
+        })}
+      >
         <div className={classNames(projectcss.all, sty.freeBox__tSh4J)}>
           <div className={classNames(projectcss.all, sty.freeBox__gRlB)}>
             <MenuIcon
@@ -464,21 +472,39 @@ function PlasmicReportItem__RenderFunc(props: {
                   }
                 )}
               >
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return ` به ازای ارسال ${$props.apiRequestData.activeDays * $props.apiRequestData.timesPerDay} یاد آوری`;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "";
+                {hasVariant($state, "select", "select") ? (
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return ` به ازای ارسال ${$props.apiRequestData.activeDays * $props.apiRequestData.timesPerDay} یادآوری`;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
                       }
-                      throw e;
-                    }
-                  })()}
-                </React.Fragment>
+                    })()}
+                  </React.Fragment>
+                ) : (
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return ` به ازای ارسال ${$props.apiRequestData.activeDays * $props.apiRequestData.timesPerDay} یاد آوری`;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                )}
               </div>
             ) : null}
           </div>
