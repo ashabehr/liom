@@ -346,7 +346,10 @@ function PlasmicSteps2__RenderFunc(props: {
               <div className={classNames(projectcss.all, sty.freeBox__dNe5R)}>
                 {(() => {
                   try {
-                    return $state.currentStep == currentIndex;
+                    return (
+                      $state.currentStep < currentIndex ||
+                      $state.currentStep == currentIndex
+                    );
                   } catch (e) {
                     if (
                       e instanceof TypeError ||

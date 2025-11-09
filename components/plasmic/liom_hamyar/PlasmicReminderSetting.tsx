@@ -235,13 +235,13 @@ export type PlasmicReminderSetting__OverridesType = {
   switchSetting?: Flex__<typeof Switchbest>;
   button2?: Flex__<typeof Button>;
   checkbox3?: Flex__<typeof Checkbox>;
-  steps22?: Flex__<typeof Steps2>;
-  textbox3?: Flex__<"input">;
-  repead3?: Flex__<typeof Repead>;
-  button15?: Flex__<typeof Button>;
-  radioGroupLiom3?: Flex__<typeof RadioGroupLiom>;
-  report3?: Flex__<typeof Report2>;
-  button16?: Flex__<typeof Button>;
+  steps23?: Flex__<typeof Steps2>;
+  textbox2?: Flex__<"input">;
+  repead2?: Flex__<typeof Repead>;
+  button17?: Flex__<typeof Button>;
+  radioGroupLiom2?: Flex__<typeof RadioGroupLiom>;
+  report4?: Flex__<typeof Report2>;
+  button8?: Flex__<typeof Button>;
   snackbar?: Flex__<typeof Snackbar>;
   button?: Flex__<typeof Button>;
   button3?: Flex__<typeof Button>;
@@ -1864,13 +1864,25 @@ function PlasmicReminderSetting__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "steps22.currentStep",
+        path: "steps2.look",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "steps23.currentStep",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
       },
       {
-        path: "textbox3.value",
+        path: "steps23.look",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "textbox2.value",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
@@ -1889,37 +1901,37 @@ function PlasmicReminderSetting__RenderFunc(props: {
           })()
       },
       {
-        path: "repead3.selected",
+        path: "repead2.selected",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "once"
       },
       {
-        path: "button15.color",
+        path: "button17.color",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "button15.loading",
+        path: "button17.loading",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "button15.load",
+        path: "button17.load",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "radioGroupLiom3.selected",
+        path: "radioGroupLiom2.selected",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
       },
       {
-        path: "radioGroupLiom3.list",
+        path: "radioGroupLiom2.list",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
@@ -1961,7 +1973,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
           })()
       },
       {
-        path: "radioGroupLiom3.selects",
+        path: "radioGroupLiom2.selects",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
@@ -1986,7 +1998,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
           })()
       },
       {
-        path: "report3.active",
+        path: "report4.active",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
@@ -2007,7 +2019,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
               })()
       },
       {
-        path: "report3.data2",
+        path: "report4.data2",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
@@ -2081,7 +2093,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
           })()
       },
       {
-        path: "report3.selectchanels",
+        path: "report4.selectchanels",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
@@ -2106,31 +2118,19 @@ function PlasmicReminderSetting__RenderFunc(props: {
           })()
       },
       {
-        path: "button16.color",
+        path: "button8.color",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "button16.loading",
+        path: "button8.loading",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "button16.load",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "steps2.look",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "steps22.look",
+        path: "button8.load",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
@@ -4172,6 +4172,177 @@ function PlasmicReminderSetting__RenderFunc(props: {
                     <div
                       className={classNames(projectcss.all, sty.freeBox__m0YG)}
                     >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__rI49K
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__nIznx
+                          )}
+                        >
+                          {
+                            "\u0645\u062c\u0645\u0648\u0639 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627:"
+                          }
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__xt6Z1
+                          )}
+                        >
+                          <div
+                            className={projectcss.__wab_expr_html_text}
+                            dangerouslySetInnerHTML={{
+                              __html: (() => {
+                                try {
+                                  return (() => {
+                                    function processReminders(
+                                      reminders,
+                                      channels
+                                    ) {
+                                      const startDate = new Date();
+                                      const oneMonthLater = new Date();
+                                      oneMonthLater.setMonth(
+                                        oneMonthLater.getMonth() + 1
+                                      );
+                                      function getDatesBetween(start, finish) {
+                                        const dates = [];
+                                        const d = new Date(start);
+                                        while (d <= finish) {
+                                          dates.push(new Date(d));
+                                          d.setDate(d.getDate() + 1);
+                                        }
+                                        return dates;
+                                      }
+                                      const results = reminders.map(rem => {
+                                        let times = [];
+                                        try {
+                                          times = Array.isArray(rem.times)
+                                            ? rem.times
+                                            : JSON.parse(rem.times || "[]");
+                                        } catch {
+                                          times = [];
+                                        }
+                                        const timesPerDay = times.length || 1;
+                                        let chList = [];
+                                        try {
+                                          chList = Array.isArray(rem.chanels)
+                                            ? rem.chanels
+                                            : JSON.parse(rem.chanels || "[]");
+                                        } catch {
+                                          chList = [];
+                                        }
+                                        const finishTime = rem.finishTime
+                                          ? new Date(rem.finishTime)
+                                          : oneMonthLater;
+                                        const endDate =
+                                          finishTime < oneMonthLater
+                                            ? finishTime
+                                            : oneMonthLater;
+                                        let activeDates = [];
+                                        if (rem.dates) {
+                                          try {
+                                            const dateList = Array.isArray(
+                                              rem.dates
+                                            )
+                                              ? rem.dates
+                                              : JSON.parse(rem.dates || "[]");
+                                            activeDates = dateList.map(
+                                              d => new Date(d)
+                                            );
+                                          } catch {
+                                            activeDates = [];
+                                          }
+                                        }
+                                        if (!activeDates.length) {
+                                          activeDates = getDatesBetween(
+                                            startDate,
+                                            endDate
+                                          );
+                                        }
+                                        const validDays = activeDates.length;
+                                        return {
+                                          id: rem.id,
+                                          name: rem.name,
+                                          timesPerDay,
+                                          activeDays: validDays,
+                                          channels: chList
+                                        };
+                                      });
+                                      return {
+                                        results,
+                                        startDate,
+                                        endDate: oneMonthLater
+                                      };
+                                    }
+                                    var select3 = {};
+                                    select3 = $state.select2;
+                                    select3.weekdays = $state.week?.length
+                                      ? JSON.stringify($state.week)
+                                      : undefined;
+                                    if ($state.date.length > 0) {
+                                      let dates = $state.date.map(
+                                        i => i.start.f
+                                      );
+                                      if (
+                                        select3.schedule_type === "everyYear"
+                                      ) {
+                                        dates = $state.date.map(i => {
+                                          let parts = i.start.f.split(/[-/]/);
+                                          parts[0] = "0000";
+                                          return i.start.f.includes("-")
+                                            ? parts.join("-")
+                                            : parts.join("/");
+                                        });
+                                      }
+                                      select3.dates = JSON.stringify(dates);
+                                    } else {
+                                      select3.dates = undefined;
+                                    }
+                                    if ($state.finishDate?.f) {
+                                      select3.finishTime = $state.finishDate.f;
+                                    } else {
+                                      select3.finishTime = undefined;
+                                    }
+                                    select3.active = 1;
+                                    select3.times = JSON.stringify(
+                                      $state.time2.map(
+                                        t =>
+                                          `${String(t.hour).padStart(2, "0")}:${String(t.minute).padStart(2, "0")}`
+                                      )
+                                    );
+                                    select3.name = $state.title;
+                                    select3.channels = JSON.stringify(
+                                      $state.report2.selectchanels
+                                    );
+                                    var a = processReminders([select3]);
+                                    return `<span style="font-weight:bold;  color: #8254C6;">
+  ${a.results[0].activeDays * a.results[0].timesPerDay}
+</span>
+<span> عدد در ${select3.schedule_type == "everyDay" ? "ماه" : "سال"}</span>
+`;
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            }}
+                          />
+                        </div>
+                      </div>
                       <Button
                         data-plasmic-name={"button14"}
                         data-plasmic-override={overrides.button14}
@@ -9822,19 +9993,19 @@ function PlasmicReminderSetting__RenderFunc(props: {
               />
 
               <Steps2
-                data-plasmic-name={"steps22"}
-                data-plasmic-override={overrides.steps22}
-                className={classNames("__wab_instance", sty.steps22, {
-                  [sty.steps22add]: hasVariant($state, "add", "add")
+                data-plasmic-name={"steps23"}
+                data-plasmic-override={overrides.steps23}
+                className={classNames("__wab_instance", sty.steps23, {
+                  [sty.steps23add]: hasVariant($state, "add", "add")
                 })}
                 currentStep={generateStateValueProp($state, [
-                  "steps22",
+                  "steps23",
                   "currentStep"
                 ])}
-                look={generateStateValueProp($state, ["steps22", "look"])}
+                look={generateStateValueProp($state, ["steps23", "look"])}
                 onCurrentStepChange={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, [
-                    "steps22",
+                    "steps23",
                     "currentStep"
                   ]).apply(null, eventArgs);
 
@@ -9847,7 +10018,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   }
                 }}
                 onLookChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["steps22", "look"]).apply(
+                  generateStateOnChangeProp($state, ["steps23", "look"]).apply(
                     null,
                     eventArgs
                   );
@@ -9863,7 +10034,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
               >
                 {(() => {
                   try {
-                    return $state.steps22.currentStep == 0;
+                    return $state.steps23.currentStep == 0;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -9875,10 +10046,10 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   }
                 })() ? (
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__s2P0)}
+                    className={classNames(projectcss.all, sty.freeBox__hbk2M)}
                   >
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__a9DHb)}
+                      className={classNames(projectcss.all, sty.freeBox__djkJy)}
                     >
                       {renderPlasmicSlot({
                         defaultContents: null,
@@ -9886,7 +10057,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       })}
                     </div>
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__bq4Sy)}
+                      className={classNames(projectcss.all, sty.freeBox__cQgRo)}
                       onClick={async event => {
                         const $steps = {};
                       }}
@@ -9895,24 +10066,24 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__cg2MM
+                          sty.text__vdUl
                         )}
                       >
                         {"\u0639\u0646\u0648\u0627\u0646 "}
                       </div>
                       <input
-                        data-plasmic-name={"textbox3"}
-                        data-plasmic-override={overrides.textbox3}
+                        data-plasmic-name={"textbox2"}
+                        data-plasmic-override={overrides.textbox2}
                         className={classNames(
                           projectcss.all,
                           projectcss.input,
-                          sty.textbox3
+                          sty.textbox2
                         )}
                         id={"htmltitleSetting"}
                         onChange={async (...eventArgs: any) => {
                           (e => {
                             generateStateOnChangeProp($state, [
-                              "textbox3",
+                              "textbox2",
                               "value"
                             ])(e.target.value);
                           }).apply(null, eventArgs);
@@ -9963,32 +10134,32 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           "\u0639\u0646\u0648\u0627\u0646 \u0631\u0648\u06cc\u062f\u0627\u062f"
                         }
                         ref={ref => {
-                          $refs["textbox3"] = ref;
+                          $refs["textbox2"] = ref;
                         }}
                         type={"text"}
                         value={
                           generateStateValueProp($state, [
-                            "textbox3",
+                            "textbox2",
                             "value"
                           ]) ?? ""
                         }
                       />
                     </div>
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__sKHdx)}
+                      className={classNames(projectcss.all, sty.freeBox__ot4AW)}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__sY3De
+                          sty.text__juh2G
                         )}
                       >
                         {"\u0646\u0648\u0639 "}
                       </div>
                     </div>
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__wbsEs)}
+                      className={classNames(projectcss.all, sty.freeBox__m3HG1)}
                     >
                       {(() => {
                         try {
@@ -10006,19 +10177,19 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__weGyR
+                            sty.freeBox__nWmt6
                           )}
                         >
                           <div
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__kigpk
+                              sty.freeBox___7Bh0
                             )}
                           >
                             <Icon345Icon
                               className={classNames(
                                 projectcss.all,
-                                sty.svg___9G3Ha
+                                sty.svg___8ZtGw
                               )}
                               role={"img"}
                             />
@@ -10027,7 +10198,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text__zxXcd
+                                sty.text___7Rc7
                               )}
                             >
                               <React.Fragment>
@@ -10057,7 +10228,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             <div
                               className={classNames(
                                 projectcss.all,
-                                sty.freeBox__aaC6
+                                sty.freeBox__ef0S8
                               )}
                               id={``}
                               onClick={async event => {
@@ -10091,19 +10262,19 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               <div
                                 className={classNames(
                                   projectcss.all,
-                                  sty.freeBox__bUm0G
+                                  sty.freeBox__pUhRz
                                 )}
                               >
                                 <div
                                   className={classNames(
                                     projectcss.all,
-                                    sty.freeBox___3Rsg3
+                                    sty.freeBox___4Ba4U
                                   )}
                                 >
                                   <Icon49Icon
                                     className={classNames(
                                       projectcss.all,
-                                      sty.svg__oJzLn
+                                      sty.svg__bzNun
                                     )}
                                     role={"img"}
                                   />
@@ -10112,7 +10283,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     className={classNames(
                                       projectcss.all,
                                       projectcss.__wab_text,
-                                      sty.text__bRvOz
+                                      sty.text__vjsmR
                                     )}
                                   >
                                     {
@@ -10139,7 +10310,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             <div
                               className={classNames(
                                 projectcss.all,
-                                sty.freeBox__lcohf
+                                sty.freeBox___5DAHt
                               )}
                             >
                               {(_par =>
@@ -10169,14 +10340,14 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   <div
                                     className={classNames(
                                       projectcss.all,
-                                      sty.freeBox__iVuKk
+                                      sty.freeBox__k3BmS
                                     )}
                                     key={currentIndex}
                                   >
                                     <div
                                       className={classNames(
                                         projectcss.all,
-                                        sty.freeBox___23YfN
+                                        sty.freeBox__tagNh
                                       )}
                                       onClick={async event => {
                                         const $steps = {};
@@ -10284,7 +10455,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                         className={classNames(
                                           projectcss.all,
                                           projectcss.__wab_text,
-                                          sty.text__mhZwh
+                                          sty.text__izZnC
                                         )}
                                       >
                                         <React.Fragment>
@@ -10308,7 +10479,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     <Icon306Icon
                                       className={classNames(
                                         projectcss.all,
-                                        sty.svg__rl6Pb
+                                        sty.svg__gRv7U
                                       )}
                                       onClick={async event => {
                                         const $steps = {};
@@ -10365,19 +10536,19 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__kfu1X
+                          sty.freeBox__vWzb
                         )}
                       >
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__usvgu
+                            sty.freeBox__tMYfg
                           )}
                         >
                           <Icon344Icon
                             className={classNames(
                               projectcss.all,
-                              sty.svg__ehEgb
+                              sty.svg__t4Tot
                             )}
                             role={"img"}
                           />
@@ -10385,7 +10556,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           <div
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__zzGht
+                              sty.freeBox__pPqt
                             )}
                             onClick={async event => {
                               const $steps = {};
@@ -10473,7 +10644,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text__piXip
+                                sty.text__idp5
                               )}
                             >
                               <div
@@ -10515,7 +10686,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.__wab_text,
-                                  sty.text__gfuUi
+                                  sty.text__wU9ZT
                                 )}
                               >
                                 <React.Fragment>
@@ -10552,13 +10723,13 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               <div
                                 className={classNames(
                                   projectcss.all,
-                                  sty.freeBox__h58D8
+                                  sty.freeBox___1ZuLq
                                 )}
                               >
                                 <Icon49Icon
                                   className={classNames(
                                     projectcss.all,
-                                    sty.svg__hHeuV
+                                    sty.svg___7UGmb
                                   )}
                                   role={"img"}
                                 />
@@ -10567,7 +10738,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   className={classNames(
                                     projectcss.all,
                                     projectcss.__wab_text,
-                                    sty.text__pvXpS
+                                    sty.text__h37Bx
                                   )}
                                 >
                                   {
@@ -10593,7 +10764,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             <XIcon
                               className={classNames(
                                 projectcss.all,
-                                sty.svg__lNbci
+                                sty.svg__ywcG2
                               )}
                               onClick={async event => {
                                 const $steps = {};
@@ -10625,13 +10796,16 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       </div>
                     ) : null}
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__lkuLv)}
+                      className={classNames(projectcss.all, sty.freeBox__mgCUr)}
                     >
                       <div
-                        className={classNames(projectcss.all, sty.freeBox__i6G)}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___2Oqct
+                        )}
                       >
                         <ClockIcon
-                          className={classNames(projectcss.all, sty.svg__c0Qy)}
+                          className={classNames(projectcss.all, sty.svg__tuCOe)}
                           role={"img"}
                         />
 
@@ -10639,7 +10813,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text__ihbpg
+                            sty.text___2ZTnw
                           )}
                         >
                           {
@@ -10649,7 +10823,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__phgij
+                            sty.freeBox__lh5Fj
                           )}
                           id={``}
                           onClick={async event => {
@@ -10732,19 +10906,19 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           <div
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__pKis9
+                              sty.freeBox___7JuSp
                             )}
                           >
                             <div
                               className={classNames(
                                 projectcss.all,
-                                sty.freeBox__nvWx
+                                sty.freeBox__r4HCa
                               )}
                             >
                               <Icon49Icon
                                 className={classNames(
                                   projectcss.all,
-                                  sty.svg__azkFd
+                                  sty.svg___2Wr70
                                 )}
                                 role={"img"}
                               />
@@ -10753,7 +10927,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.__wab_text,
-                                  sty.text__ngNlz
+                                  sty.text__uv2Q3
                                 )}
                               >
                                 {
@@ -10780,7 +10954,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__zDc3
+                            sty.freeBox__mqoqA
                           )}
                         >
                           {(_par =>
@@ -10805,14 +10979,14 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               <div
                                 className={classNames(
                                   projectcss.all,
-                                  sty.freeBox__hJb0L
+                                  sty.freeBox__rF5S4
                                 )}
                                 key={currentIndex}
                               >
                                 <div
                                   className={classNames(
                                     projectcss.all,
-                                    sty.freeBox__aF0Ip
+                                    sty.freeBox__qGJw
                                   )}
                                   onClick={async event => {
                                     const $steps = {};
@@ -10909,7 +11083,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     className={classNames(
                                       projectcss.all,
                                       projectcss.__wab_text,
-                                      sty.text___86B7G
+                                      sty.text__sm7Lf
                                     )}
                                   >
                                     <React.Fragment>
@@ -10933,7 +11107,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                 <Icon306Icon
                                   className={classNames(
                                     projectcss.all,
-                                    sty.svg__wuybV
+                                    sty.svg___5LRoV
                                   )}
                                   onClick={async event => {
                                     const $steps = {};
@@ -10996,25 +11170,25 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__t4QNx
+                          sty.freeBox__lEtzM
                         )}
                       >
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__eRohA
+                            sty.freeBox__pimaX
                           )}
                         >
                           <div
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__e6YXd
+                              sty.freeBox__dl8MH
                             )}
                           >
                             <Icon346Icon
                               className={classNames(
                                 projectcss.all,
-                                sty.svg__thO8
+                                sty.svg__btA9B
                               )}
                               role={"img"}
                             />
@@ -11022,7 +11196,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             <div
                               className={classNames(
                                 projectcss.all,
-                                sty.freeBox__ou4R
+                                sty.freeBox___3At4A
                               )}
                               onClick={async event => {
                                 const $steps = {};
@@ -11052,7 +11226,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.__wab_text,
-                                  sty.text__c5Pdg
+                                  sty.text__npQu1
                                 )}
                               >
                                 {
@@ -11063,7 +11237,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.__wab_text,
-                                  sty.text___9Xvxj
+                                  sty.text__yxkYn
                                 )}
                               >
                                 <React.Fragment>
@@ -11142,13 +11316,13 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                 <div
                                   className={classNames(
                                     projectcss.all,
-                                    sty.freeBox__dpXy9
+                                    sty.freeBox___9Xq9
                                   )}
                                 >
                                   <Icon49Icon
                                     className={classNames(
                                       projectcss.all,
-                                      sty.svg__zceys
+                                      sty.svg__hm0Pc
                                     )}
                                     role={"img"}
                                   />
@@ -11157,7 +11331,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     className={classNames(
                                       projectcss.all,
                                       projectcss.__wab_text,
-                                      sty.text__fam6I
+                                      sty.text__tRc5P
                                     )}
                                   >
                                     {
@@ -11183,7 +11357,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               <Icon22Icon
                                 className={classNames(
                                   projectcss.all,
-                                  sty.svg__ubA1I
+                                  sty.svg__mDakU
                                 )}
                                 onClick={async event => {
                                   const $steps = {};
@@ -11215,15 +11389,15 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           <div
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox___5KNnr
+                              sty.freeBox__uftNz
                             )}
                           >
                             <Repead
-                              data-plasmic-name={"repead3"}
-                              data-plasmic-override={overrides.repead3}
+                              data-plasmic-name={"repead2"}
+                              data-plasmic-override={overrides.repead2}
                               className={classNames(
                                 "__wab_instance",
-                                sty.repead3
+                                sty.repead2
                               )}
                               click={async () => {
                                 const $steps = {};
@@ -11234,7 +11408,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                         customFunction: async () => {
                                           return (() => {
                                             if (
-                                              $state.repead3.selected ===
+                                              $state.repead2.selected ===
                                               "daily"
                                             ) {
                                               return ($state.week = [
@@ -11247,7 +11421,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                 "friday"
                                               ]);
                                             } else if (
-                                              $state.repead3.selected ===
+                                              $state.repead2.selected ===
                                               "sat_to_wed"
                                             ) {
                                               return ($state.week = [
@@ -11258,7 +11432,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                 "wednesday"
                                               ]);
                                             } else if (
-                                              $state.repead3.selected === "once"
+                                              $state.repead2.selected === "once"
                                             ) {
                                               return ($state.week = []);
                                             }
@@ -11311,7 +11485,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               ]}
                               onSelectedChange={async (...eventArgs: any) => {
                                 generateStateOnChangeProp($state, [
-                                  "repead3",
+                                  "repead2",
                                   "selected"
                                 ]).apply(null, eventArgs);
 
@@ -11324,7 +11498,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                 }
                               }}
                               selected={generateStateValueProp($state, [
-                                "repead3",
+                                "repead2",
                                 "selected"
                               ])}
                             />
@@ -11332,7 +11506,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             <RadioGrop
                               className={classNames(
                                 "__wab_instance",
-                                sty.radioGrop__oPvif
+                                sty.radioGrop__d66Kq
                               )}
                               onClick={async event => {
                                 const $steps = {};
@@ -11343,7 +11517,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                         customFunction: async () => {
                                           return (() => {
                                             if (
-                                              $state.repead3.selected ===
+                                              $state.repead2.selected ===
                                               "daily"
                                             ) {
                                               return ($state.week = [
@@ -11356,7 +11530,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                 "friday"
                                               ]);
                                             } else if (
-                                              $state.repead3.selected ===
+                                              $state.repead2.selected ===
                                               "sat_to_wed"
                                             ) {
                                               return ($state.week = [
@@ -11367,7 +11541,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                 "wednesday"
                                               ]);
                                             } else if (
-                                              $state.repead3.selected === "once"
+                                              $state.repead2.selected === "once"
                                             ) {
                                               return ($state.week = []);
                                             }
@@ -11437,7 +11611,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               }}
                               selected={(() => {
                                 try {
-                                  return $state.repead3.selected == "custom";
+                                  return $state.repead2.selected == "custom";
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -11453,14 +11627,14 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               <div
                                 className={classNames(
                                   projectcss.all,
-                                  sty.freeBox__n3Twb
+                                  sty.freeBox__cTaNa
                                 )}
                               >
                                 <div
                                   className={classNames(
                                     projectcss.all,
                                     projectcss.__wab_text,
-                                    sty.text__rvozo
+                                    sty.text__iDtwl
                                   )}
                                 >
                                   {"\u0633\u0641\u0627\u0631\u0634\u06cc"}
@@ -11468,7 +11642,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                 <ChevronLeftIcon
                                   className={classNames(
                                     projectcss.all,
-                                    sty.svg__gQhrm
+                                    sty.svg__cCdB2
                                   )}
                                   role={"img"}
                                 />
@@ -11479,32 +11653,211 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       </div>
                     ) : null}
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__bmziO)}
+                      className={classNames(projectcss.all, sty.freeBox__qqDrx)}
                     >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__qTpwa
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__ngeqX
+                          )}
+                        >
+                          {
+                            "\u0645\u062c\u0645\u0648\u0639 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627:"
+                          }
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__deQB
+                          )}
+                        >
+                          <div
+                            className={projectcss.__wab_expr_html_text}
+                            dangerouslySetInnerHTML={{
+                              __html: (() => {
+                                try {
+                                  return (() => {
+                                    function processReminders(
+                                      reminders,
+                                      channels
+                                    ) {
+                                      const startDate = new Date();
+                                      const oneMonthLater = new Date();
+                                      oneMonthLater.setMonth(
+                                        oneMonthLater.getMonth() + 1
+                                      );
+                                      function getDatesBetween(start, finish) {
+                                        const dates = [];
+                                        const d = new Date(start);
+                                        while (d <= finish) {
+                                          dates.push(new Date(d));
+                                          d.setDate(d.getDate() + 1);
+                                        }
+                                        return dates;
+                                      }
+                                      const results = reminders.map(rem => {
+                                        let times = [];
+                                        try {
+                                          times = Array.isArray(rem.times)
+                                            ? rem.times
+                                            : JSON.parse(rem.times || "[]");
+                                        } catch {
+                                          times = [];
+                                        }
+                                        const timesPerDay = times.length || 1;
+                                        let chList = [];
+                                        try {
+                                          chList = Array.isArray(rem.chanels)
+                                            ? rem.chanels
+                                            : JSON.parse(rem.chanels || "[]");
+                                        } catch {
+                                          chList = [];
+                                        }
+                                        const finishTime = rem.finishTime
+                                          ? new Date(rem.finishTime)
+                                          : oneMonthLater;
+                                        const endDate =
+                                          finishTime < oneMonthLater
+                                            ? finishTime
+                                            : oneMonthLater;
+                                        let activeDates = [];
+                                        if (rem.dates) {
+                                          try {
+                                            const dateList = Array.isArray(
+                                              rem.dates
+                                            )
+                                              ? rem.dates
+                                              : JSON.parse(rem.dates || "[]");
+                                            activeDates = dateList.map(
+                                              d => new Date(d)
+                                            );
+                                          } catch {
+                                            activeDates = [];
+                                          }
+                                        }
+                                        if (!activeDates.length) {
+                                          activeDates = getDatesBetween(
+                                            startDate,
+                                            endDate
+                                          );
+                                        }
+                                        const validDays = activeDates.length;
+                                        return {
+                                          id: rem.id,
+                                          name: rem.name,
+                                          timesPerDay,
+                                          activeDays: validDays,
+                                          channels: chList
+                                        };
+                                      });
+                                      return {
+                                        results,
+                                        startDate,
+                                        endDate: oneMonthLater
+                                      };
+                                    }
+                                    var select3 = {};
+                                    select3 = $state.select2;
+                                    select3.weekdays = $state.week?.length
+                                      ? JSON.stringify($state.week)
+                                      : undefined;
+                                    if ($state.date.length > 0) {
+                                      let dates = $state.date.map(
+                                        i => i.start.f
+                                      );
+                                      if (
+                                        select3.schedule_type === "everyYear"
+                                      ) {
+                                        dates = $state.date.map(i => {
+                                          let parts = i.start.f.split(/[-/]/);
+                                          parts[0] = "0000";
+                                          return i.start.f.includes("-")
+                                            ? parts.join("-")
+                                            : parts.join("/");
+                                        });
+                                      }
+                                      select3.dates = JSON.stringify(dates);
+                                    } else {
+                                      select3.dates = undefined;
+                                    }
+                                    if ($state.finishDate?.f) {
+                                      select3.finishTime = $state.finishDate.f;
+                                    } else {
+                                      select3.finishTime = undefined;
+                                    }
+                                    select3.active = 1;
+                                    select3.times = JSON.stringify(
+                                      $state.time2.map(
+                                        t =>
+                                          `${String(t.hour).padStart(2, "0")}:${String(t.minute).padStart(2, "0")}`
+                                      )
+                                    );
+                                    select3.name = $state.title;
+                                    select3.channels = JSON.stringify(
+                                      $state.report4.selectchanels
+                                    );
+                                    var a = processReminders([select3]);
+                                    return `<span style="font-weight:bold;  color: #8254C6;">
+  ${a.results[0].activeDays * a.results[0].timesPerDay}
+</span>
+<span> عدد در ${select3.schedule_type == "everyDay" ? "ماه" : "سال"}</span>
+`;
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            }}
+                          />
+                        </div>
+                      </div>
                       <Button
-                        data-plasmic-name={"button15"}
-                        data-plasmic-override={overrides.button15}
-                        className={classNames("__wab_instance", sty.button15)}
+                        data-plasmic-name={"button17"}
+                        data-plasmic-override={overrides.button17}
+                        className={classNames("__wab_instance", sty.button17)}
                         color={generateStateValueProp($state, [
-                          "button15",
+                          "button17",
                           "color"
                         ])}
                         load={generateStateValueProp($state, [
-                          "button15",
+                          "button17",
                           "load"
                         ])}
                         loading={generateStateValueProp($state, [
-                          "button15",
+                          "button17",
                           "loading"
                         ])}
                         onClick={async event => {
                           const $steps = {};
 
-                          $steps["runCode"] = true
+                          $steps["runCode"] = (
+                            $state.select2.schedule_type === "everyYear"
+                              ? $state.time2.length != 0 &&
+                                $state.date.length != 0
+                              : $state.time2.length != 0
+                          )
                             ? (() => {
                                 const actionArgs = {
                                   customFunction: async () => {
-                                    return ($state.steps22.currentStep = 1);
+                                    return (() => {
+                                      $state.steps23.look = true;
+                                      return ($state.steps23.currentStep = 1);
+                                    })();
                                   }
                                 };
                                 return (({ customFunction }) => {
@@ -11519,11 +11872,62 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           ) {
                             $steps["runCode"] = await $steps["runCode"];
                           }
+
+                          $steps["invokeGlobalAction"] =
+                            $state.time2.length == 0
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "error",
+                                      "\u0632\u0645\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0631\u0627 \u0645\u0634\u062e\u0635 \u06a9\u0646\u06cc\u062f.",
+                                      "bottom-center"
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.showToast"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
+                          }
+
+                          $steps["invokeGlobalAction2"] =
+                            $state.select2.schedule_type == "everyYear" &&
+                            $state.date.length == 0
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "error",
+                                      "\u062a\u0627\u0631\u06cc\u062e \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0631\u0627 \u0645\u0634\u062e\u0635 \u06a9\u0646\u06cc\u062f.",
+                                      "bottom-center"
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.showToast"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["invokeGlobalAction2"] != null &&
+                            typeof $steps["invokeGlobalAction2"] === "object" &&
+                            typeof $steps["invokeGlobalAction2"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction2"] =
+                              await $steps["invokeGlobalAction2"];
+                          }
                         }}
                         onColorChange={async (...eventArgs: any) => {
                           ((...eventArgs) => {
                             generateStateOnChangeProp($state, [
-                              "button15",
+                              "button17",
                               "color"
                             ])(eventArgs[0]);
                           }).apply(null, eventArgs);
@@ -11539,7 +11943,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         onLoadChange={async (...eventArgs: any) => {
                           ((...eventArgs) => {
                             generateStateOnChangeProp($state, [
-                              "button15",
+                              "button17",
                               "load"
                             ])(eventArgs[0]);
                           }).apply(null, eventArgs);
@@ -11555,7 +11959,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         onLoadingChange={async (...eventArgs: any) => {
                           ((...eventArgs) => {
                             generateStateOnChangeProp($state, [
-                              "button15",
+                              "button17",
                               "loading"
                             ])(eventArgs[0]);
                           }).apply(null, eventArgs);
@@ -11573,7 +11977,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text__tXyuL
+                            sty.text__bauul
                           )}
                         >
                           {"\u0627\u062f\u0627\u0645\u0647"}
@@ -11584,7 +11988,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 ) : null}
                 {(() => {
                   try {
-                    return $state.steps22.currentStep == 1;
+                    return $state.steps23.currentStep == 1;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -11596,13 +12000,13 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   }
                 })() ? (
                   <div
-                    className={classNames(projectcss.all, sty.freeBox___3Wdum)}
+                    className={classNames(projectcss.all, sty.freeBox__ddKn)}
                   >
                     <div
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__wLHj8
+                        sty.text__y1RHt
                       )}
                     >
                       {
@@ -11610,37 +12014,595 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       }
                     </div>
                     {(() => {
-                      try {
-                        return $props.manId != "1";
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
-                        }
-                        throw e;
-                      }
-                    })()
-                      ? (() => {
-                          const child$Props = {
-                            accessclicke: async () => {
+                      const child$Props = {
+                        accessclicke: async () => {
+                          const $steps = {};
+
+                          $steps["invokeGlobalAction"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "custom",
+                                    "\u0628\u0647\u200c\u0632\u0648\u062f\u06cc \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0641\u0639\u0627\u0644 \u0645\u06cc\u200c\u0634\u0648\u062f!",
+                                    "bottom-center"
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.showToast"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
+                          }
+                        },
+                        className: classNames(
+                          "__wab_instance",
+                          sty.radioGroupLiom2
+                        ),
+                        list: generateStateValueProp($state, [
+                          "radioGroupLiom2",
+                          "list"
+                        ]),
+                        moulty: true,
+                        onListChange: async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "radioGroupLiom2",
+                            "list"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        },
+                        onSelectedChange: async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "radioGroupLiom2",
+                            "selected"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        },
+                        onSelectsChange: async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "radioGroupLiom2",
+                            "selects"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        },
+                        selected: generateStateValueProp($state, [
+                          "radioGroupLiom2",
+                          "selected"
+                        ]),
+                        selects: generateStateValueProp($state, [
+                          "radioGroupLiom2",
+                          "selects"
+                        ]),
+                        size: "small",
+                        unnamedVariant: true
+                      };
+
+                      initializePlasmicStates(
+                        $state,
+                        [
+                          {
+                            name: "radioGroupLiom2.selects",
+                            initFunc: ({ $props, $state, $queries }) =>
+                              (() => {
+                                try {
+                                  return (() => {
+                                    try {
+                                      return JSON.parse(
+                                        $state.select2.channels
+                                      );
+                                    } catch {
+                                      return [];
+                                    }
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()
+                          }
+                        ],
+                        []
+                      );
+                      return (
+                        <RadioGroupLiom
+                          data-plasmic-name={"radioGroupLiom2"}
+                          data-plasmic-override={overrides.radioGroupLiom2}
+                          {...child$Props}
+                        />
+                      );
+                    })()}
+                    {(() => {
+                      const child$Props = {
+                        active: generateStateValueProp($state, [
+                          "report4",
+                          "active"
+                        ]),
+                        button2: (
+                          <Button
+                            data-plasmic-name={"button8"}
+                            data-plasmic-override={overrides.button8}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.button8,
+                              {
+                                [sty.button8report]: hasVariant(
+                                  $state,
+                                  "report",
+                                  "report"
+                                )
+                              }
+                            )}
+                            color={generateStateValueProp($state, [
+                              "button8",
+                              "color"
+                            ])}
+                            load={generateStateValueProp($state, [
+                              "button8",
+                              "load"
+                            ])}
+                            loading={generateStateValueProp($state, [
+                              "button8",
+                              "loading"
+                            ])}
+                            onClick={async event => {
                               const $steps = {};
 
-                              $steps["invokeGlobalAction"] = true
+                              $steps["updateButton5Loading"] = true
                                 ? (() => {
                                     const actionArgs = {
-                                      args: [
-                                        "custom",
-                                        "\u0628\u0647\u200c\u0632\u0648\u062f\u06cc \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0641\u0639\u0627\u0644 \u0645\u06cc\u200c\u0634\u0648\u062f!",
-                                        "bottom-center"
-                                      ]
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["button8", "loading"]
+                                      },
+                                      operation: 4,
+                                      value: true
                                     };
-                                    return $globalActions[
-                                      "Fragment.showToast"
-                                    ]?.apply(null, [...actionArgs.args]);
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      const oldValue = $stateGet(
+                                        objRoot,
+                                        variablePath
+                                      );
+                                      $stateSet(
+                                        objRoot,
+                                        variablePath,
+                                        !oldValue
+                                      );
+                                      return !oldValue;
+                                    })?.apply(null, [actionArgs]);
                                   })()
                                 : undefined;
+                              if (
+                                $steps["updateButton5Loading"] != null &&
+                                typeof $steps["updateButton5Loading"] ===
+                                  "object" &&
+                                typeof $steps["updateButton5Loading"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateButton5Loading"] =
+                                  await $steps["updateButton5Loading"];
+                              }
+
+                              $steps["insert"] =
+                                !$state.select2.id && $state.time2.length > 0
+                                  ? (() => {
+                                      const actionArgs = {
+                                        args: [
+                                          "POST",
+                                          "https://n8n.staas.ir/webhook/user/task/add",
+                                          undefined,
+                                          (() => {
+                                            try {
+                                              return (() => {
+                                                var select3 = {};
+                                                select3 = $state.select2;
+                                                select3.weekdays = $state.week
+                                                  ?.length
+                                                  ? JSON.stringify($state.week)
+                                                  : undefined;
+                                                if ($state.date.length > 0) {
+                                                  let dates = $state.date.map(
+                                                    i => i.start.f
+                                                  );
+                                                  if (
+                                                    select3.schedule_type ===
+                                                    "everyYear"
+                                                  ) {
+                                                    dates = $state.date.map(
+                                                      i => {
+                                                        let parts =
+                                                          i.start.f.split(
+                                                            /[-/]/
+                                                          );
+                                                        parts[0] = "0000";
+                                                        return i.start.f.includes(
+                                                          "-"
+                                                        )
+                                                          ? parts.join("-")
+                                                          : parts.join("/");
+                                                      }
+                                                    );
+                                                  }
+                                                  select3.dates =
+                                                    JSON.stringify(dates);
+                                                } else {
+                                                  select3.dates = undefined;
+                                                }
+                                                if ($state.finishDate?.f) {
+                                                  select3.finishTime =
+                                                    $state.finishDate.f;
+                                                } else {
+                                                  select3.finishTime =
+                                                    undefined;
+                                                }
+                                                select3.active = 1;
+                                                select3.times = JSON.stringify(
+                                                  $state.time2.map(
+                                                    t =>
+                                                      `${String(t.hour).padStart(2, "0")}:${String(t.minute).padStart(2, "0")}`
+                                                  )
+                                                );
+                                                select3.name = $state.title;
+                                                select3.channels =
+                                                  JSON.stringify(
+                                                    $state.report4.selectchanels
+                                                  );
+                                                return select3;
+                                              })();
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })(),
+                                          undefined
+                                        ]
+                                      };
+                                      return $globalActions[
+                                        "Fragment.apiRequest"
+                                      ]?.apply(null, [...actionArgs.args]);
+                                    })()
+                                  : undefined;
+                              if (
+                                $steps["insert"] != null &&
+                                typeof $steps["insert"] === "object" &&
+                                typeof $steps["insert"].then === "function"
+                              ) {
+                                $steps["insert"] = await $steps["insert"];
+                              }
+
+                              $steps["edit"] =
+                                $state.select2.id && $state.time2.length > 0
+                                  ? (() => {
+                                      const actionArgs = {
+                                        args: [
+                                          "POST",
+                                          "https://n8n.staas.ir/webhook/user/task/edit",
+                                          undefined,
+                                          (() => {
+                                            try {
+                                              return (() => {
+                                                var select3 = {};
+                                                select3 = $state.select2;
+                                                try {
+                                                  if (
+                                                    Array.isArray(
+                                                      $state.week
+                                                    ) &&
+                                                    $state.week.length > 0
+                                                  ) {
+                                                    select3.weekdays =
+                                                      JSON.stringify(
+                                                        $state.week
+                                                      );
+                                                  } else {
+                                                    select3.weekdays =
+                                                      undefined;
+                                                  }
+                                                  if (
+                                                    Array.isArray(
+                                                      $state.date
+                                                    ) &&
+                                                    $state.date.length > 0
+                                                  ) {
+                                                    let dates = $state.date
+                                                      .map(
+                                                        i => i?.start?.f || ""
+                                                      )
+                                                      .filter(Boolean);
+                                                    if (
+                                                      select3.schedule_type ===
+                                                      "everyYear"
+                                                    ) {
+                                                      dates = dates.map(f => {
+                                                        let parts =
+                                                          f.split(/[-/]/);
+                                                        if (parts.length > 1)
+                                                          parts[0] = "0000";
+                                                        return f.includes("-")
+                                                          ? parts.join("-")
+                                                          : parts.join("/");
+                                                      });
+                                                    }
+                                                    select3.dates =
+                                                      JSON.stringify(dates);
+                                                  } else {
+                                                    select3.dates = undefined;
+                                                  }
+                                                  select3.finishTime =
+                                                    $state?.finishDate?.f ||
+                                                    undefined;
+                                                  select3.active = 1;
+                                                  if (
+                                                    Array.isArray(
+                                                      $state.time2
+                                                    ) &&
+                                                    $state.time2.length > 0
+                                                  ) {
+                                                    select3.times =
+                                                      JSON.stringify(
+                                                        $state.time2.map(
+                                                          t =>
+                                                            `${String(t?.hour ?? 0).padStart(2, "0")}:${String(t?.minute ?? 0).padStart(2, "0")}`
+                                                        )
+                                                      );
+                                                  } else {
+                                                    select3.times =
+                                                      JSON.stringify([]);
+                                                  }
+                                                  select3.name =
+                                                    $state?.title ?? "";
+                                                  select3.channels =
+                                                    JSON.stringify(
+                                                      $state.report4
+                                                        .selectchanels
+                                                    );
+                                                } catch (err) {
+                                                  select3 = {
+                                                    weekdays: undefined,
+                                                    dates: undefined,
+                                                    finishTime: undefined,
+                                                    active: 0,
+                                                    times: "[]",
+                                                    name: "",
+                                                    channels: "[]"
+                                                  };
+                                                }
+                                                return select3;
+                                              })();
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                        ]
+                                      };
+                                      return $globalActions[
+                                        "Fragment.apiRequest"
+                                      ]?.apply(null, [...actionArgs.args]);
+                                    })()
+                                  : undefined;
+                              if (
+                                $steps["edit"] != null &&
+                                typeof $steps["edit"] === "object" &&
+                                typeof $steps["edit"].then === "function"
+                              ) {
+                                $steps["edit"] = await $steps["edit"];
+                              }
+
+                              $steps["invokeGlobalAction2"] =
+                                $steps.insert?.data?.success == true ||
+                                $steps.edit?.data?.success == true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        args: [
+                                          undefined,
+                                          "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f.",
+                                          "bottom-center",
+                                          2000
+                                        ]
+                                      };
+                                      return $globalActions[
+                                        "Fragment.showToast"
+                                      ]?.apply(null, [...actionArgs.args]);
+                                    })()
+                                  : undefined;
+                              if (
+                                $steps["invokeGlobalAction2"] != null &&
+                                typeof $steps["invokeGlobalAction2"] ===
+                                  "object" &&
+                                typeof $steps["invokeGlobalAction2"].then ===
+                                  "function"
+                              ) {
+                                $steps["invokeGlobalAction2"] =
+                                  await $steps["invokeGlobalAction2"];
+                              }
+
+                              $steps["runCode"] =
+                                $steps.insert?.data?.success == true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            $state.dialog.opendialog = false;
+                                            $state.dialog2.opendialog = false;
+                                            return ($state.select2.id =
+                                              $steps.insert.data.result);
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+
+                              $steps["runCode3"] =
+                                $steps.edit?.data?.success == true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            $state.dialog.opendialog = false;
+                                            return ($state.dialog2.opendialog = false);
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                              if (
+                                $steps["runCode3"] != null &&
+                                typeof $steps["runCode3"] === "object" &&
+                                typeof $steps["runCode3"].then === "function"
+                              ) {
+                                $steps["runCode3"] = await $steps["runCode3"];
+                              }
+
+                              $steps["updateButton5Load2"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["button8", "loading"]
+                                      },
+                                      operation: 4
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      const oldValue = $stateGet(
+                                        objRoot,
+                                        variablePath
+                                      );
+                                      $stateSet(
+                                        objRoot,
+                                        variablePath,
+                                        !oldValue
+                                      );
+                                      return !oldValue;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateButton5Load2"] != null &&
+                                typeof $steps["updateButton5Load2"] ===
+                                  "object" &&
+                                typeof $steps["updateButton5Load2"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateButton5Load2"] =
+                                  await $steps["updateButton5Load2"];
+                              }
+
+                              $steps["runCode4"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return ($state.refresh += 1);
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode4"] != null &&
+                                typeof $steps["runCode4"] === "object" &&
+                                typeof $steps["runCode4"].then === "function"
+                              ) {
+                                $steps["runCode4"] = await $steps["runCode4"];
+                              }
+
+                              $steps["invokeGlobalAction"] =
+                                $state.time2.length == 0
+                                  ? (() => {
+                                      const actionArgs = {
+                                        args: [
+                                          "error",
+                                          "\u0632\u0645\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0631\u0627 \u0645\u0634\u062e\u0635 \u06a9\u0646\u06cc\u062f.",
+                                          "bottom-center"
+                                        ]
+                                      };
+                                      return $globalActions[
+                                        "Fragment.showToast"
+                                      ]?.apply(null, [...actionArgs.args]);
+                                    })()
+                                  : undefined;
                               if (
                                 $steps["invokeGlobalAction"] != null &&
                                 typeof $steps["invokeGlobalAction"] ===
@@ -11651,907 +12613,279 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                 $steps["invokeGlobalAction"] =
                                   await $steps["invokeGlobalAction"];
                               }
-                            },
-                            className: classNames(
-                              "__wab_instance",
-                              sty.radioGroupLiom3
-                            ),
-                            list: generateStateValueProp($state, [
-                              "radioGroupLiom3",
-                              "list"
-                            ]),
-                            moulty: true,
-                            onListChange: async (...eventArgs: any) => {
-                              generateStateOnChangeProp($state, [
-                                "radioGroupLiom3",
-                                "list"
-                              ]).apply(null, eventArgs);
-
-                              if (
-                                eventArgs.length > 1 &&
-                                eventArgs[1] &&
-                                eventArgs[1]._plasmic_state_init_
-                              ) {
-                                return;
-                              }
-                            },
-                            onSelectedChange: async (...eventArgs: any) => {
-                              generateStateOnChangeProp($state, [
-                                "radioGroupLiom3",
-                                "selected"
-                              ]).apply(null, eventArgs);
-
-                              if (
-                                eventArgs.length > 1 &&
-                                eventArgs[1] &&
-                                eventArgs[1]._plasmic_state_init_
-                              ) {
-                                return;
-                              }
-                            },
-                            onSelectsChange: async (...eventArgs: any) => {
-                              generateStateOnChangeProp($state, [
-                                "radioGroupLiom3",
-                                "selects"
-                              ]).apply(null, eventArgs);
-
-                              if (
-                                eventArgs.length > 1 &&
-                                eventArgs[1] &&
-                                eventArgs[1]._plasmic_state_init_
-                              ) {
-                                return;
-                              }
-                            },
-                            selected: generateStateValueProp($state, [
-                              "radioGroupLiom3",
-                              "selected"
-                            ]),
-                            selects: generateStateValueProp($state, [
-                              "radioGroupLiom3",
-                              "selects"
-                            ]),
-                            size: "small",
-                            unnamedVariant: true
-                          };
-
-                          initializePlasmicStates(
-                            $state,
-                            [
-                              {
-                                name: "radioGroupLiom3.selects",
-                                initFunc: ({ $props, $state, $queries }) =>
-                                  (() => {
-                                    try {
-                                      return (() => {
-                                        try {
-                                          return JSON.parse(
-                                            $state.select2.channels
-                                          );
-                                        } catch {
-                                          return [];
-                                        }
-                                      })();
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return [];
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                              }
-                            ],
-                            []
-                          );
-                          return (
-                            <RadioGroupLiom
-                              data-plasmic-name={"radioGroupLiom3"}
-                              data-plasmic-override={overrides.radioGroupLiom3}
-                              {...child$Props}
-                            />
-                          );
-                        })()
-                      : null}
-                    {(
-                      hasVariant($state, "report", "report")
-                        ? true
-                        : (() => {
-                            try {
-                              return $props.manId == "1";
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return true;
-                              }
-                              throw e;
-                            }
-                          })()
-                    )
-                      ? (() => {
-                          const child$Props = {
-                            active: generateStateValueProp($state, [
-                              "report3",
-                              "active"
-                            ]),
-                            button2: (
-                              <Button
-                                data-plasmic-name={"button16"}
-                                data-plasmic-override={overrides.button16}
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.button16,
-                                  {
-                                    [sty.button16report]: hasVariant(
-                                      $state,
-                                      "report",
-                                      "report"
-                                    )
-                                  }
-                                )}
-                                color={generateStateValueProp($state, [
-                                  "button16",
+                            }}
+                            onColorChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button8",
                                   "color"
-                                ])}
-                                load={generateStateValueProp($state, [
-                                  "button16",
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button8",
                                   "load"
-                                ])}
-                                loading={generateStateValueProp($state, [
-                                  "button16",
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadingChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button8",
                                   "loading"
-                                ])}
-                                onClick={async event => {
-                                  const $steps = {};
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
 
-                                  $steps["updateButton5Loading"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          variable: {
-                                            objRoot: $state,
-                                            variablePath: [
-                                              "button16",
-                                              "loading"
-                                            ]
-                                          },
-                                          operation: 4,
-                                          value: true
-                                        };
-                                        return (({
-                                          variable,
-                                          value,
-                                          startIndex,
-                                          deleteCount
-                                        }) => {
-                                          if (!variable) {
-                                            return;
-                                          }
-                                          const { objRoot, variablePath } =
-                                            variable;
-
-                                          const oldValue = $stateGet(
-                                            objRoot,
-                                            variablePath
-                                          );
-                                          $stateSet(
-                                            objRoot,
-                                            variablePath,
-                                            !oldValue
-                                          );
-                                          return !oldValue;
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["updateButton5Loading"] != null &&
-                                    typeof $steps["updateButton5Loading"] ===
-                                      "object" &&
-                                    typeof $steps["updateButton5Loading"]
-                                      .then === "function"
-                                  ) {
-                                    $steps["updateButton5Loading"] =
-                                      await $steps["updateButton5Loading"];
-                                  }
-
-                                  $steps["insert"] =
-                                    !$state.select2.id &&
-                                    $state.time2.length > 0
-                                      ? (() => {
-                                          const actionArgs = {
-                                            args: [
-                                              "POST",
-                                              "https://n8n.staas.ir/webhook/user/task/add",
-                                              undefined,
-                                              (() => {
-                                                try {
-                                                  return (() => {
-                                                    var select3 = {};
-                                                    select3 = $state.select2;
-                                                    select3.weekdays = $state
-                                                      .week?.length
-                                                      ? JSON.stringify(
-                                                          $state.week
-                                                        )
-                                                      : undefined;
-                                                    if (
-                                                      $state.date.length > 0
-                                                    ) {
-                                                      let dates =
-                                                        $state.date.map(
-                                                          i => i.start.f
-                                                        );
-                                                      if (
-                                                        select3.schedule_type ===
-                                                        "everyYear"
-                                                      ) {
-                                                        dates = $state.date.map(
-                                                          i => {
-                                                            let parts =
-                                                              i.start.f.split(
-                                                                /[-/]/
-                                                              );
-                                                            parts[0] = "0000";
-                                                            return i.start.f.includes(
-                                                              "-"
-                                                            )
-                                                              ? parts.join("-")
-                                                              : parts.join("/");
-                                                          }
-                                                        );
-                                                      }
-                                                      select3.dates =
-                                                        JSON.stringify(dates);
-                                                    } else {
-                                                      select3.dates = undefined;
-                                                    }
-                                                    if ($state.finishDate?.f) {
-                                                      select3.finishTime =
-                                                        $state.finishDate.f;
-                                                    } else {
-                                                      select3.finishTime =
-                                                        undefined;
-                                                    }
-                                                    select3.active = 1;
-                                                    select3.times =
-                                                      JSON.stringify(
-                                                        $state.time2.map(
-                                                          t =>
-                                                            `${String(t.hour).padStart(2, "0")}:${String(t.minute).padStart(2, "0")}`
-                                                        )
-                                                      );
-                                                    select3.name = $state.title;
-                                                    select3.channels =
-                                                      JSON.stringify(
-                                                        $state.report3
-                                                          .selectchanels
-                                                      );
-                                                    return select3;
-                                                  })();
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return undefined;
-                                                  }
-                                                  throw e;
-                                                }
-                                              })(),
-                                              undefined
-                                            ]
-                                          };
-                                          return $globalActions[
-                                            "Fragment.apiRequest"
-                                          ]?.apply(null, [...actionArgs.args]);
-                                        })()
-                                      : undefined;
-                                  if (
-                                    $steps["insert"] != null &&
-                                    typeof $steps["insert"] === "object" &&
-                                    typeof $steps["insert"].then === "function"
-                                  ) {
-                                    $steps["insert"] = await $steps["insert"];
-                                  }
-
-                                  $steps["edit"] =
-                                    $state.select2.id && $state.time2.length > 0
-                                      ? (() => {
-                                          const actionArgs = {
-                                            args: [
-                                              "POST",
-                                              "https://n8n.staas.ir/webhook/user/task/edit",
-                                              undefined,
-                                              (() => {
-                                                try {
-                                                  return (() => {
-                                                    var select3 = {};
-                                                    select3 = $state.select2;
-                                                    try {
-                                                      if (
-                                                        Array.isArray(
-                                                          $state.week
-                                                        ) &&
-                                                        $state.week.length > 0
-                                                      ) {
-                                                        select3.weekdays =
-                                                          JSON.stringify(
-                                                            $state.week
-                                                          );
-                                                      } else {
-                                                        select3.weekdays =
-                                                          undefined;
-                                                      }
-                                                      if (
-                                                        Array.isArray(
-                                                          $state.date
-                                                        ) &&
-                                                        $state.date.length > 0
-                                                      ) {
-                                                        let dates = $state.date
-                                                          .map(
-                                                            i =>
-                                                              i?.start?.f || ""
-                                                          )
-                                                          .filter(Boolean);
-                                                        if (
-                                                          select3.schedule_type ===
-                                                          "everyYear"
-                                                        ) {
-                                                          dates = dates.map(
-                                                            f => {
-                                                              let parts =
-                                                                f.split(/[-/]/);
-                                                              if (
-                                                                parts.length > 1
-                                                              )
-                                                                parts[0] =
-                                                                  "0000";
-                                                              return f.includes(
-                                                                "-"
-                                                              )
-                                                                ? parts.join(
-                                                                    "-"
-                                                                  )
-                                                                : parts.join(
-                                                                    "/"
-                                                                  );
-                                                            }
-                                                          );
-                                                        }
-                                                        select3.dates =
-                                                          JSON.stringify(dates);
-                                                      } else {
-                                                        select3.dates =
-                                                          undefined;
-                                                      }
-                                                      select3.finishTime =
-                                                        $state?.finishDate?.f ||
-                                                        undefined;
-                                                      select3.active = 1;
-                                                      if (
-                                                        Array.isArray(
-                                                          $state.time2
-                                                        ) &&
-                                                        $state.time2.length > 0
-                                                      ) {
-                                                        select3.times =
-                                                          JSON.stringify(
-                                                            $state.time2.map(
-                                                              t =>
-                                                                `${String(t?.hour ?? 0).padStart(2, "0")}:${String(t?.minute ?? 0).padStart(2, "0")}`
-                                                            )
-                                                          );
-                                                      } else {
-                                                        select3.times =
-                                                          JSON.stringify([]);
-                                                      }
-                                                      select3.name =
-                                                        $state?.title ?? "";
-                                                      const selects =
-                                                        $state?.repead2
-                                                          ?.selectchanels ?? [];
-                                                      select3.channels =
-                                                        JSON.stringify(selects);
-                                                    } catch (err) {
-                                                      select3 = {
-                                                        weekdays: undefined,
-                                                        dates: undefined,
-                                                        finishTime: undefined,
-                                                        active: 0,
-                                                        times: "[]",
-                                                        name: "",
-                                                        channels: "[]"
-                                                      };
-                                                    }
-                                                    return select3;
-                                                  })();
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return undefined;
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()
-                                            ]
-                                          };
-                                          return $globalActions[
-                                            "Fragment.apiRequest"
-                                          ]?.apply(null, [...actionArgs.args]);
-                                        })()
-                                      : undefined;
-                                  if (
-                                    $steps["edit"] != null &&
-                                    typeof $steps["edit"] === "object" &&
-                                    typeof $steps["edit"].then === "function"
-                                  ) {
-                                    $steps["edit"] = await $steps["edit"];
-                                  }
-
-                                  $steps["invokeGlobalAction2"] =
-                                    $steps.insert?.data?.success == true ||
-                                    $steps.edit?.data?.success == true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            args: [
-                                              undefined,
-                                              "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f.",
-                                              "bottom-center",
-                                              2000
-                                            ]
-                                          };
-                                          return $globalActions[
-                                            "Fragment.showToast"
-                                          ]?.apply(null, [...actionArgs.args]);
-                                        })()
-                                      : undefined;
-                                  if (
-                                    $steps["invokeGlobalAction2"] != null &&
-                                    typeof $steps["invokeGlobalAction2"] ===
-                                      "object" &&
-                                    typeof $steps["invokeGlobalAction2"]
-                                      .then === "function"
-                                  ) {
-                                    $steps["invokeGlobalAction2"] =
-                                      await $steps["invokeGlobalAction2"];
-                                  }
-
-                                  $steps["runCode"] =
-                                    $steps.insert?.data?.success == true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            customFunction: async () => {
-                                              return (() => {
-                                                $state.dialog.opendialog = false;
-                                                $state.dialog2.opendialog = false;
-                                                return ($state.select2.id =
-                                                  $steps.insert.data.result);
-                                              })();
-                                            }
-                                          };
-                                          return (({ customFunction }) => {
-                                            return customFunction();
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                  if (
-                                    $steps["runCode"] != null &&
-                                    typeof $steps["runCode"] === "object" &&
-                                    typeof $steps["runCode"].then === "function"
-                                  ) {
-                                    $steps["runCode"] = await $steps["runCode"];
-                                  }
-
-                                  $steps["runCode3"] =
-                                    $steps.edit?.data?.success == true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            customFunction: async () => {
-                                              return (() => {
-                                                $state.dialog.opendialog = false;
-                                                return ($state.dialog2.opendialog = false);
-                                              })();
-                                            }
-                                          };
-                                          return (({ customFunction }) => {
-                                            return customFunction();
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                  if (
-                                    $steps["runCode3"] != null &&
-                                    typeof $steps["runCode3"] === "object" &&
-                                    typeof $steps["runCode3"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["runCode3"] =
-                                      await $steps["runCode3"];
-                                  }
-
-                                  $steps["updateButton5Load2"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          variable: {
-                                            objRoot: $state,
-                                            variablePath: [
-                                              "button16",
-                                              "loading"
-                                            ]
-                                          },
-                                          operation: 4
-                                        };
-                                        return (({
-                                          variable,
-                                          value,
-                                          startIndex,
-                                          deleteCount
-                                        }) => {
-                                          if (!variable) {
-                                            return;
-                                          }
-                                          const { objRoot, variablePath } =
-                                            variable;
-
-                                          const oldValue = $stateGet(
-                                            objRoot,
-                                            variablePath
-                                          );
-                                          $stateSet(
-                                            objRoot,
-                                            variablePath,
-                                            !oldValue
-                                          );
-                                          return !oldValue;
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["updateButton5Load2"] != null &&
-                                    typeof $steps["updateButton5Load2"] ===
-                                      "object" &&
-                                    typeof $steps["updateButton5Load2"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["updateButton5Load2"] =
-                                      await $steps["updateButton5Load2"];
-                                  }
-
-                                  $steps["runCode4"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          customFunction: async () => {
-                                            return ($state.refresh += 1);
-                                          }
-                                        };
-                                        return (({ customFunction }) => {
-                                          return customFunction();
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["runCode4"] != null &&
-                                    typeof $steps["runCode4"] === "object" &&
-                                    typeof $steps["runCode4"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["runCode4"] =
-                                      await $steps["runCode4"];
-                                  }
-
-                                  $steps["invokeGlobalAction"] =
-                                    $state.time2.length == 0
-                                      ? (() => {
-                                          const actionArgs = {
-                                            args: [
-                                              "error",
-                                              "\u0632\u0645\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0631\u0627 \u0645\u0634\u062e\u0635 \u06a9\u0646\u06cc\u062f.",
-                                              "bottom-center"
-                                            ]
-                                          };
-                                          return $globalActions[
-                                            "Fragment.showToast"
-                                          ]?.apply(null, [...actionArgs.args]);
-                                        })()
-                                      : undefined;
-                                  if (
-                                    $steps["invokeGlobalAction"] != null &&
-                                    typeof $steps["invokeGlobalAction"] ===
-                                      "object" &&
-                                    typeof $steps["invokeGlobalAction"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["invokeGlobalAction"] =
-                                      await $steps["invokeGlobalAction"];
-                                  }
-                                }}
-                                onColorChange={async (...eventArgs: any) => {
-                                  ((...eventArgs) => {
-                                    generateStateOnChangeProp($state, [
-                                      "button16",
-                                      "color"
-                                    ])(eventArgs[0]);
-                                  }).apply(null, eventArgs);
-
-                                  if (
-                                    eventArgs.length > 1 &&
-                                    eventArgs[1] &&
-                                    eventArgs[1]._plasmic_state_init_
-                                  ) {
-                                    return;
-                                  }
-                                }}
-                                onLoadChange={async (...eventArgs: any) => {
-                                  ((...eventArgs) => {
-                                    generateStateOnChangeProp($state, [
-                                      "button16",
-                                      "load"
-                                    ])(eventArgs[0]);
-                                  }).apply(null, eventArgs);
-
-                                  if (
-                                    eventArgs.length > 1 &&
-                                    eventArgs[1] &&
-                                    eventArgs[1]._plasmic_state_init_
-                                  ) {
-                                    return;
-                                  }
-                                }}
-                                onLoadingChange={async (...eventArgs: any) => {
-                                  ((...eventArgs) => {
-                                    generateStateOnChangeProp($state, [
-                                      "button16",
-                                      "loading"
-                                    ])(eventArgs[0]);
-                                  }).apply(null, eventArgs);
-
-                                  if (
-                                    eventArgs.length > 1 &&
-                                    eventArgs[1] &&
-                                    eventArgs[1]._plasmic_state_init_
-                                  ) {
-                                    return;
-                                  }
-                                }}
-                              >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text___8UJjA
-                                  )}
-                                >
-                                  {
-                                    "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0630\u062e\u06cc\u0631\u0647"
-                                  }
-                                </div>
-                              </Button>
-                            ),
-                            className: classNames(
-                              "__wab_instance",
-                              sty.report3,
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__v8JEf
+                              )}
+                            >
                               {
-                                [sty.report3report]: hasVariant(
-                                  $state,
-                                  "report",
-                                  "report"
-                                )
+                                "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0630\u062e\u06cc\u0631\u0647"
                               }
-                            ),
-                            data: (() => {
-                              try {
-                                return [
-                                  {
-                                    label: "نوتیفیکیشن",
-                                    value: "notification",
-                                    paid: false
-                                  },
-                                  {
-                                    label: "تلگرام",
-                                    value: "telegram",
-                                    paid: false
-                                  },
-                                  {
-                                    label: "پیامک",
-                                    value: "sms",
-                                    paid: true
-                                  }
-                                ];
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })(),
-                            data2: generateStateValueProp($state, [
-                              "report3",
-                              "data2"
-                            ]),
-                            onActiveChange: async (...eventArgs: any) => {
-                              generateStateOnChangeProp($state, [
-                                "report3",
-                                "active"
-                              ]).apply(null, eventArgs);
-
-                              if (
-                                eventArgs.length > 1 &&
-                                eventArgs[1] &&
-                                eventArgs[1]._plasmic_state_init_
-                              ) {
-                                return;
-                              }
-                            },
-                            onData2Change2: async (...eventArgs: any) => {
-                              generateStateOnChangeProp($state, [
-                                "report3",
-                                "data2"
-                              ]).apply(null, eventArgs);
-
-                              if (
-                                eventArgs.length > 1 &&
-                                eventArgs[1] &&
-                                eventArgs[1]._plasmic_state_init_
-                              ) {
-                                return;
-                              }
-                            },
-                            onSelectchanelsChange: async (
-                              ...eventArgs: any
-                            ) => {
-                              generateStateOnChangeProp($state, [
-                                "report3",
-                                "selectchanels"
-                              ]).apply(null, eventArgs);
-
-                              if (
-                                eventArgs.length > 1 &&
-                                eventArgs[1] &&
-                                eventArgs[1]._plasmic_state_init_
-                              ) {
-                                return;
-                              }
-                            },
-                            selectchanels: generateStateValueProp($state, [
-                              "report3",
-                              "selectchanels"
-                            ])
-                          };
-
-                          initializePlasmicStates(
+                            </div>
+                          </Button>
+                        ),
+                        className: classNames("__wab_instance", sty.report4, {
+                          [sty.report4report]: hasVariant(
                             $state,
-                            [
+                            "report",
+                            "report"
+                          )
+                        }),
+                        data: (() => {
+                          try {
+                            return [
                               {
-                                name: "report3.data2",
-                                initFunc: ({ $props, $state, $queries }) =>
-                                  (() => {
-                                    try {
-                                      return (() => {
-                                        $state.select2.weekdays = $state.week
-                                          ?.length
-                                          ? JSON.stringify($state.week)
-                                          : undefined;
-                                        if ($state.date.length > 0) {
-                                          let dates = $state.date.map(
-                                            i => i.start.f
-                                          );
-                                          if (
-                                            $state.select2.schedule_type ===
-                                            "everyYear"
-                                          ) {
-                                            dates = $state.date.map(i => {
-                                              let parts =
-                                                i.start.f.split(/[-/]/);
-                                              parts[0] = "0000";
-                                              return i.start.f.includes("-")
-                                                ? parts.join("-")
-                                                : parts.join("/");
-                                            });
-                                          }
-                                          $state.select2.dates =
-                                            JSON.stringify(dates);
-                                        } else {
-                                          $state.select2.dates = undefined;
-                                        }
-                                        if ($state.finishDate?.f) {
-                                          $state.select2.finishTime =
-                                            $state.finishDate.f;
-                                        } else {
-                                          $state.select2.finishTime = undefined;
-                                        }
-                                        $state.select2.active = 1;
-                                        $state.select2.times = JSON.stringify(
-                                          $state.time2.map(
-                                            t =>
-                                              `${String(t.hour).padStart(2, "0")}:${String(t.minute).padStart(2, "0")}`
-                                          )
-                                        );
-                                        $state.select2.name = $state.title;
-                                        $state.select2.chanels = JSON.stringify(
-                                          ["telegram", "notification", "sms"]
-                                        );
-                                        return $state.select2;
-                                      })();
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return [
-                                          {
-                                            label:
-                                              "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-                                            value: "notification",
-                                            paid: false
-                                          },
-                                          {
-                                            label:
-                                              "\u062a\u0644\u06af\u0631\u0627\u0645",
-                                            value: "telegram",
-                                            paid: false
-                                          },
-                                          {
-                                            label:
-                                              "\u067e\u06cc\u0627\u0645\u06a9",
-                                            value: "sms",
-                                            paid: true
-                                          }
-                                        ];
-                                      }
-                                      throw e;
-                                    }
-                                  })()
+                                label: "نوتیفیکیشن",
+                                value: "notification",
+                                paid: false
                               },
                               {
-                                name: "report3.selectchanels",
-                                initFunc: ({ $props, $state, $queries }) =>
-                                  (() => {
-                                    try {
-                                      return (() => {
-                                        try {
-                                          return JSON.parse(
-                                            $state.select2.channels
-                                          );
-                                        } catch {
-                                          return [];
-                                        }
-                                      })();
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return [];
-                                      }
-                                      throw e;
-                                    }
-                                  })()
+                                label: "تلگرام",
+                                value: "telegram",
+                                paid: false
+                              },
+                              {
+                                label: "پیامک",
+                                value: "sms",
+                                paid: true
                               }
-                            ],
-                            []
-                          );
-                          return (
-                            <Report2
-                              data-plasmic-name={"report3"}
-                              data-plasmic-override={overrides.report3}
-                              {...child$Props}
-                            />
-                          );
-                        })()
-                      : null}
+                            ];
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        data2: generateStateValueProp($state, [
+                          "report4",
+                          "data2"
+                        ]),
+                        onActiveChange: async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "report4",
+                            "active"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        },
+                        onData2Change2: async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "report4",
+                            "data2"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        },
+                        onSelectchanelsChange: async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "report4",
+                            "selectchanels"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        },
+                        selectchanels: generateStateValueProp($state, [
+                          "report4",
+                          "selectchanels"
+                        ])
+                      };
+
+                      initializePlasmicStates(
+                        $state,
+                        [
+                          {
+                            name: "report4.data2",
+                            initFunc: ({ $props, $state, $queries }) =>
+                              (() => {
+                                try {
+                                  return (() => {
+                                    $state.select2.weekdays = $state.week
+                                      ?.length
+                                      ? JSON.stringify($state.week)
+                                      : undefined;
+                                    if ($state.date.length > 0) {
+                                      let dates = $state.date.map(
+                                        i => i.start.f
+                                      );
+                                      if (
+                                        $state.select2.schedule_type ===
+                                        "everyYear"
+                                      ) {
+                                        dates = $state.date.map(i => {
+                                          let parts = i.start.f.split(/[-/]/);
+                                          parts[0] = "0000";
+                                          return i.start.f.includes("-")
+                                            ? parts.join("-")
+                                            : parts.join("/");
+                                        });
+                                      }
+                                      $state.select2.dates =
+                                        JSON.stringify(dates);
+                                    } else {
+                                      $state.select2.dates = undefined;
+                                    }
+                                    if ($state.finishDate?.f) {
+                                      $state.select2.finishTime =
+                                        $state.finishDate.f;
+                                    } else {
+                                      $state.select2.finishTime = undefined;
+                                    }
+                                    $state.select2.active = 1;
+                                    $state.select2.times = JSON.stringify(
+                                      $state.time2.map(
+                                        t =>
+                                          `${String(t.hour).padStart(2, "0")}:${String(t.minute).padStart(2, "0")}`
+                                      )
+                                    );
+                                    $state.select2.name = $state.title;
+                                    $state.select2.chanels = JSON.stringify([
+                                      "telegram",
+                                      "notification",
+                                      "sms"
+                                    ]);
+                                    return $state.select2;
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [
+                                      {
+                                        label:
+                                          "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
+                                        value: "notification",
+                                        paid: false
+                                      },
+                                      {
+                                        label:
+                                          "\u062a\u0644\u06af\u0631\u0627\u0645",
+                                        value: "telegram",
+                                        paid: false
+                                      },
+                                      {
+                                        label: "\u067e\u06cc\u0627\u0645\u06a9",
+                                        value: "sms",
+                                        paid: true
+                                      }
+                                    ];
+                                  }
+                                  throw e;
+                                }
+                              })()
+                          },
+                          {
+                            name: "report4.selectchanels",
+                            initFunc: ({ $props, $state, $queries }) =>
+                              (() => {
+                                try {
+                                  return (() => {
+                                    try {
+                                      return JSON.parse(
+                                        $state.select2.channels
+                                      );
+                                    } catch {
+                                      return [];
+                                    }
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()
+                          }
+                        ],
+                        []
+                      );
+                      return (
+                        <Report2
+                          data-plasmic-name={"report4"}
+                          data-plasmic-override={overrides.report4}
+                          {...child$Props}
+                        />
+                      );
+                    })()}
                   </div>
                 ) : null}
               </Steps2>
@@ -13635,13 +13969,13 @@ const PlasmicDescendants = {
     "switchSetting",
     "button2",
     "checkbox3",
-    "steps22",
-    "textbox3",
-    "repead3",
-    "button15",
-    "radioGroupLiom3",
-    "report3",
-    "button16",
+    "steps23",
+    "textbox2",
+    "repead2",
+    "button17",
+    "radioGroupLiom2",
+    "report4",
+    "button8",
     "snackbar",
     "button",
     "button3",
@@ -13781,21 +14115,21 @@ const PlasmicDescendants = {
   switchSetting: ["switchSetting"],
   button2: ["button2"],
   checkbox3: ["checkbox3"],
-  steps22: [
-    "steps22",
-    "textbox3",
-    "repead3",
-    "button15",
-    "radioGroupLiom3",
-    "report3",
-    "button16"
+  steps23: [
+    "steps23",
+    "textbox2",
+    "repead2",
+    "button17",
+    "radioGroupLiom2",
+    "report4",
+    "button8"
   ],
-  textbox3: ["textbox3"],
-  repead3: ["repead3"],
-  button15: ["button15"],
-  radioGroupLiom3: ["radioGroupLiom3"],
-  report3: ["report3", "button16"],
-  button16: ["button16"],
+  textbox2: ["textbox2"],
+  repead2: ["repead2"],
+  button17: ["button17"],
+  radioGroupLiom2: ["radioGroupLiom2"],
+  report4: ["report4", "button8"],
+  button8: ["button8"],
   snackbar: ["snackbar", "button", "button3"],
   button: ["button"],
   button3: ["button3"],
@@ -13852,13 +14186,13 @@ type NodeDefaultElementType = {
   switchSetting: typeof Switchbest;
   button2: typeof Button;
   checkbox3: typeof Checkbox;
-  steps22: typeof Steps2;
-  textbox3: "input";
-  repead3: typeof Repead;
-  button15: typeof Button;
-  radioGroupLiom3: typeof RadioGroupLiom;
-  report3: typeof Report2;
-  button16: typeof Button;
+  steps23: typeof Steps2;
+  textbox2: "input";
+  repead2: typeof Repead;
+  button17: typeof Button;
+  radioGroupLiom2: typeof RadioGroupLiom;
+  report4: typeof Report2;
+  button8: typeof Button;
   snackbar: typeof Snackbar;
   button: typeof Button;
   button3: typeof Button;
@@ -13973,13 +14307,13 @@ export const PlasmicReminderSetting = Object.assign(
     switchSetting: makeNodeComponent("switchSetting"),
     button2: makeNodeComponent("button2"),
     checkbox3: makeNodeComponent("checkbox3"),
-    steps22: makeNodeComponent("steps22"),
-    textbox3: makeNodeComponent("textbox3"),
-    repead3: makeNodeComponent("repead3"),
-    button15: makeNodeComponent("button15"),
-    radioGroupLiom3: makeNodeComponent("radioGroupLiom3"),
-    report3: makeNodeComponent("report3"),
-    button16: makeNodeComponent("button16"),
+    steps23: makeNodeComponent("steps23"),
+    textbox2: makeNodeComponent("textbox2"),
+    repead2: makeNodeComponent("repead2"),
+    button17: makeNodeComponent("button17"),
+    radioGroupLiom2: makeNodeComponent("radioGroupLiom2"),
+    report4: makeNodeComponent("report4"),
+    button8: makeNodeComponent("button8"),
     snackbar: makeNodeComponent("snackbar"),
     button: makeNodeComponent("button"),
     button3: makeNodeComponent("button3"),
