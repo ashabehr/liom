@@ -66,8 +66,8 @@ import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 import Steps2 from "../../Steps2"; // plasmic-import: -WmKiY4f9MTC/component
 import Repead from "../../Repead"; // plasmic-import: bTRB9n2MQ7IL/component
 import RadioGrop from "../../RadioGrop"; // plasmic-import: mcNKMbL_6N75/component
+import ProcessReminders from "../../ProcessReminders"; // plasmic-import: 7KMtFKw4UOjl/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
-import RadioGroupLiom from "../../RadioGroupLiom"; // plasmic-import: tXN0uQ-uT9R3/component
 import Report2 from "../../Report2"; // plasmic-import: gmdZmHDhwt9V/component
 import ReminderCategory from "../../ReminderCategory"; // plasmic-import: ndgNxvaF00At/component
 import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
@@ -199,7 +199,6 @@ export type PlasmicReminderSetting__OverridesType = {
   textbox?: Flex__<"input">;
   repead?: Flex__<typeof Repead>;
   button14?: Flex__<typeof Button>;
-  radioGroupLiom?: Flex__<typeof RadioGroupLiom>;
   report2?: Flex__<typeof Report2>;
   button5?: Flex__<typeof Button>;
   dialog2?: Flex__<typeof Dialog>;
@@ -239,7 +238,6 @@ export type PlasmicReminderSetting__OverridesType = {
   textbox2?: Flex__<"input">;
   repead2?: Flex__<typeof Repead>;
   button17?: Flex__<typeof Button>;
-  radioGroupLiom2?: Flex__<typeof RadioGroupLiom>;
   report4?: Flex__<typeof Report2>;
   button8?: Flex__<typeof Button>;
   snackbar?: Flex__<typeof Snackbar>;
@@ -1412,79 +1410,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "radioGroupLiom.selected",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
-        path: "radioGroupLiom.list",
-        type: "private",
-        variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (() => {
-                const notifications = [
-                  {
-                    label: "نوتیفیکیشن",
-                    value: "notification",
-                    paid: false
-                  },
-                  {
-                    label: "تلگرام",
-                    value: "telegram",
-                    paid: false
-                  },
-                  {
-                    label: "پیامک",
-                    value: "sms",
-                    paid: true
-                  }
-                ];
-
-                notifications.forEach(i => {
-                  i.access = i.paid ? false : true;
-                });
-                return notifications;
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return [];
-              }
-              throw e;
-            }
-          })()
-      },
-      {
-        path: "radioGroupLiom.selects",
-        type: "private",
-        variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (() => {
-                try {
-                  return JSON.parse($state.select2.channels);
-                } catch {
-                  return [];
-                }
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return [];
-              }
-              throw e;
-            }
-          })()
-      },
-      {
         path: "refreshTime",
         type: "writable",
         variableType: "text",
@@ -1734,12 +1659,13 @@ function PlasmicReminderSetting__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                $state.select2.weekdays = $state.week?.length
+                var report = {};
+                report.weekdays = $state.week?.length
                   ? JSON.stringify($state.week)
                   : undefined;
                 if ($state.date.length > 0) {
                   let dates = $state.date.map(i => i.start.f);
-                  if ($state.select2.schedule_type === "everyYear") {
+                  if (report.schedule_type === "everyYear") {
                     dates = $state.date.map(i => {
                       let parts = i.start.f.split(/[-/]/);
                       parts[0] = "0000";
@@ -1748,53 +1674,36 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         : parts.join("/");
                     });
                   }
-                  $state.select2.dates = JSON.stringify(dates);
+                  report.dates = JSON.stringify(dates);
                 } else {
-                  $state.select2.dates = undefined;
+                  report.dates = undefined;
                 }
                 if ($state.finishDate?.f) {
-                  $state.select2.finishTime = $state.finishDate.f;
+                  report.finishTime = $state.finishDate.f;
                 } else {
-                  $state.select2.finishTime = undefined;
+                  report.finishTime = undefined;
                 }
-                $state.select2.active = 1;
-                $state.select2.times = JSON.stringify(
+                report.active = 1;
+                report.times = JSON.stringify(
                   $state.time2.map(
                     t =>
                       `${String(t.hour).padStart(2, "0")}:${String(t.minute).padStart(2, "0")}`
                   )
                 );
-                $state.select2.name = $state.title;
-                $state.select2.chanels = JSON.stringify([
+                report.name = $state.title;
+                report.chanels = JSON.stringify([
                   "telegram",
                   "notification",
                   "sms"
                 ]);
-                return $state.select2;
+                return report;
               })();
             } catch (e) {
               if (
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return [
-                  {
-                    label:
-                      "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-                    value: "notification",
-                    paid: false
-                  },
-                  {
-                    label: "\u062a\u0644\u06af\u0631\u0627\u0645",
-                    value: "telegram",
-                    paid: false
-                  },
-                  {
-                    label: "\u067e\u06cc\u0627\u0645\u06a9",
-                    value: "sms",
-                    paid: true
-                  }
-                ];
+                return [];
               }
               throw e;
             }
@@ -1925,79 +1834,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "radioGroupLiom2.selected",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
-        path: "radioGroupLiom2.list",
-        type: "private",
-        variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (() => {
-                const notifications = [
-                  {
-                    label: "نوتیفیکیشن",
-                    value: "notification",
-                    paid: false
-                  },
-                  {
-                    label: "تلگرام",
-                    value: "telegram",
-                    paid: false
-                  },
-                  {
-                    label: "پیامک",
-                    value: "sms",
-                    paid: true
-                  }
-                ];
-
-                notifications.forEach(i => {
-                  i.access = i.paid ? false : true;
-                });
-                return notifications;
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return [];
-              }
-              throw e;
-            }
-          })()
-      },
-      {
-        path: "radioGroupLiom2.selects",
-        type: "private",
-        variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (() => {
-                try {
-                  return JSON.parse($state.select2.channels);
-                } catch {
-                  return [];
-                }
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return [];
-              }
-              throw e;
-            }
-          })()
-      },
-      {
         path: "report4.active",
         type: "private",
         variableType: "boolean",
@@ -2026,12 +1862,13 @@ function PlasmicReminderSetting__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                $state.select2.weekdays = $state.week?.length
+                var report = {};
+                report.weekdays = $state.week?.length
                   ? JSON.stringify($state.week)
                   : undefined;
                 if ($state.date.length > 0) {
                   let dates = $state.date.map(i => i.start.f);
-                  if ($state.select2.schedule_type === "everyYear") {
+                  if (report.schedule_type === "everyYear") {
                     dates = $state.date.map(i => {
                       let parts = i.start.f.split(/[-/]/);
                       parts[0] = "0000";
@@ -2040,29 +1877,29 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         : parts.join("/");
                     });
                   }
-                  $state.select2.dates = JSON.stringify(dates);
+                  report.dates = JSON.stringify(dates);
                 } else {
-                  $state.select2.dates = undefined;
+                  report.dates = undefined;
                 }
                 if ($state.finishDate?.f) {
-                  $state.select2.finishTime = $state.finishDate.f;
+                  report.finishTime = $state.finishDate.f;
                 } else {
-                  $state.select2.finishTime = undefined;
+                  report.finishTime = undefined;
                 }
-                $state.select2.active = 1;
-                $state.select2.times = JSON.stringify(
+                report.active = 1;
+                report.times = JSON.stringify(
                   $state.time2.map(
                     t =>
                       `${String(t.hour).padStart(2, "0")}:${String(t.minute).padStart(2, "0")}`
                   )
                 );
-                $state.select2.name = $state.title;
-                $state.select2.chanels = JSON.stringify([
+                report.name = $state.title;
+                report.chanels = JSON.stringify([
                   "telegram",
                   "notification",
                   "sms"
                 ]);
-                return $state.select2;
+                return report;
               })();
             } catch (e) {
               if (
@@ -2263,35 +2100,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
 
             (async val => {
               const $steps = {};
-
-              $steps["updateDisable"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["disable"]
-                      },
-                      operation: 0,
-                      value: true
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateDisable"] != null &&
-                typeof $steps["updateDisable"] === "object" &&
-                typeof $steps["updateDisable"].then === "function"
-              ) {
-                $steps["updateDisable"] = await $steps["updateDisable"];
-              }
 
               $steps["runCode"] = true
                 ? (() => {
@@ -4189,159 +3997,61 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             "\u0645\u062c\u0645\u0648\u0639 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627:"
                           }
                         </div>
-                        <div
+                        <ProcessReminders
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__xt6Z1
+                            "__wab_instance",
+                            sty.processReminders__bvK1
                           )}
-                        >
-                          <div
-                            className={projectcss.__wab_expr_html_text}
-                            dangerouslySetInnerHTML={{
-                              __html: (() => {
-                                try {
-                                  return (() => {
-                                    function processReminders(
-                                      reminders,
-                                      channels
-                                    ) {
-                                      const startDate = new Date();
-                                      const oneMonthLater = new Date();
-                                      oneMonthLater.setMonth(
-                                        oneMonthLater.getMonth() + 1
-                                      );
-                                      function getDatesBetween(start, finish) {
-                                        const dates = [];
-                                        const d = new Date(start);
-                                        while (d <= finish) {
-                                          dates.push(new Date(d));
-                                          d.setDate(d.getDate() + 1);
-                                        }
-                                        return dates;
-                                      }
-                                      const results = reminders.map(rem => {
-                                        let times = [];
-                                        try {
-                                          times = Array.isArray(rem.times)
-                                            ? rem.times
-                                            : JSON.parse(rem.times || "[]");
-                                        } catch {
-                                          times = [];
-                                        }
-                                        const timesPerDay = times.length || 1;
-                                        let chList = [];
-                                        try {
-                                          chList = Array.isArray(rem.chanels)
-                                            ? rem.chanels
-                                            : JSON.parse(rem.chanels || "[]");
-                                        } catch {
-                                          chList = [];
-                                        }
-                                        const finishTime = rem.finishTime
-                                          ? new Date(rem.finishTime)
-                                          : oneMonthLater;
-                                        const endDate =
-                                          finishTime < oneMonthLater
-                                            ? finishTime
-                                            : oneMonthLater;
-                                        let activeDates = [];
-                                        if (rem.dates) {
-                                          try {
-                                            const dateList = Array.isArray(
-                                              rem.dates
-                                            )
-                                              ? rem.dates
-                                              : JSON.parse(rem.dates || "[]");
-                                            activeDates = dateList.map(
-                                              d => new Date(d)
-                                            );
-                                          } catch {
-                                            activeDates = [];
-                                          }
-                                        }
-                                        if (!activeDates.length) {
-                                          activeDates = getDatesBetween(
-                                            startDate,
-                                            endDate
-                                          );
-                                        }
-                                        const validDays = activeDates.length;
-                                        return {
-                                          id: rem.id,
-                                          name: rem.name,
-                                          timesPerDay,
-                                          activeDays: validDays,
-                                          channels: chList
-                                        };
-                                      });
-                                      return {
-                                        results,
-                                        startDate,
-                                        endDate: oneMonthLater
-                                      };
-                                    }
-                                    var select3 = {};
-                                    select3 = $state.select2;
-                                    select3.weekdays = $state.week?.length
-                                      ? JSON.stringify($state.week)
-                                      : undefined;
-                                    if ($state.date.length > 0) {
-                                      let dates = $state.date.map(
-                                        i => i.start.f
-                                      );
-                                      if (
-                                        select3.schedule_type === "everyYear"
-                                      ) {
-                                        dates = $state.date.map(i => {
-                                          let parts = i.start.f.split(/[-/]/);
-                                          parts[0] = "0000";
-                                          return i.start.f.includes("-")
-                                            ? parts.join("-")
-                                            : parts.join("/");
-                                        });
-                                      }
-                                      select3.dates = JSON.stringify(dates);
-                                    } else {
-                                      select3.dates = undefined;
-                                    }
-                                    if ($state.finishDate?.f) {
-                                      select3.finishTime = $state.finishDate.f;
-                                    } else {
-                                      select3.finishTime = undefined;
-                                    }
-                                    select3.active = 1;
-                                    select3.times = JSON.stringify(
-                                      $state.time2.map(
-                                        t =>
-                                          `${String(t.hour).padStart(2, "0")}:${String(t.minute).padStart(2, "0")}`
-                                      )
-                                    );
-                                    select3.name = $state.title;
-                                    select3.channels = JSON.stringify(
-                                      $state.report2.selectchanels
-                                    );
-                                    var a = processReminders([select3]);
-                                    return `<span style="font-weight:bold;  color: #8254C6;">
-  ${a.results[0].activeDays * a.results[0].timesPerDay}
-</span>
-<span> عدد در ${select3.schedule_type == "everyDay" ? "ماه" : "سال"}</span>
-`;
-                                  })();
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "";
+                          data={(() => {
+                            try {
+                              return (() => {
+                                var report = {};
+                                report.schedule_type =
+                                  $state.select2.schedule_type;
+                                report.weekdays = $state.week?.length
+                                  ? JSON.stringify($state.week)
+                                  : undefined;
+                                if ($state.date.length > 0) {
+                                  let dates = $state.date.map(i => i.start.f);
+                                  if (report.schedule_type === "everyYear") {
+                                    dates = $state.date.map(i => {
+                                      let parts = i.start.f.split(/[-/]/);
+                                      parts[0] = "0000";
+                                      return i.start.f.includes("-")
+                                        ? parts.join("-")
+                                        : parts.join("/");
+                                    });
                                   }
-                                  throw e;
+                                  report.dates = JSON.stringify(dates);
+                                } else {
+                                  report.dates = undefined;
                                 }
-                              })()
-                            }}
-                          />
-                        </div>
+                                if ($state.finishDate?.f) {
+                                  report.finishTime = $state.finishDate.f;
+                                } else {
+                                  report.finishTime = undefined;
+                                }
+                                report.active = 1;
+                                report.times = JSON.stringify(
+                                  $state.time2.map(
+                                    t =>
+                                      `${String(t.hour).padStart(2, "0")}:${String(t.minute).padStart(2, "0")}`
+                                  )
+                                );
+                                report.name = $state.title;
+                                return report;
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()}
+                        />
                       </div>
                       <Button
                         data-plasmic-name={"button14"}
@@ -4530,138 +4240,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         "\u0627\u0632 \u0686\u0647 \u0637\u0631\u06cc\u0642\u06cc \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0627\u0646\u062c\u0627\u0645 \u0634\u0648\u062f\u061f"
                       }
                     </div>
-                    {(() => {
-                      const child$Props = {
-                        accessclicke: async () => {
-                          const $steps = {};
-
-                          $steps["invokeGlobalAction"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  args: [
-                                    "custom",
-                                    "\u0628\u0647\u200c\u0632\u0648\u062f\u06cc \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0641\u0639\u0627\u0644 \u0645\u06cc\u200c\u0634\u0648\u062f!",
-                                    "bottom-center"
-                                  ]
-                                };
-                                return $globalActions[
-                                  "Fragment.showToast"
-                                ]?.apply(null, [...actionArgs.args]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["invokeGlobalAction"] != null &&
-                            typeof $steps["invokeGlobalAction"] === "object" &&
-                            typeof $steps["invokeGlobalAction"].then ===
-                              "function"
-                          ) {
-                            $steps["invokeGlobalAction"] =
-                              await $steps["invokeGlobalAction"];
-                          }
-                        },
-                        className: classNames(
-                          "__wab_instance",
-                          sty.radioGroupLiom
-                        ),
-                        list: generateStateValueProp($state, [
-                          "radioGroupLiom",
-                          "list"
-                        ]),
-                        moulty: true,
-                        onListChange: async (...eventArgs: any) => {
-                          generateStateOnChangeProp($state, [
-                            "radioGroupLiom",
-                            "list"
-                          ]).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        },
-                        onSelectedChange: async (...eventArgs: any) => {
-                          generateStateOnChangeProp($state, [
-                            "radioGroupLiom",
-                            "selected"
-                          ]).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        },
-                        onSelectsChange: async (...eventArgs: any) => {
-                          generateStateOnChangeProp($state, [
-                            "radioGroupLiom",
-                            "selects"
-                          ]).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        },
-                        selected: generateStateValueProp($state, [
-                          "radioGroupLiom",
-                          "selected"
-                        ]),
-                        selects: generateStateValueProp($state, [
-                          "radioGroupLiom",
-                          "selects"
-                        ]),
-                        size: "small",
-                        unnamedVariant: true
-                      };
-
-                      initializePlasmicStates(
-                        $state,
-                        [
-                          {
-                            name: "radioGroupLiom.selects",
-                            initFunc: ({ $props, $state, $queries }) =>
-                              (() => {
-                                try {
-                                  return (() => {
-                                    try {
-                                      return JSON.parse(
-                                        $state.select2.channels
-                                      );
-                                    } catch {
-                                      return [];
-                                    }
-                                  })();
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return [];
-                                  }
-                                  throw e;
-                                }
-                              })()
-                          }
-                        ],
-                        []
-                      );
-                      return (
-                        <RadioGroupLiom
-                          data-plasmic-name={"radioGroupLiom"}
-                          data-plasmic-override={overrides.radioGroupLiom}
-                          {...child$Props}
-                        />
-                      );
-                    })()}
                     {(() => {
                       const child$Props = {
                         active: generateStateValueProp($state, [
@@ -5290,8 +4868,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               (() => {
                                 try {
                                   return (() => {
-                                    $state.select2.weekdays = $state.week
-                                      ?.length
+                                    var report = {};
+                                    report.weekdays = $state.week?.length
                                       ? JSON.stringify($state.week)
                                       : undefined;
                                     if ($state.date.length > 0) {
@@ -5299,8 +4877,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                         i => i.start.f
                                       );
                                       if (
-                                        $state.select2.schedule_type ===
-                                        "everyYear"
+                                        report.schedule_type === "everyYear"
                                       ) {
                                         dates = $state.date.map(i => {
                                           let parts = i.start.f.split(/[-/]/);
@@ -5310,31 +4887,29 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                             : parts.join("/");
                                         });
                                       }
-                                      $state.select2.dates =
-                                        JSON.stringify(dates);
+                                      report.dates = JSON.stringify(dates);
                                     } else {
-                                      $state.select2.dates = undefined;
+                                      report.dates = undefined;
                                     }
                                     if ($state.finishDate?.f) {
-                                      $state.select2.finishTime =
-                                        $state.finishDate.f;
+                                      report.finishTime = $state.finishDate.f;
                                     } else {
-                                      $state.select2.finishTime = undefined;
+                                      report.finishTime = undefined;
                                     }
-                                    $state.select2.active = 1;
-                                    $state.select2.times = JSON.stringify(
+                                    report.active = 1;
+                                    report.times = JSON.stringify(
                                       $state.time2.map(
                                         t =>
                                           `${String(t.hour).padStart(2, "0")}:${String(t.minute).padStart(2, "0")}`
                                       )
                                     );
-                                    $state.select2.name = $state.title;
-                                    $state.select2.chanels = JSON.stringify([
+                                    report.name = $state.title;
+                                    report.chanels = JSON.stringify([
                                       "telegram",
                                       "notification",
                                       "sms"
                                     ]);
-                                    return $state.select2;
+                                    return report;
                                   })();
                                 } catch (e) {
                                   if (
@@ -5342,25 +4917,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     e?.plasmicType ===
                                       "PlasmicUndefinedDataError"
                                   ) {
-                                    return [
-                                      {
-                                        label:
-                                          "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-                                        value: "notification",
-                                        paid: false
-                                      },
-                                      {
-                                        label:
-                                          "\u062a\u0644\u06af\u0631\u0627\u0645",
-                                        value: "telegram",
-                                        paid: false
-                                      },
-                                      {
-                                        label: "\u067e\u06cc\u0627\u0645\u06a9",
-                                        value: "sms",
-                                        paid: true
-                                      }
-                                    ];
+                                    return [];
                                   }
                                   throw e;
                                 }
@@ -7113,25 +6670,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 )}
               >
                 {" \u067e\u06cc\u0627\u0645\u06a9 "}
-              </div>
-            </div>
-            <div
-              className={classNames(projectcss.all, sty.freeBox__ywBkh, {
-                [sty.freeBoxhamyar__ywBkhYj8LV]: hasVariant(
-                  $state,
-                  "hamyar",
-                  "hamyar"
-                )
-              })}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__d61Dh
-                )}
-              >
-                {"\u0628\u0632\u0648\u062f\u06cc"}
               </div>
             </div>
             {(() => {
@@ -11672,159 +11210,61 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             "\u0645\u062c\u0645\u0648\u0639 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627:"
                           }
                         </div>
-                        <div
+                        <ProcessReminders
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__deQB
+                            "__wab_instance",
+                            sty.processReminders__oVpVq
                           )}
-                        >
-                          <div
-                            className={projectcss.__wab_expr_html_text}
-                            dangerouslySetInnerHTML={{
-                              __html: (() => {
-                                try {
-                                  return (() => {
-                                    function processReminders(
-                                      reminders,
-                                      channels
-                                    ) {
-                                      const startDate = new Date();
-                                      const oneMonthLater = new Date();
-                                      oneMonthLater.setMonth(
-                                        oneMonthLater.getMonth() + 1
-                                      );
-                                      function getDatesBetween(start, finish) {
-                                        const dates = [];
-                                        const d = new Date(start);
-                                        while (d <= finish) {
-                                          dates.push(new Date(d));
-                                          d.setDate(d.getDate() + 1);
-                                        }
-                                        return dates;
-                                      }
-                                      const results = reminders.map(rem => {
-                                        let times = [];
-                                        try {
-                                          times = Array.isArray(rem.times)
-                                            ? rem.times
-                                            : JSON.parse(rem.times || "[]");
-                                        } catch {
-                                          times = [];
-                                        }
-                                        const timesPerDay = times.length || 1;
-                                        let chList = [];
-                                        try {
-                                          chList = Array.isArray(rem.chanels)
-                                            ? rem.chanels
-                                            : JSON.parse(rem.chanels || "[]");
-                                        } catch {
-                                          chList = [];
-                                        }
-                                        const finishTime = rem.finishTime
-                                          ? new Date(rem.finishTime)
-                                          : oneMonthLater;
-                                        const endDate =
-                                          finishTime < oneMonthLater
-                                            ? finishTime
-                                            : oneMonthLater;
-                                        let activeDates = [];
-                                        if (rem.dates) {
-                                          try {
-                                            const dateList = Array.isArray(
-                                              rem.dates
-                                            )
-                                              ? rem.dates
-                                              : JSON.parse(rem.dates || "[]");
-                                            activeDates = dateList.map(
-                                              d => new Date(d)
-                                            );
-                                          } catch {
-                                            activeDates = [];
-                                          }
-                                        }
-                                        if (!activeDates.length) {
-                                          activeDates = getDatesBetween(
-                                            startDate,
-                                            endDate
-                                          );
-                                        }
-                                        const validDays = activeDates.length;
-                                        return {
-                                          id: rem.id,
-                                          name: rem.name,
-                                          timesPerDay,
-                                          activeDays: validDays,
-                                          channels: chList
-                                        };
-                                      });
-                                      return {
-                                        results,
-                                        startDate,
-                                        endDate: oneMonthLater
-                                      };
-                                    }
-                                    var select3 = {};
-                                    select3 = $state.select2;
-                                    select3.weekdays = $state.week?.length
-                                      ? JSON.stringify($state.week)
-                                      : undefined;
-                                    if ($state.date.length > 0) {
-                                      let dates = $state.date.map(
-                                        i => i.start.f
-                                      );
-                                      if (
-                                        select3.schedule_type === "everyYear"
-                                      ) {
-                                        dates = $state.date.map(i => {
-                                          let parts = i.start.f.split(/[-/]/);
-                                          parts[0] = "0000";
-                                          return i.start.f.includes("-")
-                                            ? parts.join("-")
-                                            : parts.join("/");
-                                        });
-                                      }
-                                      select3.dates = JSON.stringify(dates);
-                                    } else {
-                                      select3.dates = undefined;
-                                    }
-                                    if ($state.finishDate?.f) {
-                                      select3.finishTime = $state.finishDate.f;
-                                    } else {
-                                      select3.finishTime = undefined;
-                                    }
-                                    select3.active = 1;
-                                    select3.times = JSON.stringify(
-                                      $state.time2.map(
-                                        t =>
-                                          `${String(t.hour).padStart(2, "0")}:${String(t.minute).padStart(2, "0")}`
-                                      )
-                                    );
-                                    select3.name = $state.title;
-                                    select3.channels = JSON.stringify(
-                                      $state.report4.selectchanels
-                                    );
-                                    var a = processReminders([select3]);
-                                    return `<span style="font-weight:bold;  color: #8254C6;">
-  ${a.results[0].activeDays * a.results[0].timesPerDay}
-</span>
-<span> عدد در ${select3.schedule_type == "everyDay" ? "ماه" : "سال"}</span>
-`;
-                                  })();
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "";
+                          data={(() => {
+                            try {
+                              return (() => {
+                                var report = {};
+                                report.schedule_type =
+                                  $state.select2.schedule_type;
+                                report.weekdays = $state.week?.length
+                                  ? JSON.stringify($state.week)
+                                  : undefined;
+                                if ($state.date.length > 0) {
+                                  let dates = $state.date.map(i => i.start.f);
+                                  if (report.schedule_type === "everyYear") {
+                                    dates = $state.date.map(i => {
+                                      let parts = i.start.f.split(/[-/]/);
+                                      parts[0] = "0000";
+                                      return i.start.f.includes("-")
+                                        ? parts.join("-")
+                                        : parts.join("/");
+                                    });
                                   }
-                                  throw e;
+                                  report.dates = JSON.stringify(dates);
+                                } else {
+                                  report.dates = undefined;
                                 }
-                              })()
-                            }}
-                          />
-                        </div>
+                                if ($state.finishDate?.f) {
+                                  report.finishTime = $state.finishDate.f;
+                                } else {
+                                  report.finishTime = undefined;
+                                }
+                                report.active = 1;
+                                report.times = JSON.stringify(
+                                  $state.time2.map(
+                                    t =>
+                                      `${String(t.hour).padStart(2, "0")}:${String(t.minute).padStart(2, "0")}`
+                                  )
+                                );
+                                report.name = $state.title;
+                                return report;
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()}
+                        />
                       </div>
                       <Button
                         data-plasmic-name={"button17"}
@@ -12013,138 +11453,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         "\u0627\u0632 \u0686\u0647 \u0637\u0631\u06cc\u0642\u06cc \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0627\u0646\u062c\u0627\u0645 \u0634\u0648\u062f\u061f"
                       }
                     </div>
-                    {(() => {
-                      const child$Props = {
-                        accessclicke: async () => {
-                          const $steps = {};
-
-                          $steps["invokeGlobalAction"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  args: [
-                                    "custom",
-                                    "\u0628\u0647\u200c\u0632\u0648\u062f\u06cc \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0641\u0639\u0627\u0644 \u0645\u06cc\u200c\u0634\u0648\u062f!",
-                                    "bottom-center"
-                                  ]
-                                };
-                                return $globalActions[
-                                  "Fragment.showToast"
-                                ]?.apply(null, [...actionArgs.args]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["invokeGlobalAction"] != null &&
-                            typeof $steps["invokeGlobalAction"] === "object" &&
-                            typeof $steps["invokeGlobalAction"].then ===
-                              "function"
-                          ) {
-                            $steps["invokeGlobalAction"] =
-                              await $steps["invokeGlobalAction"];
-                          }
-                        },
-                        className: classNames(
-                          "__wab_instance",
-                          sty.radioGroupLiom2
-                        ),
-                        list: generateStateValueProp($state, [
-                          "radioGroupLiom2",
-                          "list"
-                        ]),
-                        moulty: true,
-                        onListChange: async (...eventArgs: any) => {
-                          generateStateOnChangeProp($state, [
-                            "radioGroupLiom2",
-                            "list"
-                          ]).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        },
-                        onSelectedChange: async (...eventArgs: any) => {
-                          generateStateOnChangeProp($state, [
-                            "radioGroupLiom2",
-                            "selected"
-                          ]).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        },
-                        onSelectsChange: async (...eventArgs: any) => {
-                          generateStateOnChangeProp($state, [
-                            "radioGroupLiom2",
-                            "selects"
-                          ]).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        },
-                        selected: generateStateValueProp($state, [
-                          "radioGroupLiom2",
-                          "selected"
-                        ]),
-                        selects: generateStateValueProp($state, [
-                          "radioGroupLiom2",
-                          "selects"
-                        ]),
-                        size: "small",
-                        unnamedVariant: true
-                      };
-
-                      initializePlasmicStates(
-                        $state,
-                        [
-                          {
-                            name: "radioGroupLiom2.selects",
-                            initFunc: ({ $props, $state, $queries }) =>
-                              (() => {
-                                try {
-                                  return (() => {
-                                    try {
-                                      return JSON.parse(
-                                        $state.select2.channels
-                                      );
-                                    } catch {
-                                      return [];
-                                    }
-                                  })();
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return [];
-                                  }
-                                  throw e;
-                                }
-                              })()
-                          }
-                        ],
-                        []
-                      );
-                      return (
-                        <RadioGroupLiom
-                          data-plasmic-name={"radioGroupLiom2"}
-                          data-plasmic-override={overrides.radioGroupLiom2}
-                          {...child$Props}
-                        />
-                      );
-                    })()}
                     {(() => {
                       const child$Props = {
                         active: generateStateValueProp($state, [
@@ -12773,8 +12081,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               (() => {
                                 try {
                                   return (() => {
-                                    $state.select2.weekdays = $state.week
-                                      ?.length
+                                    var report = {};
+                                    report.weekdays = $state.week?.length
                                       ? JSON.stringify($state.week)
                                       : undefined;
                                     if ($state.date.length > 0) {
@@ -12782,8 +12090,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                         i => i.start.f
                                       );
                                       if (
-                                        $state.select2.schedule_type ===
-                                        "everyYear"
+                                        report.schedule_type === "everyYear"
                                       ) {
                                         dates = $state.date.map(i => {
                                           let parts = i.start.f.split(/[-/]/);
@@ -12793,31 +12100,29 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                             : parts.join("/");
                                         });
                                       }
-                                      $state.select2.dates =
-                                        JSON.stringify(dates);
+                                      report.dates = JSON.stringify(dates);
                                     } else {
-                                      $state.select2.dates = undefined;
+                                      report.dates = undefined;
                                     }
                                     if ($state.finishDate?.f) {
-                                      $state.select2.finishTime =
-                                        $state.finishDate.f;
+                                      report.finishTime = $state.finishDate.f;
                                     } else {
-                                      $state.select2.finishTime = undefined;
+                                      report.finishTime = undefined;
                                     }
-                                    $state.select2.active = 1;
-                                    $state.select2.times = JSON.stringify(
+                                    report.active = 1;
+                                    report.times = JSON.stringify(
                                       $state.time2.map(
                                         t =>
                                           `${String(t.hour).padStart(2, "0")}:${String(t.minute).padStart(2, "0")}`
                                       )
                                     );
-                                    $state.select2.name = $state.title;
-                                    $state.select2.chanels = JSON.stringify([
+                                    report.name = $state.title;
+                                    report.chanels = JSON.stringify([
                                       "telegram",
                                       "notification",
                                       "sms"
                                     ]);
-                                    return $state.select2;
+                                    return report;
                                   })();
                                 } catch (e) {
                                   if (
@@ -13506,6 +12811,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         ? JSON.stringify([$state.pageSelect.date])
                         : "[]",
                       channels: '["notification"]',
+                      chanels: '["notification"]',
                       times: "[]",
                       weekdays:
                         $state.pageSelect.schedule_type == "everyDay"
@@ -13670,6 +12976,22 @@ function PlasmicReminderSetting__RenderFunc(props: {
             typeof $steps["runCode"].then === "function"
           ) {
             $steps["runCode"] = await $steps["runCode"];
+          }
+
+          $steps["invokeGlobalAction"] = true
+            ? (() => {
+                const actionArgs = { args: [undefined, "sdcsdcsdcsdc"] };
+                return $globalActions["Fragment.showToast"]?.apply(null, [
+                  ...actionArgs.args
+                ]);
+              })()
+            : undefined;
+          if (
+            $steps["invokeGlobalAction"] != null &&
+            typeof $steps["invokeGlobalAction"] === "object" &&
+            typeof $steps["invokeGlobalAction"].then === "function"
+          ) {
+            $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
           }
         }}
       />
@@ -13933,7 +13255,6 @@ const PlasmicDescendants = {
     "textbox",
     "repead",
     "button14",
-    "radioGroupLiom",
     "report2",
     "button5",
     "dialog2",
@@ -13973,7 +13294,6 @@ const PlasmicDescendants = {
     "textbox2",
     "repead2",
     "button17",
-    "radioGroupLiom2",
     "report4",
     "button8",
     "snackbar",
@@ -13992,7 +13312,6 @@ const PlasmicDescendants = {
     "textbox",
     "repead",
     "button14",
-    "radioGroupLiom",
     "report2",
     "button5",
     "dialog2",
@@ -14018,25 +13337,15 @@ const PlasmicDescendants = {
     "textbox",
     "repead",
     "button14",
-    "radioGroupLiom",
     "report2",
     "button5"
   ],
   creaditButten: ["creaditButten"],
   checkbox2: ["checkbox2"],
-  steps2: [
-    "steps2",
-    "textbox",
-    "repead",
-    "button14",
-    "radioGroupLiom",
-    "report2",
-    "button5"
-  ],
+  steps2: ["steps2", "textbox", "repead", "button14", "report2", "button5"],
   textbox: ["textbox"],
   repead: ["repead"],
   button14: ["button14"],
-  radioGroupLiom: ["radioGroupLiom"],
   report2: ["report2", "button5"],
   button5: ["button5"],
   dialog2: ["dialog2", "reminderCategory2"],
@@ -14115,19 +13424,10 @@ const PlasmicDescendants = {
   switchSetting: ["switchSetting"],
   button2: ["button2"],
   checkbox3: ["checkbox3"],
-  steps23: [
-    "steps23",
-    "textbox2",
-    "repead2",
-    "button17",
-    "radioGroupLiom2",
-    "report4",
-    "button8"
-  ],
+  steps23: ["steps23", "textbox2", "repead2", "button17", "report4", "button8"],
   textbox2: ["textbox2"],
   repead2: ["repead2"],
   button17: ["button17"],
-  radioGroupLiom2: ["radioGroupLiom2"],
   report4: ["report4", "button8"],
   button8: ["button8"],
   snackbar: ["snackbar", "button", "button3"],
@@ -14150,7 +13450,6 @@ type NodeDefaultElementType = {
   textbox: "input";
   repead: typeof Repead;
   button14: typeof Button;
-  radioGroupLiom: typeof RadioGroupLiom;
   report2: typeof Report2;
   button5: typeof Button;
   dialog2: typeof Dialog;
@@ -14190,7 +13489,6 @@ type NodeDefaultElementType = {
   textbox2: "input";
   repead2: typeof Repead;
   button17: typeof Button;
-  radioGroupLiom2: typeof RadioGroupLiom;
   report4: typeof Report2;
   button8: typeof Button;
   snackbar: typeof Snackbar;
@@ -14271,7 +13569,6 @@ export const PlasmicReminderSetting = Object.assign(
     textbox: makeNodeComponent("textbox"),
     repead: makeNodeComponent("repead"),
     button14: makeNodeComponent("button14"),
-    radioGroupLiom: makeNodeComponent("radioGroupLiom"),
     report2: makeNodeComponent("report2"),
     button5: makeNodeComponent("button5"),
     dialog2: makeNodeComponent("dialog2"),
@@ -14311,7 +13608,6 @@ export const PlasmicReminderSetting = Object.assign(
     textbox2: makeNodeComponent("textbox2"),
     repead2: makeNodeComponent("repead2"),
     button17: makeNodeComponent("button17"),
-    radioGroupLiom2: makeNodeComponent("radioGroupLiom2"),
     report4: makeNodeComponent("report4"),
     button8: makeNodeComponent("button8"),
     snackbar: makeNodeComponent("snackbar"),
