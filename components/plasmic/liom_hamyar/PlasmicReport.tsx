@@ -330,6 +330,36 @@ function PlasmicReport__RenderFunc(props: {
         onMount={async () => {
           const $steps = {};
 
+          $steps["runCode3"] = true
+            ? (() => {
+                const actionArgs = {
+                  customFunction: async () => {
+                    return (() => {
+                      var getCookie = name => {
+                        const cookies = document.cookie.split("; ");
+                        for (let cookie of cookies) {
+                          const [key, value] = cookie.split("=");
+                          if (key === name) return JSON.parse(value)[0];
+                        }
+                        return "";
+                      };
+                      return ($state.token = getCookie("token"));
+                    })();
+                  }
+                };
+                return (({ customFunction }) => {
+                  return customFunction();
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["runCode3"] != null &&
+            typeof $steps["runCode3"] === "object" &&
+            typeof $steps["runCode3"].then === "function"
+          ) {
+            $steps["runCode3"] = await $steps["runCode3"];
+          }
+
           $steps["runCode"] = true
             ? (() => {
                 const actionArgs = {
@@ -952,7 +982,7 @@ function PlasmicReport__RenderFunc(props: {
           try {
             return {
               headers: {
-                authorization: $props.token2
+                authorization: $state.token
               }
             };
           } catch (e) {

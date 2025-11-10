@@ -1761,7 +1761,9 @@ function PlasmicMojodi__RenderFunc(props: {
         <ReminderShop
           data-plasmic-name={"reminderShop"}
           data-plasmic-override={overrides.reminderShop}
-          className={classNames("__wab_instance", sty.reminderShop)}
+          className={classNames("__wab_instance", sty.reminderShop, {
+            [sty.reminderShoppage_report]: hasVariant($state, "page", "report")
+          })}
           onOpendialogChange={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, [
               "reminderShop",
@@ -1896,19 +1898,33 @@ function PlasmicMojodi__RenderFunc(props: {
                   return;
                 }
               },
-              token2: (() => {
-                try {
-                  return $state.token;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()
+              token2: hasVariant($state, "page", "report")
+                ? (() => {
+                    try {
+                      return $state.token;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+                : (() => {
+                    try {
+                      return $state.token;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
             };
 
             initializePlasmicStates(
