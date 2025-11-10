@@ -8672,7 +8672,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                           dangerouslySetInnerHTML={{
                             __html: (() => {
                               try {
-                                return `در حال حاضر پیامک‌های یادآوری برای شما ارسال نمی‌شود. اگر ${$state.userdata?.result?.hamyar?.name} همیار شماست، تأیید کنید.`;
+                                return `در حال حاضر پیامک‌های یادآوری برای شما ارسال نمی‌شود. اگر ${$state.userdata?.result?.rel?.name} همیار شماست، تأیید کنید.`;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -26016,9 +26016,9 @@ function PlasmicHamyar2__RenderFunc(props: {
             <React.Fragment>
               {(() => {
                 try {
-                  return `${$state.userdata?.result?.hamyar?.name} شمارا به عنوان همیار قاعدگی خود در اپلیکیشن لیوم ثبت کرده است. 
-با تایید این پیام از این به بعد به اطلاعات قاعدگی ${$state.userdata?.result?.hamyar?.name} دسترسی خواهید داشت و همچنین پیامک های یادآوری مربط به دوره ی قاعدگی اش را دریافت میکنید. 
-اگر شماره شما به اشتباه وارد شده است و نسبتی با ${$state.userdata?.result?.hamyar?.name} ندارید روی دکمه انصراف بزنید. `;
+                  return `${$state.userdata?.result?.rel?.name} شمارا به عنوان همیار قاعدگی خود در اپلیکیشن لیوم ثبت کرده است. 
+با تایید این پیام از این به بعد به اطلاعات قاعدگی ${$state.userdata?.result?.rel?.name} دسترسی خواهید داشت و همچنین پیامک های یادآوری مربط به دوره ی قاعدگی اش را دریافت میکنید. 
+اگر شماره شما به اشتباه وارد شده است و نسبتی با ${$state.userdata?.result?.rel?.name} ندارید روی دکمه انصراف بزنید. `;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -26225,6 +26225,27 @@ function PlasmicHamyar2__RenderFunc(props: {
                     typeof $steps["updateIgnore"].then === "function"
                   ) {
                     $steps["updateIgnore"] = await $steps["updateIgnore"];
+                  }
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return ($state.refresh =
+                              new Date().toLocaleDateString());
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {

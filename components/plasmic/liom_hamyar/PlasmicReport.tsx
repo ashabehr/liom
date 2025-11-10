@@ -948,6 +948,23 @@ function PlasmicReport__RenderFunc(props: {
         data-plasmic-name={"apiRequest"}
         data-plasmic-override={overrides.apiRequest}
         className={classNames("__wab_instance", sty.apiRequest)}
+        config={(() => {
+          try {
+            return {
+              headers: {
+                authorization: $props.token2
+              }
+            };
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
         errorDisplay={null}
         loadingDisplay={
           <React.Fragment>

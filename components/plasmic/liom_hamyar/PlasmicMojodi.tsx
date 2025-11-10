@@ -71,6 +71,7 @@ import ReminderShop from "../../ReminderShop"; // plasmic-import: 3q6J_8ClWpvX/c
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import Tariff2 from "../../Tariff2"; // plasmic-import: xZTBh-jwY-OV/component
 import Report from "../../../src/pages/report"; // plasmic-import: 4wEldhsM09tv/component
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -124,6 +125,7 @@ export type PlasmicMojodi__OverridesType = {
   reminderShop?: Flex__<typeof ReminderShop>;
   tariff2?: Flex__<typeof Tariff2>;
   report?: Flex__<typeof Report>;
+  hotjar?: Flex__<typeof Embed>;
 };
 
 export interface DefaultMojodiProps {}
@@ -1940,6 +1942,14 @@ function PlasmicMojodi__RenderFunc(props: {
             );
           })()}
         </Reveal>
+        <Embed
+          data-plasmic-name={"hotjar"}
+          data-plasmic-override={overrides.hotjar}
+          className={classNames("__wab_instance", sty.hotjar)}
+          code={
+            "<!-- Hotjar Tracking Code for reminderMojody -->\r\n<script>\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:6571011,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n</script>"
+          }
+        />
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;
@@ -1956,7 +1966,8 @@ const PlasmicDescendants = {
     "headerLiom",
     "reminderShop",
     "tariff2",
-    "report"
+    "report",
+    "hotjar"
   ],
   sideEffect: ["sideEffect"],
   history: ["history", "button", "button2", "menuIcon"],
@@ -1966,7 +1977,8 @@ const PlasmicDescendants = {
   headerLiom: ["headerLiom"],
   reminderShop: ["reminderShop"],
   tariff2: ["tariff2"],
-  report: ["report"]
+  report: ["report"],
+  hotjar: ["hotjar"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1982,6 +1994,7 @@ type NodeDefaultElementType = {
   reminderShop: typeof ReminderShop;
   tariff2: typeof Tariff2;
   report: typeof Report;
+  hotjar: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2080,6 +2093,7 @@ export const PlasmicMojodi = Object.assign(
     reminderShop: makeNodeComponent("reminderShop"),
     tariff2: makeNodeComponent("tariff2"),
     report: makeNodeComponent("report"),
+    hotjar: makeNodeComponent("hotjar"),
 
     // Metadata about props expected for PlasmicMojodi
     internalVariantProps: PlasmicMojodi__VariantProps,

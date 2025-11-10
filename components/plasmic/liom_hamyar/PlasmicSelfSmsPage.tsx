@@ -69,6 +69,7 @@ import {
 
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import MobileDialog from "../../MobileDialog"; // plasmic-import: h7ceF9lBthFF/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import Countdown from "../../Countdown"; // plasmic-import: 1ruheQLCU5pc/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
@@ -101,6 +102,7 @@ export type PlasmicSelfSmsPage__OverridesType = {
   root?: Flex__<"div">;
   sideEffect?: Flex__<typeof SideEffect>;
   embedHtml?: Flex__<typeof Embed>;
+  mobileDialog?: Flex__<typeof MobileDialog>;
   getSub?: Flex__<typeof ApiRequest>;
   countdown?: Flex__<typeof Countdown>;
   button2?: Flex__<typeof Button>;
@@ -336,6 +338,18 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "mobileDialog.selectShop",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "mobileDialog.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -604,6 +618,57 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
               code={
                 '<script>\n  window.receiveMessageFromFlutter = function(message) {\n\n  window.FlutterChannel.postMessage("#directDialog-self_hamyar_sms")\n    //     alert("Received message: " + message);\n    // if (window.$plasmicSetData) {\n    //   window.$plasmicSetData("flutter", message);\n    // }\n  };\n</script>'
               }
+            />
+
+            <MobileDialog
+              data-plasmic-name={"mobileDialog"}
+              data-plasmic-override={overrides.mobileDialog}
+              className={classNames("__wab_instance", sty.mobileDialog)}
+              desc={
+                "\u0628\u0631\u0627\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u0648 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631\u060c \u0644\u0627\u0632\u0645 \u0627\u0633\u062a \u0634\u0645\u0627\u0631\u0647\u200c\u06cc \u0634\u0645\u0627 \u062b\u0628\u062a \u0634\u0648\u062f."
+              }
+              onOpenChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "mobileDialog",
+                  "open"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onSelectShopChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "mobileDialog",
+                  "selectShop"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              open={generateStateValueProp($state, ["mobileDialog", "open"])}
+              token={(() => {
+                try {
+                  return $state.token;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
             />
 
             <ApiRequest
@@ -1535,9 +1600,14 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                               ? (() => {
                                   const actionArgs = {
                                     customFunction: async () => {
-                                      return window.FlutterChannel.postMessage(
-                                        "#mobileModal"
-                                      );
+                                      return (() => {
+                                        if (window?.FlutterChannel)
+                                          return window.FlutterChannel.postMessage(
+                                            "#mobileModal"
+                                          );
+                                        else
+                                          return ($state.mobileDialog.open = true);
+                                      })();
                                     }
                                   };
                                   return (({ customFunction }) => {
@@ -36895,6 +36965,7 @@ const PlasmicDescendants = {
     "root",
     "sideEffect",
     "embedHtml",
+    "mobileDialog",
     "getSub",
     "countdown",
     "button2",
@@ -36906,6 +36977,7 @@ const PlasmicDescendants = {
   ],
   sideEffect: ["sideEffect"],
   embedHtml: ["embedHtml"],
+  mobileDialog: ["mobileDialog"],
   getSub: ["getSub"],
   countdown: ["countdown"],
   button2: ["button2"],
@@ -36922,6 +36994,7 @@ type NodeDefaultElementType = {
   root: "div";
   sideEffect: typeof SideEffect;
   embedHtml: typeof Embed;
+  mobileDialog: typeof MobileDialog;
   getSub: typeof ApiRequest;
   countdown: typeof Countdown;
   button2: typeof Button;
@@ -37021,6 +37094,7 @@ export const PlasmicSelfSmsPage = Object.assign(
     // Helper components rendering sub-elements
     sideEffect: makeNodeComponent("sideEffect"),
     embedHtml: makeNodeComponent("embedHtml"),
+    mobileDialog: makeNodeComponent("mobileDialog"),
     getSub: makeNodeComponent("getSub"),
     countdown: makeNodeComponent("countdown"),
     button2: makeNodeComponent("button2"),
