@@ -279,7 +279,7 @@ function PlasmicTooltip__RenderFunc(props: {
                         return (() => {
                           window.localStorage.setItem(
                             "tooltip",
-                            $props.data[Condition]
+                            $props.data.Condition
                           );
                           return ($state.show = false);
                         })();
@@ -405,14 +405,14 @@ function PlasmicTooltip__RenderFunc(props: {
                       await $steps["invokeGlobalAction"];
                   }
 
-                  $steps["invokeGlobalAction2"] = $steps.invokeGlobalAction2
+                  $steps["invokeGlobalAction2"] = $steps.invokeGlobalAction
                     ?.data?.result?.link
                     ? (() => {
                         const actionArgs = {
                           args: [
                             (() => {
                               try {
-                                return $steps.invokeGlobalAction2?.data?.result
+                                return $steps.invokeGlobalAction?.data?.result
                                   ?.link;
                               } catch (e) {
                                 if (

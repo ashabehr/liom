@@ -92,5 +92,7 @@
   max-width: 100%;
   text-align: center;
   font-size: var(--token-Wa5tmrNKVUYF);
+  color: #535353;
+  font-weight: 500;
   min-width: 0;
 }
