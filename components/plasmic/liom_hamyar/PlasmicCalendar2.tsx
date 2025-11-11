@@ -2109,7 +2109,20 @@ function PlasmicCalendar2__RenderFunc(props: {
         path: "tooltip.show",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return !window.localStorage.getItem("tooltip");
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -27703,7 +27716,7 @@ function PlasmicCalendar2__RenderFunc(props: {
               try {
                 return (
                   $state.userInfo?.result?.user?.id ==
-                  "56a4902f-d880-4950-9d16-6fd56f49225c"
+                  "5916daaf-e7b3-44e9-85bd-5d5dfe00e2db"
                 );
               } catch (e) {
                 if (
@@ -27714,64 +27727,95 @@ function PlasmicCalendar2__RenderFunc(props: {
                 }
                 throw e;
               }
-            })() ? (
-              <Tooltip
-                data-plasmic-name={"tooltip"}
-                data-plasmic-override={overrides.tooltip}
-                className={classNames("__wab_instance", sty.tooltip)}
-                data={(() => {
-                  try {
-                    return $state.userInfo?.tooltip;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return {
-                        id: 5,
-                        title:
-                          "\u0627\u0645\u06a9\u0627\u0646 \u062a\u0627\u062e\u06cc\u0631 \u062f\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0647 \u062f\u0644\u06cc\u0644 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
-                        text: "\u0627\u06af\u0631 \u062f\u0631 \u06f3\u06f0 \u0631\u0648\u0632 \u06af\u0630\u0634\u062a\u0647 \u0631\u0627\u0628\u0637\u0647 \u062c\u0646\u0633\u06cc \u0645\u062d\u0627\u0641\u0638\u062a\u200c\u0646\u0634\u062f\u0647 \u062f\u0627\u0634\u062a\u06cc\u060c \u0627\u06cc\u0646 \u062a\u0627\u062e\u06cc\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc \u062c\u0627\u06cc \u0646\u06af\u0631\u0627\u0646\u06cc \u0646\u062f\u0627\u0631\u0647 \u0648 \u0628\u0647\u062a\u0631\u0647 \u0628\u0627 \u0627\u0646\u062c\u0627\u0645 \u0627\u06cc\u0646 \u062a\u0633\u062a\u060c \u062f\u0644\u06cc\u0644 \u0646\u0627\u0645\u0646\u0638\u0645\u06cc \u0634\u062f\u06cc\u062f \u067e\u0631\u06cc\u0648\u062f\u062a \u0631\u0648 \u0628\u0641\u0647\u0645\u06cc. \u0648\u06af\u0631\u0646\u0647 \u0628\u06cc\u0627 \u0645\u0637\u0645\u0626\u0646 \u0628\u0634\u06cc\u0645 \u06a9\u0647 \u0628\u0627\u0631\u062f\u0627\u0631 \u0647\u0633\u062a\u06cc \u06cc\u0627 \u0646\u0647\u061f",
-                        buttons:
-                          '[{"text": "\u0622\u06cc\u0627 \u0628\u0627\u0631\u062f\u0627\u0631\u0645 \u06cc\u0627 \u0646\u0647\u061f", "action": "self_hamyar_sms"}]',
-                        backgrond_color: "#fff0f5",
-                        text_color: "#FF0055",
-                        Condition: "cycle_period_-12"
-                      };
-                    }
-                    throw e;
-                  }
-                })()}
-                onShowChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["tooltip", "show"]).apply(
-                    null,
-                    eventArgs
-                  );
+            })()
+              ? (() => {
+                  const child$Props = {
+                    className: classNames("__wab_instance", sty.tooltip),
+                    data: (() => {
+                      try {
+                        return $state.userInfo?.tooltip;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return {
+                            id: 5,
+                            title:
+                              "\u0627\u0645\u06a9\u0627\u0646 \u062a\u0627\u062e\u06cc\u0631 \u062f\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0647 \u062f\u0644\u06cc\u0644 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
+                            text: "\u0627\u06af\u0631 \u062f\u0631 \u06f3\u06f0 \u0631\u0648\u0632 \u06af\u0630\u0634\u062a\u0647 \u0631\u0627\u0628\u0637\u0647 \u062c\u0646\u0633\u06cc \u0645\u062d\u0627\u0641\u0638\u062a\u200c\u0646\u0634\u062f\u0647 \u062f\u0627\u0634\u062a\u06cc\u060c \u0627\u06cc\u0646 \u062a\u0627\u062e\u06cc\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc \u062c\u0627\u06cc \u0646\u06af\u0631\u0627\u0646\u06cc \u0646\u062f\u0627\u0631\u0647 \u0648 \u0628\u0647\u062a\u0631\u0647 \u0628\u0627 \u0627\u0646\u062c\u0627\u0645 \u0627\u06cc\u0646 \u062a\u0633\u062a\u060c \u062f\u0644\u06cc\u0644 \u0646\u0627\u0645\u0646\u0638\u0645\u06cc \u0634\u062f\u06cc\u062f \u067e\u0631\u06cc\u0648\u062f\u062a \u0631\u0648 \u0628\u0641\u0647\u0645\u06cc. \u0648\u06af\u0631\u0646\u0647 \u0628\u06cc\u0627 \u0645\u0637\u0645\u0626\u0646 \u0628\u0634\u06cc\u0645 \u06a9\u0647 \u0628\u0627\u0631\u062f\u0627\u0631 \u0647\u0633\u062a\u06cc \u06cc\u0627 \u0646\u0647\u061f",
+                            buttons:
+                              '[{"text": "\u0622\u06cc\u0627 \u0628\u0627\u0631\u062f\u0627\u0631\u0645 \u06cc\u0627 \u0646\u0647\u061f", "action": "self_hamyar_sms"}]',
+                            backgrond_color: "#fff0f5",
+                            text_color: "#FF0055",
+                            Condition: "cycle_period_-12"
+                          };
+                        }
+                        throw e;
+                      }
+                    })(),
+                    onShowChange: async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "tooltip",
+                        "show"
+                      ]).apply(null, eventArgs);
 
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                show={generateStateValueProp($state, ["tooltip", "show"])}
-                token={(() => {
-                  try {
-                    return $state.token;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-              />
-            ) : null}
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    },
+                    show: generateStateValueProp($state, ["tooltip", "show"]),
+                    token: (() => {
+                      try {
+                        return $state.token;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+                  };
+
+                  initializePlasmicStates(
+                    $state,
+                    [
+                      {
+                        name: "tooltip.show",
+                        initFunc: ({ $props, $state, $queries }) =>
+                          (() => {
+                            try {
+                              return !window.localStorage.getItem("tooltip");
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })()
+                      }
+                    ],
+                    []
+                  );
+                  return (
+                    <Tooltip
+                      data-plasmic-name={"tooltip"}
+                      data-plasmic-override={overrides.tooltip}
+                      {...child$Props}
+                    />
+                  );
+                })()
+              : null}
             <div className={classNames(projectcss.all, sty.freeBox__uyDe)}>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
