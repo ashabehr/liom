@@ -1750,7 +1750,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         path: "steps2.currentStep",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) => "0"
       },
       {
         path: "button14.color",
@@ -2117,7 +2117,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
-                        return ($state.steps2.currentStep = 0);
+                        return (() => {
+                          return ($state.steps2.currentStep = 0);
+                        })();
                       }
                     };
                     return (({ customFunction }) => {
@@ -4613,7 +4615,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                         customFunction: async () => {
                                           return (() => {
                                             $state.dialog.opendialog = false;
-                                            return ($state.dialog2.opendialog = false);
+                                            $state.dialog2.opendialog = false;
+                                            return ($state.steps2.currentStep = 0);
                                           })();
                                         }
                                       };
@@ -5011,7 +5014,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         return (() => {
                           $state.reminderCategory2.diable = true;
                           $state.reminderCategory2.title = "";
-                          return ($state.reminderCategory2.select = {});
+                          $state.reminderCategory2.select = {};
+                          return ($state.steps2.currentStep = 0);
                         })();
                       }
                     };
@@ -7278,184 +7282,172 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         </React.Fragment>
                       </div>
                     </div>
-                    {(_par =>
-                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                      (() => {
-                        try {
-                          return currentday;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
-                        }
-                      })()
-                    ).map((__plasmic_item_1, __plasmic_idx_1) => {
-                      const currentItem = __plasmic_item_1;
-                      const currentIndex = __plasmic_idx_1;
-                      return (
-                        <div
-                          data-plasmic-name={"frame26"}
-                          data-plasmic-override={overrides.frame26}
-                          className={classNames(
-                            projectcss.all,
-                            sty.frame26,
-                            ``,
-                            {
-                              [sty.frame26add]: hasVariant(
-                                $state,
-                                "add",
-                                "add"
-                              ),
-                              [sty.frame26slide__1]: hasVariant(
-                                $state,
-                                "slide",
-                                "_1"
-                              )
+                    {(
+                      hasVariant($state, "slide", "_1")
+                        ? (() => {
+                            try {
+                              return true;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
                             }
-                          )}
-                          key={currentIndex}
-                          onClick={async event => {
-                            const $steps = {};
-                          }}
-                        >
-                          <div
-                            data-plasmic-name={"frame27"}
-                            data-plasmic-override={overrides.frame27}
-                            className={classNames(projectcss.all, sty.frame27, {
-                              [sty.frame27slide__1]: hasVariant(
-                                $state,
-                                "slide",
-                                "_1"
-                              )
-                            })}
-                          >
+                          })()
+                        : true
+                    )
+                      ? (_par =>
+                          !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                          (() => {
+                            try {
+                              return currentday;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                        ).map((__plasmic_item_1, __plasmic_idx_1) => {
+                          const currentItem = __plasmic_item_1;
+                          const currentIndex = __plasmic_idx_1;
+                          return (
                             <div
-                              data-plasmic-name={"frame28"}
-                              data-plasmic-override={overrides.frame28}
+                              data-plasmic-name={"frame26"}
+                              data-plasmic-override={overrides.frame26}
                               className={classNames(
                                 projectcss.all,
-                                sty.frame28,
+                                sty.frame26,
+                                ``,
                                 {
-                                  [sty.frame28slide__1]: hasVariant(
+                                  [sty.frame26add]: hasVariant(
+                                    $state,
+                                    "add",
+                                    "add"
+                                  ),
+                                  [sty.frame26slide__1]: hasVariant(
                                     $state,
                                     "slide",
                                     "_1"
                                   )
                                 }
                               )}
+                              key={currentIndex}
                               onClick={async event => {
                                 const $steps = {};
                               }}
                             >
                               <div
-                                data-plasmic-name={"frame29"}
-                                data-plasmic-override={overrides.frame29}
+                                data-plasmic-name={"frame27"}
+                                data-plasmic-override={overrides.frame27}
                                 className={classNames(
                                   projectcss.all,
-                                  sty.frame29
+                                  sty.frame27,
+                                  {
+                                    [sty.frame27slide__1]: hasVariant(
+                                      $state,
+                                      "slide",
+                                      "_1"
+                                    )
+                                  }
                                 )}
                               >
                                 <div
-                                  data-plasmic-name={"frame30"}
-                                  data-plasmic-override={overrides.frame30}
+                                  data-plasmic-name={"frame28"}
+                                  data-plasmic-override={overrides.frame28}
                                   className={classNames(
                                     projectcss.all,
-                                    sty.frame30
+                                    sty.frame28,
+                                    {
+                                      [sty.frame28slide__1]: hasVariant(
+                                        $state,
+                                        "slide",
+                                        "_1"
+                                      )
+                                    }
                                   )}
+                                  onClick={async event => {
+                                    const $steps = {};
+                                  }}
                                 >
                                   <div
+                                    data-plasmic-name={"frame29"}
+                                    data-plasmic-override={overrides.frame29}
                                     className={classNames(
                                       projectcss.all,
-                                      sty.freeBox__ez4GT
+                                      sty.frame29
                                     )}
                                   >
                                     <div
+                                      data-plasmic-name={"frame30"}
+                                      data-plasmic-override={overrides.frame30}
                                       className={classNames(
                                         projectcss.all,
-                                        sty.freeBox__kNqb
+                                        sty.frame30
                                       )}
                                     >
                                       <div
                                         className={classNames(
                                           projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text__yZzHx,
-                                          {
-                                            [sty.textslide__1__yZzHXedcqc]:
-                                              hasVariant($state, "slide", "_1")
-                                          }
+                                          sty.freeBox__ez4GT
                                         )}
-                                        onClick={async event => {
-                                          const $steps = {};
-                                        }}
                                       >
-                                        <React.Fragment>
-                                          {(() => {
-                                            try {
-                                              return currentItem.token1
-                                                ? `${currentItem.name} ${currentItem.token1}`
-                                                : currentItem.name;
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return "Townhall Meeting";
-                                              }
-                                              throw e;
-                                            }
-                                          })()}
-                                        </React.Fragment>
-                                      </div>
-                                    </div>
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__fdVF,
-                                        {
-                                          [sty.freeBoxslide__1__fdVFedcqc]:
-                                            hasVariant($state, "slide", "_1")
-                                        }
-                                      )}
-                                    >
-                                      {(
-                                        hasVariant($state, "slide", "_1")
-                                          ? true
-                                          : (() => {
-                                              try {
-                                                return (() => {
-                                                  try {
-                                                    let times = JSON.parse(
-                                                      currentItem.times
-                                                    );
-                                                    return (
-                                                      times && times.length > 0
-                                                    );
-                                                  } catch {}
-                                                })();
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return true;
-                                                }
-                                                throw e;
-                                              }
-                                            })()
-                                      ) ? (
                                         <div
                                           className={classNames(
                                             projectcss.all,
-                                            sty.freeBox__dk6G,
+                                            sty.freeBox__kNqb
+                                          )}
+                                        >
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text__yZzHx,
+                                              {
+                                                [sty.textslide__1__yZzHXedcqc]:
+                                                  hasVariant(
+                                                    $state,
+                                                    "slide",
+                                                    "_1"
+                                                  )
+                                              }
+                                            )}
+                                            onClick={async event => {
+                                              const $steps = {};
+                                            }}
+                                          >
+                                            <React.Fragment>
+                                              {(() => {
+                                                try {
+                                                  return currentItem.token1
+                                                    ? `${currentItem.name} ${currentItem.token1}`
+                                                    : currentItem.name;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return "Townhall Meeting";
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()}
+                                            </React.Fragment>
+                                          </div>
+                                        </div>
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            sty.freeBox__fdVF,
                                             {
-                                              [sty.freeBoxslide__1__dk6Gedcqc]:
+                                              [sty.freeBoxslide__1__fdVFedcqc]:
                                                 hasVariant(
                                                   $state,
                                                   "slide",
@@ -7464,95 +7456,780 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                             }
                                           )}
                                         >
-                                          <Icon291Icon
-                                            className={classNames(
-                                              projectcss.all,
-                                              sty.svg___5AYfy
-                                            )}
-                                            role={"img"}
-                                          />
-
-                                          <LineClomp
-                                            data-plasmic-name={"lineClomp"}
-                                            data-plasmic-override={
-                                              overrides.lineClomp
-                                            }
-                                            className={classNames(
-                                              "__wab_instance",
-                                              sty.lineClomp
-                                            )}
-                                            numberOfLine={1}
-                                            onLineChange={async (
-                                              ...eventArgs: any
-                                            ) => {
-                                              generateStateOnChangeProp(
-                                                $state,
-                                                [
-                                                  "lineClomp",
-                                                  __plasmic_idx_0,
-                                                  __plasmic_idx_1,
-                                                  "line"
-                                                ]
-                                              ).apply(null, eventArgs);
-
-                                              if (
-                                                eventArgs.length > 1 &&
-                                                eventArgs[1] &&
-                                                eventArgs[1]
-                                                  ._plasmic_state_init_
-                                              ) {
-                                                return;
-                                              }
-                                            }}
-                                          >
+                                          {(
+                                            hasVariant($state, "slide", "_1")
+                                              ? (() => {
+                                                  try {
+                                                    return (() => {
+                                                      try {
+                                                        let times = JSON.parse(
+                                                          currentItem.times
+                                                        );
+                                                        return (
+                                                          times &&
+                                                          times.length > 0
+                                                        );
+                                                      } catch {}
+                                                    })();
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return true;
+                                                    }
+                                                    throw e;
+                                                  }
+                                                })()
+                                              : (() => {
+                                                  try {
+                                                    return (() => {
+                                                      try {
+                                                        let times = JSON.parse(
+                                                          currentItem.times
+                                                        );
+                                                        return (
+                                                          times &&
+                                                          times.length > 0
+                                                        );
+                                                      } catch {}
+                                                    })();
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return true;
+                                                    }
+                                                    throw e;
+                                                  }
+                                                })()
+                                          ) ? (
                                             <div
                                               className={classNames(
                                                 projectcss.all,
-                                                projectcss.__wab_text,
-                                                sty.text___71Sm6
-                                              )}
-                                              onClick={async event => {
-                                                const $steps = {};
-
-                                                $steps["runCode"] = true
-                                                  ? (() => {
-                                                      const actionArgs = {
-                                                        customFunction:
-                                                          async () => {
-                                                            return undefined;
-                                                          }
-                                                      };
-                                                      return (({
-                                                        customFunction
-                                                      }) => {
-                                                        return customFunction();
-                                                      })?.apply(null, [
-                                                        actionArgs
-                                                      ]);
-                                                    })()
-                                                  : undefined;
-                                                if (
-                                                  $steps["runCode"] != null &&
-                                                  typeof $steps["runCode"] ===
-                                                    "object" &&
-                                                  typeof $steps["runCode"]
-                                                    .then === "function"
-                                                ) {
-                                                  $steps["runCode"] =
-                                                    await $steps["runCode"];
+                                                sty.freeBox__dk6G,
+                                                {
+                                                  [sty.freeBoxslide__1__dk6Gedcqc]:
+                                                    hasVariant(
+                                                      $state,
+                                                      "slide",
+                                                      "_1"
+                                                    )
                                                 }
-                                              }}
+                                              )}
                                             >
-                                              <React.Fragment>
-                                                {(() => {
+                                              <Icon291Icon
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.svg___5AYfy
+                                                )}
+                                                role={"img"}
+                                              />
+
+                                              <LineClomp
+                                                data-plasmic-name={"lineClomp"}
+                                                data-plasmic-override={
+                                                  overrides.lineClomp
+                                                }
+                                                className={classNames(
+                                                  "__wab_instance",
+                                                  sty.lineClomp
+                                                )}
+                                                numberOfLine={1}
+                                                onLineChange={async (
+                                                  ...eventArgs: any
+                                                ) => {
+                                                  generateStateOnChangeProp(
+                                                    $state,
+                                                    [
+                                                      "lineClomp",
+                                                      __plasmic_idx_0,
+                                                      __plasmic_idx_1,
+                                                      "line"
+                                                    ]
+                                                  ).apply(null, eventArgs);
+
+                                                  if (
+                                                    eventArgs.length > 1 &&
+                                                    eventArgs[1] &&
+                                                    eventArgs[1]
+                                                      ._plasmic_state_init_
+                                                  ) {
+                                                    return;
+                                                  }
+                                                }}
+                                              >
+                                                <div
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    projectcss.__wab_text,
+                                                    sty.text___71Sm6
+                                                  )}
+                                                  onClick={async event => {
+                                                    const $steps = {};
+
+                                                    $steps["runCode"] = true
+                                                      ? (() => {
+                                                          const actionArgs = {
+                                                            customFunction:
+                                                              async () => {
+                                                                return undefined;
+                                                              }
+                                                          };
+                                                          return (({
+                                                            customFunction
+                                                          }) => {
+                                                            return customFunction();
+                                                          })?.apply(null, [
+                                                            actionArgs
+                                                          ]);
+                                                        })()
+                                                      : undefined;
+                                                    if (
+                                                      $steps["runCode"] !=
+                                                        null &&
+                                                      typeof $steps[
+                                                        "runCode"
+                                                      ] === "object" &&
+                                                      typeof $steps["runCode"]
+                                                        .then === "function"
+                                                    ) {
+                                                      $steps["runCode"] =
+                                                        await $steps["runCode"];
+                                                    }
+                                                  }}
+                                                >
+                                                  <React.Fragment>
+                                                    {(() => {
+                                                      try {
+                                                        return (() => {
+                                                          try {
+                                                            return JSON.parse(
+                                                              currentItem.times
+                                                            ).join("   ,   ");
+                                                          } catch {
+                                                            return "";
+                                                          }
+                                                        })();
+                                                      } catch (e) {
+                                                        if (
+                                                          e instanceof
+                                                            TypeError ||
+                                                          e?.plasmicType ===
+                                                            "PlasmicUndefinedDataError"
+                                                        ) {
+                                                          return "Townhall Meeting";
+                                                        }
+                                                        throw e;
+                                                      }
+                                                    })()}
+                                                  </React.Fragment>
+                                                </div>
+                                              </LineClomp>
+                                            </div>
+                                          ) : null}
+                                          {(() => {
+                                            try {
+                                              return (() => {
+                                                try {
+                                                  let week = JSON.parse(
+                                                    currentItem.weekdays
+                                                  );
+                                                  let dates = JSON.parse(
+                                                    currentItem.dates
+                                                  );
+                                                  return (
+                                                    week &&
+                                                    week.length > 0 &&
+                                                    dates.length == 0
+                                                  );
+                                                } catch {}
+                                              })();
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return true;
+                                              }
+                                              throw e;
+                                            }
+                                          })() ? (
+                                            <div
+                                              className={classNames(
+                                                projectcss.all,
+                                                sty.freeBox__rz1Xl,
+                                                {
+                                                  [sty.freeBoxreport__rz1XlJjOjP]:
+                                                    hasVariant(
+                                                      $state,
+                                                      "report",
+                                                      "report"
+                                                    ),
+                                                  [sty.freeBoxslide__1__rz1XLedcqc]:
+                                                    hasVariant(
+                                                      $state,
+                                                      "slide",
+                                                      "_1"
+                                                    )
+                                                }
+                                              )}
+                                            >
+                                              <Icon313Icon
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.svg___51OeD,
+                                                  {
+                                                    [sty.svgslide__1___51OeDedcqc]:
+                                                      hasVariant(
+                                                        $state,
+                                                        "slide",
+                                                        "_1"
+                                                      )
+                                                  }
+                                                )}
+                                                role={"img"}
+                                              />
+
+                                              <LineClomp
+                                                data-plasmic-name={"lineClomp3"}
+                                                data-plasmic-override={
+                                                  overrides.lineClomp3
+                                                }
+                                                className={classNames(
+                                                  "__wab_instance",
+                                                  sty.lineClomp3
+                                                )}
+                                                numberOfLine={1}
+                                                onLineChange={async (
+                                                  ...eventArgs: any
+                                                ) => {
+                                                  generateStateOnChangeProp(
+                                                    $state,
+                                                    [
+                                                      "lineClomp3",
+                                                      __plasmic_idx_0,
+                                                      __plasmic_idx_1,
+                                                      "line"
+                                                    ]
+                                                  ).apply(null, eventArgs);
+
+                                                  if (
+                                                    eventArgs.length > 1 &&
+                                                    eventArgs[1] &&
+                                                    eventArgs[1]
+                                                      ._plasmic_state_init_
+                                                  ) {
+                                                    return;
+                                                  }
+                                                }}
+                                              >
+                                                <div
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    projectcss.__wab_text,
+                                                    sty.text__sRf
+                                                  )}
+                                                  onClick={async event => {
+                                                    const $steps = {};
+
+                                                    $steps["runCode"] = true
+                                                      ? (() => {
+                                                          const actionArgs = {
+                                                            customFunction:
+                                                              async () => {
+                                                                return undefined;
+                                                              }
+                                                          };
+                                                          return (({
+                                                            customFunction
+                                                          }) => {
+                                                            return customFunction();
+                                                          })?.apply(null, [
+                                                            actionArgs
+                                                          ]);
+                                                        })()
+                                                      : undefined;
+                                                    if (
+                                                      $steps["runCode"] !=
+                                                        null &&
+                                                      typeof $steps[
+                                                        "runCode"
+                                                      ] === "object" &&
+                                                      typeof $steps["runCode"]
+                                                        .then === "function"
+                                                    ) {
+                                                      $steps["runCode"] =
+                                                        await $steps["runCode"];
+                                                    }
+                                                  }}
+                                                >
+                                                  {
+                                                    "\u0647\u0631 \u0631\u0648\u0632"
+                                                  }
+                                                </div>
+                                              </LineClomp>
+                                            </div>
+                                          ) : null}
+                                          {(() => {
+                                            try {
+                                              return (() => {
+                                                try {
+                                                  let dates = JSON.parse(
+                                                    currentItem.dates
+                                                  );
+                                                  return (
+                                                    dates && dates.length > 0
+                                                  );
+                                                } catch {}
+                                              })();
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return true;
+                                              }
+                                              throw e;
+                                            }
+                                          })() ? (
+                                            <div
+                                              className={classNames(
+                                                projectcss.all,
+                                                sty.freeBox__tPVjj,
+                                                {
+                                                  [sty.freeBoxslide__1__tPVjjedcqc]:
+                                                    hasVariant(
+                                                      $state,
+                                                      "slide",
+                                                      "_1"
+                                                    )
+                                                }
+                                              )}
+                                            >
+                                              <Icon290Icon
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.svg__s21QL
+                                                )}
+                                                role={"img"}
+                                              />
+
+                                              <LineClomp
+                                                data-plasmic-name={"lineClomp2"}
+                                                data-plasmic-override={
+                                                  overrides.lineClomp2
+                                                }
+                                                className={classNames(
+                                                  "__wab_instance",
+                                                  sty.lineClomp2
+                                                )}
+                                                numberOfLine={1}
+                                                onLineChange={async (
+                                                  ...eventArgs: any
+                                                ) => {
+                                                  generateStateOnChangeProp(
+                                                    $state,
+                                                    [
+                                                      "lineClomp2",
+                                                      __plasmic_idx_0,
+                                                      __plasmic_idx_1,
+                                                      "line"
+                                                    ]
+                                                  ).apply(null, eventArgs);
+
+                                                  if (
+                                                    eventArgs.length > 1 &&
+                                                    eventArgs[1] &&
+                                                    eventArgs[1]
+                                                      ._plasmic_state_init_
+                                                  ) {
+                                                    return;
+                                                  }
+                                                }}
+                                              >
+                                                <div
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    projectcss.__wab_text,
+                                                    sty.text__z1Vcs
+                                                  )}
+                                                  onClick={async event => {
+                                                    const $steps = {};
+
+                                                    $steps["runCode"] = true
+                                                      ? (() => {
+                                                          const actionArgs = {
+                                                            customFunction:
+                                                              async () => {
+                                                                return (() => {
+                                                                  const editId = `edit${dayIndex}${currentIndex}`;
+                                                                  const edits =
+                                                                    document.getElementById(
+                                                                      editId
+                                                                    );
+                                                                  if (!edits) {
+                                                                    return console.warn(
+                                                                      `❌ Element with id "${editId}" not found`
+                                                                    );
+                                                                  } else {
+                                                                    const firstButton =
+                                                                      edits.querySelector(
+                                                                        "button"
+                                                                      );
+                                                                    if (
+                                                                      firstButton
+                                                                    ) {
+                                                                      return firstButton.click();
+                                                                    } else {
+                                                                      return console.warn(
+                                                                        `⚠️ No button found inside #${editId}`
+                                                                      );
+                                                                    }
+                                                                  }
+                                                                })();
+                                                              }
+                                                          };
+                                                          return (({
+                                                            customFunction
+                                                          }) => {
+                                                            return customFunction();
+                                                          })?.apply(null, [
+                                                            actionArgs
+                                                          ]);
+                                                        })()
+                                                      : undefined;
+                                                    if (
+                                                      $steps["runCode"] !=
+                                                        null &&
+                                                      typeof $steps[
+                                                        "runCode"
+                                                      ] === "object" &&
+                                                      typeof $steps["runCode"]
+                                                        .then === "function"
+                                                    ) {
+                                                      $steps["runCode"] =
+                                                        await $steps["runCode"];
+                                                    }
+                                                  }}
+                                                >
+                                                  <React.Fragment>
+                                                    {(() => {
+                                                      try {
+                                                        return (() => {
+                                                          if (
+                                                            currentItem.schedule_type ==
+                                                            "everyYear"
+                                                          )
+                                                            try {
+                                                              let dates =
+                                                                JSON.parse(
+                                                                  currentItem.dates
+                                                                );
+                                                              if (
+                                                                dates &&
+                                                                dates.length > 0
+                                                              ) {
+                                                                function parseISOToUTC(
+                                                                  dateStr
+                                                                ) {
+                                                                  let [
+                                                                    y,
+                                                                    m,
+                                                                    d
+                                                                  ] = dateStr
+                                                                    .split("-")
+                                                                    .map(
+                                                                      Number
+                                                                    );
+                                                                  return new Date(
+                                                                    Date.UTC(
+                                                                      y,
+                                                                      m - 1,
+                                                                      d
+                                                                    )
+                                                                  );
+                                                                }
+                                                                let formatter =
+                                                                  new Intl.DateTimeFormat(
+                                                                    "fa-IR",
+                                                                    {
+                                                                      timeZone:
+                                                                        "Asia/Tehran",
+                                                                      month:
+                                                                        "long",
+                                                                      day: "numeric"
+                                                                    }
+                                                                  );
+                                                                let faDates =
+                                                                  dates.map(d =>
+                                                                    formatter.format(
+                                                                      parseISOToUTC(
+                                                                        d
+                                                                      )
+                                                                    )
+                                                                  );
+                                                                return ` ${faDates.join("  ,  ")} `;
+                                                              } else {
+                                                                return "";
+                                                              }
+                                                            } catch {
+                                                              return "";
+                                                            }
+                                                          else
+                                                            try {
+                                                              let dates =
+                                                                JSON.parse(
+                                                                  currentItem.dates
+                                                                );
+                                                              if (
+                                                                dates &&
+                                                                dates.length > 0
+                                                              ) {
+                                                                function parseISOToUTC(
+                                                                  dateStr
+                                                                ) {
+                                                                  let [
+                                                                    y,
+                                                                    m,
+                                                                    d
+                                                                  ] = dateStr
+                                                                    .split("-")
+                                                                    .map(
+                                                                      Number
+                                                                    );
+                                                                  return new Date(
+                                                                    Date.UTC(
+                                                                      y,
+                                                                      m - 1,
+                                                                      d
+                                                                    )
+                                                                  );
+                                                                }
+                                                                let formatter =
+                                                                  new Intl.DateTimeFormat(
+                                                                    "fa-IR",
+                                                                    {
+                                                                      timeZone:
+                                                                        "Asia/Tehran",
+                                                                      year: "numeric",
+                                                                      month:
+                                                                        "numeric",
+                                                                      day: "numeric"
+                                                                    }
+                                                                  );
+                                                                let faDates =
+                                                                  dates.map(d =>
+                                                                    formatter.format(
+                                                                      parseISOToUTC(
+                                                                        d
+                                                                      )
+                                                                    )
+                                                                  );
+                                                                return ` ${faDates.join("  ,  ")} `;
+                                                              } else {
+                                                                return "";
+                                                              }
+                                                            } catch {
+                                                              return "";
+                                                            }
+                                                        })();
+                                                      } catch (e) {
+                                                        if (
+                                                          e instanceof
+                                                            TypeError ||
+                                                          e?.plasmicType ===
+                                                            "PlasmicUndefinedDataError"
+                                                        ) {
+                                                          return "Townhall Meeting";
+                                                        }
+                                                        throw e;
+                                                      }
+                                                    })()}
+                                                  </React.Fragment>
+                                                </div>
+                                              </LineClomp>
+                                            </div>
+                                          ) : null}
+                                          {(
+                                            hasVariant($state, "slide", "_1")
+                                              ? (() => {
+                                                  try {
+                                                    return (
+                                                      currentItem.id != null
+                                                    );
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return true;
+                                                    }
+                                                    throw e;
+                                                  }
+                                                })()
+                                              : true
+                                          ) ? (
+                                            <div
+                                              className={classNames(
+                                                projectcss.all,
+                                                sty.freeBox___2Joh,
+                                                {
+                                                  [sty.freeBoxslide__1___2JoHedcqc]:
+                                                    hasVariant(
+                                                      $state,
+                                                      "slide",
+                                                      "_1"
+                                                    )
+                                                }
+                                              )}
+                                            >
+                                              <LineClomp
+                                                data-plasmic-name={"lineClomp4"}
+                                                data-plasmic-override={
+                                                  overrides.lineClomp4
+                                                }
+                                                className={classNames(
+                                                  "__wab_instance",
+                                                  sty.lineClomp4
+                                                )}
+                                                numberOfLine={1}
+                                                onLineChange={async (
+                                                  ...eventArgs: any
+                                                ) => {
+                                                  generateStateOnChangeProp(
+                                                    $state,
+                                                    [
+                                                      "lineClomp4",
+                                                      __plasmic_idx_0,
+                                                      __plasmic_idx_1,
+                                                      "line"
+                                                    ]
+                                                  ).apply(null, eventArgs);
+
+                                                  if (
+                                                    eventArgs.length > 1 &&
+                                                    eventArgs[1] &&
+                                                    eventArgs[1]
+                                                      ._plasmic_state_init_
+                                                  ) {
+                                                    return;
+                                                  }
+                                                }}
+                                              >
+                                                <div
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    projectcss.__wab_text,
+                                                    sty.text__h683V,
+                                                    {
+                                                      [sty.textslide__1__h683Vedcqc]:
+                                                        hasVariant(
+                                                          $state,
+                                                          "slide",
+                                                          "_1"
+                                                        )
+                                                    }
+                                                  )}
+                                                  onClick={async event => {
+                                                    const $steps = {};
+
+                                                    $steps["runCode"] = true
+                                                      ? (() => {
+                                                          const actionArgs = {
+                                                            customFunction:
+                                                              async () => {
+                                                                return (() => {
+                                                                  const editId = `edit${dayIndex}${currentIndex}`;
+                                                                  const edits =
+                                                                    document.getElementById(
+                                                                      editId
+                                                                    );
+                                                                  if (!edits) {
+                                                                    return console.warn(
+                                                                      `❌ Element with id "${editId}" not found`
+                                                                    );
+                                                                  } else {
+                                                                    const firstButton =
+                                                                      edits.querySelector(
+                                                                        "button"
+                                                                      );
+                                                                    if (
+                                                                      firstButton
+                                                                    ) {
+                                                                      return firstButton.click();
+                                                                    } else {
+                                                                      return console.warn(
+                                                                        `⚠️ No button found inside #${editId}`
+                                                                      );
+                                                                    }
+                                                                  }
+                                                                })();
+                                                              }
+                                                          };
+                                                          return (({
+                                                            customFunction
+                                                          }) => {
+                                                            return customFunction();
+                                                          })?.apply(null, [
+                                                            actionArgs
+                                                          ]);
+                                                        })()
+                                                      : undefined;
+                                                    if (
+                                                      $steps["runCode"] !=
+                                                        null &&
+                                                      typeof $steps[
+                                                        "runCode"
+                                                      ] === "object" &&
+                                                      typeof $steps["runCode"]
+                                                        .then === "function"
+                                                    ) {
+                                                      $steps["runCode"] =
+                                                        await $steps["runCode"];
+                                                    }
+                                                  }}
+                                                >
+                                                  <React.Fragment>
+                                                    {(() => {
+                                                      try {
+                                                        return `طریقه ارسال : `;
+                                                      } catch (e) {
+                                                        if (
+                                                          e instanceof
+                                                            TypeError ||
+                                                          e?.plasmicType ===
+                                                            "PlasmicUndefinedDataError"
+                                                        ) {
+                                                          return "Townhall Meeting";
+                                                        }
+                                                        throw e;
+                                                      }
+                                                    })()}
+                                                  </React.Fragment>
+                                                </div>
+                                              </LineClomp>
+                                              {(_par =>
+                                                !_par
+                                                  ? []
+                                                  : Array.isArray(_par)
+                                                    ? _par
+                                                    : [_par])(
+                                                (() => {
                                                   try {
                                                     return (() => {
                                                       try {
                                                         return JSON.parse(
-                                                          currentItem.times
-                                                        ).join("   ,   ");
+                                                          currentItem.channels
+                                                        );
                                                       } catch {
-                                                        return "";
+                                                        return [];
                                                       }
                                                     })();
                                                   } catch (e) {
@@ -7561,470 +8238,232 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                       e?.plasmicType ===
                                                         "PlasmicUndefinedDataError"
                                                     ) {
-                                                      return "Townhall Meeting";
+                                                      return [];
                                                     }
                                                     throw e;
                                                   }
-                                                })()}
-                                              </React.Fragment>
+                                                })()
+                                              ).map(
+                                                (
+                                                  __plasmic_item_2,
+                                                  __plasmic_idx_2
+                                                ) => {
+                                                  const currentItem =
+                                                    __plasmic_item_2;
+                                                  const currentIndex =
+                                                    __plasmic_idx_2;
+                                                  return (
+                                                    <MenuIcon
+                                                      data-plasmic-name={
+                                                        "menuIcon"
+                                                      }
+                                                      data-plasmic-override={
+                                                        overrides.menuIcon
+                                                      }
+                                                      className={classNames(
+                                                        "__wab_instance",
+                                                        sty.menuIcon
+                                                      )}
+                                                      color={"iconColor"}
+                                                      icons={(() => {
+                                                        try {
+                                                          return currentItem;
+                                                        } catch (e) {
+                                                          if (
+                                                            e instanceof
+                                                              TypeError ||
+                                                            e?.plasmicType ===
+                                                              "PlasmicUndefinedDataError"
+                                                          ) {
+                                                            return [];
+                                                          }
+                                                          throw e;
+                                                        }
+                                                      })()}
+                                                      key={currentIndex}
+                                                      outline={true}
+                                                      size={"_12"}
+                                                    />
+                                                  );
+                                                }
+                                              )}
                                             </div>
-                                          </LineClomp>
+                                          ) : null}
                                         </div>
-                                      ) : null}
-                                      {(() => {
-                                        try {
-                                          return (() => {
-                                            try {
-                                              let week = JSON.parse(
-                                                currentItem.weekdays
-                                              );
-                                              let dates = JSON.parse(
-                                                currentItem.dates
-                                              );
-                                              return (
-                                                week &&
-                                                week.length > 0 &&
-                                                dates.length == 0
-                                              );
-                                            } catch {}
-                                          })();
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return true;
-                                          }
-                                          throw e;
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox___0V7N,
+                                    {
+                                      [sty.freeBoxslide__1___0V7Nedcqc]:
+                                        hasVariant($state, "slide", "_1")
+                                    }
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__x0
+                                    )}
+                                    id={(() => {
+                                      try {
+                                        return `edit${dayIndex}${currentIndex}`;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
                                         }
-                                      })() ? (
-                                        <div
-                                          className={classNames(
-                                            projectcss.all,
-                                            sty.freeBox__rz1Xl,
-                                            {
-                                              [sty.freeBoxreport__rz1XlJjOjP]:
-                                                hasVariant(
-                                                  $state,
-                                                  "report",
-                                                  "report"
-                                                ),
-                                              [sty.freeBoxslide__1__rz1XLedcqc]:
-                                                hasVariant(
-                                                  $state,
-                                                  "slide",
-                                                  "_1"
-                                                )
+                                        throw e;
+                                      }
+                                    })()}
+                                  >
+                                    {(
+                                      hasVariant($state, "slide", "_1")
+                                        ? (() => {
+                                            try {
+                                              return currentItem.id != null;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return true;
+                                              }
+                                              throw e;
                                             }
-                                          )}
-                                        >
-                                          <Icon313Icon
-                                            className={classNames(
-                                              projectcss.all,
-                                              sty.svg___51OeD,
+                                          })()
+                                        : (() => {
+                                            try {
+                                              return (() => {
+                                                const datesStr =
+                                                  currentItem.dates || "[]";
+                                                const parsed = JSON.parse(
+                                                  datesStr || "[]"
+                                                );
+                                                return (
+                                                  parsed.length != 0 ||
+                                                  currentItem.id != null
+                                                );
+                                              })();
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return true;
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                    )
+                                      ? (() => {
+                                          const child$Props = {
+                                            className: classNames(
+                                              "__wab_instance",
+                                              sty.editItem,
                                               {
-                                                [sty.svgslide__1___51OeDedcqc]:
+                                                [sty.editItemreport]:
+                                                  hasVariant(
+                                                    $state,
+                                                    "report",
+                                                    "report"
+                                                  ),
+                                                [sty.editItemslide__1]:
                                                   hasVariant(
                                                     $state,
                                                     "slide",
                                                     "_1"
                                                   )
                                               }
-                                            )}
-                                            role={"img"}
-                                          />
-
-                                          <LineClomp
-                                            data-plasmic-name={"lineClomp3"}
-                                            data-plasmic-override={
-                                              overrides.lineClomp3
-                                            }
-                                            className={classNames(
-                                              "__wab_instance",
-                                              sty.lineClomp3
-                                            )}
-                                            numberOfLine={1}
-                                            onLineChange={async (
-                                              ...eventArgs: any
-                                            ) => {
-                                              generateStateOnChangeProp(
-                                                $state,
-                                                [
-                                                  "lineClomp3",
-                                                  __plasmic_idx_0,
-                                                  __plasmic_idx_1,
-                                                  "line"
-                                                ]
-                                              ).apply(null, eventArgs);
-
-                                              if (
-                                                eventArgs.length > 1 &&
-                                                eventArgs[1] &&
-                                                eventArgs[1]
-                                                  ._plasmic_state_init_
-                                              ) {
-                                                return;
-                                              }
-                                            }}
-                                          >
-                                            <div
-                                              className={classNames(
-                                                projectcss.all,
-                                                projectcss.__wab_text,
-                                                sty.text__sRf
-                                              )}
-                                              onClick={async event => {
-                                                const $steps = {};
-
-                                                $steps["runCode"] = true
-                                                  ? (() => {
-                                                      const actionArgs = {
-                                                        customFunction:
-                                                          async () => {
-                                                            return undefined;
-                                                          }
-                                                      };
-                                                      return (({
-                                                        customFunction
-                                                      }) => {
-                                                        return customFunction();
-                                                      })?.apply(null, [
-                                                        actionArgs
-                                                      ]);
-                                                    })()
-                                                  : undefined;
-                                                if (
-                                                  $steps["runCode"] != null &&
-                                                  typeof $steps["runCode"] ===
-                                                    "object" &&
-                                                  typeof $steps["runCode"]
-                                                    .then === "function"
-                                                ) {
-                                                  $steps["runCode"] =
-                                                    await $steps["runCode"];
-                                                }
-                                              }}
-                                            >
-                                              {
-                                                "\u0647\u0631 \u0631\u0648\u0632"
-                                              }
-                                            </div>
-                                          </LineClomp>
-                                        </div>
-                                      ) : null}
-                                      {(() => {
-                                        try {
-                                          return (() => {
-                                            try {
-                                              let dates = JSON.parse(
-                                                currentItem.dates
-                                              );
-                                              return dates && dates.length > 0;
-                                            } catch {}
-                                          })();
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return true;
-                                          }
-                                          throw e;
-                                        }
-                                      })() ? (
-                                        <div
-                                          className={classNames(
-                                            projectcss.all,
-                                            sty.freeBox__tPVjj,
-                                            {
-                                              [sty.freeBoxslide__1__tPVjjedcqc]:
-                                                hasVariant(
-                                                  $state,
-                                                  "slide",
-                                                  "_1"
-                                                )
-                                            }
-                                          )}
-                                        >
-                                          <Icon290Icon
-                                            className={classNames(
-                                              projectcss.all,
-                                              sty.svg__s21QL
-                                            )}
-                                            role={"img"}
-                                          />
-
-                                          <LineClomp
-                                            data-plasmic-name={"lineClomp2"}
-                                            data-plasmic-override={
-                                              overrides.lineClomp2
-                                            }
-                                            className={classNames(
-                                              "__wab_instance",
-                                              sty.lineClomp2
-                                            )}
-                                            numberOfLine={1}
-                                            onLineChange={async (
-                                              ...eventArgs: any
-                                            ) => {
-                                              generateStateOnChangeProp(
-                                                $state,
-                                                [
-                                                  "lineClomp2",
-                                                  __plasmic_idx_0,
-                                                  __plasmic_idx_1,
-                                                  "line"
-                                                ]
-                                              ).apply(null, eventArgs);
-
-                                              if (
-                                                eventArgs.length > 1 &&
-                                                eventArgs[1] &&
-                                                eventArgs[1]
-                                                  ._plasmic_state_init_
-                                              ) {
-                                                return;
-                                              }
-                                            }}
-                                          >
-                                            <div
-                                              className={classNames(
-                                                projectcss.all,
-                                                projectcss.__wab_text,
-                                                sty.text__z1Vcs
-                                              )}
-                                              onClick={async event => {
-                                                const $steps = {};
-
-                                                $steps["runCode"] = true
-                                                  ? (() => {
-                                                      const actionArgs = {
-                                                        customFunction:
-                                                          async () => {
-                                                            return (() => {
-                                                              const editId = `edit${dayIndex}${currentIndex}`;
-                                                              const edits =
-                                                                document.getElementById(
-                                                                  editId
-                                                                );
-                                                              if (!edits) {
-                                                                return console.warn(
-                                                                  `❌ Element with id "${editId}" not found`
-                                                                );
-                                                              } else {
-                                                                const firstButton =
-                                                                  edits.querySelector(
-                                                                    "button"
-                                                                  );
-                                                                if (
-                                                                  firstButton
-                                                                ) {
-                                                                  return firstButton.click();
-                                                                } else {
-                                                                  return console.warn(
-                                                                    `⚠️ No button found inside #${editId}`
-                                                                  );
-                                                                }
-                                                              }
-                                                            })();
-                                                          }
-                                                      };
-                                                      return (({
-                                                        customFunction
-                                                      }) => {
-                                                        return customFunction();
-                                                      })?.apply(null, [
-                                                        actionArgs
-                                                      ]);
-                                                    })()
-                                                  : undefined;
-                                                if (
-                                                  $steps["runCode"] != null &&
-                                                  typeof $steps["runCode"] ===
-                                                    "object" &&
-                                                  typeof $steps["runCode"]
-                                                    .then === "function"
-                                                ) {
-                                                  $steps["runCode"] =
-                                                    await $steps["runCode"];
-                                                }
-                                              }}
-                                            >
-                                              <React.Fragment>
-                                                {(() => {
-                                                  try {
-                                                    return (() => {
-                                                      if (
-                                                        currentItem.schedule_type ==
-                                                        "everyYear"
-                                                      )
-                                                        try {
-                                                          let dates =
-                                                            JSON.parse(
-                                                              currentItem.dates
-                                                            );
-                                                          if (
-                                                            dates &&
-                                                            dates.length > 0
-                                                          ) {
-                                                            function parseISOToUTC(
-                                                              dateStr
-                                                            ) {
-                                                              let [y, m, d] =
-                                                                dateStr
-                                                                  .split("-")
-                                                                  .map(Number);
-                                                              return new Date(
-                                                                Date.UTC(
-                                                                  y,
-                                                                  m - 1,
-                                                                  d
-                                                                )
-                                                              );
-                                                            }
-                                                            let formatter =
-                                                              new Intl.DateTimeFormat(
-                                                                "fa-IR",
-                                                                {
-                                                                  timeZone:
-                                                                    "Asia/Tehran",
-                                                                  month: "long",
-                                                                  day: "numeric"
-                                                                }
-                                                              );
-                                                            let faDates =
-                                                              dates.map(d =>
-                                                                formatter.format(
-                                                                  parseISOToUTC(
-                                                                    d
-                                                                  )
-                                                                )
-                                                              );
-                                                            return ` ${faDates.join("  ,  ")} `;
-                                                          } else {
-                                                            return "";
-                                                          }
-                                                        } catch {
-                                                          return "";
-                                                        }
-                                                      else
-                                                        try {
-                                                          let dates =
-                                                            JSON.parse(
-                                                              currentItem.dates
-                                                            );
-                                                          if (
-                                                            dates &&
-                                                            dates.length > 0
-                                                          ) {
-                                                            function parseISOToUTC(
-                                                              dateStr
-                                                            ) {
-                                                              let [y, m, d] =
-                                                                dateStr
-                                                                  .split("-")
-                                                                  .map(Number);
-                                                              return new Date(
-                                                                Date.UTC(
-                                                                  y,
-                                                                  m - 1,
-                                                                  d
-                                                                )
-                                                              );
-                                                            }
-                                                            let formatter =
-                                                              new Intl.DateTimeFormat(
-                                                                "fa-IR",
-                                                                {
-                                                                  timeZone:
-                                                                    "Asia/Tehran",
-                                                                  year: "numeric",
-                                                                  month:
-                                                                    "numeric",
-                                                                  day: "numeric"
-                                                                }
-                                                              );
-                                                            let faDates =
-                                                              dates.map(d =>
-                                                                formatter.format(
-                                                                  parseISOToUTC(
-                                                                    d
-                                                                  )
-                                                                )
-                                                              );
-                                                            return ` ${faDates.join("  ,  ")} `;
-                                                          } else {
-                                                            return "";
-                                                          }
-                                                        } catch {
-                                                          return "";
-                                                        }
-                                                    })();
-                                                  } catch (e) {
-                                                    if (
-                                                      e instanceof TypeError ||
-                                                      e?.plasmicType ===
-                                                        "PlasmicUndefinedDataError"
-                                                    ) {
-                                                      return "Townhall Meeting";
-                                                    }
-                                                    throw e;
-                                                  }
-                                                })()}
-                                              </React.Fragment>
-                                            </div>
-                                          </LineClomp>
-                                        </div>
-                                      ) : null}
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          sty.freeBox___2Joh,
-                                          {
-                                            [sty.freeBoxslide__1___2JoHedcqc]:
-                                              hasVariant($state, "slide", "_1")
-                                          }
-                                        )}
-                                      >
-                                        <LineClomp
-                                          data-plasmic-name={"lineClomp4"}
-                                          data-plasmic-override={
-                                            overrides.lineClomp4
-                                          }
-                                          className={classNames(
-                                            "__wab_instance",
-                                            sty.lineClomp4
-                                          )}
-                                          numberOfLine={1}
-                                          onLineChange={async (
-                                            ...eventArgs: any
-                                          ) => {
-                                            generateStateOnChangeProp($state, [
-                                              "lineClomp4",
-                                              __plasmic_idx_0,
-                                              __plasmic_idx_1,
-                                              "line"
-                                            ]).apply(null, eventArgs);
-
-                                            if (
-                                              eventArgs.length > 1 &&
-                                              eventArgs[1] &&
-                                              eventArgs[1]._plasmic_state_init_
-                                            ) {
-                                              return;
-                                            }
-                                          }}
-                                        >
-                                          <div
-                                            className={classNames(
-                                              projectcss.all,
-                                              projectcss.__wab_text,
-                                              sty.text__h683V
-                                            )}
-                                            onClick={async event => {
+                                            ),
+                                            color: generateStateValueProp(
+                                              $state,
+                                              [
+                                                "editItem",
+                                                __plasmic_idx_0,
+                                                __plasmic_idx_1,
+                                                "color"
+                                              ]
+                                            ),
+                                            load: generateStateValueProp(
+                                              $state,
+                                              [
+                                                "editItem",
+                                                __plasmic_idx_0,
+                                                __plasmic_idx_1,
+                                                "load"
+                                              ]
+                                            ),
+                                            loading: generateStateValueProp(
+                                              $state,
+                                              [
+                                                "editItem",
+                                                __plasmic_idx_0,
+                                                __plasmic_idx_1,
+                                                "loading"
+                                              ]
+                                            ),
+                                            onClick: async event => {
                                               const $steps = {};
+
+                                              $steps["updateSelect2"] = true
+                                                ? (() => {
+                                                    const actionArgs = {
+                                                      variable: {
+                                                        objRoot: $state,
+                                                        variablePath: [
+                                                          "select2"
+                                                        ]
+                                                      },
+                                                      operation: 0,
+                                                      value: currentItem
+                                                    };
+                                                    return (({
+                                                      variable,
+                                                      value,
+                                                      startIndex,
+                                                      deleteCount
+                                                    }) => {
+                                                      if (!variable) {
+                                                        return;
+                                                      }
+                                                      const {
+                                                        objRoot,
+                                                        variablePath
+                                                      } = variable;
+
+                                                      $stateSet(
+                                                        objRoot,
+                                                        variablePath,
+                                                        value
+                                                      );
+                                                      return value;
+                                                    })?.apply(null, [
+                                                      actionArgs
+                                                    ]);
+                                                  })()
+                                                : undefined;
+                                              if (
+                                                $steps["updateSelect2"] !=
+                                                  null &&
+                                                typeof $steps[
+                                                  "updateSelect2"
+                                                ] === "object" &&
+                                                typeof $steps["updateSelect2"]
+                                                  .then === "function"
+                                              ) {
+                                                $steps["updateSelect2"] =
+                                                  await $steps["updateSelect2"];
+                                              }
 
                                               $steps["runCode"] = true
                                                 ? (() => {
@@ -8032,27 +8471,305 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                       customFunction:
                                                         async () => {
                                                           return (() => {
-                                                            const editId = `edit${dayIndex}${currentIndex}`;
-                                                            const edits =
-                                                              document.getElementById(
-                                                                editId
-                                                              );
-                                                            if (!edits) {
-                                                              return console.warn(
-                                                                `❌ Element with id "${editId}" not found`
-                                                              );
-                                                            } else {
-                                                              const firstButton =
-                                                                edits.querySelector(
-                                                                  "button"
+                                                            try {
+                                                              const dates =
+                                                                JSON.parse(
+                                                                  $state.select2
+                                                                    .dates
                                                                 );
-                                                              if (firstButton) {
-                                                                return firstButton.click();
-                                                              } else {
-                                                                return console.warn(
-                                                                  `⚠️ No button found inside #${editId}`
+                                                              function faToEnDigits(
+                                                                str
+                                                              ) {
+                                                                return str.replace(
+                                                                  /[۰-۹]/g,
+                                                                  d =>
+                                                                    "۰۱۲۳۴۵۶۷۸۹".indexOf(
+                                                                      d
+                                                                    )
                                                                 );
                                                               }
+                                                              $state.date =
+                                                                dates.map(m => {
+                                                                  const today =
+                                                                    new Date(m);
+                                                                  const f =
+                                                                    today
+                                                                      .toISOString()
+                                                                      .split(
+                                                                        "T"
+                                                                      )[0];
+                                                                  const g =
+                                                                    new Intl.DateTimeFormat(
+                                                                      "fa-IR",
+                                                                      {
+                                                                        year: "numeric",
+                                                                        month:
+                                                                          "long",
+                                                                        day: "numeric"
+                                                                      }
+                                                                    ).format(
+                                                                      today
+                                                                    );
+                                                                  const jy =
+                                                                    Number(
+                                                                      faToEnDigits(
+                                                                        new Intl.DateTimeFormat(
+                                                                          "fa-IR",
+                                                                          {
+                                                                            year: "numeric"
+                                                                          }
+                                                                        ).format(
+                                                                          today
+                                                                        )
+                                                                      )
+                                                                    );
+                                                                  const jm =
+                                                                    Number(
+                                                                      faToEnDigits(
+                                                                        new Intl.DateTimeFormat(
+                                                                          "fa-IR",
+                                                                          {
+                                                                            month:
+                                                                              "numeric"
+                                                                          }
+                                                                        ).format(
+                                                                          today
+                                                                        )
+                                                                      )
+                                                                    );
+                                                                  const jd =
+                                                                    Number(
+                                                                      faToEnDigits(
+                                                                        new Intl.DateTimeFormat(
+                                                                          "fa-IR",
+                                                                          {
+                                                                            day: "numeric"
+                                                                          }
+                                                                        ).format(
+                                                                          today
+                                                                        )
+                                                                      )
+                                                                    );
+                                                                  return {
+                                                                    start: {
+                                                                      f,
+                                                                      g,
+                                                                      year: jy,
+                                                                      month: jm,
+                                                                      day: jd
+                                                                    }
+                                                                  };
+                                                                });
+                                                            } catch {
+                                                              $state.date = [];
+                                                            }
+                                                            try {
+                                                              $state.week =
+                                                                JSON.parse(
+                                                                  currentItem.weekdays
+                                                                );
+                                                            } catch {}
+                                                            try {
+                                                              function formatTimeString(
+                                                                value
+                                                              ) {
+                                                                if (!value)
+                                                                  return [
+                                                                    "0",
+                                                                    "0"
+                                                                  ];
+
+                                                                return value.split(
+                                                                  ":"
+                                                                );
+                                                              }
+                                                              const times =
+                                                                JSON.parse(
+                                                                  $state.select2
+                                                                    .times
+                                                                );
+                                                              $state.time2 =
+                                                                times.map(t => {
+                                                                  const [
+                                                                    hh,
+                                                                    mm
+                                                                  ] =
+                                                                    formatTimeString(
+                                                                      t
+                                                                    );
+                                                                  return {
+                                                                    hour: parseInt(
+                                                                      hh
+                                                                    ),
+                                                                    minute:
+                                                                      parseInt(
+                                                                        mm
+                                                                      )
+                                                                  };
+                                                                });
+                                                            } catch {
+                                                              $state.time2 = [];
+                                                            }
+                                                            try {
+                                                              function arraysEqualIgnoreOrder(
+                                                                a,
+                                                                b
+                                                              ) {
+                                                                if (
+                                                                  a.length !==
+                                                                  b.length
+                                                                )
+                                                                  return false;
+                                                                return [...a]
+                                                                  .sort()
+                                                                  .every(
+                                                                    (
+                                                                      val,
+                                                                      index
+                                                                    ) =>
+                                                                      val ===
+                                                                      [
+                                                                        ...b
+                                                                      ].sort()[
+                                                                        index
+                                                                      ]
+                                                                  );
+                                                              }
+                                                              if (
+                                                                $state.week
+                                                                  .length === 0
+                                                              ) {
+                                                                $state.repead.selected =
+                                                                  "once";
+                                                              } else if (
+                                                                arraysEqualIgnoreOrder(
+                                                                  $state.week,
+                                                                  [
+                                                                    "saturday",
+                                                                    "sunday",
+                                                                    "monday",
+                                                                    "tuesday",
+                                                                    "wednesday",
+                                                                    "thursday",
+                                                                    "friday"
+                                                                  ]
+                                                                )
+                                                              ) {
+                                                                $state.repead.selected =
+                                                                  "daily";
+                                                              } else if (
+                                                                arraysEqualIgnoreOrder(
+                                                                  $state.week,
+                                                                  [
+                                                                    "saturday",
+                                                                    "sunday",
+                                                                    "monday",
+                                                                    "tuesday",
+                                                                    "wednesday"
+                                                                  ]
+                                                                )
+                                                              ) {
+                                                                $state.repead.selected =
+                                                                  "sat_to_wed";
+                                                              } else {
+                                                                $state.repead.selected =
+                                                                  "custom";
+                                                              }
+                                                            } catch {
+                                                              $state.week = [];
+                                                            }
+                                                            try {
+                                                              const finish =
+                                                                $state.select2
+                                                                  .finishTime;
+                                                              if (finish) {
+                                                                const today =
+                                                                  new Date(
+                                                                    finish
+                                                                  );
+                                                                function faToEnDigits(
+                                                                  str
+                                                                ) {
+                                                                  return str.replace(
+                                                                    /[۰-۹]/g,
+                                                                    d =>
+                                                                      "۰۱۲۳۴۵۶۷۸۹".indexOf(
+                                                                        d
+                                                                      )
+                                                                  );
+                                                                }
+                                                                const f = today
+                                                                  .toISOString()
+                                                                  .split(
+                                                                    "T"
+                                                                  )[0];
+                                                                const g =
+                                                                  new Intl.DateTimeFormat(
+                                                                    "fa-IR",
+                                                                    {
+                                                                      year: "numeric",
+                                                                      month:
+                                                                        "long",
+                                                                      day: "numeric"
+                                                                    }
+                                                                  ).format(
+                                                                    today
+                                                                  );
+                                                                const jy =
+                                                                  Number(
+                                                                    faToEnDigits(
+                                                                      new Intl.DateTimeFormat(
+                                                                        "fa-IR",
+                                                                        {
+                                                                          year: "numeric"
+                                                                        }
+                                                                      ).format(
+                                                                        today
+                                                                      )
+                                                                    )
+                                                                  );
+                                                                const jm =
+                                                                  Number(
+                                                                    faToEnDigits(
+                                                                      new Intl.DateTimeFormat(
+                                                                        "fa-IR",
+                                                                        {
+                                                                          month:
+                                                                            "numeric"
+                                                                        }
+                                                                      ).format(
+                                                                        today
+                                                                      )
+                                                                    )
+                                                                  );
+                                                                const jd =
+                                                                  Number(
+                                                                    faToEnDigits(
+                                                                      new Intl.DateTimeFormat(
+                                                                        "fa-IR",
+                                                                        {
+                                                                          day: "numeric"
+                                                                        }
+                                                                      ).format(
+                                                                        today
+                                                                      )
+                                                                    )
+                                                                  );
+                                                                return ($state.finishDate =
+                                                                  {
+                                                                    f,
+                                                                    g,
+                                                                    year: jy,
+                                                                    month: jm,
+                                                                    day: jd
+                                                                  });
+                                                              } else {
+                                                                return ($state.finishDate =
+                                                                  {});
+                                                              }
+                                                            } catch {
+                                                              return ($state.finishDate =
+                                                                {});
                                                             }
                                                           })();
                                                         }
@@ -8076,77 +8793,836 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                 $steps["runCode"] =
                                                   await $steps["runCode"];
                                               }
-                                            }}
-                                          >
-                                            <React.Fragment>
-                                              {(() => {
-                                                try {
-                                                  return `طریقه ارسال : `;
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return "Townhall Meeting";
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()}
-                                            </React.Fragment>
-                                          </div>
-                                        </LineClomp>
-                                        {(_par =>
-                                          !_par
-                                            ? []
-                                            : Array.isArray(_par)
-                                              ? _par
-                                              : [_par])(
-                                          (() => {
-                                            try {
-                                              return (() => {
-                                                try {
-                                                  return JSON.parse(
-                                                    currentItem.channels
-                                                  );
-                                                } catch {
-                                                  return [];
-                                                }
-                                              })();
-                                            } catch (e) {
+
+                                              $steps["updateDialogOpendialog"] =
+                                                true
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        variable: {
+                                                          objRoot: $state,
+                                                          variablePath: [
+                                                            "dialog",
+                                                            "opendialog"
+                                                          ]
+                                                        },
+                                                        operation: 0,
+                                                        value: true
+                                                      };
+                                                      return (({
+                                                        variable,
+                                                        value,
+                                                        startIndex,
+                                                        deleteCount
+                                                      }) => {
+                                                        if (!variable) {
+                                                          return;
+                                                        }
+                                                        const {
+                                                          objRoot,
+                                                          variablePath
+                                                        } = variable;
+
+                                                        $stateSet(
+                                                          objRoot,
+                                                          variablePath,
+                                                          value
+                                                        );
+                                                        return value;
+                                                      })?.apply(null, [
+                                                        actionArgs
+                                                      ]);
+                                                    })()
+                                                  : undefined;
                                               if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
+                                                $steps[
+                                                  "updateDialogOpendialog"
+                                                ] != null &&
+                                                typeof $steps[
+                                                  "updateDialogOpendialog"
+                                                ] === "object" &&
+                                                typeof $steps[
+                                                  "updateDialogOpendialog"
+                                                ].then === "function"
                                               ) {
-                                                return [];
+                                                $steps[
+                                                  "updateDialogOpendialog"
+                                                ] =
+                                                  await $steps[
+                                                    "updateDialogOpendialog"
+                                                  ];
                                               }
-                                              throw e;
-                                            }
-                                          })()
-                                        ).map(
-                                          (
-                                            __plasmic_item_2,
-                                            __plasmic_idx_2
-                                          ) => {
-                                            const currentItem =
-                                              __plasmic_item_2;
-                                            const currentIndex =
-                                              __plasmic_idx_2;
-                                            return (
-                                              <MenuIcon
-                                                data-plasmic-name={"menuIcon"}
-                                                data-plasmic-override={
-                                                  overrides.menuIcon
-                                                }
+                                            },
+                                            onColorChange: async (
+                                              ...eventArgs: any
+                                            ) => {
+                                              ((...eventArgs) => {
+                                                generateStateOnChangeProp(
+                                                  $state,
+                                                  [
+                                                    "editItem",
+                                                    __plasmic_idx_0,
+                                                    __plasmic_idx_1,
+                                                    "color"
+                                                  ]
+                                                )(eventArgs[0]);
+                                              }).apply(null, eventArgs);
+
+                                              if (
+                                                eventArgs.length > 1 &&
+                                                eventArgs[1] &&
+                                                eventArgs[1]
+                                                  ._plasmic_state_init_
+                                              ) {
+                                                return;
+                                              }
+                                            },
+                                            onLoadChange: async (
+                                              ...eventArgs: any
+                                            ) => {
+                                              ((...eventArgs) => {
+                                                generateStateOnChangeProp(
+                                                  $state,
+                                                  [
+                                                    "editItem",
+                                                    __plasmic_idx_0,
+                                                    __plasmic_idx_1,
+                                                    "load"
+                                                  ]
+                                                )(eventArgs[0]);
+                                              }).apply(null, eventArgs);
+
+                                              if (
+                                                eventArgs.length > 1 &&
+                                                eventArgs[1] &&
+                                                eventArgs[1]
+                                                  ._plasmic_state_init_
+                                              ) {
+                                                return;
+                                              }
+                                            },
+                                            onLoadingChange: async (
+                                              ...eventArgs: any
+                                            ) => {
+                                              ((...eventArgs) => {
+                                                generateStateOnChangeProp(
+                                                  $state,
+                                                  [
+                                                    "editItem",
+                                                    __plasmic_idx_0,
+                                                    __plasmic_idx_1,
+                                                    "loading"
+                                                  ]
+                                                )(eventArgs[0]);
+                                              }).apply(null, eventArgs);
+
+                                              if (
+                                                eventArgs.length > 1 &&
+                                                eventArgs[1] &&
+                                                eventArgs[1]
+                                                  ._plasmic_state_init_
+                                              ) {
+                                                return;
+                                              }
+                                            },
+                                            size: "compact"
+                                          };
+
+                                          initializePlasmicStates(
+                                            $state,
+                                            [
+                                              {
+                                                name: "editItem[][].color",
+                                                initFunc: ({
+                                                  $props,
+                                                  $state,
+                                                  $queries
+                                                }) => "clear"
+                                              },
+                                              {
+                                                name: "editItem[][].loading",
+                                                initFunc: ({
+                                                  $props,
+                                                  $state,
+                                                  $queries
+                                                }) => undefined
+                                              },
+                                              {
+                                                name: "editItem[][].load",
+                                                initFunc: ({
+                                                  $props,
+                                                  $state,
+                                                  $queries
+                                                }) => false
+                                              }
+                                            ],
+                                            [__plasmic_idx_0, __plasmic_idx_1]
+                                          );
+                                          return (
+                                            <Button
+                                              data-plasmic-name={"editItem"}
+                                              data-plasmic-override={
+                                                overrides.editItem
+                                              }
+                                              {...child$Props}
+                                            >
+                                              <div
                                                 className={classNames(
-                                                  "__wab_instance",
-                                                  sty.menuIcon
+                                                  projectcss.all,
+                                                  projectcss.__wab_text,
+                                                  sty.text__nUlYa
                                                 )}
-                                                color={"iconColor"}
-                                                icons={(() => {
+                                              >
+                                                {"\u270e"}
+                                              </div>
+                                            </Button>
+                                          );
+                                        })()
+                                      : null}
+                                  </div>
+                                  {(
+                                    hasVariant($state, "slide", "_1")
+                                      ? (() => {
+                                          try {
+                                            return currentItem.id != null;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return true;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      : true
+                                  )
+                                    ? (() => {
+                                        const child$Props = {
+                                          "aria-label": "Switchbest",
+                                          children: null,
+                                          className: classNames(
+                                            "__wab_instance",
+                                            sty.switchSetting,
+                                            {
+                                              [sty.switchSettingadd]:
+                                                hasVariant(
+                                                  $state,
+                                                  "add",
+                                                  "add"
+                                                ),
+                                              [sty.switchSettingslide__1]:
+                                                hasVariant(
+                                                  $state,
+                                                  "slide",
+                                                  "_1"
+                                                )
+                                            }
+                                          ),
+                                          data:
+                                            generateStateValueProp($state, [
+                                              "switchSetting",
+                                              __plasmic_idx_0,
+                                              __plasmic_idx_1,
+                                              "data"
+                                            ]) ?? false,
+                                          isChecked:
+                                            generateStateValueProp($state, [
+                                              "switchSetting",
+                                              __plasmic_idx_0,
+                                              __plasmic_idx_1,
+                                              "isChecked"
+                                            ]) ?? false,
+                                          name: "Switchbest",
+                                          onChange: async (
+                                            ...eventArgs: any
+                                          ) => {
+                                            ((...eventArgs) => {
+                                              generateStateOnChangeProp(
+                                                $state,
+                                                [
+                                                  "switchSetting",
+                                                  __plasmic_idx_0,
+                                                  __plasmic_idx_1,
+                                                  "isChecked"
+                                                ]
+                                              )(eventArgs[0]);
+                                            }).apply(null, eventArgs);
+
+                                            if (
+                                              eventArgs.length > 1 &&
+                                              eventArgs[1] &&
+                                              eventArgs[1]._plasmic_state_init_
+                                            ) {
+                                              return;
+                                            }
+
+                                            (async isChecked => {
+                                              const $steps = {};
+
+                                              $steps["runCode"] = false
+                                                ? (() => {
+                                                    const actionArgs = {
+                                                      customFunction:
+                                                        async () => {
+                                                          return ($state.switchSetting[
+                                                            dayIndex
+                                                          ][
+                                                            currentIndex
+                                                          ].isChecked = false);
+                                                        }
+                                                    };
+                                                    return (({
+                                                      customFunction
+                                                    }) => {
+                                                      return customFunction();
+                                                    })?.apply(null, [
+                                                      actionArgs
+                                                    ]);
+                                                  })()
+                                                : undefined;
+                                              if (
+                                                $steps["runCode"] != null &&
+                                                typeof $steps["runCode"] ===
+                                                  "object" &&
+                                                typeof $steps["runCode"]
+                                                  .then === "function"
+                                              ) {
+                                                $steps["runCode"] =
+                                                  await $steps["runCode"];
+                                              }
+
+                                              $steps["add"] =
+                                                currentItem.id == null ||
+                                                currentItem.id == ""
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        customFunction:
+                                                          async () => {
+                                                            return (() => {
+                                                              $state.select2 =
+                                                                currentItem;
+                                                              $state.switchSetting[
+                                                                dayIndex
+                                                              ][
+                                                                currentIndex
+                                                              ].isChecked =
+                                                                false;
+                                                              try {
+                                                                const dates =
+                                                                  JSON.parse(
+                                                                    $state
+                                                                      .select2
+                                                                      .dates
+                                                                  );
+                                                                function faToEnDigits(
+                                                                  str
+                                                                ) {
+                                                                  return str.replace(
+                                                                    /[۰-۹]/g,
+                                                                    d =>
+                                                                      "۰۱۲۳۴۵۶۷۸۹".indexOf(
+                                                                        d
+                                                                      )
+                                                                  );
+                                                                }
+                                                                $state.date =
+                                                                  dates.map(
+                                                                    m => {
+                                                                      const today =
+                                                                        new Date(
+                                                                          m
+                                                                        );
+                                                                      const f =
+                                                                        today
+                                                                          .toISOString()
+                                                                          .split(
+                                                                            "T"
+                                                                          )[0];
+                                                                      const g =
+                                                                        new Intl.DateTimeFormat(
+                                                                          "fa-IR",
+                                                                          {
+                                                                            year: "numeric",
+                                                                            month:
+                                                                              "long",
+                                                                            day: "numeric"
+                                                                          }
+                                                                        ).format(
+                                                                          today
+                                                                        );
+                                                                      const jy =
+                                                                        Number(
+                                                                          faToEnDigits(
+                                                                            new Intl.DateTimeFormat(
+                                                                              "fa-IR",
+                                                                              {
+                                                                                year: "numeric"
+                                                                              }
+                                                                            ).format(
+                                                                              today
+                                                                            )
+                                                                          )
+                                                                        );
+                                                                      const jm =
+                                                                        Number(
+                                                                          faToEnDigits(
+                                                                            new Intl.DateTimeFormat(
+                                                                              "fa-IR",
+                                                                              {
+                                                                                month:
+                                                                                  "numeric"
+                                                                              }
+                                                                            ).format(
+                                                                              today
+                                                                            )
+                                                                          )
+                                                                        );
+                                                                      const jd =
+                                                                        Number(
+                                                                          faToEnDigits(
+                                                                            new Intl.DateTimeFormat(
+                                                                              "fa-IR",
+                                                                              {
+                                                                                day: "numeric"
+                                                                              }
+                                                                            ).format(
+                                                                              today
+                                                                            )
+                                                                          )
+                                                                        );
+                                                                      return {
+                                                                        start: {
+                                                                          f,
+                                                                          g,
+                                                                          year: jy,
+                                                                          month:
+                                                                            jm,
+                                                                          day: jd
+                                                                        }
+                                                                      };
+                                                                    }
+                                                                  );
+                                                              } catch {
+                                                                $state.date =
+                                                                  [];
+                                                              }
+                                                              try {
+                                                                $state.week =
+                                                                  JSON.parse(
+                                                                    currentItem.weekdays
+                                                                  );
+                                                              } catch {}
+                                                              try {
+                                                                function formatTimeString(
+                                                                  value
+                                                                ) {
+                                                                  if (!value)
+                                                                    return [
+                                                                      "0",
+                                                                      "0"
+                                                                    ];
+
+                                                                  return value.split(
+                                                                    ":"
+                                                                  );
+                                                                }
+                                                                const times =
+                                                                  JSON.parse(
+                                                                    $state
+                                                                      .select2
+                                                                      .times
+                                                                  );
+                                                                $state.time2 =
+                                                                  times.map(
+                                                                    t => {
+                                                                      const [
+                                                                        hh,
+                                                                        mm
+                                                                      ] =
+                                                                        formatTimeString(
+                                                                          t
+                                                                        );
+                                                                      return {
+                                                                        hour: parseInt(
+                                                                          hh
+                                                                        ),
+                                                                        minute:
+                                                                          parseInt(
+                                                                            mm
+                                                                          )
+                                                                      };
+                                                                    }
+                                                                  );
+                                                              } catch {
+                                                                $state.time2 =
+                                                                  [];
+                                                              }
+                                                              try {
+                                                                function arraysEqualIgnoreOrder(
+                                                                  a,
+                                                                  b
+                                                                ) {
+                                                                  if (
+                                                                    a.length !==
+                                                                    b.length
+                                                                  )
+                                                                    return false;
+                                                                  return [...a]
+                                                                    .sort()
+                                                                    .every(
+                                                                      (
+                                                                        val,
+                                                                        index
+                                                                      ) =>
+                                                                        val ===
+                                                                        [
+                                                                          ...b
+                                                                        ].sort()[
+                                                                          index
+                                                                        ]
+                                                                    );
+                                                                }
+                                                                if (
+                                                                  $state.week
+                                                                    .length ===
+                                                                  0
+                                                                ) {
+                                                                  $state.repead.selected =
+                                                                    "once";
+                                                                } else if (
+                                                                  arraysEqualIgnoreOrder(
+                                                                    $state.week,
+                                                                    [
+                                                                      "saturday",
+                                                                      "sunday",
+                                                                      "monday",
+                                                                      "tuesday",
+                                                                      "wednesday",
+                                                                      "thursday",
+                                                                      "friday"
+                                                                    ]
+                                                                  )
+                                                                ) {
+                                                                  $state.repead.selected =
+                                                                    "daily";
+                                                                } else if (
+                                                                  arraysEqualIgnoreOrder(
+                                                                    $state.week,
+                                                                    [
+                                                                      "saturday",
+                                                                      "sunday",
+                                                                      "monday",
+                                                                      "tuesday",
+                                                                      "wednesday"
+                                                                    ]
+                                                                  )
+                                                                ) {
+                                                                  $state.repead.selected =
+                                                                    "sat_to_wed";
+                                                                } else {
+                                                                  $state.repead.selected =
+                                                                    "custom";
+                                                                }
+                                                              } catch {
+                                                                $state.week =
+                                                                  [];
+                                                              }
+                                                              try {
+                                                                const finish =
+                                                                  $state.select2
+                                                                    .finishTime;
+                                                                if (finish) {
+                                                                  const today =
+                                                                    new Date(
+                                                                      finish
+                                                                    );
+                                                                  function faToEnDigits(
+                                                                    str
+                                                                  ) {
+                                                                    return str.replace(
+                                                                      /[۰-۹]/g,
+                                                                      d =>
+                                                                        "۰۱۲۳۴۵۶۷۸۹".indexOf(
+                                                                          d
+                                                                        )
+                                                                    );
+                                                                  }
+                                                                  const f =
+                                                                    today
+                                                                      .toISOString()
+                                                                      .split(
+                                                                        "T"
+                                                                      )[0];
+                                                                  const g =
+                                                                    new Intl.DateTimeFormat(
+                                                                      "fa-IR",
+                                                                      {
+                                                                        year: "numeric",
+                                                                        month:
+                                                                          "long",
+                                                                        day: "numeric"
+                                                                      }
+                                                                    ).format(
+                                                                      today
+                                                                    );
+                                                                  const jy =
+                                                                    Number(
+                                                                      faToEnDigits(
+                                                                        new Intl.DateTimeFormat(
+                                                                          "fa-IR",
+                                                                          {
+                                                                            year: "numeric"
+                                                                          }
+                                                                        ).format(
+                                                                          today
+                                                                        )
+                                                                      )
+                                                                    );
+                                                                  const jm =
+                                                                    Number(
+                                                                      faToEnDigits(
+                                                                        new Intl.DateTimeFormat(
+                                                                          "fa-IR",
+                                                                          {
+                                                                            month:
+                                                                              "numeric"
+                                                                          }
+                                                                        ).format(
+                                                                          today
+                                                                        )
+                                                                      )
+                                                                    );
+                                                                  const jd =
+                                                                    Number(
+                                                                      faToEnDigits(
+                                                                        new Intl.DateTimeFormat(
+                                                                          "fa-IR",
+                                                                          {
+                                                                            day: "numeric"
+                                                                          }
+                                                                        ).format(
+                                                                          today
+                                                                        )
+                                                                      )
+                                                                    );
+                                                                  $state.finishDate =
+                                                                    {
+                                                                      f,
+                                                                      g,
+                                                                      year: jy,
+                                                                      month: jm,
+                                                                      day: jd
+                                                                    };
+                                                                } else {
+                                                                  $state.finishDate =
+                                                                    {};
+                                                                }
+                                                              } catch {
+                                                                $state.finishDate =
+                                                                  {};
+                                                              }
+                                                              return ($state.dialog.opendialog = true);
+                                                            })();
+                                                          }
+                                                      };
+                                                      return (({
+                                                        customFunction
+                                                      }) => {
+                                                        return customFunction();
+                                                      })?.apply(null, [
+                                                        actionArgs
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                              if (
+                                                $steps["add"] != null &&
+                                                typeof $steps["add"] ===
+                                                  "object" &&
+                                                typeof $steps["add"].then ===
+                                                  "function"
+                                              ) {
+                                                $steps["add"] =
+                                                  await $steps["add"];
+                                              }
+
+                                              $steps["remove"] =
+                                                currentItem.id != null &&
+                                                currentItem.id != "" &&
+                                                ($state.switchSetting[dayIndex][
+                                                  currentIndex
+                                                ].isChecked
+                                                  ? true
+                                                  : false)
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        args: [
+                                                          "POST",
+                                                          "https://n8n.staas.ir/webhook/user/task/edit",
+                                                          undefined,
+                                                          (() => {
+                                                            try {
+                                                              return {
+                                                                id: currentItem.id,
+                                                                active: $state
+                                                                  .switchSetting[
+                                                                  dayIndex
+                                                                ][currentIndex]
+                                                                  .isChecked
+                                                                  ? true
+                                                                  : false
+                                                              };
+                                                            } catch (e) {
+                                                              if (
+                                                                e instanceof
+                                                                  TypeError ||
+                                                                e?.plasmicType ===
+                                                                  "PlasmicUndefinedDataError"
+                                                              ) {
+                                                                return undefined;
+                                                              }
+                                                              throw e;
+                                                            }
+                                                          })(),
+                                                          undefined
+                                                        ]
+                                                      };
+                                                      return $globalActions[
+                                                        "Fragment.apiRequest"
+                                                      ]?.apply(null, [
+                                                        ...actionArgs.args
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                              if (
+                                                $steps["remove"] != null &&
+                                                typeof $steps["remove"] ===
+                                                  "object" &&
+                                                typeof $steps["remove"].then ===
+                                                  "function"
+                                              ) {
+                                                $steps["remove"] =
+                                                  await $steps["remove"];
+                                              }
+
+                                              $steps["runCode3"] =
+                                                currentItem.id != null &&
+                                                currentItem.id != "" &&
+                                                ($state.switchSetting[dayIndex][
+                                                  currentIndex
+                                                ].isChecked
+                                                  ? false
+                                                  : true)
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        customFunction:
+                                                          async () => {
+                                                            return (() => {
+                                                              $state.snackbar.opendialog = true;
+                                                              $state.snackbar.data =
+                                                                currentItem;
+                                                              $state.snackbar.index =
+                                                                [
+                                                                  dayIndex,
+                                                                  currentIndex
+                                                                ];
+
+                                                              return ($state.switchSetting[
+                                                                dayIndex
+                                                              ][
+                                                                currentIndex
+                                                              ].isChecked =
+                                                                true);
+                                                            })();
+                                                          }
+                                                      };
+                                                      return (({
+                                                        customFunction
+                                                      }) => {
+                                                        return customFunction();
+                                                      })?.apply(null, [
+                                                        actionArgs
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                              if (
+                                                $steps["runCode3"] != null &&
+                                                typeof $steps["runCode3"] ===
+                                                  "object" &&
+                                                typeof $steps["runCode3"]
+                                                  .then === "function"
+                                              ) {
+                                                $steps["runCode3"] =
+                                                  await $steps["runCode3"];
+                                              }
+
+                                              $steps["runCode4"] = true
+                                                ? (() => {
+                                                    const actionArgs = {
+                                                      customFunction:
+                                                        async () => {
+                                                          return ($state.refresh += 1);
+                                                        }
+                                                    };
+                                                    return (({
+                                                      customFunction
+                                                    }) => {
+                                                      return customFunction();
+                                                    })?.apply(null, [
+                                                      actionArgs
+                                                    ]);
+                                                  })()
+                                                : undefined;
+                                              if (
+                                                $steps["runCode4"] != null &&
+                                                typeof $steps["runCode4"] ===
+                                                  "object" &&
+                                                typeof $steps["runCode4"]
+                                                  .then === "function"
+                                              ) {
+                                                $steps["runCode4"] =
+                                                  await $steps["runCode4"];
+                                              }
+                                            }).apply(null, eventArgs);
+                                          },
+                                          onDataChange: async (
+                                            ...eventArgs: any
+                                          ) => {
+                                            ((...eventArgs) => {
+                                              generateStateOnChangeProp(
+                                                $state,
+                                                [
+                                                  "switchSetting",
+                                                  __plasmic_idx_0,
+                                                  __plasmic_idx_1,
+                                                  "data"
+                                                ]
+                                              )(eventArgs[0]);
+                                            }).apply(null, eventArgs);
+
+                                            if (
+                                              eventArgs.length > 1 &&
+                                              eventArgs[1] &&
+                                              eventArgs[1]._plasmic_state_init_
+                                            ) {
+                                              return;
+                                            }
+                                          }
+                                        };
+
+                                        initializePlasmicStates(
+                                          $state,
+                                          [
+                                            {
+                                              name: "switchSetting[][].isChecked",
+                                              initFunc: ({
+                                                $props,
+                                                $state,
+                                                $queries
+                                              }) =>
+                                                (() => {
                                                   try {
-                                                    return currentItem;
+                                                    return currentItem.active;
                                                   } catch (e) {
                                                     if (
                                                       e instanceof TypeError ||
@@ -8157,474 +9633,120 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                     }
                                                     throw e;
                                                   }
-                                                })()}
-                                                key={currentIndex}
-                                                outline={true}
-                                                size={"_12"}
-                                              />
-                                            );
+                                                })()
+                                            },
+                                            {
+                                              name: "switchSetting[][].data",
+                                              initFunc: ({
+                                                $props,
+                                                $state,
+                                                $queries
+                                              }) => ({})
+                                            }
+                                          ],
+                                          [__plasmic_idx_0, __plasmic_idx_1]
+                                        );
+                                        return (
+                                          <Switchbest
+                                            data-plasmic-name={"switchSetting"}
+                                            data-plasmic-override={
+                                              overrides.switchSetting
+                                            }
+                                            {...child$Props}
+                                          />
+                                        );
+                                      })()
+                                    : null}
+                                  {(
+                                    hasVariant($state, "slide", "_1")
+                                      ? (() => {
+                                          try {
+                                            return currentItem.id == null;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return true;
+                                            }
+                                            throw e;
                                           }
-                                        )}
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox___0V7N,
-                                {
-                                  [sty.freeBoxslide__1___0V7Nedcqc]: hasVariant(
-                                    $state,
-                                    "slide",
-                                    "_1"
+                                        })()
+                                      : (() => {
+                                          try {
+                                            return (() => {
+                                              const datesStr =
+                                                currentItem.dates || "[]";
+                                              const parsed = JSON.parse(
+                                                datesStr || "[]"
+                                              );
+                                              return (
+                                                parsed.length == 0 &&
+                                                currentItem.id == null
+                                              );
+                                            })();
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return true;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
                                   )
-                                }
-                              )}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__x0
-                                )}
-                                id={(() => {
-                                  try {
-                                    return `edit${dayIndex}${currentIndex}`;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              >
-                                {(
-                                  hasVariant($state, "slide", "_1")
                                     ? (() => {
-                                        try {
-                                          return currentItem.id != null;
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return true;
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                    : (() => {
-                                        try {
-                                          return (() => {
-                                            const datesStr =
-                                              currentItem.dates || "[]";
-                                            const parsed = JSON.parse(
-                                              datesStr || "[]"
-                                            );
-                                            return (
-                                              parsed.length != 0 ||
-                                              currentItem.id != null
-                                            );
-                                          })();
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return true;
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                )
-                                  ? (() => {
-                                      const child$Props = {
-                                        className: classNames(
-                                          "__wab_instance",
-                                          sty.editItem,
-                                          {
-                                            [sty.editItemreport]: hasVariant(
-                                              $state,
-                                              "report",
-                                              "report"
-                                            ),
-                                            [sty.editItemslide__1]: hasVariant(
-                                              $state,
-                                              "slide",
-                                              "_1"
-                                            )
-                                          }
-                                        ),
-                                        color: generateStateValueProp($state, [
-                                          "editItem",
-                                          __plasmic_idx_0,
-                                          __plasmic_idx_1,
-                                          "color"
-                                        ]),
-                                        load: generateStateValueProp($state, [
-                                          "editItem",
-                                          __plasmic_idx_0,
-                                          __plasmic_idx_1,
-                                          "load"
-                                        ]),
-                                        loading: generateStateValueProp(
-                                          $state,
-                                          [
-                                            "editItem",
+                                        const child$Props = {
+                                          className: classNames(
+                                            "__wab_instance",
+                                            sty.button2,
+                                            {
+                                              [sty.button2slide__1]: hasVariant(
+                                                $state,
+                                                "slide",
+                                                "_1"
+                                              )
+                                            }
+                                          ),
+                                          color: generateStateValueProp(
+                                            $state,
+                                            [
+                                              "button2",
+                                              __plasmic_idx_0,
+                                              __plasmic_idx_1,
+                                              "color"
+                                            ]
+                                          ),
+                                          load: generateStateValueProp($state, [
+                                            "button2",
                                             __plasmic_idx_0,
                                             __plasmic_idx_1,
-                                            "loading"
-                                          ]
-                                        ),
-                                        onClick: async event => {
-                                          const $steps = {};
+                                            "load"
+                                          ]),
+                                          loading: generateStateValueProp(
+                                            $state,
+                                            [
+                                              "button2",
+                                              __plasmic_idx_0,
+                                              __plasmic_idx_1,
+                                              "loading"
+                                            ]
+                                          ),
+                                          onClick: async event => {
+                                            const $steps = {};
 
-                                          $steps["updateSelect2"] = true
-                                            ? (() => {
-                                                const actionArgs = {
-                                                  variable: {
-                                                    objRoot: $state,
-                                                    variablePath: ["select2"]
-                                                  },
-                                                  operation: 0,
-                                                  value: currentItem
-                                                };
-                                                return (({
-                                                  variable,
-                                                  value,
-                                                  startIndex,
-                                                  deleteCount
-                                                }) => {
-                                                  if (!variable) {
-                                                    return;
-                                                  }
-                                                  const {
-                                                    objRoot,
-                                                    variablePath
-                                                  } = variable;
-
-                                                  $stateSet(
-                                                    objRoot,
-                                                    variablePath,
-                                                    value
-                                                  );
-                                                  return value;
-                                                })?.apply(null, [actionArgs]);
-                                              })()
-                                            : undefined;
-                                          if (
-                                            $steps["updateSelect2"] != null &&
-                                            typeof $steps["updateSelect2"] ===
-                                              "object" &&
-                                            typeof $steps["updateSelect2"]
-                                              .then === "function"
-                                          ) {
-                                            $steps["updateSelect2"] =
-                                              await $steps["updateSelect2"];
-                                          }
-
-                                          $steps["runCode"] = true
-                                            ? (() => {
-                                                const actionArgs = {
-                                                  customFunction: async () => {
-                                                    return (() => {
-                                                      try {
-                                                        const dates =
-                                                          JSON.parse(
-                                                            $state.select2.dates
-                                                          );
-                                                        function faToEnDigits(
-                                                          str
-                                                        ) {
-                                                          return str.replace(
-                                                            /[۰-۹]/g,
-                                                            d =>
-                                                              "۰۱۲۳۴۵۶۷۸۹".indexOf(
-                                                                d
-                                                              )
-                                                          );
-                                                        }
-                                                        $state.date = dates.map(
-                                                          m => {
-                                                            const today =
-                                                              new Date(m);
-                                                            const f = today
-                                                              .toISOString()
-                                                              .split("T")[0];
-                                                            const g =
-                                                              new Intl.DateTimeFormat(
-                                                                "fa-IR",
-                                                                {
-                                                                  year: "numeric",
-                                                                  month: "long",
-                                                                  day: "numeric"
-                                                                }
-                                                              ).format(today);
-                                                            const jy = Number(
-                                                              faToEnDigits(
-                                                                new Intl.DateTimeFormat(
-                                                                  "fa-IR",
-                                                                  {
-                                                                    year: "numeric"
-                                                                  }
-                                                                ).format(today)
-                                                              )
-                                                            );
-                                                            const jm = Number(
-                                                              faToEnDigits(
-                                                                new Intl.DateTimeFormat(
-                                                                  "fa-IR",
-                                                                  {
-                                                                    month:
-                                                                      "numeric"
-                                                                  }
-                                                                ).format(today)
-                                                              )
-                                                            );
-                                                            const jd = Number(
-                                                              faToEnDigits(
-                                                                new Intl.DateTimeFormat(
-                                                                  "fa-IR",
-                                                                  {
-                                                                    day: "numeric"
-                                                                  }
-                                                                ).format(today)
-                                                              )
-                                                            );
-                                                            return {
-                                                              start: {
-                                                                f,
-                                                                g,
-                                                                year: jy,
-                                                                month: jm,
-                                                                day: jd
-                                                              }
-                                                            };
-                                                          }
-                                                        );
-                                                      } catch {
-                                                        $state.date = [];
-                                                      }
-                                                      try {
-                                                        $state.week =
-                                                          JSON.parse(
-                                                            currentItem.weekdays
-                                                          );
-                                                      } catch {}
-                                                      try {
-                                                        function formatTimeString(
-                                                          value
-                                                        ) {
-                                                          if (!value)
-                                                            return ["0", "0"];
-
-                                                          return value.split(
-                                                            ":"
-                                                          );
-                                                        }
-                                                        const times =
-                                                          JSON.parse(
-                                                            $state.select2.times
-                                                          );
-                                                        $state.time2 =
-                                                          times.map(t => {
-                                                            const [hh, mm] =
-                                                              formatTimeString(
-                                                                t
-                                                              );
-                                                            return {
-                                                              hour: parseInt(
-                                                                hh
-                                                              ),
-                                                              minute:
-                                                                parseInt(mm)
-                                                            };
-                                                          });
-                                                      } catch {
-                                                        $state.time2 = [];
-                                                      }
-                                                      try {
-                                                        function arraysEqualIgnoreOrder(
-                                                          a,
-                                                          b
-                                                        ) {
-                                                          if (
-                                                            a.length !==
-                                                            b.length
-                                                          )
-                                                            return false;
-                                                          return [...a]
-                                                            .sort()
-                                                            .every(
-                                                              (val, index) =>
-                                                                val ===
-                                                                [...b].sort()[
-                                                                  index
-                                                                ]
-                                                            );
-                                                        }
-                                                        if (
-                                                          $state.week.length ===
-                                                          0
-                                                        ) {
-                                                          $state.repead.selected =
-                                                            "once";
-                                                        } else if (
-                                                          arraysEqualIgnoreOrder(
-                                                            $state.week,
-                                                            [
-                                                              "saturday",
-                                                              "sunday",
-                                                              "monday",
-                                                              "tuesday",
-                                                              "wednesday",
-                                                              "thursday",
-                                                              "friday"
-                                                            ]
-                                                          )
-                                                        ) {
-                                                          $state.repead.selected =
-                                                            "daily";
-                                                        } else if (
-                                                          arraysEqualIgnoreOrder(
-                                                            $state.week,
-                                                            [
-                                                              "saturday",
-                                                              "sunday",
-                                                              "monday",
-                                                              "tuesday",
-                                                              "wednesday"
-                                                            ]
-                                                          )
-                                                        ) {
-                                                          $state.repead.selected =
-                                                            "sat_to_wed";
-                                                        } else {
-                                                          $state.repead.selected =
-                                                            "custom";
-                                                        }
-                                                      } catch {
-                                                        $state.week = [];
-                                                      }
-                                                      try {
-                                                        const finish =
-                                                          $state.select2
-                                                            .finishTime;
-                                                        if (finish) {
-                                                          const today =
-                                                            new Date(finish);
-                                                          function faToEnDigits(
-                                                            str
-                                                          ) {
-                                                            return str.replace(
-                                                              /[۰-۹]/g,
-                                                              d =>
-                                                                "۰۱۲۳۴۵۶۷۸۹".indexOf(
-                                                                  d
-                                                                )
-                                                            );
-                                                          }
-                                                          const f = today
-                                                            .toISOString()
-                                                            .split("T")[0];
-                                                          const g =
-                                                            new Intl.DateTimeFormat(
-                                                              "fa-IR",
-                                                              {
-                                                                year: "numeric",
-                                                                month: "long",
-                                                                day: "numeric"
-                                                              }
-                                                            ).format(today);
-                                                          const jy = Number(
-                                                            faToEnDigits(
-                                                              new Intl.DateTimeFormat(
-                                                                "fa-IR",
-                                                                {
-                                                                  year: "numeric"
-                                                                }
-                                                              ).format(today)
-                                                            )
-                                                          );
-                                                          const jm = Number(
-                                                            faToEnDigits(
-                                                              new Intl.DateTimeFormat(
-                                                                "fa-IR",
-                                                                {
-                                                                  month:
-                                                                    "numeric"
-                                                                }
-                                                              ).format(today)
-                                                            )
-                                                          );
-                                                          const jd = Number(
-                                                            faToEnDigits(
-                                                              new Intl.DateTimeFormat(
-                                                                "fa-IR",
-                                                                {
-                                                                  day: "numeric"
-                                                                }
-                                                              ).format(today)
-                                                            )
-                                                          );
-                                                          return ($state.finishDate =
-                                                            {
-                                                              f,
-                                                              g,
-                                                              year: jy,
-                                                              month: jm,
-                                                              day: jd
-                                                            });
-                                                        } else {
-                                                          return ($state.finishDate =
-                                                            {});
-                                                        }
-                                                      } catch {
-                                                        return ($state.finishDate =
-                                                          {});
-                                                      }
-                                                    })();
-                                                  }
-                                                };
-                                                return (({
-                                                  customFunction
-                                                }) => {
-                                                  return customFunction();
-                                                })?.apply(null, [actionArgs]);
-                                              })()
-                                            : undefined;
-                                          if (
-                                            $steps["runCode"] != null &&
-                                            typeof $steps["runCode"] ===
-                                              "object" &&
-                                            typeof $steps["runCode"].then ===
-                                              "function"
-                                          ) {
-                                            $steps["runCode"] =
-                                              await $steps["runCode"];
-                                          }
-
-                                          $steps["updateDialogOpendialog"] =
-                                            true
+                                            $steps["updateSelect2"] = true
                                               ? (() => {
                                                   const actionArgs = {
                                                     variable: {
                                                       objRoot: $state,
-                                                      variablePath: [
-                                                        "dialog",
-                                                        "opendialog"
-                                                      ]
+                                                      variablePath: ["select2"]
                                                     },
                                                     operation: 0,
-                                                    value: true
+                                                    value: currentItem
                                                   };
                                                   return (({
                                                     variable,
@@ -8649,261 +9771,112 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                   })?.apply(null, [actionArgs]);
                                                 })()
                                               : undefined;
-                                          if (
-                                            $steps["updateDialogOpendialog"] !=
-                                              null &&
-                                            typeof $steps[
-                                              "updateDialogOpendialog"
-                                            ] === "object" &&
-                                            typeof $steps[
-                                              "updateDialogOpendialog"
-                                            ].then === "function"
-                                          ) {
+                                            if (
+                                              $steps["updateSelect2"] != null &&
+                                              typeof $steps["updateSelect2"] ===
+                                                "object" &&
+                                              typeof $steps["updateSelect2"]
+                                                .then === "function"
+                                            ) {
+                                              $steps["updateSelect2"] =
+                                                await $steps["updateSelect2"];
+                                            }
+
                                             $steps["updateDialogOpendialog"] =
-                                              await $steps[
+                                              currentItem.text != "none"
+                                                ? (() => {
+                                                    const actionArgs = {
+                                                      variable: {
+                                                        objRoot: $state,
+                                                        variablePath: [
+                                                          "dialog",
+                                                          "opendialog"
+                                                        ]
+                                                      },
+                                                      operation: 0,
+                                                      value: true
+                                                    };
+                                                    return (({
+                                                      variable,
+                                                      value,
+                                                      startIndex,
+                                                      deleteCount
+                                                    }) => {
+                                                      if (!variable) {
+                                                        return;
+                                                      }
+                                                      const {
+                                                        objRoot,
+                                                        variablePath
+                                                      } = variable;
+
+                                                      $stateSet(
+                                                        objRoot,
+                                                        variablePath,
+                                                        value
+                                                      );
+                                                      return value;
+                                                    })?.apply(null, [
+                                                      actionArgs
+                                                    ]);
+                                                  })()
+                                                : undefined;
+                                            if (
+                                              $steps[
                                                 "updateDialogOpendialog"
-                                              ];
-                                          }
-                                        },
-                                        onColorChange: async (
-                                          ...eventArgs: any
-                                        ) => {
-                                          ((...eventArgs) => {
-                                            generateStateOnChangeProp($state, [
-                                              "editItem",
-                                              __plasmic_idx_0,
-                                              __plasmic_idx_1,
-                                              "color"
-                                            ])(eventArgs[0]);
-                                          }).apply(null, eventArgs);
+                                              ] != null &&
+                                              typeof $steps[
+                                                "updateDialogOpendialog"
+                                              ] === "object" &&
+                                              typeof $steps[
+                                                "updateDialogOpendialog"
+                                              ].then === "function"
+                                            ) {
+                                              $steps["updateDialogOpendialog"] =
+                                                await $steps[
+                                                  "updateDialogOpendialog"
+                                                ];
+                                            }
 
-                                          if (
-                                            eventArgs.length > 1 &&
-                                            eventArgs[1] &&
-                                            eventArgs[1]._plasmic_state_init_
-                                          ) {
-                                            return;
-                                          }
-                                        },
-                                        onLoadChange: async (
-                                          ...eventArgs: any
-                                        ) => {
-                                          ((...eventArgs) => {
-                                            generateStateOnChangeProp($state, [
-                                              "editItem",
-                                              __plasmic_idx_0,
-                                              __plasmic_idx_1,
-                                              "load"
-                                            ])(eventArgs[0]);
-                                          }).apply(null, eventArgs);
+                                            $steps["invokeGlobalAction"] =
+                                              currentItem.text == "none"
+                                                ? (() => {
+                                                    const actionArgs = {
+                                                      args: [
+                                                        "custom",
+                                                        "\u0628\u0647 \u0632\u0648\u062f\u06cc \u062f\u0631 \u062f\u0633\u062a\u0631\u0633 \u062e\u0648\u0627\u0647\u062f \u0628\u0648\u062f.",
+                                                        "bottom-center"
+                                                      ]
+                                                    };
+                                                    return $globalActions[
+                                                      "Fragment.showToast"
+                                                    ]?.apply(null, [
+                                                      ...actionArgs.args
+                                                    ]);
+                                                  })()
+                                                : undefined;
+                                            if (
+                                              $steps["invokeGlobalAction"] !=
+                                                null &&
+                                              typeof $steps[
+                                                "invokeGlobalAction"
+                                              ] === "object" &&
+                                              typeof $steps[
+                                                "invokeGlobalAction"
+                                              ].then === "function"
+                                            ) {
+                                              $steps["invokeGlobalAction"] =
+                                                await $steps[
+                                                  "invokeGlobalAction"
+                                                ];
+                                            }
 
-                                          if (
-                                            eventArgs.length > 1 &&
-                                            eventArgs[1] &&
-                                            eventArgs[1]._plasmic_state_init_
-                                          ) {
-                                            return;
-                                          }
-                                        },
-                                        onLoadingChange: async (
-                                          ...eventArgs: any
-                                        ) => {
-                                          ((...eventArgs) => {
-                                            generateStateOnChangeProp($state, [
-                                              "editItem",
-                                              __plasmic_idx_0,
-                                              __plasmic_idx_1,
-                                              "loading"
-                                            ])(eventArgs[0]);
-                                          }).apply(null, eventArgs);
-
-                                          if (
-                                            eventArgs.length > 1 &&
-                                            eventArgs[1] &&
-                                            eventArgs[1]._plasmic_state_init_
-                                          ) {
-                                            return;
-                                          }
-                                        },
-                                        size: "compact"
-                                      };
-
-                                      initializePlasmicStates(
-                                        $state,
-                                        [
-                                          {
-                                            name: "editItem[][].color",
-                                            initFunc: ({
-                                              $props,
-                                              $state,
-                                              $queries
-                                            }) => "clear"
-                                          },
-                                          {
-                                            name: "editItem[][].loading",
-                                            initFunc: ({
-                                              $props,
-                                              $state,
-                                              $queries
-                                            }) => undefined
-                                          },
-                                          {
-                                            name: "editItem[][].load",
-                                            initFunc: ({
-                                              $props,
-                                              $state,
-                                              $queries
-                                            }) => false
-                                          }
-                                        ],
-                                        [__plasmic_idx_0, __plasmic_idx_1]
-                                      );
-                                      return (
-                                        <Button
-                                          data-plasmic-name={"editItem"}
-                                          data-plasmic-override={
-                                            overrides.editItem
-                                          }
-                                          {...child$Props}
-                                        >
-                                          <div
-                                            className={classNames(
-                                              projectcss.all,
-                                              projectcss.__wab_text,
-                                              sty.text__nUlYa
-                                            )}
-                                          >
-                                            {"\u270e"}
-                                          </div>
-                                        </Button>
-                                      );
-                                    })()
-                                  : null}
-                              </div>
-                              {(
-                                hasVariant($state, "slide", "_1")
-                                  ? (() => {
-                                      try {
-                                        return (() => {
-                                          const datesStr =
-                                            currentItem.dates || "[]";
-                                          const parsed = JSON.parse(
-                                            datesStr || "[]"
-                                          );
-                                          return (
-                                            parsed.length > 0 ||
-                                            currentItem.id != null
-                                          );
-                                        })();
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return true;
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                  : true
-                              )
-                                ? (() => {
-                                    const child$Props = {
-                                      "aria-label": "Switchbest",
-                                      children: null,
-                                      className: classNames(
-                                        "__wab_instance",
-                                        sty.switchSetting,
-                                        {
-                                          [sty.switchSettingadd]: hasVariant(
-                                            $state,
-                                            "add",
-                                            "add"
-                                          ),
-                                          [sty.switchSettingslide__1]:
-                                            hasVariant($state, "slide", "_1")
-                                        }
-                                      ),
-                                      data:
-                                        generateStateValueProp($state, [
-                                          "switchSetting",
-                                          __plasmic_idx_0,
-                                          __plasmic_idx_1,
-                                          "data"
-                                        ]) ?? false,
-                                      isChecked:
-                                        generateStateValueProp($state, [
-                                          "switchSetting",
-                                          __plasmic_idx_0,
-                                          __plasmic_idx_1,
-                                          "isChecked"
-                                        ]) ?? false,
-                                      name: "Switchbest",
-                                      onChange: async (...eventArgs: any) => {
-                                        ((...eventArgs) => {
-                                          generateStateOnChangeProp($state, [
-                                            "switchSetting",
-                                            __plasmic_idx_0,
-                                            __plasmic_idx_1,
-                                            "isChecked"
-                                          ])(eventArgs[0]);
-                                        }).apply(null, eventArgs);
-
-                                        if (
-                                          eventArgs.length > 1 &&
-                                          eventArgs[1] &&
-                                          eventArgs[1]._plasmic_state_init_
-                                        ) {
-                                          return;
-                                        }
-
-                                        (async isChecked => {
-                                          const $steps = {};
-
-                                          $steps["runCode"] = false
-                                            ? (() => {
-                                                const actionArgs = {
-                                                  customFunction: async () => {
-                                                    return ($state.switchSetting[
-                                                      dayIndex
-                                                    ][currentIndex].isChecked =
-                                                      false);
-                                                  }
-                                                };
-                                                return (({
-                                                  customFunction
-                                                }) => {
-                                                  return customFunction();
-                                                })?.apply(null, [actionArgs]);
-                                              })()
-                                            : undefined;
-                                          if (
-                                            $steps["runCode"] != null &&
-                                            typeof $steps["runCode"] ===
-                                              "object" &&
-                                            typeof $steps["runCode"].then ===
-                                              "function"
-                                          ) {
-                                            $steps["runCode"] =
-                                              await $steps["runCode"];
-                                          }
-
-                                          $steps["add"] =
-                                            currentItem.id == null ||
-                                            currentItem.id == ""
+                                            $steps["runCode"] = true
                                               ? (() => {
                                                   const actionArgs = {
                                                     customFunction:
                                                       async () => {
                                                         return (() => {
-                                                          $state.select2 =
-                                                            currentItem;
-                                                          $state.switchSetting[
-                                                            dayIndex
-                                                          ][
-                                                            currentIndex
-                                                          ].isChecked = false;
                                                           try {
                                                             const dates =
                                                               JSON.parse(
@@ -9066,8 +10039,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                               $state.week
                                                                 .length === 0
                                                             ) {
-                                                              $state.repead.selected =
-                                                                "once";
+                                                              return ($state.repead.selected =
+                                                                "once");
                                                             } else if (
                                                               arraysEqualIgnoreOrder(
                                                                 $state.week,
@@ -9082,8 +10055,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                                 ]
                                                               )
                                                             ) {
-                                                              $state.repead.selected =
-                                                                "daily";
+                                                              return ($state.repead.selected =
+                                                                "daily");
                                                             } else if (
                                                               arraysEqualIgnoreOrder(
                                                                 $state.week,
@@ -9096,102 +10069,16 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                                 ]
                                                               )
                                                             ) {
-                                                              $state.repead.selected =
-                                                                "sat_to_wed";
+                                                              return ($state.repead.selected =
+                                                                "sat_to_wed");
                                                             } else {
-                                                              $state.repead.selected =
-                                                                "custom";
+                                                              return ($state.repead.selected =
+                                                                "custom");
                                                             }
                                                           } catch {
-                                                            $state.week = [];
+                                                            return ($state.week =
+                                                              []);
                                                           }
-                                                          try {
-                                                            const finish =
-                                                              $state.select2
-                                                                .finishTime;
-                                                            if (finish) {
-                                                              const today =
-                                                                new Date(
-                                                                  finish
-                                                                );
-                                                              function faToEnDigits(
-                                                                str
-                                                              ) {
-                                                                return str.replace(
-                                                                  /[۰-۹]/g,
-                                                                  d =>
-                                                                    "۰۱۲۳۴۵۶۷۸۹".indexOf(
-                                                                      d
-                                                                    )
-                                                                );
-                                                              }
-                                                              const f = today
-                                                                .toISOString()
-                                                                .split("T")[0];
-                                                              const g =
-                                                                new Intl.DateTimeFormat(
-                                                                  "fa-IR",
-                                                                  {
-                                                                    year: "numeric",
-                                                                    month:
-                                                                      "long",
-                                                                    day: "numeric"
-                                                                  }
-                                                                ).format(today);
-                                                              const jy = Number(
-                                                                faToEnDigits(
-                                                                  new Intl.DateTimeFormat(
-                                                                    "fa-IR",
-                                                                    {
-                                                                      year: "numeric"
-                                                                    }
-                                                                  ).format(
-                                                                    today
-                                                                  )
-                                                                )
-                                                              );
-                                                              const jm = Number(
-                                                                faToEnDigits(
-                                                                  new Intl.DateTimeFormat(
-                                                                    "fa-IR",
-                                                                    {
-                                                                      month:
-                                                                        "numeric"
-                                                                    }
-                                                                  ).format(
-                                                                    today
-                                                                  )
-                                                                )
-                                                              );
-                                                              const jd = Number(
-                                                                faToEnDigits(
-                                                                  new Intl.DateTimeFormat(
-                                                                    "fa-IR",
-                                                                    {
-                                                                      day: "numeric"
-                                                                    }
-                                                                  ).format(
-                                                                    today
-                                                                  )
-                                                                )
-                                                              );
-                                                              $state.finishDate =
-                                                                {
-                                                                  f,
-                                                                  g,
-                                                                  year: jy,
-                                                                  month: jm,
-                                                                  day: jd
-                                                                };
-                                                            } else {
-                                                              $state.finishDate =
-                                                                {};
-                                                            }
-                                                          } catch {
-                                                            $state.finishDate =
-                                                              {};
-                                                          }
-                                                          return ($state.dialog.opendialog = true);
                                                         })();
                                                       }
                                                   };
@@ -9202,711 +10089,148 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                   })?.apply(null, [actionArgs]);
                                                 })()
                                               : undefined;
-                                          if (
-                                            $steps["add"] != null &&
-                                            typeof $steps["add"] === "object" &&
-                                            typeof $steps["add"].then ===
-                                              "function"
-                                          ) {
-                                            $steps["add"] = await $steps["add"];
-                                          }
+                                            if (
+                                              $steps["runCode"] != null &&
+                                              typeof $steps["runCode"] ===
+                                                "object" &&
+                                              typeof $steps["runCode"].then ===
+                                                "function"
+                                            ) {
+                                              $steps["runCode"] =
+                                                await $steps["runCode"];
+                                            }
+                                          },
+                                          onColorChange: async (
+                                            ...eventArgs: any
+                                          ) => {
+                                            ((...eventArgs) => {
+                                              generateStateOnChangeProp(
+                                                $state,
+                                                [
+                                                  "button2",
+                                                  __plasmic_idx_0,
+                                                  __plasmic_idx_1,
+                                                  "color"
+                                                ]
+                                              )(eventArgs[0]);
+                                            }).apply(null, eventArgs);
 
-                                          $steps["remove"] =
-                                            currentItem.id != null &&
-                                            currentItem.id != "" &&
-                                            ($state.switchSetting[dayIndex][
-                                              currentIndex
-                                            ].isChecked
-                                              ? true
-                                              : false)
-                                              ? (() => {
-                                                  const actionArgs = {
-                                                    args: [
-                                                      "POST",
-                                                      "https://n8n.staas.ir/webhook/user/task/edit",
-                                                      undefined,
-                                                      (() => {
-                                                        try {
-                                                          return {
-                                                            id: currentItem.id,
-                                                            active: $state
-                                                              .switchSetting[
-                                                              dayIndex
-                                                            ][currentIndex]
-                                                              .isChecked
-                                                              ? true
-                                                              : false
-                                                          };
-                                                        } catch (e) {
-                                                          if (
-                                                            e instanceof
-                                                              TypeError ||
-                                                            e?.plasmicType ===
-                                                              "PlasmicUndefinedDataError"
-                                                          ) {
-                                                            return undefined;
-                                                          }
-                                                          throw e;
-                                                        }
-                                                      })(),
-                                                      undefined
-                                                    ]
-                                                  };
-                                                  return $globalActions[
-                                                    "Fragment.apiRequest"
-                                                  ]?.apply(null, [
-                                                    ...actionArgs.args
-                                                  ]);
-                                                })()
-                                              : undefined;
-                                          if (
-                                            $steps["remove"] != null &&
-                                            typeof $steps["remove"] ===
-                                              "object" &&
-                                            typeof $steps["remove"].then ===
-                                              "function"
-                                          ) {
-                                            $steps["remove"] =
-                                              await $steps["remove"];
-                                          }
+                                            if (
+                                              eventArgs.length > 1 &&
+                                              eventArgs[1] &&
+                                              eventArgs[1]._plasmic_state_init_
+                                            ) {
+                                              return;
+                                            }
+                                          },
+                                          onLoadChange: async (
+                                            ...eventArgs: any
+                                          ) => {
+                                            ((...eventArgs) => {
+                                              generateStateOnChangeProp(
+                                                $state,
+                                                [
+                                                  "button2",
+                                                  __plasmic_idx_0,
+                                                  __plasmic_idx_1,
+                                                  "load"
+                                                ]
+                                              )(eventArgs[0]);
+                                            }).apply(null, eventArgs);
 
-                                          $steps["runCode3"] =
-                                            currentItem.id != null &&
-                                            currentItem.id != "" &&
-                                            ($state.switchSetting[dayIndex][
-                                              currentIndex
-                                            ].isChecked
-                                              ? false
-                                              : true)
-                                              ? (() => {
-                                                  const actionArgs = {
-                                                    customFunction:
-                                                      async () => {
-                                                        return (() => {
-                                                          $state.snackbar.opendialog = true;
-                                                          $state.snackbar.data =
-                                                            currentItem;
-                                                          $state.snackbar.index =
-                                                            [
-                                                              dayIndex,
-                                                              currentIndex
-                                                            ];
+                                            if (
+                                              eventArgs.length > 1 &&
+                                              eventArgs[1] &&
+                                              eventArgs[1]._plasmic_state_init_
+                                            ) {
+                                              return;
+                                            }
+                                          },
+                                          onLoadingChange: async (
+                                            ...eventArgs: any
+                                          ) => {
+                                            ((...eventArgs) => {
+                                              generateStateOnChangeProp(
+                                                $state,
+                                                [
+                                                  "button2",
+                                                  __plasmic_idx_0,
+                                                  __plasmic_idx_1,
+                                                  "loading"
+                                                ]
+                                              )(eventArgs[0]);
+                                            }).apply(null, eventArgs);
 
-                                                          return ($state.switchSetting[
-                                                            dayIndex
-                                                          ][
-                                                            currentIndex
-                                                          ].isChecked = true);
-                                                        })();
-                                                      }
-                                                  };
-                                                  return (({
-                                                    customFunction
-                                                  }) => {
-                                                    return customFunction();
-                                                  })?.apply(null, [actionArgs]);
-                                                })()
-                                              : undefined;
-                                          if (
-                                            $steps["runCode3"] != null &&
-                                            typeof $steps["runCode3"] ===
-                                              "object" &&
-                                            typeof $steps["runCode3"].then ===
-                                              "function"
-                                          ) {
-                                            $steps["runCode3"] =
-                                              await $steps["runCode3"];
-                                          }
+                                            if (
+                                              eventArgs.length > 1 &&
+                                              eventArgs[1] &&
+                                              eventArgs[1]._plasmic_state_init_
+                                            ) {
+                                              return;
+                                            }
+                                          },
+                                          size: "minimal"
+                                        };
 
-                                          $steps["runCode4"] = true
-                                            ? (() => {
-                                                const actionArgs = {
-                                                  customFunction: async () => {
-                                                    return ($state.refresh += 1);
-                                                  }
-                                                };
-                                                return (({
-                                                  customFunction
-                                                }) => {
-                                                  return customFunction();
-                                                })?.apply(null, [actionArgs]);
-                                              })()
-                                            : undefined;
-                                          if (
-                                            $steps["runCode4"] != null &&
-                                            typeof $steps["runCode4"] ===
-                                              "object" &&
-                                            typeof $steps["runCode4"].then ===
-                                              "function"
-                                          ) {
-                                            $steps["runCode4"] =
-                                              await $steps["runCode4"];
-                                          }
-                                        }).apply(null, eventArgs);
-                                      },
-                                      onDataChange: async (
-                                        ...eventArgs: any
-                                      ) => {
-                                        ((...eventArgs) => {
-                                          generateStateOnChangeProp($state, [
-                                            "switchSetting",
-                                            __plasmic_idx_0,
-                                            __plasmic_idx_1,
-                                            "data"
-                                          ])(eventArgs[0]);
-                                        }).apply(null, eventArgs);
-
-                                        if (
-                                          eventArgs.length > 1 &&
-                                          eventArgs[1] &&
-                                          eventArgs[1]._plasmic_state_init_
-                                        ) {
-                                          return;
-                                        }
-                                      }
-                                    };
-
-                                    initializePlasmicStates(
-                                      $state,
-                                      [
-                                        {
-                                          name: "switchSetting[][].isChecked",
-                                          initFunc: ({
-                                            $props,
-                                            $state,
-                                            $queries
-                                          }) =>
-                                            (() => {
-                                              try {
-                                                return currentItem.active;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return [];
-                                                }
-                                                throw e;
+                                        initializePlasmicStates(
+                                          $state,
+                                          [
+                                            {
+                                              name: "button2[][].color",
+                                              initFunc: ({
+                                                $props,
+                                                $state,
+                                                $queries
+                                              }) => undefined
+                                            },
+                                            {
+                                              name: "button2[][].loading",
+                                              initFunc: ({
+                                                $props,
+                                                $state,
+                                                $queries
+                                              }) => undefined
+                                            },
+                                            {
+                                              name: "button2[][].load",
+                                              initFunc: ({
+                                                $props,
+                                                $state,
+                                                $queries
+                                              }) => false
+                                            }
+                                          ],
+                                          [__plasmic_idx_0, __plasmic_idx_1]
+                                        );
+                                        return (
+                                          <Button
+                                            data-plasmic-name={"button2"}
+                                            data-plasmic-override={
+                                              overrides.button2
+                                            }
+                                            {...child$Props}
+                                          >
+                                            <div
+                                              className={classNames(
+                                                projectcss.all,
+                                                projectcss.__wab_text,
+                                                sty.text__lyni
+                                              )}
+                                            >
+                                              {
+                                                "\u062b\u0628\u062a \u0631\u0648\u06cc\u062f\u0627\u062f"
                                               }
-                                            })()
-                                        },
-                                        {
-                                          name: "switchSetting[][].data",
-                                          initFunc: ({
-                                            $props,
-                                            $state,
-                                            $queries
-                                          }) => ({})
-                                        }
-                                      ],
-                                      [__plasmic_idx_0, __plasmic_idx_1]
-                                    );
-                                    return (
-                                      <Switchbest
-                                        data-plasmic-name={"switchSetting"}
-                                        data-plasmic-override={
-                                          overrides.switchSetting
-                                        }
-                                        {...child$Props}
-                                      />
-                                    );
-                                  })()
-                                : null}
-                              {(() => {
-                                try {
-                                  return (() => {
-                                    const datesStr = currentItem.dates || "[]";
-                                    const parsed = JSON.parse(datesStr || "[]");
-                                    return (
-                                      parsed.length == 0 &&
-                                      currentItem.id == null
-                                    );
-                                  })();
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return true;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                                ? (() => {
-                                    const child$Props = {
-                                      className: classNames(
-                                        "__wab_instance",
-                                        sty.button2,
-                                        {
-                                          [sty.button2slide__1]: hasVariant(
-                                            $state,
-                                            "slide",
-                                            "_1"
-                                          )
-                                        }
-                                      ),
-                                      color: generateStateValueProp($state, [
-                                        "button2",
-                                        __plasmic_idx_0,
-                                        __plasmic_idx_1,
-                                        "color"
-                                      ]),
-                                      load: generateStateValueProp($state, [
-                                        "button2",
-                                        __plasmic_idx_0,
-                                        __plasmic_idx_1,
-                                        "load"
-                                      ]),
-                                      loading: generateStateValueProp($state, [
-                                        "button2",
-                                        __plasmic_idx_0,
-                                        __plasmic_idx_1,
-                                        "loading"
-                                      ]),
-                                      onClick: async event => {
-                                        const $steps = {};
-
-                                        $steps["updateSelect2"] = true
-                                          ? (() => {
-                                              const actionArgs = {
-                                                variable: {
-                                                  objRoot: $state,
-                                                  variablePath: ["select2"]
-                                                },
-                                                operation: 0,
-                                                value: currentItem
-                                              };
-                                              return (({
-                                                variable,
-                                                value,
-                                                startIndex,
-                                                deleteCount
-                                              }) => {
-                                                if (!variable) {
-                                                  return;
-                                                }
-                                                const {
-                                                  objRoot,
-                                                  variablePath
-                                                } = variable;
-
-                                                $stateSet(
-                                                  objRoot,
-                                                  variablePath,
-                                                  value
-                                                );
-                                                return value;
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                        if (
-                                          $steps["updateSelect2"] != null &&
-                                          typeof $steps["updateSelect2"] ===
-                                            "object" &&
-                                          typeof $steps["updateSelect2"]
-                                            .then === "function"
-                                        ) {
-                                          $steps["updateSelect2"] =
-                                            await $steps["updateSelect2"];
-                                        }
-
-                                        $steps["updateDialogOpendialog"] =
-                                          currentItem.text != "none"
-                                            ? (() => {
-                                                const actionArgs = {
-                                                  variable: {
-                                                    objRoot: $state,
-                                                    variablePath: [
-                                                      "dialog",
-                                                      "opendialog"
-                                                    ]
-                                                  },
-                                                  operation: 0,
-                                                  value: true
-                                                };
-                                                return (({
-                                                  variable,
-                                                  value,
-                                                  startIndex,
-                                                  deleteCount
-                                                }) => {
-                                                  if (!variable) {
-                                                    return;
-                                                  }
-                                                  const {
-                                                    objRoot,
-                                                    variablePath
-                                                  } = variable;
-
-                                                  $stateSet(
-                                                    objRoot,
-                                                    variablePath,
-                                                    value
-                                                  );
-                                                  return value;
-                                                })?.apply(null, [actionArgs]);
-                                              })()
-                                            : undefined;
-                                        if (
-                                          $steps["updateDialogOpendialog"] !=
-                                            null &&
-                                          typeof $steps[
-                                            "updateDialogOpendialog"
-                                          ] === "object" &&
-                                          typeof $steps[
-                                            "updateDialogOpendialog"
-                                          ].then === "function"
-                                        ) {
-                                          $steps["updateDialogOpendialog"] =
-                                            await $steps[
-                                              "updateDialogOpendialog"
-                                            ];
-                                        }
-
-                                        $steps["invokeGlobalAction"] =
-                                          currentItem.text == "none"
-                                            ? (() => {
-                                                const actionArgs = {
-                                                  args: [
-                                                    "custom",
-                                                    "\u0628\u0647 \u0632\u0648\u062f\u06cc \u062f\u0631 \u062f\u0633\u062a\u0631\u0633 \u062e\u0648\u0627\u0647\u062f \u0628\u0648\u062f.",
-                                                    "bottom-center"
-                                                  ]
-                                                };
-                                                return $globalActions[
-                                                  "Fragment.showToast"
-                                                ]?.apply(null, [
-                                                  ...actionArgs.args
-                                                ]);
-                                              })()
-                                            : undefined;
-                                        if (
-                                          $steps["invokeGlobalAction"] !=
-                                            null &&
-                                          typeof $steps[
-                                            "invokeGlobalAction"
-                                          ] === "object" &&
-                                          typeof $steps["invokeGlobalAction"]
-                                            .then === "function"
-                                        ) {
-                                          $steps["invokeGlobalAction"] =
-                                            await $steps["invokeGlobalAction"];
-                                        }
-
-                                        $steps["runCode"] = true
-                                          ? (() => {
-                                              const actionArgs = {
-                                                customFunction: async () => {
-                                                  return (() => {
-                                                    try {
-                                                      const dates = JSON.parse(
-                                                        $state.select2.dates
-                                                      );
-                                                      function faToEnDigits(
-                                                        str
-                                                      ) {
-                                                        return str.replace(
-                                                          /[۰-۹]/g,
-                                                          d =>
-                                                            "۰۱۲۳۴۵۶۷۸۹".indexOf(
-                                                              d
-                                                            )
-                                                        );
-                                                      }
-                                                      $state.date = dates.map(
-                                                        m => {
-                                                          const today =
-                                                            new Date(m);
-                                                          const f = today
-                                                            .toISOString()
-                                                            .split("T")[0];
-                                                          const g =
-                                                            new Intl.DateTimeFormat(
-                                                              "fa-IR",
-                                                              {
-                                                                year: "numeric",
-                                                                month: "long",
-                                                                day: "numeric"
-                                                              }
-                                                            ).format(today);
-                                                          const jy = Number(
-                                                            faToEnDigits(
-                                                              new Intl.DateTimeFormat(
-                                                                "fa-IR",
-                                                                {
-                                                                  year: "numeric"
-                                                                }
-                                                              ).format(today)
-                                                            )
-                                                          );
-                                                          const jm = Number(
-                                                            faToEnDigits(
-                                                              new Intl.DateTimeFormat(
-                                                                "fa-IR",
-                                                                {
-                                                                  month:
-                                                                    "numeric"
-                                                                }
-                                                              ).format(today)
-                                                            )
-                                                          );
-                                                          const jd = Number(
-                                                            faToEnDigits(
-                                                              new Intl.DateTimeFormat(
-                                                                "fa-IR",
-                                                                {
-                                                                  day: "numeric"
-                                                                }
-                                                              ).format(today)
-                                                            )
-                                                          );
-                                                          return {
-                                                            start: {
-                                                              f,
-                                                              g,
-                                                              year: jy,
-                                                              month: jm,
-                                                              day: jd
-                                                            }
-                                                          };
-                                                        }
-                                                      );
-                                                    } catch {
-                                                      $state.date = [];
-                                                    }
-                                                    try {
-                                                      $state.week = JSON.parse(
-                                                        currentItem.weekdays
-                                                      );
-                                                    } catch {}
-                                                    try {
-                                                      function formatTimeString(
-                                                        value
-                                                      ) {
-                                                        if (!value)
-                                                          return ["0", "0"];
-
-                                                        return value.split(":");
-                                                      }
-                                                      const times = JSON.parse(
-                                                        $state.select2.times
-                                                      );
-                                                      $state.time2 = times.map(
-                                                        t => {
-                                                          const [hh, mm] =
-                                                            formatTimeString(t);
-                                                          return {
-                                                            hour: parseInt(hh),
-                                                            minute: parseInt(mm)
-                                                          };
-                                                        }
-                                                      );
-                                                    } catch {
-                                                      $state.time2 = [];
-                                                    }
-                                                    try {
-                                                      function arraysEqualIgnoreOrder(
-                                                        a,
-                                                        b
-                                                      ) {
-                                                        if (
-                                                          a.length !== b.length
-                                                        )
-                                                          return false;
-                                                        return [...a]
-                                                          .sort()
-                                                          .every(
-                                                            (val, index) =>
-                                                              val ===
-                                                              [...b].sort()[
-                                                                index
-                                                              ]
-                                                          );
-                                                      }
-                                                      if (
-                                                        $state.week.length === 0
-                                                      ) {
-                                                        return ($state.repead.selected =
-                                                          "once");
-                                                      } else if (
-                                                        arraysEqualIgnoreOrder(
-                                                          $state.week,
-                                                          [
-                                                            "saturday",
-                                                            "sunday",
-                                                            "monday",
-                                                            "tuesday",
-                                                            "wednesday",
-                                                            "thursday",
-                                                            "friday"
-                                                          ]
-                                                        )
-                                                      ) {
-                                                        return ($state.repead.selected =
-                                                          "daily");
-                                                      } else if (
-                                                        arraysEqualIgnoreOrder(
-                                                          $state.week,
-                                                          [
-                                                            "saturday",
-                                                            "sunday",
-                                                            "monday",
-                                                            "tuesday",
-                                                            "wednesday"
-                                                          ]
-                                                        )
-                                                      ) {
-                                                        return ($state.repead.selected =
-                                                          "sat_to_wed");
-                                                      } else {
-                                                        return ($state.repead.selected =
-                                                          "custom");
-                                                      }
-                                                    } catch {
-                                                      return ($state.week = []);
-                                                    }
-                                                  })();
-                                                }
-                                              };
-                                              return (({ customFunction }) => {
-                                                return customFunction();
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                        if (
-                                          $steps["runCode"] != null &&
-                                          typeof $steps["runCode"] ===
-                                            "object" &&
-                                          typeof $steps["runCode"].then ===
-                                            "function"
-                                        ) {
-                                          $steps["runCode"] =
-                                            await $steps["runCode"];
-                                        }
-                                      },
-                                      onColorChange: async (
-                                        ...eventArgs: any
-                                      ) => {
-                                        ((...eventArgs) => {
-                                          generateStateOnChangeProp($state, [
-                                            "button2",
-                                            __plasmic_idx_0,
-                                            __plasmic_idx_1,
-                                            "color"
-                                          ])(eventArgs[0]);
-                                        }).apply(null, eventArgs);
-
-                                        if (
-                                          eventArgs.length > 1 &&
-                                          eventArgs[1] &&
-                                          eventArgs[1]._plasmic_state_init_
-                                        ) {
-                                          return;
-                                        }
-                                      },
-                                      onLoadChange: async (
-                                        ...eventArgs: any
-                                      ) => {
-                                        ((...eventArgs) => {
-                                          generateStateOnChangeProp($state, [
-                                            "button2",
-                                            __plasmic_idx_0,
-                                            __plasmic_idx_1,
-                                            "load"
-                                          ])(eventArgs[0]);
-                                        }).apply(null, eventArgs);
-
-                                        if (
-                                          eventArgs.length > 1 &&
-                                          eventArgs[1] &&
-                                          eventArgs[1]._plasmic_state_init_
-                                        ) {
-                                          return;
-                                        }
-                                      },
-                                      onLoadingChange: async (
-                                        ...eventArgs: any
-                                      ) => {
-                                        ((...eventArgs) => {
-                                          generateStateOnChangeProp($state, [
-                                            "button2",
-                                            __plasmic_idx_0,
-                                            __plasmic_idx_1,
-                                            "loading"
-                                          ])(eventArgs[0]);
-                                        }).apply(null, eventArgs);
-
-                                        if (
-                                          eventArgs.length > 1 &&
-                                          eventArgs[1] &&
-                                          eventArgs[1]._plasmic_state_init_
-                                        ) {
-                                          return;
-                                        }
-                                      },
-                                      size: "minimal"
-                                    };
-
-                                    initializePlasmicStates(
-                                      $state,
-                                      [
-                                        {
-                                          name: "button2[][].color",
-                                          initFunc: ({
-                                            $props,
-                                            $state,
-                                            $queries
-                                          }) => undefined
-                                        },
-                                        {
-                                          name: "button2[][].loading",
-                                          initFunc: ({
-                                            $props,
-                                            $state,
-                                            $queries
-                                          }) => undefined
-                                        },
-                                        {
-                                          name: "button2[][].load",
-                                          initFunc: ({
-                                            $props,
-                                            $state,
-                                            $queries
-                                          }) => false
-                                        }
-                                      ],
-                                      [__plasmic_idx_0, __plasmic_idx_1]
-                                    );
-                                    return (
-                                      <Button
-                                        data-plasmic-name={"button2"}
-                                        data-plasmic-override={
-                                          overrides.button2
-                                        }
-                                        {...child$Props}
-                                      >
-                                        <div
-                                          className={classNames(
-                                            projectcss.all,
-                                            projectcss.__wab_text,
-                                            sty.text__lyni
-                                          )}
-                                        >
-                                          {
-                                            "\u062b\u0628\u062a \u0631\u0648\u06cc\u062f\u0627\u062f"
-                                          }
-                                        </div>
-                                      </Button>
-                                    );
-                                  })()
-                                : null}
+                                            </div>
+                                          </Button>
+                                        );
+                                      })()
+                                    : null}
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                        </div>
-                      );
-                    })}
+                          );
+                        })
+                      : null}
                   </div>
                 </div>
               );

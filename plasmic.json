@@ -5014,6 +5014,32 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicSquareBox.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "m8c5Sv3Tr_nB",
+          "name": "Tooltip",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicTooltip.tsx",
+          "importSpec": {
+            "modulePath": "Tooltip.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicTooltip.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "0nKndp-acHhb",
+          "name": "DialogTooltip",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicDialogTooltip.tsx",
+          "importSpec": {
+            "modulePath": "DialogTooltip.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicDialogTooltip.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -7401,6 +7427,11 @@
           "id": "U16cJ3Utf_9j",
           "name": "Icon375Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon375.tsx"
+        },
+        {
+          "id": "sx-0J_gPYySA",
+          "name": "Icon376Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon376.tsx"
         }
       ],
       "images": [

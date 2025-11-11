@@ -2181,7 +2181,7 @@
   padding: 0px;
 }
 .freeBoxslide__1__dk6Gedcqc {
-  display: none;
+  display: flex;
 }
 .svg___5AYfy {
   object-fit: cover;
@@ -2380,6 +2380,9 @@
 }
 .button2:global(.__wab_instance) {
   max-width: 100%;
+}
+.button2slide__1:global(.__wab_instance) {
+  display: flex;
 }
 .svg__hv89L {
   position: relative;

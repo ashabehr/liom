@@ -1,0 +1,112 @@
+.dialog3:global(.__wab_instance) {
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+  -webkit-backdrop-filter: blur(10px);
+}
+.pcls_EC19SQwcw0gC {
+  background: var(--token-Le07ngBUPl2h);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  outline: none;
+}
+@media (max-width: 640px) {
+  .pcls_bZzNkodALmFA {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    outline: none;
+  }
+}
+.button3:global(.__wab_instance) {
+  display: none;
+}
+.svg__uoRku {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg___0KCe {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.dialogContent:global(.__wab_instance) {
+  box-shadow: 0px 4px 16px 0px #00000033;
+  background: rgb(255, 255, 255);
+  width: auto;
+  max-width: 600px;
+  object-fit: cover;
+  position: relative;
+  left: auto;
+  top: auto;
+  min-width: 600px;
+  max-height: 100%;
+  overflow: auto;
+  align-self: center;
+  z-index: 1;
+  right: auto;
+  bottom: auto;
+  border-radius: 8px;
+  padding: var(--token-B5WvIYiqPJW-);
+  border: 1px solid #e2e8f0;
+}
+@media (max-width: 640px) {
+  .dialogContent:global(.__wab_instance) {
+    width: 100%;
+    min-width: 100vw;
+    max-width: 100vw;
+    border-radius: 16px 16px 0px 0px;
+  }
+}
+.dialogContentfullpage:global(.__wab_instance) {
+  min-width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  background: var(--token-R_Rsn0nP9oIv);
+  border-radius: 0px;
+  padding: 0px;
+}
+.dialogTitle:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text {
+  display: none;
+}
+.dialogClose:global(.__wab_instance) {
+  position: absolute;
+  top: 16px;
+  opacity: 0.7;
+  object-fit: cover;
+  width: auto;
+  left: 16px;
+  border-radius: 999px;
+}
+@media (max-width: 640px) {
+  .dialogClose:global(.__wab_instance) {
+    display: none;
+  }
+}
+.svg__ugxO0 {
+  object-fit: cover;
+  max-width: 100%;
+  cursor: pointer;
+  height: 1em;
+}
