@@ -70,6 +70,7 @@ import DirectDialog2 from "../../DirectDialog2"; // plasmic-import: TQdexUKMB_Ec
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import Cyclebox2 from "../../Cyclebox2"; // plasmic-import: NW80jtwK9h1z/component
 import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
+import Tooltip from "../../Tooltip"; // plasmic-import: m8c5Sv3Tr_nB/component
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import PercentageBox from "../../PercentageBox"; // plasmic-import: u0LyXWqR1nAi/component
@@ -165,6 +166,7 @@ export type PlasmicCalendar2__OverridesType = {
   lineClomp3?: Flex__<typeof LineClomp>;
   lineClomp4?: Flex__<typeof LineClomp>;
   button2?: Flex__<typeof Button>;
+  tooltip?: Flex__<typeof Tooltip>;
   collapseMother?: Flex__<typeof AntdSingleCollapse>;
   advices?: Flex__<"div">;
   button23?: Flex__<typeof Button>;
@@ -181,7 +183,6 @@ export type PlasmicCalendar2__OverridesType = {
   modal2?: Flex__<typeof AntdModal>;
   modal3?: Flex__<typeof AntdModal>;
   ol?: Flex__<"ol">;
-  tooltip?: Flex__<typeof AntdTooltip>;
   heart?: Flex__<typeof Heart>;
   loading?: Flex__<"div">;
   button?: Flex__<typeof Button>;
@@ -2103,6 +2104,12 @@ function PlasmicCalendar2__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "tooltip.show",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -27692,6 +27699,79 @@ function PlasmicCalendar2__RenderFunc(props: {
                 </div>
               </div>
             </div>
+            {(() => {
+              try {
+                return (
+                  $state.userInfo?.result?.user?.id ==
+                  "56a4902f-d880-4950-9d16-6fd56f49225c"
+                );
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <Tooltip
+                data-plasmic-name={"tooltip"}
+                data-plasmic-override={overrides.tooltip}
+                className={classNames("__wab_instance", sty.tooltip)}
+                data={(() => {
+                  try {
+                    return $state.userInfo?.tooltip;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return {
+                        id: 5,
+                        title:
+                          "\u0627\u0645\u06a9\u0627\u0646 \u062a\u0627\u062e\u06cc\u0631 \u062f\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0647 \u062f\u0644\u06cc\u0644 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
+                        text: "\u0627\u06af\u0631 \u062f\u0631 \u06f3\u06f0 \u0631\u0648\u0632 \u06af\u0630\u0634\u062a\u0647 \u0631\u0627\u0628\u0637\u0647 \u062c\u0646\u0633\u06cc \u0645\u062d\u0627\u0641\u0638\u062a\u200c\u0646\u0634\u062f\u0647 \u062f\u0627\u0634\u062a\u06cc\u060c \u0627\u06cc\u0646 \u062a\u0627\u062e\u06cc\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc \u062c\u0627\u06cc \u0646\u06af\u0631\u0627\u0646\u06cc \u0646\u062f\u0627\u0631\u0647 \u0648 \u0628\u0647\u062a\u0631\u0647 \u0628\u0627 \u0627\u0646\u062c\u0627\u0645 \u0627\u06cc\u0646 \u062a\u0633\u062a\u060c \u062f\u0644\u06cc\u0644 \u0646\u0627\u0645\u0646\u0638\u0645\u06cc \u0634\u062f\u06cc\u062f \u067e\u0631\u06cc\u0648\u062f\u062a \u0631\u0648 \u0628\u0641\u0647\u0645\u06cc. \u0648\u06af\u0631\u0646\u0647 \u0628\u06cc\u0627 \u0645\u0637\u0645\u0626\u0646 \u0628\u0634\u06cc\u0645 \u06a9\u0647 \u0628\u0627\u0631\u062f\u0627\u0631 \u0647\u0633\u062a\u06cc \u06cc\u0627 \u0646\u0647\u061f",
+                        buttons:
+                          '[{"text": "\u0622\u06cc\u0627 \u0628\u0627\u0631\u062f\u0627\u0631\u0645 \u06cc\u0627 \u0646\u0647\u061f", "action": "self_hamyar_sms"}]',
+                        backgrond_color: "#fff0f5",
+                        text_color: "#FF0055",
+                        Condition: "cycle_period_-12"
+                      };
+                    }
+                    throw e;
+                  }
+                })()}
+                onShowChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["tooltip", "show"]).apply(
+                    null,
+                    eventArgs
+                  );
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                show={generateStateValueProp($state, ["tooltip", "show"])}
+                token={(() => {
+                  try {
+                    return $state.token;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+              />
+            ) : null}
             <div className={classNames(projectcss.all, sty.freeBox__uyDe)}>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
@@ -56914,9 +56994,7 @@ function PlasmicCalendar2__RenderFunc(props: {
             </div>
           </div>
           <AntdTooltip
-            data-plasmic-name={"tooltip"}
-            data-plasmic-override={overrides.tooltip}
-            className={classNames("__wab_instance", sty.tooltip)}
+            className={classNames("__wab_instance", sty.tooltip__wiuSx)}
             placement={"left"}
             titleText={
               "\u0628\u0647\u0634 \u0628\u06af\u0648 \u062d\u0648\u0627\u0633\u0645 \u0628\u0647\u062a \u0647\u0633\u062a."
@@ -59330,6 +59408,7 @@ const PlasmicDescendants = {
     "lineClomp3",
     "lineClomp4",
     "button2",
+    "tooltip",
     "collapseMother",
     "advices",
     "button23",
@@ -59346,7 +59425,6 @@ const PlasmicDescendants = {
     "modal2",
     "modal3",
     "ol",
-    "tooltip",
     "heart",
     "loading",
     "button",
@@ -59394,6 +59472,7 @@ const PlasmicDescendants = {
     "lineClomp3",
     "lineClomp4",
     "button2",
+    "tooltip",
     "collapseMother",
     "advices",
     "button23",
@@ -59410,7 +59489,6 @@ const PlasmicDescendants = {
     "modal2",
     "modal3",
     "ol",
-    "tooltip",
     "heart"
   ],
   cyclebox2: ["cyclebox2", "lineClomp2", "button16"],
@@ -59419,6 +59497,7 @@ const PlasmicDescendants = {
   lineClomp3: ["lineClomp3"],
   lineClomp4: ["lineClomp4"],
   button2: ["button2"],
+  tooltip: ["tooltip"],
   collapseMother: [
     "collapseMother",
     "advices",
@@ -59443,7 +59522,6 @@ const PlasmicDescendants = {
   modal2: ["modal2"],
   modal3: ["modal3"],
   ol: ["ol"],
-  tooltip: ["tooltip", "heart"],
   heart: ["heart"],
   loading: ["loading"],
   button: ["button"],
@@ -59509,6 +59587,7 @@ type NodeDefaultElementType = {
   lineClomp3: typeof LineClomp;
   lineClomp4: typeof LineClomp;
   button2: typeof Button;
+  tooltip: typeof Tooltip;
   collapseMother: typeof AntdSingleCollapse;
   advices: "div";
   button23: typeof Button;
@@ -59525,7 +59604,6 @@ type NodeDefaultElementType = {
   modal2: typeof AntdModal;
   modal3: typeof AntdModal;
   ol: "ol";
-  tooltip: typeof AntdTooltip;
   heart: typeof Heart;
   loading: "div";
   button: typeof Button;
@@ -59635,6 +59713,7 @@ export const PlasmicCalendar2 = Object.assign(
     lineClomp3: makeNodeComponent("lineClomp3"),
     lineClomp4: makeNodeComponent("lineClomp4"),
     button2: makeNodeComponent("button2"),
+    tooltip: makeNodeComponent("tooltip"),
     collapseMother: makeNodeComponent("collapseMother"),
     advices: makeNodeComponent("advices"),
     button23: makeNodeComponent("button23"),
@@ -59651,7 +59730,6 @@ export const PlasmicCalendar2 = Object.assign(
     modal2: makeNodeComponent("modal2"),
     modal3: makeNodeComponent("modal3"),
     ol: makeNodeComponent("ol"),
-    tooltip: makeNodeComponent("tooltip"),
     heart: makeNodeComponent("heart"),
     loading: makeNodeComponent("loading"),
     button: makeNodeComponent("button"),

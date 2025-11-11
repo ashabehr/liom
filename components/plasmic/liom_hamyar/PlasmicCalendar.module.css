@@ -1585,6 +1585,9 @@
   object-fit: cover;
   width: 200px;
 }
+.tooltip:global(.__wab_instance) {
+  max-width: 100%;
+}
 .freeBox__uPqhe {
   display: flex;
   flex-direction: row;
@@ -3389,7 +3392,7 @@
     font-size: 14px;
   }
 }
-.tooltip:global(.__wab_instance) {
+.tooltip__njLpW:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
   left: auto;
@@ -3404,7 +3407,7 @@
   display: none;
 }
 @media (max-width: 640px) {
-  .tooltip:global(.__wab_instance) {
+  .tooltip__njLpW:global(.__wab_instance) {
     right: 0;
     bottom: 0;
     display: none;
