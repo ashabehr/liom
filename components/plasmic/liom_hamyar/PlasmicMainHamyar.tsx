@@ -1358,6 +1358,29 @@ function PlasmicMainHamyar__RenderFunc(props: {
           "reminder",
           "reminderSettingReminderCategory2Data"
         ])}
+        setNumber={async () => {
+          const $steps = {};
+
+          $steps["runCode"] = true
+            ? (() => {
+                const actionArgs = {
+                  customFunction: async () => {
+                    return ($state.hamyar2.mobileDialogOpen = true);
+                  }
+                };
+                return (({ customFunction }) => {
+                  return customFunction();
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["runCode"] != null &&
+            typeof $steps["runCode"] === "object" &&
+            typeof $steps["runCode"].then === "function"
+          ) {
+            $steps["runCode"] = await $steps["runCode"];
+          }
+        }}
         setting={args.reminderSetting}
         shop={async () => {
           const $steps = {};

@@ -1011,8 +1011,10 @@ function PlasmicReminder__RenderFunc(props: {
                       ($props.telegramId == "" || $props.telegramId == null)
                     )
                       $state.alertTelegram.show = true;
+                    else $state.alertTelegram.show = false;
                     if (hasSms && ($props.phone == "" || $props.phone == null))
                       return ($state.alertSms.show = true);
+                    else return ($state.alertTelegram.show = false);
                   })();
                 }
               };
