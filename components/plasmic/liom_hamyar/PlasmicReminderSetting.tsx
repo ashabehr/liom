@@ -2117,9 +2117,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
-                        return (() => {
-                          return ($state.steps2.currentStep = 0);
-                        })();
+                        return ($state.steps2.currentStep = 0);
                       }
                     };
                     return (({ customFunction }) => {
@@ -4614,9 +4612,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                       const actionArgs = {
                                         customFunction: async () => {
                                           return (() => {
+                                            $state.steps2.currentStep = 0;
                                             $state.dialog.opendialog = false;
-                                            $state.dialog2.opendialog = false;
-                                            return ($state.steps2.currentStep = 0);
+                                            return ($state.dialog2.opendialog = false);
                                           })();
                                         }
                                       };

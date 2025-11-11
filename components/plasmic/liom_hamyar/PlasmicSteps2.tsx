@@ -209,8 +209,41 @@ function PlasmicSteps2__RenderFunc(props: {
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
         styleTokensClassNames,
-        sty.root
+        sty.root,
+        "fade-in"
       )}
+      onAnimationStart={async event => {
+        const $steps = {};
+
+        $steps["updateCurrentStep"] = true
+          ? (() => {
+              const actionArgs = {
+                variable: {
+                  objRoot: $state,
+                  variablePath: ["currentStep"]
+                },
+                operation: 0,
+                value: 0
+              };
+              return (({ variable, value, startIndex, deleteCount }) => {
+                if (!variable) {
+                  return;
+                }
+                const { objRoot, variablePath } = variable;
+
+                $stateSet(objRoot, variablePath, value);
+                return value;
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["updateCurrentStep"] != null &&
+          typeof $steps["updateCurrentStep"] === "object" &&
+          typeof $steps["updateCurrentStep"].then === "function"
+        ) {
+          $steps["updateCurrentStep"] = await $steps["updateCurrentStep"];
+        }
+      }}
     >
       <div className={classNames(projectcss.all, sty.freeBox__utCix)}>
         {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
