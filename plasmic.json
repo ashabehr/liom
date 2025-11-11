@@ -5001,6 +5001,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicProcessReminders.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "7Z6GzZI75_6F",
+          "name": "SquareBox",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSquareBox.tsx",
+          "importSpec": {
+            "modulePath": "SquareBox.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSquareBox.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -7373,6 +7386,21 @@
           "id": "ldJvSvgXiwYU",
           "name": "Icon373Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon373.tsx"
+        },
+        {
+          "id": "X3zpwLVzhq0S",
+          "name": "Sms5031768Svg2Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Sms5031768Svg2.tsx"
+        },
+        {
+          "id": "6hgAqfC9rfum",
+          "name": "Icon374Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon374.tsx"
+        },
+        {
+          "id": "U16cJ3Utf_9j",
+          "name": "Icon375Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon375.tsx"
         }
       ],
       "images": [
@@ -8205,6 +8233,21 @@
           "id": "sDhKCPgYQHo5",
           "name": "ChatGPT Image Nov 9, 2025, 03_56_18 PM.png",
           "filePath": "../public/plasmic/liom_hamyar/images/chatGptImageNov92025035618PmPng.png"
+        },
+        {
+          "id": "pNKkVKoIoScg",
+          "name": "sms_5031768.png",
+          "filePath": "../public/plasmic/liom_hamyar/images/sms5031768Png.png"
+        },
+        {
+          "id": "_SV5WaWdbR_f",
+          "name": "sms_5031768.svg",
+          "filePath": "../public/plasmic/liom_hamyar/images/sms5031768Svg.svg"
+        },
+        {
+          "id": "AGdlSHFOxF5t",
+          "name": "sms_5031768.svg 3",
+          "filePath": "../public/plasmic/liom_hamyar/images/sms5031768Svg3.svg"
         }
       ],
       "indirect": false,

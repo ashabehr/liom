@@ -64,6 +64,7 @@ import Calendar2 from "../../Calendar2"; // plasmic-import: g_La9K58nhrs/compone
 import Reminder from "../../Reminder"; // plasmic-import: 3v9tn6uUJCPM/component
 import SelfCare2 from "../../SelfCare2"; // plasmic-import: q5NYbKztjYXR/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import MobileDialog from "../../MobileDialog"; // plasmic-import: h7ceF9lBthFF/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -99,6 +100,8 @@ export type PlasmicMainPage__ArgsType = {
   refresh?: string;
   onRefreshChange?: (val: string) => void;
   reminderSetting?: () => void;
+  mobileDialogOpen?: boolean;
+  onMobileDialogOpenChange?: (val: boolean) => void;
 };
 type ArgPropType = keyof PlasmicMainPage__ArgsType;
 export const PlasmicMainPage__ArgProps = new Array<ArgPropType>(
@@ -116,7 +119,9 @@ export const PlasmicMainPage__ArgProps = new Array<ArgPropType>(
   "onRemindChange",
   "refresh",
   "onRefreshChange",
-  "reminderSetting"
+  "reminderSetting",
+  "mobileDialogOpen",
+  "onMobileDialogOpenChange"
 );
 
 export type PlasmicMainPage__OverridesType = {
@@ -126,6 +131,7 @@ export type PlasmicMainPage__OverridesType = {
   selfCare2?: Flex__<typeof SelfCare2>;
   reminderApi?: Flex__<typeof ApiRequest>;
   apiRequest?: Flex__<typeof ApiRequest>;
+  mobileDialog?: Flex__<typeof MobileDialog>;
 };
 
 export interface DefaultMainPageProps {
@@ -144,6 +150,8 @@ export interface DefaultMainPageProps {
   refresh?: string;
   onRefreshChange?: (val: string) => void;
   reminderSetting?: () => void;
+  mobileDialogOpen?: boolean;
+  onMobileDialogOpenChange?: (val: boolean) => void;
   page?: SingleChoiceArg<"calendar" | "self" | "reminder">;
   className?: string;
 }
@@ -375,6 +383,20 @@ function PlasmicMainPage__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "mobileDialog.selectShop",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "mobileDialog.open",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "mobileDialogOpen",
+        onChangeProp: "onMobileDialogOpenChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -1163,6 +1185,39 @@ function PlasmicMainPage__RenderFunc(props: {
             "reminder",
             "reminderSettingReminderCategory2Data"
           ])}
+          setNumber={async () => {
+            const $steps = {};
+
+            $steps["updateMobileDialogOpen"] = true
+              ? (() => {
+                  const actionArgs = {
+                    variable: {
+                      objRoot: $state,
+                      variablePath: ["mobileDialog", "open"]
+                    },
+                    operation: 0,
+                    value: true
+                  };
+                  return (({ variable, value, startIndex, deleteCount }) => {
+                    if (!variable) {
+                      return;
+                    }
+                    const { objRoot, variablePath } = variable;
+
+                    $stateSet(objRoot, variablePath, value);
+                    return value;
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["updateMobileDialogOpen"] != null &&
+              typeof $steps["updateMobileDialogOpen"] === "object" &&
+              typeof $steps["updateMobileDialogOpen"].then === "function"
+            ) {
+              $steps["updateMobileDialogOpen"] =
+                await $steps["updateMobileDialogOpen"];
+            }
+          }}
           setting={args.reminderSetting}
           slide3={generateStateValueProp($state, ["reminder", "slide3"])}
           sms={generateStateValueProp($state, ["reminder", "sms"])}
@@ -1324,6 +1379,35 @@ function PlasmicMainPage__RenderFunc(props: {
             ) {
               $steps["updateRemind"] = await $steps["updateRemind"];
             }
+
+            $steps["runCode"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        if (
+                          $state.remind.length == 0 &&
+                          !window.localStorage.getItem("reminder")
+                        )
+                          return window.localStorage.setItem(
+                            "reminder",
+                            "false"
+                          );
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
+            }
           }).apply(null, eventArgs);
         }}
         shouldFetch={(() => {
@@ -1395,6 +1479,56 @@ function PlasmicMainPage__RenderFunc(props: {
         shouldFetch={true}
         url={"https://n8n.staas.ir/webhook/reminders/category"}
       />
+
+      <MobileDialog
+        data-plasmic-name={"mobileDialog"}
+        data-plasmic-override={overrides.mobileDialog}
+        className={classNames("__wab_instance", sty.mobileDialog)}
+        desc={`برای دسترسی و استفاده از این ابزار، شماره خود را ثبت نمایید.
+`}
+        onOpenChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["mobileDialog", "open"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        onSelectShopChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, [
+            "mobileDialog",
+            "selectShop"
+          ]).apply(null, eventArgs);
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        open={generateStateValueProp($state, ["mobileDialog", "open"])}
+        token={(() => {
+          try {
+            return $state.token;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
+      />
     </div>
   ) as React.ReactElement | null;
 }
@@ -1406,13 +1540,15 @@ const PlasmicDescendants = {
     "reminder",
     "selfCare2",
     "reminderApi",
-    "apiRequest"
+    "apiRequest",
+    "mobileDialog"
   ],
   calendar2: ["calendar2"],
   reminder: ["reminder"],
   selfCare2: ["selfCare2"],
   reminderApi: ["reminderApi"],
-  apiRequest: ["apiRequest"]
+  apiRequest: ["apiRequest"],
+  mobileDialog: ["mobileDialog"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1424,6 +1560,7 @@ type NodeDefaultElementType = {
   selfCare2: typeof SelfCare2;
   reminderApi: typeof ApiRequest;
   apiRequest: typeof ApiRequest;
+  mobileDialog: typeof MobileDialog;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1493,6 +1630,7 @@ export const PlasmicMainPage = Object.assign(
     selfCare2: makeNodeComponent("selfCare2"),
     reminderApi: makeNodeComponent("reminderApi"),
     apiRequest: makeNodeComponent("apiRequest"),
+    mobileDialog: makeNodeComponent("mobileDialog"),
 
     // Metadata about props expected for PlasmicMainPage
     internalVariantProps: PlasmicMainPage__VariantProps,

@@ -230,119 +230,119 @@ function PlasmicReportItem__RenderFunc(props: {
         sty.root,
         { [sty.rootselect]: hasVariant($state, "select", "select") }
       )}
-      onClick={args.onClick}
     >
       <div
-        className={classNames(projectcss.all, sty.freeBox__mQuuA, {
-          [sty.freeBoxselect__mQuuAp3TGe]: hasVariant(
+        className={classNames(projectcss.all, sty.freeBox___4R0QH, {
+          [sty.freeBoxselect___4R0QHp3TGe]: hasVariant(
             $state,
             "select",
             "select"
           )
         })}
+        onClick={args.onClick}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__tSh4J)}>
-          <div className={classNames(projectcss.all, sty.freeBox__gRlB)}>
-            <MenuIcon
-              data-plasmic-name={"menuIcon"}
-              data-plasmic-override={overrides.menuIcon}
-              className={classNames("__wab_instance", sty.menuIcon, {
-                [sty.menuIconselect]: hasVariant($state, "select", "select")
-              })}
-              icons={(() => {
-                try {
-                  return $props.master.value;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return [];
-                  }
-                  throw e;
-                }
-              })()}
-              mono={true}
-              size={
-                hasVariant(globalVariants, "screen", "mobile") ? "_25" : "_25"
-              }
-            />
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox__eXpcu)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__tdMTw
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return (() => {
-                      const typeMap = {
-                        telegram: "تلگرام",
-                        sms: "پیامک",
-                        notification: "نوتیفیکیشن"
-                      };
-                      return `${typeMap[$props.master.value]}`;
-                    })();
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "\u062a\u0633\u062a adhd";
-                    }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
-            <div className={classNames(projectcss.all, sty.freeBox__zEeJ)}>
-              {renderPlasmicSlot({
-                defaultContents: (
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return (() => {
-                          const typeMap = {
-                            telegram: "تلگرام",
-                            sms: "پیامک",
-                            notification: "نوتیفیکیشن"
-                          };
-                          return `${typeMap[$props.master.value]}`;
-                        })();
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "\u062a\u0633\u062a adhd";
-                        }
-                        throw e;
-                      }
-                    })()}
-                  </React.Fragment>
-                ),
-                value: args.children,
-                className: classNames(sty.slotTargetChildren)
-              })}
-            </div>
-          </div>
-        </div>
         <div
-          className={classNames(projectcss.all, sty.freeBox__qJyF, {
-            [sty.freeBoxselect__qJyFP3TGe]: hasVariant(
+          className={classNames(projectcss.all, sty.freeBox__mQuuA, {
+            [sty.freeBoxselect__mQuuAp3TGe]: hasVariant(
               $state,
               "select",
               "select"
             )
           })}
         >
+          <div className={classNames(projectcss.all, sty.freeBox__tSh4J)}>
+            <div className={classNames(projectcss.all, sty.freeBox__gRlB)}>
+              <MenuIcon
+                data-plasmic-name={"menuIcon"}
+                data-plasmic-override={overrides.menuIcon}
+                _3D={true}
+                className={classNames("__wab_instance", sty.menuIcon, {
+                  [sty.menuIconselect]: hasVariant($state, "select", "select")
+                })}
+                icons={(() => {
+                  try {
+                    return $props.master.value;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()}
+                size={
+                  hasVariant(globalVariants, "screen", "mobile") ? "_25" : "_25"
+                }
+              />
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__eXpcu)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__tdMTw
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return (() => {
+                        const typeMap = {
+                          telegram: "تلگرام",
+                          sms: "پیامک",
+                          notification: "نوتیفیکیشن"
+                        };
+                        return `${typeMap[$props.master.value]}`;
+                      })();
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "\u062a\u0633\u062a adhd";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__zEeJ)}>
+                {renderPlasmicSlot({
+                  defaultContents: (
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return (() => {
+                            const typeMap = {
+                              telegram: "تلگرام",
+                              sms: "پیامک",
+                              notification: "نوتیفیکیشن"
+                            };
+                            return `${typeMap[$props.master.value]}`;
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "\u062a\u0633\u062a adhd";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  ),
+                  value: args.children,
+                  className: classNames(sty.slotTargetChildren)
+                })}
+              </div>
+            </div>
+          </div>
           <div
-            className={classNames(projectcss.all, sty.freeBox__xl0Yl, {
-              [sty.freeBoxselect__xl0YlP3TGe]: hasVariant(
+            className={classNames(projectcss.all, sty.freeBox__qJyF, {
+              [sty.freeBoxselect__qJyFP3TGe]: hasVariant(
                 $state,
                 "select",
                 "select"
@@ -350,78 +350,56 @@ function PlasmicReportItem__RenderFunc(props: {
             })}
           >
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__gbpPy,
-                {
-                  [sty.textselect__gbpPyp3TGe]: hasVariant(
-                    $state,
-                    "select",
-                    "select"
-                  )
-                }
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return "هزینه هر یادآوری";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "\u0646\u0627\u0645\u0634\u062e\u0635";
-                    }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__w10Uk,
-                {
-                  [sty.textselect__w10UkP3TGe]: hasVariant(
-                    $state,
-                    "select",
-                    "select"
-                  )
-                }
-              )}
+              className={classNames(projectcss.all, sty.freeBox__xl0Yl, {
+                [sty.freeBoxselect__xl0YlP3TGe]: hasVariant(
+                  $state,
+                  "select",
+                  "select"
+                )
+              })}
             >
               <div
-                className={projectcss.__wab_expr_html_text}
-                dangerouslySetInnerHTML={{
-                  __html: (() => {
-                    try {
-                      return (() => {
-                        return $props.apiRequestData.costs[
-                          $props.master.value
-                        ] == 0
-                          ? '<span class="swiper-ltr" style="background-color:rgba(34,197,94,0.2); padding:2px 6px; border-radius:6px; font-weight:bold;">رایگان</span>'
-                          : $props.apiRequestData.costs[
-                              $props.master.value
-                            ].toLocaleString() +
-                              ' <span style="font-size:0.85em;">تومان</span>';
-                      })();
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "\u0646\u0627\u0645\u0634\u062e\u0635";
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__w10Uk,
+                  {
+                    [sty.textselect__w10UkP3TGe]: hasVariant(
+                      $state,
+                      "select",
+                      "select"
+                    )
+                  }
+                )}
+              >
+                <div
+                  className={projectcss.__wab_expr_html_text}
+                  dangerouslySetInnerHTML={{
+                    __html: (() => {
+                      try {
+                        return (() => {
+                          return $props.apiRequestData.costs[
+                            $props.master.value
+                          ] == 0
+                            ? '<span class="swiper-ltr" style="background-color:rgba(34,197,94,0.2); padding:2px 6px; border-radius:6px; font-weight:bold;">رایگان</span>'
+                            : $props.apiRequestData.costs[
+                                $props.master.value
+                              ].toLocaleString() +
+                                ' <span style="font-size:0.85em;">تومان</span>';
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "\u0646\u0627\u0645\u0634\u062e\u0635";
+                        }
+                        throw e;
                       }
-                      throw e;
-                    }
-                  })()
-                }}
-              />
-            </div>
-            {(hasVariant($state, "select", "select") ? true : false) ? (
+                    })()
+                  }}
+                />
+              </div>
               <div
                 className={classNames(
                   projectcss.all,
@@ -436,28 +414,8 @@ function PlasmicReportItem__RenderFunc(props: {
                   }
                 )}
               >
-                {hasVariant($state, "select", "select") ? (
-                  "|"
-                ) : (
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return `ارسال ${$props.apiRequestData.activeDays * $props.apiRequestData.timesPerDay} یاد آوری`;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "";
-                        }
-                        throw e;
-                      }
-                    })()}
-                  </React.Fragment>
-                )}
+                {hasVariant($state, "select", "select") ? "|" : "|"}
               </div>
-            ) : null}
-            {(hasVariant($state, "select", "select") ? true : false) ? (
               <div
                 className={classNames(
                   projectcss.all,
@@ -492,7 +450,7 @@ function PlasmicReportItem__RenderFunc(props: {
                   <React.Fragment>
                     {(() => {
                       try {
-                        return ` به ازای ارسال ${$props.apiRequestData.activeDays * $props.apiRequestData.timesPerDay} یاد آوری`;
+                        return ` به ازای ارسال ${$props.apiRequestData.activeDays * $props.apiRequestData.timesPerDay} یادآوری`;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -506,184 +464,154 @@ function PlasmicReportItem__RenderFunc(props: {
                   </React.Fragment>
                 )}
               </div>
-            ) : null}
-          </div>
-          <div
-            className={classNames(projectcss.all, sty.freeBox___7SeSq, {
-              [sty.freeBoxselect___7SeSqp3TGe]: hasVariant(
-                $state,
-                "select",
-                "select"
-              )
-            })}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__qRrMa,
-                {
-                  [sty.textselect__qRrMaP3TGe]: hasVariant(
-                    $state,
-                    "select",
-                    "select"
-                  )
-                }
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return `ارسال ${$props.apiRequestData.activeDays * $props.apiRequestData.timesPerDay} یادآوری`;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
-                    }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
             </div>
-            <Button
-              data-plasmic-name={"button4"}
-              data-plasmic-override={overrides.button4}
-              className={classNames("__wab_instance", sty.button4, {
-                [sty.button4select]: hasVariant($state, "select", "select")
+            <div
+              className={classNames(projectcss.all, sty.freeBox___7SeSq, {
+                [sty.freeBoxselect___7SeSqp3TGe]: hasVariant(
+                  $state,
+                  "select",
+                  "select"
+                )
               })}
-              color={generateStateValueProp($state, ["button4", "color"])}
-              load={generateStateValueProp($state, ["button4", "load"])}
-              loading={generateStateValueProp($state, ["button4", "loading"])}
-              onColorChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button4", "color"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              onLoadChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button4", "load"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              onLoadingChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button4", "loading"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              size={"minimal"}
-              startIcon={null}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__xuhp7)}>
-                <Icon155Icon
-                  className={classNames(projectcss.all, sty.svg__ydzWo)}
-                  role={"img"}
-                />
-              </div>
-            </Button>
-            <Button
-              data-plasmic-name={"button3"}
-              data-plasmic-override={overrides.button3}
-              className={classNames("__wab_instance", sty.button3, {
-                [sty.button3select]: hasVariant($state, "select", "select")
-              })}
-              color={generateStateValueProp($state, ["button3", "color"])}
-              load={generateStateValueProp($state, ["button3", "load"])}
-              loading={generateStateValueProp($state, ["button3", "loading"])}
-              onColorChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button3", "color"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
+              <Button
+                data-plasmic-name={"button4"}
+                data-plasmic-override={overrides.button4}
+                className={classNames("__wab_instance", sty.button4, {
+                  [sty.button4select]: hasVariant($state, "select", "select")
+                })}
+                color={generateStateValueProp($state, ["button4", "color"])}
+                load={generateStateValueProp($state, ["button4", "load"])}
+                loading={generateStateValueProp($state, ["button4", "loading"])}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button4", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
 
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              onLoadChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button3", "load"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button4", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
 
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              onLoadingChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button3", "loading"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button4", "loading"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
 
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              showStartIcon={true}
-              size={"compact"}
-              startIcon={
-                <Icon49Icon
-                  className={classNames(projectcss.all, sty.svg__mqVIg)}
-                  role={"img"}
-                />
-              }
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__oqVXw
-                )}
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                size={"minimal"}
+                startIcon={null}
               >
-                {"\u0627\u0641\u0632\u0648\u062f\u0646"}
-              </div>
-            </Button>
+                <div className={classNames(projectcss.all, sty.freeBox__xuhp7)}>
+                  <Icon155Icon
+                    className={classNames(projectcss.all, sty.svg__ydzWo)}
+                    role={"img"}
+                  />
+                </div>
+              </Button>
+              <Button
+                data-plasmic-name={"button3"}
+                data-plasmic-override={overrides.button3}
+                className={classNames("__wab_instance", sty.button3, {
+                  [sty.button3select]: hasVariant($state, "select", "select")
+                })}
+                color={generateStateValueProp($state, ["button3", "color"])}
+                load={generateStateValueProp($state, ["button3", "load"])}
+                loading={generateStateValueProp($state, ["button3", "loading"])}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button3", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button3", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button3", "loading"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                showStartIcon={true}
+                size={"compact"}
+                startIcon={
+                  <Icon49Icon
+                    className={classNames(projectcss.all, sty.svg__mqVIg)}
+                    role={"img"}
+                  />
+                }
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__oqVXw
+                  )}
+                >
+                  {"\u0627\u0641\u0632\u0648\u062f\u0646"}
+                </div>
+              </Button>
+            </div>
           </div>
         </div>
       </div>

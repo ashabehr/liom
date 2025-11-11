@@ -75,6 +75,7 @@ import { Pickers } from "@/components/Pickers"; // plasmic-import: htE-oGSeNx82/
 import { TimePickerCustom } from "@/components/TimePickerCustom"; // plasmic-import: GRoigtq491XH/codeComponent
 import CheckboxGroup from "../../CheckboxGroup"; // plasmic-import: AhgoIztCTzjf/component
 import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
+import MenuIcon from "../../MenuIcon"; // plasmic-import: JBF-V8Q5mpWl/component
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import Snackbar from "../../Snackbar"; // plasmic-import: DESzdq_iEiZG/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
@@ -230,6 +231,8 @@ export type PlasmicReminderSetting__OverridesType = {
   lineClomp?: Flex__<typeof LineClomp>;
   lineClomp3?: Flex__<typeof LineClomp>;
   lineClomp2?: Flex__<typeof LineClomp>;
+  lineClomp4?: Flex__<typeof LineClomp>;
+  menuIcon?: Flex__<typeof MenuIcon>;
   editItem?: Flex__<typeof Button>;
   switchSetting?: Flex__<typeof Switchbest>;
   button2?: Flex__<typeof Button>;
@@ -1660,6 +1663,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
             try {
               return (() => {
                 var report = {};
+                report.schedule_type = $state.select2.schedule_type;
                 report.weekdays = $state.week?.length
                   ? JSON.stringify($state.week)
                   : undefined;
@@ -1971,6 +1975,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "lineClomp4[][].line",
+        type: "private",
+        variableType: "boolean"
       }
     ],
     [$props, $ctx, $refs]
@@ -2001,6 +2010,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
           [sty.rootadd]: hasVariant($state, "add", "add"),
           [sty.roothamyar]: hasVariant($state, "hamyar", "hamyar"),
           [sty.rootreport]: hasVariant($state, "report", "report"),
+          [sty.rootreport_add]:
+            hasVariant($state, "add", "add") &&
+            hasVariant($state, "report", "report"),
           [sty.rootslide__1]: hasVariant($state, "slide", "_1"),
           [sty.rootslide__2]: hasVariant($state, "slide", "_2")
         }
@@ -4869,6 +4881,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                 try {
                                   return (() => {
                                     var report = {};
+                                    report.schedule_type =
+                                      $state.select2.schedule_type;
                                     report.weekdays = $state.week?.length
                                       ? JSON.stringify($state.week)
                                       : undefined;
@@ -6512,6 +6526,37 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              if ($props.man.refCode)
+                                return window.open(
+                                  `https://t.me/liomApp_bot?start=ref_${$props.man.refCode}`,
+                                  "_blank"
+                                );
+                              else
+                                return window.open(
+                                  `https://t.me/liomApp_bot`,
+                                  "_blank"
+                                );
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+
                   $steps["runCode2"] = false
                     ? (() => {
                         const actionArgs = {
@@ -6530,29 +6575,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                     typeof $steps["runCode2"].then === "function"
                   ) {
                     $steps["runCode2"] = await $steps["runCode2"];
-                  }
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return window.open(
-                              `https://t.me/liomApp_bot?start=ref_${$props.man.refCode}`,
-                              "_blank"
-                            );
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
@@ -6654,10 +6676,10 @@ function PlasmicReminderSetting__RenderFunc(props: {
               }
               loading={"lazy"}
               src={{
-                src: "/plasmic/liom_hamyar/images/image122.svg",
-                fullWidth: 660,
-                fullHeight: 462,
-                aspectRatio: 1.428571
+                src: "/plasmic/liom_hamyar/images/sms5031768Svg3.svg",
+                fullWidth: 383.69,
+                fullHeight: 337.81,
+                aspectRatio: 1.135816
               }}
             />
 
@@ -7354,35 +7376,42 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     <div
                                       className={classNames(
                                         projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__yZzHx,
-                                        {
-                                          [sty.textslide__1__yZzHXedcqc]:
-                                            hasVariant($state, "slide", "_1")
-                                        }
+                                        sty.freeBox__kNqb
                                       )}
-                                      onClick={async event => {
-                                        const $steps = {};
-                                      }}
                                     >
-                                      <React.Fragment>
-                                        {(() => {
-                                          try {
-                                            return currentItem.token1
-                                              ? `${currentItem.name} ${currentItem.token1}`
-                                              : currentItem.name;
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return "Townhall Meeting";
-                                            }
-                                            throw e;
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.__wab_text,
+                                          sty.text__yZzHx,
+                                          {
+                                            [sty.textslide__1__yZzHXedcqc]:
+                                              hasVariant($state, "slide", "_1")
                                           }
-                                        })()}
-                                      </React.Fragment>
+                                        )}
+                                        onClick={async event => {
+                                          const $steps = {};
+                                        }}
+                                      >
+                                        <React.Fragment>
+                                          {(() => {
+                                            try {
+                                              return currentItem.token1
+                                                ? `${currentItem.name} ${currentItem.token1}`
+                                                : currentItem.name;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return "Townhall Meeting";
+                                              }
+                                              throw e;
+                                            }
+                                          })()}
+                                        </React.Fragment>
+                                      </div>
                                     </div>
                                     <div
                                       className={classNames(
@@ -7949,6 +7978,194 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           </LineClomp>
                                         </div>
                                       ) : null}
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.freeBox___2Joh,
+                                          {
+                                            [sty.freeBoxslide__1___2JoHedcqc]:
+                                              hasVariant($state, "slide", "_1")
+                                          }
+                                        )}
+                                      >
+                                        <LineClomp
+                                          data-plasmic-name={"lineClomp4"}
+                                          data-plasmic-override={
+                                            overrides.lineClomp4
+                                          }
+                                          className={classNames(
+                                            "__wab_instance",
+                                            sty.lineClomp4
+                                          )}
+                                          numberOfLine={1}
+                                          onLineChange={async (
+                                            ...eventArgs: any
+                                          ) => {
+                                            generateStateOnChangeProp($state, [
+                                              "lineClomp4",
+                                              __plasmic_idx_0,
+                                              __plasmic_idx_1,
+                                              "line"
+                                            ]).apply(null, eventArgs);
+
+                                            if (
+                                              eventArgs.length > 1 &&
+                                              eventArgs[1] &&
+                                              eventArgs[1]._plasmic_state_init_
+                                            ) {
+                                              return;
+                                            }
+                                          }}
+                                        >
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text__h683V
+                                            )}
+                                            onClick={async event => {
+                                              const $steps = {};
+
+                                              $steps["runCode"] = true
+                                                ? (() => {
+                                                    const actionArgs = {
+                                                      customFunction:
+                                                        async () => {
+                                                          return (() => {
+                                                            const editId = `edit${dayIndex}${currentIndex}`;
+                                                            const edits =
+                                                              document.getElementById(
+                                                                editId
+                                                              );
+                                                            if (!edits) {
+                                                              return console.warn(
+                                                                `❌ Element with id "${editId}" not found`
+                                                              );
+                                                            } else {
+                                                              const firstButton =
+                                                                edits.querySelector(
+                                                                  "button"
+                                                                );
+                                                              if (firstButton) {
+                                                                return firstButton.click();
+                                                              } else {
+                                                                return console.warn(
+                                                                  `⚠️ No button found inside #${editId}`
+                                                                );
+                                                              }
+                                                            }
+                                                          })();
+                                                        }
+                                                    };
+                                                    return (({
+                                                      customFunction
+                                                    }) => {
+                                                      return customFunction();
+                                                    })?.apply(null, [
+                                                      actionArgs
+                                                    ]);
+                                                  })()
+                                                : undefined;
+                                              if (
+                                                $steps["runCode"] != null &&
+                                                typeof $steps["runCode"] ===
+                                                  "object" &&
+                                                typeof $steps["runCode"]
+                                                  .then === "function"
+                                              ) {
+                                                $steps["runCode"] =
+                                                  await $steps["runCode"];
+                                              }
+                                            }}
+                                          >
+                                            <React.Fragment>
+                                              {(() => {
+                                                try {
+                                                  return `طریقه ارسال : `;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return "Townhall Meeting";
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()}
+                                            </React.Fragment>
+                                          </div>
+                                        </LineClomp>
+                                        {(_par =>
+                                          !_par
+                                            ? []
+                                            : Array.isArray(_par)
+                                              ? _par
+                                              : [_par])(
+                                          (() => {
+                                            try {
+                                              return (() => {
+                                                try {
+                                                  return JSON.parse(
+                                                    currentItem.channels
+                                                  );
+                                                } catch {
+                                                  return [];
+                                                }
+                                              })();
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return [];
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                        ).map(
+                                          (
+                                            __plasmic_item_2,
+                                            __plasmic_idx_2
+                                          ) => {
+                                            const currentItem =
+                                              __plasmic_item_2;
+                                            const currentIndex =
+                                              __plasmic_idx_2;
+                                            return (
+                                              <MenuIcon
+                                                data-plasmic-name={"menuIcon"}
+                                                data-plasmic-override={
+                                                  overrides.menuIcon
+                                                }
+                                                className={classNames(
+                                                  "__wab_instance",
+                                                  sty.menuIcon
+                                                )}
+                                                color={"iconColor"}
+                                                icons={(() => {
+                                                  try {
+                                                    return currentItem;
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return [];
+                                                    }
+                                                    throw e;
+                                                  }
+                                                })()}
+                                                key={currentIndex}
+                                                outline={true}
+                                                size={"_12"}
+                                              />
+                                            );
+                                          }
+                                        )}
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
@@ -7989,7 +8206,20 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               >
                                 {(
                                   hasVariant($state, "slide", "_1")
-                                    ? true
+                                    ? (() => {
+                                        try {
+                                          return currentItem.id != null;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return true;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
                                     : (() => {
                                         try {
                                           return (() => {
@@ -8560,7 +8790,10 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           const parsed = JSON.parse(
                                             datesStr || "[]"
                                           );
-                                          return parsed.length > 0;
+                                          return (
+                                            parsed.length > 0 ||
+                                            currentItem.id != null
+                                          );
                                         })();
                                       } catch (e) {
                                         if (
@@ -8656,85 +8889,319 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                               await $steps["runCode"];
                                           }
 
-                                          $steps["add"] = !currentItem.id
-                                            ? (() => {
-                                                const actionArgs = {
-                                                  args: [
-                                                    "POST",
-                                                    "https://n8n.staas.ir/webhook/user/task/add",
-                                                    undefined,
-                                                    (() => {
-                                                      try {
+                                          $steps["add"] =
+                                            currentItem.id == null ||
+                                            currentItem.id == ""
+                                              ? (() => {
+                                                  const actionArgs = {
+                                                    customFunction:
+                                                      async () => {
                                                         return (() => {
-                                                          currentItem.liomId =
-                                                            $props.manId;
-                                                          currentItem.active = 1;
-                                                          currentItem.telegramId =
-                                                            $props.telegramId;
-                                                          currentItem.phoneNumber =
-                                                            $props.phoneNumber;
-                                                          let dates = [];
-                                                          if (
-                                                            currentItem.schedule_type ===
-                                                            "everyYear"
-                                                          ) {
-                                                            const parsedDates =
+                                                          $state.select2 =
+                                                            currentItem;
+                                                          $state.switchSetting[
+                                                            dayIndex
+                                                          ][
+                                                            currentIndex
+                                                          ].isChecked = false;
+                                                          try {
+                                                            const dates =
                                                               JSON.parse(
-                                                                currentItem.dates
+                                                                $state.select2
+                                                                  .dates
                                                               );
-                                                            dates =
-                                                              parsedDates.map(
-                                                                dateStr => {
-                                                                  let parts =
-                                                                    dateStr.split(
-                                                                      /[-/]/
-                                                                    );
-                                                                  parts[0] =
-                                                                    "0000";
-                                                                  return dateStr.includes(
-                                                                    "-"
+                                                            function faToEnDigits(
+                                                              str
+                                                            ) {
+                                                              return str.replace(
+                                                                /[۰-۹]/g,
+                                                                d =>
+                                                                  "۰۱۲۳۴۵۶۷۸۹".indexOf(
+                                                                    d
                                                                   )
-                                                                    ? parts.join(
-                                                                        "-"
+                                                              );
+                                                            }
+                                                            $state.date =
+                                                              dates.map(m => {
+                                                                const today =
+                                                                  new Date(m);
+                                                                const f = today
+                                                                  .toISOString()
+                                                                  .split(
+                                                                    "T"
+                                                                  )[0];
+                                                                const g =
+                                                                  new Intl.DateTimeFormat(
+                                                                    "fa-IR",
+                                                                    {
+                                                                      year: "numeric",
+                                                                      month:
+                                                                        "long",
+                                                                      day: "numeric"
+                                                                    }
+                                                                  ).format(
+                                                                    today
+                                                                  );
+                                                                const jy =
+                                                                  Number(
+                                                                    faToEnDigits(
+                                                                      new Intl.DateTimeFormat(
+                                                                        "fa-IR",
+                                                                        {
+                                                                          year: "numeric"
+                                                                        }
+                                                                      ).format(
+                                                                        today
                                                                       )
-                                                                    : parts.join(
-                                                                        "/"
-                                                                      );
-                                                                }
-                                                              );
-                                                            currentItem.dates =
-                                                              JSON.stringify(
-                                                                dates
-                                                              );
+                                                                    )
+                                                                  );
+                                                                const jm =
+                                                                  Number(
+                                                                    faToEnDigits(
+                                                                      new Intl.DateTimeFormat(
+                                                                        "fa-IR",
+                                                                        {
+                                                                          month:
+                                                                            "numeric"
+                                                                        }
+                                                                      ).format(
+                                                                        today
+                                                                      )
+                                                                    )
+                                                                  );
+                                                                const jd =
+                                                                  Number(
+                                                                    faToEnDigits(
+                                                                      new Intl.DateTimeFormat(
+                                                                        "fa-IR",
+                                                                        {
+                                                                          day: "numeric"
+                                                                        }
+                                                                      ).format(
+                                                                        today
+                                                                      )
+                                                                    )
+                                                                  );
+                                                                return {
+                                                                  start: {
+                                                                    f,
+                                                                    g,
+                                                                    year: jy,
+                                                                    month: jm,
+                                                                    day: jd
+                                                                  }
+                                                                };
+                                                              });
+                                                          } catch {
+                                                            $state.date = [];
                                                           }
-                                                          currentItem.times =
-                                                            JSON.stringify([
-                                                              "09:00"
-                                                            ]);
-                                                          return currentItem;
+                                                          try {
+                                                            $state.week =
+                                                              JSON.parse(
+                                                                currentItem.weekdays
+                                                              );
+                                                          } catch {}
+                                                          try {
+                                                            function formatTimeString(
+                                                              value
+                                                            ) {
+                                                              if (!value)
+                                                                return [
+                                                                  "0",
+                                                                  "0"
+                                                                ];
+
+                                                              return value.split(
+                                                                ":"
+                                                              );
+                                                            }
+                                                            const times =
+                                                              JSON.parse(
+                                                                $state.select2
+                                                                  .times
+                                                              );
+                                                            $state.time2 =
+                                                              times.map(t => {
+                                                                const [hh, mm] =
+                                                                  formatTimeString(
+                                                                    t
+                                                                  );
+                                                                return {
+                                                                  hour: parseInt(
+                                                                    hh
+                                                                  ),
+                                                                  minute:
+                                                                    parseInt(mm)
+                                                                };
+                                                              });
+                                                          } catch {
+                                                            $state.time2 = [];
+                                                          }
+                                                          try {
+                                                            function arraysEqualIgnoreOrder(
+                                                              a,
+                                                              b
+                                                            ) {
+                                                              if (
+                                                                a.length !==
+                                                                b.length
+                                                              )
+                                                                return false;
+                                                              return [...a]
+                                                                .sort()
+                                                                .every(
+                                                                  (
+                                                                    val,
+                                                                    index
+                                                                  ) =>
+                                                                    val ===
+                                                                    [
+                                                                      ...b
+                                                                    ].sort()[
+                                                                      index
+                                                                    ]
+                                                                );
+                                                            }
+                                                            if (
+                                                              $state.week
+                                                                .length === 0
+                                                            ) {
+                                                              $state.repead.selected =
+                                                                "once";
+                                                            } else if (
+                                                              arraysEqualIgnoreOrder(
+                                                                $state.week,
+                                                                [
+                                                                  "saturday",
+                                                                  "sunday",
+                                                                  "monday",
+                                                                  "tuesday",
+                                                                  "wednesday",
+                                                                  "thursday",
+                                                                  "friday"
+                                                                ]
+                                                              )
+                                                            ) {
+                                                              $state.repead.selected =
+                                                                "daily";
+                                                            } else if (
+                                                              arraysEqualIgnoreOrder(
+                                                                $state.week,
+                                                                [
+                                                                  "saturday",
+                                                                  "sunday",
+                                                                  "monday",
+                                                                  "tuesday",
+                                                                  "wednesday"
+                                                                ]
+                                                              )
+                                                            ) {
+                                                              $state.repead.selected =
+                                                                "sat_to_wed";
+                                                            } else {
+                                                              $state.repead.selected =
+                                                                "custom";
+                                                            }
+                                                          } catch {
+                                                            $state.week = [];
+                                                          }
+                                                          try {
+                                                            const finish =
+                                                              $state.select2
+                                                                .finishTime;
+                                                            if (finish) {
+                                                              const today =
+                                                                new Date(
+                                                                  finish
+                                                                );
+                                                              function faToEnDigits(
+                                                                str
+                                                              ) {
+                                                                return str.replace(
+                                                                  /[۰-۹]/g,
+                                                                  d =>
+                                                                    "۰۱۲۳۴۵۶۷۸۹".indexOf(
+                                                                      d
+                                                                    )
+                                                                );
+                                                              }
+                                                              const f = today
+                                                                .toISOString()
+                                                                .split("T")[0];
+                                                              const g =
+                                                                new Intl.DateTimeFormat(
+                                                                  "fa-IR",
+                                                                  {
+                                                                    year: "numeric",
+                                                                    month:
+                                                                      "long",
+                                                                    day: "numeric"
+                                                                  }
+                                                                ).format(today);
+                                                              const jy = Number(
+                                                                faToEnDigits(
+                                                                  new Intl.DateTimeFormat(
+                                                                    "fa-IR",
+                                                                    {
+                                                                      year: "numeric"
+                                                                    }
+                                                                  ).format(
+                                                                    today
+                                                                  )
+                                                                )
+                                                              );
+                                                              const jm = Number(
+                                                                faToEnDigits(
+                                                                  new Intl.DateTimeFormat(
+                                                                    "fa-IR",
+                                                                    {
+                                                                      month:
+                                                                        "numeric"
+                                                                    }
+                                                                  ).format(
+                                                                    today
+                                                                  )
+                                                                )
+                                                              );
+                                                              const jd = Number(
+                                                                faToEnDigits(
+                                                                  new Intl.DateTimeFormat(
+                                                                    "fa-IR",
+                                                                    {
+                                                                      day: "numeric"
+                                                                    }
+                                                                  ).format(
+                                                                    today
+                                                                  )
+                                                                )
+                                                              );
+                                                              $state.finishDate =
+                                                                {
+                                                                  f,
+                                                                  g,
+                                                                  year: jy,
+                                                                  month: jm,
+                                                                  day: jd
+                                                                };
+                                                            } else {
+                                                              $state.finishDate =
+                                                                {};
+                                                            }
+                                                          } catch {
+                                                            $state.finishDate =
+                                                              {};
+                                                          }
+                                                          return ($state.dialog.opendialog = true);
                                                         })();
-                                                      } catch (e) {
-                                                        if (
-                                                          e instanceof
-                                                            TypeError ||
-                                                          e?.plasmicType ===
-                                                            "PlasmicUndefinedDataError"
-                                                        ) {
-                                                          return undefined;
-                                                        }
-                                                        throw e;
                                                       }
-                                                    })(),
-                                                    undefined
-                                                  ]
-                                                };
-                                                return $globalActions[
-                                                  "Fragment.apiRequest"
-                                                ]?.apply(null, [
-                                                  ...actionArgs.args
-                                                ]);
-                                              })()
-                                            : undefined;
+                                                  };
+                                                  return (({
+                                                    customFunction
+                                                  }) => {
+                                                    return customFunction();
+                                                  })?.apply(null, [actionArgs]);
+                                                })()
+                                              : undefined;
                                           if (
                                             $steps["add"] != null &&
                                             typeof $steps["add"] === "object" &&
@@ -8744,54 +9211,54 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                             $steps["add"] = await $steps["add"];
                                           }
 
-                                          $steps["remove"] = (
-                                            currentItem.id &&
-                                            $state.switchSetting[dayIndex][
+                                          $steps["remove"] =
+                                            currentItem.id != null &&
+                                            currentItem.id != "" &&
+                                            ($state.switchSetting[dayIndex][
                                               currentIndex
                                             ].isChecked
                                               ? true
-                                              : false && !$steps.add?.data
-                                          )
-                                            ? (() => {
-                                                const actionArgs = {
-                                                  args: [
-                                                    "POST",
-                                                    "https://n8n.staas.ir/webhook/user/task/edit",
-                                                    undefined,
-                                                    (() => {
-                                                      try {
-                                                        return {
-                                                          id: currentItem.id,
-                                                          active: $state
-                                                            .switchSetting[
-                                                            dayIndex
-                                                          ][currentIndex]
-                                                            .isChecked
-                                                            ? true
-                                                            : false
-                                                        };
-                                                      } catch (e) {
-                                                        if (
-                                                          e instanceof
-                                                            TypeError ||
-                                                          e?.plasmicType ===
-                                                            "PlasmicUndefinedDataError"
-                                                        ) {
-                                                          return undefined;
+                                              : false)
+                                              ? (() => {
+                                                  const actionArgs = {
+                                                    args: [
+                                                      "POST",
+                                                      "https://n8n.staas.ir/webhook/user/task/edit",
+                                                      undefined,
+                                                      (() => {
+                                                        try {
+                                                          return {
+                                                            id: currentItem.id,
+                                                            active: $state
+                                                              .switchSetting[
+                                                              dayIndex
+                                                            ][currentIndex]
+                                                              .isChecked
+                                                              ? true
+                                                              : false
+                                                          };
+                                                        } catch (e) {
+                                                          if (
+                                                            e instanceof
+                                                              TypeError ||
+                                                            e?.plasmicType ===
+                                                              "PlasmicUndefinedDataError"
+                                                          ) {
+                                                            return undefined;
+                                                          }
+                                                          throw e;
                                                         }
-                                                        throw e;
-                                                      }
-                                                    })(),
-                                                    undefined
-                                                  ]
-                                                };
-                                                return $globalActions[
-                                                  "Fragment.apiRequest"
-                                                ]?.apply(null, [
-                                                  ...actionArgs.args
-                                                ]);
-                                              })()
-                                            : undefined;
+                                                      })(),
+                                                      undefined
+                                                    ]
+                                                  };
+                                                  return $globalActions[
+                                                    "Fragment.apiRequest"
+                                                  ]?.apply(null, [
+                                                    ...actionArgs.args
+                                                  ]);
+                                                })()
+                                              : undefined;
                                           if (
                                             $steps["remove"] != null &&
                                             typeof $steps["remove"] ===
@@ -8803,41 +9270,43 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                               await $steps["remove"];
                                           }
 
-                                          $steps["runCode3"] = (
-                                            currentItem.id &&
-                                            $state.switchSetting[dayIndex][
+                                          $steps["runCode3"] =
+                                            currentItem.id != null &&
+                                            currentItem.id != "" &&
+                                            ($state.switchSetting[dayIndex][
                                               currentIndex
                                             ].isChecked
                                               ? false
-                                              : true && !$steps.add?.data
-                                          )
-                                            ? (() => {
-                                                const actionArgs = {
-                                                  customFunction: async () => {
-                                                    return (() => {
-                                                      $state.snackbar.opendialog = true;
-                                                      $state.snackbar.data =
-                                                        currentItem;
-                                                      $state.snackbar.index = [
-                                                        dayIndex,
-                                                        currentIndex
-                                                      ];
+                                              : true)
+                                              ? (() => {
+                                                  const actionArgs = {
+                                                    customFunction:
+                                                      async () => {
+                                                        return (() => {
+                                                          $state.snackbar.opendialog = true;
+                                                          $state.snackbar.data =
+                                                            currentItem;
+                                                          $state.snackbar.index =
+                                                            [
+                                                              dayIndex,
+                                                              currentIndex
+                                                            ];
 
-                                                      return ($state.switchSetting[
-                                                        dayIndex
-                                                      ][
-                                                        currentIndex
-                                                      ].isChecked = true);
-                                                    })();
-                                                  }
-                                                };
-                                                return (({
-                                                  customFunction
-                                                }) => {
-                                                  return customFunction();
-                                                })?.apply(null, [actionArgs]);
-                                              })()
-                                            : undefined;
+                                                          return ($state.switchSetting[
+                                                            dayIndex
+                                                          ][
+                                                            currentIndex
+                                                          ].isChecked = true);
+                                                        })();
+                                                      }
+                                                  };
+                                                  return (({
+                                                    customFunction
+                                                  }) => {
+                                                    return customFunction();
+                                                  })?.apply(null, [actionArgs]);
+                                                })()
+                                              : undefined;
                                           if (
                                             $steps["runCode3"] != null &&
                                             typeof $steps["runCode3"] ===
@@ -8872,34 +9341,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           ) {
                                             $steps["runCode4"] =
                                               await $steps["runCode4"];
-                                          }
-
-                                          $steps["runCode2"] =
-                                            $steps.add?.data?.success == true
-                                              ? (() => {
-                                                  const actionArgs = {
-                                                    customFunction:
-                                                      async () => {
-                                                        return (currentItem.id =
-                                                          $steps.add.data.result);
-                                                      }
-                                                  };
-                                                  return (({
-                                                    customFunction
-                                                  }) => {
-                                                    return customFunction();
-                                                  })?.apply(null, [actionArgs]);
-                                                })()
-                                              : undefined;
-                                          if (
-                                            $steps["runCode2"] != null &&
-                                            typeof $steps["runCode2"] ===
-                                              "object" &&
-                                            typeof $steps["runCode2"].then ===
-                                              "function"
-                                          ) {
-                                            $steps["runCode2"] =
-                                              await $steps["runCode2"];
                                           }
                                         }).apply(null, eventArgs);
                                       },
@@ -9454,7 +9895,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           )}
                                         >
                                           {
-                                            "\u062b\u0628\u062a \u062a\u0627\u0631\u06cc\u062e"
+                                            "\u062b\u0628\u062a \u0631\u0648\u06cc\u062f\u0627\u062f"
                                           }
                                         </div>
                                       </Button>
@@ -12255,9 +12696,21 @@ function PlasmicReminderSetting__RenderFunc(props: {
               sty.text__vKmuj
             )}
           >
-            {
-              "\u0645\u0637\u0645\u0626\u0646\u06cc \u0627\u0632 \u063a\u06cc\u0631\u0641\u0639\u0627\u0644 \u06a9\u0631\u062f\u0646\u061f"
-            }
+            <React.Fragment>
+              {(() => {
+                try {
+                  return `آیا مطمئنی می‌خواهی یادآوریِ «${$state.snackbar.data.name}» را غیرفعال کنی؟`;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "\u0645\u0637\u0645\u0626\u0646\u06cc \u0627\u0632 \u063a\u06cc\u0631\u0641\u0639\u0627\u0644 \u06a9\u0631\u062f\u0646\u061f";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
           </div>
         }
         slot2={
@@ -12281,7 +12734,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       .filter(i => list.includes(i.value))
                       .map(i => i.label)
                       .join(", ");
-                    return `با غیرفعال کردن این یادآوری، ارسال یادآوری از طریق «${a}» غیرفعال می شود. اگه رویداد نیاز به تغییر داره، روی دکمه ویرایش کلیک کنید..
+                    return ` ارسال یادآوری از طریق «${a}» غیرفعال می شود. \nاگه رویداد نیاز به تغییر داره، روی دکمه ویرایش کلیک کنید.
 `;
                   })();
                 } catch (e) {
@@ -13286,6 +13739,8 @@ const PlasmicDescendants = {
     "lineClomp",
     "lineClomp3",
     "lineClomp2",
+    "lineClomp4",
+    "menuIcon",
     "editItem",
     "switchSetting",
     "button2",
@@ -13378,6 +13833,8 @@ const PlasmicDescendants = {
     "lineClomp",
     "lineClomp3",
     "lineClomp2",
+    "lineClomp4",
+    "menuIcon",
     "editItem",
     "switchSetting",
     "button2"
@@ -13391,6 +13848,8 @@ const PlasmicDescendants = {
     "lineClomp",
     "lineClomp3",
     "lineClomp2",
+    "lineClomp4",
+    "menuIcon",
     "editItem",
     "switchSetting",
     "button2"
@@ -13403,6 +13862,8 @@ const PlasmicDescendants = {
     "lineClomp",
     "lineClomp3",
     "lineClomp2",
+    "lineClomp4",
+    "menuIcon",
     "editItem",
     "switchSetting",
     "button2"
@@ -13413,13 +13874,32 @@ const PlasmicDescendants = {
     "frame30",
     "lineClomp",
     "lineClomp3",
-    "lineClomp2"
+    "lineClomp2",
+    "lineClomp4",
+    "menuIcon"
   ],
-  frame29: ["frame29", "frame30", "lineClomp", "lineClomp3", "lineClomp2"],
-  frame30: ["frame30", "lineClomp", "lineClomp3", "lineClomp2"],
+  frame29: [
+    "frame29",
+    "frame30",
+    "lineClomp",
+    "lineClomp3",
+    "lineClomp2",
+    "lineClomp4",
+    "menuIcon"
+  ],
+  frame30: [
+    "frame30",
+    "lineClomp",
+    "lineClomp3",
+    "lineClomp2",
+    "lineClomp4",
+    "menuIcon"
+  ],
   lineClomp: ["lineClomp"],
   lineClomp3: ["lineClomp3"],
   lineClomp2: ["lineClomp2"],
+  lineClomp4: ["lineClomp4"],
+  menuIcon: ["menuIcon"],
   editItem: ["editItem"],
   switchSetting: ["switchSetting"],
   button2: ["button2"],
@@ -13481,6 +13961,8 @@ type NodeDefaultElementType = {
   lineClomp: typeof LineClomp;
   lineClomp3: typeof LineClomp;
   lineClomp2: typeof LineClomp;
+  lineClomp4: typeof LineClomp;
+  menuIcon: typeof MenuIcon;
   editItem: typeof Button;
   switchSetting: typeof Switchbest;
   button2: typeof Button;
@@ -13600,6 +14082,8 @@ export const PlasmicReminderSetting = Object.assign(
     lineClomp: makeNodeComponent("lineClomp"),
     lineClomp3: makeNodeComponent("lineClomp3"),
     lineClomp2: makeNodeComponent("lineClomp2"),
+    lineClomp4: makeNodeComponent("lineClomp4"),
+    menuIcon: makeNodeComponent("menuIcon"),
     editItem: makeNodeComponent("editItem"),
     switchSetting: makeNodeComponent("switchSetting"),
     button2: makeNodeComponent("button2"),

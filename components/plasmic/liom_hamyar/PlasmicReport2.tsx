@@ -511,9 +511,9 @@ function PlasmicReport2__RenderFunc(props: {
                 );
               })}
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__hSJw)}>
-              <div className={classNames(projectcss.all, sty.freeBox__cjfU)} />
+            <div className={classNames(projectcss.all, sty.freeBox__cjfU)} />
 
+            <div className={classNames(projectcss.all, sty.freeBox__hSJw)}>
               <div
                 className={classNames(
                   projectcss.all,

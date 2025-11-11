@@ -283,7 +283,7 @@ function PlasmicCreaditButten__RenderFunc(props: {
             <React.Fragment>
               {(() => {
                 try {
-                  return $state.creadit.toLocaleString() + " تومان ";
+                  return " تومان " + $state.creadit.toLocaleString();
                 } catch (e) {
                   if (
                     e instanceof TypeError ||

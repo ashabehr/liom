@@ -406,6 +406,25 @@
   padding-top: 0rem;
   padding-bottom: 0rem;
 }
+.freeBox__sSYaM {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  row-gap: var(--token-uOLZE7OyOW-J);
+  min-width: 0;
+  padding: var(--token-O5TjkXII_aat);
+}
+.alertTelegram:global(.__wab_instance) {
+  max-width: 100%;
+}
+.alertSms:global(.__wab_instance) {
+  max-width: 100%;
+}
 .freeBox___8U23F {
   display: flex;
   flex-direction: column;
@@ -575,12 +594,13 @@
   flex-direction: column;
   position: relative;
   width: 100%;
-  height: auto;
+  height: 100%;
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
   row-gap: var(--token-uOLZE7OyOW-J);
   min-width: 0;
+  min-height: 0;
   padding: 0px;
   margin: 0px;
 }

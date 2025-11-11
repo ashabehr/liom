@@ -101,6 +101,10 @@ import Icon362Icon from "./icons/PlasmicIcon__Icon362"; // plasmic-import: jxc6_
 import Icon363Icon from "./icons/PlasmicIcon__Icon363"; // plasmic-import: JaU_EHFrnLuc/icon
 import Icon368Icon from "./icons/PlasmicIcon__Icon368"; // plasmic-import: b_DOUX-Ryjc8/icon
 import Icon369Icon from "./icons/PlasmicIcon__Icon369"; // plasmic-import: xSQs3bX0_Zq7/icon
+import Icon324Icon from "./icons/PlasmicIcon__Icon324"; // plasmic-import: -Om7nJDjErH8/icon
+import Icon323Icon from "./icons/PlasmicIcon__Icon323"; // plasmic-import: JmbyEWKrEXXu/icon
+import Sms5031768Svg2Icon from "./icons/PlasmicIcon__Sms5031768Svg2"; // plasmic-import: X3zpwLVzhq0S/icon
+import Icon374Icon from "./icons/PlasmicIcon__Icon374"; // plasmic-import: 6hgAqfC9rfum/icon
 
 createPlasmicElementProxy;
 
@@ -144,11 +148,13 @@ export type PlasmicMenuIcon__VariantMembers = {
     | "mensDay"
     | "sms"
     | "notif"
-    | "telegram";
+    | "telegram"
+    | "warning";
   color: "waite" | "blue" | "green" | "warning" | "fuchsia" | "p" | "iconColor";
-  size: "_25";
+  size: "_25" | "_12";
   outline: "outline";
   mono: "mono";
+  _3D: "_3D";
 };
 export type PlasmicMenuIcon__VariantsArgs = {
   select?: SingleBooleanChoiceArg<"select">;
@@ -191,13 +197,15 @@ export type PlasmicMenuIcon__VariantsArgs = {
     | "sms"
     | "notif"
     | "telegram"
+    | "warning"
   >;
   color?: SingleChoiceArg<
     "waite" | "blue" | "green" | "warning" | "fuchsia" | "p" | "iconColor"
   >;
-  size?: SingleChoiceArg<"_25">;
+  size?: SingleChoiceArg<"_25" | "_12">;
   outline?: SingleBooleanChoiceArg<"outline">;
   mono?: SingleBooleanChoiceArg<"mono">;
+  _3D?: SingleBooleanChoiceArg<"_3D">;
 };
 type VariantPropType = keyof PlasmicMenuIcon__VariantsArgs;
 export const PlasmicMenuIcon__VariantProps = new Array<VariantPropType>(
@@ -206,7 +214,8 @@ export const PlasmicMenuIcon__VariantProps = new Array<VariantPropType>(
   "color",
   "size",
   "outline",
-  "mono"
+  "mono",
+  "_3D"
 );
 
 export type PlasmicMenuIcon__ArgsType = {};
@@ -258,13 +267,15 @@ export interface DefaultMenuIconProps {
     | "sms"
     | "notif"
     | "telegram"
+    | "warning"
   >;
   color?: SingleChoiceArg<
     "waite" | "blue" | "green" | "warning" | "fuchsia" | "p" | "iconColor"
   >;
-  size?: SingleChoiceArg<"_25">;
+  size?: SingleChoiceArg<"_25" | "_12">;
   outline?: SingleBooleanChoiceArg<"outline">;
   mono?: SingleBooleanChoiceArg<"mono">;
+  _3D?: SingleBooleanChoiceArg<"_3D">;
   className?: string;
 }
 
@@ -348,6 +359,12 @@ function PlasmicMenuIcon__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.mono
+      },
+      {
+        path: "_3D",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props._3D
       }
     ],
     [$props, $ctx, $refs]
@@ -368,201 +385,239 @@ function PlasmicMenuIcon__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       PlasmicIconType={
-        hasVariant($state, "outline", "outline") &&
-        hasVariant($state, "icons", "telegram")
-          ? Icon368Icon
-          : hasVariant($state, "outline", "outline") &&
-              hasVariant($state, "icons", "sms")
-            ? Icon369Icon
-            : hasVariant($state, "mono", "mono") &&
-                hasVariant($state, "icons", "notification")
-              ? Icon354Icon
-              : hasVariant($state, "icons", "telegram")
-                ? Icon363Icon
-                : hasVariant($state, "icons", "notif")
-                  ? Icon354Icon
-                  : hasVariant($state, "icons", "sms")
-                    ? Icon362Icon
-                    : hasVariant($state, "icons", "mensDay")
-                      ? Icon352Icon
-                      : hasVariant($state, "icons", "waterTime")
-                        ? Icon338Icon
-                        : hasVariant($state, "icons", "water")
-                          ? Icon338Icon
-                          : hasVariant($state, "icons", "sepandarmazgan")
-                            ? Icon334Icon
-                            : hasVariant($state, "icons", "mothersDay")
-                              ? Icon336Icon
-                              : hasVariant($state, "icons", "womensDay")
-                                ? Icon335Icon
-                                : hasVariant($state, "icons", "valentineDay")
-                                  ? Icon334Icon
-                                  : hasVariant($state, "icons", "exercise")
-                                    ? Icon333Icon
-                                    : hasVariant($state, "icons", "checkup")
-                                      ? Icon332Icon
+        hasVariant($state, "icons", "warning") &&
+        hasVariant($state, "mono", "mono")
+          ? Icon277Icon
+          : hasVariant($state, "_3D", "_3D") &&
+              hasVariant($state, "icons", "telegram")
+            ? Icon324Icon
+            : hasVariant($state, "_3D", "_3D") &&
+                hasVariant($state, "icons", "sms")
+              ? Sms5031768Svg2Icon
+              : hasVariant($state, "outline", "outline") &&
+                  hasVariant($state, "icons", "telegram")
+                ? Icon368Icon
+                : hasVariant($state, "outline", "outline") &&
+                    hasVariant($state, "icons", "sms")
+                  ? Icon369Icon
+                  : hasVariant($state, "_3D", "_3D") &&
+                      hasVariant($state, "icons", "notification")
+                    ? Icon323Icon
+                    : hasVariant($state, "mono", "mono") &&
+                        hasVariant($state, "icons", "notification")
+                      ? Icon354Icon
+                      : hasVariant($state, "icons", "warning")
+                        ? Icon374Icon
+                        : hasVariant($state, "icons", "telegram")
+                          ? Icon363Icon
+                          : hasVariant($state, "icons", "notif")
+                            ? Icon354Icon
+                            : hasVariant($state, "icons", "sms")
+                              ? Icon362Icon
+                              : hasVariant($state, "icons", "mensDay")
+                                ? Icon352Icon
+                                : hasVariant($state, "icons", "waterTime")
+                                  ? Icon338Icon
+                                  : hasVariant($state, "icons", "water")
+                                    ? Icon338Icon
+                                    : hasVariant(
+                                          $state,
+                                          "icons",
+                                          "sepandarmazgan"
+                                        )
+                                      ? Icon334Icon
                                       : hasVariant(
                                             $state,
                                             "icons",
-                                            "medicineTime"
+                                            "mothersDay"
                                           )
-                                        ? Icon331Icon
+                                        ? Icon336Icon
                                         : hasVariant(
                                               $state,
                                               "icons",
-                                              "childBirthday"
+                                              "womensDay"
                                             )
-                                          ? Icon329Icon
+                                          ? Icon335Icon
                                           : hasVariant(
                                                 $state,
                                                 "icons",
-                                                "fatherBirthday"
+                                                "valentineDay"
                                               )
-                                            ? Icon329Icon
+                                            ? Icon334Icon
                                             : hasVariant(
                                                   $state,
                                                   "icons",
-                                                  "motherBirthday"
+                                                  "exercise"
                                                 )
-                                              ? Icon329Icon
+                                              ? Icon333Icon
                                               : hasVariant(
                                                     $state,
                                                     "icons",
-                                                    "spouseBirthday"
+                                                    "checkup"
                                                   )
-                                                ? Icon329Icon
+                                                ? Icon332Icon
                                                 : hasVariant(
                                                       $state,
                                                       "icons",
-                                                      "relationshipAnniversary"
+                                                      "medicineTime"
                                                     )
-                                                  ? Icon288Icon
+                                                  ? Icon331Icon
                                                   : hasVariant(
                                                         $state,
                                                         "icons",
-                                                        "weddingAnniversary"
+                                                        "childBirthday"
                                                       )
-                                                    ? Icon328Icon
+                                                    ? Icon329Icon
                                                     : hasVariant(
                                                           $state,
                                                           "icons",
-                                                          "routineSkin"
+                                                          "fatherBirthday"
                                                         )
-                                                      ? Icon309Icon
+                                                      ? Icon329Icon
                                                       : hasVariant(
                                                             $state,
                                                             "icons",
-                                                            "drinkWater"
+                                                            "motherBirthday"
                                                           )
-                                                        ? Icon308Icon
+                                                        ? Icon329Icon
                                                         : hasVariant(
                                                               $state,
                                                               "icons",
-                                                              "charts"
+                                                              "spouseBirthday"
                                                             )
-                                                          ? Icon303Icon
+                                                          ? Icon329Icon
                                                           : hasVariant(
                                                                 $state,
                                                                 "icons",
-                                                                "notification"
-                                                              ) &&
-                                                              hasVariant(
-                                                                globalVariants,
-                                                                "screen",
-                                                                "mobile"
+                                                                "relationshipAnniversary"
                                                               )
-                                                            ? BellIcon
+                                                            ? Icon288Icon
                                                             : hasVariant(
                                                                   $state,
                                                                   "icons",
-                                                                  "notification"
+                                                                  "weddingAnniversary"
                                                                 )
-                                                              ? BellIcon
+                                                              ? Icon328Icon
                                                               : hasVariant(
                                                                     $state,
                                                                     "icons",
-                                                                    "alert"
+                                                                    "routineSkin"
                                                                   )
-                                                                ? Icon277Icon
+                                                                ? Icon309Icon
                                                                 : hasVariant(
                                                                       $state,
                                                                       "icons",
-                                                                      "love"
+                                                                      "drinkWater"
                                                                     )
-                                                                  ? Icon275Icon
+                                                                  ? Icon308Icon
                                                                   : hasVariant(
                                                                         $state,
                                                                         "icons",
-                                                                        "birthday"
+                                                                        "charts"
                                                                       )
-                                                                    ? Icon274Icon
+                                                                    ? Icon303Icon
                                                                     : hasVariant(
                                                                           $state,
                                                                           "icons",
-                                                                          "occasion"
+                                                                          "notification"
+                                                                        ) &&
+                                                                        hasVariant(
+                                                                          globalVariants,
+                                                                          "screen",
+                                                                          "mobile"
                                                                         )
-                                                                      ? Icon273Icon
+                                                                      ? BellIcon
                                                                       : hasVariant(
                                                                             $state,
                                                                             "icons",
-                                                                            "settings"
+                                                                            "notification"
                                                                           )
-                                                                        ? Icon270Icon
+                                                                        ? BellIcon
                                                                         : hasVariant(
                                                                               $state,
                                                                               "icons",
-                                                                              "message"
+                                                                              "alert"
                                                                             )
-                                                                          ? Icon269Icon
+                                                                          ? Icon277Icon
                                                                           : hasVariant(
                                                                                 $state,
                                                                                 "icons",
-                                                                                "users"
+                                                                                "love"
                                                                               )
-                                                                            ? Icon268Icon
+                                                                            ? Icon275Icon
                                                                             : hasVariant(
                                                                                   $state,
                                                                                   "icons",
-                                                                                  "chartbar"
+                                                                                  "birthday"
                                                                                 )
-                                                                              ? Icon266Icon
+                                                                              ? Icon274Icon
                                                                               : hasVariant(
                                                                                     $state,
                                                                                     "icons",
-                                                                                    "questioncircle"
+                                                                                    "occasion"
                                                                                   )
-                                                                                ? Icon265Icon
+                                                                                ? Icon273Icon
                                                                                 : hasVariant(
                                                                                       $state,
                                                                                       "icons",
-                                                                                      "barChart"
+                                                                                      "settings"
                                                                                     )
-                                                                                  ? Icon264Icon
+                                                                                  ? Icon270Icon
                                                                                   : hasVariant(
                                                                                         $state,
                                                                                         "icons",
-                                                                                        "speedometer"
+                                                                                        "message"
                                                                                       )
-                                                                                    ? Icon334Icon
+                                                                                    ? Icon269Icon
                                                                                     : hasVariant(
                                                                                           $state,
                                                                                           "icons",
-                                                                                          "history"
+                                                                                          "users"
                                                                                         )
-                                                                                      ? Icon262Icon
+                                                                                      ? Icon268Icon
                                                                                       : hasVariant(
                                                                                             $state,
                                                                                             "icons",
-                                                                                            "chart"
+                                                                                            "chartbar"
                                                                                           )
-                                                                                        ? Icon261Icon
+                                                                                        ? Icon266Icon
                                                                                         : hasVariant(
                                                                                               $state,
                                                                                               "icons",
-                                                                                              "target"
+                                                                                              "questioncircle"
                                                                                             )
-                                                                                          ? Icon260Icon
-                                                                                          : StickynoteIcon
+                                                                                          ? Icon265Icon
+                                                                                          : hasVariant(
+                                                                                                $state,
+                                                                                                "icons",
+                                                                                                "barChart"
+                                                                                              )
+                                                                                            ? Icon264Icon
+                                                                                            : hasVariant(
+                                                                                                  $state,
+                                                                                                  "icons",
+                                                                                                  "speedometer"
+                                                                                                )
+                                                                                              ? Icon334Icon
+                                                                                              : hasVariant(
+                                                                                                    $state,
+                                                                                                    "icons",
+                                                                                                    "history"
+                                                                                                  )
+                                                                                                ? Icon262Icon
+                                                                                                : hasVariant(
+                                                                                                      $state,
+                                                                                                      "icons",
+                                                                                                      "chart"
+                                                                                                    )
+                                                                                                  ? Icon261Icon
+                                                                                                  : hasVariant(
+                                                                                                        $state,
+                                                                                                        "icons",
+                                                                                                        "target"
+                                                                                                      )
+                                                                                                    ? Icon260Icon
+                                                                                                    : StickynoteIcon
       }
       className={classNames(
         projectcss.all,
@@ -572,6 +627,10 @@ function PlasmicMenuIcon__RenderFunc(props: {
         styleTokensClassNames,
         sty.root,
         {
+          [sty.root_3D]: hasVariant($state, "_3D", "_3D"),
+          [sty.root_3D_icons_telegram]:
+            hasVariant($state, "_3D", "_3D") &&
+            hasVariant($state, "icons", "telegram"),
           [sty.rootcolor_blue]: hasVariant($state, "color", "blue"),
           [sty.rootcolor_fuchsia]: hasVariant($state, "color", "fuchsia"),
           [sty.rootcolor_green]: hasVariant($state, "color", "green"),
@@ -620,6 +679,9 @@ function PlasmicMenuIcon__RenderFunc(props: {
             "icons",
             "notification"
           ),
+          [sty.rooticons_notification__3D]:
+            hasVariant($state, "_3D", "_3D") &&
+            hasVariant($state, "icons", "notification"),
           [sty.rooticons_notification_mono]:
             hasVariant($state, "mono", "mono") &&
             hasVariant($state, "icons", "notification"),
@@ -646,6 +708,9 @@ function PlasmicMenuIcon__RenderFunc(props: {
           ),
           [sty.rooticons_settings]: hasVariant($state, "icons", "settings"),
           [sty.rooticons_sms]: hasVariant($state, "icons", "sms"),
+          [sty.rooticons_sms__3D]:
+            hasVariant($state, "_3D", "_3D") &&
+            hasVariant($state, "icons", "sms"),
           [sty.rooticons_sms_outline]:
             hasVariant($state, "outline", "outline") &&
             hasVariant($state, "icons", "sms"),
@@ -667,6 +732,10 @@ function PlasmicMenuIcon__RenderFunc(props: {
             "icons",
             "valentineDay"
           ),
+          [sty.rooticons_warning]: hasVariant($state, "icons", "warning"),
+          [sty.rooticons_warning_mono]:
+            hasVariant($state, "icons", "warning") &&
+            hasVariant($state, "mono", "mono"),
           [sty.rooticons_waterTime]: hasVariant($state, "icons", "waterTime"),
           [sty.rooticons_water]: hasVariant($state, "icons", "water"),
           [sty.rooticons_weddingAnniversary]: hasVariant(
@@ -681,6 +750,7 @@ function PlasmicMenuIcon__RenderFunc(props: {
             hasVariant($state, "outline", "outline") &&
             hasVariant($state, "icons", "telegram"),
           [sty.rootselect]: hasVariant($state, "select", "select"),
+          [sty.rootsize__12]: hasVariant($state, "size", "_12"),
           [sty.rootsize__25]: hasVariant($state, "size", "_25")
         }
       )}

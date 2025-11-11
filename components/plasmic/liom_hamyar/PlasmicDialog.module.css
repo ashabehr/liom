@@ -81,6 +81,7 @@
   max-height: 100vh;
   background: var(--token-R_Rsn0nP9oIv);
   border-radius: 0px;
+  padding: 0px;
 }
 .dialogTitle:global(.__wab_instance) {
   max-width: 100%;

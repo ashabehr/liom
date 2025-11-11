@@ -6829,6 +6829,29 @@ function PlasmicHamyar__RenderFunc(props: {
                 $state,
                 ["reminder2", "reminderSettingReminderCategory2Data"]
               )}
+              setNumber={async () => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return ($state.mainHamyar.hamyar2MobileDialogOpen = true);
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }}
               setting={async () => {
                 const $steps = {};
 
@@ -7952,12 +7975,10 @@ function PlasmicHamyar__RenderFunc(props: {
                       const actionArgs = {
                         customFunction: async () => {
                           return (() => {
-                            if ($state.remind.length > 0)
-                              return window.localStorage.setItem(
-                                "reminder",
-                                "true"
-                              );
-                            else if (!window.localStorage.getItem("reminder"))
+                            if (
+                              $state.remind.length == 0 &&
+                              !window.localStorage.getItem("reminder")
+                            )
                               return window.localStorage.setItem(
                                 "reminder",
                                 "false"

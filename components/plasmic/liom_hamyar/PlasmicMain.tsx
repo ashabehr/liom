@@ -1129,6 +1129,12 @@ function PlasmicMain__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => -6556565565
+      },
+      {
+        path: "mainPage.mobileDialogOpen",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1238,10 +1244,28 @@ function PlasmicMain__RenderFunc(props: {
                   $steps["updateCycle"] = await $steps["updateCycle"];
                 }
               }}
+              mobileDialogOpen={generateStateValueProp($state, [
+                "mainPage",
+                "mobileDialogOpen"
+              ])}
               onEditTimeChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "mainPage",
                   "editTime"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onMobileDialogOpenChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "mainPage",
+                  "mobileDialogOpen"
                 ]).apply(null, eventArgs);
 
                 if (
@@ -3557,6 +3581,29 @@ function PlasmicMain__RenderFunc(props: {
                 "reminderSetting",
                 "reminderCategory2Data"
               ])}
+              setMobile={async () => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return ($state.mainPage.mobileDialogOpen = true);
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }}
               sms={generateStateValueProp($state, ["reminderSetting", "sms"])}
               tel={generateStateValueProp($state, ["reminderSetting", "tel"])}
               telegramId={(() => {

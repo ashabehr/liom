@@ -66,6 +66,7 @@ import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/compo
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
+import SquareBox from "../../SquareBox"; // plasmic-import: 7Z6GzZI75_6F/component
 import MenuIcon from "../../MenuIcon"; // plasmic-import: JBF-V8Q5mpWl/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import ReminderSetting from "../../ReminderSetting"; // plasmic-import: VZcPBQBUFNbT/component
@@ -130,6 +131,7 @@ export type PlasmicReminder__ArgsType = {
   onReminderSettingReminderCategory2DataChange?: (val: any) => void;
   active?: boolean;
   onActiveChange?: (val: string) => void;
+  setNumber?: () => void;
 };
 type ArgPropType = keyof PlasmicReminder__ArgsType;
 export const PlasmicReminder__ArgProps = new Array<ArgPropType>(
@@ -155,7 +157,8 @@ export const PlasmicReminder__ArgProps = new Array<ArgPropType>(
   "reminderSettingReminderCategory2Data",
   "onReminderSettingReminderCategory2DataChange",
   "active",
-  "onActiveChange"
+  "onActiveChange",
+  "setNumber"
 );
 
 export type PlasmicReminder__OverridesType = {
@@ -170,6 +173,8 @@ export type PlasmicReminder__OverridesType = {
   button4?: Flex__<typeof Button>;
   headerLiom?: Flex__<typeof HeaderLiom>;
   button2?: Flex__<typeof Button>;
+  alertTelegram?: Flex__<typeof SquareBox>;
+  alertSms?: Flex__<typeof SquareBox>;
   todayMeeting2?: Flex__<"div">;
   frame22?: Flex__<"div">;
   frame23?: Flex__<"div">;
@@ -217,6 +222,7 @@ export interface DefaultReminderProps {
   onReminderSettingReminderCategory2DataChange?: (val: any) => void;
   active?: boolean;
   onActiveChange?: (val: string) => void;
+  setNumber?: () => void;
   slide3?: SingleBooleanChoiceArg<"slide3">;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
   className?: string;
@@ -900,6 +906,30 @@ function PlasmicReminder__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "alertTelegram.show",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "alertTelegram.name",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "telegramAlert"
+      },
+      {
+        path: "alertSms.show",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "alertSms.name",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "smsAlert"
       }
     ],
     [$props, $ctx, $refs]
@@ -942,7 +972,10 @@ function PlasmicReminder__RenderFunc(props: {
           ? (() => {
               const actionArgs = {
                 customFunction: async () => {
-                  return (() => {})();
+                  return (() => {
+                    if (window.localStorage.getItem("reminder") == "false")
+                      return ($state.slide3 = true);
+                  })();
                 }
               };
               return (({ customFunction }) => {
@@ -956,6 +989,44 @@ function PlasmicReminder__RenderFunc(props: {
           typeof $steps["runCode"].then === "function"
         ) {
           $steps["runCode"] = await $steps["runCode"];
+        }
+
+        $steps["runCode2"] = true
+          ? (() => {
+              const actionArgs = {
+                customFunction: async () => {
+                  return (() => {
+                    let hasTelegram = false,
+                      hasSms = false;
+                    $props.data.forEach(i => {
+                      let c = [];
+                      try {
+                        c = JSON.parse(i.chanels || "[]");
+                      } catch {}
+                      if (c.includes("telegram")) hasTelegram = true;
+                      if (c.includes("sms")) hasSms = true;
+                    });
+                    if (
+                      hasTelegram &&
+                      ($props.telegramId == "" || $props.telegramId == null)
+                    )
+                      $state.alertTelegram.show = true;
+                    if (hasSms && ($props.phone == "" || $props.phone == null))
+                      return ($state.alertSms.show = true);
+                  })();
+                }
+              };
+              return (({ customFunction }) => {
+                return customFunction();
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["runCode2"] != null &&
+          typeof $steps["runCode2"] === "object" &&
+          typeof $steps["runCode2"].then === "function"
+        ) {
+          $steps["runCode2"] = await $steps["runCode2"];
         }
       }}
     >
@@ -1953,6 +2024,161 @@ function PlasmicReminder__RenderFunc(props: {
           [sty.freeBoxslide3__xMddUWyFt]: hasVariant($state, "slide3", "slide3")
         })}
       >
+        <div className={classNames(projectcss.all, sty.freeBox__sSYaM)}>
+          <SquareBox
+            data-plasmic-name={"alertTelegram"}
+            data-plasmic-override={overrides.alertTelegram}
+            btnText={"\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc"}
+            className={classNames("__wab_instance", sty.alertTelegram)}
+            name={generateStateValueProp($state, ["alertTelegram", "name"])}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          return window.open(
+                            `https://t.me/liomApp_bot`,
+                            "_blank"
+                          );
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
+            onNameChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "alertTelegram",
+                "name"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onShowChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "alertTelegram",
+                "show"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            show={generateStateValueProp($state, ["alertTelegram", "show"])}
+            text={(() => {
+              try {
+                return `<p>⚠️ شما روش ارسال <strong>یادآوری تلگرام</strong> را انتخاب کرده‌اید اما ربات را فعال نکرده‌اید.</p>`;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+          />
+
+          <SquareBox
+            data-plasmic-name={"alertSms"}
+            data-plasmic-override={overrides.alertSms}
+            btnText={
+              "\u0627\u0641\u0632\u0648\u062f\u0646 \u0634\u0645\u0627\u0631\u0647"
+            }
+            className={classNames("__wab_instance", sty.alertSms)}
+            name={generateStateValueProp($state, ["alertSms", "name"])}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["runSetNumber"] = true
+                ? (() => {
+                    const actionArgs = { eventRef: $props["setNumber"] };
+                    return (({ eventRef, args }) => {
+                      return eventRef?.(...(args ?? []));
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runSetNumber"] != null &&
+                typeof $steps["runSetNumber"] === "object" &&
+                typeof $steps["runSetNumber"].then === "function"
+              ) {
+                $steps["runSetNumber"] = await $steps["runSetNumber"];
+              }
+            }}
+            onNameChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["alertSms", "name"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onShowChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["alertSms", "show"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+
+              (async val => {
+                const $steps = {};
+              }).apply(null, eventArgs);
+            }}
+            show={generateStateValueProp($state, ["alertSms", "show"])}
+            text={(() => {
+              try {
+                return `<p>⚠️ شما روش ارسال <strong>یادآوری پیامکی</strong> را انتخاب کرده‌اید اما شماره شما ثبت نشده است.</p>
+`;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+          />
+        </div>
         {(() => {
           try {
             return (() => {
@@ -3925,97 +4151,115 @@ function PlasmicReminder__RenderFunc(props: {
           })}
         >
           <div className={classNames(projectcss.all, sty.freeBox__xFtDc)}>
-            <Button
-              data-plasmic-name={"button"}
-              data-plasmic-override={overrides.button}
-              className={classNames("__wab_instance", sty.button, {
-                [sty.buttonslide3]: hasVariant($state, "slide3", "slide3")
-              })}
-              color={generateStateValueProp($state, ["button", "color"])}
-              load={generateStateValueProp($state, ["button", "load"])}
-              loading={generateStateValueProp($state, ["button", "loading"])}
-              onClick={async event => {
-                const $steps = {};
+            {(
+              hasVariant($state, "slide3", "slide3")
+                ? (() => {
+                    try {
+                      return $props.data.length > 0;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })()
+                : true
+            ) ? (
+              <Button
+                data-plasmic-name={"button"}
+                data-plasmic-override={overrides.button}
+                className={classNames("__wab_instance", sty.button, {
+                  [sty.buttonslide3]: hasVariant($state, "slide3", "slide3")
+                })}
+                color={generateStateValueProp($state, ["button", "color"])}
+                load={generateStateValueProp($state, ["button", "load"])}
+                loading={generateStateValueProp($state, ["button", "loading"])}
+                onClick={async event => {
+                  const $steps = {};
 
-                $steps["runCode"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            window.localStorage.setItem("reminder", "true");
-                            return ($state.slide3 = false);
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
-                ) {
-                  $steps["runCode"] = await $steps["runCode"];
-                }
-              }}
-              onColorChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button", "color"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              window.localStorage.setItem("reminder", "true");
+                              return ($state.slide3 = false);
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
 
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              onLoadChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button", "load"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
 
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              onLoadingChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button", "loading"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "loading"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
 
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__zbXcn
-                )}
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
               >
-                {"\u062a\u0627\u06cc\u06cc\u062f"}
-              </div>
-            </Button>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__zbXcn
+                  )}
+                >
+                  {"\u062a\u0627\u06cc\u06cc\u062f"}
+                </div>
+              </Button>
+            ) : null}
           </div>
         </section>
       ) : null}
@@ -4085,15 +4329,49 @@ function PlasmicReminder__RenderFunc(props: {
               ? (() => {
                   try {
                     return (() => {
-                      const merged = $state.ofline.map(i => {
-                        const found = $props.data.find(a =>
-                          i.text !== "occasion"
-                            ? a.text === i.text
-                            : a.name === i.name
+                      const result =
+                        $state.reminderSetting.reminderCategory2Data.type
+                          .filter(i => i.category_name !== "")
+                          .flatMap(i =>
+                            i.items.map(a => ({
+                              liomId: $props.manId,
+                              telegramId: $props.telegramId,
+                              phoneNumber: $props.phone,
+                              name: a.type_fa,
+                              text: a.text || a.type,
+                              schedule_type: a.schedule_type,
+                              type: a.type,
+                              dates: a.date ? JSON.stringify([a.date]) : "[]",
+                              channels: JSON.stringify(["notification"]),
+                              times: "[]",
+                              weekdays:
+                                a.schedule_type === "everyDay"
+                                  ? JSON.stringify([
+                                      "saturday",
+                                      "sunday",
+                                      "monday",
+                                      "tuesday",
+                                      "wednesday",
+                                      "thursday",
+                                      "friday"
+                                    ])
+                                  : null,
+                              active: 0,
+                              add: true
+                            }))
+                          );
+                      const updatedResult = result.map(item => {
+                        const match = $props.data.find(
+                          d => d.type === item.type
                         );
-                        return found ? found : i;
+                        return match
+                          ? {
+                              ...item,
+                              ...match
+                            }
+                          : item;
                       });
-                      return merged;
+                      return updatedResult;
                     })();
                   } catch (e) {
                     if (
@@ -4630,6 +4908,25 @@ function PlasmicReminder__RenderFunc(props: {
             "reminderSetting",
             "reminderCategory2Data"
           ])}
+          setMobile={async () => {
+            const $steps = {};
+
+            $steps["runSetNumber"] = true
+              ? (() => {
+                  const actionArgs = { eventRef: $props["setNumber"] };
+                  return (({ eventRef, args }) => {
+                    return eventRef?.(...(args ?? []));
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runSetNumber"] != null &&
+              typeof $steps["runSetNumber"] === "object" &&
+              typeof $steps["runSetNumber"].then === "function"
+            ) {
+              $steps["runSetNumber"] = await $steps["runSetNumber"];
+            }
+          }}
           shop={async () => {
             const $steps = {};
 
@@ -4712,7 +5009,9 @@ function PlasmicReminder__RenderFunc(props: {
       <CreaditButten
         data-plasmic-name={"creaditButten"}
         data-plasmic-override={overrides.creaditButten}
-        className={classNames("__wab_instance", sty.creaditButten)}
+        className={classNames("__wab_instance", sty.creaditButten, {
+          [sty.creaditButtenslide3]: hasVariant($state, "slide3", "slide3")
+        })}
         creadit={generateStateValueProp($state, ["creaditButten", "creadit"])}
         onClick={async event => {
           const $steps = {};
@@ -4860,6 +5159,8 @@ const PlasmicDescendants = {
     "button4",
     "headerLiom",
     "button2",
+    "alertTelegram",
+    "alertSms",
     "todayMeeting2",
     "frame22",
     "frame23",
@@ -4892,6 +5193,8 @@ const PlasmicDescendants = {
   button4: ["button4"],
   headerLiom: ["headerLiom", "button2"],
   button2: ["button2"],
+  alertTelegram: ["alertTelegram"],
+  alertSms: ["alertSms"],
   todayMeeting2: [
     "todayMeeting2",
     "frame22",
@@ -4936,6 +5239,8 @@ type NodeDefaultElementType = {
   button4: typeof Button;
   headerLiom: typeof HeaderLiom;
   button2: typeof Button;
+  alertTelegram: typeof SquareBox;
+  alertSms: typeof SquareBox;
   todayMeeting2: "div";
   frame22: "div";
   frame23: "div";
@@ -5031,6 +5336,8 @@ export const PlasmicReminder = Object.assign(
     button4: makeNodeComponent("button4"),
     headerLiom: makeNodeComponent("headerLiom"),
     button2: makeNodeComponent("button2"),
+    alertTelegram: makeNodeComponent("alertTelegram"),
+    alertSms: makeNodeComponent("alertSms"),
     todayMeeting2: makeNodeComponent("todayMeeting2"),
     frame22: makeNodeComponent("frame22"),
     frame23: makeNodeComponent("frame23"),
