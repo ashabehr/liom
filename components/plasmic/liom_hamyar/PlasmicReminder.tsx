@@ -923,7 +923,7 @@ function PlasmicReminder__RenderFunc(props: {
         path: "alertSms.show",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "alertSms.name",
@@ -1014,7 +1014,7 @@ function PlasmicReminder__RenderFunc(props: {
                     else $state.alertTelegram.show = false;
                     if (hasSms && ($props.phone == "" || $props.phone == null))
                       return ($state.alertSms.show = true);
-                    else return ($state.alertTelegram.show = false);
+                    else return ($state.alertSms.show = false);
                   })();
                 }
               };
