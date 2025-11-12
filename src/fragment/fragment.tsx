@@ -396,40 +396,61 @@ export const Fragment = ({
                 break;
             }
 
-            default:
+            default: {
               if (action.startsWith("#newCustomSubscriptionV3")) {
                 const a = action.split("#newCustomSubscriptionV3-");
                 let order = a[1];
-                  let link = `https://apps.liom.app/custom-shop/?token=${token}&order=${order}`;
-                  sendMessage("خرید سفارشی",link,inWebViow);
-              }            
-            if (action.startsWith("#inAppWebView")) {
-              const link = action.split("**@@**");
-              let url = new URL(link[2]);
+                let link = `https://apps.liom.app/custom-shop/?token=${token}&order=${order}`;
+                sendMessage("خرید سفارشی", link, inWebViow);
+              } else if (action.startsWith("#inAppWebView")) {
+                const link = action.split("**@@**");
+                let url = new URL(link[2]);
                 let param = new URLSearchParams(url.search);
                 const queryString = buildQueryString(params);
-                let urlLink="";
+                let urlLink = "";
                 if (param.has("inApp")) {
                   param.set("inApp", inApp);
                   url.search = param.toString();
                   urlLink = url.toString();
                 } else {
-                  // 👇 اگر inApp وجود نداشت، خودش رو اضافه کن
+                  // ✅ اگر inApp نبود، خودش رو اضافه کن
                   param.append("inApp", inApp);
                   url.search = param.toString();
                   urlLink = url.toString();
                 }
-                sendMessage(link[1], urlLink+`&${queryString}` ,inWebViow);
-            }
-              else {
+                sendMessage(link[1], urlLink + `&${queryString}`, inWebViow);
+              } else {
+                // ⚙️ اگر هیچ caseی نخورده بود
                 if (
                   typeof window !== "undefined" &&
                   window.FlutterChannel &&
                   typeof window.FlutterChannel.postMessage === "function"
                 ) {
                   window.FlutterChannel.postMessage(action);
+                } else {
+                  // 🚨 اینجا می‌فرستیم به سرور لاگ خطا
+                  try {
+                    fetch("https://n7n.staas.ir/webhook/error/log", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({
+                        msg: "Unknown deepLink action",
+                        action,
+                        token,
+                        userId,
+                        inApp,
+                        theme,
+                        params,
+                        timestamp: new Date().toISOString(),
+                      }),
+                    });
+                  } catch (error) {
+                    console.error("Error reporting unknown action:", error);
+                  }
                 }
               }
+            }
+
           }
       }
     }),
