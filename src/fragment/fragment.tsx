@@ -410,9 +410,14 @@ export const Fragment = ({
                 const queryString = buildQueryString(params);
                 let urlLink="";
                 if (param.has("inApp")) {
-                    param.set("inApp",inApp );
-                    url.search = param.toString();
-                    urlLink = url.toString();
+                  param.set("inApp", inApp);
+                  url.search = param.toString();
+                  urlLink = url.toString();
+                } else {
+                  // 👇 اگر inApp وجود نداشت، خودش رو اضافه کن
+                  param.append("inApp", inApp);
+                  url.search = param.toString();
+                  urlLink = url.toString();
                 }
                 sendMessage(link[1], urlLink+`&${queryString}` ,inWebViow);
             }
