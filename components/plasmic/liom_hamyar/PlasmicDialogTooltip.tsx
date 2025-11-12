@@ -90,17 +90,17 @@ export const PlasmicDialogTooltip__VariantProps = new Array<VariantPropType>(
 );
 
 export type PlasmicDialogTooltip__ArgsType = {
-  children?: React.ReactNode;
   opendialog?: boolean;
   onOpendialogChange?: (val: string) => void;
   data?: any;
+  token?: string;
 };
 type ArgPropType = keyof PlasmicDialogTooltip__ArgsType;
 export const PlasmicDialogTooltip__ArgProps = new Array<ArgPropType>(
-  "children",
   "opendialog",
   "onOpendialogChange",
-  "data"
+  "data",
+  "token"
 );
 
 export type PlasmicDialogTooltip__OverridesType = {
@@ -108,15 +108,14 @@ export type PlasmicDialogTooltip__OverridesType = {
   button3?: Flex__<typeof Button>;
   dialogContent?: Flex__<typeof DialogContent>;
   dialogTitle?: Flex__<typeof DialogTitle>;
-  text?: Flex__<"div">;
   dialogClose?: Flex__<typeof DialogClose>;
 };
 
 export interface DefaultDialogTooltipProps {
-  children?: React.ReactNode;
   opendialog?: boolean;
   onOpendialogChange?: (val: string) => void;
   data?: any;
+  token?: string;
   fullpage?: SingleBooleanChoiceArg<"fullpage">;
   className?: string;
 }
@@ -198,6 +197,8 @@ function PlasmicDialogTooltip__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
 
   const currentUser = useCurrentUser?.() || {};
 
@@ -453,21 +454,338 @@ function PlasmicDialogTooltip__RenderFunc(props: {
           className={classNames("__wab_instance", sty.dialogTitle)}
         >
           <div
-            data-plasmic-name={"text"}
-            data-plasmic-override={overrides.text}
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text
+              sty.text__woh4D
             )}
           >
             {"Sheet title"}
           </div>
         </DialogTitle>
-        {renderPlasmicSlot({
-          defaultContents: null,
-          value: args.children
-        })}
+        <div
+          className={classNames(projectcss.all, sty.freeBox__a5Xp6)}
+          style={(() => {
+            try {
+              return {
+                background: $props.data.result.dialogs[0].backgroundColor
+              };
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+        >
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__nMyeR
+            )}
+            style={(() => {
+              try {
+                return { color: $props.data.result.dialogs[0].titleColor };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $props.data.result.dialogs[0].title;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text___0LcNi
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $props.data.result.dialogs[0].text;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </div>
+          <div className={classNames(projectcss.all, sty.freeBox__rw4L9)}>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__juwHw)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["invokeGlobalAction"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://n8n.staas.ir/webhook/tools/selfCare/linkV3",
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                authorization: $props.token,
+                                type: $props.data.result.dialogs[0].acceptAction
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+                if (
+                  $steps["invokeGlobalAction"] != null &&
+                  typeof $steps["invokeGlobalAction"] === "object" &&
+                  typeof $steps["invokeGlobalAction"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction"] =
+                    await $steps["invokeGlobalAction"];
+                }
+
+                $steps["invokeGlobalAction2"] = $steps.invokeGlobalAction?.data
+                  ?.result?.link
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          (() => {
+                            try {
+                              return $steps.invokeGlobalAction?.data?.result
+                                ?.link;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })(),
+                          (() => {
+                            try {
+                              return $props.token;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.deepLink"]?.apply(null, [
+                        ...actionArgs.args
+                      ]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["invokeGlobalAction2"] != null &&
+                  typeof $steps["invokeGlobalAction2"] === "object" &&
+                  typeof $steps["invokeGlobalAction2"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction2"] =
+                    await $steps["invokeGlobalAction2"];
+                }
+              }}
+              style={(() => {
+                try {
+                  return {
+                    background: $props.data.result.dialogs[0].btnColor
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__xdOf
+                )}
+                style={(() => {
+                  try {
+                    return {
+                      color: $props.data.result.dialogs[0].acceptTextColor
+                    };
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $props.data.result.dialogs[0].btnText;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+            </div>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__z84Qi)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["updateDialog3Open"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["dialog3", "open"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateDialog3Open"] != null &&
+                  typeof $steps["updateDialog3Open"] === "object" &&
+                  typeof $steps["updateDialog3Open"].then === "function"
+                ) {
+                  $steps["updateDialog3Open"] =
+                    await $steps["updateDialog3Open"];
+                }
+              }}
+              style={(() => {
+                try {
+                  return {
+                    background: $props.data.result.dialogs[0].backgroundColor
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__ycUFb
+                )}
+                style={(() => {
+                  try {
+                    return {
+                      color: $props.data.result.dialogs[0].rejectTextColor
+                    };
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $props.data.result.dialogs[0].rejectText;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+            </div>
+          </div>
+        </div>
         <DialogClose
           data-plasmic-name={"dialogClose"}
           data-plasmic-override={overrides.dialogClose}
@@ -489,13 +807,11 @@ const PlasmicDescendants = {
     "button3",
     "dialogContent",
     "dialogTitle",
-    "text",
     "dialogClose"
   ],
   button3: ["button3"],
-  dialogContent: ["dialogContent", "dialogTitle", "text", "dialogClose"],
-  dialogTitle: ["dialogTitle", "text"],
-  text: ["text"],
+  dialogContent: ["dialogContent", "dialogTitle", "dialogClose"],
+  dialogTitle: ["dialogTitle"],
   dialogClose: ["dialogClose"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -506,7 +822,6 @@ type NodeDefaultElementType = {
   button3: typeof Button;
   dialogContent: typeof DialogContent;
   dialogTitle: typeof DialogTitle;
-  text: "div";
   dialogClose: typeof DialogClose;
 };
 
@@ -575,7 +890,6 @@ export const PlasmicDialogTooltip = Object.assign(
     button3: makeNodeComponent("button3"),
     dialogContent: makeNodeComponent("dialogContent"),
     dialogTitle: makeNodeComponent("dialogTitle"),
-    text: makeNodeComponent("text"),
     dialogClose: makeNodeComponent("dialogClose"),
 
     // Metadata about props expected for PlasmicDialogTooltip
