@@ -258,7 +258,7 @@ export const Fragment = ({
               window.FlutterChannel.postMessage(action);}
               break;
             }
-            case "#hamyarInfo": case "#carePartner":  {
+            case "#hamyarInfo": case "#carePartner"  case "#carePartner-1":  {
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage(action);}
               else {    
