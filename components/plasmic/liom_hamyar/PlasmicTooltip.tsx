@@ -344,7 +344,13 @@ function PlasmicTooltip__RenderFunc(props: {
           {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
             (() => {
               try {
-                return JSON.parse($props.data.buttons);
+                return (() => {
+                  try {
+                    return JSON.parse($props.data.buttons);
+                  } catch {
+                    return [];
+                  }
+                })();
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -424,7 +430,19 @@ function PlasmicTooltip__RenderFunc(props: {
                                 throw e;
                               }
                             })(),
-                            undefined,
+                            (() => {
+                              try {
+                                return $props.token;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })(),
                             (() => {
                               try {
                                 return $props.token;
