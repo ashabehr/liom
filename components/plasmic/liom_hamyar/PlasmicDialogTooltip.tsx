@@ -633,6 +633,41 @@ function PlasmicDialogTooltip__RenderFunc(props: {
                   $steps["invokeGlobalAction2"] =
                     await $steps["invokeGlobalAction2"];
                 }
+
+                $steps["updateDialog3Open"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["dialog3", "open"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateDialog3Open"] != null &&
+                  typeof $steps["updateDialog3Open"] === "object" &&
+                  typeof $steps["updateDialog3Open"].then === "function"
+                ) {
+                  $steps["updateDialog3Open"] =
+                    await $steps["updateDialog3Open"];
+                }
               }}
               style={(() => {
                 try {

@@ -133,8 +133,8 @@ export type PlasmicMainPage__OverridesType = {
   reminderApi?: Flex__<typeof ApiRequest>;
   apiRequest?: Flex__<typeof ApiRequest>;
   mobileDialog?: Flex__<typeof MobileDialog>;
-  dialog?: Flex__<typeof ApiRequest>;
   dialogTooltip?: Flex__<typeof DialogTooltip>;
+  dialog?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultMainPageProps {
@@ -423,24 +423,13 @@ function PlasmicMainPage__RenderFunc(props: {
         path: "dialogTooltip.opendialog",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (
-                $state.dialog.data?.result?.dialogs?.length > 0 &&
-                $state.userInfo?.result?.user?.id ==
-                  "5916daaf-e7b3-44e9-85bd-5d5dfe00e2db"
-              );
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "dialogTooltip2",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1574,9 +1563,95 @@ function PlasmicMainPage__RenderFunc(props: {
         })()}
       />
 
+      <DialogTooltip
+        data-plasmic-name={"dialogTooltip"}
+        data-plasmic-override={overrides.dialogTooltip}
+        className={classNames("__wab_instance", sty.dialogTooltip)}
+        data={(() => {
+          try {
+            return $state.dialog?.data;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return {
+                success: true,
+                result: {
+                  dialogs: [
+                    {
+                      acceptTextColor: "#6e015c",
+                      rejectTextColor: "#999999",
+                      acceptText:
+                        "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u062f\u0648\u0628\u0627\u0631\u0647",
+                      acceptAction: "#customSubscription-husband_sms",
+                      type: "native",
+                      title:
+                        "\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0628\u0647 \u0647\u0645\u0633\u0631\u062a \u0645\u062a\u0648\u0642\u0641 \u0634\u062f\u0647",
+                      isActive: false,
+                      titleColor: "#C2185B",
+                      isSpecial: false,
+                      id: "1500e79b-c504-43bd-b406-029e0a33b879",
+                      text: "\u0627\u0634\u062a\u0631\u0627\u06a9 \u067e\u06cc\u0627\u0645\u06a9\u200c\u0647\u0627\u06cc \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0628\u0647 \u0647\u0645\u0633\u0631\u062a \u062a\u0645\u0648\u0645 \u0634\u062f\u0647. \u0628\u0631\u0627\u06cc \u0627\u062f\u0627\u0645\u0647 \u062d\u0645\u0627\u06cc\u062a\u060c \u062a\u0645\u062f\u06cc\u062f \u06a9\u0646.",
+                      image: "",
+                      backgroundColor: "#FFF3F8",
+                      btnText:
+                        "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u062f\u0648\u0628\u0627\u0631\u0647",
+                      custom: true,
+                      active: false,
+                      rejectText: "\u0641\u0639\u0644\u0627 \u0646\u0647",
+                      textColor: "#333333",
+                      target: "husband-sms-after-end-subscription",
+                      badge: "",
+                      healthStatus: "period",
+                      background: "#FFF3F8",
+                      subName: "",
+                      btnColor: "#FF4081"
+                    }
+                  ]
+                }
+              };
+            }
+            throw e;
+          }
+        })()}
+        onOpendialogChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, [
+            "dialogTooltip",
+            "opendialog"
+          ]).apply(null, eventArgs);
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        opendialog={generateStateValueProp($state, [
+          "dialogTooltip",
+          "opendialog"
+        ])}
+        token={(() => {
+          try {
+            return $state.token;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
+      />
+
       <ApiRequest
         data-plasmic-name={"dialog"}
         data-plasmic-override={overrides.dialog}
+        children={null}
         className={classNames("__wab_instance", sty.dialog)}
         config={(() => {
           try {
@@ -1595,28 +1670,8 @@ function PlasmicMainPage__RenderFunc(props: {
             throw e;
           }
         })()}
-        errorDisplay={
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__opfhe
-            )}
-          >
-            {"Error fetching data"}
-          </div>
-        }
-        loadingDisplay={
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__wLKk1
-            )}
-          >
-            {"Loading..."}
-          </div>
-        }
+        errorDisplay={null}
+        loadingDisplay={null}
         method={"GET"}
         onError={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, ["dialog", "error"]).apply(
@@ -1635,10 +1690,53 @@ function PlasmicMainPage__RenderFunc(props: {
             null,
             eventArgs
           );
+
+          (async data => {
+            const $steps = {};
+
+            $steps["runCode"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return ($state.dialogTooltip.opendialog =
+                        $state.dialog.data.result.dialogs.length > 0
+                          ? true
+                          : false &&
+                            window.localStorage.getItem("test") == true);
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
+            }
+          }).apply(null, eventArgs);
         }}
+        params={(() => {
+          try {
+            return {
+              footer: $state.page
+            };
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
         shouldFetch={(() => {
           try {
-            return undefined;
+            return $state.token != "";
           } catch (e) {
             if (
               e instanceof TypeError ||
@@ -1650,92 +1748,7 @@ function PlasmicMainPage__RenderFunc(props: {
           }
         })()}
         url={"https://n8n.staas.ir/webhook/user/onConnect"}
-      >
-        <DialogTooltip
-          data-plasmic-name={"dialogTooltip"}
-          data-plasmic-override={overrides.dialogTooltip}
-          className={classNames("__wab_instance", sty.dialogTooltip)}
-          data={(() => {
-            try {
-              return $state.dialog?.data;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return {
-                  success: true,
-                  result: {
-                    dialogs: [
-                      {
-                        acceptTextColor: "#6e015c",
-                        rejectTextColor: "#999999",
-                        acceptText:
-                          "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u062f\u0648\u0628\u0627\u0631\u0647",
-                        acceptAction: "#customSubscription-husband_sms",
-                        type: "native",
-                        title:
-                          "\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0628\u0647 \u0647\u0645\u0633\u0631\u062a \u0645\u062a\u0648\u0642\u0641 \u0634\u062f\u0647",
-                        isActive: false,
-                        titleColor: "#C2185B",
-                        isSpecial: false,
-                        id: "1500e79b-c504-43bd-b406-029e0a33b879",
-                        text: "\u0627\u0634\u062a\u0631\u0627\u06a9 \u067e\u06cc\u0627\u0645\u06a9\u200c\u0647\u0627\u06cc \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0628\u0647 \u0647\u0645\u0633\u0631\u062a \u062a\u0645\u0648\u0645 \u0634\u062f\u0647. \u0628\u0631\u0627\u06cc \u0627\u062f\u0627\u0645\u0647 \u062d\u0645\u0627\u06cc\u062a\u060c \u062a\u0645\u062f\u06cc\u062f \u06a9\u0646.",
-                        image: "",
-                        backgroundColor: "#FFF3F8",
-                        btnText:
-                          "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u062f\u0648\u0628\u0627\u0631\u0647",
-                        custom: true,
-                        active: false,
-                        rejectText: "\u0641\u0639\u0644\u0627 \u0646\u0647",
-                        textColor: "#333333",
-                        target: "husband-sms-after-end-subscription",
-                        badge: "",
-                        healthStatus: "period",
-                        background: "#FFF3F8",
-                        subName: "",
-                        btnColor: "#FF4081"
-                      }
-                    ]
-                  }
-                };
-              }
-              throw e;
-            }
-          })()}
-          onOpendialogChange={async (...eventArgs: any) => {
-            generateStateOnChangeProp($state, [
-              "dialogTooltip",
-              "opendialog"
-            ]).apply(null, eventArgs);
-
-            if (
-              eventArgs.length > 1 &&
-              eventArgs[1] &&
-              eventArgs[1]._plasmic_state_init_
-            ) {
-              return;
-            }
-          }}
-          opendialog={generateStateValueProp($state, [
-            "dialogTooltip",
-            "opendialog"
-          ])}
-          token={(() => {
-            try {
-              return $state.token;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()}
-        />
-      </ApiRequest>
+      />
     </div>
   ) as React.ReactElement | null;
 }
@@ -1749,8 +1762,8 @@ const PlasmicDescendants = {
     "reminderApi",
     "apiRequest",
     "mobileDialog",
-    "dialog",
-    "dialogTooltip"
+    "dialogTooltip",
+    "dialog"
   ],
   calendar2: ["calendar2"],
   reminder: ["reminder"],
@@ -1758,8 +1771,8 @@ const PlasmicDescendants = {
   reminderApi: ["reminderApi"],
   apiRequest: ["apiRequest"],
   mobileDialog: ["mobileDialog"],
-  dialog: ["dialog", "dialogTooltip"],
-  dialogTooltip: ["dialogTooltip"]
+  dialogTooltip: ["dialogTooltip"],
+  dialog: ["dialog"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1772,8 +1785,8 @@ type NodeDefaultElementType = {
   reminderApi: typeof ApiRequest;
   apiRequest: typeof ApiRequest;
   mobileDialog: typeof MobileDialog;
-  dialog: typeof ApiRequest;
   dialogTooltip: typeof DialogTooltip;
+  dialog: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1844,8 +1857,8 @@ export const PlasmicMainPage = Object.assign(
     reminderApi: makeNodeComponent("reminderApi"),
     apiRequest: makeNodeComponent("apiRequest"),
     mobileDialog: makeNodeComponent("mobileDialog"),
-    dialog: makeNodeComponent("dialog"),
     dialogTooltip: makeNodeComponent("dialogTooltip"),
+    dialog: makeNodeComponent("dialog"),
 
     // Metadata about props expected for PlasmicMainPage
     internalVariantProps: PlasmicMainPage__VariantProps,
