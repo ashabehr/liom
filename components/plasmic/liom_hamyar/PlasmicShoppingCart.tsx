@@ -1418,47 +1418,31 @@ function PlasmicShoppingCart__RenderFunc(props: {
                           await $steps["invokeGlobalAction"];
                       }
 
-                      $steps["goToPage"] =
+                      $steps["runCode"] =
                         $steps.invokeGlobalAction?.data?.success == true &&
                         $steps.invokeGlobalAction?.data?.result != false
                           ? (() => {
                               const actionArgs = {
-                                destination: (() => {
-                                  try {
-                                    return $steps.invokeGlobalAction.data
-                                      .result;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              };
-                              return (({ destination }) => {
-                                if (
-                                  typeof destination === "string" &&
-                                  destination.startsWith("#")
-                                ) {
-                                  document
-                                    .getElementById(destination.substr(1))
-                                    .scrollIntoView({ behavior: "smooth" });
-                                } else {
-                                  __nextRouter?.push(destination);
+                                customFunction: async () => {
+                                  return (() => {
+                                    return window.open(
+                                      $steps.invokeGlobalAction.data.result,
+                                      "_blank"
+                                    );
+                                  })();
                                 }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
                               })?.apply(null, [actionArgs]);
                             })()
                           : undefined;
                       if (
-                        $steps["goToPage"] != null &&
-                        typeof $steps["goToPage"] === "object" &&
-                        typeof $steps["goToPage"].then === "function"
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
                       ) {
-                        $steps["goToPage"] = await $steps["goToPage"];
+                        $steps["runCode"] = await $steps["runCode"];
                       }
 
                       $steps["invokeGlobalAction2"] =

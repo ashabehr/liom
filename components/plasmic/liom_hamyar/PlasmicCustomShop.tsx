@@ -1404,7 +1404,14 @@ function PlasmicCustomShop__RenderFunc(props: {
                             <div
                               className={classNames(
                                 projectcss.all,
-                                sty.freeBox__vDwhH
+                                sty.freeBox__vDwhH,
+                                {
+                                  [sty.freeBoxsubitem__vDwhHxaiuG]: hasVariant(
+                                    $state,
+                                    "subitem",
+                                    "subitem"
+                                  )
+                                }
                               )}
                             >
                               {(() => {
@@ -1571,7 +1578,13 @@ function PlasmicCustomShop__RenderFunc(props: {
                                         ? (() => {
                                             const actionArgs = {
                                               customFunction: async () => {
-                                                return undefined;
+                                                return (() => {
+                                                  return window.open(
+                                                    $steps.invokeGlobalAction
+                                                      .data.result,
+                                                    "_blank"
+                                                  );
+                                                })();
                                               }
                                             };
                                             return (({ customFunction }) => {
@@ -3190,7 +3203,14 @@ function PlasmicCustomShop__RenderFunc(props: {
                         data-plasmic-override={overrides.radioGroupLiom}
                         className={classNames(
                           "__wab_instance",
-                          sty.radioGroupLiom
+                          sty.radioGroupLiom,
+                          {
+                            [sty.radioGroupLiomsubitem]: hasVariant(
+                              $state,
+                              "subitem",
+                              "subitem"
+                            )
+                          }
                         )}
                         click={async () => {
                           const $steps = {};
