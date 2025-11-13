@@ -2758,6 +2758,40 @@ function PlasmicCalendar2__RenderFunc(props: {
             $steps["updateSing"] = await $steps["updateSing"];
           }
 
+          $steps["tooltip"] = true
+            ? (() => {
+                const actionArgs = {
+                  customFunction: async () => {
+                    return (() => {
+                      if (
+                        $state.userInfo?.data?.tooltip?.Condition &&
+                        $state.tooltip
+                      ) {
+                        const tool = localStorage.getItem("tooltip");
+                        if (
+                          String($state.userInfo.data.tooltip.Condition) !==
+                          tool
+                        ) {
+                          localStorage.removeItem("tooltip");
+                          return ($state.tooltip.show = true);
+                        }
+                      }
+                    })();
+                  }
+                };
+                return (({ customFunction }) => {
+                  return customFunction();
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["tooltip"] != null &&
+            typeof $steps["tooltip"] === "object" &&
+            typeof $steps["tooltip"].then === "function"
+          ) {
+            $steps["tooltip"] = await $steps["tooltip"];
+          }
+
           $steps["statusDay"] = $steps.userinfo?.data?.result?.user?.id
             ? (() => {
                 const actionArgs = {
@@ -3178,32 +3212,6 @@ function PlasmicCalendar2__RenderFunc(props: {
             typeof $steps["invokeGlobalAction"].then === "function"
           ) {
             $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
-          }
-
-          $steps["tooltip"] = true
-            ? (() => {
-                const actionArgs = {
-                  customFunction: async () => {
-                    return (() => {
-                      var tool = window.localStorage.getItem("tooltip");
-                      if ($state.userInfo?.data?.tooltip?.Condition != tool) {
-                        window.localStorage.removeItem("tooltip");
-                        return ($state.tooltip.show = true);
-                      }
-                    })();
-                  }
-                };
-                return (({ customFunction }) => {
-                  return customFunction();
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["tooltip"] != null &&
-            typeof $steps["tooltip"] === "object" &&
-            typeof $steps["tooltip"].then === "function"
-          ) {
-            $steps["tooltip"] = await $steps["tooltip"];
           }
         }}
       />
