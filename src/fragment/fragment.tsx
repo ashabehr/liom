@@ -435,7 +435,7 @@ const [resolveDialog, setResolveDialog] = useState<((val: string | null) => void
                 let type = a[1];
                     actions.showDirectDialog({
                         type: type, // یا هر type که میخوای
-                        token token,
+                        token: token,
                         desc: "برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.",
                         redirectUrl: "/install", // در صورت نیاز
                       });
