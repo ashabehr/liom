@@ -71,8 +71,7 @@ const [resolveDialog, setResolveDialog] = useState<((val: string | null) => void
             setDirectDialogProps(props);
             setResolveDialog(() => resolve);
             setDirectDialogOpen(true);
-          });
-
+          }),
         showToast: (
           type: "success" | "error" | "custom",
           message: string,
