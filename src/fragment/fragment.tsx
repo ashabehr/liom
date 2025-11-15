@@ -519,10 +519,9 @@ const [resolveDialog, setResolveDialog] = useState<((val: string | null) => void
           desc={directDialogProps.desc}
           redirectUrl={directDialogProps.redirectUrl}
           open={directDialogOpen}
-          onOpenChange={(val: boolean) => {
+          onOpenChange={(val) => {
             if (!val) handleDirectDialogClose();
           }}
-
         />
 
         <Toaster
