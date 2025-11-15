@@ -71,6 +71,9 @@
 .sectionhaader > * {
   grid-column: 4;
 }
+.sectionhaader_page_bot > * {
+  grid-column: 4;
+}
 .freeBox___350JY {
   display: flex;
   flex-direction: column;

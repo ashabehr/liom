@@ -2772,8 +2772,8 @@ function PlasmicHamyar__RenderFunc(props: {
                     );
                     const inAppFromUrl = urlParams.get("inApp");
                     return inAppFromUrl !== null
-                      ? inAppFromUrl == "true"
-                      : localStorage.getItem("inApp") == "true";
+                      ? inAppFromUrl != "true"
+                      : localStorage.getItem("inApp") != "true";
                   })();
                 } catch (e) {
                   if (

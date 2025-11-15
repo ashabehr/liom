@@ -469,7 +469,10 @@ function PlasmicMainHamyar__RenderFunc(props: {
               const urlParams = new window.URLSearchParams(
                 window.location.search
               );
-              return urlParams.get("inApp") == "true" ? true : false;
+              const inAppFromUrl = urlParams.get("inApp");
+              return inAppFromUrl !== null
+                ? inAppFromUrl == "true"
+                : localStorage.getItem("inApp") == "true";
             })();
           } catch (e) {
             if (
@@ -684,6 +687,9 @@ function PlasmicMainHamyar__RenderFunc(props: {
         data-plasmic-override={overrides.section}
         className={classNames(projectcss.all, sty.section, {
           [sty.sectionhaader]: hasVariant($state, "haader", "haader"),
+          [sty.sectionhaader_page_bot]:
+            hasVariant($state, "haader", "haader") &&
+            hasVariant($state, "page", "bot"),
           [sty.sectionpage_bot]: hasVariant($state, "page", "bot")
         })}
       >
@@ -716,6 +722,9 @@ function PlasmicMainHamyar__RenderFunc(props: {
             data-plasmic-override={overrides.iframe}
             className={classNames("__wab_instance", sty.iframe, {
               [sty.iframehaader]: hasVariant($state, "haader", "haader"),
+              [sty.iframehaader_page_bot]:
+                hasVariant($state, "haader", "haader") &&
+                hasVariant($state, "page", "bot"),
               [sty.iframepage_bot]: hasVariant($state, "page", "bot"),
               [sty.iframepage_hamyar]: hasVariant($state, "page", "hamyar")
             })}
@@ -823,6 +832,17 @@ function PlasmicMainHamyar__RenderFunc(props: {
           }
         })()}
         className={classNames("__wab_instance", sty.reminder, {
+          [sty.reminderhaader]: hasVariant($state, "haader", "haader"),
+          [sty.reminderhaader_page_bot]:
+            hasVariant($state, "haader", "haader") &&
+            hasVariant($state, "page", "bot"),
+          [sty.reminderhaader_page_hamyar]:
+            hasVariant($state, "page", "hamyar") &&
+            hasVariant($state, "haader", "haader"),
+          [sty.reminderhaader_page_self]:
+            hasVariant($state, "haader", "haader") &&
+            hasVariant($state, "page", "self"),
+          [sty.reminderpage_hamyar]: hasVariant($state, "page", "hamyar"),
           [sty.reminderpage_reminder]: hasVariant($state, "page", "reminder")
         })}
         data={(() => {
