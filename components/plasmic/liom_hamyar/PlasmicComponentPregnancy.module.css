@@ -1355,19 +1355,23 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
-  min-width: 0;
-  padding: 8px;
+  background: var(--token-qvl81LxkOSoe);
+  border-radius: 16px;
+  padding: 4px 8px;
 }
 .text___38WiB {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
+  text-align: center;
+  color: var(--token-R_Rsn0nP9oIv);
+  font-size: 12px;
   min-width: 0;
 }
 .img___5C4Fb {
