@@ -329,7 +329,7 @@ function PlasmicCustomShop__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return window.document.referrer;
+              return "https://apps.liom.app/main/";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1570,36 +1570,57 @@ function PlasmicCustomShop__RenderFunc(props: {
                                         await $steps["invokeGlobalAction"];
                                     }
 
-                                    $steps["runCode"] =
+                                    $steps["goToPage"] =
                                       $steps.invokeGlobalAction?.data
                                         ?.success == true &&
                                       $steps.invokeGlobalAction?.data?.result !=
                                         false
                                         ? (() => {
                                             const actionArgs = {
-                                              customFunction: async () => {
-                                                return (() => {
-                                                  return window.open(
-                                                    $steps.invokeGlobalAction
-                                                      .data.result,
-                                                    "_blank"
-                                                  );
-                                                })();
-                                              }
+                                              destination: (() => {
+                                                try {
+                                                  return $steps
+                                                    ?.invokeGlobalAction?.data
+                                                    ?.result;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()
                                             };
-                                            return (({ customFunction }) => {
-                                              return customFunction();
+                                            return (({ destination }) => {
+                                              if (
+                                                typeof destination ===
+                                                  "string" &&
+                                                destination.startsWith("#")
+                                              ) {
+                                                document
+                                                  .getElementById(
+                                                    destination.substr(1)
+                                                  )
+                                                  .scrollIntoView({
+                                                    behavior: "smooth"
+                                                  });
+                                              } else {
+                                                __nextRouter?.push(destination);
+                                              }
                                             })?.apply(null, [actionArgs]);
                                           })()
                                         : undefined;
                                     if (
-                                      $steps["runCode"] != null &&
-                                      typeof $steps["runCode"] === "object" &&
-                                      typeof $steps["runCode"].then ===
+                                      $steps["goToPage"] != null &&
+                                      typeof $steps["goToPage"] === "object" &&
+                                      typeof $steps["goToPage"].then ===
                                         "function"
                                     ) {
-                                      $steps["runCode"] =
-                                        await $steps["runCode"];
+                                      $steps["goToPage"] =
+                                        await $steps["goToPage"];
                                     }
 
                                     $steps["invokeGlobalAction2"] =

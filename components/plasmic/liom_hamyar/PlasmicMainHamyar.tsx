@@ -437,6 +437,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
         styleTokensClassNames,
         sty.root,
         {
+          [sty.roothaader]: hasVariant($state, "haader", "haader"),
           [sty.roothaader_page_self]:
             hasVariant($state, "haader", "haader") &&
             hasVariant($state, "page", "self"),

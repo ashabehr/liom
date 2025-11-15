@@ -2770,7 +2770,10 @@ function PlasmicHamyar__RenderFunc(props: {
                     const urlParams = new window.URLSearchParams(
                       window.location.search
                     );
-                    return urlParams.get("inApp") == "true" ? true : false;
+                    const inAppFromUrl = urlParams.get("inApp");
+                    return inAppFromUrl !== null
+                      ? inAppFromUrl != "true"
+                      : localStorage.getItem("inApp") != "true";
                   })();
                 } catch (e) {
                   if (
