@@ -16,6 +16,9 @@ import {
 import axios from "axios";
 import moment from "jalali-moment";
 
+import DirectDialog from "../../components/DirectDialog2"; // مسیر رو با مسیر واقعی خودت تنظیم کن
+
+
 type FragmentProps = React.PropsWithChildren<{
   previewApiConfig: Record<string, any>;
   apiConfig: Record<string, any>;
@@ -33,6 +36,24 @@ export const Fragment = ({
   useEffect(() => {
     changeTheme(primaryColor);
   }, [primaryColor]);
+  // کنترل باز/بسته بودن دیالوگ
+const [directDialogOpen, setDirectDialogOpen] = useState(false);
+
+// نگهداری props داینامیک
+const [directDialogProps, setDirectDialogProps] = useState<{
+  type?: string;
+  token?: string;
+  desc?: string;
+  redirectUrl?: string;
+}>({});
+
+  const handleDirectDialogClose = () => {
+  setDirectDialogOpen(false);
+  if (resolveDialog) resolveDialog(null); // resolve کردن promise وقتی دیالوگ بسته شد
+};
+
+// نگهداری resolve برای Promise
+const [resolveDialog, setResolveDialog] = useState<((val: string | null) => void) | null>(null);
 
   const changeTheme = (color: string) => {
     document.documentElement.style.setProperty("--primary", color);
@@ -40,6 +61,18 @@ export const Fragment = ({
 
   const actions = useMemo(
     () => ({
+        showDirectDialog: async (props: {
+          type?: string;
+          token?: string;
+          desc?: string;
+          redirectUrl?: string;
+        }): Promise<string | null> => {
+          return new Promise<string | null>((resolve) => {
+            setDirectDialogProps(props);
+            setResolveDialog(() => resolve);
+            setDirectDialogOpen(true);
+          });
+
         showToast: (
           type: "success" | "error" | "custom",
           message: string,
@@ -397,7 +430,17 @@ export const Fragment = ({
             }
 
             default: {
-              if (action.startsWith("#newCustomSubscriptionV3")) {
+               if (action.startsWith("#directDialog")) {
+                const a = action.split("#directDialog-");
+                let type = a[1];
+                    actions.showDirectDialog({
+                        type: type, // یا هر type که میخوای
+                        token token,
+                        desc: "برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.",
+                        redirectUrl: "/install", // در صورت نیاز
+                      });
+               }
+              else if (action.startsWith("#newCustomSubscriptionV3")) {
                 const a = action.split("#newCustomSubscriptionV3-");
                 let order = a[1];
                 let link = `https://apps.liom.app/custom-shop/?token=${token}&order=${order}`;
@@ -470,6 +513,18 @@ export const Fragment = ({
         hidden
       >
         {children}
+        <DirectDialog
+          type={directDialogProps.type}
+          token={directDialogProps.token}
+          desc={directDialogProps.desc}
+          redirectUrl={directDialogProps.redirectUrl}
+          open={directDialogOpen}
+          onOpenChange={(val: boolean) => {
+            if (!val) handleDirectDialogClose();
+          }}
+
+        />
+
         <Toaster
           position="top-center"
           containerStyle={{
@@ -645,6 +700,16 @@ export const fragmentMeta: GlobalContextMeta<FragmentProps> = {
           }}
       ],
     },
+    showDirectDialog: {
+      displayName: "Show Direct Dialog",
+      parameters: [
+        { name: "type", type: { type: "string" } },
+        { name: "token", type: { type: "string" } },
+        { name: "desc", type: { type: "string" } },
+        { name: "redirectUrl", type: { type: "string" } },
+      ],
+    },
+
     apiRequest: {
       displayName: "API Request",
       parameters: [
