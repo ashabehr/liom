@@ -329,7 +329,7 @@ function PlasmicCustomShop__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return "https://apps.liom.app/main/";
+              return `https://apps.liom.app/main/?token=${$state.token}`;
             } catch (e) {
               if (
                 e instanceof TypeError ||
