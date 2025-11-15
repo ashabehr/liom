@@ -8607,7 +8607,10 @@ function PlasmicHamyar2__RenderFunc(props: {
               >
                 {(() => {
                   try {
-                    return $state.userdata?.result?.rel.active == false;
+                    return (
+                      $state.userdata?.result?.rel?.active !== undefined &&
+                      $state.userdata.result.rel.active === false
+                    );
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -9568,7 +9571,11 @@ function PlasmicHamyar2__RenderFunc(props: {
             </div>
             {(() => {
               try {
-                return $state.userdata?.result?.man?.telegramId ? false : true;
+                return $state.userdata?.result?.rel !== undefined
+                  ? $state.userdata?.result?.man?.telegramId
+                    ? false
+                    : true
+                  : false;
               } catch (e) {
                 if (
                   e instanceof TypeError ||

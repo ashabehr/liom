@@ -62,6 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import MainHamyar from "../../MainHamyar"; // plasmic-import: dfIi25835BgX/component
 import FooterMain from "../../FooterMain"; // plasmic-import: ev8_tr4YKTDz/component
 import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/component
@@ -131,6 +132,7 @@ export const PlasmicHamyar__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHamyar__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   main?: Flex__<"div">;
   mainHamyar?: Flex__<typeof MainHamyar>;
   footerMain?: Flex__<typeof FooterMain>;
@@ -2646,6 +2648,43 @@ function PlasmicHamyar__RenderFunc(props: {
             const $steps = {};
           }}
         >
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const urlParams = new window.URLSearchParams(
+                            window.location.search
+                          );
+                          const inApp = urlParams.get("inApp");
+                          if (inApp === "true") {
+                            return localStorage.setItem("inApp", "true");
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
+          />
+
           <div
             data-plasmic-name={"main"}
             data-plasmic-override={overrides.main}
@@ -2998,11 +3037,7 @@ function PlasmicHamyar__RenderFunc(props: {
                       ? true
                       : (() => {
                           try {
-                            return !(
-                              window.FlutterChannel &&
-                              typeof window.FlutterChannel.postMessage ===
-                                "function"
-                            );
+                            return true;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -3117,7 +3152,10 @@ function PlasmicHamyar__RenderFunc(props: {
                   const urlParams = new window.URLSearchParams(
                     window.location.search
                   );
-                  return urlParams.get("inApp") == "true" ? false : true;
+                  const inAppFromUrl = urlParams.get("inApp");
+                  return inAppFromUrl !== null
+                    ? inAppFromUrl != "true"
+                    : localStorage.getItem("inApp") != "true";
                 })();
               } catch (e) {
                 if (
@@ -8104,6 +8142,7 @@ function PlasmicHamyar__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "sideEffect",
     "main",
     "mainHamyar",
     "footerMain",
@@ -8131,6 +8170,7 @@ const PlasmicDescendants = {
     "remember",
     "apiRequest"
   ],
+  sideEffect: ["sideEffect"],
   main: ["main", "mainHamyar", "footerMain", "mainHeader", "button"],
   mainHamyar: ["mainHamyar"],
   footerMain: ["footerMain"],
@@ -8184,6 +8224,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
   main: "div";
   mainHamyar: typeof MainHamyar;
   footerMain: typeof FooterMain;
@@ -8299,6 +8340,7 @@ export const PlasmicHamyar = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
     main: makeNodeComponent("main"),
     mainHamyar: makeNodeComponent("mainHamyar"),
     footerMain: makeNodeComponent("footerMain"),

@@ -1702,7 +1702,7 @@ function PlasmicMainPage__RenderFunc(props: {
                         $state.dialog.data.result.dialogs.length > 0
                           ? true
                           : false &&
-                            window.localStorage.getItem("test") == true);
+                            window.localStorage.getItem("test") == "true");
                     }
                   };
                   return (({ customFunction }) => {

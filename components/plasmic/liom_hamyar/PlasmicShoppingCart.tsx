@@ -1445,6 +1445,44 @@ function PlasmicShoppingCart__RenderFunc(props: {
                         $steps["runCode"] = await $steps["runCode"];
                       }
 
+                      $steps["updateName2"] = $steps?.invokeGlobalAction?.data
+                        ?.result
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "custom",
+                                (() => {
+                                  try {
+                                    return $steps.invokeGlobalAction.data
+                                      .result;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
+                                "top-center"
+                              ]
+                            };
+                            return $globalActions["Fragment.showToast"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateName2"] != null &&
+                        typeof $steps["updateName2"] === "object" &&
+                        typeof $steps["updateName2"].then === "function"
+                      ) {
+                        $steps["updateName2"] = await $steps["updateName2"];
+                      }
+
                       $steps["invokeGlobalAction2"] =
                         $steps.invokeGlobalAction?.data?.success == false ||
                         $steps.invokeGlobalAction?.data?.result == false
