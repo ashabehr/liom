@@ -2112,7 +2112,10 @@ function PlasmicCalendar2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return !window.localStorage.getItem("tooltip");
+              return (
+                !window.localStorage.getItem("tooltip") &&
+                $state.userInfo?.tooltip?.Condition != undefined
+              );
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -27836,7 +27839,11 @@ function PlasmicCalendar2__RenderFunc(props: {
                           initFunc: ({ $props, $state, $queries }) =>
                             (() => {
                               try {
-                                return !window.localStorage.getItem("tooltip");
+                                return (
+                                  !window.localStorage.getItem("tooltip") &&
+                                  $state.userInfo?.tooltip?.Condition !=
+                                    undefined
+                                );
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||

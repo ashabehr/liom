@@ -1445,8 +1445,19 @@ function PlasmicShoppingCart__RenderFunc(props: {
                         $steps["runCode"] = await $steps["runCode"];
                       }
 
-                      $steps["updateName2"] = $steps?.invokeGlobalAction?.data
-                        ?.result
+                      $steps["updateName2"] = (() => {
+                        let userId = null;
+                        try {
+                          const user = localStorage.getItem("userinfo");
+                          userId = JSON.parse(user)?.user?.id ?? null;
+                        } catch (e) {
+                          userId = null;
+                        }
+                        return (
+                          ($steps.invokeGlobalAction?.data?.result ?? false) &&
+                          userId === "1"
+                        );
+                      })()
                         ? (() => {
                             const actionArgs = {
                               args: [
