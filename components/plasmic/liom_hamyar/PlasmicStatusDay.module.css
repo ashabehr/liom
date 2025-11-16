@@ -821,6 +821,16 @@
     grid-column-end: -1 !important;
   }
 }
+.text__gmtcU {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: justify;
+  font-size: 17px;
+  font-weight: 400;
+  min-width: 0;
+}
 .selectionBox {
   display: flex;
   position: relative;

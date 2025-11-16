@@ -4118,11 +4118,11 @@ function PlasmicStatusDay__RenderFunc(props: {
           >
             {(() => {
               try {
-                return (
-                  new window.URLSearchParams(window.location.search).get(
-                    "inApp"
-                  ) != "true"
-                );
+                return $state.healthStatus == "pregnancy"
+                  ? false
+                  : new window.URLSearchParams(window.location.search).get(
+                      "inApp"
+                    ) != "true";
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -5014,11 +5014,13 @@ function PlasmicStatusDay__RenderFunc(props: {
                   try {
                     return {
                       "padding-top":
-                        new window.URLSearchParams(window.location.search).get(
-                          "inApp"
-                        ) == "true"
-                          ? "14px"
-                          : "0px"
+                        $state.healthStatus == "pregnancy"
+                          ? "100px"
+                          : new window.URLSearchParams(
+                                window.location.search
+                              ).get("inApp") == "true"
+                            ? "14px"
+                            : "0px"
                     };
                   } catch (e) {
                     if (
@@ -5031,6 +5033,46 @@ function PlasmicStatusDay__RenderFunc(props: {
                   }
                 })()}
               >
+                {(() => {
+                  try {
+                    return (
+                      $state.healthStatus == "pregnancy" &&
+                      $state.userId == "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__gmtcU
+                    )}
+                  >
+                    <React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ fontWeight: 500 }}
+                      >
+                        {
+                          "\u0628\u0627 \u0627\u06cc\u0646 \u0628\u0632\u0627\u0631 \u0645\u06cc\u062a\u0648\u0646\u06cc \u062d\u0633\u200c\u0648\u062d\u0627\u0644\u060c \u0639\u0644\u0627\u0626\u0645 \u0648 \u062d\u0627\u0644\u200c\u0648\u0647\u0648\u0627\u06cc \u0627\u0645\u0631\u0648\u0632\u062a \u0631\u0648 \u062b\u0628\u062a \u06a9\u0646\u06cc \u062a\u0627 \u0647\u0631 \u0631\u0648\u0632 \u06cc\u0647 \u062f\u06cc\u062f \u0628\u0647\u062a\u0631 \u0627\u0632 \u0631\u0648\u0646\u062f \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc.\n"
+                        }
+                      </span>
+                      <React.Fragment>
+                        {
+                          "\u0648\u0642\u062a\u06cc \u0639\u0644\u0627\u0626\u0645 \u0631\u0648\u0632\u0627\u0646\u0647\u200c\u062a \u0631\u0648 \u062b\u0628\u062a \u0645\u06cc\u200c\u06a9\u0646\u06cc\u060c \u0647\u0645 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a\u062a \u0628\u0647\u062a\u0631 \u062f\u06cc\u062f\u0647 \u0645\u06cc\u200c\u0634\u0646\u060c \u0647\u0645 \u0647\u06cc\u0686 \u062c\u0632\u0626\u06cc\u0627\u062a\u06cc \u0627\u0632 \u0642\u0644\u0645 \u0646\u0645\u06cc\u200c\u0627\u0641\u062a\u0647. \u0628\u0639\u062f\u0627\u064b \u0647\u0645 \u0627\u06af\u0647 \u062e\u0648\u0627\u0633\u062a\u06cc \u0628\u0647 \u062f\u06a9\u062a\u0631 \u0646\u0634\u0648\u0646 \u0628\u062f\u06cc\u060c \u06cc\u0647 \u06af\u0632\u0627\u0631\u0634 \u0645\u0631\u062a\u0628 \u0648 \u0642\u0627\u0628\u0644 \u0627\u0639\u062a\u0645\u0627\u062f \u062f\u0627\u0631\u06cc."
+                        }
+                      </React.Fragment>
+                    </React.Fragment>
+                  </div>
+                ) : null}
                 {(() => {
                   try {
                     return $state.healthStatus == "period";
