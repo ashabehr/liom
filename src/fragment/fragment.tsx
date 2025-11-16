@@ -52,7 +52,7 @@ export const Fragment = ({
       }): Promise<string | null> => {
         return new Promise((resolve) => {
           const dialog = (
-            <DirectDialog2
+            <DirectDialog
               type={props.type}
               token={props.token}
               desc={props.desc}
