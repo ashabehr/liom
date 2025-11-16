@@ -628,6 +628,9 @@ function PlasmicMenuIcon__RenderFunc(props: {
         sty.root,
         {
           [sty.root_3D]: hasVariant($state, "_3D", "_3D"),
+          [sty.root_3D_icons_message]:
+            hasVariant($state, "_3D", "_3D") &&
+            hasVariant($state, "icons", "message"),
           [sty.root_3D_icons_telegram]:
             hasVariant($state, "_3D", "_3D") &&
             hasVariant($state, "icons", "telegram"),
