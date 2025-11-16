@@ -10759,6 +10759,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                             textColor: "#000000",
                             type: "switch",
                             borderColor: "#000000",
+                            lock: false,
                             isChecked:
                               $state.userInfo?.[0]?.result?.hamyars[0].rel
                                 .statusSms
@@ -10786,6 +10787,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                             backColor: "#ffffff00",
                             textColor: "#000000",
                             type: "switch",
+                            lock: false,
                             isChecked:
                               $state.userInfo?.[0]?.result?.user
                                 .selfHamyarSms ||
@@ -10826,59 +10828,56 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                       onClickBtn1={async event => {
                         const $steps = {};
 
-                        $steps["goToPage"] = true
+                        $steps["invokeGlobalAction"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://n8n.staas.ir/webhook/tools/selfCare/linkV3",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        authorization: $state.token,
+                                        type: "care_partner"
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
+                        }
+
+                        $steps["goToPage"] = $steps.invokeGlobalAction?.data
+                          ?.result?.link
                           ? (() => {
                               const actionArgs = {
                                 args: [
                                   (() => {
                                     try {
-                                      return (() => {
-                                        const allowance =
-                                          $state.userInfo?.[0]?.result
-                                            ?.allowance || [];
-                                        var become_father = allowance.find(
-                                          item =>
-                                            item.type ==
-                                            "pregnancy_sub_become_father"
-                                        )
-                                          ? allowance.find(
-                                              item =>
-                                                item.type ==
-                                                "pregnancy_sub_become_father"
-                                            ).active
-                                          : false;
-                                        var baby_growth = allowance.find(
-                                          item =>
-                                            item.type ==
-                                            "pregnancy_sub_baby_growth"
-                                        )
-                                          ? allowance.find(
-                                              item =>
-                                                item.type ==
-                                                "pregnancy_sub_baby_growth"
-                                            ).active
-                                          : false;
-                                        var better_relation = allowance.find(
-                                          item =>
-                                            item.type ==
-                                            "pregnancy_sub_better_relation"
-                                        )
-                                          ? allowance.find(
-                                              item =>
-                                                item.type ==
-                                                "pregnancy_sub_better_relation"
-                                            ).active
-                                          : false;
-                                        var a =
-                                          become_father ||
-                                          baby_growth ||
-                                          better_relation
-                                            ? "#hamyarInfo"
-                                            : "#healthSubscription";
-                                        console.log(a);
-                                        console.log(allowance);
-                                        return a;
-                                      })();
+                                      return $steps.invokeGlobalAction?.data
+                                        ?.result?.link;
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -10967,6 +10966,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                         $steps["updateTypeBuy"] = (() => {
                           const allowance =
                             $state.userInfo?.[0]?.result?.allowance || [];
+                          console.log(allowance);
                           var become_father = allowance.find(
                             item => item.type == "pregnancy_sub_become_father"
                           )
@@ -12334,32 +12334,72 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                   }
                                 })()}
                               >
-                                <PlasmicImg__
-                                  alt={""}
-                                  className={classNames(sty.img__ajHB)}
-                                  displayHeight={"48px"}
-                                  displayMaxHeight={"none"}
-                                  displayMaxWidth={"100%"}
-                                  displayMinHeight={"0"}
-                                  displayMinWidth={"0"}
-                                  displayWidth={"48px"}
-                                  loading={"lazy"}
-                                  src={(() => {
-                                    try {
-                                      return currentItem.icon ?? "";
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
+                                {(() => {
+                                  try {
+                                    return currentItem.icon == "";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return false;
                                     }
-                                  })()}
-                                />
-
+                                    throw e;
+                                  }
+                                })() ? (
+                                  <LottieWrapper
+                                    animationData={(() => {
+                                      const fixedString =
+                                        currentItem.anim.replace(/'/g, '"');
+                                      return JSON.parse(fixedString);
+                                    })()}
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.lottie__zqtB5
+                                    )}
+                                  />
+                                ) : null}
+                                {(() => {
+                                  try {
+                                    return (currentItem.icon ?? "") != "";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return false;
+                                    }
+                                    throw e;
+                                  }
+                                })() ? (
+                                  <PlasmicImg__
+                                    alt={""}
+                                    className={classNames(sty.img__ajHB)}
+                                    displayHeight={"40px"}
+                                    displayMaxHeight={"none"}
+                                    displayMaxWidth={"100%"}
+                                    displayMinHeight={"0"}
+                                    displayMinWidth={"0"}
+                                    displayWidth={"40px"}
+                                    loading={"lazy"}
+                                    src={(() => {
+                                      try {
+                                        return currentItem.icon ?? "";
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  />
+                                ) : null}
                                 <div
                                   className={classNames(
                                     projectcss.all,
