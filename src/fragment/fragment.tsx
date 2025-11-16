@@ -427,18 +427,28 @@ export const Fragment = ({
 
             default: {
               if (action.startsWith("#directDialog")) {
-                                    toast.error("برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.", {
-                      duration: 3000,
-                      position: "top-right",
-                    });
-                const a = action.split("#directDialog-");
-                let type = a[1];
-                actions.showDirectDialog({
-                  type: type,
-                  token: token,
-                  desc: "برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.",
-                  redirectUrl: "/install",
+                toast.error("برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.", {
+                  duration: 3000,
+                  position: "top-right",
                 });
+              
+                if (!dynamicDialog) {  // فقط اگر دیالوگ باز نیست
+                  const a = action.split("#directDialog-");
+                  let type = a[1];
+              
+                  setDynamicDialog(
+                    <DirectDialog
+                      type={type}
+                      token={token}
+                      desc="برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید."
+                      redirectUrl="/install"
+                      open={true}
+                      onOpenChange={(open) => {
+                        if (!open) setDynamicDialog(null);
+                      }}
+                    />
+                  );
+                }
               }
               else if (action.startsWith("#newCustomSubscriptionV3")) {
                 const a = action.split("#newCustomSubscriptionV3-");
