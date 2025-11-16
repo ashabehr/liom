@@ -64,10 +64,6 @@ export const Fragment = ({
                   setDynamicDialog(null);
                 }
               }}
-              onConfirm={(val?: string) => {
-                resolve(val ?? "ok");
-                setDynamicDialog(null);
-              }}
             />
           );
           setDynamicDialog(dialog);
