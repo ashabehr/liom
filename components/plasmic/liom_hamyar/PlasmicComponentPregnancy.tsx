@@ -2503,8 +2503,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                         })
                           .then(response => response.json())
                           .then(data => {
-                            console.log("tools");
-                            $state.getTools = data;
+                            //  console.log("tools");
+                            // $state.getTools = data
                           })
                           .catch(error => console.error("Error-tools:", error));
                       }
@@ -12004,18 +12004,26 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                               onClick={async event => {
                                 const $steps = {};
 
-                                $steps["deepLink"] = (() => {
-                                  const allowance =
-                                    $state.userInfo?.[0]?.result?.allowance ||
-                                    [];
-                                  const filteredItem = allowance.find(item =>
-                                    item.type.includes(currentItem.shopType)
-                                  );
-                                  const active = filteredItem
-                                    ? filteredItem.active
-                                    : false;
-                                  return active || currentItem.shopType == "";
-                                })()
+                                $steps["invokeGlobalAction"] = true
+                                  ? (() => {
+                                      const actionArgs = { args: ["POST"] };
+                                      return $globalActions[
+                                        "Fragment.apiRequest"
+                                      ]?.apply(null, [...actionArgs.args]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["invokeGlobalAction"] != null &&
+                                  typeof $steps["invokeGlobalAction"] ===
+                                    "object" &&
+                                  typeof $steps["invokeGlobalAction"].then ===
+                                    "function"
+                                ) {
+                                  $steps["invokeGlobalAction"] =
+                                    await $steps["invokeGlobalAction"];
+                                }
+
+                                $steps["deepLink"] = false
                                   ? (() => {
                                       const actionArgs = {
                                         args: [
@@ -12123,7 +12131,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                   $steps["deepLink"] = await $steps["deepLink"];
                                 }
 
-                                $steps["runCode"] = true
+                                $steps["runCode"] = false
                                   ? (() => {
                                       const actionArgs = {
                                         customFunction: async () => {
@@ -12169,7 +12177,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                   $steps["runCode"] = await $steps["runCode"];
                                 }
 
-                                $steps["runCode2"] = true
+                                $steps["runCode2"] = false
                                   ? (() => {
                                       const actionArgs = {
                                         customFunction: async () => {

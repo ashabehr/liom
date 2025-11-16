@@ -212,7 +212,9 @@ function PlasmicTest__RenderFunc(props: {
 
               $steps["invokeGlobalAction2"] = true
                 ? (() => {
-                    const actionArgs = { args: ["special_advice", ``] };
+                    const actionArgs = {
+                      args: ["special_advice", "dsdsdsdsds"]
+                    };
                     return $globalActions["Fragment.showDirectDialog"]?.apply(
                       null,
                       [...actionArgs.args]
