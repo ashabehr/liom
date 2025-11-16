@@ -955,6 +955,16 @@
   border-radius: 8px;
   padding: 8px 16px;
 }
+.img__ajHB {
+  object-fit: cover;
+  max-width: 100%;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+.img__ajHB > picture > img {
+  object-fit: cover;
+}
 .text___0I14M {
   position: relative;
   width: auto;

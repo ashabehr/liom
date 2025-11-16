@@ -213,7 +213,7 @@ function PlasmicTest__RenderFunc(props: {
               $steps["invokeGlobalAction2"] = true
                 ? (() => {
                     const actionArgs = {
-                      args: ["#newCustomSubscriptionV3-ckhscdkjh"]
+                      args: ["#directDialog-special_advice", "dsdsdsdsdsd"]
                     };
                     return $globalActions["Fragment.deepLink"]?.apply(null, [
                       ...actionArgs.args

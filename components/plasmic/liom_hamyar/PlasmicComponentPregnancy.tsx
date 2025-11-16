@@ -12334,6 +12334,32 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                   }
                                 })()}
                               >
+                                <PlasmicImg__
+                                  alt={""}
+                                  className={classNames(sty.img__ajHB)}
+                                  displayHeight={"48px"}
+                                  displayMaxHeight={"none"}
+                                  displayMaxWidth={"100%"}
+                                  displayMinHeight={"0"}
+                                  displayMinWidth={"0"}
+                                  displayWidth={"48px"}
+                                  loading={"lazy"}
+                                  src={(() => {
+                                    try {
+                                      return currentItem.icon ?? "";
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                />
+
                                 <div
                                   className={classNames(
                                     projectcss.all,

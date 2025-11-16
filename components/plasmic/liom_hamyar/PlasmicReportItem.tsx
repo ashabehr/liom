@@ -59,7 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import MenuIcon from "../../MenuIcon"; // plasmic-import: JBF-V8Q5mpWl/component
+import _3DIcon from "../../_3DIcon"; // plasmic-import: kUkUBFksmGv2/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -102,7 +102,7 @@ export const PlasmicReportItem__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicReportItem__OverridesType = {
   root?: Flex__<"div">;
-  menuIcon?: Flex__<typeof MenuIcon>;
+  _3DIcon?: Flex__<typeof _3DIcon>;
   button4?: Flex__<typeof Button>;
   button3?: Flex__<typeof Button>;
 };
@@ -252,14 +252,11 @@ function PlasmicReportItem__RenderFunc(props: {
         >
           <div className={classNames(projectcss.all, sty.freeBox__tSh4J)}>
             <div className={classNames(projectcss.all, sty.freeBox__gRlB)}>
-              <MenuIcon
-                data-plasmic-name={"menuIcon"}
-                data-plasmic-override={overrides.menuIcon}
-                _3D={true}
-                className={classNames("__wab_instance", sty.menuIcon, {
-                  [sty.menuIconselect]: hasVariant($state, "select", "select")
-                })}
-                icons={(() => {
+              <_3DIcon
+                data-plasmic-name={"_3DIcon"}
+                data-plasmic-override={overrides._3DIcon}
+                className={classNames("__wab_instance", sty._3DIcon)}
+                icon={(() => {
                   try {
                     return $props.master.value;
                   } catch (e) {
@@ -272,9 +269,6 @@ function PlasmicReportItem__RenderFunc(props: {
                     throw e;
                   }
                 })()}
-                size={
-                  hasVariant(globalVariants, "screen", "mobile") ? "_25" : "_25"
-                }
               />
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__eXpcu)}>
@@ -620,8 +614,8 @@ function PlasmicReportItem__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "menuIcon", "button4", "button3"],
-  menuIcon: ["menuIcon"],
+  root: ["root", "_3DIcon", "button4", "button3"],
+  _3DIcon: ["_3DIcon"],
   button4: ["button4"],
   button3: ["button3"]
 } as const;
@@ -630,7 +624,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  menuIcon: typeof MenuIcon;
+  _3DIcon: typeof _3DIcon;
   button4: typeof Button;
   button3: typeof Button;
 };
@@ -697,7 +691,7 @@ export const PlasmicReportItem = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    menuIcon: makeNodeComponent("menuIcon"),
+    _3DIcon: makeNodeComponent("_3DIcon"),
     button4: makeNodeComponent("button4"),
     button3: makeNodeComponent("button3"),
 

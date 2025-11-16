@@ -85,18 +85,8 @@
     animation: none;
   }
 }
-.menuIcon:global(.__wab_instance) {
-  animation: none;
-  max-width: 100%;
-  flex-shrink: 0;
-}
-@media (max-width: 640px) {
-  .menuIcon:global(.__wab_instance) {
-    flex-shrink: 0;
-  }
-}
-.menuIconselect:global(.__wab_instance) {
-  flex-shrink: 0;
+._3DIcon:global(.__wab_instance) {
+  position: relative;
 }
 .freeBox__eXpcu {
   animation: none;

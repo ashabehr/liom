@@ -5040,6 +5040,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicDialogTooltip.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "kUkUBFksmGv2",
+          "name": "_3DIcon",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/Plasmic_3DIcon.tsx",
+          "importSpec": {
+            "modulePath": "_3DIcon.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/Plasmic_3DIcon.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -8289,6 +8302,21 @@
           "id": "AGdlSHFOxF5t",
           "name": "sms_5031768.svg 3",
           "filePath": "../public/plasmic/liom_hamyar/images/sms5031768Svg3.svg"
+        },
+        {
+          "id": "-CwlKKhLVArw",
+          "name": "image 123",
+          "filePath": "../public/plasmic/liom_hamyar/images/image123.svg"
+        },
+        {
+          "id": "YS4yJbeVEIG-",
+          "name": "image 124",
+          "filePath": "../public/plasmic/liom_hamyar/images/image124.png"
+        },
+        {
+          "id": "545Bj7Bzhm7O",
+          "name": "image 125",
+          "filePath": "../public/plasmic/liom_hamyar/images/image125.svg"
         }
       ],
       "indirect": false,

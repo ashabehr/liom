@@ -1,0 +1,66 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  min-width: 0;
+  padding: 0px;
+}
+.img__wgx6X {
+  object-fit: cover;
+  max-width: 100%;
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+}
+.img__wgx6X > picture > img {
+  object-fit: cover;
+}
+.imgicon_sms__wgx6X1Y0FX {
+  display: none;
+}
+.imgicon_telegram__wgx6XwnJRu {
+  display: none;
+}
+.img__cwXb8 {
+  object-fit: cover;
+  max-width: 100%;
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+}
+.img__cwXb8 > picture > img {
+  object-fit: cover;
+}
+.imgicon_sms__cwXb81Y0FX {
+  display: none;
+}
+.imgicon_telegram__cwXb8WnJRu {
+  display: block;
+}
+.imgicon_notification__cwXb896Mob {
+  display: none;
+}
+.img__isGdS {
+  object-fit: cover;
+  max-width: 100%;
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+}
+.img__isGdS > picture > img {
+  object-fit: cover;
+}
+.imgicon_sms__isGdS1Y0FX {
+  display: block;
+}
+.imgicon_telegram__isGdSwnJRu {
+  display: none;
+}
+.imgicon_notification__isGdS96Mob {
+  display: none;
+}
