@@ -433,7 +433,11 @@ const [resolveDialog, setResolveDialog] = useState<((val: string | null) => void
                if (action.startsWith("#directDialog")) {
                 const a = action.split("#directDialog-");
                 let type = a[1];
-                    showDirectDialog({
+                 console.log("📌 calling actions.showDirectDialog with:", {
+                    type,
+                    token,
+                  });
+                    actions.showDirectDialog({
                         type: type, // یا هر type که میخوای
                         token: token,
                         desc: "برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.",
