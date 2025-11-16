@@ -431,12 +431,12 @@ const [resolveDialog, setResolveDialog] = useState<((val: string | null) => void
 
             default: {
                if (action.startsWith("#directDialog")) {
+                                      toast.error(action, {
+                      duration: 3000,
+                      position: "top-right",
+                    });
                 const a = action.split("#directDialog-");
                 let type = a[1];
-                 console.log("📌 calling actions.showDirectDialog with:", {
-                    type,
-                    token,
-                  });
                     actions.showDirectDialog({
                         type: type, // یا هر type که میخوای
                         token: token,
