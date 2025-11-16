@@ -32,28 +32,11 @@ export const Fragment = ({
   apiConfig,
   rtl,
   primaryColor,
-}: FragmentProps) => {
+  }: FragmentProps) => {
   useEffect(() => {
     changeTheme(primaryColor);
   }, [primaryColor]);
-  // کنترل باز/بسته بودن دیالوگ
-const [directDialogOpen, setDirectDialogOpen] = useState(false);
-
-// نگهداری props داینامیک
-const [directDialogProps, setDirectDialogProps] = useState<{
-  type?: string;
-  token?: string;
-  desc?: string;
-  redirectUrl?: string;
-}>({});
-
-  const handleDirectDialogClose = () => {
-  setDirectDialogOpen(false);
-  if (resolveDialog) resolveDialog(null); // resolve کردن promise وقتی دیالوگ بسته شد
-};
-
-// نگهداری resolve برای Promise
-const [resolveDialog, setResolveDialog] = useState<((val: string | null) => void) | null>(null);
+  const [dynamicDialog, setDynamicDialog] = useState<JSX.Element | null>(null);
 
   const changeTheme = (color: string) => {
     document.documentElement.style.setProperty("--primary", color);
@@ -61,18 +44,35 @@ const [resolveDialog, setResolveDialog] = useState<((val: string | null) => void
 
   const actions = useMemo(
     () => ({
-        showDirectDialog: async (props: {
-          type?: string;
-          token?: string;
-          desc?: string;
-          redirectUrl?: string;
-        }): Promise<string | null> => {
-          return new Promise<string | null>((resolve) => {
-            setDirectDialogProps(props);
-            setResolveDialog(() => resolve);
-            setDirectDialogOpen(true);
-          }); // ← بدون ویرگول
-        },
+      showDirectDialog: async (props: {
+        type?: string;
+        token?: string;
+        desc?: string;
+        redirectUrl?: string;
+      }): Promise<string | null> => {
+        return new Promise((resolve) => {
+          const dialog = (
+            <DirectDialog2
+              type={props.type}
+              token={props.token}
+              desc={props.desc}
+              redirectUrl={props.redirectUrl}
+              open={true}
+              onOpenChange={(open) => {
+                if (!open) {
+                  resolve(null);
+                  setDynamicDialog(null);
+                }
+              }}
+              onConfirm={(val?: string) => {
+                resolve(val ?? "ok");
+                setDynamicDialog(null);
+              }}
+            />
+          );
+          setDynamicDialog(dialog);
+        });
+      },
         showToast: (
           type: "success" | "error" | "custom",
           message: string,
@@ -430,20 +430,20 @@ const [resolveDialog, setResolveDialog] = useState<((val: string | null) => void
             }
 
             default: {
-               if (action.startsWith("#directDialog")) {
-                                      toast.error(action, {
+              if (action.startsWith("#directDialog")) {
+                                    toast.error("برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.", {
                       duration: 3000,
                       position: "top-right",
                     });
                 const a = action.split("#directDialog-");
                 let type = a[1];
-                    actions.showDirectDialog({
-                        type: type, // یا هر type که میخوای
-                        token: token,
-                        desc: "برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.",
-                        redirectUrl: "/install", // در صورت نیاز
-                      });
-               }
+                actions.showDirectDialog({
+                  type: type,
+                  token: token,
+                  desc: "برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.",
+                  redirectUrl: "/install",
+                });
+              }
               else if (action.startsWith("#newCustomSubscriptionV3")) {
                 const a = action.split("#newCustomSubscriptionV3-");
                 let order = a[1];
@@ -517,16 +517,7 @@ const [resolveDialog, setResolveDialog] = useState<((val: string | null) => void
         hidden
       >
         {children}
-        <DirectDialog
-          type={directDialogProps.type}
-          token={directDialogProps.token}
-          desc={directDialogProps.desc}
-          redirectUrl={directDialogProps.redirectUrl}
-          open={directDialogOpen}
-          onOpenChange={(val) => {
-            if (!val) handleDirectDialogClose();
-          }}
-        />
+        {dynamicDialog}
 
         <Toaster
           position="top-center"
