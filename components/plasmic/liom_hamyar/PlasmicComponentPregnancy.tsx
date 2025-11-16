@@ -2502,7 +2502,10 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                           method: "GET"
                         })
                           .then(response => response.json())
-                          .then(data => {})
+                          .then(data => {
+                            console.log("tools");
+                            $state.getTools = data;
+                          })
                           .catch(error => console.error("Error-tools:", error));
                       }
                     };
@@ -11949,7 +11952,9 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                   ) : null}
                   {(() => {
                     try {
-                      return $state.getTools.length > 0;
+                      return (
+                        $state.userId == "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                      );
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -11963,345 +11968,377 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                     <div
                       className={classNames(projectcss.all, sty.freeBox__ip3Wr)}
                     >
-                      {(() => {
-                        try {
-                          return (
-                            $state.userId ==
-                              "4ddd1fab-100c-49f0-b843-e70bff8add34" ||
-                            $state.userId ==
-                              "b6945f4d-7ab6-4a77-92aa-e4f0944cc61c"
-                          );
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return false;
-                          }
-                          throw e;
-                        }
-                      })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__luzkU
-                          )}
-                        >
-                          {(_par =>
-                            !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                            (() => {
-                              try {
-                                return $state.getTools.length > 0
-                                  ? $state.getTools
-                                  : [];
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
-                                }
-                                throw e;
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__luzkU
+                        )}
+                      >
+                        {(_par =>
+                          !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                          (() => {
+                            try {
+                              return $state.getTools.length > 0
+                                ? $state.getTools
+                                : [];
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
                               }
-                            })()
-                          ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                            const currentItem = __plasmic_item_0;
-                            const currentIndex = __plasmic_idx_0;
-                            return (
+                              throw e;
+                            }
+                          })()
+                        ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                          const currentItem = __plasmic_item_0;
+                          const currentIndex = __plasmic_idx_0;
+                          return (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__yXCtm
+                              )}
+                              key={currentIndex}
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["deepLink"] = (() => {
+                                  const allowance =
+                                    $state.userInfo?.[0]?.result?.allowance ||
+                                    [];
+                                  const filteredItem = allowance.find(item =>
+                                    item.type.includes(currentItem.shopType)
+                                  );
+                                  const active = filteredItem
+                                    ? filteredItem.active
+                                    : false;
+                                  return active || currentItem.shopType == "";
+                                })()
+                                  ? (() => {
+                                      const actionArgs = {
+                                        args: [
+                                          (() => {
+                                            try {
+                                              return currentItem.action;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })(),
+                                          (() => {
+                                            try {
+                                              return $state.token;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })(),
+                                          (() => {
+                                            try {
+                                              return $state.userId;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })(),
+                                          (() => {
+                                            try {
+                                              return $ctx.query.inApp;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })(),
+                                          (() => {
+                                            try {
+                                              return $ctx.query.theme;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })(),
+                                          undefined,
+                                          (() => {
+                                            try {
+                                              return {
+                                                topic:
+                                                  "pregnancyWeek" +
+                                                  $state.weeksPregnant
+                                              };
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                        ]
+                                      };
+                                      return $globalActions[
+                                        "Fragment.deepLink"
+                                      ]?.apply(null, [...actionArgs.args]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["deepLink"] != null &&
+                                  typeof $steps["deepLink"] === "object" &&
+                                  typeof $steps["deepLink"].then === "function"
+                                ) {
+                                  $steps["deepLink"] = await $steps["deepLink"];
+                                }
+
+                                $steps["runCode"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            const allowance =
+                                              $state.userInfo?.[0]?.result
+                                                ?.allowance || [];
+                                            const filteredItem = allowance.find(
+                                              item =>
+                                                item.type.includes(
+                                                  currentItem.shopType
+                                                )
+                                            );
+                                            const active = filteredItem
+                                              ? filteredItem.active
+                                              : false;
+                                            if (
+                                              !active &&
+                                              currentItem.shopType != ""
+                                            ) {
+                                              if ($ctx.query.inApp != "true") {
+                                                $state.typeBuy = "pregnancySub";
+                                                return ($state.directDialog2.open = true);
+                                              } else {
+                                                return window.FlutterChannel.postMessage(
+                                                  "#healthSubscription"
+                                                );
+                                              }
+                                            }
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runCode"] != null &&
+                                  typeof $steps["runCode"] === "object" &&
+                                  typeof $steps["runCode"].then === "function"
+                                ) {
+                                  $steps["runCode"] = await $steps["runCode"];
+                                }
+
+                                $steps["runCode2"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            if (
+                                              currentItem.action == "#danger"
+                                            ) {
+                                              document
+                                                .getElementById(
+                                                  "collapseDanger"
+                                                )
+                                                .scrollIntoView({
+                                                  behavior: "smooth",
+                                                  block: "start"
+                                                });
+                                              return ($state.collapseDanger.open = true);
+                                            }
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runCode2"] != null &&
+                                  typeof $steps["runCode2"] === "object" &&
+                                  typeof $steps["runCode2"].then === "function"
+                                ) {
+                                  $steps["runCode2"] = await $steps["runCode2"];
+                                }
+
+                                $steps["log"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        args: [
+                                          "POST",
+                                          "https://api.liom.app/service/log",
+                                          undefined,
+                                          (() => {
+                                            try {
+                                              return {
+                                                userId: $ctx.query.userId.slice(
+                                                  4,
+                                                  $ctx.query.userId.length - 4
+                                                ),
+                                                pageName: "mainPage",
+                                                action:
+                                                  "clickTools-" +
+                                                  currentItem.action,
+                                                extraData: {}
+                                              };
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })(),
+                                          (() => {
+                                            try {
+                                              return {
+                                                headers: {
+                                                  "Content-Type":
+                                                    "application/json",
+                                                  Authorization:
+                                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                                }
+                                              };
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                        ]
+                                      };
+                                      return $globalActions[
+                                        "Fragment.apiRequest"
+                                      ]?.apply(null, [...actionArgs.args]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["log"] != null &&
+                                  typeof $steps["log"] === "object" &&
+                                  typeof $steps["log"].then === "function"
+                                ) {
+                                  $steps["log"] = await $steps["log"];
+                                }
+                              }}
+                            >
                               <div
                                 className={classNames(
                                   projectcss.all,
-                                  sty.freeBox__yXCtm
+                                  sty.freeBox__drcjW
                                 )}
-                                key={currentIndex}
-                                onClick={async event => {
-                                  const $steps = {};
-
-                                  $steps["deepLink"] = (() => {
-                                    const allowance =
-                                      $state.userInfo?.[0]?.result?.allowance ||
-                                      [];
-                                    const filteredItem = allowance.find(item =>
-                                      item.type.includes(currentItem.shopType)
-                                    );
-                                    const active = filteredItem
-                                      ? filteredItem.active
-                                      : false;
-                                    return active || currentItem.shopType == "";
-                                  })()
-                                    ? (() => {
-                                        const actionArgs = {
-                                          args: [
-                                            (() => {
-                                              try {
-                                                return currentItem.action;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })(),
-                                            (() => {
-                                              try {
-                                                return $state.token;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })(),
-                                            (() => {
-                                              try {
-                                                return $state.userId;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })(),
-                                            (() => {
-                                              try {
-                                                return $ctx.query.inApp;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })(),
-                                            (() => {
-                                              try {
-                                                return $ctx.query.theme;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })(),
-                                            undefined,
-                                            (() => {
-                                              try {
-                                                return {
-                                                  topic:
-                                                    "pregnancyWeek" +
-                                                    $state.weeksPregnant
-                                                };
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })()
-                                          ]
-                                        };
-                                        return $globalActions[
-                                          "Fragment.deepLink"
-                                        ]?.apply(null, [...actionArgs.args]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["deepLink"] != null &&
-                                    typeof $steps["deepLink"] === "object" &&
-                                    typeof $steps["deepLink"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["deepLink"] =
-                                      await $steps["deepLink"];
+                                style={(() => {
+                                  try {
+                                    return {
+                                      "background-color": currentItem.color
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
                                   }
-
-                                  $steps["runCode"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          customFunction: async () => {
-                                            return (() => {
-                                              const allowance =
-                                                $state.userInfo?.[0]?.result
-                                                  ?.allowance || [];
-                                              const filteredItem =
-                                                allowance.find(item =>
-                                                  item.type.includes(
-                                                    currentItem.shopType
-                                                  )
-                                                );
-                                              const active = filteredItem
-                                                ? filteredItem.active
-                                                : false;
-                                              if (
-                                                !active &&
-                                                currentItem.shopType != ""
-                                              ) {
-                                                if (
-                                                  $ctx.query.inApp != "true"
-                                                ) {
-                                                  $state.typeBuy =
-                                                    "pregnancySub";
-                                                  return ($state.directDialog2.open = true);
-                                                } else {
-                                                  return window.FlutterChannel.postMessage(
-                                                    "#healthSubscription"
-                                                  );
-                                                }
-                                              }
-                                            })();
-                                          }
-                                        };
-                                        return (({ customFunction }) => {
-                                          return customFunction();
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["runCode"] != null &&
-                                    typeof $steps["runCode"] === "object" &&
-                                    typeof $steps["runCode"].then === "function"
-                                  ) {
-                                    $steps["runCode"] = await $steps["runCode"];
-                                  }
-
-                                  $steps["runCode2"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          customFunction: async () => {
-                                            return (() => {
-                                              if (
-                                                currentItem.action == "#danger"
-                                              ) {
-                                                document
-                                                  .getElementById(
-                                                    "collapseDanger"
-                                                  )
-                                                  .scrollIntoView({
-                                                    behavior: "smooth",
-                                                    block: "start"
-                                                  });
-                                                return ($state.collapseDanger.open = true);
-                                              }
-                                            })();
-                                          }
-                                        };
-                                        return (({ customFunction }) => {
-                                          return customFunction();
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["runCode2"] != null &&
-                                    typeof $steps["runCode2"] === "object" &&
-                                    typeof $steps["runCode2"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["runCode2"] =
-                                      await $steps["runCode2"];
-                                  }
-
-                                  $steps["log"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          args: [
-                                            "POST",
-                                            "https://api.liom.app/service/log",
-                                            undefined,
-                                            (() => {
-                                              try {
-                                                return {
-                                                  userId:
-                                                    $ctx.query.userId.slice(
-                                                      4,
-                                                      $ctx.query.userId.length -
-                                                        4
-                                                    ),
-                                                  pageName: "mainPage",
-                                                  action:
-                                                    "clickTools-" +
-                                                    currentItem.action,
-                                                  extraData: {}
-                                                };
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })(),
-                                            (() => {
-                                              try {
-                                                return {
-                                                  headers: {
-                                                    "Content-Type":
-                                                      "application/json",
-                                                    Authorization:
-                                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
-                                                  }
-                                                };
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })()
-                                          ]
-                                        };
-                                        return $globalActions[
-                                          "Fragment.apiRequest"
-                                        ]?.apply(null, [...actionArgs.args]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["log"] != null &&
-                                    typeof $steps["log"] === "object" &&
-                                    typeof $steps["log"].then === "function"
-                                  ) {
-                                    $steps["log"] = await $steps["log"];
-                                  }
-                                }}
+                                })()}
                               >
+                                <LottieWrapper
+                                  animationData={
+                                    // const fixedString = currentItem.anim.replace(/'/g, '"');
+                                    // JSON.parse(fixedString)
+                                    ""
+                                  }
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.lottie__uwVu7
+                                  )}
+                                />
+
+                                {(() => {
+                                  try {
+                                    return currentItem.icon != "";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return false;
+                                    }
+                                    throw e;
+                                  }
+                                })() ? (
+                                  <Embed
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.embedHtml___1Fby
+                                    )}
+                                    code={
+                                      "<!-- currentItem.icon -->\n<div>Paste your embed code via the right sidebar</div>"
+                                    }
+                                  />
+                                ) : null}
                                 <div
                                   className={classNames(
                                     projectcss.all,
-                                    sty.freeBox__drcjW
+                                    projectcss.__wab_text,
+                                    sty.text___0I14M
                                   )}
                                   style={(() => {
                                     try {
                                       return {
-                                        "background-color": currentItem.color
+                                        color: currentItem.textColor
                                       };
                                     } catch (e) {
                                       if (
@@ -12315,131 +12352,71 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                     }
                                   })()}
                                 >
-                                  <LottieWrapper
-                                    animationData={
-                                      // const fixedString = currentItem.anim.replace(/'/g, '"');
-                                      // JSON.parse(fixedString)
-                                      ""
-                                    }
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.lottie__uwVu7
-                                    )}
-                                  />
-
-                                  {(() => {
-                                    try {
-                                      return currentItem.icon != "";
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return false;
+                                  {hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobile"
+                                  ) ? (
+                                    <div
+                                      className={
+                                        projectcss.__wab_expr_html_text
                                       }
-                                      throw e;
-                                    }
-                                  })() ? (
-                                    <Embed
-                                      className={classNames(
-                                        "__wab_instance",
-                                        sty.embedHtml___1Fby
-                                      )}
-                                      code={
-                                        "<!-- currentItem.icon -->\n<div>Paste your embed code via the right sidebar</div>"
-                                      }
+                                      dangerouslySetInnerHTML={{
+                                        __html: (() => {
+                                          try {
+                                            return (
+                                              currentItem.title +
+                                              "<b>" +
+                                              "  >" +
+                                              "</b>"
+                                            );
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "";
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      }}
                                     />
-                                  ) : null}
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text___0I14M
-                                    )}
-                                    style={(() => {
-                                      try {
-                                        return {
-                                          color: currentItem.textColor
-                                        };
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
+                                  ) : (
+                                    <div
+                                      className={
+                                        projectcss.__wab_expr_html_text
                                       }
-                                    })()}
-                                  >
-                                    {hasVariant(
-                                      globalVariants,
-                                      "screen",
-                                      "mobile"
-                                    ) ? (
-                                      <div
-                                        className={
-                                          projectcss.__wab_expr_html_text
-                                        }
-                                        dangerouslySetInnerHTML={{
-                                          __html: (() => {
-                                            try {
-                                              return (
-                                                currentItem.title +
-                                                "<b>" +
-                                                "  >" +
-                                                "</b>"
-                                              );
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return "";
-                                              }
-                                              throw e;
+                                      dangerouslySetInnerHTML={{
+                                        __html: (() => {
+                                          try {
+                                            return (
+                                              currentItem.title +
+                                              "<b>" +
+                                              "  >" +
+                                              "</b>"
+                                            );
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "";
                                             }
-                                          })()
-                                        }}
-                                      />
-                                    ) : (
-                                      <div
-                                        className={
-                                          projectcss.__wab_expr_html_text
-                                        }
-                                        dangerouslySetInnerHTML={{
-                                          __html: (() => {
-                                            try {
-                                              return (
-                                                currentItem.title +
-                                                "<b>" +
-                                                "  >" +
-                                                "</b>"
-                                              );
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return "";
-                                              }
-                                              throw e;
-                                            }
-                                          })()
-                                        }}
-                                      />
-                                    )}
-                                  </div>
+                                            throw e;
+                                          }
+                                        })()
+                                      }}
+                                    />
+                                  )}
                                 </div>
                               </div>
-                            );
-                          })}
-                        </div>
-                      ) : null}
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
                   ) : null}
                   {(() => {

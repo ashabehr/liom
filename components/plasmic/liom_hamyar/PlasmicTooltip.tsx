@@ -59,6 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import Load from "../../Load"; // plasmic-import: MJo5g_R-znVP/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -93,6 +94,7 @@ export const PlasmicTooltip__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicTooltip__OverridesType = {
   root?: Flex__<"div">;
+  load?: Flex__<typeof Load>;
 };
 
 export interface DefaultTooltipProps {
@@ -171,6 +173,12 @@ function PlasmicTooltip__RenderFunc(props: {
 
         valueProp: "show",
         onChangeProp: "onShowChange"
+      },
+      {
+        path: "load.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -371,6 +379,26 @@ function PlasmicTooltip__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return ($state.load.loading = true);
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+
                   $steps["invokeGlobalAction"] = true
                     ? (() => {
                         const actionArgs = {
@@ -475,6 +503,26 @@ function PlasmicTooltip__RenderFunc(props: {
                     $steps["invokeGlobalAction2"] =
                       await $steps["invokeGlobalAction2"];
                   }
+
+                  $steps["runCode2"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return ($state.load.loading = false);
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode2"] != null &&
+                    typeof $steps["runCode2"] === "object" &&
+                    typeof $steps["runCode2"].then === "function"
+                  ) {
+                    $steps["runCode2"] = await $steps["runCode2"];
+                  }
                 }}
                 style={(() => {
                   try {
@@ -538,19 +586,41 @@ function PlasmicTooltip__RenderFunc(props: {
             );
           })}
         </div>
+        <Load
+          data-plasmic-name={"load"}
+          data-plasmic-override={overrides.load}
+          className={classNames("__wab_instance", sty.load)}
+          loading={generateStateValueProp($state, ["load", "loading"])}
+          onLoadingChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["load", "loading"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+        />
       </div>
     ) : null
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "load"],
+  load: ["load"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  load: typeof Load;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -615,6 +685,7 @@ export const PlasmicTooltip = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    load: makeNodeComponent("load"),
 
     // Metadata about props expected for PlasmicTooltip
     internalVariantProps: PlasmicTooltip__VariantProps,

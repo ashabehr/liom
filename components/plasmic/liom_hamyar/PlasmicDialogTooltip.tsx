@@ -63,6 +63,7 @@ import { Dialog } from "@plasmicpkgs/radix-ui";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { DialogContent } from "@plasmicpkgs/radix-ui";
 import { DialogTitle } from "@plasmicpkgs/radix-ui";
+import Load from "../../Load"; // plasmic-import: MJo5g_R-znVP/component
 import { DialogClose } from "@plasmicpkgs/radix-ui";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -108,6 +109,7 @@ export type PlasmicDialogTooltip__OverridesType = {
   button3?: Flex__<typeof Button>;
   dialogContent?: Flex__<typeof DialogContent>;
   dialogTitle?: Flex__<typeof DialogTitle>;
+  load?: Flex__<typeof Load>;
   dialogClose?: Flex__<typeof DialogClose>;
 };
 
@@ -257,6 +259,12 @@ function PlasmicDialogTooltip__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.fullpage
+      },
+      {
+        path: "load.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -543,11 +551,53 @@ function PlasmicDialogTooltip__RenderFunc(props: {
               })()}
             </React.Fragment>
           </div>
+          <Load
+            data-plasmic-name={"load"}
+            data-plasmic-override={overrides.load}
+            className={classNames("__wab_instance", sty.load)}
+            loading={generateStateValueProp($state, ["load", "loading"])}
+            onLoadingChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["load", "loading"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+          />
+
           <div className={classNames(projectcss.all, sty.freeBox__rw4L9)}>
             <div
               className={classNames(projectcss.all, sty.freeBox__juwHw)}
               onClick={async event => {
                 const $steps = {};
+
+                $steps["updateDialog3Open2"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return ($state.load.loading = true);
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateDialog3Open2"] != null &&
+                  typeof $steps["updateDialog3Open2"] === "object" &&
+                  typeof $steps["updateDialog3Open2"].then === "function"
+                ) {
+                  $steps["updateDialog3Open2"] =
+                    await $steps["updateDialog3Open2"];
+                }
 
                 $steps["invokeGlobalAction"] = true
                   ? (() => {
@@ -638,39 +688,24 @@ function PlasmicDialogTooltip__RenderFunc(props: {
                     await $steps["invokeGlobalAction2"];
                 }
 
-                $steps["updateDialog3Open"] = true
+                $steps["runCode"] = true
                   ? (() => {
                       const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["dialog3", "open"]
-                        },
-                        operation: 0,
-                        value: false
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
+                        customFunction: async () => {
+                          return ($state.load.loading = false);
                         }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["updateDialog3Open"] != null &&
-                  typeof $steps["updateDialog3Open"] === "object" &&
-                  typeof $steps["updateDialog3Open"].then === "function"
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
                 ) {
-                  $steps["updateDialog3Open"] =
-                    await $steps["updateDialog3Open"];
+                  $steps["runCode"] = await $steps["runCode"];
                 }
               }}
               style={(() => {
@@ -847,11 +882,13 @@ const PlasmicDescendants = {
     "button3",
     "dialogContent",
     "dialogTitle",
+    "load",
     "dialogClose"
   ],
   button3: ["button3"],
-  dialogContent: ["dialogContent", "dialogTitle", "dialogClose"],
+  dialogContent: ["dialogContent", "dialogTitle", "load", "dialogClose"],
   dialogTitle: ["dialogTitle"],
+  load: ["load"],
   dialogClose: ["dialogClose"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -862,6 +899,7 @@ type NodeDefaultElementType = {
   button3: typeof Button;
   dialogContent: typeof DialogContent;
   dialogTitle: typeof DialogTitle;
+  load: typeof Load;
   dialogClose: typeof DialogClose;
 };
 
@@ -930,6 +968,7 @@ export const PlasmicDialogTooltip = Object.assign(
     button3: makeNodeComponent("button3"),
     dialogContent: makeNodeComponent("dialogContent"),
     dialogTitle: makeNodeComponent("dialogTitle"),
+    load: makeNodeComponent("load"),
     dialogClose: makeNodeComponent("dialogClose"),
 
     // Metadata about props expected for PlasmicDialogTooltip
