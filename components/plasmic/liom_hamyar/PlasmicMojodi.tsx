@@ -279,20 +279,7 @@ function PlasmicMojodi__RenderFunc(props: {
         path: "reminderShop.opendialog",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return undefined;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "token",

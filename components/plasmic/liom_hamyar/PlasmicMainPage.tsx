@@ -1694,23 +1694,21 @@ function PlasmicMainPage__RenderFunc(props: {
           (async data => {
             const $steps = {};
 
-            $steps["runCode"] =
-              $state.userInfo?.result?.user?.id ==
-              "5916daaf-e7b3-44e9-85bd-5d5dfe00e2db"
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return ($state.dialogTooltip.opendialog =
-                          $state.dialog.data.result.dialogs.length > 0
-                            ? true
-                            : false);
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
+            $steps["runCode"] = $state?.dialog?.data?.result
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return ($state.dialogTooltip.opendialog =
+                        $state.dialog.data.result.dialogs.length > 0
+                          ? true
+                          : false);
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
             if (
               $steps["runCode"] != null &&
               typeof $steps["runCode"] === "object" &&

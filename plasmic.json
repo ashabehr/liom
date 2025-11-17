@@ -5053,6 +5053,19 @@
           "cssFilePath": "plasmic/liom_hamyar/Plasmic_3DIcon.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "w_9X12-Cs5Eb",
+          "name": "ShopOfferBox",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicShopOfferBox.tsx",
+          "importSpec": {
+            "modulePath": "ShopOfferBox.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicShopOfferBox.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
