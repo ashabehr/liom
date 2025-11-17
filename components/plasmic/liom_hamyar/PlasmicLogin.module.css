@@ -327,7 +327,6 @@
   max-width: 100%;
   text-align: center;
   cursor: pointer;
-  display: none;
 }
 .reveal__hzsaP:global(.__wab_instance) {
   max-width: 100%;
@@ -6047,16 +6046,15 @@
   }
 }
 .freeBoxloginPage_name__ihXz3HUiKy {
-  display: flex;
   flex-direction: column;
   padding-right: 16px;
   padding-left: 16px;
   row-gap: 8px;
   column-gap: 0px;
+  display: none;
 }
 @media (max-width: 640px) {
   .freeBoxloginPage_name__ihXz3HUiKy {
-    display: flex;
     flex-direction: column;
     row-gap: 8px;
     column-gap: 0px;
@@ -6749,6 +6747,12 @@
 }
 .checkboxloginPage_selectstatus:global(.__wab_instance) {
   margin-bottom: 16px;
+}
+.text__gsRry {
+  align-self: center;
+}
+.textloginPage_name__gsRrYhUiKy {
+  font-size: var(--token-Wa5tmrNKVUYF);
 }
 .button4:global(.__wab_instance) {
   max-width: 100%;

@@ -85,6 +85,7 @@ export type PlasmicCheckbox__VariantMembers = {
   circle: "circle";
   filter: "filter";
   custom: "custom";
+  size: "langh";
 };
 export type PlasmicCheckbox__VariantsArgs = {
   noLabel?: SingleBooleanChoiceArg<"noLabel">;
@@ -94,6 +95,7 @@ export type PlasmicCheckbox__VariantsArgs = {
   circle?: SingleBooleanChoiceArg<"circle">;
   filter?: SingleBooleanChoiceArg<"filter">;
   custom?: SingleBooleanChoiceArg<"custom">;
+  size?: SingleChoiceArg<"langh">;
 };
 type VariantPropType = keyof PlasmicCheckbox__VariantsArgs;
 export const PlasmicCheckbox__VariantProps = new Array<VariantPropType>(
@@ -103,7 +105,8 @@ export const PlasmicCheckbox__VariantProps = new Array<VariantPropType>(
   "isIndeterminate",
   "circle",
   "filter",
-  "custom"
+  "custom",
+  "size"
 );
 
 export type PlasmicCheckbox__ArgsType = {
@@ -138,6 +141,7 @@ export interface DefaultCheckboxProps extends pp.CheckboxProps {
   circle?: SingleBooleanChoiceArg<"circle">;
   filter?: SingleBooleanChoiceArg<"filter">;
   custom?: SingleBooleanChoiceArg<"custom">;
+  size?: SingleChoiceArg<"langh">;
 }
 
 const $$ = {};
@@ -228,6 +232,12 @@ function PlasmicCheckbox__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.custom
+      },
+      {
+        path: "size",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.size
       }
     ],
     [$props, $ctx, $refs]
@@ -370,7 +380,8 @@ function PlasmicCheckbox__RenderFunc(props: {
               "isIndeterminate",
               "isIndeterminate"
             ),
-            [sty.svgnoLabel]: hasVariant($state, "noLabel", "noLabel")
+            [sty.svgnoLabel]: hasVariant($state, "noLabel", "noLabel"),
+            [sty.svgsize_langh]: hasVariant($state, "size", "langh")
           })}
           role={"img"}
         />
@@ -392,7 +403,8 @@ function PlasmicCheckbox__RenderFunc(props: {
               $state,
               "noLabel",
               "noLabel"
-            )
+            ),
+            [sty.labelContainersize_langh]: hasVariant($state, "size", "langh")
           })}
         >
           {renderPlasmicSlot({
@@ -446,6 +458,11 @@ function PlasmicCheckbox__RenderFunc(props: {
                 $state,
                 "noLabel",
                 "noLabel"
+              ),
+              [sty.slotTargetChildrensize_langh]: hasVariant(
+                $state,
+                "size",
+                "langh"
               )
             })
           })}

@@ -279,7 +279,7 @@ function PlasmicMojodi__RenderFunc(props: {
         path: "reminderShop.opendialog",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "token",

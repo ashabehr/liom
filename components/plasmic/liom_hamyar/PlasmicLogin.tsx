@@ -9568,8 +9568,8 @@ function PlasmicLogin__RenderFunc(props: {
                       (() => {
                         try {
                           return [
-                            { value: "female", label: "زن" },
-                            { value: "male", label: "مرد ( همیار قاعدگی )" }
+                            { value: "male", label: "مرد ( همیار قاعدگی )" },
+                            { value: "female", label: "زن" }
                           ];
                         } catch (e) {
                           if (
@@ -10445,6 +10445,7 @@ function PlasmicLogin__RenderFunc(props: {
                             return;
                           }
                         }}
+                        size={"langh"}
                       >
                         <div
                           className={classNames(
