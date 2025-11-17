@@ -37,6 +37,8 @@ export const Fragment = ({
     changeTheme(primaryColor);
   }, [primaryColor]);
   const [dynamicDialog, setDynamicDialog] = useState<JSX.Element | null>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
+
 
   const changeTheme = (color: string) => {
     document.documentElement.style.setProperty("--primary", color);
@@ -426,30 +428,29 @@ export const Fragment = ({
             }
 
             default: {
-              if (action.startsWith("#directDialog")) {
-                toast.error("برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.", {
-                  duration: 3000,
-                  position: "top-right",
-                });
+              if (action.includes("#directDialog")) {
               
-                if (!dynamicDialog) {  // فقط اگر دیالوگ باز نیست
-                  const a = action.split("#directDialog-");
-                  let type = a[1];
+                const a = action.split("#directDialog-");
+                let type = a[1];
               
-                  setDynamicDialog(
-                    <DirectDialog
-                      type={type}
-                      token={token}
-                      desc="برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید."
-                      redirectUrl="/install"
-                      open={true}
-                      onOpenChange={(open) => {
-                        if (!open) setDynamicDialog(null);
-                      }}
-                    />
-                  );
-                }
+                setDynamicDialog(
+                  <DirectDialog
+                    type={type}
+                    token={token}
+                    desc="برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید."
+                    redirectUrl="/install"
+                    open={dialogOpen}
+                    onOpenChange={(open) => {
+                      setDialogOpen(open);
+                      if (!open) setDynamicDialog(null);
+                    }}
+                  />
+                );
+              
+                // خیلی مهم ـ این باعث می‌شود دیالوگ واقعاً باز شود
+                setDialogOpen(true);
               }
+
               else if (action.startsWith("#newCustomSubscriptionV3")) {
                 const a = action.split("#newCustomSubscriptionV3-");
                 let order = a[1];
