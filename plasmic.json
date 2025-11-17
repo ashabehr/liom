@@ -5066,6 +5066,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicShopOfferBox.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "PHJcEvvFnWds",
+          "name": "ShopResultDialog",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicShopResultDialog.tsx",
+          "importSpec": {
+            "modulePath": "ShopResultDialog.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicShopResultDialog.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

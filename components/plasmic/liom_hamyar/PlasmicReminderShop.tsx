@@ -90,11 +90,13 @@ export const PlasmicReminderShop__VariantProps = new Array<VariantPropType>();
 export type PlasmicReminderShop__ArgsType = {
   opendialog?: boolean;
   onOpendialogChange?: (val: string) => void;
+  token?: string;
 };
 type ArgPropType = keyof PlasmicReminderShop__ArgsType;
 export const PlasmicReminderShop__ArgProps = new Array<ArgPropType>(
   "opendialog",
-  "onOpendialogChange"
+  "onOpendialogChange",
+  "token"
 );
 
 export type PlasmicReminderShop__OverridesType = {
@@ -111,6 +113,7 @@ export type PlasmicReminderShop__OverridesType = {
 export interface DefaultReminderShopProps {
   opendialog?: boolean;
   onOpendialogChange?: (val: string) => void;
+  token?: string;
   className?: string;
 }
 
@@ -154,6 +157,8 @@ function PlasmicReminderShop__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
 
   const currentUser = useCurrentUser?.() || {};
 
@@ -815,8 +820,182 @@ function PlasmicReminderShop__RenderFunc(props: {
           data-plasmic-override={overrides.button}
           className={classNames("__wab_instance", sty.button)}
           color={generateStateValueProp($state, ["button", "color"])}
+          disabled={(() => {
+            try {
+              return (
+                parseInt($state.input.value) < 20000 || $state.input.value == ""
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+          isDisabled={(() => {
+            try {
+              return (
+                parseInt($state.input.value) < 20000 || $state.input.value == ""
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()}
           load={generateStateValueProp($state, ["button", "load"])}
           loading={generateStateValueProp($state, ["button", "loading"])}
+          onClick={async event => {
+            const $steps = {};
+
+            $steps["runCode"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        $state.button.loading = true;
+                        return ($state.input.value =
+                          Math.ceil(parseInt($state.input.value) / 1000) *
+                          1000);
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
+            }
+
+            $steps["invokeGlobalAction"] = $state.input.value
+              ? (() => {
+                  const actionArgs = {
+                    args: [
+                      "POST",
+                      "https://n8n.staas.ir/webhook/shop/charge/wallet",
+                      undefined,
+                      (() => {
+                        try {
+                          return {
+                            amount: parseInt($state.input.value),
+                            redirectUrl: window.location.href,
+                            path: ""
+                          };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })(),
+                      (() => {
+                        try {
+                          return {
+                            headers: {
+                              Authorization: $props.token
+                            }
+                          };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()
+                    ]
+                  };
+                  return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                    ...actionArgs.args
+                  ]);
+                })()
+              : undefined;
+            if (
+              $steps["invokeGlobalAction"] != null &&
+              typeof $steps["invokeGlobalAction"] === "object" &&
+              typeof $steps["invokeGlobalAction"].then === "function"
+            ) {
+              $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
+            }
+
+            $steps["goToPage"] =
+              $steps.invokeGlobalAction?.data?.success == true
+                ? (() => {
+                    const actionArgs = {
+                      destination: (() => {
+                        try {
+                          return $steps.invokeGlobalAction.data.result.link;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()
+                    };
+                    return (({ destination }) => {
+                      if (
+                        typeof destination === "string" &&
+                        destination.startsWith("#")
+                      ) {
+                        document
+                          .getElementById(destination.substr(1))
+                          .scrollIntoView({ behavior: "smooth" });
+                      } else {
+                        __nextRouter?.push(destination);
+                      }
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+            if (
+              $steps["goToPage"] != null &&
+              typeof $steps["goToPage"] === "object" &&
+              typeof $steps["goToPage"].then === "function"
+            ) {
+              $steps["goToPage"] = await $steps["goToPage"];
+            }
+
+            $steps["runCode2"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return ($state.button.loading = false);
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode2"] != null &&
+              typeof $steps["runCode2"] === "object" &&
+              typeof $steps["runCode2"].then === "function"
+            ) {
+              $steps["runCode2"] = await $steps["runCode2"];
+            }
+          }}
           onColorChange={async (...eventArgs: any) => {
             ((...eventArgs) => {
               generateStateOnChangeProp($state, ["button", "color"])(

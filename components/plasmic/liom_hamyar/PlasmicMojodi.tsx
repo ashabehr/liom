@@ -72,6 +72,7 @@ import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import Tariff2 from "../../Tariff2"; // plasmic-import: xZTBh-jwY-OV/component
 import Report from "../../../src/pages/report"; // plasmic-import: 4wEldhsM09tv/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import ShopResultDialog from "../../ShopResultDialog"; // plasmic-import: PHJcEvvFnWds/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -126,6 +127,7 @@ export type PlasmicMojodi__OverridesType = {
   tariff2?: Flex__<typeof Tariff2>;
   report?: Flex__<typeof Report>;
   hotjar?: Flex__<typeof Embed>;
+  shopResultDialog?: Flex__<typeof ShopResultDialog>;
 };
 
 export interface DefaultMojodiProps {}
@@ -279,7 +281,7 @@ function PlasmicMojodi__RenderFunc(props: {
         path: "reminderShop.opendialog",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "token",
@@ -324,6 +326,34 @@ function PlasmicMojodi__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "shopResultDialog.opendialog",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (
+                $state.shopResultDialog.status2 != "" &&
+                $state.shopResultDialog.status2 != null
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "shopResultDialog.status2",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -389,7 +419,17 @@ function PlasmicMojodi__RenderFunc(props: {
                           return "";
                         };
                         $state.token = getCookie("token");
-                        return console.log($state.token);
+                        console.log($state.token);
+                        try {
+                          return ($state.shopResultDialog.status2 =
+                            $ctx.query.status ||
+                            new window.URLSearchParams(
+                              window.location.search
+                            ).get("status") ||
+                            "");
+                        } catch (e) {
+                          return ($state.shopResultDialog.status2 = "");
+                        }
                       })();
                     }
                   };
@@ -998,7 +1038,7 @@ function PlasmicMojodi__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["runCode"] = false
+                    $steps["runCode"] = true
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
@@ -1045,7 +1085,7 @@ function PlasmicMojodi__RenderFunc(props: {
                       $steps["goToMojodi"] = await $steps["goToMojodi"];
                     }
 
-                    $steps["invokeGlobalAction"] = true
+                    $steps["invokeGlobalAction"] = false
                       ? (() => {
                           const actionArgs = {
                             args: [
@@ -1769,6 +1809,19 @@ function PlasmicMojodi__RenderFunc(props: {
             "reminderShop",
             "opendialog"
           ])}
+          token={(() => {
+            try {
+              return $state.token;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
         />
 
         <Reveal
@@ -1954,6 +2007,61 @@ function PlasmicMojodi__RenderFunc(props: {
             "<!-- Hotjar Tracking Code for reminderMojody -->\r\n<script>\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:6571011,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n</script>"
           }
         />
+
+        <ShopResultDialog
+          data-plasmic-name={"shopResultDialog"}
+          data-plasmic-override={overrides.shopResultDialog}
+          className={classNames("__wab_instance", sty.shopResultDialog)}
+          onOpendialogChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, [
+              "shopResultDialog",
+              "opendialog"
+            ]).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          onStatus2Change={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, [
+              "shopResultDialog",
+              "status2"
+            ]).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          opendialog={generateStateValueProp($state, [
+            "shopResultDialog",
+            "opendialog"
+          ])}
+          status={(() => {
+            try {
+              return $state.shopResultDialog.status2 == "true";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()}
+          status2={generateStateValueProp($state, [
+            "shopResultDialog",
+            "status2"
+          ])}
+        />
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;
@@ -1971,7 +2079,8 @@ const PlasmicDescendants = {
     "reminderShop",
     "tariff2",
     "report",
-    "hotjar"
+    "hotjar",
+    "shopResultDialog"
   ],
   sideEffect: ["sideEffect"],
   history: ["history", "button", "button2", "menuIcon"],
@@ -1982,7 +2091,8 @@ const PlasmicDescendants = {
   reminderShop: ["reminderShop"],
   tariff2: ["tariff2"],
   report: ["report"],
-  hotjar: ["hotjar"]
+  hotjar: ["hotjar"],
+  shopResultDialog: ["shopResultDialog"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1999,6 +2109,7 @@ type NodeDefaultElementType = {
   tariff2: typeof Tariff2;
   report: typeof Report;
   hotjar: typeof Embed;
+  shopResultDialog: typeof ShopResultDialog;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2098,6 +2209,7 @@ export const PlasmicMojodi = Object.assign(
     tariff2: makeNodeComponent("tariff2"),
     report: makeNodeComponent("report"),
     hotjar: makeNodeComponent("hotjar"),
+    shopResultDialog: makeNodeComponent("shopResultDialog"),
 
     // Metadata about props expected for PlasmicMojodi
     internalVariantProps: PlasmicMojodi__VariantProps,
