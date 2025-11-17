@@ -942,7 +942,7 @@ function PlasmicReminderShop__RenderFunc(props: {
                     const actionArgs = {
                       destination: (() => {
                         try {
-                          return $steps.invokeGlobalAction.data.result.link;
+                          return $steps.invokeGlobalAction.data.result;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
