@@ -429,7 +429,7 @@ export const Fragment = ({
 
             default: {
               if (action.includes("#directDialog")) {
-              
+                  alert(`برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.\nنوع: ${action}`);
                 const a = action.split("#directDialog-");
                 let type = a[1];
               
@@ -439,17 +439,16 @@ export const Fragment = ({
                     token={token}
                     desc="برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید."
                     redirectUrl="/install"
-                    open={dialogOpen}
+                    open={true} // مستقیم true بدهیم
                     onOpenChange={(open) => {
-                      setDialogOpen(open);
-                      if (!open) setDynamicDialog(null);
+                      if (!open) {
+                        setDynamicDialog(null); // وقتی دیالوگ بسته شد، حذف شود
+                      }
                     }}
                   />
                 );
-              
-                // خیلی مهم ـ این باعث می‌شود دیالوگ واقعاً باز شود
-                setDialogOpen(true);
               }
+
 
               else if (action.startsWith("#newCustomSubscriptionV3")) {
                 const a = action.split("#newCustomSubscriptionV3-");
