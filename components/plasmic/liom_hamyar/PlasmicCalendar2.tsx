@@ -2766,17 +2766,15 @@ function PlasmicCalendar2__RenderFunc(props: {
                 const actionArgs = {
                   customFunction: async () => {
                     return (() => {
-                      if (
-                        $state.userInfo?.data?.tooltip?.Condition &&
-                        $state.tooltip
-                      ) {
+                      const condition =
+                        $state.userInfo?.data?.tooltip?.Condition;
+                      if (condition && $state.tooltip) {
                         const tool = localStorage.getItem("tooltip");
-                        if (
-                          String($state.userInfo.data.tooltip.Condition) !==
-                          tool
-                        ) {
+                        if (String(condition) !== tool) {
                           localStorage.removeItem("tooltip");
-                          return ($state.tooltip.show = true);
+                          if ($state.tooltip) {
+                            return ($state.tooltip.show = true);
+                          }
                         }
                       }
                     })();
@@ -27764,7 +27762,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                   className: classNames("__wab_instance", sty.tooltip),
                   data: (() => {
                     try {
-                      return $state.userInfo?.tooltip;
+                      return $state.userInfo?.tooltip || {};
                     } catch (e) {
                       if (
                         e instanceof TypeError ||

@@ -537,19 +537,17 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
-            let daysPregnant = 280 - $state.daysPregnant;
-            let weeksPregnant = Math.floor(daysPregnant / 7);
-            let monthPregnant = Math.floor(weeksPregnant / 4);
-            if (weeksPregnant >= 24 && weeksPregnant < 28) {
-              monthPregnant = 7;
-            } else if (weeksPregnant >= 28 && weeksPregnant < 32) {
-              monthPregnant = 8;
-            } else if (weeksPregnant >= 32 && weeksPregnant < 36) {
-              monthPregnant = 9;
-            } else if (weeksPregnant >= 36 && weeksPregnant < 40) {
-              monthPregnant = 10;
+            function getPregnancyMonth(daysPregnant) {
+              const monthEndDays = [29, 59, 89, 119, 149, 179, 209, 239, 280];
+
+              for (let i = 0; i < monthEndDays.length; i++) {
+                if (daysPregnant <= monthEndDays[i]) return i + 1;
+              }
+              return 10;
             }
-            return monthPregnant;
+            let daysPregnant = $state.daysPregnant;
+            let month = getPregnancyMonth(daysPregnant);
+            return month;
           })()
       },
       {

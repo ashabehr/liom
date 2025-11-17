@@ -59,6 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
@@ -85,27 +86,42 @@ export type PlasmicShopOfferBox__VariantsArgs = {};
 type VariantPropType = keyof PlasmicShopOfferBox__VariantsArgs;
 export const PlasmicShopOfferBox__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicShopOfferBox__ArgsType = { title?: string; desc?: string };
+export type PlasmicShopOfferBox__ArgsType = {
+  title?: string;
+  desc?: string;
+  shapData?: any;
+  onShapDataChange?: (val: string) => void;
+  token?: string;
+  type?: string;
+};
 type ArgPropType = keyof PlasmicShopOfferBox__ArgsType;
 export const PlasmicShopOfferBox__ArgProps = new Array<ArgPropType>(
   "title",
-  "desc"
+  "desc",
+  "shapData",
+  "onShapDataChange",
+  "token",
+  "type"
 );
 
 export type PlasmicShopOfferBox__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   ol?: Flex__<"ol">;
   ul?: Flex__<"ul">;
   shopText?: Flex__<typeof AntdModal>;
   input?: Flex__<typeof AntdInput>;
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
-  button7?: Flex__<typeof Button>;
 };
 
 export interface DefaultShopOfferBoxProps {
   title?: string;
   desc?: string;
+  shapData?: any;
+  onShapDataChange?: (val: string) => void;
+  token?: string;
+  type?: string;
   className?: string;
 }
 
@@ -150,6 +166,8 @@ function PlasmicShopOfferBox__RenderFunc(props: {
 
   const globalVariants = _useGlobalVariants();
 
+  const $globalActions = useGlobalActions?.();
+
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
@@ -159,6 +177,14 @@ function PlasmicShopOfferBox__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "shapData",
+        type: "writable",
+        variableType: "object",
+
+        valueProp: "shapData",
+        onChangeProp: "onShapDataChange"
       },
       {
         path: "input.value",
@@ -205,22 +231,22 @@ function PlasmicShopOfferBox__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "button7.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button7.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button7.load",
+        path: "discountBox",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "visiblebox",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "discountCode",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -249,6 +275,82 @@ function PlasmicShopOfferBox__RenderFunc(props: {
         sty.root
       )}
     >
+      <SideEffect
+        data-plasmic-name={"sideEffect"}
+        data-plasmic-override={overrides.sideEffect}
+        className={classNames("__wab_instance", sty.sideEffect)}
+        onMount={async () => {
+          const $steps = {};
+
+          $steps["shop"] = true
+            ? (() => {
+                const actionArgs = {
+                  args: [
+                    "PUT",
+                    "https://n8n.staas.ir/webhook/rest/shop/list",
+                    undefined,
+                    (() => {
+                      try {
+                        return {
+                          authorization: $props.token,
+                          type: $props.type
+                        };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+                  ]
+                };
+                return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                  ...actionArgs.args
+                ]);
+              })()
+            : undefined;
+          if (
+            $steps["shop"] != null &&
+            typeof $steps["shop"] === "object" &&
+            typeof $steps["shop"].then === "function"
+          ) {
+            $steps["shop"] = await $steps["shop"];
+          }
+
+          $steps["updateShapData"] = ($steps.shop?.data.success ? true : false)
+            ? (() => {
+                const actionArgs = {
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["shapData"]
+                  },
+                  operation: 0,
+                  value: $steps.shop?.data
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  $stateSet(objRoot, variablePath, value);
+                  return value;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateShapData"] != null &&
+            typeof $steps["updateShapData"] === "object" &&
+            typeof $steps["updateShapData"].then === "function"
+          ) {
+            $steps["updateShapData"] = await $steps["updateShapData"];
+          }
+        }}
+      />
+
       <div className={classNames(projectcss.all, sty.freeBox___9N4WC)}>
         <div className={classNames(projectcss.all, sty.freeBox__tbg39)}>
           <div className={classNames(projectcss.all, sty.freeBox__zUuii)}>
@@ -261,7 +363,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
             >
               {hasVariant(globalVariants, "screen", "mobile")
                 ? "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0646 \u062a\u0627 \u0627\u06cc\u0646 \u0648\u06cc\u0698\u06af\u06cc \u0647\u0627 \u0631\u0648 \u0628\u062f\u0633\u062a \u0628\u06cc\u0627\u0631\u06cc"
-                : "\u0647\u0645\u0647 \u0646\u06a9\u0627\u062a \u0648 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc\u200c\u0647\u0627\u06cc \u0631\u0627\u0628\u0637\u0647 \u062f\u0631 \u06cc\u06a9 \u0627\u0634\u062a\u0631\u0627\u06a9"}
+                : "\u0647\u0645\u0647 \u0646\u06a9\u0627\u062a \u0648 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc\u200c\u0647\u0627\u06cc \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u062f\u0631 \u06cc\u06a9 \u0627\u0634\u062a\u0631\u0627\u06a9"}
             </div>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__nOv00)}>
@@ -305,9 +407,10 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                     dangerouslySetInnerHTML={{
                       __html: (() => {
                         try {
-                          return `<b>خودت رو برای بهترین نقش زندگیت آماده کن!</b>  <br>
-<div style="position: relative; left: 10px;">این پیام‌ها بهت حس پدر بودن رو یادآوری می‌کنه. وقتی احساس خوبی داشته باشی، همسرت هم آرامش بیشتری خواهد داشت.</div>
-`;
+                          return `<b>یادآوری‌های مخصوص خودت</b>
+<div style="position: relative; left: 10px; margin-top: 7px; margin-bottom: 0;">
+هر هفته دقیق می‌فهمی تو بدنت چه می‌گذره؛ چی طبیعی حساب میشه و چی نه.بهت می‌گم چه کارهایی لازمه، چی رو باید جدی بگیری و چطور بی‌استرس‌تر پیش بری.
+</div>`;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -357,9 +460,10 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                     dangerouslySetInnerHTML={{
                       __html: (() => {
                         try {
-                          return `<b>رابطه‌تون رو قوی‌تر کن، بدون گفتن حتی یک کلمه!</b>  <br>
-<div style="position: relative; left: 10px;">این پیام‌ها به همسرت نشون می‌ده که چقدر برات مهمه. یک راه ساده برای اینکه رابطه‌تون رو محکم‌تر کنی!</div>
-`;
+                          return `<b>یادآوری‌های مخصوص همسرت</b>
+<div style="position: relative; left: 10px; margin-top: 7px; margin-bottom: 0;">
+هر هفته یه نکته کوتاه می‌گیره تا بفهمه تو چه مرحله‌ای هستی و چطور می‌تونه بهتر همراهت باشه. این‌طوری حس نمی‌کنی تنها داری جلو می‌ری.
+</div>`;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -409,6 +513,144 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                     dangerouslySetInnerHTML={{
                       __html: (() => {
                         try {
+                          return `<b>چک‌لیست هفتگی</b>
+<div style="position: relative; left: 10px; margin-top: 7px; margin-bottom: 0;">
+کارهای مهم هر هفته رو مرتب و آماده می‌گیری؛ چیزهایی که اگه جا بمونن واقعاً اذیتت می‌کنن. تقویمت همیشه دقیق و سر وقت می‌مونه.
+</div>`;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f\u0634 \u0631\u0648 \u0628\u0631\u0627\u062a \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u06a9\u0646\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632\u0634 \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc \u0648 \u06a9\u0645\u062a\u0631 \u062f\u0631\u062f \u0628\u06a9\u0634\u0647 \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc";
+                          }
+                          throw e;
+                        }
+                      })()
+                    }}
+                  />
+                )}
+              </li>
+              <li
+                className={classNames(
+                  projectcss.all,
+                  projectcss.li,
+                  projectcss.__wab_text,
+                  sty.li__r4MZl
+                )}
+              >
+                {hasVariant(globalVariants, "screen", "mobile") ? (
+                  <div
+                    className={projectcss.__wab_expr_html_text}
+                    dangerouslySetInnerHTML={{
+                      __html: (() => {
+                        try {
+                          return `<b>خودت رو برای بهترین نقش زندگیت آماده کن!</b>  <br>
+<div style="position: relative; left: 10px;">این پیام‌ها بهت حس پدر بودن رو یادآوری می‌کنه. وقتی احساس خوبی داشته باشی، همسرت هم آرامش بیشتری خواهد داشت.</div>
+`;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "\u0634\u0631\u0648\u0639 \u062f\u0648\u0631\u0647 pms \u0631\u0648 \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647\u062a \u0627\u0637\u0644\u0627\u0639 \u0645\u06cc\u062f\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0631\u0648 \u0628\u06cc\u0634\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u0627\u0632 \u0646\u0627\u0631\u0627\u062d\u062a\u06cc \u0647\u0627\u06cc \u0627\u062d\u062a\u0645\u0627\u0644\u06cc \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u06a9\u0646\u06cc. ";
+                          }
+                          throw e;
+                        }
+                      })()
+                    }}
+                  />
+                ) : (
+                  <div
+                    className={projectcss.__wab_expr_html_text}
+                    dangerouslySetInnerHTML={{
+                      __html: (() => {
+                        try {
+                          return `<b>این هفته چی خطرناکه و چی بی‌خطره؟</b>
+<div style="position: relative; left: 10px; margin-top: 7px; margin-bottom: 0;">
+غذاها، کارها، فعالیت‌ها و چیزهایی که ریسکشون بالاست رو واضح می‌گم. این‌طوری می‌دونی چی امنه و چی ممکنه بهت یا کوچولوت آسیب بزنه.
+</div>`;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "\u0634\u0631\u0648\u0639 \u062f\u0648\u0631\u0647 pms \u0631\u0648 \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647\u062a \u0627\u0637\u0644\u0627\u0639 \u0645\u06cc\u062f\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0631\u0648 \u0628\u06cc\u0634\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u0627\u0632 \u0646\u0627\u0631\u0627\u062d\u062a\u06cc \u0647\u0627\u06cc \u0627\u062d\u062a\u0645\u0627\u0644\u06cc \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u06a9\u0646\u06cc. ";
+                          }
+                          throw e;
+                        }
+                      })()
+                    }}
+                  />
+                )}
+              </li>
+              <li
+                className={classNames(
+                  projectcss.all,
+                  projectcss.li,
+                  projectcss.__wab_text,
+                  sty.li__kdnwi
+                )}
+              >
+                {hasVariant(globalVariants, "screen", "mobile") ? (
+                  <div
+                    className={projectcss.__wab_expr_html_text}
+                    dangerouslySetInnerHTML={{
+                      __html: (() => {
+                        try {
+                          return `<b>رابطه‌تون رو قوی‌تر کن، بدون گفتن حتی یک کلمه!</b>  <br>
+<div style="position: relative; left: 10px;">این پیام‌ها به همسرت نشون می‌ده که چقدر برات مهمه. یک راه ساده برای اینکه رابطه‌تون رو محکم‌تر کنی!</div>
+`;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "\u062f\u0631 \u0647\u0631 \u0631\u0648\u0632 pms \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u0634\u0647 \u06a9\u0647 \u0627\u0648\u0646 \u0647\u0645 \u0628\u062a\u0648\u0646\u0647 \u062e\u0648\u062f\u0634 \u0631\u0648 \u06a9\u0646\u062a\u0631\u0644 \u06a9\u0646\u0647 \u0648 \u062d\u0648\u0627\u0633\u0634 \u0628\u0647 \u062a\u0648 \u0648 \u0631\u0627\u0628\u0637\u0647 \u062a\u0648\u0646 \u0628\u0627\u0634\u0647(\u200c\u0627\u0644\u0628\u062a\u0647 \u06a9\u0647 \u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a \u0627\u06cc\u0646 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627 \u0628\u0635\u0648\u0631\u062a \u0645\u0633\u062a\u0642\u06cc\u0645 \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0646 \u0648 \u0627\u0648\u0646 \u0628\u0641\u0647\u0645\u0647 \u06a9\u0647 \u062a\u0648 \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0631\u062f\u06cc)";
+                          }
+                          throw e;
+                        }
+                      })()
+                    }}
+                  />
+                ) : (
+                  <div
+                    className={projectcss.__wab_expr_html_text}
+                    dangerouslySetInnerHTML={{
+                      __html: (() => {
+                        try {
+                          return `<b>جلوگیری از ترک پوستی</b>
+<div style="position: relative; left: 10px; margin-top: 7px; margin-bottom: 0;">
+قبل از اینکه ترک‌ها ظاهر بشن، بهت می‌گم چی بزنی، از کی شروع کنی و چی کمک می‌کنه پوستت سالم‌تر بمونه. مرحله‌به‌مرحله و کاملاً کاربردی.
+</div>`;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "\u062f\u0631 \u0647\u0631 \u0631\u0648\u0632 pms \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u0634\u0647 \u06a9\u0647 \u0627\u0648\u0646 \u0647\u0645 \u0628\u062a\u0648\u0646\u0647 \u062e\u0648\u062f\u0634 \u0631\u0648 \u06a9\u0646\u062a\u0631\u0644 \u06a9\u0646\u0647 \u0648 \u062d\u0648\u0627\u0633\u0634 \u0628\u0647 \u062a\u0648 \u0648 \u0631\u0627\u0628\u0637\u0647 \u062a\u0648\u0646 \u0628\u0627\u0634\u0647(\u200c\u0627\u0644\u0628\u062a\u0647 \u06a9\u0647 \u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a \u0627\u06cc\u0646 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627 \u0628\u0635\u0648\u0631\u062a \u0645\u0633\u062a\u0642\u06cc\u0645 \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0646 \u0648 \u0627\u0648\u0646 \u0628\u0641\u0647\u0645\u0647 \u06a9\u0647 \u062a\u0648 \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0631\u062f\u06cc)";
+                          }
+                          throw e;
+                        }
+                      })()
+                    }}
+                  />
+                )}
+              </li>
+              <li
+                className={classNames(
+                  projectcss.all,
+                  projectcss.li,
+                  projectcss.__wab_text,
+                  sty.li___6Jc0
+                )}
+              >
+                {hasVariant(globalVariants, "screen", "mobile") ? (
+                  <div
+                    className={projectcss.__wab_expr_html_text}
+                    dangerouslySetInnerHTML={{
+                      __html: (() => {
+                        try {
                           return `<b>حس پدر بودن رو تجربه کن!</b>  <br>
 <div style="position: relative; left: 10px;">با دریافت پیام‌هایی درباره وضعیت جنین، همیشه در جریان تغییرات و رشد فرزندت خواهی بود.</div>
 `;
@@ -417,7 +659,134 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
+                            return '"\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f\u0634 \u0631\u0648 \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u062a\u0627 \u0628\u0647\u062a\u0631 \u0627\u0632\u0634 \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc."\n';
+                          }
+                          throw e;
+                        }
+                      })()
+                    }}
+                  />
+                ) : (
+                  <div
+                    className={projectcss.__wab_expr_html_text}
+                    dangerouslySetInnerHTML={{
+                      __html: (() => {
+                        try {
+                          return `<b>مکمل‌ها و آزمایش‌های لازم هر هفته</b>
+<div style="position: relative; left: 10px; margin-top: 7px; margin-bottom: 0;">
+هر هفته دقیق می‌فهمی چه آزمایشی وقتشه، چه مکملی لازمه یا اضافیه، و چی به رشد سالم کوچولوت کمک می‌کنه.
+</div>`;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
                             return "\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f\u0634 \u0631\u0648 \u0628\u0631\u0627\u062a \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u06a9\u0646\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632\u0634 \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc \u0648 \u06a9\u0645\u062a\u0631 \u062f\u0631\u062f \u0628\u06a9\u0634\u0647 \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc";
+                          }
+                          throw e;
+                        }
+                      })()
+                    }}
+                  />
+                )}
+              </li>
+              <li
+                className={classNames(
+                  projectcss.all,
+                  projectcss.li,
+                  projectcss.__wab_text,
+                  sty.li___653B5
+                )}
+              >
+                {hasVariant(globalVariants, "screen", "mobile") ? (
+                  <div
+                    className={projectcss.__wab_expr_html_text}
+                    dangerouslySetInnerHTML={{
+                      __html: (() => {
+                        try {
+                          return `<b>خودت رو برای بهترین نقش زندگیت آماده کن!</b>  <br>
+<div style="position: relative; left: 10px;">این پیام‌ها بهت حس پدر بودن رو یادآوری می‌کنه. وقتی احساس خوبی داشته باشی، همسرت هم آرامش بیشتری خواهد داشت.</div>
+`;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "\u0634\u0631\u0648\u0639 \u062f\u0648\u0631\u0647 pms \u0631\u0648 \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647\u062a \u0627\u0637\u0644\u0627\u0639 \u0645\u06cc\u062f\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0631\u0648 \u0628\u06cc\u0634\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u0627\u0632 \u0646\u0627\u0631\u0627\u062d\u062a\u06cc \u0647\u0627\u06cc \u0627\u062d\u062a\u0645\u0627\u0644\u06cc \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u06a9\u0646\u06cc. ";
+                          }
+                          throw e;
+                        }
+                      })()
+                    }}
+                  />
+                ) : (
+                  <div
+                    className={projectcss.__wab_expr_html_text}
+                    dangerouslySetInnerHTML={{
+                      __html: (() => {
+                        try {
+                          return `<b>توصیه‌های بیشتر</b>
+<div style="position: relative; left: 10px; margin-top: 7px; margin-bottom: 0;">
+نکته‌های ریز و مهمی که معمولاً تو اپ‌ها جا می‌مونه ولی تو زندگی واقعی واقعاً به کارت میان و بارداریت رو راحت‌تر می‌کنن.
+</div>`;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "\u0634\u0631\u0648\u0639 \u062f\u0648\u0631\u0647 pms \u0631\u0648 \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647\u062a \u0627\u0637\u0644\u0627\u0639 \u0645\u06cc\u062f\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0631\u0648 \u0628\u06cc\u0634\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u0627\u0632 \u0646\u0627\u0631\u0627\u062d\u062a\u06cc \u0647\u0627\u06cc \u0627\u062d\u062a\u0645\u0627\u0644\u06cc \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u06a9\u0646\u06cc. ";
+                          }
+                          throw e;
+                        }
+                      })()
+                    }}
+                  />
+                )}
+              </li>
+              <li
+                className={classNames(
+                  projectcss.all,
+                  projectcss.li,
+                  projectcss.__wab_text,
+                  sty.li__aJ5Wq
+                )}
+              >
+                {hasVariant(globalVariants, "screen", "mobile") ? (
+                  <div
+                    className={projectcss.__wab_expr_html_text}
+                    dangerouslySetInnerHTML={{
+                      __html: (() => {
+                        try {
+                          return `<b>رابطه‌تون رو قوی‌تر کن، بدون گفتن حتی یک کلمه!</b>  <br>
+<div style="position: relative; left: 10px;">این پیام‌ها به همسرت نشون می‌ده که چقدر برات مهمه. یک راه ساده برای اینکه رابطه‌تون رو محکم‌تر کنی!</div>
+`;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "\u062f\u0631 \u0647\u0631 \u0631\u0648\u0632 pms \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u0634\u0647 \u06a9\u0647 \u0627\u0648\u0646 \u0647\u0645 \u0628\u062a\u0648\u0646\u0647 \u062e\u0648\u062f\u0634 \u0631\u0648 \u06a9\u0646\u062a\u0631\u0644 \u06a9\u0646\u0647 \u0648 \u062d\u0648\u0627\u0633\u0634 \u0628\u0647 \u062a\u0648 \u0648 \u0631\u0627\u0628\u0637\u0647 \u062a\u0648\u0646 \u0628\u0627\u0634\u0647(\u200c\u0627\u0644\u0628\u062a\u0647 \u06a9\u0647 \u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a \u0627\u06cc\u0646 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627 \u0628\u0635\u0648\u0631\u062a \u0645\u0633\u062a\u0642\u06cc\u0645 \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0646 \u0648 \u0627\u0648\u0646 \u0628\u0641\u0647\u0645\u0647 \u06a9\u0647 \u062a\u0648 \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0631\u062f\u06cc)";
+                          }
+                          throw e;
+                        }
+                      })()
+                    }}
+                  />
+                ) : (
+                  <div
+                    className={projectcss.__wab_expr_html_text}
+                    dangerouslySetInnerHTML={{
+                      __html: (() => {
+                        try {
+                          return `<b>روتین پوست و مو</b>
+<div style="position: relative; left: 10px; margin-top: 7px; margin-bottom: 0;">
+ یه راهنمای خلاصه و قدم‌به‌قدم که کمک می‌کنه پوست و مو‌ت رو تو بهترین حالت نگه داری؛ ساده، قابل انجام و بدون دردسر. </div>`;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "\u062f\u0631 \u0647\u0631 \u0631\u0648\u0632 pms \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u0634\u0647 \u06a9\u0647 \u0627\u0648\u0646 \u0647\u0645 \u0628\u062a\u0648\u0646\u0647 \u062e\u0648\u062f\u0634 \u0631\u0648 \u06a9\u0646\u062a\u0631\u0644 \u06a9\u0646\u0647 \u0648 \u062d\u0648\u0627\u0633\u0634 \u0628\u0647 \u062a\u0648 \u0648 \u0631\u0627\u0628\u0637\u0647 \u062a\u0648\u0646 \u0628\u0627\u0634\u0647(\u200c\u0627\u0644\u0628\u062a\u0647 \u06a9\u0647 \u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a \u0627\u06cc\u0646 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627 \u0628\u0635\u0648\u0631\u062a \u0645\u0633\u062a\u0642\u06cc\u0645 \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0646 \u0648 \u0627\u0648\u0646 \u0628\u0641\u0647\u0645\u0647 \u06a9\u0647 \u062a\u0648 \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0631\u062f\u06cc)";
                           }
                           throw e;
                         }
@@ -549,240 +918,524 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                 </div>
               </div>
             </AntdModal>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__vUjqB
-              )}
-            >
-              <React.Fragment>
-                <span
-                  className={"plasmic_default__all plasmic_default__span"}
-                  style={{ fontWeight: 700 }}
-                >
-                  {"\u0646\u06a9\u062a\u0647:    "}
-                </span>
-                <React.Fragment>
-                  {
-                    "\u0628\u0627 \u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u062a\u0645\u0627\u0645\u06cc \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627 \u0648 \u0646\u06a9\u0627\u062a \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc \u062a\u0642\u0648\u06cc\u062a \u0631\u0627\u0628\u0637\u0647  \u0647\u0645 \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u0634\u0648\u0646\u062f \u0648 \u0647\u0645 \u062f\u0631 \u062a\u0644\u06af\u0631\u0627\u0645 \u0642\u0627\u0628\u0644 \u062f\u0633\u062a\u0631\u0633 \u0647\u0633\u062a\u0646\u062f"
-                  }
-                </React.Fragment>
-              </React.Fragment>
-            </div>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__qECdD)}>
-            <div className={classNames(projectcss.all, sty.freeBox__sS2X)}>
-              <div className={classNames(projectcss.all, sty.freeBox___2Qwfo)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___2CrR
-                  )}
-                >
-                  {""}
-                </div>
-              </div>
-              <div className={classNames(projectcss.all, sty.freeBox__kniDa)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__u5Rze
-                  )}
-                >
-                  {""}
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__aYdp)}>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___8ZK71
-                    )}
-                  >
-                    {""}
-                  </div>
-                </div>
-              </div>
-              <div className={classNames(projectcss.all, sty.freeBox__afKgO)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__p3Zmb
-                  )}
-                >
-                  {""}
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__ujBT)}>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___7I96V
-                    )}
-                  >
-                    {""}
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__imKy4
-                    )}
-                  >
-                    {""}
-                  </div>
-                </div>
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__hxsO2
-                )}
-              >
-                {
-                  "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f"
+            <div className={classNames(projectcss.all, sty.freeBox__ayhNs)}>
+              {(() => {
+                try {
+                  return $state.shapData.result.find(
+                    item => item.selected === 1
+                  ).topBadge
+                    ? true
+                    : false;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
                 }
-              </div>
-              <div className={classNames(projectcss.all, sty.freeBox__eMpBk)}>
-                <div className={classNames(projectcss.all, sty.freeBox__dxXnI)}>
-                  {(() => {
-                    const child$Props = {
-                      allowClear: hasVariant(globalVariants, "screen", "mobile")
-                        ? false
-                        : false,
-                      autoFocus: hasVariant(globalVariants, "screen", "mobile")
-                        ? false
-                        : false,
-                      bordered: hasVariant(globalVariants, "screen", "mobile")
-                        ? false
-                        : false,
-                      className: classNames("__wab_instance", sty.input),
-                      disabled: hasVariant(globalVariants, "screen", "mobile")
-                        ? false
-                        : false,
-                      onChange: async (...eventArgs: any) => {
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "value",
-                          ["input", "value"],
-                          AntdInput_Helpers
-                        ).apply(null, eventArgs);
-                      },
-                      placeholder:
-                        "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f",
-                      prefix: (
-                        <Icon10Icon
-                          className={classNames(projectcss.all, sty.svg__cAb7F)}
-                          role={"img"}
-                        />
-                      ),
-
-                      readOnly: hasVariant(globalVariants, "screen", "mobile")
-                        ? false
-                        : false,
-                      size: hasVariant(globalVariants, "screen", "mobile")
-                        ? "small"
-                        : "small",
-                      suffix: null,
-                      value: generateStateValueProp($state, ["input", "value"])
-                    };
-                    initializeCodeComponentStates(
-                      $state,
-                      [
-                        {
-                          name: "value",
-                          plasmicStateName: "input.value"
-                        }
-                      ],
-                      [],
-                      AntdInput_Helpers ?? {},
-                      child$Props
-                    );
-
-                    return (
-                      <AntdInput
-                        data-plasmic-name={"input"}
-                        data-plasmic-override={overrides.input}
-                        {...child$Props}
-                      />
-                    );
-                  })()}
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__fkq7R)}
-                  />
-                </div>
-                <Button
-                  data-plasmic-name={"button"}
-                  data-plasmic-override={overrides.button}
-                  className={classNames("__wab_instance", sty.button)}
-                  color={generateStateValueProp($state, ["button", "color"])}
-                  load={generateStateValueProp($state, ["button", "load"])}
-                  loading={generateStateValueProp($state, [
-                    "button",
-                    "loading"
-                  ])}
-                  onColorChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button", "color"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  onLoadChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button", "load"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  onLoadingChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button", "loading"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                >
+              })() ? (
+                <div className={classNames(projectcss.all, sty.freeBox__beK0B)}>
                   <div
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__h8NPv
+                      sty.text__qrfgQ
                     )}
                   >
-                    {"\u062a\u0627\u06cc\u06cc\u062f"}
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $state.shapData.result.find(
+                            item => item.selected === 1
+                          ).topBadge;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
                   </div>
-                </Button>
+                </div>
+              ) : null}
+              <div className={classNames(projectcss.all, sty.freeBox__s7S1F)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__sR692
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $state.shapData.result.find(
+                          item => item.selected === 1
+                        ).title;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+                {(() => {
+                  try {
+                    return $state.shapData.result[$state.selectedShop].badge
+                      ? true
+                      : false;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__cmMA)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__dIc4A
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.shapData.result.find(
+                              item => item.selected === 1
+                            ).badge;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </div>
+                ) : null}
               </div>
+              <div className={classNames(projectcss.all, sty.freeBox__yAwz0)}>
+                {(() => {
+                  try {
+                    return $state.shapData.result[$state.selectedShop].badge
+                      ? true
+                      : false;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__slo3
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $state.shapData.result
+                            .find(item => item.selected === 1)
+                            .fullPrice.toLocaleString("en-US");
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                ) : null}
+                <div className={classNames(projectcss.all, sty.freeBox__au4X)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__r5Vaw
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return (
+                            $state.shapData.result
+                              .find(item => item.selected === 1)
+                              .price.toLocaleString("en-US") + " تومان |"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__limi8
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $state.shapData.result.find(
+                            item => item.selected === 1
+                          ).per_month_text;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                </div>
+              </div>
+              {(() => {
+                try {
+                  return !$state.discountBox;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__nemmg
+                  )}
+                >
+                  {
+                    "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f"
+                  }
+                </div>
+              ) : null}
+              {(() => {
+                try {
+                  return $state.discountBox;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div className={classNames(projectcss.all, sty.freeBox___6QiH)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__gbd3Y)}
+                  >
+                    {(() => {
+                      const child$Props = {
+                        allowClear: hasVariant(
+                          globalVariants,
+                          "screen",
+                          "mobile"
+                        )
+                          ? false
+                          : false,
+                        autoFocus: hasVariant(
+                          globalVariants,
+                          "screen",
+                          "mobile"
+                        )
+                          ? false
+                          : false,
+                        bordered: hasVariant(globalVariants, "screen", "mobile")
+                          ? false
+                          : false,
+                        className: classNames("__wab_instance", sty.input),
+                        disabled: hasVariant(globalVariants, "screen", "mobile")
+                          ? false
+                          : false,
+                        onChange: async (...eventArgs: any) => {
+                          generateStateOnChangePropForCodeComponents(
+                            $state,
+                            "value",
+                            ["input", "value"],
+                            AntdInput_Helpers
+                          ).apply(null, eventArgs);
+                        },
+                        placeholder:
+                          "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f",
+                        prefix: (
+                          <Icon10Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__q07XM
+                            )}
+                            role={"img"}
+                          />
+                        ),
+
+                        readOnly: hasVariant(globalVariants, "screen", "mobile")
+                          ? false
+                          : false,
+                        size: hasVariant(globalVariants, "screen", "mobile")
+                          ? "small"
+                          : "small",
+                        suffix: null,
+                        value: generateStateValueProp($state, [
+                          "input",
+                          "value"
+                        ])
+                      };
+                      initializeCodeComponentStates(
+                        $state,
+                        [
+                          {
+                            name: "value",
+                            plasmicStateName: "input.value"
+                          }
+                        ],
+                        [],
+                        AntdInput_Helpers ?? {},
+                        child$Props
+                      );
+
+                      return (
+                        <AntdInput
+                          data-plasmic-name={"input"}
+                          data-plasmic-override={overrides.input}
+                          {...child$Props}
+                        />
+                      );
+                    })()}
+                    {(() => {
+                      try {
+                        return $state.visiblebox;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__wztoY
+                        )}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["updateVisiblebox"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["visiblebox"]
+                                  },
+                                  operation: 0,
+                                  value: false
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateVisiblebox"] != null &&
+                            typeof $steps["updateVisiblebox"] === "object" &&
+                            typeof $steps["updateVisiblebox"].then ===
+                              "function"
+                          ) {
+                            $steps["updateVisiblebox"] =
+                              await $steps["updateVisiblebox"];
+                          }
+                        }}
+                      />
+                    ) : null}
+                  </div>
+                  <Button
+                    data-plasmic-name={"button"}
+                    data-plasmic-override={overrides.button}
+                    className={classNames("__wab_instance", sty.button)}
+                    color={generateStateValueProp($state, ["button", "color"])}
+                    disabled={(() => {
+                      try {
+                        return $state.input.value == "" ||
+                          $state.input.value == null
+                          ? true
+                          : false;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    load={generateStateValueProp($state, ["button", "load"])}
+                    loading={generateStateValueProp($state, [
+                      "button",
+                      "loading"
+                    ])}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateVisiblebox"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["visiblebox"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateVisiblebox"] != null &&
+                        typeof $steps["updateVisiblebox"] === "object" &&
+                        typeof $steps["updateVisiblebox"].then === "function"
+                      ) {
+                        $steps["updateVisiblebox"] =
+                          await $steps["updateVisiblebox"];
+                      }
+                    }}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button", "load"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadingChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button",
+                          "loading"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__gYl45
+                      )}
+                    >
+                      {"\u062a\u0627\u06cc\u06cc\u062f"}
+                    </div>
+                  </Button>
+                </div>
+              ) : null}
               <Button
                 data-plasmic-name={"button2"}
                 data-plasmic-override={overrides.button2}
@@ -795,7 +1448,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                         ? Icon12Icon
                         : Icon12Icon
                     }
-                    className={classNames(projectcss.all, sty.svg__fnvq1)}
+                    className={classNames(projectcss.all, sty.svg___7VrxD)}
                     role={"img"}
                   />
                 }
@@ -851,7 +1504,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text___0Eh2
+                    sty.text__qa3Ot
                   )}
                 >
                   {
@@ -864,7 +1517,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                   projectcss.all,
                   projectcss.p,
                   projectcss.__wab_text,
-                  sty.p___7D244
+                  sty.p___8NoGw
                 )}
               >
                 {
@@ -879,7 +1532,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                     projectcss.all,
                     projectcss.p,
                     projectcss.__wab_text,
-                    sty.p__uwdf7
+                    sty.p__bGIm
                   )}
                 >
                   {
@@ -888,84 +1541,6 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                 </p>
               ) : null}
             </div>
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox__hd41K)}>
-            <Button
-              data-plasmic-name={"button7"}
-              data-plasmic-override={overrides.button7}
-              className={classNames("__wab_instance", sty.button7)}
-              color={generateStateValueProp($state, ["button7", "color"])}
-              endIcon={
-                <PlasmicIcon__
-                  PlasmicIconType={
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? Icon12Icon
-                      : Icon12Icon
-                  }
-                  className={classNames(projectcss.all, sty.svg__yg7Z3)}
-                  role={"img"}
-                />
-              }
-              load={generateStateValueProp($state, ["button7", "load"])}
-              loading={generateStateValueProp($state, ["button7", "loading"])}
-              onColorChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button7", "color"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              onLoadChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button7", "load"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              onLoadingChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button7", "loading"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___1RsS
-                )}
-              >
-                {
-                  "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647"
-                }
-              </div>
-            </Button>
           </div>
         </div>
       </div>
@@ -976,34 +1551,34 @@ function PlasmicShopOfferBox__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "sideEffect",
     "ol",
     "ul",
     "shopText",
     "input",
     "button",
-    "button2",
-    "button7"
+    "button2"
   ],
+  sideEffect: ["sideEffect"],
   ol: ["ol"],
   ul: ["ul"],
   shopText: ["shopText"],
   input: ["input"],
   button: ["button"],
-  button2: ["button2"],
-  button7: ["button7"]
+  button2: ["button2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
   ol: "ol";
   ul: "ul";
   shopText: typeof AntdModal;
   input: typeof AntdInput;
   button: typeof Button;
   button2: typeof Button;
-  button7: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1068,13 +1643,13 @@ export const PlasmicShopOfferBox = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
     ol: makeNodeComponent("ol"),
     ul: makeNodeComponent("ul"),
     shopText: makeNodeComponent("shopText"),
     input: makeNodeComponent("input"),
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
-    button7: makeNodeComponent("button7"),
 
     // Metadata about props expected for PlasmicShopOfferBox
     internalVariantProps: PlasmicShopOfferBox__VariantProps,
