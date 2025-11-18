@@ -13,19 +13,6 @@
   border-radius: 8px;
   padding: 16px;
 }
-.rootf {
-  width: 150px;
-  height: auto;
-  max-width: 100%;
-  background: #00c3711a;
-  row-gap: 8px;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  column-gap: 0px;
-  border-radius: 8px;
-  padding: 16px;
-}
 .roottype_b {
   background: #fff1ee;
 }

@@ -99,6 +99,7 @@ import Icon140Icon from "./icons/PlasmicIcon__Icon140"; // plasmic-import: KzO15
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: boEzwrzcFMy4/icon
 import ChevronDownIcon from "../fragment_icons/icons/PlasmicIcon__ChevronDown"; // plasmic-import: aC_QFogxt1Ko/icon
 import ChevronUpIcon from "../fragment_icons/icons/PlasmicIcon__ChevronUp"; // plasmic-import: YXreB8gS3SjV/icon
+import Icon2Icon from "./icons/PlasmicIcon__Icon2"; // plasmic-import: EwJmqOfKx7up/icon
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
 import Icon144Icon from "./icons/PlasmicIcon__Icon144"; // plasmic-import: 1DQk0pCQHybZ/icon
 
@@ -174,7 +175,7 @@ export type PlasmicCalendar2__OverridesType = {
   advicesLoading?: Flex__<"div">;
   collapseMother2?: Flex__<typeof AntdSingleCollapse>;
   button3?: Flex__<typeof Button>;
-  futureItem?: Flex__<typeof FutureItem>;
+  button4?: Flex__<typeof Button>;
   collapseMother3?: Flex__<typeof AntdSingleCollapse>;
   useful?: Flex__<typeof Useful>;
   harmful?: Flex__<typeof Harmful>;
@@ -1026,7 +1027,7 @@ function PlasmicCalendar2__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                function getFormattedDate(userData, type) {
+                function getFormattedNextDate(userData, type) {
                   if (!userData)
                     return {
                       type,
@@ -1046,8 +1047,36 @@ function PlasmicCalendar2__RenderFunc(props: {
                   var month = fa.find(x => x.type === "month")?.value;
                   var today = new Date();
                   var timeDifference = miladiDate - today;
-                  var remaining =
-                    Math.ceil(timeDifference / (1000 * 60 * 60 * 24)) - 1;
+                  var remaining = Math.ceil(
+                    timeDifference / (1000 * 60 * 60 * 24)
+                  );
+                  remaining = Math.max(0, remaining);
+                  return {
+                    type: type,
+                    day,
+                    month,
+                    remaining
+                  };
+                }
+                function getFormattedCurrentDate(userData, type) {
+                  if (!userData) return null;
+                  var miladiDate = new Date(userData);
+                  var fa = new Intl.DateTimeFormat("fa-IR-u-ca-persian", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric"
+                  }).formatToParts(miladiDate);
+                  var day = fa.find(x => x.type === "day")?.value;
+                  var month = fa.find(x => x.type === "month")?.value;
+                  var now = new Date();
+                  var timeDifference = miladiDate - now;
+                  var remaining = Math.ceil(
+                    timeDifference / (1000 * 60 * 60 * 24)
+                  );
+                  remaining = Math.max(0, remaining);
+                  if (remaining <= 0) {
+                    return null;
+                  }
                   return {
                     type,
                     day,
@@ -1059,6 +1088,17 @@ function PlasmicCalendar2__RenderFunc(props: {
                   $state.userInfo?.result?.userStatus?.periodStart?.split(
                     "T"
                   )[0] || null;
+                var periodend =
+                  $state.userInfo?.result?.userStatus?.periodEnd?.split(
+                    "T"
+                  )[0] || null;
+                var pmsStart =
+                  $state.userInfo?.result?.userStatus?.pmsStart?.split(
+                    "T"
+                  )[0] || null;
+                var pmsEnd =
+                  $state.userInfo?.result?.userStatus?.pmsEnd?.split("T")[0] ||
+                  null;
                 var fertilityStart =
                   $state.userInfo?.result?.userStatus?.fertilityStart?.split(
                     "T"
@@ -1075,11 +1115,20 @@ function PlasmicCalendar2__RenderFunc(props: {
                       1
                   );
                 }
-                return [
-                  getFormattedDate(periodStart, "b"),
-                  getFormattedDate(fertilityStart, "f"),
-                  getFormattedDate(ovulation, "ff")
-                ];
+                return {
+                  now: [
+                    getFormattedCurrentDate(periodStart, "b"),
+                    getFormattedCurrentDate(periodend, "b"),
+                    getFormattedCurrentDate(fertilityStart, "f"),
+                    getFormattedCurrentDate(ovulation, "ff"),
+                    getFormattedCurrentDate(pmsStart, "p")
+                  ].filter(Boolean),
+                  next: [
+                    getFormattedNextDate(periodStart, "b"),
+                    getFormattedNextDate(fertilityStart, "f"),
+                    getFormattedNextDate(ovulation, "ff")
+                  ]
+                };
               })();
             } catch (e) {
               if (
@@ -2119,6 +2168,24 @@ function PlasmicCalendar2__RenderFunc(props: {
       },
       {
         path: "load.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button4.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button4.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button4.load",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
@@ -28112,8 +28179,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                       displayMaxHeight={"none"}
                       displayMaxWidth={"100%"}
                       displayMinHeight={"0"}
-                      displayMinWidth={"60px"}
-                      displayWidth={"60px"}
+                      displayMinWidth={"70px"}
+                      displayWidth={"70px"}
                       loading={"lazy"}
                       src={(() => {
                         try {
@@ -54992,7 +55059,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                           !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                           (() => {
                             try {
-                              return $state.next;
+                              return $state.next.now;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -55008,11 +55075,92 @@ function PlasmicCalendar2__RenderFunc(props: {
                           const currentIndex = __plasmic_idx_0;
                           return (
                             <FutureItem
-                              data-plasmic-name={"futureItem"}
-                              data-plasmic-override={overrides.futureItem}
                               className={classNames(
                                 "__wab_instance",
-                                sty.futureItem
+                                sty.futureItem__olKtr
+                              )}
+                              key={currentIndex}
+                              next={currentItem}
+                              now={true}
+                              type={(() => {
+                                try {
+                                  return currentItem.type;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            />
+                          );
+                        })}
+                        {(() => {
+                          try {
+                            return $state.next.now.length > 0;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__xIXm1
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__qH5PF
+                              )}
+                            >
+                              {
+                                "\u062f\u0648\u0631\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc\n\u0628\u0639\u062f\u06cc"
+                              }
+                            </div>
+                            <Icon2Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg___1Jyq4
+                              )}
+                              role={"img"}
+                            />
+                          </div>
+                        ) : null}
+                        {(_par =>
+                          !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                          (() => {
+                            try {
+                              return $state.next.next;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                        ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                          const currentItem = __plasmic_item_0;
+                          const currentIndex = __plasmic_idx_0;
+                          return (
+                            <FutureItem
+                              className={classNames(
+                                "__wab_instance",
+                                sty.futureItem__womHx
                               )}
                               key={currentIndex}
                               next={currentItem}
@@ -55033,31 +55181,183 @@ function PlasmicCalendar2__RenderFunc(props: {
                             />
                           );
                         })}
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__xIXm1
-                          )}
-                        >
+                        {(() => {
+                          try {
+                            return !$state.userInfo.result.user
+                              .selfHamyarSmsSubStatus;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
                           <div
                             className={classNames(
                               projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__qH5PF
+                              sty.freeBox__kbQ
                             )}
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["goToPage"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      destination: (() => {
+                                        try {
+                                          return `https://apps.liom.app/web-viow/?link=https%3A%2F%2Fapps.liom.app%2Fself-sms-page%2F%3Ftoken%3D${$state.token}%26inApp%3Dfalse%26home-page%3Dhttps%25253A%25252F%25252Fapps.liom.app%25252Fmain%25252F`;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    };
+                                    return (({ destination }) => {
+                                      if (
+                                        typeof destination === "string" &&
+                                        destination.startsWith("#")
+                                      ) {
+                                        document
+                                          .getElementById(destination.substr(1))
+                                          .scrollIntoView({
+                                            behavior: "smooth"
+                                          });
+                                      } else {
+                                        __nextRouter?.push(destination);
+                                      }
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["goToPage"] != null &&
+                                typeof $steps["goToPage"] === "object" &&
+                                typeof $steps["goToPage"].then === "function"
+                              ) {
+                                $steps["goToPage"] = await $steps["goToPage"];
+                              }
+                            }}
                           >
-                            {
-                              "\u062f\u0648\u0631\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc\n\u0628\u0639\u062f\u06cc"
-                            }
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img__y6Lcn)}
+                              displayHeight={"30px"}
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"100%"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"30px"}
+                              loading={"lazy"}
+                              src={{
+                                src: "/plasmic/liom_hamyar/images/image126.png",
+                                fullWidth: 1474,
+                                fullHeight: 1474,
+                                aspectRatio: undefined
+                              }}
+                            />
+
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__bZfNn
+                              )}
+                            >
+                              {
+                                "\u0628\u0631\u0627\u06cc \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0641\u0631\u0627\u0645\u0648\u0634\u06cc \u0627\u06cc\u0646 \u062a\u0627\u0631\u06cc\u062e\u0647\u0627\u060c \u0627\u0634\u062a\u0631\u0627\u06a9 \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0646"
+                              }
+                            </div>
+                            <Button
+                              data-plasmic-name={"button4"}
+                              data-plasmic-override={overrides.button4}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.button4
+                              )}
+                              color={generateStateValueProp($state, [
+                                "button4",
+                                "color"
+                              ])}
+                              load={generateStateValueProp($state, [
+                                "button4",
+                                "load"
+                              ])}
+                              loading={generateStateValueProp($state, [
+                                "button4",
+                                "loading"
+                              ])}
+                              onColorChange={async (...eventArgs: any) => {
+                                ((...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "button4",
+                                    "color"
+                                  ])(eventArgs[0]);
+                                }).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              }}
+                              onLoadChange={async (...eventArgs: any) => {
+                                ((...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "button4",
+                                    "load"
+                                  ])(eventArgs[0]);
+                                }).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              }}
+                              onLoadingChange={async (...eventArgs: any) => {
+                                ((...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "button4",
+                                    "loading"
+                                  ])(eventArgs[0]);
+                                }).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              }}
+                              size={"minimal"}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text___4Saiu
+                                )}
+                              >
+                                {
+                                  "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u062e\u0648\u062f"
+                                }
+                              </div>
+                            </Button>
                           </div>
-                          <svg
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg___1Jyq4
-                            )}
-                            role={"img"}
-                          />
-                        </div>
+                        ) : null}
                       </div>
                     </AntdSingleCollapse>
                   );
@@ -59334,7 +59634,7 @@ const PlasmicDescendants = {
     "advicesLoading",
     "collapseMother2",
     "button3",
-    "futureItem",
+    "button4",
     "collapseMother3",
     "useful",
     "harmful",
@@ -59399,7 +59699,7 @@ const PlasmicDescendants = {
     "advicesLoading",
     "collapseMother2",
     "button3",
-    "futureItem",
+    "button4",
     "collapseMother3",
     "useful",
     "harmful",
@@ -59429,9 +59729,9 @@ const PlasmicDescendants = {
   button25: ["button25"],
   button22: ["button22"],
   advicesLoading: ["advicesLoading"],
-  collapseMother2: ["collapseMother2", "button3", "futureItem"],
+  collapseMother2: ["collapseMother2", "button3", "button4"],
   button3: ["button3"],
-  futureItem: ["futureItem"],
+  button4: ["button4"],
   collapseMother3: ["collapseMother3", "useful", "harmful"],
   useful: ["useful"],
   harmful: ["harmful"],
@@ -59514,7 +59814,7 @@ type NodeDefaultElementType = {
   advicesLoading: "div";
   collapseMother2: typeof AntdSingleCollapse;
   button3: typeof Button;
-  futureItem: typeof FutureItem;
+  button4: typeof Button;
   collapseMother3: typeof AntdSingleCollapse;
   useful: typeof Useful;
   harmful: typeof Harmful;
@@ -59641,7 +59941,7 @@ export const PlasmicCalendar2 = Object.assign(
     advicesLoading: makeNodeComponent("advicesLoading"),
     collapseMother2: makeNodeComponent("collapseMother2"),
     button3: makeNodeComponent("button3"),
-    futureItem: makeNodeComponent("futureItem"),
+    button4: makeNodeComponent("button4"),
     collapseMother3: makeNodeComponent("collapseMother3"),
     useful: makeNodeComponent("useful"),
     harmful: makeNodeComponent("harmful"),

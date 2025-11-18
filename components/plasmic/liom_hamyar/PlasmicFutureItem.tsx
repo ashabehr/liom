@@ -75,23 +75,17 @@ import Icon380Icon from "./icons/PlasmicIcon__Icon380"; // plasmic-import: SmW__
 createPlasmicElementProxy;
 
 export type PlasmicFutureItem__VariantMembers = {
-  b: "b";
-  f: "f";
-  p: "p";
   type: "b" | "f" | "p" | "ff";
+  now: "now";
 };
 export type PlasmicFutureItem__VariantsArgs = {
-  b?: SingleBooleanChoiceArg<"b">;
-  f?: SingleBooleanChoiceArg<"f">;
-  p?: SingleBooleanChoiceArg<"p">;
   type?: SingleChoiceArg<"b" | "f" | "p" | "ff">;
+  now?: SingleBooleanChoiceArg<"now">;
 };
 type VariantPropType = keyof PlasmicFutureItem__VariantsArgs;
 export const PlasmicFutureItem__VariantProps = new Array<VariantPropType>(
-  "b",
-  "f",
-  "p",
-  "type"
+  "type",
+  "now"
 );
 
 export type PlasmicFutureItem__ArgsType = { next?: any };
@@ -106,10 +100,8 @@ export type PlasmicFutureItem__OverridesType = {
 
 export interface DefaultFutureItemProps {
   next?: any;
-  b?: SingleBooleanChoiceArg<"b">;
-  f?: SingleBooleanChoiceArg<"f">;
-  p?: SingleBooleanChoiceArg<"p">;
   type?: SingleChoiceArg<"b" | "f" | "p" | "ff">;
+  now?: SingleBooleanChoiceArg<"now">;
   className?: string;
 }
 
@@ -159,28 +151,16 @@ function PlasmicFutureItem__RenderFunc(props: {
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: "b",
-        type: "private",
-        variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.b
-      },
-      {
-        path: "f",
-        type: "private",
-        variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.f
-      },
-      {
-        path: "p",
-        type: "private",
-        variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.p
-      },
-      {
         path: "type",
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.type
+      },
+      {
+        path: "now",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.now
       }
     ],
     [$props, $ctx, $refs]
@@ -208,13 +188,17 @@ function PlasmicFutureItem__RenderFunc(props: {
         styleTokensClassNames,
         sty.root,
         {
-          [sty.rootb]: hasVariant($state, "b", "b"),
-          [sty.rootf]: hasVariant($state, "f", "f"),
-          [sty.rootp]: hasVariant($state, "p", "p"),
+          [sty.rootnow]: hasVariant($state, "now", "now"),
+          [sty.rootnow_type_f]:
+            hasVariant($state, "now", "now") && hasVariant($state, "type", "f"),
           [sty.roottype_b]: hasVariant($state, "type", "b"),
+          [sty.roottype_b_now]:
+            hasVariant($state, "type", "b") && hasVariant($state, "now", "now"),
           [sty.roottype_f]: hasVariant($state, "type", "f"),
           [sty.roottype_ff]: hasVariant($state, "type", "ff"),
-          [sty.roottype_p]: hasVariant($state, "type", "p")
+          [sty.roottype_p]: hasVariant($state, "type", "p"),
+          [sty.roottype_p_now]:
+            hasVariant($state, "now", "now") && hasVariant($state, "type", "p")
         }
       )}
     >
@@ -228,12 +212,9 @@ function PlasmicFutureItem__RenderFunc(props: {
               ? Icon379Icon
               : hasVariant($state, "type", "f")
                 ? Icon134Icon
-                : hasVariant($state, "f", "f")
-                  ? Icon134Icon
-                  : Icon137Icon
+                : Icon137Icon
         }
         className={classNames(projectcss.all, sty.svg, {
-          [sty.svgf]: hasVariant($state, "f", "f"),
           [sty.svgtype_b]: hasVariant($state, "type", "b"),
           [sty.svgtype_f]: hasVariant($state, "type", "f"),
           [sty.svgtype_ff]: hasVariant($state, "type", "ff"),
@@ -307,20 +288,41 @@ function PlasmicFutureItem__RenderFunc(props: {
             projectcss.__wab_text,
             sty.text__yb79E,
             {
+              [sty.textnow__yb79EfClWf]: hasVariant($state, "now", "now"),
+              [sty.textnow_type_f__yb79EfClWfRuEhp]:
+                hasVariant($state, "now", "now") &&
+                hasVariant($state, "type", "f"),
               [sty.texttype_b__yb79EaSIhT]: hasVariant($state, "type", "b"),
+              [sty.texttype_b_now__yb79EaSIhTFClWf]:
+                hasVariant($state, "type", "b") &&
+                hasVariant($state, "now", "now"),
               [sty.texttype_f__yb79EruEhp]: hasVariant($state, "type", "f"),
               [sty.texttype_ff__yb79EaEzhz]: hasVariant($state, "type", "ff"),
-              [sty.texttype_p__yb79EYdWyQ]: hasVariant($state, "type", "p")
+              [sty.texttype_ff_now__yb79EaEzhzFClWf]:
+                hasVariant($state, "now", "now") &&
+                hasVariant($state, "type", "ff"),
+              [sty.texttype_p__yb79EYdWyQ]: hasVariant($state, "type", "p"),
+              [sty.texttype_p_now__yb79EYdWyQFClWf]:
+                hasVariant($state, "now", "now") &&
+                hasVariant($state, "type", "p")
             }
           )}
         >
-          {hasVariant($state, "type", "ff")
-            ? "\u0631\u0648\u0632 \u062a\u0627 \u0628\u06cc\u0634\u062a\u0631\u06cc\u0646 \u062a\u062e\u0645\u06a9 \u06af\u0632\u0627\u0631\u06cc \u0628\u0639\u062f\u06cc"
-            : hasVariant($state, "type", "p")
-              ? "\u0631\u0648\u0632 \u062a\u0627 \u0634\u0631\u0648\u0639 pms"
-              : hasVariant($state, "type", "f")
-                ? "\u0631\u0648\u0632 \u062a\u0627 \u0634\u0631\u0648\u0639 \u062a\u062e\u0645\u06a9 \u06af\u0632\u0627\u0631\u06cc \u0628\u0639\u062f\u06cc"
-                : "\u0631\u0648\u0632 \u062a\u0627 \u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f \u0628\u0639\u062f\u06cc"}
+          {hasVariant($state, "now", "now") && hasVariant($state, "type", "ff")
+            ? "\u0631\u0648\u0632 \u062a\u0627 \u0628\u06cc\u0634\u062a\u0631\u06cc\u0646 \u0645\u06cc\u0632\u0627\u0646 \u062a\u062e\u0645\u06a9 \u06af\u0630\u0627\u0631\u06cc"
+            : hasVariant($state, "now", "now") &&
+                hasVariant($state, "type", "f")
+              ? "\u0631\u0648\u0632 \u062a\u0627 \u0634\u0631\u0648\u0639 \u062a\u062e\u0645\u06a9 \u06af\u0630\u0627\u0631\u06cc"
+              : hasVariant($state, "type", "b") &&
+                  hasVariant($state, "now", "now")
+                ? "\u0631\u0648\u0632 \u062a\u0627 \u0627\u062a\u0645\u0627\u0645 \u062e\u0648\u0646\u0631\u06cc\u0632\u06cc"
+                : hasVariant($state, "type", "ff")
+                  ? "\u0631\u0648\u0632 \u062a\u0627 \u0628\u06cc\u0634\u062a\u0631\u06cc\u0646 \u0645\u06cc\u0632\u0627\u0646 \u062a\u062e\u0645\u06a9 \u06af\u0630\u0627\u0631\u06cc \u0628\u0639\u062f\u06cc"
+                  : hasVariant($state, "type", "p")
+                    ? "\u0631\u0648\u0632 \u062a\u0627 \u0634\u0631\u0648\u0639 pms"
+                    : hasVariant($state, "type", "f")
+                      ? "\u0631\u0648\u0632 \u062a\u0627 \u0634\u0631\u0648\u0639 \u062a\u062e\u0645\u06a9 \u06af\u0630\u0627\u0631\u06cc \u0628\u0639\u062f\u06cc"
+                      : "\u0631\u0648\u0632 \u062a\u0627 \u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f \u0628\u0639\u062f\u06cc"}
         </div>
       </div>
     </div>
