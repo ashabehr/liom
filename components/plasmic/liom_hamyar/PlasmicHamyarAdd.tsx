@@ -5321,13 +5321,15 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                   await $steps["invokeGlobalAction"];
               }
 
-              $steps["invokeGlobalAction2"] = $steps?.linkV3?.data?.result?.link
+              $steps["invokeGlobalAction2"] = $steps?.invokeGlobalAction?.data
+                ?.result?.link
                 ? (() => {
                     const actionArgs = {
                       args: [
                         (() => {
                           try {
-                            return $steps?.linkV3?.data?.result?.link;
+                            return $steps?.invokeGlobalAction?.data?.result
+                              ?.link;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||

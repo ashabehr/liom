@@ -126,6 +126,7 @@ export type PlasmicMain__OverridesType = {
   freeBox?: Flex__<"div">;
   svg?: Flex__<"svg">;
   button?: Flex__<typeof Button>;
+  text?: Flex__<"div">;
   lottie?: Flex__<typeof LottieWrapper>;
   footerMain?: Flex__<typeof FooterMain>;
   settingCycle4?: Flex__<typeof SettingCycle4>;
@@ -2328,10 +2329,12 @@ function PlasmicMain__RenderFunc(props: {
                       size={"compact"}
                     >
                       <div
+                        data-plasmic-name={"text"}
+                        data-plasmic-override={overrides.text}
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text___7Hh8B
+                          sty.text
                         )}
                       >
                         {
@@ -2419,32 +2422,6 @@ function PlasmicMain__RenderFunc(props: {
                     }}
                     role={"img"}
                   />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__ajJTs
-                    )}
-                  >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return $state.page.find(
-                            item => item.name == $state.footerMain.type
-                          ).namefa;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u0627\u0645\u06a9\u0627\u0646\u0627\u062a \u0648\u06cc\u0698\u0647";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  </div>
                 </div>
               </MainHeader>
             </section>
@@ -3900,6 +3877,7 @@ const PlasmicDescendants = {
     "freeBox",
     "svg",
     "button",
+    "text",
     "lottie",
     "footerMain",
     "settingCycle4",
@@ -3917,14 +3895,16 @@ const PlasmicDescendants = {
     "freeBox",
     "svg",
     "button",
+    "text",
     "lottie",
     "footerMain"
   ],
   mainPage: ["mainPage"],
-  mainHeader: ["mainHeader", "freeBox", "svg", "button", "lottie"],
+  mainHeader: ["mainHeader", "freeBox", "svg", "button", "text", "lottie"],
   freeBox: ["freeBox", "svg"],
   svg: ["svg"],
-  button: ["button", "lottie"],
+  button: ["button", "text", "lottie"],
+  text: ["text"],
   lottie: ["lottie"],
   footerMain: ["footerMain"],
   settingCycle4: ["settingCycle4"],
@@ -3946,6 +3926,7 @@ type NodeDefaultElementType = {
   freeBox: "div";
   svg: "svg";
   button: typeof Button;
+  text: "div";
   lottie: typeof LottieWrapper;
   footerMain: typeof FooterMain;
   settingCycle4: typeof SettingCycle4;
@@ -4050,6 +4031,7 @@ export const PlasmicMain = Object.assign(
     freeBox: makeNodeComponent("freeBox"),
     svg: makeNodeComponent("svg"),
     button: makeNodeComponent("button"),
+    text: makeNodeComponent("text"),
     lottie: makeNodeComponent("lottie"),
     footerMain: makeNodeComponent("footerMain"),
     settingCycle4: makeNodeComponent("settingCycle4"),

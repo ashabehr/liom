@@ -28104,7 +28104,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                     <PlasmicImg__
                       alt={""}
                       className={classNames(sty.img__b6Sx)}
-                      displayHeight={"25px"}
+                      displayHeight={"30px"}
                       displayMaxHeight={"none"}
                       displayMaxWidth={"100%"}
                       displayMinHeight={"0"}
@@ -28139,9 +28139,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                           dangerouslySetInnerHTML={{
                             __html: (() => {
                               try {
-                                return (
-                                  currentItem.title + "<b>" + "  >" + "</b>"
-                                );
+                                return currentItem.name;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||

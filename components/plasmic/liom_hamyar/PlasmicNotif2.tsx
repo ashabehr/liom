@@ -1145,7 +1145,16 @@ function PlasmicNotif2__RenderFunc(props: {
                         initFunc: ({ $props, $state, $queries }) =>
                           (() => {
                             try {
-                              return (() => {})();
+                              return (() => {
+                                let seenArrey =
+                                  JSON.parse(
+                                    localStorage.getItem("seenArrey")
+                                  ) || [];
+                                return (
+                                  notifItem.seen != 0 ||
+                                  seenArrey.includes(notifItem.id)
+                                );
+                              })();
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
