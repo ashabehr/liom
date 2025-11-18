@@ -1,0 +1,108 @@
+.root {
+  display: inline-flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: #eb464a1a;
+  row-gap: 8px;
+  position: relative;
+  justify-self: flex-start;
+  border-radius: 8px;
+  padding: 16px;
+}
+.rootf {
+  width: 150px;
+  height: auto;
+  max-width: 100%;
+  background: #00c3711a;
+  row-gap: 8px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  column-gap: 0px;
+  border-radius: 8px;
+  padding: 16px;
+}
+.roottype_b {
+  background: #fff1ee;
+}
+.roottype_f {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  background: #fcf5db;
+  row-gap: 8px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  justify-self: flex-start;
+  column-gap: 0px;
+  display: inline-flex;
+  border-radius: 8px;
+  padding: 16px;
+}
+.roottype_p {
+  background: #d5effe;
+}
+.roottype_ff {
+  background: #fee3d0;
+  width: auto;
+  justify-self: flex-start;
+  display: inline-flex;
+}
+.svg {
+  object-fit: cover;
+  max-width: 100%;
+  width: 25px;
+  height: 25px;
+  color: var(--token-4RAe7M2gInqR);
+  flex-shrink: 0;
+}
+.svgtype_b {
+  color: #d62a76;
+}
+.svgtype_p {
+  color: #3c9ef6;
+}
+.text__abzjI {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  font-size: var(--token-Wa5tmrNKVUYF);
+  font-weight: 700;
+}
+.freeBox {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  column-gap: var(--token-38wfsm-OP2Vm);
+  min-width: 0;
+  padding: 0px;
+}
+.text__w1Pix {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  font-size: var(--token-moKolTKrMXup);
+  font-weight: 700;
+}
+.text__yb79E {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  white-space: pre;
+  font-size: var(--token-moKolTKrMXup);
+}

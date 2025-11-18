@@ -74,6 +74,7 @@ import Tooltip from "../../Tooltip"; // plasmic-import: m8c5Sv3Tr_nB/component
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import PercentageBox from "../../PercentageBox"; // plasmic-import: u0LyXWqR1nAi/component
+import FutureItem from "../../FutureItem"; // plasmic-import: pKcBaNZ3_IhU/component
 import Useful from "../../Useful"; // plasmic-import: 2qiQ4nSmOYBA/component
 import Harmful from "../../Harmful"; // plasmic-import: XLWl_YcBNVp7/component
 import { AntdTooltip } from "@plasmicpkgs/antd5/skinny/registerTooltip";
@@ -98,9 +99,6 @@ import Icon140Icon from "./icons/PlasmicIcon__Icon140"; // plasmic-import: KzO15
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: boEzwrzcFMy4/icon
 import ChevronDownIcon from "../fragment_icons/icons/PlasmicIcon__ChevronDown"; // plasmic-import: aC_QFogxt1Ko/icon
 import ChevronUpIcon from "../fragment_icons/icons/PlasmicIcon__ChevronUp"; // plasmic-import: YXreB8gS3SjV/icon
-import Icon133Icon from "./icons/PlasmicIcon__Icon133"; // plasmic-import: LLDyzwfYn9sj/icon
-import Icon134Icon from "./icons/PlasmicIcon__Icon134"; // plasmic-import: PSMkJFE0wRsu/icon
-import Icon135Icon from "./icons/PlasmicIcon__Icon135"; // plasmic-import: YzT3XF612FD4/icon
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
 import Icon144Icon from "./icons/PlasmicIcon__Icon144"; // plasmic-import: 1DQk0pCQHybZ/icon
 
@@ -176,6 +174,7 @@ export type PlasmicCalendar2__OverridesType = {
   advicesLoading?: Flex__<"div">;
   collapseMother2?: Flex__<typeof AntdSingleCollapse>;
   button3?: Flex__<typeof Button>;
+  futureItem?: Flex__<typeof FutureItem>;
   collapseMother3?: Flex__<typeof AntdSingleCollapse>;
   useful?: Flex__<typeof Useful>;
   harmful?: Flex__<typeof Harmful>;
@@ -1027,33 +1026,34 @@ function PlasmicCalendar2__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                function getFormattedDate(userData) {
-                  if (!userData) return "Invalid Input";
+                function getFormattedDate(userData, type) {
+                  if (!userData)
+                    return {
+                      type,
+                      day: null,
+                      month: null,
+                      remaining: null
+                    };
                   var miladiDate = new Date(userData);
                   var cycle = $state.userInfo?.result?.userStatus?.cycle || 0;
                   miladiDate.setDate(miladiDate.getDate() + cycle);
-                  var jalaaliDate = miladiDate.toLocaleString("fa-IR", {
-                    calendar: "persian",
-                    dateStyle: "short"
-                  });
-                  var daysOfWeek = [
-                    "یکشنبه",
-                    "دوشنبه",
-                    "سه‌شنبه",
-                    "چهارشنبه",
-                    "پنج‌شنبه",
-                    "جمعه",
-                    "شنبه"
-                  ];
-
-                  var dayOfWeek =
-                    daysOfWeek[miladiDate.getDay()] || "Unknown Day";
+                  var fa = new Intl.DateTimeFormat("fa-IR-u-ca-persian", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric"
+                  }).formatToParts(miladiDate);
+                  var day = fa.find(x => x.type === "day")?.value;
+                  var month = fa.find(x => x.type === "month")?.value;
                   var today = new Date();
                   var timeDifference = miladiDate - today;
-                  var daysRemaining = Math.ceil(
-                    timeDifference / (1000 * 60 * 60 * 24)
-                  );
-                  return `${dayOfWeek} ${jalaaliDate} B(${daysRemaining - 1} روز مانده)`;
+                  var remaining =
+                    Math.ceil(timeDifference / (1000 * 60 * 60 * 24)) - 1;
+                  return {
+                    type,
+                    day,
+                    month,
+                    remaining
+                  };
                 }
                 var periodStart =
                   $state.userInfo?.result?.userStatus?.periodStart?.split(
@@ -1063,18 +1063,22 @@ function PlasmicCalendar2__RenderFunc(props: {
                   $state.userInfo?.result?.userStatus?.fertilityStart?.split(
                     "T"
                   )[0] || null;
-                var p = new Date(fertilityStart);
-                if (p) {
-                  p.setDate(
-                    p.getDate() +
+                var ovulation = null;
+                if (
+                  fertilityStart &&
+                  $state.userInfo.result.calender[0].fertility100
+                ) {
+                  ovulation = new Date(fertilityStart);
+                  ovulation.setDate(
+                    ovulation.getDate() +
                       $state.userInfo.result.calender[0].fertility100 -
                       1
                   );
                 }
                 return [
-                  getFormattedDate(periodStart),
-                  getFormattedDate(fertilityStart),
-                  getFormattedDate(p)
+                  getFormattedDate(periodStart, "b"),
+                  getFormattedDate(fertilityStart, "f"),
+                  getFormattedDate(ovulation, "ff")
                 ];
               })();
             } catch (e) {
@@ -28108,8 +28112,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                       displayMaxHeight={"none"}
                       displayMaxWidth={"100%"}
                       displayMinHeight={"0"}
-                      displayMinWidth={"50px"}
-                      displayWidth={"100%"}
+                      displayMinWidth={"60px"}
+                      displayWidth={"60px"}
                       loading={"lazy"}
                       src={(() => {
                         try {
@@ -28133,45 +28137,24 @@ function PlasmicCalendar2__RenderFunc(props: {
                         sty.text___2K4G2
                       )}
                     >
-                      {hasVariant(globalVariants, "screen", "mobile") ? (
-                        <div
-                          className={projectcss.__wab_expr_html_text}
-                          dangerouslySetInnerHTML={{
-                            __html: (() => {
-                              try {
-                                return currentItem.name;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
-                                }
-                                throw e;
+                      <div
+                        className={projectcss.__wab_expr_html_text}
+                        dangerouslySetInnerHTML={{
+                          __html: (() => {
+                            try {
+                              return currentItem.name;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
                               }
-                            })()
-                          }}
-                        />
-                      ) : (
-                        <div
-                          className={projectcss.__wab_expr_html_text}
-                          dangerouslySetInnerHTML={{
-                            __html: (() => {
-                              try {
-                                return currentItem.name;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
-                                }
-                                throw e;
-                              }
-                            })()
-                          }}
-                        />
-                      )}
+                              throw e;
+                            }
+                          })()
+                        }}
+                      />
                     </div>
                   </div>
                 );
@@ -54991,258 +54974,90 @@ function PlasmicCalendar2__RenderFunc(props: {
                       <div
                         className={classNames(
                           projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__fi1Uw
+                        )}
+                      >
+                        {
+                          "\u067e\u06cc\u0634 \u0628\u06cc\u0646\u06cc \u0647\u0627\u06cc \u0632\u06cc\u0631 \u062f\u0631 \u0635\u0648\u0631\u062a \u0645\u0646\u0638\u0645 \u0628\u0648\u062f\u0646 \u067e\u0631\u06cc\u0648\u062f \u0645\u0639\u062a\u0628\u0631 \u0627\u0633\u062a."
+                        }
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
                           sty.freeBox___3Levv
                         )}
                       >
+                        {(_par =>
+                          !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                          (() => {
+                            try {
+                              return $state.next;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                        ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                          const currentItem = __plasmic_item_0;
+                          const currentIndex = __plasmic_idx_0;
+                          return (
+                            <FutureItem
+                              data-plasmic-name={"futureItem"}
+                              data-plasmic-override={overrides.futureItem}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.futureItem
+                              )}
+                              key={currentIndex}
+                              next={currentItem}
+                              type={(() => {
+                                try {
+                                  return currentItem.type;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            />
+                          );
+                        })}
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__xbfQb
+                            sty.freeBox__xIXm1
                           )}
                         >
-                          <Icon133Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__rf61Q
-                            )}
-                            role={"img"}
-                          />
-
                           <div
                             className={classNames(
                               projectcss.all,
                               projectcss.__wab_text,
-                              sty.text___6SwG5
+                              sty.text__qH5PF
                             )}
                           >
                             {
-                              "\u067e\u0631\u06cc\u0648\u062f \u0628\u0639\u062f\u06cc"
+                              "\u062f\u0648\u0631\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc\n\u0628\u0639\u062f\u06cc"
                             }
                           </div>
-                          <div
+                          <svg
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__miRns
-                            )}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__kGye9
-                              )}
-                            >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return $state.next[0].split("B")[0];
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            </div>
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__bAgg
-                              )}
-                            >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return $state.next[0].split("B")[1];
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__mMw0
-                          )}
-                        >
-                          <Icon134Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__nCsM
+                              sty.svg___1Jyq4
                             )}
                             role={"img"}
                           />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__trvWg
-                            )}
-                          >
-                            {
-                              "\u0628\u0627\u0631\u0648\u0631\u06cc \u0628\u0639\u062f\u06cc"
-                            }
-                          </div>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__qrId3
-                            )}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__wRz7
-                              )}
-                            >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return $state.next[1].split("B")[0];
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            </div>
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__xa5L4
-                              )}
-                            >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return $state.next[1].split("B")[1];
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            </div>
-                          </div>
                         </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox___0REI
-                          )}
-                        >
-                          <Icon135Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__uttlN
-                            )}
-                            role={"img"}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text___3LScF
-                            )}
-                          >
-                            {
-                              "\u0627\u0648\u062c \u062a\u062e\u0645\u06a9 \u06af\u0630\u0627\u0631\u06cc"
-                            }
-                          </div>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__v81Bm
-                            )}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__kyDJn
-                              )}
-                            >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return $state.next[2].split("B")[0];
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            </div>
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__zOu5R
-                              )}
-                            >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return $state.next[2].split("B")[1];
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__aDeOw
-                          )}
-                        />
                       </div>
                     </AntdSingleCollapse>
                   );
@@ -59519,6 +59334,7 @@ const PlasmicDescendants = {
     "advicesLoading",
     "collapseMother2",
     "button3",
+    "futureItem",
     "collapseMother3",
     "useful",
     "harmful",
@@ -59583,6 +59399,7 @@ const PlasmicDescendants = {
     "advicesLoading",
     "collapseMother2",
     "button3",
+    "futureItem",
     "collapseMother3",
     "useful",
     "harmful",
@@ -59612,8 +59429,9 @@ const PlasmicDescendants = {
   button25: ["button25"],
   button22: ["button22"],
   advicesLoading: ["advicesLoading"],
-  collapseMother2: ["collapseMother2", "button3"],
+  collapseMother2: ["collapseMother2", "button3", "futureItem"],
   button3: ["button3"],
+  futureItem: ["futureItem"],
   collapseMother3: ["collapseMother3", "useful", "harmful"],
   useful: ["useful"],
   harmful: ["harmful"],
@@ -59696,6 +59514,7 @@ type NodeDefaultElementType = {
   advicesLoading: "div";
   collapseMother2: typeof AntdSingleCollapse;
   button3: typeof Button;
+  futureItem: typeof FutureItem;
   collapseMother3: typeof AntdSingleCollapse;
   useful: typeof Useful;
   harmful: typeof Harmful;
@@ -59822,6 +59641,7 @@ export const PlasmicCalendar2 = Object.assign(
     advicesLoading: makeNodeComponent("advicesLoading"),
     collapseMother2: makeNodeComponent("collapseMother2"),
     button3: makeNodeComponent("button3"),
+    futureItem: makeNodeComponent("futureItem"),
     collapseMother3: makeNodeComponent("collapseMother3"),
     useful: makeNodeComponent("useful"),
     harmful: makeNodeComponent("harmful"),
