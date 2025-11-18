@@ -10234,6 +10234,67 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 </div>
               );
             })}
+            {(() => {
+              try {
+                return $props.data.length == 0;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div className={classNames(projectcss.all, sty.freeBox__prs8I)}>
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return [0, 1, 2, 3, 4, 5];
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentday = __plasmic_item_0;
+                  const dayIndex = __plasmic_idx_0;
+                  return (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__suk35,
+                        "shimmer",
+                        {
+                          [sty.freeBoxadd__suk35UWxSg]: hasVariant(
+                            $state,
+                            "add",
+                            "add"
+                          ),
+                          [sty.freeBoxslide__1__suk35Edcqc]: hasVariant(
+                            $state,
+                            "slide",
+                            "_1"
+                          ),
+                          [sty.freeBoxslide__2__suk35VJmCw]: hasVariant(
+                            $state,
+                            "slide",
+                            "_2"
+                          )
+                        }
+                      )}
+                      key={dayIndex}
+                    />
+                  );
+                })}
+              </div>
+            ) : null}
           </div>
         ) : null}
         {(

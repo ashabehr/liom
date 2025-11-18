@@ -549,173 +549,7 @@ function PlasmicReminder__RenderFunc(props: {
         path: "ofline",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
-          {
-            liomId: null,
-            telegramId: null,
-            phoneNumber: null,
-            schedule_type: "everyYear",
-            type: "religious_womens_day",
-            name: "\u0631\u0648\u0632 \u0632\u0646 \u0648 \u0645\u0627\u062f\u0631",
-            text: "religious_womens_day",
-            dates: '["2025-12-11"]',
-            weekdays: null,
-            times: '["10:00"]',
-            finishTime: null,
-            active: 0,
-            chanels: '["notification","telegram"]'
-          },
-          {
-            liomId: null,
-            telegramId: null,
-            phoneNumber: null,
-            schedule_type: "everyYear",
-            type: "religious_girl_day",
-            name: "\u0631\u0648\u0632 \u062f\u062e\u062a\u0631",
-            text: "religious_girl_day",
-            dates: '["2026-04-19"]',
-            weekdays: null,
-            times: '["10:00"]',
-            finishTime: null,
-            active: 0,
-            chanels: '["notification","telegram"]'
-          },
-          {
-            liomId: null,
-            telegramId: null,
-            phoneNumber: null,
-            schedule_type: "everyYear",
-            type: "mothers_day",
-            name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
-            text: "mothers_day",
-            dates: '["2026-03-08"]',
-            weekdays: null,
-            times: '["10:00"]',
-            finishTime: null,
-            active: 0,
-            chanels: '["notification","telegram"]'
-          },
-          {
-            liomId: null,
-            telegramId: null,
-            phoneNumber: null,
-            schedule_type: "everyYear",
-            type: "valentine_day",
-            name: "\u0631\u0648\u0632 \u0648\u0644\u0646\u062a\u0627\u06cc\u0646",
-            text: "valentine_day",
-            dates: '["2026-02-14"]',
-            weekdays: null,
-            times: '["10:00"]',
-            finishTime: null,
-            active: 0,
-            chanels: '["notification","telegram"]'
-          },
-          {
-            liomId: null,
-            telegramId: null,
-            phoneNumber: null,
-            schedule_type: "everyYear",
-            type: "sepandarmazgan",
-            name: "\u0631\u0648\u0632 \u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646",
-            text: "sepandarmazgan",
-            dates: '["2026-02-18"]',
-            weekdays: null,
-            times: '["10:00"]',
-            finishTime: null,
-            active: 0,
-            chanels: '["notification","telegram"]'
-          },
-          {
-            liomId: null,
-            telegramId: null,
-            phoneNumber: null,
-            schedule_type: "everyYear",
-            type: "womens_day",
-            name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631",
-            text: "womens_day",
-            dates: '["2026-10-11"]',
-            weekdays: null,
-            times: '["10:00"]',
-            finishTime: null,
-            active: 0,
-            chanels: '["notification","telegram"]'
-          },
-          {
-            liomId: null,
-            telegramId: null,
-            phoneNumber: null,
-            schedule_type: "everyYear",
-            type: "mens_day",
-            name: "\u0631\u0648\u0632 \u0645\u0631\u062f",
-            text: "mens_day",
-            dates: '["2026-11-19"]',
-            weekdays: null,
-            times: '["10:00"]',
-            finishTime: null,
-            active: 0,
-            chanels: '["notification","telegram"]'
-          },
-          {
-            liomId: null,
-            telegramId: null,
-            phoneNumber: null,
-            schedule_type: "everyYear",
-            type: "spouse_birthday",
-            name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
-            text: "spouse_birthday",
-            dates: null,
-            weekdays: null,
-            times: '["10:00"]',
-            finishTime: null,
-            active: 0,
-            chanels: '["notification","telegram"]'
-          },
-          {
-            liomId: null,
-            telegramId: null,
-            phoneNumber: null,
-            schedule_type: "everyYear",
-            type: "wedding_anniversary",
-            name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c",
-            text: "wedding_anniversary",
-            dates: null,
-            weekdays: null,
-            times: '["10:00"]',
-            finishTime: null,
-            active: 0,
-            chanels: '["notification","telegram"]'
-          },
-          {
-            liomId: null,
-            telegramId: null,
-            phoneNumber: null,
-            schedule_type: "everyYear",
-            type: "relationship_anniversary",
-            name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc",
-            text: "relationship_anniversary",
-            dates: null,
-            weekdays: null,
-            times: '["10:00"]',
-            finishTime: null,
-            active: 0,
-            chanels: '["notification","telegram"]'
-          },
-          {
-            liomId: null,
-            telegramId: null,
-            phoneNumber: null,
-            schedule_type: "everyYear",
-            type: "child_birthday",
-            name: "\u062a\u0648\u0644\u062f \u0641\u0631\u0632\u0646\u062f",
-            text: "child_birthday",
-            dates: null,
-            weekdays: null,
-            times: '["10:00"]',
-            finishTime: null,
-            active: 0,
-            chanels: '["notification","telegram"]'
-          }
-        ]
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       },
       {
         path: "slide3",
@@ -989,6 +823,56 @@ function PlasmicReminder__RenderFunc(props: {
           typeof $steps["runCode"].then === "function"
         ) {
           $steps["runCode"] = await $steps["runCode"];
+        }
+
+        $steps["invokeGlobalAction"] = true
+          ? (() => {
+              const actionArgs = {
+                args: [
+                  "GET",
+                  "https://n8n.staas.ir/webhook/reminders/suggestions"
+                ]
+              };
+              return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                ...actionArgs.args
+              ]);
+            })()
+          : undefined;
+        if (
+          $steps["invokeGlobalAction"] != null &&
+          typeof $steps["invokeGlobalAction"] === "object" &&
+          typeof $steps["invokeGlobalAction"].then === "function"
+        ) {
+          $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
+        }
+
+        $steps["updateOfline"] = $steps.invokeGlobalAction.data
+          ? (() => {
+              const actionArgs = {
+                variable: {
+                  objRoot: $state,
+                  variablePath: ["ofline"]
+                },
+                operation: 0,
+                value: $steps.invokeGlobalAction.data
+              };
+              return (({ variable, value, startIndex, deleteCount }) => {
+                if (!variable) {
+                  return;
+                }
+                const { objRoot, variablePath } = variable;
+
+                $stateSet(objRoot, variablePath, value);
+                return value;
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["updateOfline"] != null &&
+          typeof $steps["updateOfline"] === "object" &&
+          typeof $steps["updateOfline"].then === "function"
+        ) {
+          $steps["updateOfline"] = await $steps["updateOfline"];
         }
 
         $steps["runCode2"] = true
@@ -4331,37 +4215,32 @@ function PlasmicReminder__RenderFunc(props: {
               ? (() => {
                   try {
                     return (() => {
-                      const result =
-                        $state.reminderSetting.reminderCategory2Data.type
-                          .filter(i => i.category_name !== "")
-                          .flatMap(i =>
-                            i.items.map(a => ({
-                              liomId: $props.manId,
-                              telegramId: $props.telegramId,
-                              phoneNumber: $props.phone,
-                              name: a.type_fa,
-                              text: a.text || a.type,
-                              schedule_type: a.schedule_type,
-                              type: a.type,
-                              dates: a.date ? JSON.stringify([a.date]) : "[]",
-                              channels: JSON.stringify(["notification"]),
-                              times: "[]",
-                              weekdays:
-                                a.schedule_type === "everyDay"
-                                  ? JSON.stringify([
-                                      "saturday",
-                                      "sunday",
-                                      "monday",
-                                      "tuesday",
-                                      "wednesday",
-                                      "thursday",
-                                      "friday"
-                                    ])
-                                  : null,
-                              active: 0,
-                              add: true
-                            }))
-                          );
+                      const result = $state.ofline.map(a => ({
+                        liomId: $props.manId,
+                        telegramId: $props.telegramId,
+                        phoneNumber: $props.phone,
+                        name: a.type_fa,
+                        text: a.text || a.type,
+                        schedule_type: a.schedule_type,
+                        type: a.type,
+                        dates: a.date ? JSON.stringify([a.date]) : "[]",
+                        channels: JSON.stringify(["notification"]),
+                        times: "[]",
+                        weekdays:
+                          a.schedule_type === "everyDay"
+                            ? JSON.stringify([
+                                "saturday",
+                                "sunday",
+                                "monday",
+                                "tuesday",
+                                "wednesday",
+                                "thursday",
+                                "friday"
+                              ])
+                            : null,
+                        active: 0,
+                        add: true
+                      }));
                       const updatedResult = result.map(item => {
                         const match = $props.data.find(
                           d => d.type === item.type
@@ -5057,7 +4936,9 @@ function PlasmicReminder__RenderFunc(props: {
       <ApiRequest
         data-plasmic-name={"wallet"}
         data-plasmic-override={overrides.wallet}
-        className={classNames("__wab_instance", sty.wallet)}
+        className={classNames("__wab_instance", sty.wallet, {
+          [sty.walletslide3]: hasVariant($state, "slide3", "slide3")
+        })}
         config={(() => {
           try {
             return {

@@ -139,6 +139,7 @@ export type PlasmicHamyarAdd__OverridesType = {
   switchbest?: Flex__<typeof Switchbest>;
   img?: Flex__<typeof PlasmicImg__>;
   load?: Flex__<typeof Load>;
+  shopClice?: Flex__<"div">;
 };
 
 export interface DefaultHamyarAddProps {}
@@ -266,20 +267,7 @@ function PlasmicHamyarAdd__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $ctx.query.token || window.localStorage.getItem("token");
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "relation",
@@ -1146,7 +1134,19 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                 throw e;
               }
             })()}
-            shouldFetch={true}
+            shouldFetch={(() => {
+              try {
+                return $state.token != "";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })()}
             url={"https://n8n.staas.ir/webhook/rest/user/hamyar/add"}
           />
 
@@ -4342,53 +4342,30 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                         await $steps["updateShopType"];
                                     }
 
-                                    $steps["updateDirectDialog2Open"] =
+                                    $steps["runCode2"] =
                                       $steps.invokeGlobalAction?.data?.error
                                         ?.code == 1220046
                                         ? (() => {
                                             const actionArgs = {
-                                              variable: {
-                                                objRoot: $state,
-                                                variablePath: [
-                                                  "directDialog2",
-                                                  "open"
-                                                ]
-                                              },
-                                              operation: 0,
-                                              value: true
-                                            };
-                                            return (({
-                                              variable,
-                                              value,
-                                              startIndex,
-                                              deleteCount
-                                            }) => {
-                                              if (!variable) {
-                                                return;
+                                              customFunction: async () => {
+                                                return window.document
+                                                  .getElementById("shop-v3")
+                                                  .click();
                                               }
-                                              const { objRoot, variablePath } =
-                                                variable;
-
-                                              $stateSet(
-                                                objRoot,
-                                                variablePath,
-                                                value
-                                              );
-                                              return value;
+                                            };
+                                            return (({ customFunction }) => {
+                                              return customFunction();
                                             })?.apply(null, [actionArgs]);
                                           })()
                                         : undefined;
                                     if (
-                                      $steps["updateDirectDialog2Open"] !=
-                                        null &&
-                                      typeof $steps[
-                                        "updateDirectDialog2Open"
-                                      ] === "object" &&
-                                      typeof $steps["updateDirectDialog2Open"]
-                                        .then === "function"
+                                      $steps["runCode2"] != null &&
+                                      typeof $steps["runCode2"] === "object" &&
+                                      typeof $steps["runCode2"].then ===
+                                        "function"
                                     ) {
-                                      $steps["updateDirectDialog2Open"] =
-                                        await $steps["updateDirectDialog2Open"];
+                                      $steps["runCode2"] =
+                                        await $steps["runCode2"];
                                     }
 
                                     $steps["updateErrorMassege"] =
@@ -4908,41 +4885,27 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       $steps["runCode"] = await $steps["runCode"];
                     }
 
-                    $steps["updateDirectDialog2Open"] =
+                    $steps["runCode2"] =
                       $steps.invokeGlobalAction?.data?.error?.code == 1220046
                         ? (() => {
                             const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["directDialog2", "open"]
-                              },
-                              operation: 0,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
+                              customFunction: async () => {
+                                return window.document
+                                  .getElementById("shop-v3")
+                                  .click();
                               }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
                             })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
                     if (
-                      $steps["updateDirectDialog2Open"] != null &&
-                      typeof $steps["updateDirectDialog2Open"] === "object" &&
-                      typeof $steps["updateDirectDialog2Open"].then ===
-                        "function"
+                      $steps["runCode2"] != null &&
+                      typeof $steps["runCode2"] === "object" &&
+                      typeof $steps["runCode2"].then === "function"
                     ) {
-                      $steps["updateDirectDialog2Open"] =
-                        await $steps["updateDirectDialog2Open"];
+                      $steps["runCode2"] = await $steps["runCode2"];
                     }
 
                     $steps["updateErrorMassege"] =
@@ -5287,6 +5250,146 @@ function PlasmicHamyarAdd__RenderFunc(props: {
               }}
             />
           ) : null}
+          <div
+            data-plasmic-name={"shopClice"}
+            data-plasmic-override={overrides.shopClice}
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.shopClice
+            )}
+            id={"shop-v3"}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return ($state.load.loading = true);
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+
+              $steps["invokeGlobalAction"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://n8n.staas.ir/webhook/tools/selfCare/linkV3",
+                        undefined,
+                        (() => {
+                          try {
+                            return {
+                              authorization: $state.token,
+                              type: "care_partner"
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
+              }
+
+              $steps["invokeGlobalAction2"] = $steps?.linkV3?.data?.result?.link
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        (() => {
+                          try {
+                            return $steps?.linkV3?.data?.result?.link;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        (() => {
+                          try {
+                            return $state.token;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.deepLink"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction2"] != null &&
+                typeof $steps["invokeGlobalAction2"] === "object" &&
+                typeof $steps["invokeGlobalAction2"].then === "function"
+              ) {
+                $steps["invokeGlobalAction2"] =
+                  await $steps["invokeGlobalAction2"];
+              }
+
+              $steps["runCode2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return ($state.load.loading = false);
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode2"] != null &&
+                typeof $steps["runCode2"] === "object" &&
+                typeof $steps["runCode2"].then === "function"
+              ) {
+                $steps["runCode2"] = await $steps["runCode2"];
+              }
+            }}
+          >
+            {""}
+          </div>
         </div>
       </div>
     </React.Fragment>
@@ -5323,7 +5426,8 @@ const PlasmicDescendants = {
     "button7",
     "switchbest",
     "img",
-    "load"
+    "load",
+    "shopClice"
   ],
   sideEffect: ["sideEffect"],
   section: ["section", "headerLiom"],
@@ -5352,7 +5456,8 @@ const PlasmicDescendants = {
   button7: ["button7"],
   switchbest: ["switchbest"],
   img: ["img"],
-  load: ["load"]
+  load: ["load"],
+  shopClice: ["shopClice"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -5387,6 +5492,7 @@ type NodeDefaultElementType = {
   switchbest: typeof Switchbest;
   img: typeof PlasmicImg__;
   load: typeof Load;
+  shopClice: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -5504,6 +5610,7 @@ export const PlasmicHamyarAdd = Object.assign(
     switchbest: makeNodeComponent("switchbest"),
     img: makeNodeComponent("img"),
     load: makeNodeComponent("load"),
+    shopClice: makeNodeComponent("shopClice"),
 
     // Metadata about props expected for PlasmicHamyarAdd
     internalVariantProps: PlasmicHamyarAdd__VariantProps,

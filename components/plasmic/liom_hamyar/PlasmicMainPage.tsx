@@ -66,6 +66,7 @@ import SelfCare2 from "../../SelfCare2"; // plasmic-import: q5NYbKztjYXR/compone
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import MobileDialog from "../../MobileDialog"; // plasmic-import: h7ceF9lBthFF/component
 import DialogTooltip from "../../DialogTooltip"; // plasmic-import: 0nKndp-acHhb/component
+import { Iframe } from "@plasmicpkgs/plasmic-basic-components";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -77,10 +78,10 @@ import sty from "./PlasmicMainPage.module.css"; // plasmic-import: mwylH28Efyne/
 createPlasmicElementProxy;
 
 export type PlasmicMainPage__VariantMembers = {
-  page: "calendar" | "self" | "reminder";
+  page: "calendar" | "self" | "reminder" | "bot";
 };
 export type PlasmicMainPage__VariantsArgs = {
-  page?: SingleChoiceArg<"calendar" | "self" | "reminder">;
+  page?: SingleChoiceArg<"calendar" | "self" | "reminder" | "bot">;
 };
 type VariantPropType = keyof PlasmicMainPage__VariantsArgs;
 export const PlasmicMainPage__VariantProps = new Array<VariantPropType>("page");
@@ -135,6 +136,9 @@ export type PlasmicMainPage__OverridesType = {
   mobileDialog?: Flex__<typeof MobileDialog>;
   dialogTooltip?: Flex__<typeof DialogTooltip>;
   dialog?: Flex__<typeof ApiRequest>;
+  section?: Flex__<"section">;
+  freeBox?: Flex__<"div">;
+  iframe?: Flex__<typeof Iframe>;
 };
 
 export interface DefaultMainPageProps {
@@ -155,7 +159,7 @@ export interface DefaultMainPageProps {
   reminderSetting?: () => void;
   mobileDialogOpen?: boolean;
   onMobileDialogOpenChange?: (val: boolean) => void;
-  page?: SingleChoiceArg<"calendar" | "self" | "reminder">;
+  page?: SingleChoiceArg<"calendar" | "self" | "reminder" | "bot">;
   className?: string;
 }
 
@@ -1301,6 +1305,7 @@ function PlasmicMainPage__RenderFunc(props: {
       </Reveal>
       <Reveal
         className={classNames("__wab_instance", sty.reveal___7EWm4, {
+          [sty.revealpage_bot___7EWm417UeW]: hasVariant($state, "page", "bot"),
           [sty.revealpage_calendar___7EWm4WAq1O]: hasVariant(
             $state,
             "page",
@@ -1316,6 +1321,7 @@ function PlasmicMainPage__RenderFunc(props: {
           data-plasmic-name={"selfCare2"}
           data-plasmic-override={overrides.selfCare2}
           className={classNames("__wab_instance", sty.selfCare2, {
+            [sty.selfCare2page_bot]: hasVariant($state, "page", "bot"),
             [sty.selfCare2page_calendar]: hasVariant(
               $state,
               "page",
@@ -1748,6 +1754,50 @@ function PlasmicMainPage__RenderFunc(props: {
         })()}
         url={"https://n8n.staas.ir/webhook/user/onConnect"}
       />
+
+      <section
+        data-plasmic-name={"section"}
+        data-plasmic-override={overrides.section}
+        className={classNames(projectcss.all, sty.section, {
+          [sty.sectionpage_bot]: hasVariant($state, "page", "bot")
+        })}
+      >
+        <div
+          data-plasmic-name={"freeBox"}
+          data-plasmic-override={overrides.freeBox}
+          className={classNames(projectcss.all, sty.freeBox)}
+          style={(() => {
+            try {
+              return {
+                height: "100dvh"
+              };
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+        >
+          <Iframe
+            data-plasmic-name={"iframe"}
+            data-plasmic-override={overrides.iframe}
+            className={classNames("__wab_instance", sty.iframe, {
+              [sty.iframepage_bot]: hasVariant($state, "page", "bot"),
+              [sty.iframepage_calendar]: hasVariant($state, "page", "calendar"),
+              [sty.iframepage_reminder]: hasVariant($state, "page", "reminder"),
+              [sty.iframepage_self]: hasVariant($state, "page", "self")
+            })}
+            preview={true}
+            src={"https://tools.liom.app/chat-bot/"}
+            srcDoc={"<div><h3>Heading</h3><p>Example text...</p></div>"}
+            useHtml={false}
+          />
+        </div>
+      </section>
     </div>
   ) as React.ReactElement | null;
 }
@@ -1762,7 +1812,10 @@ const PlasmicDescendants = {
     "apiRequest",
     "mobileDialog",
     "dialogTooltip",
-    "dialog"
+    "dialog",
+    "section",
+    "freeBox",
+    "iframe"
   ],
   calendar2: ["calendar2"],
   reminder: ["reminder"],
@@ -1771,7 +1824,10 @@ const PlasmicDescendants = {
   apiRequest: ["apiRequest"],
   mobileDialog: ["mobileDialog"],
   dialogTooltip: ["dialogTooltip"],
-  dialog: ["dialog"]
+  dialog: ["dialog"],
+  section: ["section", "freeBox", "iframe"],
+  freeBox: ["freeBox", "iframe"],
+  iframe: ["iframe"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1786,6 +1842,9 @@ type NodeDefaultElementType = {
   mobileDialog: typeof MobileDialog;
   dialogTooltip: typeof DialogTooltip;
   dialog: typeof ApiRequest;
+  section: "section";
+  freeBox: "div";
+  iframe: typeof Iframe;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1858,6 +1917,9 @@ export const PlasmicMainPage = Object.assign(
     mobileDialog: makeNodeComponent("mobileDialog"),
     dialogTooltip: makeNodeComponent("dialogTooltip"),
     dialog: makeNodeComponent("dialog"),
+    section: makeNodeComponent("section"),
+    freeBox: makeNodeComponent("freeBox"),
+    iframe: makeNodeComponent("iframe"),
 
     // Metadata about props expected for PlasmicMainPage
     internalVariantProps: PlasmicMainPage__VariantProps,

@@ -5079,6 +5079,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicShopResultDialog.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "LeGRcP9B_UZa",
+          "name": "Notif2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicNotif2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/notif.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicNotif2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/notif"
         }
       ],
       "icons": [

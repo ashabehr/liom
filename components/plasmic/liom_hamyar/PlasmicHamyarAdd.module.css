@@ -1403,3 +1403,9 @@
   right: 0;
   z-index: 10;
 }
+.shopClice {
+  position: relative;
+  width: 0px;
+  height: 0px;
+  max-width: 100%;
+}

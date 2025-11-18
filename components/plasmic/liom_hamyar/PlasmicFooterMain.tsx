@@ -546,6 +546,11 @@ function PlasmicFooterMain__RenderFunc(props: {
           </div>
           <div
             className={classNames(projectcss.all, sty.freeBox__j5Log, {
+              [sty.freeBoxfooter2_calendar__j5Log6MXal]: hasVariant(
+                $state,
+                "footer2",
+                "calendar"
+              ),
               [sty.freeBoxfooter2_hamyar__j5LogcU6G5]: hasVariant(
                 $state,
                 "footer2",
@@ -784,7 +789,7 @@ function PlasmicFooterMain__RenderFunc(props: {
                 hasVariant($state, "footer2", "bot")
                   ? Icon319Icon
                   : hasVariant($state, "footer2", "calendar")
-                    ? Icon317Icon
+                    ? Icon318Icon
                     : hasVariant(
                           $state,
                           "lackOfCourseInformation",

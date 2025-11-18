@@ -108,7 +108,7 @@ export type PlasmicNotifBox__ArgsType = {
   onChange?: (activeIds: any) => void;
   onClick?: (event: any) => void;
   onDeletChange?: (val: any) => void;
-  children?: React.ReactNode;
+  image?: string;
   button2?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicNotifBox__ArgsType;
@@ -124,7 +124,7 @@ export const PlasmicNotifBox__ArgProps = new Array<ArgPropType>(
   "onChange",
   "onClick",
   "onDeletChange",
-  "children",
+  "image",
   "button2"
 );
 
@@ -132,7 +132,6 @@ export type PlasmicNotifBox__OverridesType = {
   root?: Flex__<"div">;
   collapse?: Flex__<typeof AntdSingleCollapse>;
   lineClomp?: Flex__<typeof LineClomp>;
-  img?: Flex__<typeof PlasmicImg__>;
   upDonw?: Flex__<typeof UpDonw>;
 };
 
@@ -148,7 +147,7 @@ export interface DefaultNotifBoxProps {
   onChange?: (activeIds: any) => void;
   onClick?: (event: any) => void;
   onDeletChange?: (val: any) => void;
-  children?: React.ReactNode;
+  image?: string;
   button2?: React.ReactNode;
   seen?: SingleBooleanChoiceArg<"seen">;
   forAll?: SingleBooleanChoiceArg<"forAll">;
@@ -298,6 +297,9 @@ function PlasmicNotifBox__RenderFunc(props: {
           [sty.rootdelet_forAll]:
             hasVariant($state, "forAll", "forAll") &&
             hasVariant($state, "delet", "delet"),
+          [sty.rootdelet_seen]:
+            hasVariant($state, "seen", "seen") &&
+            hasVariant($state, "delet", "delet"),
           [sty.rootforAll]: hasVariant($state, "forAll", "forAll"),
           [sty.rootseen]: hasVariant($state, "seen", "seen"),
           [sty.rootseen_forAll]:
@@ -361,29 +363,38 @@ function PlasmicNotifBox__RenderFunc(props: {
                   hasVariant($state, "forAll", "forAll")
               })}
             >
-              {renderPlasmicSlot({
-                defaultContents: (
-                  <PlasmicImg__
-                    alt={""}
-                    className={classNames(sty.img__llEtj)}
-                    displayHeight={"40px"}
-                    displayMaxHeight={"100%"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"40px"}
-                    loading={"lazy"}
-                    src={{
-                      src: "/plasmic/liom_hamyar/images/image10.ico",
-                      fullWidth: 256,
-                      fullHeight: 256,
-                      aspectRatio: undefined
-                    }}
-                  />
-                ),
+              <PlasmicImg__
+                alt={""}
+                className={classNames(sty.img__llEtj, {
+                  [sty.imgseen__llEtJofXyw]: hasVariant($state, "seen", "seen")
+                })}
+                displayHeight={"40px"}
+                displayMaxHeight={"100%"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"40px"}
+                loading={"lazy"}
+                src={(() => {
+                  try {
+                    return $props.image;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return {
+                        src: "/plasmic/liom_hamyar/images/image10.ico",
+                        fullWidth: 256,
+                        fullHeight: 256,
+                        aspectRatio: undefined
+                      };
+                    }
+                    throw e;
+                  }
+                })()}
+              />
 
-                value: args.children
-              })}
               <div
                 className={classNames(projectcss.all, sty.freeBox__lpV3T, {
                   [sty.freeBoxseen__lpV3TofXyw]: hasVariant(
@@ -476,11 +487,9 @@ function PlasmicNotifBox__RenderFunc(props: {
                 </div>
               </div>
               <PlasmicImg__
-                data-plasmic-name={"img"}
-                data-plasmic-override={overrides.img}
                 alt={""}
-                className={classNames(sty.img, {
-                  [sty.imgseen]: hasVariant($state, "seen", "seen")
+                className={classNames(sty.img___0FV2D, {
+                  [sty.imgseen___0FV2DofXyw]: hasVariant($state, "seen", "seen")
                 })}
                 displayHeight={"15px"}
                 displayMaxHeight={"none"}
@@ -642,10 +651,9 @@ function PlasmicNotifBox__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "collapse", "lineClomp", "img", "upDonw"],
-  collapse: ["collapse", "lineClomp", "img", "upDonw"],
+  root: ["root", "collapse", "lineClomp", "upDonw"],
+  collapse: ["collapse", "lineClomp", "upDonw"],
   lineClomp: ["lineClomp"],
-  img: ["img"],
   upDonw: ["upDonw"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -655,7 +663,6 @@ type NodeDefaultElementType = {
   root: "div";
   collapse: typeof AntdSingleCollapse;
   lineClomp: typeof LineClomp;
-  img: typeof PlasmicImg__;
   upDonw: typeof UpDonw;
 };
 
@@ -723,7 +730,6 @@ export const PlasmicNotifBox = Object.assign(
     // Helper components rendering sub-elements
     collapse: makeNodeComponent("collapse"),
     lineClomp: makeNodeComponent("lineClomp"),
-    img: makeNodeComponent("img"),
     upDonw: makeNodeComponent("upDonw"),
 
     // Metadata about props expected for PlasmicNotifBox
