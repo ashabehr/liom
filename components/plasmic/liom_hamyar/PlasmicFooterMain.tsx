@@ -645,6 +645,11 @@ function PlasmicFooterMain__RenderFunc(props: {
                     : Icon353Icon
               }
               className={classNames(projectcss.all, sty.svg__i4AIi, {
+                [sty.svgfooter2_bot__i4AIi9Lw3]: hasVariant(
+                  $state,
+                  "footer2",
+                  "bot"
+                ),
                 [sty.svgfooter2_calendar__i4AIi6MXal]: hasVariant(
                   $state,
                   "footer2",
@@ -659,6 +664,11 @@ function PlasmicFooterMain__RenderFunc(props: {
                   $state,
                   "footer2",
                   "reminder"
+                ),
+                [sty.svgfooter2_self__i4AIitRqqb]: hasVariant(
+                  $state,
+                  "footer2",
+                  "self"
                 ),
                 [sty.svghamyar__i4AIiIriP]: hasVariant(
                   $state,
