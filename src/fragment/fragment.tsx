@@ -383,7 +383,11 @@ export const Fragment = ({
 
             case "#healthSubscription": {
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
-                window.FlutterChannel.postMessage(action);}
+                window.FlutterChannel.postMessage(action
+             else {    
+                const link = `/shop/?token=${token}`;
+                sendMessage("بیوریتم", link,inWebViow);
+              }
               break;
             }
               
