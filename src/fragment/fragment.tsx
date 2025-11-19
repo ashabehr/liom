@@ -454,10 +454,15 @@ export const Fragment = ({
                 // );
               }
               else if (action.startsWith("#newCustomSubscriptionV3")) {
-                const a = action.split("#newCustomSubscriptionV3-");
-                let order = a[1];
-                let link = `https://apps.liom.app/custom-shop/?token=${token}&order=${order}`;
-                sendMessage("خرید سفارشی", link, inWebViow);
+                if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
+                    window.FlutterChannel.postMessage(action);
+                  }
+                else{
+                    const a = action.split("#newCustomSubscriptionV3-");
+                    let order = a[1];
+                    let link = `https://apps.liom.app/custom-shop/?token=${token}&order=${order}`;
+                    sendMessage("خرید سفارشی", link, inWebViow);
+                }
               } else if (action.startsWith("#inAppWebView")) {
                 const link = action.split("**@@**");
                 let url = new URL(link[2]);
