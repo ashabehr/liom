@@ -96,9 +96,9 @@ export const PlasmicShopOfferBox__ArgProps = new Array<ArgPropType>(
 export type PlasmicShopOfferBox__OverridesType = {
   root?: Flex__<"div">;
   sideEffect?: Flex__<typeof SideEffect>;
-  ol?: Flex__<"ol">;
+  shop?: Flex__<typeof AntdModal>;
   ul?: Flex__<"ul">;
-  shopText?: Flex__<typeof AntdModal>;
+  li?: Flex__<"li">;
   input?: Flex__<typeof AntdInput>;
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
@@ -157,12 +157,6 @@ function PlasmicShopOfferBox__RenderFunc(props: {
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
-      {
-        path: "shopText.open",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
       {
         path: "shapData",
         type: "private",
@@ -236,6 +230,73 @@ function PlasmicShopOfferBox__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "shopListText",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          {
+            title:
+              "\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc\u200c\u0647\u0627\u06cc \u0645\u062e\u0635\u0648\u0635 \u062e\u0648\u062f\u062a",
+            text: "\u0647\u0631 \u0647\u0641\u062a\u0647 \u062f\u0642\u06cc\u0642 \u0645\u06cc\u200c\u0641\u0647\u0645\u06cc \u062a\u0648 \u0628\u062f\u0646\u062a \u0686\u0647 \u0645\u06cc\u200c\u06af\u0630\u0631\u0647\u061b \u0686\u06cc \u0637\u0628\u06cc\u0639\u06cc \u062d\u0633\u0627\u0628 \u0645\u06cc\u0634\u0647 \u0648 \u0686\u06cc \u0646\u0647.\u0628\u0647\u062a \u0645\u06cc\u200c\u06af\u0645 \u0686\u0647 \u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u0644\u0627\u0632\u0645\u0647\u060c \u0686\u06cc \u0631\u0648 \u0628\u0627\u06cc\u062f \u062c\u062f\u06cc \u0628\u06af\u06cc\u0631\u06cc \u0648 \u0686\u0637\u0648\u0631 \u0628\u06cc\u200c\u0627\u0633\u062a\u0631\u0633\u200c\u062a\u0631 \u067e\u06cc\u0634 \u0628\u0631\u06cc.",
+            type: "self"
+          },
+          {
+            title:
+              "\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc\u200c\u0647\u0627\u06cc \u0645\u062e\u0635\u0648\u0635 \u0647\u0645\u0633\u0631\u062a",
+            text: "\u0647\u0631 \u0647\u0641\u062a\u0647 \u06cc\u0647 \u0646\u06a9\u062a\u0647 \u06a9\u0648\u062a\u0627\u0647 \u0645\u06cc\u200c\u06af\u06cc\u0631\u0647 \u062a\u0627 \u0628\u0641\u0647\u0645\u0647 \u062a\u0648 \u0686\u0647 \u0645\u0631\u062d\u0644\u0647\u200c\u0627\u06cc \u0647\u0633\u062a\u06cc \u0648 \u0686\u0637\u0648\u0631 \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u0628\u0647\u062a\u0631 \u0647\u0645\u0631\u0627\u0647\u062a \u0628\u0627\u0634\u0647. \u0627\u06cc\u0646\u200c\u0637\u0648\u0631\u06cc \u062d\u0633 \u0646\u0645\u06cc\u200c\u06a9\u0646\u06cc \u062a\u0646\u0647\u0627 \u062f\u0627\u0631\u06cc \u062c\u0644\u0648 \u0645\u06cc\u200c\u0631\u06cc.",
+            type: "relationship"
+          },
+          {
+            title:
+              "\u0686\u06a9\u200c\u0644\u06cc\u0633\u062a \u0647\u0641\u062a\u06af\u06cc",
+            text: "\u06a9\u0627\u0631\u0647\u0627\u06cc \u0645\u0647\u0645 \u0647\u0631 \u0647\u0641\u062a\u0647 \u0631\u0648 \u0645\u0631\u062a\u0628 \u0648 \u0622\u0645\u0627\u062f\u0647 \u0645\u06cc\u200c\u06af\u06cc\u0631\u06cc\u061b \u0686\u06cc\u0632\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0627\u06af\u0647 \u062c\u0627 \u0628\u0645\u0648\u0646\u0646 \u0648\u0627\u0642\u0639\u0627\u064b \u0627\u0630\u06cc\u062a\u062a \u0645\u06cc\u200c\u06a9\u0646\u0646. \u062a\u0642\u0648\u06cc\u0645\u062a \u0647\u0645\u06cc\u0634\u0647 \u062f\u0642\u06cc\u0642 \u0648 \u0633\u0631 \u0648\u0642\u062a \u0645\u06cc\u200c\u0645\u0648\u0646\u0647.",
+            type: "reminder"
+          },
+          {
+            title:
+              "\u0627\u06cc\u0646 \u0647\u0641\u062a\u0647 \u0686\u06cc \u062e\u0637\u0631\u0646\u0627\u06a9\u0647 \u0648 \u0686\u06cc \u0628\u06cc\u200c\u062e\u0637\u0631\u0647\u061f",
+            text: "\u063a\u0630\u0627\u0647\u0627\u060c \u06a9\u0627\u0631\u0647\u0627\u060c \u0641\u0639\u0627\u0644\u06cc\u062a\u200c\u0647\u0627 \u0648 \u0686\u06cc\u0632\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0631\u06cc\u0633\u06a9\u0634\u0648\u0646 \u0628\u0627\u0644\u0627\u0633\u062a \u0631\u0648 \u0648\u0627\u0636\u062d \u0645\u06cc\u200c\u06af\u0645. \u0627\u06cc\u0646\u200c\u0637\u0648\u0631\u06cc \u0645\u06cc\u200c\u062f\u0648\u0646\u06cc \u0686\u06cc \u0627\u0645\u0646\u0647 \u0648 \u0686\u06cc \u0645\u0645\u06a9\u0646\u0647 \u0628\u0647\u062a \u06cc\u0627 \u06a9\u0648\u0686\u0648\u0644\u0648\u062a \u0622\u0633\u06cc\u0628 \u0628\u0632\u0646\u0647.",
+            type: "danger"
+          },
+          {
+            title:
+              "\u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u0627\u0632 \u062a\u0631\u06a9 \u067e\u0648\u0633\u062a\u06cc",
+            text: "\u0642\u0628\u0644 \u0627\u0632 \u0627\u06cc\u0646\u06a9\u0647 \u062a\u0631\u06a9\u200c\u0647\u0627 \u0638\u0627\u0647\u0631 \u0628\u0634\u0646\u060c \u0628\u0647\u062a \u0645\u06cc\u200c\u06af\u0645 \u0686\u06cc \u0628\u0632\u0646\u06cc\u060c \u0627\u0632 \u06a9\u06cc \u0634\u0631\u0648\u0639 \u06a9\u0646\u06cc \u0648 \u0686\u06cc \u06a9\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0647 \u067e\u0648\u0633\u062a\u062a \u0633\u0627\u0644\u0645\u200c\u062a\u0631 \u0628\u0645\u0648\u0646\u0647. \u0645\u0631\u062d\u0644\u0647\u200c\u0628\u0647\u200c\u0645\u0631\u062d\u0644\u0647 \u0648 \u06a9\u0627\u0645\u0644\u0627\u064b \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc.",
+            type: "stretch_marks"
+          },
+          {
+            title:
+              "\u0645\u06a9\u0645\u0644\u200c\u0647\u0627 \u0648 \u0622\u0632\u0645\u0627\u06cc\u0634\u200c\u0647\u0627\u06cc \u0644\u0627\u0632\u0645 \u0647\u0631 \u0647\u0641\u062a\u0647",
+            text: "\u0647\u0631 \u0647\u0641\u062a\u0647 \u062f\u0642\u06cc\u0642 \u0645\u06cc\u200c\u0641\u0647\u0645\u06cc \u0686\u0647 \u0622\u0632\u0645\u0627\u06cc\u0634\u06cc \u0648\u0642\u062a\u0634\u0647\u060c \u0686\u0647 \u0645\u06a9\u0645\u0644\u06cc \u0644\u0627\u0632\u0645\u0647 \u06cc\u0627 \u0627\u0636\u0627\u0641\u06cc\u0647\u060c \u0648 \u0686\u06cc \u0628\u0647 \u0631\u0634\u062f \u0633\u0627\u0644\u0645 \u06a9\u0648\u0686\u0648\u0644\u0648\u062a \u06a9\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0647.",
+            type: "test"
+          },
+          {
+            title:
+              "\u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631",
+            text: "\u0646\u06a9\u062a\u0647\u200c\u0647\u0627\u06cc \u0631\u06cc\u0632 \u0648 \u0645\u0647\u0645\u06cc \u06a9\u0647 \u0645\u0639\u0645\u0648\u0644\u0627\u064b \u062a\u0648 \u0627\u067e\u200c\u0647\u0627 \u062c\u0627 \u0645\u06cc\u200c\u0645\u0648\u0646\u0647 \u0648\u0644\u06cc \u062a\u0648 \u0632\u0646\u062f\u06af\u06cc \u0648\u0627\u0642\u0639\u06cc \u0648\u0627\u0642\u0639\u0627\u064b \u0628\u0647 \u06a9\u0627\u0631\u062a \u0645\u06cc\u0627\u0646 \u0648 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a \u0631\u0648 \u0631\u0627\u062d\u062a\u200c\u062a\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0646.",
+            type: "advice"
+          },
+          {
+            title:
+              "\u0631\u0648\u062a\u06cc\u0646 \u067e\u0648\u0633\u062a \u0648 \u0645\u0648",
+            text: " \u06cc\u0647 \u0631\u0627\u0647\u0646\u0645\u0627\u06cc \u062e\u0644\u0627\u0635\u0647 \u0648 \u0642\u062f\u0645\u200c\u0628\u0647\u200c\u0642\u062f\u0645 \u06a9\u0647 \u06a9\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0647 \u067e\u0648\u0633\u062a \u0648 \u0645\u0648\u200c\u062a \u0631\u0648 \u062a\u0648 \u0628\u0647\u062a\u0631\u06cc\u0646 \u062d\u0627\u0644\u062a \u0646\u06af\u0647 \u062f\u0627\u0631\u06cc\u061b \u0633\u0627\u062f\u0647\u060c \u0642\u0627\u0628\u0644 \u0627\u0646\u062c\u0627\u0645 \u0648 \u0628\u062f\u0648\u0646 \u062f\u0631\u062f\u0633\u0631.",
+            type: "care"
+          }
+        ]
+      },
+      {
+        path: "modalshopText",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "shop.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -340,6 +401,78 @@ function PlasmicShopOfferBox__RenderFunc(props: {
         }}
       />
 
+      <AntdModal
+        data-plasmic-name={"shop"}
+        data-plasmic-override={overrides.shop}
+        className={classNames("__wab_instance", sty.shop)}
+        defaultStylesClassName={classNames(
+          projectcss.root_reset,
+          projectcss.plasmic_default_styles,
+          projectcss.plasmic_mixins,
+          styleTokensClassNames
+        )}
+        hideFooter={true}
+        modalScopeClassName={sty["shop__modal"]}
+        onOpenChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["shop", "open"]).apply(
+            null,
+            eventArgs
+          );
+        }}
+        open={generateStateValueProp($state, ["shop", "open"])}
+        title={
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__mf4Sj
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $state.modalshopText.title ?? "";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </div>
+        }
+        trigger={null}
+      >
+        <div className={classNames(projectcss.all, sty.freeBox__xvMIo)}>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__usPh
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $state.modalshopText.text;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </div>
+        </div>
+      </AntdModal>
       <div className={classNames(projectcss.all, sty.freeBox___9N4WC)}>
         <div className={classNames(projectcss.all, sty.freeBox__tbg39)}>
           <div className={classNames(projectcss.all, sty.freeBox__zUuii)}>
@@ -356,453 +489,111 @@ function PlasmicShopOfferBox__RenderFunc(props: {
             </div>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__nOv00)}>
-            <ol
-              data-plasmic-name={"ol"}
-              data-plasmic-override={overrides.ol}
-              className={classNames(projectcss.all, projectcss.ol, sty.ol)}
-            >
-              <li
-                className={classNames(
-                  projectcss.all,
-                  projectcss.li,
-                  projectcss.__wab_text,
-                  sty.li___4Zx4M
-                )}
-              >
-                {hasVariant(globalVariants, "screen", "mobile") ? (
-                  <div
-                    className={projectcss.__wab_expr_html_text}
-                    dangerouslySetInnerHTML={{
-                      __html: (() => {
-                        try {
-                          return `<b>خودت رو برای بهترین نقش زندگیت آماده کن!</b>  <br>
-<div style="position: relative; left: 10px;">این پیام‌ها بهت حس پدر بودن رو یادآوری می‌کنه. وقتی احساس خوبی داشته باشی، همسرت هم آرامش بیشتری خواهد داشت.</div>
-`;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u0634\u0631\u0648\u0639 \u062f\u0648\u0631\u0647 pms \u0631\u0648 \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647\u062a \u0627\u0637\u0644\u0627\u0639 \u0645\u06cc\u062f\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0631\u0648 \u0628\u06cc\u0634\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u0627\u0632 \u0646\u0627\u0631\u0627\u062d\u062a\u06cc \u0647\u0627\u06cc \u0627\u062d\u062a\u0645\u0627\u0644\u06cc \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u06a9\u0646\u06cc. ";
-                          }
-                          throw e;
-                        }
-                      })()
-                    }}
-                  />
-                ) : (
-                  <div
-                    className={projectcss.__wab_expr_html_text}
-                    dangerouslySetInnerHTML={{
-                      __html: (() => {
-                        try {
-                          return `<b>یادآوری‌های مخصوص خودت</b>
-<div style="position: relative; left: 10px; margin-top: 7px; margin-bottom: 0;">
-هر هفته دقیق می‌فهمی تو بدنت چه می‌گذره؛ چی طبیعی حساب میشه و چی نه.بهت می‌گم چه کارهایی لازمه، چی رو باید جدی بگیری و چطور بی‌استرس‌تر پیش بری.
-</div>`;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u0634\u0631\u0648\u0639 \u062f\u0648\u0631\u0647 pms \u0631\u0648 \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647\u062a \u0627\u0637\u0644\u0627\u0639 \u0645\u06cc\u062f\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0631\u0648 \u0628\u06cc\u0634\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u0627\u0632 \u0646\u0627\u0631\u0627\u062d\u062a\u06cc \u0647\u0627\u06cc \u0627\u062d\u062a\u0645\u0627\u0644\u06cc \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u06a9\u0646\u06cc. ";
-                          }
-                          throw e;
-                        }
-                      })()
-                    }}
-                  />
-                )}
-              </li>
-              <li
-                className={classNames(
-                  projectcss.all,
-                  projectcss.li,
-                  projectcss.__wab_text,
-                  sty.li__ibmSg
-                )}
-              >
-                {hasVariant(globalVariants, "screen", "mobile") ? (
-                  <div
-                    className={projectcss.__wab_expr_html_text}
-                    dangerouslySetInnerHTML={{
-                      __html: (() => {
-                        try {
-                          return `<b>رابطه‌تون رو قوی‌تر کن، بدون گفتن حتی یک کلمه!</b>  <br>
-<div style="position: relative; left: 10px;">این پیام‌ها به همسرت نشون می‌ده که چقدر برات مهمه. یک راه ساده برای اینکه رابطه‌تون رو محکم‌تر کنی!</div>
-`;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u062f\u0631 \u0647\u0631 \u0631\u0648\u0632 pms \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u0634\u0647 \u06a9\u0647 \u0627\u0648\u0646 \u0647\u0645 \u0628\u062a\u0648\u0646\u0647 \u062e\u0648\u062f\u0634 \u0631\u0648 \u06a9\u0646\u062a\u0631\u0644 \u06a9\u0646\u0647 \u0648 \u062d\u0648\u0627\u0633\u0634 \u0628\u0647 \u062a\u0648 \u0648 \u0631\u0627\u0628\u0637\u0647 \u062a\u0648\u0646 \u0628\u0627\u0634\u0647(\u200c\u0627\u0644\u0628\u062a\u0647 \u06a9\u0647 \u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a \u0627\u06cc\u0646 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627 \u0628\u0635\u0648\u0631\u062a \u0645\u0633\u062a\u0642\u06cc\u0645 \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0646 \u0648 \u0627\u0648\u0646 \u0628\u0641\u0647\u0645\u0647 \u06a9\u0647 \u062a\u0648 \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0631\u062f\u06cc)";
-                          }
-                          throw e;
-                        }
-                      })()
-                    }}
-                  />
-                ) : (
-                  <div
-                    className={projectcss.__wab_expr_html_text}
-                    dangerouslySetInnerHTML={{
-                      __html: (() => {
-                        try {
-                          return `<b>یادآوری‌های مخصوص همسرت</b>
-<div style="position: relative; left: 10px; margin-top: 7px; margin-bottom: 0;">
-هر هفته یه نکته کوتاه می‌گیره تا بفهمه تو چه مرحله‌ای هستی و چطور می‌تونه بهتر همراهت باشه. این‌طوری حس نمی‌کنی تنها داری جلو می‌ری.
-</div>`;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u062f\u0631 \u0647\u0631 \u0631\u0648\u0632 pms \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u0634\u0647 \u06a9\u0647 \u0627\u0648\u0646 \u0647\u0645 \u0628\u062a\u0648\u0646\u0647 \u062e\u0648\u062f\u0634 \u0631\u0648 \u06a9\u0646\u062a\u0631\u0644 \u06a9\u0646\u0647 \u0648 \u062d\u0648\u0627\u0633\u0634 \u0628\u0647 \u062a\u0648 \u0648 \u0631\u0627\u0628\u0637\u0647 \u062a\u0648\u0646 \u0628\u0627\u0634\u0647(\u200c\u0627\u0644\u0628\u062a\u0647 \u06a9\u0647 \u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a \u0627\u06cc\u0646 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627 \u0628\u0635\u0648\u0631\u062a \u0645\u0633\u062a\u0642\u06cc\u0645 \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0646 \u0648 \u0627\u0648\u0646 \u0628\u0641\u0647\u0645\u0647 \u06a9\u0647 \u062a\u0648 \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0631\u062f\u06cc)";
-                          }
-                          throw e;
-                        }
-                      })()
-                    }}
-                  />
-                )}
-              </li>
-              <li
-                className={classNames(
-                  projectcss.all,
-                  projectcss.li,
-                  projectcss.__wab_text,
-                  sty.li__uxcFs
-                )}
-              >
-                {hasVariant(globalVariants, "screen", "mobile") ? (
-                  <div
-                    className={projectcss.__wab_expr_html_text}
-                    dangerouslySetInnerHTML={{
-                      __html: (() => {
-                        try {
-                          return `<b>حس پدر بودن رو تجربه کن!</b>  <br>
-<div style="position: relative; left: 10px;">با دریافت پیام‌هایی درباره وضعیت جنین، همیشه در جریان تغییرات و رشد فرزندت خواهی بود.</div>
-`;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return '"\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f\u0634 \u0631\u0648 \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u062a\u0627 \u0628\u0647\u062a\u0631 \u0627\u0632\u0634 \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc."\n';
-                          }
-                          throw e;
-                        }
-                      })()
-                    }}
-                  />
-                ) : (
-                  <div
-                    className={projectcss.__wab_expr_html_text}
-                    dangerouslySetInnerHTML={{
-                      __html: (() => {
-                        try {
-                          return `<b>چک‌لیست هفتگی</b>
-<div style="position: relative; left: 10px; margin-top: 7px; margin-bottom: 0;">
-کارهای مهم هر هفته رو مرتب و آماده می‌گیری؛ چیزهایی که اگه جا بمونن واقعاً اذیتت می‌کنن. تقویمت همیشه دقیق و سر وقت می‌مونه.
-</div>`;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f\u0634 \u0631\u0648 \u0628\u0631\u0627\u062a \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u06a9\u0646\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632\u0634 \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc \u0648 \u06a9\u0645\u062a\u0631 \u062f\u0631\u062f \u0628\u06a9\u0634\u0647 \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc";
-                          }
-                          throw e;
-                        }
-                      })()
-                    }}
-                  />
-                )}
-              </li>
-              <li
-                className={classNames(
-                  projectcss.all,
-                  projectcss.li,
-                  projectcss.__wab_text,
-                  sty.li__r4MZl
-                )}
-              >
-                {hasVariant(globalVariants, "screen", "mobile") ? (
-                  <div
-                    className={projectcss.__wab_expr_html_text}
-                    dangerouslySetInnerHTML={{
-                      __html: (() => {
-                        try {
-                          return `<b>خودت رو برای بهترین نقش زندگیت آماده کن!</b>  <br>
-<div style="position: relative; left: 10px;">این پیام‌ها بهت حس پدر بودن رو یادآوری می‌کنه. وقتی احساس خوبی داشته باشی، همسرت هم آرامش بیشتری خواهد داشت.</div>
-`;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u0634\u0631\u0648\u0639 \u062f\u0648\u0631\u0647 pms \u0631\u0648 \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647\u062a \u0627\u0637\u0644\u0627\u0639 \u0645\u06cc\u062f\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0631\u0648 \u0628\u06cc\u0634\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u0627\u0632 \u0646\u0627\u0631\u0627\u062d\u062a\u06cc \u0647\u0627\u06cc \u0627\u062d\u062a\u0645\u0627\u0644\u06cc \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u06a9\u0646\u06cc. ";
-                          }
-                          throw e;
-                        }
-                      })()
-                    }}
-                  />
-                ) : (
-                  <div
-                    className={projectcss.__wab_expr_html_text}
-                    dangerouslySetInnerHTML={{
-                      __html: (() => {
-                        try {
-                          return `<b>این هفته چی خطرناکه و چی بی‌خطره؟</b>
-<div style="position: relative; left: 10px; margin-top: 7px; margin-bottom: 0;">
-غذاها، کارها، فعالیت‌ها و چیزهایی که ریسکشون بالاست رو واضح می‌گم. این‌طوری می‌دونی چی امنه و چی ممکنه بهت یا کوچولوت آسیب بزنه.
-</div>`;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u0634\u0631\u0648\u0639 \u062f\u0648\u0631\u0647 pms \u0631\u0648 \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647\u062a \u0627\u0637\u0644\u0627\u0639 \u0645\u06cc\u062f\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0631\u0648 \u0628\u06cc\u0634\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u0627\u0632 \u0646\u0627\u0631\u0627\u062d\u062a\u06cc \u0647\u0627\u06cc \u0627\u062d\u062a\u0645\u0627\u0644\u06cc \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u06a9\u0646\u06cc. ";
-                          }
-                          throw e;
-                        }
-                      })()
-                    }}
-                  />
-                )}
-              </li>
-              <li
-                className={classNames(
-                  projectcss.all,
-                  projectcss.li,
-                  projectcss.__wab_text,
-                  sty.li__kdnwi
-                )}
-              >
-                {hasVariant(globalVariants, "screen", "mobile") ? (
-                  <div
-                    className={projectcss.__wab_expr_html_text}
-                    dangerouslySetInnerHTML={{
-                      __html: (() => {
-                        try {
-                          return `<b>رابطه‌تون رو قوی‌تر کن، بدون گفتن حتی یک کلمه!</b>  <br>
-<div style="position: relative; left: 10px;">این پیام‌ها به همسرت نشون می‌ده که چقدر برات مهمه. یک راه ساده برای اینکه رابطه‌تون رو محکم‌تر کنی!</div>
-`;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u062f\u0631 \u0647\u0631 \u0631\u0648\u0632 pms \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u0634\u0647 \u06a9\u0647 \u0627\u0648\u0646 \u0647\u0645 \u0628\u062a\u0648\u0646\u0647 \u062e\u0648\u062f\u0634 \u0631\u0648 \u06a9\u0646\u062a\u0631\u0644 \u06a9\u0646\u0647 \u0648 \u062d\u0648\u0627\u0633\u0634 \u0628\u0647 \u062a\u0648 \u0648 \u0631\u0627\u0628\u0637\u0647 \u062a\u0648\u0646 \u0628\u0627\u0634\u0647(\u200c\u0627\u0644\u0628\u062a\u0647 \u06a9\u0647 \u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a \u0627\u06cc\u0646 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627 \u0628\u0635\u0648\u0631\u062a \u0645\u0633\u062a\u0642\u06cc\u0645 \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0646 \u0648 \u0627\u0648\u0646 \u0628\u0641\u0647\u0645\u0647 \u06a9\u0647 \u062a\u0648 \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0631\u062f\u06cc)";
-                          }
-                          throw e;
-                        }
-                      })()
-                    }}
-                  />
-                ) : (
-                  <div
-                    className={projectcss.__wab_expr_html_text}
-                    dangerouslySetInnerHTML={{
-                      __html: (() => {
-                        try {
-                          return `<b>جلوگیری از ترک پوستی</b>
-<div style="position: relative; left: 10px; margin-top: 7px; margin-bottom: 0;">
-قبل از اینکه ترک‌ها ظاهر بشن، بهت می‌گم چی بزنی، از کی شروع کنی و چی کمک می‌کنه پوستت سالم‌تر بمونه. مرحله‌به‌مرحله و کاملاً کاربردی.
-</div>`;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u062f\u0631 \u0647\u0631 \u0631\u0648\u0632 pms \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u0634\u0647 \u06a9\u0647 \u0627\u0648\u0646 \u0647\u0645 \u0628\u062a\u0648\u0646\u0647 \u062e\u0648\u062f\u0634 \u0631\u0648 \u06a9\u0646\u062a\u0631\u0644 \u06a9\u0646\u0647 \u0648 \u062d\u0648\u0627\u0633\u0634 \u0628\u0647 \u062a\u0648 \u0648 \u0631\u0627\u0628\u0637\u0647 \u062a\u0648\u0646 \u0628\u0627\u0634\u0647(\u200c\u0627\u0644\u0628\u062a\u0647 \u06a9\u0647 \u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a \u0627\u06cc\u0646 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627 \u0628\u0635\u0648\u0631\u062a \u0645\u0633\u062a\u0642\u06cc\u0645 \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0646 \u0648 \u0627\u0648\u0646 \u0628\u0641\u0647\u0645\u0647 \u06a9\u0647 \u062a\u0648 \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0631\u062f\u06cc)";
-                          }
-                          throw e;
-                        }
-                      })()
-                    }}
-                  />
-                )}
-              </li>
-              <li
-                className={classNames(
-                  projectcss.all,
-                  projectcss.li,
-                  projectcss.__wab_text,
-                  sty.li___6Jc0
-                )}
-              >
-                {hasVariant(globalVariants, "screen", "mobile") ? (
-                  <div
-                    className={projectcss.__wab_expr_html_text}
-                    dangerouslySetInnerHTML={{
-                      __html: (() => {
-                        try {
-                          return `<b>حس پدر بودن رو تجربه کن!</b>  <br>
-<div style="position: relative; left: 10px;">با دریافت پیام‌هایی درباره وضعیت جنین، همیشه در جریان تغییرات و رشد فرزندت خواهی بود.</div>
-`;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return '"\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f\u0634 \u0631\u0648 \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u062a\u0627 \u0628\u0647\u062a\u0631 \u0627\u0632\u0634 \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc."\n';
-                          }
-                          throw e;
-                        }
-                      })()
-                    }}
-                  />
-                ) : (
-                  <div
-                    className={projectcss.__wab_expr_html_text}
-                    dangerouslySetInnerHTML={{
-                      __html: (() => {
-                        try {
-                          return `<b>مکمل‌ها و آزمایش‌های لازم هر هفته</b>
-<div style="position: relative; left: 10px; margin-top: 7px; margin-bottom: 0;">
-هر هفته دقیق می‌فهمی چه آزمایشی وقتشه، چه مکملی لازمه یا اضافیه، و چی به رشد سالم کوچولوت کمک می‌کنه.
-</div>`;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f\u0634 \u0631\u0648 \u0628\u0631\u0627\u062a \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u06a9\u0646\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632\u0634 \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc \u0648 \u06a9\u0645\u062a\u0631 \u062f\u0631\u062f \u0628\u06a9\u0634\u0647 \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc";
-                          }
-                          throw e;
-                        }
-                      })()
-                    }}
-                  />
-                )}
-              </li>
-              <li
-                className={classNames(
-                  projectcss.all,
-                  projectcss.li,
-                  projectcss.__wab_text,
-                  sty.li___653B5
-                )}
-              >
-                {hasVariant(globalVariants, "screen", "mobile") ? (
-                  <div
-                    className={projectcss.__wab_expr_html_text}
-                    dangerouslySetInnerHTML={{
-                      __html: (() => {
-                        try {
-                          return `<b>خودت رو برای بهترین نقش زندگیت آماده کن!</b>  <br>
-<div style="position: relative; left: 10px;">این پیام‌ها بهت حس پدر بودن رو یادآوری می‌کنه. وقتی احساس خوبی داشته باشی، همسرت هم آرامش بیشتری خواهد داشت.</div>
-`;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u0634\u0631\u0648\u0639 \u062f\u0648\u0631\u0647 pms \u0631\u0648 \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647\u062a \u0627\u0637\u0644\u0627\u0639 \u0645\u06cc\u062f\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0631\u0648 \u0628\u06cc\u0634\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u0627\u0632 \u0646\u0627\u0631\u0627\u062d\u062a\u06cc \u0647\u0627\u06cc \u0627\u062d\u062a\u0645\u0627\u0644\u06cc \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u06a9\u0646\u06cc. ";
-                          }
-                          throw e;
-                        }
-                      })()
-                    }}
-                  />
-                ) : (
-                  <div
-                    className={projectcss.__wab_expr_html_text}
-                    dangerouslySetInnerHTML={{
-                      __html: (() => {
-                        try {
-                          return `<b>توصیه‌های بیشتر</b>
-<div style="position: relative; left: 10px; margin-top: 7px; margin-bottom: 0;">
-نکته‌های ریز و مهمی که معمولاً تو اپ‌ها جا می‌مونه ولی تو زندگی واقعی واقعاً به کارت میان و بارداریت رو راحت‌تر می‌کنن.
-</div>`;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u0634\u0631\u0648\u0639 \u062f\u0648\u0631\u0647 pms \u0631\u0648 \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647\u062a \u0627\u0637\u0644\u0627\u0639 \u0645\u06cc\u062f\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0631\u0648 \u0628\u06cc\u0634\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u0627\u0632 \u0646\u0627\u0631\u0627\u062d\u062a\u06cc \u0647\u0627\u06cc \u0627\u062d\u062a\u0645\u0627\u0644\u06cc \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u06a9\u0646\u06cc. ";
-                          }
-                          throw e;
-                        }
-                      })()
-                    }}
-                  />
-                )}
-              </li>
-              <li
-                className={classNames(
-                  projectcss.all,
-                  projectcss.li,
-                  projectcss.__wab_text,
-                  sty.li__aJ5Wq
-                )}
-              >
-                {hasVariant(globalVariants, "screen", "mobile") ? (
-                  <div
-                    className={projectcss.__wab_expr_html_text}
-                    dangerouslySetInnerHTML={{
-                      __html: (() => {
-                        try {
-                          return `<b>رابطه‌تون رو قوی‌تر کن، بدون گفتن حتی یک کلمه!</b>  <br>
-<div style="position: relative; left: 10px;">این پیام‌ها به همسرت نشون می‌ده که چقدر برات مهمه. یک راه ساده برای اینکه رابطه‌تون رو محکم‌تر کنی!</div>
-`;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u062f\u0631 \u0647\u0631 \u0631\u0648\u0632 pms \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u0634\u0647 \u06a9\u0647 \u0627\u0648\u0646 \u0647\u0645 \u0628\u062a\u0648\u0646\u0647 \u062e\u0648\u062f\u0634 \u0631\u0648 \u06a9\u0646\u062a\u0631\u0644 \u06a9\u0646\u0647 \u0648 \u062d\u0648\u0627\u0633\u0634 \u0628\u0647 \u062a\u0648 \u0648 \u0631\u0627\u0628\u0637\u0647 \u062a\u0648\u0646 \u0628\u0627\u0634\u0647(\u200c\u0627\u0644\u0628\u062a\u0647 \u06a9\u0647 \u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a \u0627\u06cc\u0646 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627 \u0628\u0635\u0648\u0631\u062a \u0645\u0633\u062a\u0642\u06cc\u0645 \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0646 \u0648 \u0627\u0648\u0646 \u0628\u0641\u0647\u0645\u0647 \u06a9\u0647 \u062a\u0648 \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0631\u062f\u06cc)";
-                          }
-                          throw e;
-                        }
-                      })()
-                    }}
-                  />
-                ) : (
-                  <div
-                    className={projectcss.__wab_expr_html_text}
-                    dangerouslySetInnerHTML={{
-                      __html: (() => {
-                        try {
-                          return `<b>روتین پوست و مو</b>
-<div style="position: relative; left: 10px; margin-top: 7px; margin-bottom: 0;">
- یه راهنمای خلاصه و قدم‌به‌قدم که کمک می‌کنه پوست و مو‌ت رو تو بهترین حالت نگه داری؛ ساده، قابل انجام و بدون دردسر. </div>`;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u062f\u0631 \u0647\u0631 \u0631\u0648\u0632 pms \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u0634\u0647 \u06a9\u0647 \u0627\u0648\u0646 \u0647\u0645 \u0628\u062a\u0648\u0646\u0647 \u062e\u0648\u062f\u0634 \u0631\u0648 \u06a9\u0646\u062a\u0631\u0644 \u06a9\u0646\u0647 \u0648 \u062d\u0648\u0627\u0633\u0634 \u0628\u0647 \u062a\u0648 \u0648 \u0631\u0627\u0628\u0637\u0647 \u062a\u0648\u0646 \u0628\u0627\u0634\u0647(\u200c\u0627\u0644\u0628\u062a\u0647 \u06a9\u0647 \u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a \u0627\u06cc\u0646 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627 \u0628\u0635\u0648\u0631\u062a \u0645\u0633\u062a\u0642\u06cc\u0645 \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0646 \u0648 \u0627\u0648\u0646 \u0628\u0641\u0647\u0645\u0647 \u06a9\u0647 \u062a\u0648 \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0631\u062f\u06cc)";
-                          }
-                          throw e;
-                        }
-                      })()
-                    }}
-                  />
-                )}
-              </li>
-            </ol>
             <ul
               data-plasmic-name={"ul"}
               data-plasmic-override={overrides.ul}
               className={classNames(projectcss.all, projectcss.ul, sty.ul)}
             >
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                []
+                (() => {
+                  try {
+                    return $state.shopListText;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()
               ).map((__plasmic_item_0, __plasmic_idx_0) => {
                 const currentItem = __plasmic_item_0;
                 const currentIndex = __plasmic_idx_0;
                 return (
                   <li
+                    data-plasmic-name={"li"}
+                    data-plasmic-override={overrides.li}
                     className={classNames(
                       projectcss.all,
                       projectcss.li,
-                      sty.li___6KrkF
+                      sty.li
                     )}
                     key={currentIndex}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateShopTextOpen2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["modalshopText"]
+                              },
+                              operation: 0,
+                              value: currentItem
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateShopTextOpen2"] != null &&
+                        typeof $steps["updateShopTextOpen2"] === "object" &&
+                        typeof $steps["updateShopTextOpen2"].then === "function"
+                      ) {
+                        $steps["updateShopTextOpen2"] =
+                          await $steps["updateShopTextOpen2"];
+                      }
+
+                      $steps["updateShopOpen"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["shop", "open"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateShopOpen"] != null &&
+                        typeof $steps["updateShopOpen"] === "object" &&
+                        typeof $steps["updateShopOpen"].then === "function"
+                      ) {
+                        $steps["updateShopOpen"] =
+                          await $steps["updateShopOpen"];
+                      }
+                    }}
                   >
                     <div
                       className={classNames(projectcss.all, sty.freeBox__uP0R3)}
@@ -862,51 +653,6 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                 );
               })}
             </ul>
-            <AntdModal
-              data-plasmic-name={"shopText"}
-              data-plasmic-override={overrides.shopText}
-              className={classNames("__wab_instance", sty.shopText)}
-              defaultStylesClassName={classNames(
-                projectcss.root_reset,
-                projectcss.plasmic_default_styles,
-                projectcss.plasmic_mixins,
-                styleTokensClassNames
-              )}
-              hideFooter={true}
-              maskClosable={true}
-              modalScopeClassName={sty["shopText__modal"]}
-              onOpenChange={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["shopText", "open"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              open={generateStateValueProp($state, ["shopText", "open"])}
-              title={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___5Y4AJ
-                  )}
-                >
-                  {""}
-                </div>
-              }
-              trigger={null}
-            >
-              <div className={classNames(projectcss.all, sty.freeBox__xvMIo)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__uVhUu
-                  )}
-                >
-                  {""}
-                </div>
-              </div>
-            </AntdModal>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__qECdD)}>
             <div className={classNames(projectcss.all, sty.freeBox__ayhNs)}>
@@ -1526,17 +1272,17 @@ const PlasmicDescendants = {
   root: [
     "root",
     "sideEffect",
-    "ol",
+    "shop",
     "ul",
-    "shopText",
+    "li",
     "input",
     "button",
     "button2"
   ],
   sideEffect: ["sideEffect"],
-  ol: ["ol"],
-  ul: ["ul"],
-  shopText: ["shopText"],
+  shop: ["shop"],
+  ul: ["ul", "li"],
+  li: ["li"],
   input: ["input"],
   button: ["button"],
   button2: ["button2"]
@@ -1547,9 +1293,9 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   sideEffect: typeof SideEffect;
-  ol: "ol";
+  shop: typeof AntdModal;
   ul: "ul";
-  shopText: typeof AntdModal;
+  li: "li";
   input: typeof AntdInput;
   button: typeof Button;
   button2: typeof Button;
@@ -1618,9 +1364,9 @@ export const PlasmicShopOfferBox = Object.assign(
   {
     // Helper components rendering sub-elements
     sideEffect: makeNodeComponent("sideEffect"),
-    ol: makeNodeComponent("ol"),
+    shop: makeNodeComponent("shop"),
     ul: makeNodeComponent("ul"),
-    shopText: makeNodeComponent("shopText"),
+    li: makeNodeComponent("li"),
     input: makeNodeComponent("input"),
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),

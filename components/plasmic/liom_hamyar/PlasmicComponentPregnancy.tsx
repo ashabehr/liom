@@ -16078,8 +16078,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                         $state.userInfo?.[0]?.result
                                           ?.allowance || [];
                                       const filteredItem = allowance.find(
-                                        item =>
-                                          item.type.includes(currentItem.action)
+                                        item => item.type.includes("danger")
                                       );
                                       const active = filteredItem
                                         ? filteredItem.active

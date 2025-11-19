@@ -69,8 +69,8 @@ import sty from "./PlasmicFooterMain.module.css"; // plasmic-import: ev8_tr4YKTD
 
 import Icon314Icon from "./icons/PlasmicIcon__Icon314"; // plasmic-import: fOMDsiNEQBOb/icon
 import Icon315Icon from "./icons/PlasmicIcon__Icon315"; // plasmic-import: NN9rG0boKpcL/icon
-import Icon213Icon from "./icons/PlasmicIcon__Icon213"; // plasmic-import: mG0VeezaR1mF/icon
-import Icon212Icon from "./icons/PlasmicIcon__Icon212"; // plasmic-import: EV8ARHn8m9ie/icon
+import Icon382Icon from "./icons/PlasmicIcon__Icon382"; // plasmic-import: nrRedgSJpmu0/icon
+import Icon383Icon from "./icons/PlasmicIcon__Icon383"; // plasmic-import: sEzLtPIjUtUS/icon
 import Icon353Icon from "./icons/PlasmicIcon__Icon353"; // plasmic-import: atHyMeB-yZxW/icon
 import Icon354Icon from "./icons/PlasmicIcon__Icon354"; // plasmic-import: CaXVVzodVxFK/icon
 import Icon316Icon from "./icons/PlasmicIcon__Icon316"; // plasmic-import: 0cmpPg7jI64F/icon
@@ -78,18 +78,20 @@ import Icon137Icon from "./icons/PlasmicIcon__Icon137"; // plasmic-import: DXdLI
 import Icon317Icon from "./icons/PlasmicIcon__Icon317"; // plasmic-import: A8wb-T8GiE4Q/icon
 import Icon318Icon from "./icons/PlasmicIcon__Icon318"; // plasmic-import: LgkeupPgZrI7/icon
 import Icon319Icon from "./icons/PlasmicIcon__Icon319"; // plasmic-import: aWqRVbwtYjuq/icon
+import Icon213Icon from "./icons/PlasmicIcon__Icon213"; // plasmic-import: mG0VeezaR1mF/icon
+import Icon212Icon from "./icons/PlasmicIcon__Icon212"; // plasmic-import: EV8ARHn8m9ie/icon
 
 createPlasmicElementProxy;
 
 export type PlasmicFooterMain__VariantMembers = {
   lackOfCourseInformation: "lackOfCourseInformation";
-  footer2: "calendar" | "self" | "hamyar" | "bot" | "reminder";
+  footer2: "calendar" | "self" | "hamyar" | "bot" | "reminder" | "social";
   hamyar: "hamyar";
 };
 export type PlasmicFooterMain__VariantsArgs = {
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
   footer2?: SingleChoiceArg<
-    "calendar" | "self" | "hamyar" | "bot" | "reminder"
+    "calendar" | "self" | "hamyar" | "bot" | "reminder" | "social"
   >;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
 };
@@ -119,7 +121,7 @@ export interface DefaultFooterMainProps {
   onTypeChange?: (val: string) => void;
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
   footer2?: SingleChoiceArg<
-    "calendar" | "self" | "hamyar" | "bot" | "reminder"
+    "calendar" | "self" | "hamyar" | "bot" | "reminder" | "social"
   >;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
   className?: string;
@@ -236,6 +238,7 @@ function PlasmicFooterMain__RenderFunc(props: {
             "reminder"
           ),
           [sty.footerfooter2_self]: hasVariant($state, "footer2", "self"),
+          [sty.footerfooter2_social]: hasVariant($state, "footer2", "social"),
           [sty.footerhamyar]: hasVariant($state, "hamyar", "hamyar"),
           [sty.footerhamyar_footer2_hamyar]:
             hasVariant($state, "hamyar", "hamyar") &&
@@ -269,6 +272,11 @@ function PlasmicFooterMain__RenderFunc(props: {
               "footer2",
               "self"
             ),
+            [sty.freeBoxfooter2_social__vbOadM4HuD]: hasVariant(
+              $state,
+              "footer2",
+              "social"
+            ),
             [sty.freeBoxhamyar__vbOadIriP]: hasVariant(
               $state,
               "hamyar",
@@ -290,6 +298,11 @@ function PlasmicFooterMain__RenderFunc(props: {
                 $state,
                 "footer2",
                 "self"
+              ),
+              [sty.freeBoxfooter2_social__i6PSpm4HuD]: hasVariant(
+                $state,
+                "footer2",
+                "social"
               ),
               [sty.freeBoxhamyar__i6PSpiriP]: hasVariant(
                 $state,
@@ -422,6 +435,11 @@ function PlasmicFooterMain__RenderFunc(props: {
                 "footer2",
                 "self"
               ),
+              [sty.freeBoxfooter2_social__xxHsQm4HuD]: hasVariant(
+                $state,
+                "footer2",
+                "social"
+              ),
               [sty.freeBoxhamyar__xxHsQiriP]: hasVariant(
                 $state,
                 "hamyar",
@@ -439,7 +457,7 @@ function PlasmicFooterMain__RenderFunc(props: {
                         variablePath: ["type"]
                       },
                       operation: 0,
-                      value: "self"
+                      value: "social"
                     };
                     return (({ variable, value, startIndex, deleteCount }) => {
                       if (!variable) {
@@ -467,7 +485,7 @@ function PlasmicFooterMain__RenderFunc(props: {
                         return (() => {
                           return window.sessionStorage.setItem(
                             "footer",
-                            "self"
+                            "social"
                           );
                         })();
                       }
@@ -488,17 +506,22 @@ function PlasmicFooterMain__RenderFunc(props: {
           >
             <PlasmicIcon__
               PlasmicIconType={
-                hasVariant($state, "footer2", "self")
-                  ? Icon212Icon
-                  : hasVariant(globalVariants, "screen", "mobile")
-                    ? Icon213Icon
-                    : Icon213Icon
+                hasVariant($state, "footer2", "social")
+                  ? Icon383Icon
+                  : hasVariant($state, "footer2", "self")
+                    ? Icon382Icon
+                    : Icon382Icon
               }
               className={classNames(projectcss.all, sty.svg__eHldg, {
                 [sty.svgfooter2_self__eHldGtRqqb]: hasVariant(
                   $state,
                   "footer2",
                   "self"
+                ),
+                [sty.svgfooter2_social__eHldgm4HuD]: hasVariant(
+                  $state,
+                  "footer2",
+                  "social"
                 )
               })}
               role={"img"}
@@ -524,6 +547,11 @@ function PlasmicFooterMain__RenderFunc(props: {
                     $state,
                     "footer2",
                     "self"
+                  ),
+                  [sty.textfooter2_social___43DKwm4HuD]: hasVariant(
+                    $state,
+                    "footer2",
+                    "social"
                   ),
                   [sty.texthamyar___43DKwiriP]: hasVariant(
                     $state,
@@ -557,6 +585,11 @@ function PlasmicFooterMain__RenderFunc(props: {
                 $state,
                 "footer2",
                 "self"
+              ),
+              [sty.freeBoxfooter2_social__j5LogM4HuD]: hasVariant(
+                $state,
+                "footer2",
+                "social"
               ),
               [sty.freeBoxhamyar__j5LogIriP]: hasVariant(
                 $state,
@@ -662,6 +695,11 @@ function PlasmicFooterMain__RenderFunc(props: {
                   "footer2",
                   "self"
                 ),
+                [sty.svgfooter2_social__i4AIiM4HuD]: hasVariant(
+                  $state,
+                  "footer2",
+                  "social"
+                ),
                 [sty.svghamyar__i4AIiIriP]: hasVariant(
                   $state,
                   "hamyar",
@@ -696,6 +734,11 @@ function PlasmicFooterMain__RenderFunc(props: {
                     $state,
                     "footer2",
                     "reminder"
+                  ),
+                  [sty.textfooter2_self__lgqVotRqqb]: hasVariant(
+                    $state,
+                    "footer2",
+                    "self"
                   )
                 }
               )}
@@ -729,6 +772,11 @@ function PlasmicFooterMain__RenderFunc(props: {
                 $state,
                 "footer2",
                 "self"
+              ),
+              [sty.freeBoxfooter2_social__s1U6Am4HuD]: hasVariant(
+                $state,
+                "footer2",
+                "social"
               ),
               [sty.freeBoxhamyar__s1U6AiriP]: hasVariant(
                 $state,
@@ -841,6 +889,11 @@ function PlasmicFooterMain__RenderFunc(props: {
                     $state,
                     "footer2",
                     "self"
+                  ),
+                  [sty.textfooter2_social__tgp8UM4HuD]: hasVariant(
+                    $state,
+                    "footer2",
+                    "social"
                   )
                 }
               )}
@@ -869,6 +922,11 @@ function PlasmicFooterMain__RenderFunc(props: {
                 $state,
                 "footer2",
                 "self"
+              ),
+              [sty.freeBoxfooter2_social__eSfbJm4HuD]: hasVariant(
+                $state,
+                "footer2",
+                "social"
               ),
               [sty.freeBoxhamyar__eSfbJiriP]: hasVariant(
                 $state,
@@ -989,6 +1047,11 @@ function PlasmicFooterMain__RenderFunc(props: {
                     "footer2",
                     "self"
                   ),
+                  [sty.textfooter2_social__egDubM4HuD]: hasVariant(
+                    $state,
+                    "footer2",
+                    "social"
+                  ),
                   [sty.texthamyar__egDubIriP]: hasVariant(
                     $state,
                     "hamyar",
@@ -1022,6 +1085,11 @@ function PlasmicFooterMain__RenderFunc(props: {
                 $state,
                 "footer2",
                 "self"
+              ),
+              [sty.freeBoxfooter2_social__aa3NDm4HuD]: hasVariant(
+                $state,
+                "footer2",
+                "social"
               ),
               [sty.freeBoxhamyar__aa3NDiriP]: hasVariant(
                 $state,
@@ -1089,17 +1157,24 @@ function PlasmicFooterMain__RenderFunc(props: {
           >
             <PlasmicIcon__
               PlasmicIconType={
-                hasVariant($state, "footer2", "self")
-                  ? Icon212Icon
-                  : hasVariant(globalVariants, "screen", "mobile")
-                    ? Icon213Icon
-                    : Icon213Icon
+                hasVariant($state, "footer2", "social")
+                  ? Icon213Icon
+                  : hasVariant($state, "footer2", "self")
+                    ? Icon212Icon
+                    : hasVariant(globalVariants, "screen", "mobile")
+                      ? Icon213Icon
+                      : Icon213Icon
               }
               className={classNames(projectcss.all, sty.svg__lj8T3, {
                 [sty.svgfooter2_self__lj8T3TRqqb]: hasVariant(
                   $state,
                   "footer2",
                   "self"
+                ),
+                [sty.svgfooter2_social__lj8T3M4HuD]: hasVariant(
+                  $state,
+                  "footer2",
+                  "social"
                 )
               })}
               role={"img"}
@@ -1125,6 +1200,11 @@ function PlasmicFooterMain__RenderFunc(props: {
                     $state,
                     "footer2",
                     "self"
+                  ),
+                  [sty.textfooter2_social__zvQAqM4HuD]: hasVariant(
+                    $state,
+                    "footer2",
+                    "social"
                   ),
                   [sty.texthamyar__zvQAqIriP]: hasVariant(
                     $state,

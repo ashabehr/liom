@@ -1,0 +1,40 @@
+/* eslint-disable */
+/* tslint:disable */
+// @ts-nocheck
+/* prettier-ignore-start */
+import React from "react";
+import { classNames } from "@plasmicapp/react-web";
+
+export type Icon382IconProps = React.ComponentProps<"svg"> & {
+  title?: string;
+};
+
+export function Icon382Icon(props: Icon382IconProps) {
+  const { className, style, title, ...restProps } = props;
+  return (
+    <svg
+      xmlns={"http://www.w3.org/2000/svg"}
+      fill={"none"}
+      viewBox={"0 0 24 24"}
+      height={"1em"}
+      className={classNames("plasmic-default__svg", className)}
+      style={style}
+      {...restProps}
+    >
+      {title && <title>{title}</title>}
+
+      <path
+        stroke={"currentColor"}
+        strokeLinecap={"round"}
+        strokeLinejoin={"round"}
+        strokeWidth={"1.5"}
+        d={
+          "M18 7.16a.6.6 0 0 0-.19 0 2.573 2.573 0 0 1-2.48-2.58c0-1.43 1.15-2.58 2.58-2.58a2.58 2.58 0 0 1 2.58 2.58A2.59 2.59 0 0 1 18 7.16m-1.03 7.28c1.37.23 2.88-.01 3.94-.72 1.41-.94 1.41-2.48 0-3.42-1.07-.71-2.6-.95-3.97-.71M5.969 7.16c.06-.01.13-.01.19 0a2.573 2.573 0 0 0 2.48-2.58c0-1.43-1.15-2.58-2.58-2.58a2.58 2.58 0 0 0-2.58 2.58c.01 1.4 1.11 2.53 2.49 2.58M7 14.44c-1.37.23-2.88-.01-3.94-.72-1.41-.94-1.41-2.48 0-3.42 1.07-.71 2.6-.95 3.97-.71M12 14.63a.6.6 0 0 0-.19 0 2.573 2.573 0 0 1-2.48-2.58c0-1.43 1.15-2.58 2.58-2.58a2.58 2.58 0 0 1 2.58 2.58c-.01 1.4-1.11 2.54-2.49 2.58m-2.91 3.15c-1.41.94-1.41 2.48 0 3.42 1.6 1.07 4.22 1.07 5.82 0 1.41-.94 1.41-2.48 0-3.42-1.59-1.06-4.22-1.06-5.82 0"
+        }
+      ></path>
+    </svg>
+  );
+}
+
+export default Icon382Icon;
+/* prettier-ignore-end */

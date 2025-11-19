@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" viewBox="0 0 34 34">
+  <circle cx="17" cy="17" r="17" fill="url(#a)"/>
+  <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 17h12m-6 6V11"/>
+  <defs>
+    <linearGradient id="a" x1="30.663" x2="3.645" y1="2.732" y2="30.055" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F672BC"/>
+      <stop offset="1" stop-color="#8254C6"/>
+    </linearGradient>
+  </defs>
+</svg>

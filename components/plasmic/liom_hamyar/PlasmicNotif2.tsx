@@ -164,7 +164,7 @@ function PlasmicNotif2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return !$state.apiRequest.data;
+              return false;
             } catch (e) {
               if (
                 e instanceof TypeError ||

@@ -989,14 +989,14 @@ function PlasmicRepeatPost__RenderFunc(props: {
                 text == "image"
                   ? "مشاهده عکس"
                   : text == "video"
-                  ? "مشاهده ویدیو"
-                  : text == "file"
-                  ? "دانلود"
-                  : text == "audio"
-                  ? "بازکردن صدا"
-                  : text == "justText"
-                  ? ""
-                  : text;
+                    ? "مشاهده ویدیو"
+                    : text == "file"
+                      ? "دانلود"
+                      : text == "audio"
+                        ? "بازکردن صدا"
+                        : text == "justText"
+                          ? ""
+                          : text;
               if (text == "") return false;
               else return true;
             })();
@@ -1029,14 +1029,14 @@ function PlasmicRepeatPost__RenderFunc(props: {
                         text == "image"
                           ? "مشاهده عکس"
                           : text == "video"
-                          ? "مشاهده ویدیو"
-                          : text == "file"
-                          ? "دانلود"
-                          : text == "audio"
-                          ? "بازکردن صدا"
-                          : text == "justText"
-                          ? ""
-                          : text;
+                            ? "مشاهده ویدیو"
+                            : text == "file"
+                              ? "دانلود"
+                              : text == "audio"
+                                ? "بازکردن صدا"
+                                : text == "justText"
+                                  ? ""
+                                  : text;
                       return text;
                     })();
                   } catch (e) {
@@ -1521,7 +1521,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicRepeatPost__VariantsArgs;
     args?: PlasmicRepeatPost__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicRepeatPost__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicRepeatPost__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicRepeatPost__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

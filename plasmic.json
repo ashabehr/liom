@@ -3878,20 +3878,6 @@
           "componentType": "component"
         },
         {
-          "id": "j5Bxjp_OzbsB",
-          "name": "SocialMain2",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSocialMain2.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/social-main-2.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicSocialMain2.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/social-main-2"
-        },
-        {
           "id": "GCktZfOzFzbJ",
           "name": "RepeatPost2",
           "type": "managed",
@@ -5117,6 +5103,19 @@
             "modulePath": "ShopCalender.tsx"
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicShopCalender.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "uOqGf3XNWlCH",
+          "name": "SocialMain2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSocialMain2.tsx",
+          "importSpec": {
+            "modulePath": "SocialMain2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSocialMain2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }
@@ -7536,6 +7535,21 @@
           "id": "Y7CGGa-BTxGc",
           "name": "Icon381Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon381.tsx"
+        },
+        {
+          "id": "nrRedgSJpmu0",
+          "name": "Icon382Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon382.tsx"
+        },
+        {
+          "id": "sEzLtPIjUtUS",
+          "name": "Icon383Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon383.tsx"
+        },
+        {
+          "id": "64w9TOsrM9rP",
+          "name": "Icon384Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon384.tsx"
         }
       ],
       "images": [
@@ -8403,6 +8417,11 @@
           "id": "P45a_0Dbj4sk",
           "name": "image 126",
           "filePath": "../public/plasmic/liom_hamyar/images/image126.png"
+        },
+        {
+          "id": "ajXAtWSI6O-A",
+          "name": "image 127",
+          "filePath": "../public/plasmic/liom_hamyar/images/image127.svg"
         }
       ],
       "indirect": false,
