@@ -648,6 +648,7 @@
   max-width: 100%;
   font-size: var(--token-moKolTKrMXup);
   min-width: 0;
+  display: none;
 }
 .freeBox__au4X {
   animation: none;

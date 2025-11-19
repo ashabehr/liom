@@ -86,20 +86,9 @@ export type PlasmicShopOfferBox__VariantsArgs = {};
 type VariantPropType = keyof PlasmicShopOfferBox__VariantsArgs;
 export const PlasmicShopOfferBox__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicShopOfferBox__ArgsType = {
-  title?: string;
-  desc?: string;
-  shapData?: any;
-  onShapDataChange?: (val: string) => void;
-  token?: string;
-  type?: string;
-};
+export type PlasmicShopOfferBox__ArgsType = { token?: string; type?: string };
 type ArgPropType = keyof PlasmicShopOfferBox__ArgsType;
 export const PlasmicShopOfferBox__ArgProps = new Array<ArgPropType>(
-  "title",
-  "desc",
-  "shapData",
-  "onShapDataChange",
   "token",
   "type"
 );
@@ -116,10 +105,6 @@ export type PlasmicShopOfferBox__OverridesType = {
 };
 
 export interface DefaultShopOfferBoxProps {
-  title?: string;
-  desc?: string;
-  shapData?: any;
-  onShapDataChange?: (val: string) => void;
   token?: string;
   type?: string;
   className?: string;
@@ -180,11 +165,9 @@ function PlasmicShopOfferBox__RenderFunc(props: {
       },
       {
         path: "shapData",
-        type: "writable",
+        type: "private",
         variableType: "object",
-
-        valueProp: "shapData",
-        onChangeProp: "onShapDataChange"
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       },
       {
         path: "input.value",
@@ -1046,47 +1029,31 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                 ) : null}
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__yAwz0)}>
-                {(() => {
-                  try {
-                    return $state.shapData.result[$state.selectedShop].badge
-                      ? true
-                      : false;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__slo3
-                    )}
-                  >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return $state.shapData.result.shopList
-                            .find(item => item.selected === 1)
-                            .fullPrice.toLocaleString("en-US");
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "";
-                          }
-                          throw e;
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__slo3
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $state.shapData.result.shopList
+                          .find(item => item.selected === 1)
+                          .fullPrice.toLocaleString("en-US");
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
                         }
-                      })()}
-                    </React.Fragment>
-                  </div>
-                ) : null}
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
                 <div className={classNames(projectcss.all, sty.freeBox__au4X)}>
                   <div
                     className={classNames(

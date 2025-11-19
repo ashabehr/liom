@@ -148,36 +148,32 @@ function PlasmicDialogTooltip__RenderFunc(props: {
             result: {
               dialogs: [
                 {
-                  acceptTextColor: "#ffffff",
-                  rejectTextColor: "#750101",
-                  acceptText:
-                    "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc",
+                  acceptTextColor: "#b8004c",
+                  rejectTextColor: "#6e015c",
+                  acceptText: "\u0628\u0632\u0646 \u0628\u0631\u06cc\u0645",
                   acceptAction: "#healthSubscription",
-                  isActive: false,
-                  title:
-                    "\u0645\u0648\u0642\u0639 PMS \u0648 \u067e\u0631\u06cc\u0648\u062f \u0647\u0645\u06cc\u0634\u0647 \u0628\u0627 \u0647\u0645\u0633\u0631\u062a \u062f\u0639\u0648\u0627 \u0645\u06cc\u200c\u06a9\u0646\u06cc\u061f",
                   type: "native",
-                  acceptActionV3: "#newCustomSubscriptionV3-husband_sms",
+                  title:
+                    "\u0648\u0642\u062a\u06cc PMS \u0627\u0630\u06cc\u062a\u062a \u0645\u06cc\u200c\u06a9\u0646\u0647\u060c \u0644\u06cc\u0648\u0645 \u0647\u0648\u0627\u062a \u0631\u0648 \u062f\u0627\u0631\u0647!",
+                  isActive: false,
                   titel:
-                    "\u0645\u0648\u0642\u0639 PMS \u0648 \u067e\u0631\u06cc\u0648\u062f \u0647\u0645\u06cc\u0634\u0647 \u0628\u0627 \u0647\u0645\u0633\u0631\u062a \u062f\u0639\u0648\u0627 \u0645\u06cc\u200c\u06a9\u0646\u06cc\u061f",
-                  acceptActionV2: "#customSubscription-husband_sms",
-                  titleColor: "#750101",
+                    "\u0648\u0642\u062a\u06cc PMS \u0627\u0630\u06cc\u062a\u062a \u0645\u06cc\u200c\u06a9\u0646\u0647\u060c \u0644\u06cc\u0648\u0645 \u0647\u0648\u0627\u062a \u0631\u0648 \u062f\u0627\u0631\u0647!",
+                  titleColor: "#f7990a",
                   isSpecial: false,
-                  text: "\u0627\u06cc\u0646\u0648 \u0628\u0633\u067e\u0631 \u0628\u0647 \u0644\u06cc\u0648\u0645\u060c \u0645\u0627 \u0631\u0627\u0628\u0637\u0647 \u062a\u0648 \u0631\u0648 \u0634\u0627\u062f\u062a\u0631 \u0645\u06cc\u06a9\u0646\u06cc\u0645:\n\u25aa\ufe0f \u0628\u0647 \u0647\u0645\u0633\u0631\u062a \u06cc\u0627\u062f \u0645\u06cc\u062f\u06cc\u0645 \u0686\u0637\u0648\u0631\u06cc \u0645\u0631\u0627\u0642\u0628\u062a \u0628\u0627\u0634\u0647 \u0648 \u0628\u06cc\u0634\u062a\u0631 \u062f\u0631\u06a9\u062a \u06a9\u0646\u0647\n\u25aa\ufe0f \u06cc\u0627\u062f \u0645\u06cc\u06af\u06cc\u0631\u0647 \u0648\u0642\u062a\u06cc \u0627\u0632 \u0646\u0638\u0631 \u0631\u0648\u062d\u06cc \u0645\u0646\u0627\u0633\u0628 \u0646\u06cc\u0633\u062a\u06cc\u060c \u0686\u0637\u0648\u0631\u06cc \u062e\u0648\u0634\u062d\u0627\u0644\u062a \u0628\u06a9\u0646\u0647\n\u25aa\ufe0f \u0628\u0647\u0634 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0645\u06cc\u06a9\u0646\u06cc\u0645 \u06a9\u0647 \u0686\u0647 \u0632\u0645\u0627\u0646\u06cc PMS \u06cc\u0627 \u067e\u0631\u06cc\u0648\u062f\u062a \u0634\u0631\u0648\u0639 \u0645\u06cc\u0634\u0647\n \n\u06a9\u0627\u0641\u06cc\u0647 \u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631 \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0646\u06cc. \u0647\u0645\u0647\u200c\u0686\u06cc \u062e\u0648\u062f\u06a9\u0627\u0631 \u0627\u0646\u062c\u0627\u0645 \u0645\u06cc\u200c\u0634\u0647 \ud83d\udc47\ud83c\udffb ",
-                  id: "5a4dbb3b-8c2d-4176-b39a-e375f46a940b",
+                  text: "\u0628\u0627 \u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627\u06cc \u0627\u062e\u062a\u0635\u0627\u0635\u06cc \u0648 \u0645\u0631\u0627\u0642\u0628\u062a\u200c\u0647\u0627\u06cc \u0647\u0645\u062f\u0644\u0627\u0646\u0647\u060c \u0627\u06cc\u0646 \u0631\u0648\u0632\u0627 \u0631\u0648 \u0628\u0631\u0627\u062a \u0622\u0633\u0648\u0646\u200c\u062a\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0645.\n\u0645\u062b\u0644 \u06cc\u0647 \u062f\u0648\u0633\u062a \u0646\u0632\u062f\u06cc\u06a9 \u06a9\u0646\u0627\u0631\u062a \u0647\u0633\u062a\u0645 \u062a\u0627 \u0628\u062f\u0648\u0646 \u0627\u0633\u062a\u0631\u0633 \u0627\u0632\u0634 \u0631\u062f \u0634\u06cc \u2764\ufe0f\n\u0647\u0645\u06cc\u0646 \u0627\u0644\u0627\u0646 \u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627\u062a \u0631\u0648 \u0628\u06af\u06cc\u0631 \u0648 \u0628\u0647 \u062e\u0648\u062f\u062a \u062a\u0648\u062c\u0647 \u06a9\u0646\u060c \u0686\u0648\u0646 \u0644\u06cc\u0627\u0642\u062a \u0628\u0647\u062a\u0631\u06cc\u0646\u200c\u0647\u0627 \u0631\u0648 \u062f\u0627\u0631\u06cc! \u2728",
+                  id: "0b4d8510-8d07-47f3-81c5-21d5a5131046",
                   image: "",
-                  backgroundColor: "#e3f2fd",
+                  backgroundColor: "#ffe3ec",
                   custom: true,
                   active: false,
-                  rejectText:
-                    "\u06cc\u0627\u062f\u0645 \u0645\u06cc\u0645\u0648\u0646\u0647",
-                  textColor: "#750101",
-                  target: "add-hamyar",
+                  rejectText: "\u0628\u0639\u062f\u0627",
+                  textColor: "#6b0033",
+                  target: "buy-again-special_advice",
                   badge: "",
                   healthStatus: "period",
-                  background: "#e3f2fd",
-                  subName: "husbandSmsSubStatus",
-                  btnColor: "#0d47a1"
+                  subName: "specialAdviceSubStatus",
+                  background: "#ffe3ec",
+                  btnColor: "#ffaf36"
                 }
               ]
             }
@@ -659,8 +655,9 @@ function PlasmicDialogTooltip__RenderFunc(props: {
                           (() => {
                             try {
                               return (
-                                // $steps.invokeGlobalAction?.data?.result?.link ||
-                                $props.data.result.dialogs[0].acceptActionV3
+                                $props.data.result.dialogs[0].acceptActionV3 ||
+                                $props.data.result.dialogs[0].acceptAction ||
+                                $props.data.result.dialogs[0].acceptActionV2
                               );
                             } catch (e) {
                               if (

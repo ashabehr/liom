@@ -230,6 +230,11 @@ function PlasmicTabWeek__RenderFunc(props: {
           projectcss.__wab_text,
           sty.text__eo2BK,
           {
+            [sty.textcurrentWeek__eo2BKwqQp5]: hasVariant(
+              $state,
+              "currentWeek",
+              "currentWeek"
+            ),
             [sty.textdarkSelected__eo2BKcPpzb]: hasVariant(
               $state,
               "darkSelected",
@@ -307,7 +312,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicTabWeek__VariantsArgs;
     args?: PlasmicTabWeek__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicTabWeek__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicTabWeek__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicTabWeek__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

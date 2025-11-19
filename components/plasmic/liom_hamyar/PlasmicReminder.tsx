@@ -129,6 +129,8 @@ export type PlasmicReminder__ArgsType = {
   ferst?: boolean;
   reminderSettingReminderCategory2Data?: any;
   onReminderSettingReminderCategory2DataChange?: (val: any) => void;
+  balance?: number;
+  onBalanceChange?: (val: string) => void;
   active?: boolean;
   onActiveChange?: (val: string) => void;
   setNumber?: () => void;
@@ -156,6 +158,8 @@ export const PlasmicReminder__ArgProps = new Array<ArgPropType>(
   "ferst",
   "reminderSettingReminderCategory2Data",
   "onReminderSettingReminderCategory2DataChange",
+  "balance",
+  "onBalanceChange",
   "active",
   "onActiveChange",
   "setNumber"
@@ -220,6 +224,8 @@ export interface DefaultReminderProps {
   ferst?: boolean;
   reminderSettingReminderCategory2Data?: any;
   onReminderSettingReminderCategory2DataChange?: (val: any) => void;
+  balance?: number;
+  onBalanceChange?: (val: string) => void;
   active?: boolean;
   onActiveChange?: (val: string) => void;
   setNumber?: () => void;
@@ -710,9 +716,11 @@ function PlasmicReminder__RenderFunc(props: {
       },
       {
         path: "balance",
-        type: "private",
+        type: "writable",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+
+        valueProp: "balance",
+        onChangeProp: "onBalanceChange"
       },
       {
         path: "active",

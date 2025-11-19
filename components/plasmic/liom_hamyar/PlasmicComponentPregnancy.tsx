@@ -73,6 +73,7 @@ import TabWeek from "../../TabWeek"; // plasmic-import: IgINnoB13B8X/component
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import BuyComponenct from "../../BuyComponenct"; // plasmic-import: Ww7_RchUYDdQ/component
 import TodoList from "../../TodoList"; // plasmic-import: 0x91e3BeeLCM/component
+import ShopOfferBox from "../../ShopOfferBox"; // plasmic-import: w_9X12-Cs5Eb/component
 import DirectDialog2 from "../../DirectDialog2"; // plasmic-import: TQdexUKMB_Ec/component
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
@@ -133,6 +134,7 @@ export type PlasmicComponentPregnancy__OverridesType = {
   switchbest2?: Flex__<typeof Switchbest>;
   collapseHealth?: Flex__<typeof AntdSingleCollapse>;
   todoList?: Flex__<typeof TodoList>;
+  shopOfferBox?: Flex__<typeof ShopOfferBox>;
   directDialog2?: Flex__<typeof DirectDialog2>;
   slideinModal?: Flex__<typeof SlideinModal>;
 };
@@ -16062,6 +16064,62 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                           )
                         }
                       )}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["runCode"] =
+                          $state.userId ==
+                          "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      const allowance =
+                                        $state.userInfo?.[0]?.result
+                                          ?.allowance || [];
+                                      const filteredItem = allowance.find(
+                                        item =>
+                                          item.type.includes(currentItem.action)
+                                      );
+                                      const active = filteredItem
+                                        ? filteredItem.active
+                                        : false;
+                                      document
+                                        .getElementById("collapseDanger")
+                                        .scrollIntoView({
+                                          behavior: "smooth",
+                                          block: "start"
+                                        });
+                                      $state.collapseDanger.open = true;
+                                      if (!active) {
+                                        if (
+                                          $state.paramsObject.inApp != "true"
+                                        ) {
+                                          $state.typeBuy = "pregnancySub";
+                                          return ($state.directDialog2.open = true);
+                                        } else {
+                                          $state.collapseDanger.open = true;
+                                          return window.FlutterChannel.postMessage(
+                                            "#healthSubscription"
+                                          );
+                                        }
+                                      }
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      }}
                     >
                       <div
                         className={classNames(
@@ -29779,6 +29837,45 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                         />
                       ) : null}
                     </div>
+                    {(() => {
+                      try {
+                        return (
+                          $state.userId ==
+                          "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <ShopOfferBox
+                        data-plasmic-name={"shopOfferBox"}
+                        data-plasmic-override={overrides.shopOfferBox}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.shopOfferBox
+                        )}
+                        token={(() => {
+                          try {
+                            return $state.token;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        type={"pregnancySub"}
+                      />
+                    ) : null}
                   </div>
                 </div>
               ) : null}
@@ -31382,6 +31479,7 @@ const PlasmicDescendants = {
     "switchbest2",
     "collapseHealth",
     "todoList",
+    "shopOfferBox",
     "directDialog2",
     "slideinModal"
   ],
@@ -31405,6 +31503,7 @@ const PlasmicDescendants = {
     "switchbest2",
     "collapseHealth",
     "todoList",
+    "shopOfferBox",
     "directDialog2"
   ],
   button: ["button"],
@@ -31425,6 +31524,7 @@ const PlasmicDescendants = {
   switchbest2: ["switchbest2"],
   collapseHealth: ["collapseHealth"],
   todoList: ["todoList"],
+  shopOfferBox: ["shopOfferBox"],
   directDialog2: ["directDialog2"],
   slideinModal: ["slideinModal"]
 } as const;
@@ -31452,6 +31552,7 @@ type NodeDefaultElementType = {
   switchbest2: typeof Switchbest;
   collapseHealth: typeof AntdSingleCollapse;
   todoList: typeof TodoList;
+  shopOfferBox: typeof ShopOfferBox;
   directDialog2: typeof DirectDialog2;
   slideinModal: typeof SlideinModal;
 };
@@ -31537,6 +31638,7 @@ export const PlasmicComponentPregnancy = Object.assign(
     switchbest2: makeNodeComponent("switchbest2"),
     collapseHealth: makeNodeComponent("collapseHealth"),
     todoList: makeNodeComponent("todoList"),
+    shopOfferBox: makeNodeComponent("shopOfferBox"),
     directDialog2: makeNodeComponent("directDialog2"),
     slideinModal: makeNodeComponent("slideinModal"),
 

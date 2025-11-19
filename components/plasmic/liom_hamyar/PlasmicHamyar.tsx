@@ -2575,6 +2575,12 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => -6556565565
+      },
+      {
+        path: "reminder2.balance",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       }
     ],
     [$props, $ctx, $refs]
@@ -6541,6 +6547,7 @@ function PlasmicHamyar__RenderFunc(props: {
                   $steps["updatePage"] = await $steps["updatePage"];
                 }
               }}
+              balance={generateStateValueProp($state, ["reminder2", "balance"])}
               className={classNames("__wab_instance", sty.reminder2, {
                 [sty.reminder2noPartner]: hasVariant(
                   $state,
@@ -6729,6 +6736,20 @@ function PlasmicHamyar__RenderFunc(props: {
                 generateStateOnChangeProp($state, [
                   "reminder2",
                   "active"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onBalanceChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminder2",
+                  "balance"
                 ]).apply(null, eventArgs);
 
                 if (

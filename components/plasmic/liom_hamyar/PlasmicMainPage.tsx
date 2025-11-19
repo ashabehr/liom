@@ -104,6 +104,7 @@ export type PlasmicMainPage__ArgsType = {
   reminderSetting?: () => void;
   mobileDialogOpen?: boolean;
   onMobileDialogOpenChange?: (val: boolean) => void;
+  onReminderBalanceChange?: (val: number) => void;
 };
 type ArgPropType = keyof PlasmicMainPage__ArgsType;
 export const PlasmicMainPage__ArgProps = new Array<ArgPropType>(
@@ -123,7 +124,8 @@ export const PlasmicMainPage__ArgProps = new Array<ArgPropType>(
   "onRefreshChange",
   "reminderSetting",
   "mobileDialogOpen",
-  "onMobileDialogOpenChange"
+  "onMobileDialogOpenChange",
+  "onReminderBalanceChange"
 );
 
 export type PlasmicMainPage__OverridesType = {
@@ -159,6 +161,7 @@ export interface DefaultMainPageProps {
   reminderSetting?: () => void;
   mobileDialogOpen?: boolean;
   onMobileDialogOpenChange?: (val: boolean) => void;
+  onReminderBalanceChange?: (val: number) => void;
   page?: SingleChoiceArg<"calendar" | "self" | "reminder" | "bot">;
   className?: string;
 }
@@ -434,6 +437,14 @@ function PlasmicMainPage__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "reminder.balance",
+        type: "readonly",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
+
+        onChangeProp: "onReminderBalanceChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -654,6 +665,7 @@ function PlasmicMainPage__RenderFunc(props: {
           data-plasmic-name={"reminder"}
           data-plasmic-override={overrides.reminder}
           active={generateStateValueProp($state, ["reminder", "active"])}
+          balance={generateStateValueProp($state, ["reminder", "balance"])}
           className={classNames("__wab_instance", sty.reminder, {
             [sty.reminderpage_reminder]: hasVariant($state, "page", "reminder")
           })}
@@ -1087,6 +1099,20 @@ function PlasmicMainPage__RenderFunc(props: {
           })()}
           onActiveChange={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, ["reminder", "active"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          onBalanceChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["reminder", "balance"]).apply(
               null,
               eventArgs
             );
