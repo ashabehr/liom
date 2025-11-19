@@ -552,13 +552,14 @@
   }
 }
 .text__qrfgQ {
-  position: absolute;
+  position: sticky;
   width: 100%;
   height: auto;
   max-width: 100%;
   left: 0px;
   top: 0px;
   font-weight: 500;
+  z-index: 1;
   min-width: 0;
 }
 .freeBox__s7S1F {

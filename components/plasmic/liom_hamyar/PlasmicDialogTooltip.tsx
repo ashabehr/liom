@@ -534,6 +534,19 @@ function PlasmicDialogTooltip__RenderFunc(props: {
               projectcss.__wab_text,
               sty.text___0LcNi
             )}
+            style={(() => {
+              try {
+                return { color: $props.data.result.dialogs[0].textColor };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
           >
             <React.Fragment>
               {(() => {
@@ -599,7 +612,7 @@ function PlasmicDialogTooltip__RenderFunc(props: {
                     await $steps["updateDialog3Open2"];
                 }
 
-                $steps["invokeGlobalAction"] = true
+                $steps["invokeGlobalAction"] = false
                   ? (() => {
                       const actionArgs = {
                         args: [
@@ -646,7 +659,7 @@ function PlasmicDialogTooltip__RenderFunc(props: {
                           (() => {
                             try {
                               return (
-                                $steps.invokeGlobalAction?.data?.result?.link ||
+                                // $steps.invokeGlobalAction?.data?.result?.link ||
                                 $props.data.result.dialogs[0].acceptActionV3
                               );
                             } catch (e) {
