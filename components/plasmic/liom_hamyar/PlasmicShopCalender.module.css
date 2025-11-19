@@ -24,7 +24,7 @@
 }
 @media (max-width: 640px) {
   .root {
-    padding: 0px;
+    padding: 0px 12px;
   }
 }
 @media (max-width: 640px) {
@@ -243,14 +243,14 @@
 }
 .freeBox___1TgU0 {
   display: block;
-  position: relative;
+  position: absolute;
   width: auto;
   height: auto;
   max-width: 100%;
   align-self: flex-end;
   background: #7444bc33;
-  left: auto;
-  top: auto;
+  left: 0px;
+  top: 0px;
   z-index: 1;
   border-radius: 8px 0px;
   padding: 3px 8px 2px;
@@ -306,7 +306,8 @@
   border-bottom-width: 1px;
   border-bottom-style: solid;
   min-width: 0;
-  padding: var(--token-O5TjkXII_aat);
+  padding: var(--token-uOLZE7OyOW-J) var(--token-O5TjkXII_aat)
+    var(--token-O5TjkXII_aat);
 }
 .text___65Bvz {
   width: auto;

@@ -247,6 +247,12 @@ function PlasmicShopOfferBox__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "selectedShop",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       }
     ],
     [$props, $ctx, $refs]
@@ -949,7 +955,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                     <React.Fragment>
                       {(() => {
                         try {
-                          return $state.shapData.result.find(
+                          return $state.shapData.result.shopList.find(
                             item => item.selected === 1
                           ).topBadge;
                         } catch (e) {
@@ -977,7 +983,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                   <React.Fragment>
                     {(() => {
                       try {
-                        return $state.shapData.result.find(
+                        return $state.shapData.result.shopList.find(
                           item => item.selected === 1
                         ).title;
                       } catch (e) {
@@ -994,7 +1000,8 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                 </div>
                 {(() => {
                   try {
-                    return $state.shapData.result[$state.selectedShop].badge
+                    return $state.shapData.result.shopList[$state.selectedShop]
+                      .badge
                       ? true
                       : false;
                   } catch (e) {
@@ -1020,7 +1027,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                       <React.Fragment>
                         {(() => {
                           try {
-                            return $state.shapData.result.find(
+                            return $state.shapData.result.shopList.find(
                               item => item.selected === 1
                             ).badge;
                           } catch (e) {
@@ -1064,7 +1071,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                     <React.Fragment>
                       {(() => {
                         try {
-                          return $state.shapData.result
+                          return $state.shapData.result.shopList
                             .find(item => item.selected === 1)
                             .fullPrice.toLocaleString("en-US");
                         } catch (e) {
@@ -1092,7 +1099,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                       {(() => {
                         try {
                           return (
-                            $state.shapData.result
+                            $state.shapData.result.shopList
                               .find(item => item.selected === 1)
                               .price.toLocaleString("en-US") + " تومان |"
                           );
@@ -1118,7 +1125,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                     <React.Fragment>
                       {(() => {
                         try {
-                          return $state.shapData.result.find(
+                          return $state.shapData.result.shopList.find(
                             item => item.selected === 1
                           ).per_month_text;
                         } catch (e) {
