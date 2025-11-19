@@ -283,12 +283,6 @@ export const Fragment = ({
                 sendMessage("کنترل اضافه وزن بارداری", link,inWebViow);
                 break;
             }
-              
-            case "#directDialog": {
-              if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
-              window.FlutterChannel.postMessage(action);}
-              break;
-            }
             case "#hamyarInfo": case "#carePartner" : case "#carePartner-1":  {
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage(action);}
@@ -434,24 +428,24 @@ export const Fragment = ({
 
             default: {
               if (action.includes("#directDialog")) {
-                  alert(`برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.\nنوع: ${action}`);
-                // const a = action.split("#directDialog-");
-                // let type = a[1];
-              
-                // setDynamicDialog(
-                //   <DirectDialog
-                //     type={type}
-                //     token={token}
-                //     desc="برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید."
-                //     redirectUrl="/install"
-                //     open={true} // مستقیم true بدهیم
-                //     onOpenChange={(open) => {
-                //       if (!open) {
-                //         setDynamicDialog(null); // وقتی دیالوگ بسته شد، حذف شود
-                //       }
-                //     }}
-                //   />
-                // );
+                if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
+                      window.FlutterChannel.postMessage(action);}
+                else{
+                      const raw = action.replace("#directDialog-", "");
+                      const type = raw; 
+                      setDynamicDialog(
+                        <DirectDialog
+                          type={type}
+                          token={token}
+                          desc="برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید."
+                          redirectUrl="/install"
+                          open={true}
+                          onOpenChange={(open) => {
+                            if (!open) setDynamicDialog(null);
+                          }}
+                        />
+                      );
+                }
               }
               else if (action.startsWith("#newCustomSubscriptionV3")) {
                 if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
