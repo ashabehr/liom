@@ -3244,6 +3244,9 @@
     font-size: 14px;
   }
 }
+.shopCalender:global(.__wab_instance) {
+  max-width: 100%;
+}
 .tooltip__wiuSx:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;

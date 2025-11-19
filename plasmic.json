@@ -5106,6 +5106,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicFutureItem.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "uh2oXmDMWhXZ",
+          "name": "ShopCalender",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicShopCalender.tsx",
+          "importSpec": {
+            "modulePath": "ShopCalender.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicShopCalender.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

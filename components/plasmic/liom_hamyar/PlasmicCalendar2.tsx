@@ -77,6 +77,7 @@ import PercentageBox from "../../PercentageBox"; // plasmic-import: u0LyXWqR1nAi
 import FutureItem from "../../FutureItem"; // plasmic-import: pKcBaNZ3_IhU/component
 import Useful from "../../Useful"; // plasmic-import: 2qiQ4nSmOYBA/component
 import Harmful from "../../Harmful"; // plasmic-import: XLWl_YcBNVp7/component
+import ShopCalender from "../../ShopCalender"; // plasmic-import: uh2oXmDMWhXZ/component
 import { AntdTooltip } from "@plasmicpkgs/antd5/skinny/registerTooltip";
 import Heart from "../../Heart"; // plasmic-import: OuOhJXUpgiRr/component
 import Dialog3 from "../../Dialog3"; // plasmic-import: j5op3vcM_4hJ/component
@@ -183,6 +184,7 @@ export type PlasmicCalendar2__OverridesType = {
   modal2?: Flex__<typeof AntdModal>;
   modal3?: Flex__<typeof AntdModal>;
   ol?: Flex__<"ol">;
+  shopCalender?: Flex__<typeof ShopCalender>;
   heart?: Flex__<typeof Heart>;
   loading?: Flex__<"div">;
   button?: Flex__<typeof Button>;
@@ -2189,6 +2191,25 @@ function PlasmicCalendar2__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "shopCalender.token",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.token;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -57189,6 +57210,26 @@ function PlasmicCalendar2__RenderFunc(props: {
                 </div>
               ) : null}
             </div>
+            <ShopCalender
+              data-plasmic-name={"shopCalender"}
+              data-plasmic-override={overrides.shopCalender}
+              className={classNames("__wab_instance", sty.shopCalender)}
+              onTokenChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "shopCalender",
+                  "token"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              token={generateStateValueProp($state, ["shopCalender", "token"])}
+            />
           </div>
           <AntdTooltip
             className={classNames("__wab_instance", sty.tooltip__wiuSx)}
@@ -59642,6 +59683,7 @@ const PlasmicDescendants = {
     "modal2",
     "modal3",
     "ol",
+    "shopCalender",
     "heart",
     "loading",
     "button",
@@ -59707,6 +59749,7 @@ const PlasmicDescendants = {
     "modal2",
     "modal3",
     "ol",
+    "shopCalender",
     "heart"
   ],
   cyclebox2: ["cyclebox2", "lineClomp2", "button16"],
@@ -59739,6 +59782,7 @@ const PlasmicDescendants = {
   modal2: ["modal2"],
   modal3: ["modal3"],
   ol: ["ol"],
+  shopCalender: ["shopCalender"],
   heart: ["heart"],
   loading: ["loading"],
   button: ["button"],
@@ -59822,6 +59866,7 @@ type NodeDefaultElementType = {
   modal2: typeof AntdModal;
   modal3: typeof AntdModal;
   ol: "ol";
+  shopCalender: typeof ShopCalender;
   heart: typeof Heart;
   loading: "div";
   button: typeof Button;
@@ -59949,6 +59994,7 @@ export const PlasmicCalendar2 = Object.assign(
     modal2: makeNodeComponent("modal2"),
     modal3: makeNodeComponent("modal3"),
     ol: makeNodeComponent("ol"),
+    shopCalender: makeNodeComponent("shopCalender"),
     heart: makeNodeComponent("heart"),
     loading: makeNodeComponent("loading"),
     button: makeNodeComponent("button"),

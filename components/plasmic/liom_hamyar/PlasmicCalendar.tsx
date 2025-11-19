@@ -27814,6 +27814,9 @@ function PlasmicCalendar__RenderFunc(props: {
                         ),
                         expandIconPosition: "end",
                         ghost: true,
+                        headerClass: classNames({
+                          [sty["pcls_8XsNfcadpa0Q"]]: true
+                        }),
                         label2: (
                           <div
                             className={classNames(
