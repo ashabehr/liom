@@ -66,6 +66,7 @@ import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import NotifBox from "../../NotifBox"; // plasmic-import: xI5TnebPGhVr/component
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -75,6 +76,8 @@ import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K
 import sty from "./PlasmicNotif2.module.css"; // plasmic-import: LeGRcP9B_UZa/css
 
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
 createPlasmicElementProxy;
 
@@ -102,6 +105,7 @@ export type PlasmicNotif2__OverridesType = {
   img?: Flex__<typeof PlasmicImg__>;
   apiRequest?: Flex__<typeof ApiRequest>;
   notifBox2?: Flex__<typeof NotifBox>;
+  button?: Flex__<typeof Button>;
 };
 
 export interface DefaultNotif2Props {}
@@ -160,7 +164,7 @@ function PlasmicNotif2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.apiRequest.data?.success === false;
+              return !$state.apiRequest.data;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -247,7 +251,23 @@ function PlasmicNotif2__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM1ZmNkNzhjLTBmMGMtNDc0Zi1iZGQzLTdiN2E1MGU2OWVlNyIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzYzMzcxMzg4fQ.thuDEZTy9exxeSqKrtM-ir-ZQ2__cxO736ZIi2Qv6JI"
+      },
+      {
+        path: "button[].color",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "button[].loading",
+        type: "private",
+        variableType: "boolean"
+      },
+      {
+        path: "button[].load",
+        type: "private",
+        variableType: "boolean"
       }
     ],
     [$props, $ctx, $refs]
@@ -583,231 +603,390 @@ function PlasmicNotif2__RenderFunc(props: {
                 : "Enter some text"}
             </div>
           </div>
-          <ApiRequest
-            data-plasmic-name={"apiRequest"}
-            data-plasmic-override={overrides.apiRequest}
-            className={classNames("__wab_instance", sty.apiRequest, {
-              [sty.apiRequestnoNotification]: hasVariant(
-                $state,
-                "noNotification",
-                "noNotification"
-              )
-            })}
-            config={(() => {
-              try {
-                return {
-                  headers: {
-                    authorization: $state.token
-                  }
-                };
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-            errorDisplay={null}
-            loadingDisplay={
-              <div className={classNames(projectcss.all, sty.freeBox__a6Xp)}>
-                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))([
-                  2, 3, 4
-                ]).map((__plasmic_item_0, __plasmic_idx_0) => {
-                  const currentItem = __plasmic_item_0;
-                  const currentIndex = __plasmic_idx_0;
-                  return (
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__jX7Pr,
-                        "shimmer"
-                      )}
-                      key={currentIndex}
-                    />
-                  );
-                })}
-              </div>
-            }
-            method={"GET"}
-            onError={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(
-                null,
-                eventArgs
-              );
-            }}
-            onLoading={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, [
-                "apiRequest",
-                "loading"
-              ]).apply(null, eventArgs);
-            }}
-            onSuccess={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
-                null,
-                eventArgs
-              );
-            }}
-            params={
-              hasVariant($state, "noNotification", "noNotification")
-                ? (() => {
-                    try {
-                      return {
-                        userId: "cc0050d7-f509-4f4a-b553-faa895910984"
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()
-                : undefined
-            }
-            shouldFetch={(() => {
-              try {
-                return $state.token != "";
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
-                }
-                throw e;
-              }
-            })()}
-            url={"https://n8n.staas.ir/webhook/getData-notification"}
-          >
-            <div
-              className={classNames(projectcss.all, sty.freeBox__ougy7, {
-                [sty.freeBoxnoNotification__ougy7NShOl]: hasVariant(
+          <div className={classNames(projectcss.all, sty.freeBox__huhNg)}>
+            <ApiRequest
+              data-plasmic-name={"apiRequest"}
+              data-plasmic-override={overrides.apiRequest}
+              className={classNames("__wab_instance", sty.apiRequest, {
+                [sty.apiRequestnoNotification]: hasVariant(
                   $state,
                   "noNotification",
                   "noNotification"
                 )
               })}
-            >
-              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                (() => {
-                  try {
-                    return $state.apiRequest.data;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return [];
+              config={(() => {
+                try {
+                  return {
+                    headers: {
+                      authorization: $state.token
                     }
-                    throw e;
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
                   }
-                })()
-              ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                const notifItem = __plasmic_item_0;
-                const currentIndex = __plasmic_idx_0;
-                return (() => {
-                  const child$Props = {
-                    button2: (
+                  throw e;
+                }
+              })()}
+              errorDisplay={null}
+              loadingDisplay={
+                <div className={classNames(projectcss.all, sty.freeBox__a6Xp)}>
+                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    [2, 3, 4]
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__sALey
+                          sty.freeBox__jX7Pr,
+                          "shimmer"
                         )}
-                      >
+                        key={currentIndex}
+                      />
+                    );
+                  })}
+                </div>
+              }
+              method={"GET"}
+              onError={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "apiRequest",
+                  "error"
+                ]).apply(null, eventArgs);
+              }}
+              onLoading={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "apiRequest",
+                  "loading"
+                ]).apply(null, eventArgs);
+              }}
+              onSuccess={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              params={
+                hasVariant($state, "noNotification", "noNotification")
+                  ? (() => {
+                      try {
+                        return {
+                          userId: "cc0050d7-f509-4f4a-b553-faa895910984"
+                        };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+                  : undefined
+              }
+              shouldFetch={(() => {
+                try {
+                  return $state.token != "";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })()}
+              url={"https://n8n.staas.ir/webhook/getData-notification"}
+            >
+              <div
+                className={classNames(projectcss.all, sty.freeBox__ougy7, {
+                  [sty.freeBoxnoNotification__ougy7NShOl]: hasVariant(
+                    $state,
+                    "noNotification",
+                    "noNotification"
+                  )
+                })}
+              >
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return $state.apiRequest.data;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const notifItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (() => {
+                    const child$Props = {
+                      button2: (
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox___2WSm2
+                            sty.freeBox__sALey
                           )}
                         >
-                          {(_par =>
-                            !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                            (() => {
-                              try {
-                                return JSON.parse(notifItem.butten);
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
-                                }
-                                throw e;
+                          {(() => {
+                            try {
+                              return JSON.parse(notifItem.butten);
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
                               }
-                            })()
-                          ).map((__plasmic_item_1, __plasmic_idx_1) => {
-                            const currentItem = __plasmic_item_1;
-                            const currentIndex = __plasmic_idx_1;
-                            return (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox___8W4Bt
-                                )}
-                                key={currentIndex}
-                                onClick={async event => {
-                                  const $steps = {};
-
-                                  $steps["goToPage"] =
-                                    !currentItem.action.startsWith("#")
-                                      ? (() => {
-                                          const actionArgs = {
-                                            destination: (() => {
-                                              try {
-                                                return currentItem.action;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })()
-                                          };
-                                          return (({ destination }) => {
-                                            if (
-                                              typeof destination === "string" &&
-                                              destination.startsWith("#")
-                                            ) {
-                                              document
-                                                .getElementById(
-                                                  destination.substr(1)
-                                                )
-                                                .scrollIntoView({
-                                                  behavior: "smooth"
-                                                });
-                                            } else {
-                                              __nextRouter?.push(destination);
-                                            }
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                  if (
-                                    $steps["goToPage"] != null &&
-                                    typeof $steps["goToPage"] === "object" &&
-                                    typeof $steps["goToPage"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["goToPage"] =
-                                      await $steps["goToPage"];
+                              throw e;
+                            }
+                          })() ? (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox___2WSm2
+                              )}
+                            >
+                              {(_par =>
+                                !_par
+                                  ? []
+                                  : Array.isArray(_par)
+                                    ? _par
+                                    : [_par])(
+                                (() => {
+                                  try {
+                                    return JSON.parse(notifItem.butten);
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [];
+                                    }
+                                    throw e;
                                   }
+                                })()
+                              ).map((__plasmic_item_1, __plasmic_idx_1) => {
+                                const currentItem = __plasmic_item_1;
+                                const currentIndex = __plasmic_idx_1;
+                                return (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox___8W4Bt
+                                    )}
+                                    key={currentIndex}
+                                    onClick={async event => {
+                                      const $steps = {};
 
-                                  $steps["invokeGlobalAction"] =
-                                    currentItem.action.startsWith("#")
+                                      $steps["goToPage"] =
+                                        !currentItem.action.startsWith("#")
+                                          ? (() => {
+                                              const actionArgs = {
+                                                destination: (() => {
+                                                  try {
+                                                    return currentItem.action;
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return undefined;
+                                                    }
+                                                    throw e;
+                                                  }
+                                                })()
+                                              };
+                                              return (({ destination }) => {
+                                                if (
+                                                  typeof destination ===
+                                                    "string" &&
+                                                  destination.startsWith("#")
+                                                ) {
+                                                  document
+                                                    .getElementById(
+                                                      destination.substr(1)
+                                                    )
+                                                    .scrollIntoView({
+                                                      behavior: "smooth"
+                                                    });
+                                                } else {
+                                                  __nextRouter?.push(
+                                                    destination
+                                                  );
+                                                }
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                      if (
+                                        $steps["goToPage"] != null &&
+                                        typeof $steps["goToPage"] ===
+                                          "object" &&
+                                        typeof $steps["goToPage"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["goToPage"] =
+                                          await $steps["goToPage"];
+                                      }
+
+                                      $steps["invokeGlobalAction"] =
+                                        currentItem.action.startsWith("#")
+                                          ? (() => {
+                                              const actionArgs = {
+                                                args: [
+                                                  (() => {
+                                                    try {
+                                                      return currentItem.action;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()
+                                                ]
+                                              };
+                                              return $globalActions[
+                                                "Fragment.deepLink"
+                                              ]?.apply(null, [
+                                                ...actionArgs.args
+                                              ]);
+                                            })()
+                                          : undefined;
+                                      if (
+                                        $steps["invokeGlobalAction"] != null &&
+                                        typeof $steps["invokeGlobalAction"] ===
+                                          "object" &&
+                                        typeof $steps["invokeGlobalAction"]
+                                          .then === "function"
+                                      ) {
+                                        $steps["invokeGlobalAction"] =
+                                          await $steps["invokeGlobalAction"];
+                                      }
+                                    }}
+                                    style={(() => {
+                                      try {
+                                        return {
+                                          background: currentItem.color
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__eL0LB
+                                      )}
+                                    >
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return currentItem.btnText;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "";
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                      </React.Fragment>
+                                    </div>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          ) : null}
+                          {(() => {
+                            try {
+                              return !JSON.parse(notifItem.butten);
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })()
+                            ? (() => {
+                                const child$Props = {
+                                  className: classNames(
+                                    "__wab_instance",
+                                    sty.button
+                                  ),
+                                  color: generateStateValueProp($state, [
+                                    "button",
+                                    __plasmic_idx_0,
+                                    "color"
+                                  ]),
+                                  load: generateStateValueProp($state, [
+                                    "button",
+                                    __plasmic_idx_0,
+                                    "load"
+                                  ]),
+                                  loading: generateStateValueProp($state, [
+                                    "button",
+                                    __plasmic_idx_0,
+                                    "loading"
+                                  ]),
+                                  onClick: async event => {
+                                    const $steps = {};
+
+                                    $steps["invokeGlobalAction"] = true
                                       ? (() => {
                                           const actionArgs = {
                                             args: [
                                               (() => {
                                                 try {
-                                                  return currentItem.action;
+                                                  return notifItem.action;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })(),
+                                              (() => {
+                                                try {
+                                                  return $state.token;
                                                 } catch (e) {
                                                   if (
                                                     e instanceof TypeError ||
@@ -826,124 +1005,186 @@ function PlasmicNotif2__RenderFunc(props: {
                                           ]?.apply(null, [...actionArgs.args]);
                                         })()
                                       : undefined;
-                                  if (
-                                    $steps["invokeGlobalAction"] != null &&
-                                    typeof $steps["invokeGlobalAction"] ===
-                                      "object" &&
-                                    typeof $steps["invokeGlobalAction"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["invokeGlobalAction"] =
-                                      await $steps["invokeGlobalAction"];
-                                  }
-                                }}
-                                style={(() => {
-                                  try {
-                                    return {
-                                      background: currentItem.color
-                                    };
-                                  } catch (e) {
                                     if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
+                                      $steps["invokeGlobalAction"] != null &&
+                                      typeof $steps["invokeGlobalAction"] ===
+                                        "object" &&
+                                      typeof $steps["invokeGlobalAction"]
+                                        .then === "function"
                                     ) {
-                                      return undefined;
+                                      $steps["invokeGlobalAction"] =
+                                        await $steps["invokeGlobalAction"];
                                     }
-                                    throw e;
-                                  }
-                                })()}
-                              >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__eL0LB
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return currentItem.btnText;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "";
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
-                                </div>
-                              </div>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    ),
-                    className: classNames("__wab_instance", sty.notifBox2, {
-                      [sty.notifBox2noNotification]: hasVariant(
-                        $state,
-                        "noNotification",
-                        "noNotification"
-                      )
-                    }),
-                    date: generateStateValueProp($state, [
-                      "notifBox2",
-                      __plasmic_idx_0,
-                      "date"
-                    ]),
-                    delet: generateStateValueProp($state, [
-                      "notifBox2",
-                      __plasmic_idx_0,
-                      "delet"
-                    ]),
-                    forAll: (() => {
-                      try {
-                        return notifItem.type == "all";
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })(),
-                    image: (() => {
-                      try {
-                        return notifItem.icon;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })(),
-                    key: currentIndex,
-                    onChange: async activeIds => {
-                      const $steps = {};
+                                  },
+                                  onColorChange: async (...eventArgs: any) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button",
+                                        __plasmic_idx_0,
+                                        "color"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
 
-                      $steps["invokeGlobalAction"] =
-                        notifItem.userId != null &&
-                        !$state.notifBox2[currentIndex].seen
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  },
+                                  onLoadChange: async (...eventArgs: any) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button",
+                                        __plasmic_idx_0,
+                                        "load"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  },
+                                  onLoadingChange: async (
+                                    ...eventArgs: any
+                                  ) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button",
+                                        __plasmic_idx_0,
+                                        "loading"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  },
+                                  size: "compact"
+                                };
+
+                                initializePlasmicStates(
+                                  $state,
+                                  [
+                                    {
+                                      name: "button[].color",
+                                      initFunc: ({
+                                        $props,
+                                        $state,
+                                        $queries
+                                      }) => "line"
+                                    },
+                                    {
+                                      name: "button[].loading",
+                                      initFunc: ({
+                                        $props,
+                                        $state,
+                                        $queries
+                                      }) => undefined
+                                    },
+                                    {
+                                      name: "button[].load",
+                                      initFunc: ({
+                                        $props,
+                                        $state,
+                                        $queries
+                                      }) => false
+                                    }
+                                  ],
+                                  [__plasmic_idx_0]
+                                );
+                                return (
+                                  <Button
+                                    data-plasmic-name={"button"}
+                                    data-plasmic-override={overrides.button}
+                                    {...child$Props}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__kn2Sv
+                                      )}
+                                    >
+                                      {
+                                        "\u0645\u0634\u0627\u0647\u062f\u0647    >"
+                                      }
+                                    </div>
+                                  </Button>
+                                );
+                              })()
+                            : null}
+                        </div>
+                      ),
+                      className: classNames("__wab_instance", sty.notifBox2, {
+                        [sty.notifBox2noNotification]: hasVariant(
+                          $state,
+                          "noNotification",
+                          "noNotification"
+                        )
+                      }),
+                      date: generateStateValueProp($state, [
+                        "notifBox2",
+                        __plasmic_idx_0,
+                        "date"
+                      ]),
+                      delet: generateStateValueProp($state, [
+                        "notifBox2",
+                        __plasmic_idx_0,
+                        "delet"
+                      ]),
+                      forAll: (() => {
+                        try {
+                          return notifItem.type == "all";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })(),
+                      image: (() => {
+                        try {
+                          return notifItem.icon;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })(),
+                      key: currentIndex,
+                      onChange: async activeIds => {
+                        const $steps = {};
+
+                        $steps["invokeGlobalAction"] = !$state.notifBox2[
+                          currentIndex
+                        ].seen
                           ? (() => {
                               const actionArgs = {
                                 args: [
                                   "POST",
-                                  "https://n8n.staas.ir/webhook/notification",
+                                  "https://n8n.staas.ir/webhook/notification/seen",
                                   undefined,
                                   (() => {
                                     try {
                                       return {
-                                        userId: $state.paramsObject.userId,
+                                        token: $state.token,
                                         notifId: notifItem.id
                                       };
                                     } catch (e) {
@@ -964,336 +1205,358 @@ function PlasmicNotif2__RenderFunc(props: {
                               ]?.apply(null, [...actionArgs.args]);
                             })()
                           : undefined;
-                      if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction"] =
-                          await $steps["invokeGlobalAction"];
-                      }
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
+                        }
 
-                      $steps["runCode"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    $state.notifBox2[currentIndex].seen = true;
+                                    let seenArrey =
+                                      JSON.parse(
+                                        localStorage.getItem("seenArrey")
+                                      ) || [];
+                                    if (!seenArrey.includes(notifItem.id)) {
+                                      seenArrey.push(notifItem.id);
+                                      return localStorage.setItem(
+                                        "seenArrey",
+                                        JSON.stringify(seenArrey)
+                                      );
+                                    }
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      },
+                      onClick: async event => {
+                        const $steps = {};
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    if (notifItem.type == "all") {
+                                      let notId =
+                                        JSON.parse(
+                                          localStorage.getItem("notId")
+                                        ) || [];
+                                      if (!notId.includes(notifItem.id)) {
+                                        notId.push(notifItem.id);
+                                        localStorage.setItem(
+                                          "notId",
+                                          JSON.stringify(notId)
+                                        );
+                                      }
+                                    }
+                                    return ($state.notifBox2[
+                                      currentIndex
+                                    ].delet = true);
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      },
+                      onDateChange: async (...eventArgs: any) => {
+                        generateStateOnChangeProp($state, [
+                          "notifBox2",
+                          __plasmic_idx_0,
+                          "date"
+                        ]).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      },
+                      onDeletChange: async (...eventArgs: any) => {
+                        generateStateOnChangeProp($state, [
+                          "notifBox2",
+                          __plasmic_idx_0,
+                          "delet"
+                        ]).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      },
+                      onSeenChange: async (...eventArgs: any) => {
+                        generateStateOnChangeProp($state, [
+                          "notifBox2",
+                          __plasmic_idx_0,
+                          "seen"
+                        ]).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      },
+                      onTextChange: async (...eventArgs: any) => {
+                        generateStateOnChangeProp($state, [
+                          "notifBox2",
+                          __plasmic_idx_0,
+                          "text"
+                        ]).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      },
+                      onTitleChange: async (...eventArgs: any) => {
+                        generateStateOnChangeProp($state, [
+                          "notifBox2",
+                          __plasmic_idx_0,
+                          "title"
+                        ]).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      },
+                      seen: generateStateValueProp($state, [
+                        "notifBox2",
+                        __plasmic_idx_0,
+                        "seen"
+                      ]),
+                      text: generateStateValueProp($state, [
+                        "notifBox2",
+                        __plasmic_idx_0,
+                        "text"
+                      ]),
+                      title: generateStateValueProp($state, [
+                        "notifBox2",
+                        __plasmic_idx_0,
+                        "title"
+                      ])
+                    };
+
+                    initializePlasmicStates(
+                      $state,
+                      [
+                        {
+                          name: "notifBox2[].seen",
+                          initFunc: ({ $props, $state, $queries }) =>
+                            (() => {
+                              try {
                                 return (() => {
-                                  $state.notifBox2[currentIndex].seen = true;
                                   let seenArrey =
                                     JSON.parse(
                                       localStorage.getItem("seenArrey")
                                     ) || [];
-                                  if (!seenArrey.includes(notifItem.id)) {
-                                    seenArrey.push(notifItem.id);
-                                    return localStorage.setItem(
-                                      "seenArrey",
-                                      JSON.stringify(seenArrey)
-                                    );
-                                  }
+                                  return (
+                                    notifItem.seen != 0 ||
+                                    seenArrey.includes(notifItem.id)
+                                  );
                                 })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
                               }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
-                      }
-                    },
-                    onClick: async event => {
-                      const $steps = {};
-
-                      $steps["runCode"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
+                            })()
+                        },
+                        {
+                          name: "notifBox2[].title",
+                          initFunc: ({ $props, $state, $queries }) =>
+                            (() => {
+                              try {
+                                return notifItem.title;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                        },
+                        {
+                          name: "notifBox2[].text",
+                          initFunc: ({ $props, $state, $queries }) =>
+                            (() => {
+                              try {
+                                return notifItem.text;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                        },
+                        {
+                          name: "notifBox2[].date",
+                          initFunc: ({ $props, $state, $queries }) =>
+                            (() => {
+                              try {
                                 return (() => {
-                                  if (notifItem.type == "all") {
-                                    let notId =
-                                      JSON.parse(
-                                        localStorage.getItem("notId")
-                                      ) || [];
-                                    if (!notId.includes(notifItem.id)) {
-                                      notId.push(notifItem.id);
-                                      localStorage.setItem(
-                                        "notId",
-                                        JSON.stringify(notId)
+                                  function formatSmartDate(dateInput) {
+                                    const date = new Date(dateInput);
+                                    const now = new Date();
+                                    if (
+                                      date.toDateString() === now.toDateString()
+                                    ) {
+                                      return (
+                                        " امروز   " +
+                                        date.toLocaleTimeString("fa-IR", {
+                                          hour: "2-digit",
+                                          minute: "2-digit"
+                                        })
                                       );
                                     }
+                                    const startOfWeek = new Date(now);
+                                    startOfWeek.setDate(
+                                      now.getDate() - now.getDay()
+                                    );
+                                    startOfWeek.setHours(0, 0, 0, 0);
+                                    const endOfWeek = new Date(startOfWeek);
+                                    endOfWeek.setDate(endOfWeek.getDate() + 6);
+                                    endOfWeek.setHours(23, 59, 59, 999);
+                                    if (
+                                      date >= startOfWeek &&
+                                      date <= endOfWeek
+                                    ) {
+                                      const midnightNow = new Date(
+                                        now.getFullYear(),
+                                        now.getMonth(),
+                                        now.getDate()
+                                      );
+                                      const midnightDate = new Date(
+                                        date.getFullYear(),
+                                        date.getMonth(),
+                                        date.getDate()
+                                      );
+                                      const diffMs = midnightNow - midnightDate;
+                                      const diffDays = Math.round(
+                                        diffMs / (1000 * 60 * 60 * 24)
+                                      );
+                                      if (diffDays === 1) return "۱ روز پیش";
+                                      if (diffDays === 2) return "۲ روز پیش";
+                                      return `${diffDays} روز پیش`;
+                                    }
+                                    if (
+                                      date.getFullYear() === now.getFullYear()
+                                    ) {
+                                      return date.toLocaleDateString("fa-IR", {
+                                        day: "numeric",
+                                        month: "long"
+                                      });
+                                    }
+                                    return date.toLocaleDateString("fa-IR", {
+                                      year: "numeric",
+                                      month: "numeric",
+                                      day: "numeric"
+                                    });
                                   }
-                                  return ($state.notifBox2[currentIndex].delet =
-                                    true);
+                                  return formatSmartDate(notifItem.date);
                                 })();
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
-                      }
-                    },
-                    onDateChange: async (...eventArgs: any) => {
-                      generateStateOnChangeProp($state, [
-                        "notifBox2",
-                        __plasmic_idx_0,
-                        "date"
-                      ]).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    },
-                    onDeletChange: async (...eventArgs: any) => {
-                      generateStateOnChangeProp($state, [
-                        "notifBox2",
-                        __plasmic_idx_0,
-                        "delet"
-                      ]).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    },
-                    onSeenChange: async (...eventArgs: any) => {
-                      generateStateOnChangeProp($state, [
-                        "notifBox2",
-                        __plasmic_idx_0,
-                        "seen"
-                      ]).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    },
-                    onTextChange: async (...eventArgs: any) => {
-                      generateStateOnChangeProp($state, [
-                        "notifBox2",
-                        __plasmic_idx_0,
-                        "text"
-                      ]).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    },
-                    onTitleChange: async (...eventArgs: any) => {
-                      generateStateOnChangeProp($state, [
-                        "notifBox2",
-                        __plasmic_idx_0,
-                        "title"
-                      ]).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    },
-                    seen: generateStateValueProp($state, [
-                      "notifBox2",
-                      __plasmic_idx_0,
-                      "seen"
-                    ]),
-                    text: generateStateValueProp($state, [
-                      "notifBox2",
-                      __plasmic_idx_0,
-                      "text"
-                    ]),
-                    title: generateStateValueProp($state, [
-                      "notifBox2",
-                      __plasmic_idx_0,
-                      "title"
-                    ])
-                  };
-
-                  initializePlasmicStates(
-                    $state,
-                    [
-                      {
-                        name: "notifBox2[].seen",
-                        initFunc: ({ $props, $state, $queries }) =>
-                          (() => {
-                            try {
-                              return (() => {
-                                let seenArrey =
-                                  JSON.parse(
-                                    localStorage.getItem("seenArrey")
-                                  ) || [];
-                                return (
-                                  notifItem.seen != 0 ||
-                                  seenArrey.includes(notifItem.id)
-                                );
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
-                              }
-                              throw e;
-                            }
-                          })()
-                      },
-                      {
-                        name: "notifBox2[].title",
-                        initFunc: ({ $props, $state, $queries }) =>
-                          (() => {
-                            try {
-                              return notifItem.title;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()
-                      },
-                      {
-                        name: "notifBox2[].text",
-                        initFunc: ({ $props, $state, $queries }) =>
-                          (() => {
-                            try {
-                              return notifItem.text;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()
-                      },
-                      {
-                        name: "notifBox2[].date",
-                        initFunc: ({ $props, $state, $queries }) =>
-                          (() => {
-                            try {
-                              return (() => {
-                                function formatSmartDate(dateInput) {
-                                  const date = new Date(dateInput);
-                                  const now = new Date();
-                                  const isToday =
-                                    date.toDateString() === now.toDateString();
-                                  if (isToday) {
-                                    return date.toLocaleTimeString("fa-IR", {
-                                      hour: "2-digit",
-                                      minute: "2-digit"
-                                    });
-                                  }
-                                  const startOfWeek = new Date(now);
-                                  startOfWeek.setDate(
-                                    now.getDate() - now.getDay()
-                                  );
-                                  startOfWeek.setHours(0, 0, 0, 0);
-                                  const endOfWeek = new Date(startOfWeek);
-                                  endOfWeek.setDate(endOfWeek.getDate() + 6);
-                                  const isThisWeek =
-                                    date >= startOfWeek && date <= endOfWeek;
-                                  if (isThisWeek) {
-                                    return date.toLocaleDateString("fa-IR", {
-                                      weekday: "long"
-                                    });
-                                  }
-                                  const isThisYear =
-                                    date.getFullYear() === now.getFullYear();
-                                  if (isThisYear) {
-                                    return date.toLocaleDateString("fa-IR", {
-                                      day: "numeric",
-                                      month: "long"
-                                    });
-                                  }
-                                  return date.toLocaleDateString("fa-IR", {
-                                    year: "numeric",
-                                    month: "numeric",
-                                    day: "numeric"
-                                  });
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
                                 }
-                                return formatSmartDate(notifItem.date);
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()
-                      },
-                      {
-                        name: "notifBox2[].delet",
-                        initFunc: ({ $props, $state, $queries }) =>
-                          (() => {
-                            try {
-                              return (() => {
-                                let notId =
-                                  JSON.parse(localStorage.getItem("notId")) ||
-                                  [];
-                                return notId.includes(notifItem.id);
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
+                            })()
+                        },
+                        {
+                          name: "notifBox2[].delet",
+                          initFunc: ({ $props, $state, $queries }) =>
+                            (() => {
+                              try {
+                                return (() => {
+                                  let notId =
+                                    JSON.parse(localStorage.getItem("notId")) ||
+                                    [];
+                                  return notId.includes(notifItem.id);
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()
-                      }
-                    ],
-                    [__plasmic_idx_0]
-                  );
-                  return (
-                    <NotifBox
-                      data-plasmic-name={"notifBox2"}
-                      data-plasmic-override={overrides.notifBox2}
-                      {...child$Props}
-                    />
-                  );
-                })();
-              })}
-            </div>
-          </ApiRequest>
+                            })()
+                        }
+                      ],
+                      [__plasmic_idx_0]
+                    );
+                    return (
+                      <NotifBox
+                        data-plasmic-name={"notifBox2"}
+                        data-plasmic-override={overrides.notifBox2}
+                        {...child$Props}
+                      />
+                    );
+                  })();
+                })}
+              </div>
+            </ApiRequest>
+          </div>
         </div>
       </div>
     </React.Fragment>
@@ -1309,15 +1572,17 @@ const PlasmicDescendants = {
     "svg",
     "img",
     "apiRequest",
-    "notifBox2"
+    "notifBox2",
+    "button"
   ],
   sideEffect: ["sideEffect"],
   section: ["section", "headerLiom", "svg"],
   headerLiom: ["headerLiom", "svg"],
   svg: ["svg"],
   img: ["img"],
-  apiRequest: ["apiRequest", "notifBox2"],
-  notifBox2: ["notifBox2"]
+  apiRequest: ["apiRequest", "notifBox2", "button"],
+  notifBox2: ["notifBox2", "button"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1331,6 +1596,7 @@ type NodeDefaultElementType = {
   img: typeof PlasmicImg__;
   apiRequest: typeof ApiRequest;
   notifBox2: typeof NotifBox;
+  button: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1427,6 +1693,7 @@ export const PlasmicNotif2 = Object.assign(
     img: makeNodeComponent("img"),
     apiRequest: makeNodeComponent("apiRequest"),
     notifBox2: makeNodeComponent("notifBox2"),
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicNotif2
     internalVariantProps: PlasmicNotif2__VariantProps,
