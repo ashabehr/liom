@@ -297,9 +297,9 @@ export const Fragment = ({
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage(action);}
               else {    
-                    toast.error("برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.", {
+                    toast.custom(" این ابزار به زودی برای شما فعال می شود. ", {
                       duration: 3000,
-                      position: "top-right",
+                      position: "bottom-center",
                     });
                   // let link = `/hamyar-add/?token=${token}`;
                   // link=`/web-viow?link=${encodeURIComponent(link)}`;
@@ -326,9 +326,9 @@ export const Fragment = ({
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage(action);}
               else {    
-                    toast.error("برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.", {
+                    toast.custom(" این ابزار به زودی برای شما فعال می شود. ", {
                       duration: 3000,
-                      position: "top-right",
+                      position: "bottom-center",
                     });
                   // let link = `/hamyar-add/?token=${token}`;
                   // link=`/web-viow?link=${encodeURIComponent(link)}`;
@@ -340,9 +340,9 @@ export const Fragment = ({
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage(action);}
               else {    
-                    toast.error("برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.", {
+                    toast.custom(" این ابزار به زودی برای شما فعال می شود. ", {
                       duration: 3000,
-                      position: "top-right",
+                      position: "bottom-center",
                     });
                   // let link = `/hamyar-add/?token=${token}`;
                   // link=`/web-viow?link=${encodeURIComponent(link)}`;
@@ -354,9 +354,9 @@ export const Fragment = ({
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage("#breastCancerDatePage");}
               else {    
-                    toast.error("برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.", {
+                    toast.custom(" این ابزار به زودی برای شما فعال می شود. ", {
                       duration: 3000,
-                      position: "top-right",
+                      position: "bottom-center",
                     });
                   // let link = `/hamyar-add/?token=${token}`;
                   // link=`/web-viow?link=${encodeURIComponent(link)}`;
@@ -437,8 +437,8 @@ export const Fragment = ({
                         <DirectDialog
                           type={type}
                           token={token}
-                          desc="برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید."
-                          redirectUrl="/install"
+                          desc=" این ابزار برای استفاده نیاز به پرداخت دارد. "
+                          redirectUrl="/login"
                           open={true}
                           onOpenChange={(open) => {
                             if (!open) setDynamicDialog(null);
