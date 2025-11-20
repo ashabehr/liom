@@ -29940,211 +29940,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                       sty.freeBox__ryYYc,
                       "shimmer"
                     )}
-                  >
-                    <AntdModal
-                      data-plasmic-name={"subDialog"}
-                      data-plasmic-override={overrides.subDialog}
-                      className={classNames("__wab_instance", sty.subDialog)}
-                      defaultStylesClassName={classNames(
-                        projectcss.root_reset,
-                        projectcss.plasmic_default_styles,
-                        projectcss.plasmic_mixins,
-                        styleTokensClassNames
-                      )}
-                      hideFooter={true}
-                      modalScopeClassName={sty["subDialog__modal"]}
-                      onOpenChange={async (...eventArgs: any) => {
-                        generateStateOnChangeProp($state, [
-                          "subDialog",
-                          "open"
-                        ]).apply(null, eventArgs);
-                      }}
-                      open={generateStateValueProp($state, [
-                        "subDialog",
-                        "open"
-                      ])}
-                      title={
-                        <PlasmicImg__
-                          alt={""}
-                          className={classNames(sty.img__qt0FL)}
-                          displayHeight={"auto"}
-                          displayMaxHeight={"none"}
-                          displayMaxWidth={"100%"}
-                          displayMinHeight={"0"}
-                          displayMinWidth={"0"}
-                          displayWidth={"auto"}
-                          loading={"lazy"}
-                          src={{
-                            src: "/plasmic/liom_hamyar/images/vipImagePng.png",
-                            fullWidth: 1218,
-                            fullHeight: 664,
-                            aspectRatio: undefined
-                          }}
-                        />
-                      }
-                      trigger={null}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__fuFu3
-                        )}
-                      >
-                        {
-                          "\u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u062e\u0648\u062f\u062a\u060c \u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u0628\u0686\u062a\u0647"
-                        }
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__xcRq
-                        )}
-                      >
-                        <div
-                          className={projectcss.__wab_expr_html_text}
-                          dangerouslySetInnerHTML={{
-                            __html: (() => {
-                              try {
-                                return `<div style="
-  font-family: 'IRANSans', sans-serif;
-  text-align: right;
-  line-height: 1.6;
-  padding: 14px 12px;
-">
-  <!-- متن معرفی -->
-  <p style="font-size: 13px; margin: 0;">
-    ✨ فقط این هفته نیست… <strong>هر هفته راهنمایی مخصوص خودش رو داره!</strong>
-  </p>
-
-  <p style="margin: 0;">
-    🤰 بدن تو و کوچولوت داره هر روز تغییر می‌کنه،
-    <strong>نذار چیزی از قلم بیفته.</strong>
-  </p>
-
-  <p style="font-weight:500; margin-bottom: 8px;">
-    ما اینجاییم که کنارت باشیم. 💗
-  </p>
-
-  <!-- عنوان لیست -->
-  <p style="font-size: 13px; font-weight:600; margin: 6px 0;">
-    چیزایی که هر هفته بهش نیاز داری:
-  </p>
-
-  <!-- لیست اشتراک -->
-  <ul style="list-style: none; padding: 0; margin: 0;">
-    <li style="display: flex; gap: 6px; align-items: center; margin-bottom: 4px;">
-      <span>💊</span> مکمل‌ها و ویتامین‌های لازم مخصوص هر هفته
-    </li>
-    <li style="display: flex; gap: 6px; align-items: center; margin-bottom: 4px;">
-      <span>🧪</span> آزمایش‌ها و چکاپ‌های ضروری
-    </li>
-    <li style="display: flex; gap: 6px; align-items: center; margin-bottom: 4px;">
-      <span>⚠️</span> چیزهایی که تو هر هفته خطرناک هستن و باید حواست باشه
-    </li>
-    <li style="display: flex; gap: 6px; align-items: center;">
-      <span>🥦</span> نکات سلامتی برای هر هفته
-    </li>
-    <li style="display: flex; gap: 6px; align-items: center;">
-  <span>🧘‍♀️</span> نکات رفع استرس و آرامش
-</li>
-  </ul>
-
-</div>
-`;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
-                                }
-                                throw e;
-                              }
-                            })()
-                          }}
-                        />
-                      </div>
-                      <Button
-                        data-plasmic-name={"button4"}
-                        data-plasmic-override={overrides.button4}
-                        className={classNames("__wab_instance", sty.button4)}
-                        color={generateStateValueProp($state, [
-                          "button4",
-                          "color"
-                        ])}
-                        load={generateStateValueProp($state, [
-                          "button4",
-                          "load"
-                        ])}
-                        loading={generateStateValueProp($state, [
-                          "button4",
-                          "loading"
-                        ])}
-                        onColorChange={async (...eventArgs: any) => {
-                          ((...eventArgs) => {
-                            generateStateOnChangeProp($state, [
-                              "button4",
-                              "color"
-                            ])(eventArgs[0]);
-                          }).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        }}
-                        onLoadChange={async (...eventArgs: any) => {
-                          ((...eventArgs) => {
-                            generateStateOnChangeProp($state, [
-                              "button4",
-                              "load"
-                            ])(eventArgs[0]);
-                          }).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        }}
-                        onLoadingChange={async (...eventArgs: any) => {
-                          ((...eventArgs) => {
-                            generateStateOnChangeProp($state, [
-                              "button4",
-                              "loading"
-                            ])(eventArgs[0]);
-                          }).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        }}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__qjWmZ
-                          )}
-                        >
-                          {
-                            "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647"
-                          }
-                        </div>
-                      </Button>
-                    </AntdModal>
-                  </div>
+                  />
                 </div>
                 <div
                   className={classNames(projectcss.all, sty.freeBox___2FdxF)}
@@ -31328,6 +31124,194 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
             </div>
           ) : null}
         </div>
+        <AntdModal
+          data-plasmic-name={"subDialog"}
+          data-plasmic-override={overrides.subDialog}
+          className={classNames("__wab_instance", sty.subDialog)}
+          defaultStylesClassName={classNames(
+            projectcss.root_reset,
+            projectcss.plasmic_default_styles,
+            projectcss.plasmic_mixins,
+            styleTokensClassNames
+          )}
+          hideFooter={true}
+          modalScopeClassName={sty["subDialog__modal"]}
+          onOpenChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["subDialog", "open"]).apply(
+              null,
+              eventArgs
+            );
+          }}
+          open={generateStateValueProp($state, ["subDialog", "open"])}
+          title={
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img__qt0FL)}
+              displayHeight={"auto"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={"auto"}
+              loading={"lazy"}
+              src={{
+                src: "/plasmic/liom_hamyar/images/vipImagePng.png",
+                fullWidth: 1218,
+                fullHeight: 664,
+                aspectRatio: undefined
+              }}
+            />
+          }
+          trigger={null}
+        >
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__fuFu3
+            )}
+          >
+            {
+              "\u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u062e\u0648\u062f\u062a\u060c \u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u0628\u0686\u062a\u0647"
+            }
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__xcRq
+            )}
+          >
+            <div
+              className={projectcss.__wab_expr_html_text}
+              dangerouslySetInnerHTML={{
+                __html: (() => {
+                  try {
+                    return `<div style="
+  font-family: 'IRANSans', sans-serif;
+  text-align: right;
+  line-height: 1.6;
+  padding: 14px 12px;
+">
+  <!-- متن معرفی -->
+  <p style="font-size: 13px; margin: 0;">
+    ✨ فقط این هفته نیست… <strong>هر هفته راهنمایی مخصوص خودش رو داره!</strong>
+  </p>
+
+  <p style="margin: 0;">
+    🤰 بدن تو و کوچولوت داره هر روز تغییر می‌کنه،
+    <strong>نذار چیزی از قلم بیفته.</strong>
+  </p>
+
+  <p style="font-weight:500; margin-bottom: 8px;">
+    ما اینجاییم که کنارت باشیم. 💗
+  </p>
+
+  <!-- عنوان لیست -->
+  <p style="font-size: 13px; font-weight:600; margin: 6px 0;">
+    چیزایی که هر هفته بهش نیاز داری:
+  </p>
+
+  <!-- لیست اشتراک -->
+  <ul style="list-style: none; padding: 0; margin: 0;">
+    <li style="display: flex; gap: 6px; align-items: center; margin-bottom: 4px;">
+      <span>💊</span> مکمل‌ها و ویتامین‌های لازم مخصوص هر هفته
+    </li>
+    <li style="display: flex; gap: 6px; align-items: center; margin-bottom: 4px;">
+      <span>🧪</span> آزمایش‌ها و چکاپ‌های ضروری
+    </li>
+    <li style="display: flex; gap: 6px; align-items: center; margin-bottom: 4px;">
+      <span>⚠️</span> چیزهایی که تو هر هفته خطرناک هستن و باید حواست باشه
+    </li>
+    <li style="display: flex; gap: 6px; align-items: center;">
+      <span>🥦</span> نکات سلامتی برای هر هفته
+    </li>
+    <li style="display: flex; gap: 6px; align-items: center;">
+  <span>🧘‍♀️</span> نکات رفع استرس و آرامش
+</li>
+  </ul>
+
+</div>
+`;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
+                    }
+                    throw e;
+                  }
+                })()
+              }}
+            />
+          </div>
+          <Button
+            data-plasmic-name={"button4"}
+            data-plasmic-override={overrides.button4}
+            className={classNames("__wab_instance", sty.button4)}
+            color={generateStateValueProp($state, ["button4", "color"])}
+            load={generateStateValueProp($state, ["button4", "load"])}
+            loading={generateStateValueProp($state, ["button4", "loading"])}
+            onColorChange={async (...eventArgs: any) => {
+              ((...eventArgs) => {
+                generateStateOnChangeProp($state, ["button4", "color"])(
+                  eventArgs[0]
+                );
+              }).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onLoadChange={async (...eventArgs: any) => {
+              ((...eventArgs) => {
+                generateStateOnChangeProp($state, ["button4", "load"])(
+                  eventArgs[0]
+                );
+              }).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onLoadingChange={async (...eventArgs: any) => {
+              ((...eventArgs) => {
+                generateStateOnChangeProp($state, ["button4", "loading"])(
+                  eventArgs[0]
+                );
+              }).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__qjWmZ
+              )}
+            >
+              {
+                "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647"
+              }
+            </div>
+          </Button>
+        </AntdModal>
         <DirectDialog2
           data-plasmic-name={"directDialog2"}
           data-plasmic-override={overrides.directDialog2}

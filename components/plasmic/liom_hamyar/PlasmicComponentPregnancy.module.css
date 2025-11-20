@@ -3947,60 +3947,6 @@
     padding: 0px 0px 10px;
   }
 }
-.subDialog:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.text__fuFu3 {
-  text-align: center;
-  font-size: 18px;
-  font-weight: 500;
-  margin: 20px 0px 0px;
-}
-.text__xcRq {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  text-align: right;
-  color: var(--token-7PpYZbnZ9AQj);
-  min-width: 0;
-}
-.button4:global(.__wab_instance) {
-  max-width: 100%;
-  width: 100%;
-  min-width: 0;
-}
-.svg__eMt {
-  position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
-}
-.text__qjWmZ {
-  font-weight: 700;
-  font-size: 15px;
-}
-.svg__g3Lme {
-  object-fit: cover;
-  max-width: 100%;
-  width: 40px;
-  height: 50px;
-  position: relative;
-  left: auto;
-  top: auto;
-  z-index: 1;
-  color: var(--token-jgohepLVeKvh);
-  right: auto;
-  bottom: auto;
-  display: none;
-}
-.img__qt0FL {
-  object-fit: contain;
-  max-width: 100%;
-}
-.img__qt0FL > picture > img {
-  object-fit: contain;
-}
 .freeBox___2FdxF {
   display: flex;
   flex-direction: row;
@@ -4221,6 +4167,60 @@
   font-size: 16px;
   white-space: pre;
   font-weight: 500;
+}
+.subDialog:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__fuFu3 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 20px 0px 0px;
+}
+.text__xcRq {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  color: var(--token-7PpYZbnZ9AQj);
+  min-width: 0;
+}
+.button4:global(.__wab_instance) {
+  max-width: 100%;
+  width: 100%;
+  min-width: 0;
+}
+.svg__eMt {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.text__qjWmZ {
+  font-weight: 700;
+  font-size: 15px;
+}
+.svg__g3Lme {
+  object-fit: cover;
+  max-width: 100%;
+  width: 40px;
+  height: 50px;
+  position: relative;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  color: var(--token-jgohepLVeKvh);
+  right: auto;
+  bottom: auto;
+  display: none;
+}
+.img__qt0FL {
+  object-fit: contain;
+  max-width: 100%;
+}
+.img__qt0FL > picture > img {
+  object-fit: contain;
 }
 .directDialog2:global(.__wab_instance) {
   max-width: 100%;
