@@ -8422,6 +8422,16 @@
           "id": "ajXAtWSI6O-A",
           "name": "image 127",
           "filePath": "../public/plasmic/liom_hamyar/images/image127.svg"
+        },
+        {
+          "id": "TWK77p1kRdnT",
+          "name": "image 128",
+          "filePath": "../public/plasmic/liom_hamyar/images/image128.png"
+        },
+        {
+          "id": "WW9fxF0P_bJV",
+          "name": "vip-image.png",
+          "filePath": "../public/plasmic/liom_hamyar/images/vipImagePng.png"
         }
       ],
       "indirect": false,

@@ -74,6 +74,7 @@ import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/compo
 import BuyComponenct from "../../BuyComponenct"; // plasmic-import: Ww7_RchUYDdQ/component
 import TodoList from "../../TodoList"; // plasmic-import: 0x91e3BeeLCM/component
 import ShopOfferBox from "../../ShopOfferBox"; // plasmic-import: w_9X12-Cs5Eb/component
+import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import DirectDialog2 from "../../DirectDialog2"; // plasmic-import: TQdexUKMB_Ec/component
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
@@ -135,6 +136,8 @@ export type PlasmicComponentPregnancy__OverridesType = {
   collapseHealth?: Flex__<typeof AntdSingleCollapse>;
   todoList?: Flex__<typeof TodoList>;
   shopOfferBox?: Flex__<typeof ShopOfferBox>;
+  subDialog?: Flex__<typeof AntdModal>;
+  button4?: Flex__<typeof Button>;
   directDialog2?: Flex__<typeof DirectDialog2>;
   slideinModal?: Flex__<typeof SlideinModal>;
 };
@@ -1260,6 +1263,30 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "subDialog.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button4.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button4.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button4.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -16090,18 +16117,14 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                           block: "start"
                                         });
                                       $state.collapseDanger.open = true;
-                                      if (!active) {
-                                        if (
-                                          $state.paramsObject.inApp != "true"
-                                        ) {
-                                          $state.typeBuy = "pregnancySub";
-                                          return ($state.directDialog2.open = true);
-                                        } else {
-                                          $state.collapseDanger.open = true;
-                                          return window.FlutterChannel.postMessage(
-                                            "#healthSubscription"
-                                          );
-                                        }
+                                      if ($state.paramsObject.inApp != "true") {
+                                        $state.typeBuy = "pregnancySub";
+                                        return ($state.directDialog2.open = true);
+                                      } else {
+                                        $state.collapseDanger.open = true;
+                                        return window.FlutterChannel.postMessage(
+                                          "#healthSubscription"
+                                        );
                                       }
                                     })();
                                   }
@@ -16134,169 +16157,6 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                         )}
                         onClick={async event => {
                           const $steps = {};
-
-                          $steps["goToPage"] =
-                            // if ($ctx.query?.inApp == "true")
-                            //   false;
-                            // else
-                            //   true
-                            false
-                              ? (() => {
-                                  const actionArgs = {
-                                    destination: (() => {
-                                      try {
-                                        return (
-                                          "https://apps.liom.app/weekByWeek/?token=" +
-                                          $ctx.query.token +
-                                          "&userId=" +
-                                          $ctx.query.userId +
-                                          "&theme=" +
-                                          $ctx.query.theme +
-                                          "&weekNum=" +
-                                          $state.weeksPregnant +
-                                          "&days=" +
-                                          $state.daysPregnant +
-                                          "&inApp=false"
-                                        );
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                  };
-                                  return (({ destination }) => {
-                                    if (
-                                      typeof destination === "string" &&
-                                      destination.startsWith("#")
-                                    ) {
-                                      document
-                                        .getElementById(destination.substr(1))
-                                        .scrollIntoView({ behavior: "smooth" });
-                                    } else {
-                                      __nextRouter?.push(destination);
-                                    }
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                          if (
-                            $steps["goToPage"] != null &&
-                            typeof $steps["goToPage"] === "object" &&
-                            typeof $steps["goToPage"].then === "function"
-                          ) {
-                            $steps["goToPage"] = await $steps["goToPage"];
-                          }
-
-                          $steps["invokeGlobalAction"] =
-                            $ctx.query.userId.slice(
-                              4,
-                              $ctx.query.userId.length - 4
-                            ) != "314149" &&
-                            $ctx.query.userId.slice(
-                              4,
-                              $ctx.query.userId.length - 4
-                            ) != "1"
-                              ? (() => {
-                                  const actionArgs = {
-                                    args: [
-                                      "POST",
-                                      "https://api.liom.app/service/log",
-                                      undefined,
-                                      (() => {
-                                        try {
-                                          return {
-                                            userId: $ctx.query.userId.slice(
-                                              4,
-                                              $ctx.query.userId.length - 4
-                                            ),
-                                            pageName: "weenByWeekPage",
-                                            action: "clickInfoBox",
-                                            extraData: {}
-                                          };
-
-                                          //"action": "clickOpen",
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
-                                          }
-                                          throw e;
-                                        }
-                                      })(),
-                                      {
-                                        headers: {
-                                          "Content-Type": "application/json",
-                                          Authorization:
-                                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
-                                        }
-                                      }
-                                    ]
-                                  };
-                                  return $globalActions[
-                                    "Fragment.apiRequest"
-                                  ]?.apply(null, [...actionArgs.args]);
-                                })()
-                              : undefined;
-                          if (
-                            $steps["invokeGlobalAction"] != null &&
-                            typeof $steps["invokeGlobalAction"] === "object" &&
-                            typeof $steps["invokeGlobalAction"].then ===
-                              "function"
-                          ) {
-                            $steps["invokeGlobalAction"] =
-                              await $steps["invokeGlobalAction"];
-                          }
-
-                          $steps["runCode"] =
-                            // if ($ctx.query?.inApp == "true")
-                            //   true;
-                            // else
-                            //   false
-                            false
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return (() => {
-                                        var link =
-                                          "https://apps.liom.app/weekByWeek/?token=" +
-                                          $ctx.query.token +
-                                          "&userId=" +
-                                          $ctx.query.userId +
-                                          "&theme=" +
-                                          $ctx.query.theme +
-                                          "&weekNum=" +
-                                          $state.weeksPregnant +
-                                          "&days=" +
-                                          $state.daysPregnant +
-                                          "&inApp=true";
-                                        console.log(link);
-                                        return window.FlutterChannel.postMessage(
-                                          "#inAppWebView**@@**ابزار هفته به هفته**@@**" +
-                                            link
-                                        );
-                                      })();
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                          if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
-                          ) {
-                            $steps["runCode"] = await $steps["runCode"];
-                          }
                         }}
                       >
                         {(() => {
@@ -30081,7 +29941,211 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                       sty.freeBox__ryYYc,
                       "shimmer"
                     )}
-                  />
+                  >
+                    <AntdModal
+                      data-plasmic-name={"subDialog"}
+                      data-plasmic-override={overrides.subDialog}
+                      className={classNames("__wab_instance", sty.subDialog)}
+                      defaultStylesClassName={classNames(
+                        projectcss.root_reset,
+                        projectcss.plasmic_default_styles,
+                        projectcss.plasmic_mixins,
+                        styleTokensClassNames
+                      )}
+                      hideFooter={true}
+                      modalScopeClassName={sty["subDialog__modal"]}
+                      onOpenChange={async (...eventArgs: any) => {
+                        generateStateOnChangeProp($state, [
+                          "subDialog",
+                          "open"
+                        ]).apply(null, eventArgs);
+                      }}
+                      open={generateStateValueProp($state, [
+                        "subDialog",
+                        "open"
+                      ])}
+                      title={
+                        <PlasmicImg__
+                          alt={""}
+                          className={classNames(sty.img__qt0FL)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          loading={"lazy"}
+                          src={{
+                            src: "/plasmic/liom_hamyar/images/vipImagePng.png",
+                            fullWidth: 1218,
+                            fullHeight: 664,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      }
+                      trigger={null}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__fuFu3
+                        )}
+                      >
+                        {
+                          "\u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u062e\u0648\u062f\u062a\u060c \u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u0628\u0686\u062a\u0647"
+                        }
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__xcRq
+                        )}
+                      >
+                        <div
+                          className={projectcss.__wab_expr_html_text}
+                          dangerouslySetInnerHTML={{
+                            __html: (() => {
+                              try {
+                                return `<div style="
+  font-family: 'IRANSans', sans-serif;
+  text-align: right;
+  line-height: 1.6;
+  padding: 14px 12px;
+">
+  <!-- متن معرفی -->
+  <p style="font-size: 13px; margin: 0;">
+    ✨ فقط این هفته نیست… <strong>هر هفته راهنمایی مخصوص خودش رو داره!</strong>
+  </p>
+
+  <p style="margin: 0;">
+    🤰 بدن تو و کوچولوت داره هر روز تغییر می‌کنه،
+    <strong>نذار چیزی از قلم بیفته.</strong>
+  </p>
+
+  <p style="font-weight:500; margin-bottom: 8px;">
+    ما اینجاییم که کنارت باشیم. 💗
+  </p>
+
+  <!-- عنوان لیست -->
+  <p style="font-size: 13px; font-weight:600; margin: 6px 0;">
+    چیزایی که هر هفته بهش نیاز داری:
+  </p>
+
+  <!-- لیست اشتراک -->
+  <ul style="list-style: none; padding: 0; margin: 0;">
+    <li style="display: flex; gap: 6px; align-items: center; margin-bottom: 4px;">
+      <span>💊</span> مکمل‌ها و ویتامین‌های لازم مخصوص هر هفته
+    </li>
+    <li style="display: flex; gap: 6px; align-items: center; margin-bottom: 4px;">
+      <span>🧪</span> آزمایش‌ها و چکاپ‌های ضروری
+    </li>
+    <li style="display: flex; gap: 6px; align-items: center; margin-bottom: 4px;">
+      <span>⚠️</span> چیزهایی که تو هر هفته خطرناک هستن و باید حواست باشه
+    </li>
+    <li style="display: flex; gap: 6px; align-items: center;">
+      <span>🥦</span> نکات سلامتی برای هر هفته
+    </li>
+    <li style="display: flex; gap: 6px; align-items: center;">
+  <span>🧘‍♀️</span> نکات رفع استرس و آرامش
+</li>
+  </ul>
+
+</div>
+`;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()
+                          }}
+                        />
+                      </div>
+                      <Button
+                        data-plasmic-name={"button4"}
+                        data-plasmic-override={overrides.button4}
+                        className={classNames("__wab_instance", sty.button4)}
+                        color={generateStateValueProp($state, [
+                          "button4",
+                          "color"
+                        ])}
+                        load={generateStateValueProp($state, [
+                          "button4",
+                          "load"
+                        ])}
+                        loading={generateStateValueProp($state, [
+                          "button4",
+                          "loading"
+                        ])}
+                        onColorChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button4",
+                              "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onLoadChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button4",
+                              "load"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onLoadingChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button4",
+                              "loading"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__qjWmZ
+                          )}
+                        >
+                          {
+                            "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647"
+                          }
+                        </div>
+                      </Button>
+                    </AntdModal>
+                  </div>
                 </div>
                 <div
                   className={classNames(projectcss.all, sty.freeBox___2FdxF)}
@@ -31386,71 +31450,6 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         }}
       >
         <div className={classNames(projectcss.all, sty.freeBox__nh05Z)} />
-
-        {(() => {
-          try {
-            return (() => {
-              const dateString = $state.user[0].dueDate;
-              const givenDate = new Date(dateString);
-              const now = new Date();
-              const differenceInMs = givenDate - now;
-              const differenceInDays = Math.floor(
-                differenceInMs / (1000 * 60 * 60 * 24)
-              );
-              return differenceInDays <= 0 && $ctx.query.userId == 147813698;
-            })();
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return false;
-            }
-            throw e;
-          }
-        })() ? (
-          <div className={classNames(projectcss.all, sty.freeBox__pg04C)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___0Fy
-              )}
-            >
-              {
-                "\u0637\u0628\u0642 \u0645\u062d\u0633\u0627\u0628\u0627\u062a \u0645\u0627 \u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646 \u0634\u0645\u0627 \u0631\u0633\u06cc\u062f\u0647 \u0627\u06af\u0631 \u0647\u0646\u0648\u0632 \u0632\u0627\u06cc\u0645\u0627\u0646 \u0646\u06a9\u0631\u062f\u06cc \u0628\u0627 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u062f\u06a9\u0645\u0647 \u0632\u06cc\u0631 \u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646\u062a\u0648 \u0648\u06cc\u0631\u0627\u06cc\u0634 \u06a9\u0646 "
-              }
-            </div>
-            <div className={classNames(projectcss.all, sty.freeBox__aoCmN)}>
-              <div className={classNames(projectcss.all, sty.freeBox__c0CPf)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__xsyHr
-                  )}
-                >
-                  {
-                    "\u0632\u0627\u06cc\u0645\u0627\u0646 \u06a9\u0631\u062f\u0645"
-                  }
-                </div>
-              </div>
-              <div className={classNames(projectcss.all, sty.freeBox__a7A1W)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__sjPi6
-                  )}
-                >
-                  {
-                    "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646"
-                  }
-                </div>
-              </div>
-            </div>
-          </div>
-        ) : null}
       </SlideinModal>
     </div>
   ) as React.ReactElement | null;
@@ -31479,6 +31478,8 @@ const PlasmicDescendants = {
     "collapseHealth",
     "todoList",
     "shopOfferBox",
+    "subDialog",
+    "button4",
     "directDialog2",
     "slideinModal"
   ],
@@ -31503,6 +31504,8 @@ const PlasmicDescendants = {
     "collapseHealth",
     "todoList",
     "shopOfferBox",
+    "subDialog",
+    "button4",
     "directDialog2"
   ],
   button: ["button"],
@@ -31524,6 +31527,8 @@ const PlasmicDescendants = {
   collapseHealth: ["collapseHealth"],
   todoList: ["todoList"],
   shopOfferBox: ["shopOfferBox"],
+  subDialog: ["subDialog", "button4"],
+  button4: ["button4"],
   directDialog2: ["directDialog2"],
   slideinModal: ["slideinModal"]
 } as const;
@@ -31552,6 +31557,8 @@ type NodeDefaultElementType = {
   collapseHealth: typeof AntdSingleCollapse;
   todoList: typeof TodoList;
   shopOfferBox: typeof ShopOfferBox;
+  subDialog: typeof AntdModal;
+  button4: typeof Button;
   directDialog2: typeof DirectDialog2;
   slideinModal: typeof SlideinModal;
 };
@@ -31638,6 +31645,8 @@ export const PlasmicComponentPregnancy = Object.assign(
     collapseHealth: makeNodeComponent("collapseHealth"),
     todoList: makeNodeComponent("todoList"),
     shopOfferBox: makeNodeComponent("shopOfferBox"),
+    subDialog: makeNodeComponent("subDialog"),
+    button4: makeNodeComponent("button4"),
     directDialog2: makeNodeComponent("directDialog2"),
     slideinModal: makeNodeComponent("slideinModal"),
 

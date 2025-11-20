@@ -88,7 +88,6 @@ export const PlasmicTest__ArgProps = new Array<ArgPropType>();
 export type PlasmicTest__OverridesType = {
   root?: Flex__<"div">;
   button?: Flex__<typeof Button>;
-  button2?: Flex__<typeof Button>;
 };
 
 export interface DefaultTestProps {}
@@ -163,24 +162,6 @@ function PlasmicTest__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "button2.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button2.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button2.load",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -232,7 +213,10 @@ function PlasmicTest__RenderFunc(props: {
               $steps["invokeGlobalAction2"] = true
                 ? (() => {
                     const actionArgs = {
-                      args: ["#directDialog", "hcackhasjcanscikaocioacncac"]
+                      args: [
+                        "#directDialog-special_advice",
+                        "hcackhasjcanscikaocioacncac"
+                      ]
                     };
                     return $globalActions["Fragment.deepLink"]?.apply(null, [
                       ...actionArgs.args
@@ -373,80 +357,6 @@ function PlasmicTest__RenderFunc(props: {
               }
             }}
           />
-
-          <Button
-            data-plasmic-name={"button2"}
-            data-plasmic-override={overrides.button2}
-            className={classNames("__wab_instance", sty.button2)}
-            color={generateStateValueProp($state, ["button2", "color"])}
-            load={generateStateValueProp($state, ["button2", "load"])}
-            loading={generateStateValueProp($state, ["button2", "loading"])}
-            onClick={async event => {
-              const $steps = {};
-
-              $steps["invokeGlobalAction"] = true
-                ? (() => {
-                    const actionArgs = { args: ["#directDialog"] };
-                    return $globalActions["Fragment.deepLink"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
-              if (
-                $steps["invokeGlobalAction"] != null &&
-                typeof $steps["invokeGlobalAction"] === "object" &&
-                typeof $steps["invokeGlobalAction"].then === "function"
-              ) {
-                $steps["invokeGlobalAction"] =
-                  await $steps["invokeGlobalAction"];
-              }
-            }}
-            onColorChange={async (...eventArgs: any) => {
-              ((...eventArgs) => {
-                generateStateOnChangeProp($state, ["button2", "color"])(
-                  eventArgs[0]
-                );
-              }).apply(null, eventArgs);
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            onLoadChange={async (...eventArgs: any) => {
-              ((...eventArgs) => {
-                generateStateOnChangeProp($state, ["button2", "load"])(
-                  eventArgs[0]
-                );
-              }).apply(null, eventArgs);
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            onLoadingChange={async (...eventArgs: any) => {
-              ((...eventArgs) => {
-                generateStateOnChangeProp($state, ["button2", "loading"])(
-                  eventArgs[0]
-                );
-              }).apply(null, eventArgs);
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-          />
         </div>
       </div>
     </React.Fragment>
@@ -454,9 +364,8 @@ function PlasmicTest__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "button", "button2"],
-  button: ["button"],
-  button2: ["button2"]
+  root: ["root", "button"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -464,7 +373,6 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   button: typeof Button;
-  button2: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -555,7 +463,6 @@ export const PlasmicTest = Object.assign(
   {
     // Helper components rendering sub-elements
     button: makeNodeComponent("button"),
-    button2: makeNodeComponent("button2"),
 
     // Metadata about props expected for PlasmicTest
     internalVariantProps: PlasmicTest__VariantProps,
