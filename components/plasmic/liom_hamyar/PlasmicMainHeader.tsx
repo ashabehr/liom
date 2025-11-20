@@ -1018,29 +1018,24 @@ function PlasmicMainHeader__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["goToShop"] = true
+                $steps["runCode"] = true
                   ? (() => {
-                      const actionArgs = { destination: `/shop` };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return window.open("/shop", "_self");
                         }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["goToShop"] != null &&
-                  typeof $steps["goToShop"] === "object" &&
-                  typeof $steps["goToShop"].then === "function"
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
                 ) {
-                  $steps["goToShop"] = await $steps["goToShop"];
+                  $steps["runCode"] = await $steps["runCode"];
                 }
 
                 $steps["invokeGlobalAction"] = true
@@ -1462,29 +1457,24 @@ function PlasmicMainHeader__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["goToStatusDay"] = true
+                $steps["runCode"] = true
                   ? (() => {
-                      const actionArgs = { destination: `/status-day` };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return window.open("/status-day", "_self");
                         }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["goToStatusDay"] != null &&
-                  typeof $steps["goToStatusDay"] === "object" &&
-                  typeof $steps["goToStatusDay"].then === "function"
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
                 ) {
-                  $steps["goToStatusDay"] = await $steps["goToStatusDay"];
+                  $steps["runCode"] = await $steps["runCode"];
                 }
 
                 $steps["updateDopen"] = true
@@ -1554,29 +1544,24 @@ function PlasmicMainHeader__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["goToSignsPage"] = true
+                $steps["runCode"] = true
                   ? (() => {
-                      const actionArgs = { destination: `/Signs-page` };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return window.open("/Signs-page", "_self");
                         }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["goToSignsPage"] != null &&
-                  typeof $steps["goToSignsPage"] === "object" &&
-                  typeof $steps["goToSignsPage"].then === "function"
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
                 ) {
-                  $steps["goToSignsPage"] = await $steps["goToSignsPage"];
+                  $steps["runCode"] = await $steps["runCode"];
                 }
 
                 $steps["updateDopen"] = true
@@ -1920,11 +1905,6 @@ function PlasmicMainHeader__RenderFunc(props: {
                 role={"img"}
               />
             </div>
-            <Embed
-              className={classNames("__wab_instance", sty.embedHtml__cMXiD)}
-              code={"<hr></hr>"}
-            />
-
             {(() => {
               try {
                 return $state.guest2;
@@ -1939,6 +1919,11 @@ function PlasmicMainHeader__RenderFunc(props: {
               }
             })() ? (
               <div className={classNames(projectcss.all, sty.freeBox__rPnJ)}>
+                <Embed
+                  className={classNames("__wab_instance", sty.embedHtml__cMXiD)}
+                  code={"<hr></hr>"}
+                />
+
                 <div
                   className={classNames(projectcss.all, sty.freeBox__tpGb7, {
                     [sty.freeBoxhamyar__tpGb7S1T6S]: hasVariant(

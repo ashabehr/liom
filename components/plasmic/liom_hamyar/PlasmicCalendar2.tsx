@@ -2378,42 +2378,52 @@ function PlasmicCalendar2__RenderFunc(props: {
                   customFunction: async () => {
                     return (() => {
                       if (typeof $state !== "undefined" && $state !== null) {
-                        function safeParse(storage, key) {
+                        function safeValue(v, fallback) {
+                          return v === undefined || v === null ? fallback : v;
+                        }
+                        function safeParse(storage, key, fallback) {
                           try {
                             const raw = storage.getItem(key);
-                            if (!raw) return null;
-                            return JSON.parse(raw);
+                            if (!raw) return fallback;
+                            const parsed = JSON.parse(raw);
+                            return parsed ?? fallback;
                           } catch (e) {
                             console.error(`خطا در parsing ${key}:`, e);
-                            return null;
+                            return fallback;
                           }
                         }
-                        $state.advace = safeParse(
-                          window.sessionStorage,
-                          "advice"
+                        $state.advace = safeValue(
+                          safeParse(window.sessionStorage, "advice", {}),
+                          {}
                         );
-                        $state.sing = safeParse(window.sessionStorage, "sing");
-                        $state.day = safeParse(window.sessionStorage, "day");
+                        $state.sing = safeValue(
+                          safeParse(window.sessionStorage, "sing", {}),
+                          {}
+                        );
+                        $state.day = safeValue(
+                          safeParse(window.sessionStorage, "day", {}),
+                          {}
+                        );
                         const tooltip = safeParse(
                           window.sessionStorage,
-                          "tooltip"
+                          "tooltip",
+                          {}
                         );
-                        const user = safeParse(window.localStorage, "userinfo");
+                        const user = safeParse(
+                          window.localStorage,
+                          "userinfo",
+                          {}
+                        );
                         $state.userInfo = {
                           success: true,
-                          result: user,
-                          tooltip: tooltip
+                          result: safeValue(user, {}),
+                          tooltip: safeValue(tooltip, {})
                         };
-                        $state.name = user?.user?.name || null;
-                        $state.status = user?.userStatus?.periodStatus || null;
-                        return console.log("\u2705 state مقداردهی شد:", {
-                          advice: $state.advace,
-                          sing: $state.sing,
-                          day: $state.day,
-                          userInfo: $state.userInfo,
-                          name: $state.name,
-                          status: $state.status
-                        });
+                        $state.name = safeValue(user?.user?.name, "");
+                        return ($state.status = safeValue(
+                          user?.userStatus?.periodStatus,
+                          ""
+                        ));
                       } else {
                         return console.log(
                           "ℹ️ $state تعریف نشده است. کد اجرا نشد."
@@ -2851,14 +2861,12 @@ function PlasmicCalendar2__RenderFunc(props: {
                   customFunction: async () => {
                     return (() => {
                       const condition =
-                        $state.userInfo?.data?.tooltip?.Condition;
-                      if (condition && $state.tooltip) {
-                        const tool = localStorage.getItem("tooltip");
-                        if (String(condition) !== tool) {
+                        $state?.userInfo?.data?.tooltip?.Condition ?? "";
+                      if (condition !== "" && $state?.tooltip) {
+                        const tool = localStorage.getItem("tooltip") ?? "";
+                        if (String(condition) !== String(tool)) {
                           localStorage.removeItem("tooltip");
-                          if ($state.tooltip) {
-                            return ($state.tooltip.show = true);
-                          }
+                          return ($state.tooltip.show = true);
                         }
                       }
                     })();
@@ -3134,16 +3142,24 @@ function PlasmicCalendar2__RenderFunc(props: {
                   customFunction: async () => {
                     return (() => {
                       try {
+                        const allowance =
+                          $state?.profile?.result?.allowance ?? {};
                         localStorage.setItem(
                           "allowanceUser",
-                          JSON.stringify($state.profile.result.allowance)
+                          JSON.stringify(allowance)
                         );
-                        if (
-                          $state.profile.result.user.last_login_method ==
-                          "guest"
-                        )
+                        const lastMethod =
+                          $state?.profile?.result?.user?.last_login_method ??
+                          "";
+                        if (lastMethod === "guest") {
                           return localStorage.setItem("guest", "true");
-                      } catch {}
+                        }
+                      } catch (e) {
+                        return console.error(
+                          "\u274C خطای ذخیره‌سازی allowance یا guest:",
+                          e
+                        );
+                      }
                     })();
                   }
                 };
@@ -3228,19 +3244,31 @@ function PlasmicCalendar2__RenderFunc(props: {
                 const actionArgs = {
                   customFunction: async () => {
                     return (() => {
-                      window.sessionStorage.setItem("cash", "true");
-                      window.sessionStorage.setItem(
-                        "advice",
-                        JSON.stringify($state.advace)
-                      );
-                      window.sessionStorage.setItem(
-                        "sing",
-                        JSON.stringify($state.sing)
-                      );
-                      return window.sessionStorage.setItem(
-                        "day",
-                        JSON.stringify($state.day)
-                      );
+                      function safeForStorage(value, fallback = {}) {
+                        if (value === null || value === undefined)
+                          return fallback;
+                        return value;
+                      }
+                      try {
+                        window.sessionStorage.setItem("cash", "true");
+                        window.sessionStorage.setItem(
+                          "advice",
+                          JSON.stringify(safeForStorage($state.advace, {}))
+                        );
+                        window.sessionStorage.setItem(
+                          "sing",
+                          JSON.stringify(safeForStorage($state.sing, {}))
+                        );
+                        return window.sessionStorage.setItem(
+                          "day",
+                          JSON.stringify(safeForStorage($state.day, {}))
+                        );
+                      } catch (e) {
+                        return console.error(
+                          "\u274C خطا در ذخیره داده‌ها در sessionStorage:",
+                          e
+                        );
+                      }
                     })();
                   }
                 };
