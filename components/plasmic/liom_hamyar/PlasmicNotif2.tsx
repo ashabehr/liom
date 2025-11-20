@@ -635,7 +635,19 @@ function PlasmicNotif2__RenderFunc(props: {
               loadingDisplay={
                 <div className={classNames(projectcss.all, sty.freeBox__a6Xp)}>
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                    [2, 3, 4]
+                    (() => {
+                      try {
+                        return [2, 3, 4, 5, 6, 7];
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()
                   ).map((__plasmic_item_0, __plasmic_idx_0) => {
                     const currentItem = __plasmic_item_0;
                     const currentIndex = __plasmic_idx_0;

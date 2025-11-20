@@ -319,7 +319,10 @@ function PlasmicFooterMain__RenderFunc(props: {
                 $state,
                 "hamyar",
                 "hamyar"
-              )
+              ),
+              [sty.freeBoxhamyar_footer2_social__xxHsQiriPM4HuD]:
+                hasVariant($state, "footer2", "social") &&
+                hasVariant($state, "hamyar", "hamyar")
             })}
             onClick={async event => {
               const $steps = {};

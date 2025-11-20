@@ -560,9 +560,8 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                 typeof $steps["updateDialogOpendialog"] === "object" &&
                 typeof $steps["updateDialogOpendialog"].then === "function"
               ) {
-                $steps["updateDialogOpendialog"] = await $steps[
-                  "updateDialogOpendialog"
-                ];
+                $steps["updateDialogOpendialog"] =
+                  await $steps["updateDialogOpendialog"];
               }
 
               $steps["invokeGlobalAction"] =
@@ -585,9 +584,8 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction"] === "object" &&
                 typeof $steps["invokeGlobalAction"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
               }
             }).apply(null, eventArgs);
           }}
@@ -1149,54 +1147,51 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                         typeof $steps["updateLoading3"] === "object" &&
                         typeof $steps["updateLoading3"].then === "function"
                       ) {
-                        $steps["updateLoading3"] = await $steps[
-                          "updateLoading3"
-                        ];
+                        $steps["updateLoading3"] =
+                          await $steps["updateLoading3"];
                       }
 
-                      $steps["invokeGlobalAction"] =
-                        !(window.Android && window.Android.onButtonClicked) ??
-                        false
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "POST",
-                                  "https://n8n.staas.ir/webhook/rest/shop/list",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return {
-                                        id: $state.topShop.id,
-                                        offCode: "",
-                                        redirectUrl: $props.redirectUrl,
-                                        authorization: $props.token
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://n8n.staas.ir/webhook/rest/shop/list",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      id: $state.topShop.id,
+                                      offCode: "",
+                                      redirectUrl: $props.redirectUrl,
+                                      authorization: $props.token
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
                                     }
-                                  })()
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
                       if (
                         $steps["invokeGlobalAction"] != null &&
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["updateDialogOpendialog2"] =
@@ -1240,9 +1235,8 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                         typeof $steps["updateDialogOpendialog2"].then ===
                           "function"
                       ) {
-                        $steps["updateDialogOpendialog2"] = await $steps[
-                          "updateDialogOpendialog2"
-                        ];
+                        $steps["updateDialogOpendialog2"] =
+                          await $steps["updateDialogOpendialog2"];
                       }
 
                       $steps["invokeGlobalAction2"] =
@@ -1266,14 +1260,13 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction2"] === "object" &&
                         typeof $steps["invokeGlobalAction2"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction2"] = await $steps[
-                          "invokeGlobalAction2"
-                        ];
+                        $steps["invokeGlobalAction2"] =
+                          await $steps["invokeGlobalAction2"];
                       }
 
                       $steps["runCode"] =
-                        (window.Android && window.Android.onButtonClicked) ??
-                        false
+                        ((window.Android && window.Android.onButtonClicked) ??
+                        false)
                           ? (() => {
                               const actionArgs = {
                                 customFunction: async () => {
@@ -1328,9 +1321,8 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                         typeof $steps["updateLoading2"] === "object" &&
                         typeof $steps["updateLoading2"].then === "function"
                       ) {
-                        $steps["updateLoading2"] = await $steps[
-                          "updateLoading2"
-                        ];
+                        $steps["updateLoading2"] =
+                          await $steps["updateLoading2"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -1448,9 +1440,8 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                           typeof $steps["updateDialog2Opendialog"].then ===
                             "function"
                         ) {
-                          $steps["updateDialog2Opendialog"] = await $steps[
-                            "updateDialog2Opendialog"
-                          ];
+                          $steps["updateDialog2Opendialog"] =
+                            await $steps["updateDialog2Opendialog"];
                         }
                       }}
                     >
@@ -1561,9 +1552,8 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                           typeof $steps["updateSelectShop"] === "object" &&
                           typeof $steps["updateSelectShop"].then === "function"
                         ) {
-                          $steps["updateSelectShop"] = await $steps[
-                            "updateSelectShop"
-                          ];
+                          $steps["updateSelectShop"] =
+                            await $steps["updateSelectShop"];
                         }
                       },
                       onClickitemChange: async (...eventArgs: any) => {
@@ -1928,9 +1918,8 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                     typeof $steps["invokeGlobalAction"] === "object" &&
                     typeof $steps["invokeGlobalAction"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
+                    $steps["invokeGlobalAction"] =
+                      await $steps["invokeGlobalAction"];
                   }
 
                   $steps["updateDialogOpendialog2"] =
@@ -1971,9 +1960,8 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                     typeof $steps["updateDialogOpendialog2"] === "object" &&
                     typeof $steps["updateDialogOpendialog2"].then === "function"
                   ) {
-                    $steps["updateDialogOpendialog2"] = await $steps[
-                      "updateDialogOpendialog2"
-                    ];
+                    $steps["updateDialogOpendialog2"] =
+                      await $steps["updateDialogOpendialog2"];
                   }
 
                   $steps["invokeGlobalAction2"] =
@@ -1998,9 +1986,8 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                     typeof $steps["invokeGlobalAction2"] === "object" &&
                     typeof $steps["invokeGlobalAction2"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction2"] = await $steps[
-                      "invokeGlobalAction2"
-                    ];
+                    $steps["invokeGlobalAction2"] =
+                      await $steps["invokeGlobalAction2"];
                   }
 
                   $steps["updateLoading2"] = true
@@ -2175,7 +2162,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicDirectDialog2__VariantsArgs;
     args?: PlasmicDirectDialog2__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicDirectDialog2__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicDirectDialog2__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicDirectDialog2__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
