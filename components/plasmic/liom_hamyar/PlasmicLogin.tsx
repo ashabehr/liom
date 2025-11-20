@@ -1632,7 +1632,7 @@ function PlasmicLogin__RenderFunc(props: {
               }
 
               $steps["updateLoading"] =
-                $state.token == ""
+                $state.token == "" || $state.paramsObject.user == "guest"
                   ? (() => {
                       const actionArgs = {
                         variable: {
