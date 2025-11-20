@@ -20455,17 +20455,25 @@ function PlasmicLogin__RenderFunc(props: {
                     "selectstatus"
                   )
                 })}
-                displayHeight={"150px"}
+                displayHeight={
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? "100px"
+                    : "150px"
+                }
                 displayMaxHeight={"none"}
                 displayMaxWidth={"100%"}
                 displayMinHeight={"0"}
                 displayMinWidth={"0"}
-                displayWidth={"150px"}
+                displayWidth={
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? "100px"
+                    : "150px"
+                }
                 loading={"lazy"}
                 src={{
-                  src: "/plasmic/liom_hamyar/images/image94.webp",
-                  fullWidth: 1280,
-                  fullHeight: 1280,
+                  src: "/plasmic/liom_hamyar/images/image129.png",
+                  fullWidth: 724,
+                  fullHeight: 724,
                   aspectRatio: undefined
                 }}
               />

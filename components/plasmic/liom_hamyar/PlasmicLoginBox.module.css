@@ -11,6 +11,7 @@
   transition-duration: 0.5s;
   transition-timing-function: ease-in-out;
   cursor: pointer;
+  background: var(--token-R_Rsn0nP9oIv);
   min-width: 0;
   -webkit-transition-property: all;
   -webkit-transition-timing-function: ease-in-out;
