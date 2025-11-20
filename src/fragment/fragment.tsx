@@ -297,7 +297,7 @@ export const Fragment = ({
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage(action);}
               else {    
-                    toast.custom(" این ابزار به زودی برای شما فعال می شود. ", {
+                    toast.error(" این ابزار به زودی برای شما فعال می شود. ", {
                       duration: 3000,
                       position: "bottom-center",
                     });
@@ -326,7 +326,7 @@ export const Fragment = ({
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage(action);}
               else {    
-                    toast.custom(" این ابزار به زودی برای شما فعال می شود. ", {
+                    toast.error(" این ابزار به زودی برای شما فعال می شود. ", {
                       duration: 3000,
                       position: "bottom-center",
                     });
@@ -340,7 +340,7 @@ export const Fragment = ({
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage(action);}
               else {    
-                    toast.custom(" این ابزار به زودی برای شما فعال می شود. ", {
+                    toast.error(" این ابزار به زودی برای شما فعال می شود. ", {
                       duration: 3000,
                       position: "bottom-center",
                     });
@@ -354,7 +354,7 @@ export const Fragment = ({
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage("#breastCancerDatePage");}
               else {    
-                    toast.custom(" این ابزار به زودی برای شما فعال می شود. ", {
+                    toast.error(" این ابزار به زودی برای شما فعال می شود. ", {
                       duration: 3000,
                       position: "bottom-center",
                     });
