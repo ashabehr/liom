@@ -1901,31 +1901,40 @@ function PlasmicStatusDay__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                const daysOfWeek = ["ی", "د", "س", "چ", "پ", "ج", "ش"];
-
-                const daysInMonth = window.jalaali.jalaaliMonthLength(
-                  $state.jalali.jy,
-                  $state.jalali.jm
-                );
+                let retryCount = 0;
+                const maxRetries = 20;
+                while (!window.jalaali && retryCount < maxRetries) {
+                  const start = Date.now();
+                  while (Date.now() - start < 200) {}
+                  retryCount++;
+                }
                 let options = [];
-                for (let day = 1; day <= daysInMonth; day++) {
-                  const gregorian = window.jalaali.toGregorian(
+                if (window.jalaali) {
+                  const daysOfWeek = ["ی", "د", "س", "چ", "پ", "ج", "ش"];
+
+                  const daysInMonth = window.jalaali.jalaaliMonthLength(
                     $state.jalali.jy,
-                    $state.jalali.jm,
-                    day
+                    $state.jalali.jm
                   );
-                  const date = new Date(
-                    gregorian.gy,
-                    gregorian.gm - 1,
-                    gregorian.gd
-                  );
-                  const timezoneOffset = date.getTimezoneOffset() * 60000;
-                  const localDate = new Date(date.getTime() - timezoneOffset);
-                  const dayOfWeek = date.getDay();
-                  options.push({
-                    value: localDate.toISOString().split("T")[0],
-                    label: `${daysOfWeek[dayOfWeek]} - ${day}`
-                  });
+                  for (let day = 1; day <= daysInMonth; day++) {
+                    const gregorian = window.jalaali.toGregorian(
+                      $state.jalali.jy,
+                      $state.jalali.jm,
+                      day
+                    );
+                    const date = new Date(
+                      gregorian.gy,
+                      gregorian.gm - 1,
+                      gregorian.gd
+                    );
+                    const timezoneOffset = date.getTimezoneOffset() * 60000;
+                    const localDate = new Date(date.getTime() - timezoneOffset);
+                    const dayOfWeek = date.getDay();
+                    options.push({
+                      value: localDate.toISOString().split("T")[0],
+                      label: `${daysOfWeek[dayOfWeek]} - ${day}`
+                    });
+                  }
                 }
                 return options;
               })();
@@ -2185,7 +2194,7 @@ function PlasmicStatusDay__RenderFunc(props: {
         path: "healthStatus",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "pregnancy"
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "backPain.list",
@@ -3123,6 +3132,56 @@ function PlasmicStatusDay__RenderFunc(props: {
               ) {
                 $steps["updateHealthStatus2"] =
                   await $steps["updateHealthStatus2"];
+              }
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const list =
+                            window.document.getElementById("my-scroll-date");
+                          if (!list) return;
+                          const list2 = list.firstElementChild;
+                          if (!list2) return;
+                          if (
+                            !Array.isArray($state.month) ||
+                            $state.month.length === 0
+                          )
+                            return;
+                          if (!$state.date) return;
+                          const index = $state.month.findIndex(
+                            item => item?.value === $state.date
+                          );
+                          if (index === -1) return;
+                          const target = list2.children[index];
+                          if (!target) return;
+                          try {
+                            const pos =
+                              target.offsetLeft -
+                              list.offsetWidth / 2 +
+                              target.offsetWidth / 2;
+                            return list.scrollTo({
+                              left: pos,
+                              behavior: "smooth"
+                            });
+                          } catch (_) {
+                            return;
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
               }
             }}
           />
@@ -4336,16 +4395,24 @@ function PlasmicStatusDay__RenderFunc(props: {
                         try {
                           return (() => {
                             function parseDate(dateStr) {
+                              if (!dateStr) return null;
                               var parts = dateStr.split("-");
-                              var date = new Date(
-                                parts[0],
-                                parts[1] - 1,
-                                parts[2]
-                              );
-                              return date;
+                              return new Date(parts[0], parts[1] - 1, parts[2]);
                             }
                             function getDayColor(dateStr) {
                               var date = parseDate(dateStr);
+                              if (!date) return "_null";
+                              if (
+                                !$state.calender ||
+                                !$state.calender.periodStart ||
+                                !$state.calender.periodEnd ||
+                                !$state.calender.fertilityStart ||
+                                !$state.calender.fertilityEnd ||
+                                !$state.calender.pmsStart ||
+                                !$state.calender.pmsEnd
+                              ) {
+                                return "_null";
+                              }
                               var periodStart = new Date(
                                 $state.calender.periodStart
                               );
@@ -4369,18 +4436,16 @@ function PlasmicStatusDay__RenderFunc(props: {
                               var pmsEnd = new Date($state.calender.pmsEnd);
                               pmsEnd.setHours(23, 59, 59, 999);
                               pmsEnd.setDate(pmsEnd.getDate() - 1);
-                              if (date >= periodStart && date <= periodEnd) {
+                              if (date >= periodStart && date <= periodEnd)
                                 return "red";
-                              } else if (
+                              if (
                                 date >= fertilityStart &&
                                 date <= fertilityEnd
-                              ) {
+                              )
                                 return "yellow";
-                              } else if (date >= pmsStart && date <= pmsEnd) {
+                              if (date >= pmsStart && date <= pmsEnd)
                                 return "pms";
-                              } else {
-                                return "_null";
-                              }
+                              return "_null";
                             }
                             return getDayColor(currentItem.value);
                           })();
@@ -4771,11 +4836,24 @@ function PlasmicStatusDay__RenderFunc(props: {
                         try {
                           return (() => {
                             function parseDate(dateStr) {
+                              if (!dateStr) return null;
                               var parts = dateStr.split("-");
                               return new Date(parts[0], parts[1] - 1, parts[2]);
                             }
                             function getDayColor(dateStr) {
                               var date = parseDate(dateStr);
+                              if (!date) return null;
+                              if (
+                                !$state.calender ||
+                                !$state.calender.periodStart ||
+                                !$state.calender.periodEnd ||
+                                !$state.calender.fertilityStart ||
+                                !$state.calender.fertilityEnd ||
+                                !$state.calender.pmsStart ||
+                                !$state.calender.pmsEnd
+                              ) {
+                                return null;
+                              }
                               var periodStart = new Date(
                                 $state.calender.periodStart
                               );
@@ -4802,31 +4880,29 @@ function PlasmicStatusDay__RenderFunc(props: {
                               if (
                                 date.toDateString() ===
                                 periodStart.toDateString()
-                              ) {
+                              )
                                 return "start";
-                              } else if (
+                              if (
                                 date.toDateString() === periodEnd.toDateString()
-                              ) {
+                              )
                                 return "end";
-                              } else if (
+                              if (
                                 date.toDateString() ===
                                 fertilityStart.toDateString()
-                              ) {
+                              )
                                 return "start";
-                              } else if (
+                              if (
                                 date.toDateString() ===
                                 fertilityEnd.toDateString()
-                              ) {
+                              )
                                 return "end";
-                              } else if (
+                              if (
                                 date.toDateString() === pmsStart.toDateString()
-                              ) {
+                              )
                                 return "start";
-                              } else if (
-                                date.toDateString() === pmsEnd.toDateString()
-                              ) {
+                              if (date.toDateString() === pmsEnd.toDateString())
                                 return "end";
-                              }
+                              return null;
                             }
                             return getDayColor(currentItem.value);
                           })();
