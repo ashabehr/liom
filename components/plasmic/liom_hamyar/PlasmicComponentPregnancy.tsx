@@ -1268,7 +1268,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "subDialog.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobile") ? true : false
       },
       {
         path: "button4.color",
@@ -1280,10 +1281,29 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "button4.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.loadingGetLink;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "button4.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "loadingGetLink",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
@@ -10988,148 +11008,6 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                           typeof $steps["goToPage"].then === "function"
                         ) {
                           $steps["goToPage"] = await $steps["goToPage"];
-                        }
-
-                        $steps["updateTypeBuy"] = (() => {
-                          const allowance =
-                            $state.userInfo?.[0]?.result?.allowance || [];
-                          console.log(allowance);
-                          var become_father = allowance.find(
-                            item => item.type == "pregnancy_sub_become_father"
-                          )
-                            ? allowance.find(
-                                item =>
-                                  item.type == "pregnancy_sub_become_father"
-                              ).active
-                            : false;
-                          var baby_growth = allowance.find(
-                            item => item.type == "pregnancy_sub_baby_growth"
-                          )
-                            ? allowance.find(
-                                item => item.type == "pregnancy_sub_baby_growth"
-                              ).active
-                            : false;
-                          var better_relation = allowance.find(
-                            item => item.type == "pregnancy_sub_better_relation"
-                          )
-                            ? allowance.find(
-                                item =>
-                                  item.type == "pregnancy_sub_better_relation"
-                              ).active
-                            : false;
-                          return (
-                            !(
-                              become_father &&
-                              baby_growth &&
-                              better_relation
-                            ) && $ctx.query.inApp != "true"
-                          );
-                        })()
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["typeBuy"]
-                                },
-                                operation: 0,
-                                value: "pregnancySub"
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateTypeBuy"] != null &&
-                          typeof $steps["updateTypeBuy"] === "object" &&
-                          typeof $steps["updateTypeBuy"].then === "function"
-                        ) {
-                          $steps["updateTypeBuy"] =
-                            await $steps["updateTypeBuy"];
-                        }
-
-                        $steps["updateDirectDialog2Open"] = (() => {
-                          const allowance =
-                            $state.userInfo?.[0]?.result?.allowance || [];
-                          var become_father = allowance.find(
-                            item => item.type == "pregnancy_sub_become_father"
-                          )
-                            ? allowance.find(
-                                item =>
-                                  item.type == "pregnancy_sub_become_father"
-                              ).active
-                            : false;
-                          var baby_growth = allowance.find(
-                            item => item.type == "pregnancy_sub_baby_growth"
-                          )
-                            ? allowance.find(
-                                item => item.type == "pregnancy_sub_baby_growth"
-                              ).active
-                            : false;
-                          var better_relation = allowance.find(
-                            item => item.type == "pregnancy_sub_better_relation"
-                          )
-                            ? allowance.find(
-                                item =>
-                                  item.type == "pregnancy_sub_better_relation"
-                              ).active
-                            : false;
-                          return (
-                            !(
-                              become_father &&
-                              baby_growth &&
-                              better_relation
-                            ) && $ctx.query.inApp != "true"
-                          );
-                        })()
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["directDialog2", "open"]
-                                },
-                                operation: 4
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                const oldValue = $stateGet(
-                                  objRoot,
-                                  variablePath
-                                );
-                                $stateSet(objRoot, variablePath, !oldValue);
-                                return !oldValue;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateDirectDialog2Open"] != null &&
-                          typeof $steps["updateDirectDialog2Open"] ===
-                            "object" &&
-                          typeof $steps["updateDirectDialog2Open"].then ===
-                            "function"
-                        ) {
-                          $steps["updateDirectDialog2Open"] =
-                            await $steps["updateDirectDialog2Open"];
                         }
                       }}
                       onClickBtn2={async event => {
@@ -31193,44 +31071,31 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
   line-height: 1.6;
   padding: 14px 12px;
 ">
-  <!-- متن معرفی -->
   <p style="font-size: 13px; margin: 0;">
-    ✨ فقط این هفته نیست… <strong>هر هفته راهنمایی مخصوص خودش رو داره!</strong>
+    ✨ فقط این هفته نیست… <strong>هر هفته راهنمایی مخصوص </strong> خودش رو داره!
   </p>
 
-  <p style="margin: 0;">
-    🤰 بدن تو و کوچولوت داره هر روز تغییر می‌کنه،
-    <strong>نذار چیزی از قلم بیفته.</strong>
-  </p>
-
-  <p style="font-weight:500; margin-bottom: 8px;">
-    ما اینجاییم که کنارت باشیم. 💗
-  </p>
-
-  <!-- عنوان لیست -->
-  <p style="font-size: 13px; font-weight:600; margin: 6px 0;">
+  <p style="font-size: 15px; font-weight:800; margin: 6px 0;">
     چیزایی که هر هفته بهش نیاز داری:
   </p>
 
-  <!-- لیست اشتراک -->
   <ul style="list-style: none; padding: 0; margin: 0;">
     <li style="display: flex; gap: 6px; align-items: center; margin-bottom: 4px;">
-      <span>💊</span> مکمل‌ها و ویتامین‌های لازم مخصوص هر هفته
+      <span style="font-weight:bold; color: #1abc9c;">✓</span> مکمل‌ها و ویتامین‌های لازم مخصوص هر هفته
     </li>
     <li style="display: flex; gap: 6px; align-items: center; margin-bottom: 4px;">
-      <span>🧪</span> آزمایش‌ها و چکاپ‌های ضروری
+      <span style="font-weight:bold; color: #1abc9c;">✓</span> آزمایش‌ها و چکاپ‌های ضروری
     </li>
     <li style="display: flex; gap: 6px; align-items: center; margin-bottom: 4px;">
-      <span>⚠️</span> چیزهایی که تو هر هفته خطرناک هستن و باید حواست باشه
+      <span style="font-weight:bold; color: #1abc9c;">✓</span> چیزهایی که تو هر هفته خطرناک هستن و باید حواست باشه
     </li>
     <li style="display: flex; gap: 6px; align-items: center;">
-      <span>🥦</span> نکات سلامتی برای هر هفته
+      <span style="font-weight:bold; color: #1abc9c;">✓</span> نکات سلامتی برای هر هفته
     </li>
     <li style="display: flex; gap: 6px; align-items: center;">
-  <span>🧘‍♀️</span> نکات رفع استرس و آرامش
-</li>
+      <span style="font-weight:bold; color: #1abc9c;">✓</span> نکات رفع استرس و آرامش
+    </li>
   </ul>
-
 </div>
 `;
                   } catch (e) {
@@ -31253,6 +31118,195 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
             color={generateStateValueProp($state, ["button4", "color"])}
             load={generateStateValueProp($state, ["button4", "load"])}
             loading={generateStateValueProp($state, ["button4", "loading"])}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["updateLoadingGetLink"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["loadingGetLink"]
+                      },
+                      operation: 0,
+                      value: true
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateLoadingGetLink"] != null &&
+                typeof $steps["updateLoadingGetLink"] === "object" &&
+                typeof $steps["updateLoadingGetLink"].then === "function"
+              ) {
+                $steps["updateLoadingGetLink"] =
+                  await $steps["updateLoadingGetLink"];
+              }
+
+              $steps["invokeGlobalAction"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://n8n.staas.ir/webhook/tools/selfCare/linkV3",
+                        undefined,
+                        (() => {
+                          try {
+                            return {
+                              authorization: $state.token,
+                              type: "pregnancy_sub"
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
+              }
+
+              $steps["invokeGlobalAction2"] = $steps.invokeGlobalAction?.data
+                ?.result?.link
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        (() => {
+                          try {
+                            return $steps.invokeGlobalAction?.data?.result
+                              ?.link;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        (() => {
+                          try {
+                            return $state.token;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        (() => {
+                          try {
+                            return $state.userId;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        (() => {
+                          try {
+                            return $state.paramsObject.inApp;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        (() => {
+                          try {
+                            return $state.paramsObject.theme;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.deepLink"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction2"] != null &&
+                typeof $steps["invokeGlobalAction2"] === "object" &&
+                typeof $steps["invokeGlobalAction2"].then === "function"
+              ) {
+                $steps["invokeGlobalAction2"] =
+                  await $steps["invokeGlobalAction2"];
+              }
+
+              $steps["updateLoadingGetLink2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["loadingGetLink"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateLoadingGetLink2"] != null &&
+                typeof $steps["updateLoadingGetLink2"] === "object" &&
+                typeof $steps["updateLoadingGetLink2"].then === "function"
+              ) {
+                $steps["updateLoadingGetLink2"] =
+                  await $steps["updateLoadingGetLink2"];
+              }
+            }}
             onColorChange={async (...eventArgs: any) => {
               ((...eventArgs) => {
                 generateStateOnChangeProp($state, ["button4", "color"])(

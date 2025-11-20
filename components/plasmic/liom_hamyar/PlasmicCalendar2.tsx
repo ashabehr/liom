@@ -3134,10 +3134,15 @@ function PlasmicCalendar2__RenderFunc(props: {
                   customFunction: async () => {
                     return (() => {
                       try {
-                        return localStorage.setItem(
+                        localStorage.setItem(
                           "allowanceUser",
                           JSON.stringify($state.profile.result.allowance)
                         );
+                        if (
+                          $state.profile.result.user.last_login_method ==
+                          "guest"
+                        )
+                          return localStorage.setItem("guest", "true");
                       } catch {}
                     })();
                   }

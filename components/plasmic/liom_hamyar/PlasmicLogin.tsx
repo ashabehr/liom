@@ -1609,20 +1609,20 @@ function PlasmicLogin__RenderFunc(props: {
                 $steps["urlToken"] = await $steps["urlToken"];
               }
 
-              $steps["runCode5"] = (
-                $steps.urlToken?.data?.success ? true : false
-              )
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return window.open($steps.urlToken.data.url, "_self");
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
+              $steps["runCode5"] =
+                ($steps.urlToken?.data?.success ? true : false) &&
+                $state.paramsObject.user != "guest"
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return window.open($steps.urlToken.data.url, "_self");
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
               if (
                 $steps["runCode5"] != null &&
                 typeof $steps["runCode5"] === "object" &&
@@ -2361,91 +2361,106 @@ function PlasmicLogin__RenderFunc(props: {
                   />
                 </LoginBox>
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__xpOyZ,
-                  {
-                    [sty.textloginPage_name__xpOyZhUiKy]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "name"
-                    ),
-                    [sty.textloginPage_selectstatus__xpOyZni6Lr]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "selectstatus"
-                    )
-                  }
-                )}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["updateType"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["type"]
-                          },
-                          operation: 0,
-                          value: "guest"
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
+              {(() => {
+                try {
+                  return $state.paramsObject.user != "guest";
+                } catch (e) {
                   if (
-                    $steps["updateType"] != null &&
-                    typeof $steps["updateType"] === "object" &&
-                    typeof $steps["updateType"].then === "function"
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    $steps["updateType"] = await $steps["updateType"];
+                    return true;
                   }
-
-                  $steps["updateLoginPage"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          vgroup: "loginPage",
-                          operation: 0,
-                          value: "name"
-                        };
-                        return (({ vgroup, value }) => {
-                          if (typeof value === "string") {
-                            value = [value];
-                          }
-
-                          $stateSet($state, vgroup, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateLoginPage"] != null &&
-                    typeof $steps["updateLoginPage"] === "object" &&
-                    typeof $steps["updateLoginPage"].then === "function"
-                  ) {
-                    $steps["updateLoginPage"] = await $steps["updateLoginPage"];
-                  }
-                }}
-              >
-                {
-                  "\u0648\u0631\u0648\u062f \u0628\u0647 \u0635\u0648\u0631\u062a \u0645\u0647\u0645\u0627\u0646 >"
+                  throw e;
                 }
-              </div>
+              })() ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__xpOyZ,
+                    {
+                      [sty.textloginPage_name__xpOyZhUiKy]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "name"
+                      ),
+                      [sty.textloginPage_selectstatus__xpOyZni6Lr]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "selectstatus"
+                      )
+                    }
+                  )}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateType"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["type"]
+                            },
+                            operation: 0,
+                            value: "guest"
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateType"] != null &&
+                      typeof $steps["updateType"] === "object" &&
+                      typeof $steps["updateType"].then === "function"
+                    ) {
+                      $steps["updateType"] = await $steps["updateType"];
+                    }
+
+                    $steps["updateLoginPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            vgroup: "loginPage",
+                            operation: 0,
+                            value: "name"
+                          };
+                          return (({ vgroup, value }) => {
+                            if (typeof value === "string") {
+                              value = [value];
+                            }
+
+                            $stateSet($state, vgroup, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateLoginPage"] != null &&
+                      typeof $steps["updateLoginPage"] === "object" &&
+                      typeof $steps["updateLoginPage"].then === "function"
+                    ) {
+                      $steps["updateLoginPage"] =
+                        await $steps["updateLoginPage"];
+                    }
+                  }}
+                >
+                  {
+                    "\u0648\u0631\u0648\u062f \u0628\u0647 \u0635\u0648\u0631\u062a \u0645\u0647\u0645\u0627\u0646 >"
+                  }
+                </div>
+              ) : null}
             </div>
           </Reveal>
           {(

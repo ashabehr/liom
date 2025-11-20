@@ -81,6 +81,7 @@ import Icon190Icon from "./icons/PlasmicIcon__Icon190"; // plasmic-import: tsFhl
 import Icon193Icon from "./icons/PlasmicIcon__Icon193"; // plasmic-import: mQViEY5IKL9R/icon
 import Icon304Icon from "./icons/PlasmicIcon__Icon304"; // plasmic-import: 703ShUnmEPbT/icon
 import Icon194Icon from "./icons/PlasmicIcon__Icon194"; // plasmic-import: uU66A14xTk1C/icon
+import Icon385Icon from "./icons/PlasmicIcon__Icon385"; // plasmic-import: ZPKKCArd0-D6/icon
 import Icon226Icon from "./icons/PlasmicIcon__Icon226"; // plasmic-import: i72W_8jC8xCg/icon
 import Icon187Icon from "./icons/PlasmicIcon__Icon187"; // plasmic-import: TGEaylyFP26z/icon
 import Icon157Icon from "./icons/PlasmicIcon__Icon157"; // plasmic-import: pYMHtMPOTSpB/icon
@@ -106,6 +107,7 @@ export type PlasmicMainHeader__ArgsType = {
   openEdit?: () => void;
   hamyarshop?: () => void;
   reminder?: () => void;
+  guest?: boolean;
   children?: React.ReactNode;
   slot?: React.ReactNode;
 };
@@ -118,6 +120,7 @@ export const PlasmicMainHeader__ArgProps = new Array<ArgPropType>(
   "openEdit",
   "hamyarshop",
   "reminder",
+  "guest",
   "children",
   "slot"
 );
@@ -140,6 +143,7 @@ export interface DefaultMainHeaderProps {
   openEdit?: () => void;
   hamyarshop?: () => void;
   reminder?: () => void;
+  guest?: boolean;
   children?: React.ReactNode;
   slot?: React.ReactNode;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
@@ -169,7 +173,8 @@ function PlasmicMainHeader__RenderFunc(props: {
         {
           userinfo: {},
           token:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyYWRlNjBlLWYyZTEtNDIwNi05NzNiLTIwNDYzYjhlM2FmNCIsImlhdCI6MTczODgzNzg3Nn0.iaZlGzwVEN5P0kQMgdTy2sNsBIbJai8WAG1sSDhqpL4"
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyYWRlNjBlLWYyZTEtNDIwNi05NzNiLTIwNDYzYjhlM2FmNCIsImlhdCI6MTczODgzNzg3Nn0.iaZlGzwVEN5P0kQMgdTy2sNsBIbJai8WAG1sSDhqpL4",
+          guest: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -332,6 +337,25 @@ function PlasmicMainHeader__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "guest2",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return localStorage.getItem("guest") == "true";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -994,24 +1018,29 @@ function PlasmicMainHeader__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["runCode"] = true
+                $steps["goToShop"] = true
                   ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return window.open("/shop", "_self");
+                      const actionArgs = { destination: `/shop` };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
                         }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
+                  $steps["goToShop"] != null &&
+                  typeof $steps["goToShop"] === "object" &&
+                  typeof $steps["goToShop"].then === "function"
                 ) {
-                  $steps["runCode"] = await $steps["runCode"];
+                  $steps["goToShop"] = await $steps["goToShop"];
                 }
 
                 $steps["invokeGlobalAction"] = true
@@ -1433,27 +1462,29 @@ function PlasmicMainHeader__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["runCode"] = true
+                $steps["goToStatusDay"] = true
                   ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return window.open(
-                            `/status-day?userId=${$props.userinfo.id}`,
-                            "_self"
-                          );
+                      const actionArgs = { destination: `/status-day` };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
                         }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
+                  $steps["goToStatusDay"] != null &&
+                  typeof $steps["goToStatusDay"] === "object" &&
+                  typeof $steps["goToStatusDay"].then === "function"
                 ) {
-                  $steps["runCode"] = await $steps["runCode"];
+                  $steps["goToStatusDay"] = await $steps["goToStatusDay"];
                 }
 
                 $steps["updateDopen"] = true
@@ -1523,27 +1554,29 @@ function PlasmicMainHeader__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["runCode"] = true
+                $steps["goToSignsPage"] = true
                   ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return window.open(
-                            `/Signs-page?token=${$props.token}`,
-                            "_self"
-                          );
+                      const actionArgs = { destination: `/Signs-page` };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
                         }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
+                  $steps["goToSignsPage"] != null &&
+                  typeof $steps["goToSignsPage"] === "object" &&
+                  typeof $steps["goToSignsPage"].then === "function"
                 ) {
-                  $steps["runCode"] = await $steps["runCode"];
+                  $steps["goToSignsPage"] = await $steps["goToSignsPage"];
                 }
 
                 $steps["updateDopen"] = true
@@ -1887,119 +1920,328 @@ function PlasmicMainHeader__RenderFunc(props: {
                 role={"img"}
               />
             </div>
-          </div>
-          <div
-            className={classNames(projectcss.all, sty.freeBox__yGyS, {
-              [sty.freeBoxhamyar__yGySs1T6S]: hasVariant(
-                $state,
-                "hamyar",
-                "hamyar"
-              )
-            })}
-          >
             <Embed
-              className={classNames("__wab_instance", sty.embedHtml___3Onig)}
+              className={classNames("__wab_instance", sty.embedHtml__cMXiD)}
               code={"<hr></hr>"}
             />
 
+            {(() => {
+              try {
+                return $state.guest2;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div className={classNames(projectcss.all, sty.freeBox__rPnJ)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__tpGb7, {
+                    [sty.freeBoxhamyar__tpGb7S1T6S]: hasVariant(
+                      $state,
+                      "hamyar",
+                      "hamyar"
+                    )
+                  })}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateDopen"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["dopen"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDopen"] != null &&
+                      typeof $steps["updateDopen"] === "object" &&
+                      typeof $steps["updateDopen"].then === "function"
+                    ) {
+                      $steps["updateDopen"] = await $steps["updateDopen"];
+                    }
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                window.sessionStorage.clear();
+                                window.localStorage.clear();
+                                return (window.location.href =
+                                  "/login?user=guest");
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }}
+                >
+                  <Icon385Icon
+                    className={classNames(projectcss.all, sty.svg__gmAY)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__a7UYh
+                    )}
+                  >
+                    {
+                      "\u0648\u0631\u0648\u062f / \u062f\u0631 \u0644\u06cc\u0648\u0645 \u062d\u0633\u0627\u0628 \u06a9\u0627\u0631\u0628\u0631\u06cc \u062f\u0627\u0631\u0645"
+                    }
+                  </div>
+                </div>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___1Yv3Z, {
+                    [sty.freeBoxhamyar___1Yv3Zs1T6S]: hasVariant(
+                      $state,
+                      "hamyar",
+                      "hamyar"
+                    )
+                  })}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateDopen"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["dopen"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDopen"] != null &&
+                      typeof $steps["updateDopen"] === "object" &&
+                      typeof $steps["updateDopen"].then === "function"
+                    ) {
+                      $steps["updateDopen"] = await $steps["updateDopen"];
+                    }
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                window.sessionStorage.clear();
+                                window.localStorage.clear();
+                                return (window.location.href =
+                                  "/login?user=guest");
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }}
+                >
+                  <Icon385Icon
+                    className={classNames(projectcss.all, sty.svg__ckIdY)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__lvYld
+                    )}
+                  >
+                    {"\u062b\u0628\u062a \u0646\u0627\u0645"}
+                  </div>
+                </div>
+              </div>
+            ) : null}
+          </div>
+          {(() => {
+            try {
+              return !$state.guest2;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
             <div
-              className={classNames(projectcss.all, sty.freeBox___0Wkzo, {
-                [sty.freeBoxhamyar___0WkzOs1T6S]: hasVariant(
+              className={classNames(projectcss.all, sty.freeBox__yGyS, {
+                [sty.freeBoxhamyar__yGySs1T6S]: hasVariant(
                   $state,
                   "hamyar",
                   "hamyar"
                 )
               })}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["updateDopen"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["dopen"]
-                        },
-                        operation: 0,
-                        value: false
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateDopen"] != null &&
-                  typeof $steps["updateDopen"] === "object" &&
-                  typeof $steps["updateDopen"].then === "function"
-                ) {
-                  $steps["updateDopen"] = await $steps["updateDopen"];
-                }
-
-                $steps["updateModalOpen"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["modal", "open"]
-                        },
-                        operation: 0,
-                        value: true
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateModalOpen"] != null &&
-                  typeof $steps["updateModalOpen"] === "object" &&
-                  typeof $steps["updateModalOpen"].then === "function"
-                ) {
-                  $steps["updateModalOpen"] = await $steps["updateModalOpen"];
-                }
-              }}
             >
-              <Icon226Icon
-                className={classNames(projectcss.all, sty.svg__zvo7P)}
-                role={"img"}
+              <Embed
+                className={classNames("__wab_instance", sty.embedHtml__xSwiQ)}
+                code={"<hr></hr>"}
               />
 
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__eMuU
-                )}
+                className={classNames(projectcss.all, sty.freeBox___0Wkzo, {
+                  [sty.freeBoxhamyar___0WkzOs1T6S]: hasVariant(
+                    $state,
+                    "hamyar",
+                    "hamyar"
+                  )
+                })}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateDopen"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["dopen"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateDopen"] != null &&
+                    typeof $steps["updateDopen"] === "object" &&
+                    typeof $steps["updateDopen"].then === "function"
+                  ) {
+                    $steps["updateDopen"] = await $steps["updateDopen"];
+                  }
+
+                  $steps["updateModalOpen"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["modal", "open"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateModalOpen"] != null &&
+                    typeof $steps["updateModalOpen"] === "object" &&
+                    typeof $steps["updateModalOpen"].then === "function"
+                  ) {
+                    $steps["updateModalOpen"] = await $steps["updateModalOpen"];
+                  }
+                }}
               >
-                {
-                  "\u062e\u0631\u0648\u062c \u0627\u0632 \u062d\u0633\u0627\u0628"
-                }
+                <Icon226Icon
+                  className={classNames(projectcss.all, sty.svg__zvo7P)}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__eMuU
+                  )}
+                >
+                  {
+                    "\u062e\u0631\u0648\u062c \u0627\u0632 \u062d\u0633\u0627\u0628"
+                  }
+                </div>
               </div>
             </div>
-          </div>
+          ) : null}
         </div>
       </AntdDrawer>
       <AntdModal

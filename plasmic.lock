@@ -1285,12 +1285,12 @@
         {
           "type": "renderModule",
           "assetId": "9yeKzhziT4oA",
-          "checksum": "92b9fc26473c0f4f6a1e2723fdd9ff3c"
+          "checksum": "e7f99dd5804785ea3846c7a71462f060"
         },
         {
           "type": "cssRules",
           "assetId": "9yeKzhziT4oA",
-          "checksum": "92b9fc26473c0f4f6a1e2723fdd9ff3c"
+          "checksum": "e7f99dd5804785ea3846c7a71462f060"
         },
         {
           "type": "renderModule",
@@ -1905,12 +1905,12 @@
         {
           "type": "renderModule",
           "assetId": "1YQK_N8j3twT",
-          "checksum": "7c1260fec7ddfdd56e983241ff416e14"
+          "checksum": "023a985ba7ddcd1940e54d617194ddaf"
         },
         {
           "type": "cssRules",
           "assetId": "1YQK_N8j3twT",
-          "checksum": "7c1260fec7ddfdd56e983241ff416e14"
+          "checksum": "023a985ba7ddcd1940e54d617194ddaf"
         },
         {
           "type": "renderModule",
@@ -2305,12 +2305,12 @@
         {
           "type": "renderModule",
           "assetId": "g_La9K58nhrs",
-          "checksum": "0a218f210746d2caa48563996eeec4fc"
+          "checksum": "3e4f29c05d1740feb85a5deda8c57538"
         },
         {
           "type": "cssRules",
           "assetId": "g_La9K58nhrs",
-          "checksum": "0a218f210746d2caa48563996eeec4fc"
+          "checksum": "3e4f29c05d1740feb85a5deda8c57538"
         },
         {
           "type": "renderModule",
@@ -5200,12 +5200,12 @@
         {
           "type": "renderModule",
           "assetId": "8wHhlRtqpYtU",
-          "checksum": "a0bc5d15fcf832967afade077fe416ba"
+          "checksum": "943d7a2db24671321ae7c5d7517d033e"
         },
         {
           "type": "cssRules",
           "assetId": "8wHhlRtqpYtU",
-          "checksum": "a0bc5d15fcf832967afade077fe416ba"
+          "checksum": "943d7a2db24671321ae7c5d7517d033e"
         },
         {
           "type": "renderModule",
@@ -6756,6 +6756,11 @@
           "assetId": "suVPi77vb6vv9K5rYJwyxC",
           "type": "projectCss",
           "checksum": "c0c626f034d74da230fd0065abc7ac37"
+        },
+        {
+          "type": "icon",
+          "assetId": "ZPKKCArd0-D6",
+          "checksum": "828e131cc1586285982bf146f6404a2f"
         }
       ],
       "codegenVersion": "0.0.2"

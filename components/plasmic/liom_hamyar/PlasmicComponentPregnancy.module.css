@@ -4172,6 +4172,12 @@
   max-width: 100%;
   object-fit: cover;
 }
+@media (max-width: 640px) {
+  .subDialog:global(.__wab_instance) {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+}
 .text__fuFu3 {
   text-align: center;
   font-size: 18px;
