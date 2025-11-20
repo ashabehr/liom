@@ -16119,7 +16119,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                       $state.collapseDanger.open = true;
                                       if ($state.paramsObject.inApp != "true") {
                                         $state.typeBuy = "pregnancySub";
-                                        return ($state.directDialog2.open = true);
+                                        return ($state.subDialog.open = true);
                                       } else {
                                         $state.collapseDanger.open = true;
                                         return window.FlutterChannel.postMessage(
