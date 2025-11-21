@@ -68,7 +68,7 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicAddToHome.module.css"; // plasmic-import: XwX6W3jU5LyW/css
 
-import LogoIcon from "./icons/PlasmicIcon__Logo"; // plasmic-import: _VwvhFU142T6/icon
+import Icon386Icon from "./icons/PlasmicIcon__Icon386"; // plasmic-import: m5v-60H7g3kP/icon
 import Icon197Icon from "./icons/PlasmicIcon__Icon197"; // plasmic-import: BMTNDruxiQcD/icon
 import Icon198Icon from "./icons/PlasmicIcon__Icon198"; // plasmic-import: o6Ovz1ve_6P4/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -192,7 +192,7 @@ function PlasmicAddToHome__RenderFunc(props: {
         data-plasmic-override={overrides.frame9432}
         className={classNames(projectcss.all, sty.frame9432)}
       >
-        <LogoIcon
+        <Icon386Icon
           className={classNames(projectcss.all, sty.svg___8AIWe)}
           role={"img"}
         />

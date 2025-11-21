@@ -7555,6 +7555,11 @@
           "id": "ZPKKCArd0-D6",
           "name": "Icon385Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon385.tsx"
+        },
+        {
+          "id": "m5v-60H7g3kP",
+          "name": "Icon386Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon386.tsx"
         }
       ],
       "images": [

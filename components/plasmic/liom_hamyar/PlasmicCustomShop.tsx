@@ -1922,6 +1922,33 @@ function PlasmicCustomShop__RenderFunc(props: {
                                       $steps["updateSubitem"] =
                                         await $steps["updateSubitem"];
                                     }
+
+                                    $steps["runCode"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            customFunction: async () => {
+                                              return (() => {
+                                                return window.scrollTo({
+                                                  top: 0,
+                                                  behavior: "smooth"
+                                                });
+                                              })();
+                                            }
+                                          };
+                                          return (({ customFunction }) => {
+                                            return customFunction();
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["runCode"] != null &&
+                                      typeof $steps["runCode"] === "object" &&
+                                      typeof $steps["runCode"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["runCode"] =
+                                        await $steps["runCode"];
+                                    }
                                   }}
                                   onColorChange={async (...eventArgs: any) => {
                                     ((...eventArgs) => {

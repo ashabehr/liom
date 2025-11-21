@@ -3142,32 +3142,18 @@ function PlasmicStatusDay__RenderFunc(props: {
                           const list =
                             window.document.getElementById("my-scroll-date");
                           if (!list) return;
-                          const list2 = list.firstElementChild;
-                          if (!list2) return;
-                          if (
-                            !Array.isArray($state.month) ||
-                            $state.month.length === 0
-                          )
-                            return;
-                          if (!$state.date) return;
-                          const index = $state.month.findIndex(
-                            item => item?.value === $state.date
-                          );
-                          if (index === -1) return;
-                          const target = list2.children[index];
-                          if (!target) return;
+                          const activeItem = list.querySelector(".active");
+                          if (!activeItem) return;
                           try {
                             const pos =
-                              target.offsetLeft -
+                              activeItem.offsetLeft -
                               list.offsetWidth / 2 +
-                              target.offsetWidth / 2;
+                              activeItem.offsetWidth / 2;
                             return list.scrollTo({
                               left: pos,
                               behavior: "smooth"
                             });
-                          } catch (_) {
-                            return;
-                          }
+                          } catch (_) {}
                         })();
                       }
                     };
@@ -4193,7 +4179,11 @@ function PlasmicStatusDay__RenderFunc(props: {
               }
             })() ? (
               <div
-                className={classNames(projectcss.all, sty.freeBox__zFbgt)}
+                className={classNames(
+                  projectcss.all,
+                  sty.freeBox__zFbgt,
+                  "container-scroll"
+                )}
                 id={"my-scroll-date"}
               >
                 <Button
@@ -4533,66 +4523,6 @@ function PlasmicStatusDay__RenderFunc(props: {
                           $steps["updateDate"] = await $steps["updateDate"];
                         }
 
-                        $steps["runCode"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return (() => {
-                                    const list =
-                                      window.document.getElementById(
-                                        "my-scroll-date"
-                                      );
-                                    if (!list) {
-                                      return;
-                                    }
-                                    const list2 = list.firstElementChild;
-                                    if (!list2) {
-                                      return;
-                                    }
-                                    if (!Array.isArray($state.month)) {
-                                      return;
-                                    }
-                                    if (!$state.date) {
-                                      return;
-                                    }
-                                    if ($state.month.length === 0) {
-                                      return;
-                                    }
-                                    const index =
-                                      $state.month.findIndex(
-                                        item => item.value === $state.date
-                                      ) + 1;
-                                    if (index === -1) {
-                                      return;
-                                    }
-                                    const fourthItem = list2.children[index];
-                                    if (fourthItem) {
-                                      const itemPosition =
-                                        fourthItem.offsetLeft -
-                                        list.offsetWidth / 2 +
-                                        fourthItem.offsetWidth / 2;
-                                      return list.scrollTo({
-                                        left: itemPosition,
-                                        behavior: "smooth"
-                                      });
-                                    } else {
-                                    }
-                                  })();
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
-                        ) {
-                          $steps["runCode"] = await $steps["runCode"];
-                        }
-
                         $steps["updateInDay"] = true
                           ? (() => {
                               const actionArgs = {
@@ -4664,6 +4594,45 @@ function PlasmicStatusDay__RenderFunc(props: {
                           typeof $steps["updateLoad"].then === "function"
                         ) {
                           $steps["updateLoad"] = await $steps["updateLoad"];
+                        }
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    const list =
+                                      window.document.getElementById(
+                                        "my-scroll-date"
+                                      );
+                                    if (!list) return;
+                                    const activeItem =
+                                      list.querySelector(".active");
+                                    if (!activeItem) return;
+                                    try {
+                                      const pos =
+                                        activeItem.offsetLeft -
+                                        list.offsetWidth / 2 +
+                                        activeItem.offsetWidth / 2;
+                                      return list.scrollTo({
+                                        left: pos,
+                                        behavior: "smooth"
+                                      });
+                                    } catch (_) {}
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
                         }
 
                         $steps["invokeGlobalAction"] = (

@@ -263,6 +263,7 @@ function PlasmicTabWeek2__RenderFunc(props: {
         projectcss.plasmic_mixins,
         styleTokensClassNames,
         sty.root,
+        hasVariant($state, "selected", "selected") ? "active" : undefined,
         {
           [sty.rootcolor_pms]: hasVariant($state, "color", "pms"),
           [sty.rootcolor_red]: hasVariant($state, "color", "red"),

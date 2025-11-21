@@ -52,18 +52,18 @@
   object-fit: cover;
   max-width: 100%;
   color: #fff;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   display: block;
   position: relative;
   overflow: hidden;
-  margin-bottom: 50px;
+  margin-bottom: var(--token-DVOPg3wGxQIJ);
   flex-shrink: 0;
 }
 @media (max-width: 640px) {
   .svg___8AIWe {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     flex-shrink: 0;
   }
 }
@@ -75,7 +75,7 @@
   text-align: center;
   font-weight: 700;
   font-size: 18px;
-  color: var(--token-55cSeNPovQFh);
+  color: var(--token-fyoD0poQfxvl);
   min-width: 0;
 }
 @media (max-width: 640px) {
@@ -229,8 +229,8 @@
 .rectangle126 {
   background: linear-gradient(
       0deg,
-      var(--token-R_Rsn0nP9oIv) 44%,
-      var(--token-55cSeNPovQFh) 100%
+      var(--token-AupbASVTnAsv) 51%,
+      var(--token-6Lhw5mK6wolF) 100%
     )
     0% 0% / 100% 100% repeat;
   transform: none;

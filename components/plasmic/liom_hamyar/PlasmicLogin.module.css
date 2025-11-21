@@ -9,8 +9,8 @@
   align-items: center;
   background: linear-gradient(
     0deg,
-    var(--token-AupbASVTnAsv) 0%,
-    var(--token-sN1yASr7oAvM) 100%
+    var(--token-AupbASVTnAsv) 52%,
+    var(--token-6Lhw5mK6wolF) 100%
   );
   overflow: auto;
   min-width: 0;
@@ -13295,7 +13295,7 @@
   top: 0;
   z-index: 10;
   right: 0;
-  row-gap: var(--token-uOLZE7OyOW-J);
+  row-gap: var(--token-B5WvIYiqPJW-);
   padding: 8px;
 }
 .freeBoxloginPage_mobile__e82Kc6MmOa {
@@ -13334,9 +13334,16 @@
   object-fit: cover;
   max-width: 100%;
   color: var(--token-55cSeNPovQFh);
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .svg___7KiOc {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
 }
 .text___6DzC8 {
   width: auto;
@@ -13345,7 +13352,12 @@
   text-align: center;
   color: var(--token-SX03PBUzWAqr);
   font-weight: 700;
-  font-size: var(--token-Wa5tmrNKVUYF);
+  font-size: var(--token-cunRwTCjQp3O);
+}
+@media (max-width: 640px) {
+  .text___6DzC8 {
+    font-size: var(--token-Wa5tmrNKVUYF);
+  }
 }
 .reveal__bdaGa:global(.__wab_instance) {
   max-width: 100%;
