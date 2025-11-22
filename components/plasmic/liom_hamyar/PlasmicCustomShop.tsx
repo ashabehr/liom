@@ -1930,11 +1930,11 @@ function PlasmicCustomShop__RenderFunc(props: {
                                           const actionArgs = {
                                             customFunction: async () => {
                                               return (() => {
-                                                return window.document
-                                                  .getElementById("sectionID")
-                                                  .scrollIntoView({
-                                                    behavior: "smooth",
-                                                    block: "start"
+                                                return document
+                                                  .getElementById("section")
+                                                  .scrollTo({
+                                                    top: 0,
+                                                    behavior: "smooth"
                                                   });
                                               })();
                                             }

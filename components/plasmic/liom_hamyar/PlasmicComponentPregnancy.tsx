@@ -1307,6 +1307,12 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "getTooltip",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -2265,83 +2271,6 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 $steps["updateIsTimer"] = await $steps["updateIsTimer"];
               }
 
-              $steps["showToast"] =
-                $state.isNoData && false
-                  ? (() => {
-                      const actionArgs = {
-                        args: [
-                          "error",
-                          "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0628\u0631\u0646\u0627\u0645\u0647 \u0627\u0628\u062a\u062f\u0627 \u0628\u0627\u06cc\u062f \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u062e\u0648\u062f \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f",
-                          "bottom-center"
-                        ]
-                      };
-                      return $globalActions["Fragment.showToast"]?.apply(null, [
-                        ...actionArgs.args
-                      ]);
-                    })()
-                  : undefined;
-              if (
-                $steps["showToast"] != null &&
-                typeof $steps["showToast"] === "object" &&
-                typeof $steps["showToast"].then === "function"
-              ) {
-                $steps["showToast"] = await $steps["showToast"];
-              }
-
-              $steps["goToPageSetting"] =
-                $state.isNoData && false
-                  ? (() => {
-                      const actionArgs = {
-                        destination: (() => {
-                          try {
-                            return (() => {
-                              var token = $state.token;
-                              return (
-                                "https://apps.liom.app/setting-pregnancy/?token=" +
-                                token +
-                                "&userId=" +
-                                $state.userId +
-                                "&theme=" +
-                                $ctx.query.theme +
-                                "&inApp=" +
-                                $ctx.query.inApp +
-                                "&inBo=t" +
-                                $ctx.query.inBot
-                              );
-                            })();
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                      };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["goToPageSetting"] != null &&
-                typeof $steps["goToPageSetting"] === "object" &&
-                typeof $steps["goToPageSetting"].then === "function"
-              ) {
-                $steps["goToPageSetting"] = await $steps["goToPageSetting"];
-              }
-
               $steps["advice"] = !$state.isNoData
                 ? (() => {
                     const actionArgs = {
@@ -2567,6 +2496,37 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 typeof $steps["tools"].then === "function"
               ) {
                 $steps["tools"] = await $steps["tools"];
+              }
+
+              $steps["tooltip"] =
+                $state.userId == "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return fetch("https://n8n.staas.ir/webhook/tooltip", {
+                            method: "GET"
+                          })
+                            .then(response => response.json())
+                            .then(data => {
+                              console.log("tooltip");
+                              $state.getTooltip = data;
+                            })
+                            .catch(error =>
+                              console.error("Error-tooltip:", error)
+                            );
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["tooltip"] != null &&
+                typeof $steps["tooltip"] === "object" &&
+                typeof $steps["tooltip"].then === "function"
+              ) {
+                $steps["tooltip"] = await $steps["tooltip"];
               }
 
               $steps["updateDayCounter"] = true
@@ -11206,6 +11166,459 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                       title={
                         "\u0627\u0637\u0644\u0627\u0639\u200c\u0631\u0633\u0627\u0646\u06cc \u0647\u0641\u062a\u06af\u06cc \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9"
                       }
+                      userId={$state.userId}
+                    />
+                  ) : null}
+                  {(() => {
+                    try {
+                      return (
+                        $state.userId == "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return false;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <InformationBox
+                      backColor={(() => {
+                        try {
+                          return (localStorage.getItem("newView") || "false") ==
+                            "true"
+                            ? "#FDFEE3"
+                            : "";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                      btn1={(() => {
+                        try {
+                          return {
+                            text: "اطلاع رسانی به همسرم",
+                            backColor: "#ffffff00",
+                            textColor: "#000000",
+                            type: "switch",
+                            borderColor: "#000000",
+                            lock: false,
+                            isChecked:
+                              $state.userInfo?.[0]?.result?.hamyars[0].rel
+                                .statusSms
+                          };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return {
+                              text: "\u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u0628\u0647 \u0647\u0645\u0633\u0631\u0645",
+                              backColor: "#ffffff00",
+                              textColor: "#000000",
+                              type: "switch",
+                              borderColor: "#000000"
+                            };
+                          }
+                          throw e;
+                        }
+                      })()}
+                      btn2={(() => {
+                        try {
+                          return {
+                            text: "اطلاع رسانی به خودم",
+                            backColor: "#ffffff00",
+                            textColor: "#000000",
+                            type: "switch",
+                            lock: false,
+                            isChecked:
+                              $state.userInfo?.[0]?.result?.user
+                                .selfHamyarSms ||
+                              $state.userInfo?.[0]?.result?.user
+                                .selfHamyarSmsSubStatus,
+                            borderColor: "#000000"
+                          };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return {
+                              text: "\u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u0628\u0647 \u062e\u0648\u062f\u0645",
+                              backColor: "#ffffff00",
+                              textColor: "#000000",
+                              type: "switch",
+                              isChecked: false,
+                              borderColor: "#000000"
+                            };
+                          }
+                          throw e;
+                        }
+                      })()}
+                      className={classNames(
+                        "__wab_instance",
+                        sty.informationBox__h3UA3,
+                        {
+                          [sty.informationBoxdarkMod__h3UA3Ae2Vb]: hasVariant(
+                            $state,
+                            "darkMod",
+                            "darkMod"
+                          ),
+                          [sty.informationBoxglobal_newView_newView__h3UA30DHva]:
+                            hasVariant(globalVariants, "newView", "newView")
+                        }
+                      )}
+                      onClickBtn1={async event => {
+                        const $steps = {};
+
+                        $steps["invokeGlobalAction"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://n8n.staas.ir/webhook/tools/selfCare/linkV3",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        authorization: $state.token,
+                                        type: "care_partner"
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
+                        }
+
+                        $steps["goToPage"] = $steps.invokeGlobalAction?.data
+                          ?.result?.link
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  (() => {
+                                    try {
+                                      return $steps.invokeGlobalAction?.data
+                                        ?.result?.link;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  (() => {
+                                    try {
+                                      return $state.token;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  (() => {
+                                    try {
+                                      return $state.userId;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  (() => {
+                                    try {
+                                      return $ctx.query.inApp;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  (() => {
+                                    try {
+                                      return $ctx.query.theme;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  undefined,
+                                  undefined
+                                ]
+                              };
+                              return $globalActions["Fragment.deepLink"]?.apply(
+                                null,
+                                [...actionArgs.args]
+                              );
+                            })()
+                          : undefined;
+                        if (
+                          $steps["goToPage"] != null &&
+                          typeof $steps["goToPage"] === "object" &&
+                          typeof $steps["goToPage"].then === "function"
+                        ) {
+                          $steps["goToPage"] = await $steps["goToPage"];
+                        }
+                      }}
+                      onClickBtn2={async event => {
+                        const $steps = {};
+
+                        $steps["invokeGlobalAction"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://n8n.staas.ir/webhook/tools/selfCare/linkV3",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        authorization: $state.token,
+                                        type: "self_hamyar_sms"
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
+                        }
+
+                        $steps["goToPage"] = $steps.invokeGlobalAction?.data
+                          ?.result?.link
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  (() => {
+                                    try {
+                                      return $steps.invokeGlobalAction?.data
+                                        ?.result?.link;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  (() => {
+                                    try {
+                                      return $state.token;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  (() => {
+                                    try {
+                                      return $state.userId;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  (() => {
+                                    try {
+                                      return $state.paramsObject.inApp;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  (() => {
+                                    try {
+                                      return $state.paramsObject.theme;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return { status: "pregnancy" };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions["Fragment.deepLink"]?.apply(
+                                null,
+                                [...actionArgs.args]
+                              );
+                            })()
+                          : undefined;
+                        if (
+                          $steps["goToPage"] != null &&
+                          typeof $steps["goToPage"] === "object" &&
+                          typeof $steps["goToPage"].then === "function"
+                        ) {
+                          $steps["goToPage"] = await $steps["goToPage"];
+                        }
+                      }}
+                      onClickClose={async event => {
+                        const $steps = {};
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    window.localStorage.setItem(
+                                      "showSuggestActiveSms",
+                                      "false"
+                                    );
+                                    return ($state.suggestActiveSms = "false");
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      }}
+                      text={(() => {
+                        try {
+                          return $state.getTooltip.text;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                      title={(() => {
+                        try {
+                          return $state.getTooltip.title;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
                       userId={$state.userId}
                     />
                   ) : null}
