@@ -85,6 +85,7 @@ import Medisene from "../../Medisene"; // plasmic-import: S8dzLP5nduJ8/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
+import moment from "jalali-moment";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -1901,41 +1902,32 @@ function PlasmicStatusDay__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                let retryCount = 0;
-                const maxRetries = 20;
-                while (!window.jalaali && retryCount < maxRetries) {
-                  const start = Date.now();
-                  while (Date.now() - start < 200) {}
-                  retryCount++;
+                const options = [];
+                
+                // ایجاد تاریخ اول ماه
+                const year = $state.jalali.jy;
+                const month = $state.jalali.jm;
+      
+                const m = moment(`${year}/${month}/01`, "jYYYY/jM/jD").locale("fa");
+      
+                const daysOfWeek = ["ی", "د", "س", "چ", "پ", "ج", "ش"];
+                const daysInMonth = m.jDaysInMonth();
+      
+                for (let day = 1; day <= daysInMonth; day++) {
+                  const date = moment(`${year}/${month}/${day}`, "jYYYY/jM/jD").locale("fa");
+      
+                  // ایجاد تاریخ میلادی ISO بدون اختلاف ساعت
+                  const iso = date.clone().locale("en").format("YYYY-MM-DD");
+      
+                  const dayOfWeek = date.day(); // 0–6
+                  const label = `${daysOfWeek[dayOfWeek]} - ${day}`;
+      
+                  options.push({
+                    value: iso,
+                    label
+                  });
                 }
-                let options = [];
-                if (window.jalaali) {
-                  const daysOfWeek = ["ی", "د", "س", "چ", "پ", "ج", "ش"];
-
-                  const daysInMonth = window.jalaali.jalaaliMonthLength(
-                    $state.jalali.jy,
-                    $state.jalali.jm
-                  );
-                  for (let day = 1; day <= daysInMonth; day++) {
-                    const gregorian = window.jalaali.toGregorian(
-                      $state.jalali.jy,
-                      $state.jalali.jm,
-                      day
-                    );
-                    const date = new Date(
-                      gregorian.gy,
-                      gregorian.gm - 1,
-                      gregorian.gd
-                    );
-                    const timezoneOffset = date.getTimezoneOffset() * 60000;
-                    const localDate = new Date(date.getTime() - timezoneOffset);
-                    const dayOfWeek = date.getDay();
-                    options.push({
-                      value: localDate.toISOString().split("T")[0],
-                      label: `${daysOfWeek[dayOfWeek]} - ${day}`
-                    });
-                  }
-                }
+      
                 return options;
               })();
             } catch (e) {
