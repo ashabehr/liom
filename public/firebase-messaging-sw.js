@@ -15,6 +15,7 @@ firebase.initializeApp({
 firebase.messaging();
 
 self.addEventListener('notificationclick', function(event) {
+  console.log("🔔 notificationclick event:", event);
   event.notification.close();
   event.preventDefault();
 
