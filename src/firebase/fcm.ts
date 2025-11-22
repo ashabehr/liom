@@ -22,7 +22,7 @@ export async function initFcm() {
   }
 
   // Service Worker رو دقیقاً از روت ثبت کن
-  const swReg = await navigator.serviceWorker.register("/firebase-messaging-sw.js?v=4");
+  const swReg = await navigator.serviceWorker.register("/firebase-messaging-sw.js?v=5");
 
   const messaging = getMessaging(app);
 
