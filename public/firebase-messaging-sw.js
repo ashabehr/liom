@@ -20,7 +20,7 @@ self.addEventListener('notificationclick', function(event) {
   event.preventDefault();
 
   // دریافت داده حتی اگر FCM آن را داخل notification نگذاشته باشد
-  const data = event.notification.data || event.notification?.payload?.data || {};
+  const data = event.data || {};
   const action = data.action;
 
   let targetUrl = 'https://apps.liom.app/login';
@@ -41,7 +41,7 @@ self.addEventListener('notificationclick', function(event) {
       case 'post': targetUrl = `https://old.liom.app/social/?post=${actionParam}`; break;
     }
   }
-
+  console.log("targetUrl", targetUrl);
   event.waitUntil(clients.openWindow(targetUrl));
 });
 
