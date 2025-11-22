@@ -2038,15 +2038,20 @@ function PlasmicStatusDay__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                const today = new Date();
-                const currentYear = today.getFullYear();
-                const currentMonth = today.getMonth() + 1;
-                const currentDay = today.getDate();
-                return window.jalaali.toJalaali(
-                  currentYear,
-                  currentMonth,
-                  currentDay
-                );
+                  const today = new Date();
+                  const currentYear = today.getFullYear();
+                  const currentMonth = today.getMonth() + 1;
+                  const currentDay = today.getDate();
+                  
+                  // تبدیل با moment
+                  const j = moment(`${currentYear}-${currentMonth}-${currentDay}`, "YYYY-M-D")
+                    .locale("fa");
+                  
+                  return {
+                    jy: j.jYear(),
+                    jm: j.jMonth() + 1, // به دلیل صفرمحور بودن moment
+                    jd: j.jDate()
+                  };
               })();
             } catch (e) {
               if (
@@ -3071,12 +3076,16 @@ function PlasmicStatusDay__RenderFunc(props: {
                               const currentMonth = today.getMonth() + 1;
                               const currentDay = today.getDate();
                               const week = today.getDay();
-                              var j = window.jalaali.toJalaali(
-                                currentYear,
-                                currentMonth,
-                                currentDay
-                              );
-                              return `وضعیت ${daysOfWeekFull[week]} ${j.jd} ${$state.currentMonth[j.jm - 1]} ${j.jy}`;
+                              const date = moment(`${currentYear}-${currentMonth}-${currentDay}`, "YYYY-M-D")
+                                .locale("fa");
+                              
+                              // استخراج بخش‌های جلالی
+                              const jYear = date.jYear();
+                              const jMonth = date.jMonth() + 1; // از 0 شروع می‌شود
+                              const jDay = date.jDate();
+                              
+                              return `وضعیت ${daysOfWeekFull[week]} ${jDay} ${$state.currentMonth[jMonth - 1]} ${jYear}`;
+
                             }
                           })();
                         } catch (e) {
