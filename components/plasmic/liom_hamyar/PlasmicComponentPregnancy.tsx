@@ -11190,7 +11190,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                           return (localStorage.getItem("newView") || "false") ==
                             "true"
                             ? "#FDFEE3"
-                            : "";
+                            : $state.getTooltip.backgrond_color;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -11202,65 +11202,18 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                         }
                       })()}
                       btn1={(() => {
-                        try {
-                          return {
-                            text: "اطلاع رسانی به همسرم",
-                            backColor: "#ffffff00",
-                            textColor: "#000000",
-                            type: "switch",
-                            borderColor: "#000000",
-                            lock: false,
-                            isChecked:
-                              $state.userInfo?.[0]?.result?.hamyars[0].rel
-                                .statusSms
-                          };
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return {
-                              text: "\u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u0628\u0647 \u0647\u0645\u0633\u0631\u0645",
-                              backColor: "#ffffff00",
-                              textColor: "#000000",
-                              type: "switch",
-                              borderColor: "#000000"
-                            };
-                          }
-                          throw e;
-                        }
+                        var btn = JSON.parse($state.getTooltip.buttons)[0];
+                        btn.isChecked =
+                          $state.userInfo?.[0]?.result?.hamyars[0].rel.statusSms;
+                        return btn;
                       })()}
                       btn2={(() => {
-                        try {
-                          return {
-                            text: "اطلاع رسانی به خودم",
-                            backColor: "#ffffff00",
-                            textColor: "#000000",
-                            type: "switch",
-                            lock: false,
-                            isChecked:
-                              $state.userInfo?.[0]?.result?.user
-                                .selfHamyarSms ||
-                              $state.userInfo?.[0]?.result?.user
-                                .selfHamyarSmsSubStatus,
-                            borderColor: "#000000"
-                          };
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return {
-                              text: "\u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u0628\u0647 \u062e\u0648\u062f\u0645",
-                              backColor: "#ffffff00",
-                              textColor: "#000000",
-                              type: "switch",
-                              isChecked: false,
-                              borderColor: "#000000"
-                            };
-                          }
-                          throw e;
-                        }
+                        var btn = JSON.parse($state.getTooltip.buttons)[1];
+                        btn.isChecked =
+                          $state.userInfo?.[0]?.result?.user.selfHamyarSms ||
+                          $state.userInfo?.[0]?.result?.user
+                            .selfHamyarSmsSubStatus;
+                        return btn;
                       })()}
                       className={classNames(
                         "__wab_instance",
