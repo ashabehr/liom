@@ -15,51 +15,32 @@ firebase.initializeApp({
 firebase.messaging();
 
 self.addEventListener('notificationclick', function(event) {
-  event.notification.close(); // بستن نوتیف
+  event.notification.close();
   event.preventDefault();
 
-  const action = event.notification.data?.action;
-  let targetUrl = 'https://apps.liom.app/login'; // پیش فرض
+  // دریافت داده حتی اگر FCM آن را داخل notification نگذاشته باشد
+  const data = event.notification.data || event.notification?.payload?.data || {};
+  const action = data.action;
+
+  let targetUrl = 'https://apps.liom.app/login';
 
   if (action) {
     const pureAction = action.replace('#', '').split('-')[0];
     const actionParam = action.split('-')[1];
 
     switch (pureAction) {
-      case 'healthSubscription':
-        targetUrl = 'https://apps.liom.app/shop';
-        break;
+      case 'healthSubscription': targetUrl = 'https://apps.liom.app/shop'; break;
       case 'calendar':
-        targetUrl = 'https://apps.liom.app/main';
-        break;
       case 'main':
-        targetUrl = 'https://apps.liom.app/main';
-        break;
-      case 'hamyar':
-        targetUrl = 'https://apps.liom.app/hamyar-add';
-        break;
-      case 'maincalendar':
-        targetUrl = 'https://apps.liom.app/main';
-        break;
-      case 'specialOffer':
-        targetUrl = 'https://apps.liom.app/offers/special';
-        break;
-      case 'orderStatus':
-        targetUrl = `https://apps.liom.app/orders/status/${actionParam}`;
-        break;
-      case 'newFeature':
-        targetUrl = 'https://apps.liom.app/features/new';
-        break;
-      case 'post':
-        targetUrl = `https://old.liom.app/social/?post=${actionParam}`;
-        break;
-      default:
-        targetUrl = 'https://apps.liom.app/login';
-        break;
+      case 'maincalendar': targetUrl = 'https://apps.liom.app/main'; break;
+      case 'hamyar': targetUrl = 'https://apps.liom.app/hamyar-add'; break;
+      case 'specialOffer': targetUrl = 'https://apps.liom.app/offers/special'; break;
+      case 'orderStatus': targetUrl = `https://apps.liom.app/orders/status/${actionParam}`; break;
+      case 'newFeature': targetUrl = 'https://apps.liom.app/features/new'; break;
+      case 'post': targetUrl = `https://old.liom.app/social/?post=${actionParam}`; break;
     }
   }
 
-  event.waitUntil(
-    clients.openWindow(targetUrl)
-  );
+  event.waitUntil(clients.openWindow(targetUrl));
 });
+
