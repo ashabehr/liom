@@ -153,14 +153,7 @@ function PlasmicInformationBox__RenderFunc(props: {
             isChecked: true,
             borderColor: "#000000"
           },
-          btn2: {
-            text: "aaa",
-            backColor: "#ffffff",
-            textColor: "#000000",
-            type: "switch",
-            isChecked: false,
-            borderColor: "#000000"
-          }
+          btn2: {}
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -516,13 +509,13 @@ function PlasmicInformationBox__RenderFunc(props: {
           ) : null}
           {(() => {
             try {
-              return $props.btn2?.text != "";
+              return $props.btn2?.text != undefined && $props.btn2?.text != "";
             } catch (e) {
               if (
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return true;
+                return false;
               }
               throw e;
             }

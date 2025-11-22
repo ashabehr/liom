@@ -1313,6 +1313,29 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "showTooltip",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                return (
+                  window.localStorage.getItem("tooltip") || $state.weeksPregnant
+                );
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -11175,7 +11198,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                         $state.userId ==
                           "4ddd1fab-100c-49f0-b843-e70bff8add34" &&
                         $state.getTooltip &&
-                        Object.keys($state.getTooltip).length > 0
+                        Object.keys($state.getTooltip).length > 0 &&
+                        $state.showTooltip != $state.weeksPregnant
                       );
                     } catch (e) {
                       if (
@@ -11211,12 +11235,18 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                         return btn;
                       })()}
                       btn2={(() => {
-                        var btn = JSON.parse($state.getTooltip.buttons)[1];
-                        btn.isChecked =
-                          $state.userInfo?.[0]?.result?.user.selfHamyarSms ||
-                          $state.userInfo?.[0]?.result?.user
-                            .selfHamyarSmsSubStatus;
-                        return btn;
+                        if (
+                          JSON.parse($state.getTooltip.buttons)[1] != undefined
+                        ) {
+                          var btn = JSON.parse($state.getTooltip.buttons)[1];
+                          btn.isChecked =
+                            $state.userInfo?.[0]?.result?.user.selfHamyarSms ||
+                            $state.userInfo?.[0]?.result?.user
+                              .selfHamyarSmsSubStatus;
+                          return btn;
+                        } else {
+                          return "{}";
+                        }
                       })()}
                       className={classNames(
                         "__wab_instance",
@@ -11529,10 +11559,11 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                 customFunction: async () => {
                                   return (() => {
                                     window.localStorage.setItem(
-                                      "showSuggestActiveSms",
-                                      "false"
+                                      "tooltip",
+                                      $state.weeksPregnant + ""
                                     );
-                                    return ($state.suggestActiveSms = "false");
+                                    return ($state.showTooltip =
+                                      $state.weeksPregnant + "");
                                   })();
                                 }
                               };
