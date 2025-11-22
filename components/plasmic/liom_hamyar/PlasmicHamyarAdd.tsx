@@ -1977,13 +1977,29 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                               undefined,
                               (() => {
                                 try {
-                                  return {
-                                    authorization: $state.token,
-                                    mobile: $state.number,
-                                    name: $state.name,
-                                    type: $state.type,
-                                    relation: $state.relation
-                                  };
+                                  return (() => {
+                                    function faToEn(str) {
+                                      return str
+                                        .replace(
+                                          /[۰-۹]/g,
+                                          d =>
+                                            "0123456789"[d.charCodeAt(0) - 1776]
+                                        )
+                                        .replace(
+                                          /[٠-٩]/g,
+                                          d =>
+                                            "0123456789"[d.charCodeAt(0) - 1632]
+                                        );
+                                    }
+                                    $state.number = faToEn($state.number);
+                                    return {
+                                      authorization: $state.token,
+                                      mobile: $state.number,
+                                      name: $state.name,
+                                      type: $state.type,
+                                      relation: $state.relation
+                                    };
+                                  })();
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
