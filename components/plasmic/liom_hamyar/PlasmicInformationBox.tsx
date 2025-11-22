@@ -87,6 +87,7 @@ export type PlasmicInformationBox__ArgsType = {
   onClickBtn2?: (event: any) => void;
   onClickClose?: (event: any) => void;
   backColor?: string;
+  textColor?: string;
 };
 type ArgPropType = keyof PlasmicInformationBox__ArgsType;
 export const PlasmicInformationBox__ArgProps = new Array<ArgPropType>(
@@ -98,7 +99,8 @@ export const PlasmicInformationBox__ArgProps = new Array<ArgPropType>(
   "onClickBtn1",
   "onClickBtn2",
   "onClickClose",
-  "backColor"
+  "backColor",
+  "textColor"
 );
 
 export type PlasmicInformationBox__OverridesType = {
@@ -118,6 +120,7 @@ export interface DefaultInformationBoxProps {
   onClickBtn2?: (event: any) => void;
   onClickClose?: (event: any) => void;
   backColor?: string;
+  textColor?: string;
   className?: string;
 }
 
@@ -149,7 +152,7 @@ function PlasmicInformationBox__RenderFunc(props: {
             text: "aaa",
             backColor: "#ffffff",
             textColor: "#000000",
-            type: "switch",
+            type: "normal",
             isChecked: true,
             borderColor: "#000000"
           },
@@ -292,6 +295,21 @@ function PlasmicInformationBox__RenderFunc(props: {
               projectcss.__wab_text,
               sty.text__yfIw
             )}
+            style={(() => {
+              try {
+                return {
+                  color: $props.textColor == "" ? "#535353" : $props.textColor
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
           >
             <React.Fragment>
               {(() => {
@@ -322,6 +340,21 @@ function PlasmicInformationBox__RenderFunc(props: {
             projectcss.__wab_text,
             sty.text__qoH7V
           )}
+          style={(() => {
+            try {
+              return {
+                color: $props.textColor == "" ? "#535353" : $props.textColor
+              };
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
         >
           <div
             className={projectcss.__wab_expr_html_text}

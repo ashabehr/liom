@@ -1322,9 +1322,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                return (
-                  window.localStorage.getItem("tooltip") || $state.weeksPregnant
-                );
+                return window.localStorage.getItem("tooltip") || 0;
               })();
             } catch (e) {
               if (
@@ -11595,6 +11593,19 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                       text={(() => {
                         try {
                           return $state.getTooltip.text;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                      textColor={(() => {
+                        try {
+                          return $state.getTooltip.text_color;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
