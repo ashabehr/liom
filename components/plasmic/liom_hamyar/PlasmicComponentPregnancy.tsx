@@ -1269,7 +1269,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant(globalVariants, "screen", "mobile") ? true : false
+          hasVariant(globalVariants, "screen", "mobile") ? false : false
       },
       {
         path: "button4.color",

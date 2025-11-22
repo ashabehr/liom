@@ -507,7 +507,7 @@ function PlasmicCustomShop__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.getData.data.result.list[0].partitions;
+              return $state.getData.data?.result?.list[0]?.partitions;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -526,10 +526,12 @@ function PlasmicCustomShop__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.getData.data.result.list.map(i => ({
-                label: i.sectionName,
-                value: i.partitions
-              }));
+              return (
+                $state.getData.data?.result?.list?.map(i => ({
+                  label: i.sectionName,
+                  value: i.partitions
+                })) || []
+              );
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1928,10 +1930,12 @@ function PlasmicCustomShop__RenderFunc(props: {
                                           const actionArgs = {
                                             customFunction: async () => {
                                               return (() => {
-                                                return window.scrollTo({
-                                                  top: 0,
-                                                  behavior: "smooth"
-                                                });
+                                                return window.document
+                                                  .getElementById("sectionID")
+                                                  .scrollIntoView({
+                                                    behavior: "smooth",
+                                                    block: "start"
+                                                  });
                                               })();
                                             }
                                           };
