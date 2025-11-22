@@ -3310,6 +3310,45 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                           )}
                           onClick={async event => {
                             const $steps = {};
+
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        console.log($state.userId);
+                                        console.log(
+                                          $state.userId ==
+                                            "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                                        );
+                                        console.log($state.getTooltip);
+                                        console.log(
+                                          Object.keys($state.getTooltip)
+                                            .length > 0
+                                        );
+                                        console.log(
+                                          $state.showTooltip !=
+                                            $state.weeksPregnant
+                                        );
+                                        console.log($state.showTooltip);
+                                        return console.log(
+                                          $state.weeksPregnant
+                                        );
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
                           }}
                         >
                           <div
