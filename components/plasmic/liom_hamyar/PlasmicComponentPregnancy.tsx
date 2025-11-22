@@ -11172,7 +11172,10 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                   {(() => {
                     try {
                       return (
-                        $state.userId == "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                        $state.userId ==
+                          "4ddd1fab-100c-49f0-b843-e70bff8add34" &&
+                        $state.getTooltip &&
+                        Object.keys($state.getTooltip).length > 0
                       );
                     } catch (e) {
                       if (
