@@ -44,3 +44,6 @@
   bottom: auto;
   display: none;
 }
+.lineClomp:global(.__wab_instance) {
+  max-width: 100%;
+}

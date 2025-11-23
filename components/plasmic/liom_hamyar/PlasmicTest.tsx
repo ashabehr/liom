@@ -63,6 +63,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -88,6 +89,7 @@ export const PlasmicTest__ArgProps = new Array<ArgPropType>();
 export type PlasmicTest__OverridesType = {
   root?: Flex__<"div">;
   button?: Flex__<typeof Button>;
+  lineClomp?: Flex__<typeof LineClomp>;
 };
 
 export interface DefaultTestProps {}
@@ -162,6 +164,12 @@ function PlasmicTest__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "lineClomp.line",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -357,6 +365,26 @@ function PlasmicTest__RenderFunc(props: {
               }
             }}
           />
+
+          <LineClomp
+            data-plasmic-name={"lineClomp"}
+            data-plasmic-override={overrides.lineClomp}
+            className={classNames("__wab_instance", sty.lineClomp)}
+            onLineChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["lineClomp", "line"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -364,8 +392,9 @@ function PlasmicTest__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "button"],
-  button: ["button"]
+  root: ["root", "button", "lineClomp"],
+  button: ["button"],
+  lineClomp: ["lineClomp"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -373,6 +402,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   button: typeof Button;
+  lineClomp: typeof LineClomp;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -463,6 +493,7 @@ export const PlasmicTest = Object.assign(
   {
     // Helper components rendering sub-elements
     button: makeNodeComponent("button"),
+    lineClomp: makeNodeComponent("lineClomp"),
 
     // Metadata about props expected for PlasmicTest
     internalVariantProps: PlasmicTest__VariantProps,
