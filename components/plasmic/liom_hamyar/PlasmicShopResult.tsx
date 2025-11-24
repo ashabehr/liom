@@ -4100,7 +4100,18 @@ function PlasmicShopResult__RenderFunc(props: {
           />
 
           <Icon115Icon
-            className={classNames(projectcss.all, sty.svg__acKmp)}
+            className={classNames(projectcss.all, sty.svg__acKmp, {
+              [sty.svgfailed__acKmp1GaC]: hasVariant(
+                $state,
+                "failed",
+                "failed"
+              ),
+              [sty.svgsuccessful__acKmpO3MxK]: hasVariant(
+                $state,
+                "successful",
+                "successful"
+              )
+            })}
             role={"img"}
           />
 

@@ -90,6 +90,7 @@ export type PlasmicTest__OverridesType = {
   root?: Flex__<"div">;
   button?: Flex__<typeof Button>;
   lineClomp?: Flex__<typeof LineClomp>;
+  text?: Flex__<"div">;
 };
 
 export interface DefaultTestProps {}
@@ -385,6 +386,18 @@ function PlasmicTest__RenderFunc(props: {
               }
             }}
           />
+
+          <div
+            data-plasmic-name={"text"}
+            data-plasmic-override={overrides.text}
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text
+            )}
+          >
+            {"Enter some text"}
+          </div>
         </div>
       </div>
     </React.Fragment>
@@ -392,9 +405,10 @@ function PlasmicTest__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "button", "lineClomp"],
+  root: ["root", "button", "lineClomp", "text"],
   button: ["button"],
-  lineClomp: ["lineClomp"]
+  lineClomp: ["lineClomp"],
+  text: ["text"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -403,6 +417,7 @@ type NodeDefaultElementType = {
   root: "div";
   button: typeof Button;
   lineClomp: typeof LineClomp;
+  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -494,6 +509,7 @@ export const PlasmicTest = Object.assign(
     // Helper components rendering sub-elements
     button: makeNodeComponent("button"),
     lineClomp: makeNodeComponent("lineClomp"),
+    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicTest
     internalVariantProps: PlasmicTest__VariantProps,

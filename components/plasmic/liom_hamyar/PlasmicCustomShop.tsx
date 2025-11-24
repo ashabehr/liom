@@ -805,65 +805,96 @@ function PlasmicCustomShop__RenderFunc(props: {
           }
         }}
       >
-        <section
-          className={classNames(projectcss.all, sty.section__rkdPv, {
-            [sty.sectionsubitem__rkdPVxaiuG]: hasVariant(
-              $state,
-              "subitem",
-              "subitem"
-            )
-          })}
-        >
-          <HeaderLiom
-            data-plasmic-name={"headerLiom"}
-            data-plasmic-override={overrides.headerLiom}
-            className={classNames("__wab_instance", sty.headerLiom)}
-          >
-            <div className={classNames(projectcss.all, sty.freeBox__xeihy)}>
-              <XIcon
-                className={classNames(projectcss.all, sty.svg__ngYMs)}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              return window.history.back();
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
+        {(
+          hasVariant($state, "subitem", "subitem")
+            ? true
+            : (() => {
+                try {
+                  return (() => {
+                    const urlParams = new window.URLSearchParams(
+                      window.location.search
+                    );
+                    const inAppFromUrl = urlParams.get("inApp");
+                    let result = false;
+                    if (inAppFromUrl !== null) {
+                      result = inAppFromUrl !== "true";
+                    } else {
+                      result = localStorage.getItem("inApp") !== "true";
+                    }
+                    console.log("inApp" + result);
+                    return result;
+                  })();
+                } catch (e) {
                   if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    $steps["runCode"] = await $steps["runCode"];
+                    return false;
                   }
-                }}
-                role={"img"}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__oVaVj
-                )}
-              >
-                {
-                  "\u0633\u0641\u0627\u0631\u0634\u06cc \u0633\u0627\u0632\u06cc \u0633\u0628\u062f \u062e\u0631\u06cc\u062f"
+                  throw e;
                 }
+              })()
+        ) ? (
+          <section
+            className={classNames(projectcss.all, sty.section__rkdPv, {
+              [sty.sectionsubitem__rkdPVxaiuG]: hasVariant(
+                $state,
+                "subitem",
+                "subitem"
+              )
+            })}
+          >
+            <HeaderLiom
+              data-plasmic-name={"headerLiom"}
+              data-plasmic-override={overrides.headerLiom}
+              className={classNames("__wab_instance", sty.headerLiom)}
+            >
+              <div className={classNames(projectcss.all, sty.freeBox__xeihy)}>
+                <XIcon
+                  className={classNames(projectcss.all, sty.svg__ngYMs)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                return window.history.back();
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__oVaVj
+                  )}
+                >
+                  {
+                    "\u0633\u0641\u0627\u0631\u0634\u06cc \u0633\u0627\u0632\u06cc \u0633\u0628\u062f \u062e\u0631\u06cc\u062f"
+                  }
+                </div>
               </div>
-            </div>
-          </HeaderLiom>
-        </section>
+            </HeaderLiom>
+          </section>
+        ) : null}
         {(
           hasVariant($state, "subitem", "subitem")
             ? true
@@ -3207,6 +3238,31 @@ function PlasmicCustomShop__RenderFunc(props: {
                     "subitem"
                   )
                 })}
+                style={(() => {
+                  try {
+                    return (() => {
+                      const urlParams = new window.URLSearchParams(
+                        window.location.search
+                      );
+                      const inAppFromUrl = urlParams.get("inApp");
+                      const inApp =
+                        inAppFromUrl !== null
+                          ? inAppFromUrl === "true"
+                          : localStorage.getItem("inApp") === "true";
+                      if (inApp) {
+                        return { "padding-top": "0" };
+                      }
+                    })();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
               >
                 <div
                   className={classNames(projectcss.all, sty.freeBox__uj4W7, {

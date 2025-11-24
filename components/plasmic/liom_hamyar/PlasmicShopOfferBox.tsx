@@ -229,7 +229,22 @@ function PlasmicShopOfferBox__RenderFunc(props: {
         path: "selectedShop",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.shapData.result.shopList.findIndex(
+                item => item.selected === 1
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "shopListText",
@@ -291,6 +306,33 @@ function PlasmicShopOfferBox__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "loadingshop",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buyId",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.shapData.result.shopList.find(
+                item => item.selected === 1
+              ).id;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -868,6 +910,44 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                     projectcss.__wab_text,
                     sty.text__nemmg
                   )}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateDiscountBox"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["discountBox"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDiscountBox"] != null &&
+                      typeof $steps["updateDiscountBox"] === "object" &&
+                      typeof $steps["updateDiscountBox"].then === "function"
+                    ) {
+                      $steps["updateDiscountBox"] =
+                        await $steps["updateDiscountBox"];
+                    }
+                  }}
                 >
                   {
                     "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f"
@@ -1168,6 +1248,152 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                 }
                 load={generateStateValueProp($state, ["button2", "load"])}
                 loading={generateStateValueProp($state, ["button2", "loading"])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateLoadingshop"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["loadingshop"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateLoadingshop"] != null &&
+                    typeof $steps["updateLoadingshop"] === "object" &&
+                    typeof $steps["updateLoadingshop"].then === "function"
+                  ) {
+                    $steps["updateLoadingshop"] =
+                      await $steps["updateLoadingshop"];
+                  }
+
+                  $steps["updateSelectedShop"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["selectedShop"]
+                          },
+                          operation: 0,
+                          value: $state.shapData.result.shopList.findIndex(
+                            item => item.selected === 1
+                          )
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateSelectedShop"] != null &&
+                    typeof $steps["updateSelectedShop"] === "object" &&
+                    typeof $steps["updateSelectedShop"].then === "function"
+                  ) {
+                    $steps["updateSelectedShop"] =
+                      await $steps["updateSelectedShop"];
+                  }
+
+                  $steps["updateBuyId"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["buyId"]
+                          },
+                          operation: 0,
+                          value: $state.shapData.result.shopList.find(
+                            item => item.selected === 1
+                          ).id
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateBuyId"] != null &&
+                    typeof $steps["updateBuyId"] === "object" &&
+                    typeof $steps["updateBuyId"].then === "function"
+                  ) {
+                    $steps["updateBuyId"] = await $steps["updateBuyId"];
+                  }
+
+                  $steps["updateLoadingshop2"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["loadingshop"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateLoadingshop2"] != null &&
+                    typeof $steps["updateLoadingshop2"] === "object" &&
+                    typeof $steps["updateLoadingshop2"].then === "function"
+                  ) {
+                    $steps["updateLoadingshop2"] =
+                      await $steps["updateLoadingshop2"];
+                  }
+                }}
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
                     generateStateOnChangeProp($state, ["button2", "color"])(

@@ -11285,7 +11285,10 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                     try {
                                       return {
                                         authorization: $state.token,
-                                        type: "care_partner"
+                                        type:
+                                          JSON.parse(
+                                            $state.getTooltip.buttons
+                                          )?.[0]?.linkType || "pregnancy_sub"
                                       };
                                     } catch (e) {
                                       if (
@@ -11423,7 +11426,10 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                     try {
                                       return {
                                         authorization: $state.token,
-                                        type: "self_hamyar_sms"
+                                        type:
+                                          JSON.parse(
+                                            $state.getTooltip.buttons
+                                          )?.[1]?.linkType || "pregnancy_sub"
                                       };
                                     } catch (e) {
                                       if (
