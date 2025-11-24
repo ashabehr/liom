@@ -109,6 +109,8 @@ export type PlasmicShoppingCart__ArgsType = {
   buyInfo?: any;
   onClick?: (event: any) => void;
   back?: () => void;
+  inApp?: string;
+  order?: string;
 };
 type ArgPropType = keyof PlasmicShoppingCart__ArgsType;
 export const PlasmicShoppingCart__ArgProps = new Array<ArgPropType>(
@@ -124,7 +126,9 @@ export const PlasmicShoppingCart__ArgProps = new Array<ArgPropType>(
   "ids",
   "buyInfo",
   "onClick",
-  "back"
+  "back",
+  "inApp",
+  "order"
 );
 
 export type PlasmicShoppingCart__OverridesType = {
@@ -158,6 +162,8 @@ export interface DefaultShoppingCartProps {
   buyInfo?: any;
   onClick?: (event: any) => void;
   back?: () => void;
+  inApp?: string;
+  order?: string;
   className?: string;
 }
 
@@ -185,7 +191,10 @@ function PlasmicShoppingCart__RenderFunc(props: {
   const args = React.useMemo(
     () =>
       Object.assign(
-        {},
+        {
+          inApp: "true",
+          order: "all"
+        },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
         )
@@ -360,7 +369,7 @@ function PlasmicShoppingCart__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return `https://apps.liom.app/main/?token=${$state.token}`;
+              return `https://apps.liom.app/custom-shop/?token=${$state.token}&order=${$props.order}&inApp=${$props.inApp}`;
             } catch (e) {
               if (
                 e instanceof TypeError ||

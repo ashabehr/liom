@@ -4062,6 +4062,19 @@ function PlasmicCustomShop__RenderFunc(props: {
               throw e;
             }
           })()}
+          inApp={(() => {
+            try {
+              return $state.paramsObject.inApp;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
           itemSelect={generateStateValueProp($state, [
             "shoppingCart",
             "itemSelect"
@@ -4224,6 +4237,19 @@ function PlasmicCustomShop__RenderFunc(props: {
               return;
             }
           }}
+          order={(() => {
+            try {
+              return $state.paramsObject.order;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
           token={generateStateValueProp($state, ["shoppingCart", "token"])}
         />
 
