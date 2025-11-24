@@ -821,7 +821,6 @@ function PlasmicCustomShop__RenderFunc(props: {
                     } else {
                       result = localStorage.getItem("inApp") !== "true";
                     }
-                    console.log("inApp" + result);
                     return result;
                   })();
                 } catch (e) {

@@ -600,49 +600,77 @@ function PlasmicShoppingCart__RenderFunc(props: {
         const $steps = {};
       }}
     >
-      <section className={classNames(projectcss.all, sty.section__lsRaj)}>
-        <HeaderLiom
-          data-plasmic-name={"headerLiom"}
-          data-plasmic-override={overrides.headerLiom}
-          className={classNames("__wab_instance", sty.headerLiom)}
-        >
-          <div className={classNames(projectcss.all, sty.freeBox__wOwW)}>
-            <XIcon
-              className={classNames(projectcss.all, sty.svg__sPaHh)}
-              onClick={async event => {
-                const $steps = {};
+      {(() => {
+        try {
+          return (() => {
+            const urlParams = new window.URLSearchParams(
+              window.location.search
+            );
+            const inAppFromUrl = urlParams.get("inApp");
+            let result = false;
+            if (inAppFromUrl !== null) {
+              result = inAppFromUrl !== "true";
+            } else {
+              result = localStorage.getItem("inApp") !== "true";
+            }
+            return result;
+          })();
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return false;
+          }
+          throw e;
+        }
+      })() ? (
+        <section className={classNames(projectcss.all, sty.section__lsRaj)}>
+          <HeaderLiom
+            data-plasmic-name={"headerLiom"}
+            data-plasmic-override={overrides.headerLiom}
+            className={classNames("__wab_instance", sty.headerLiom)}
+          >
+            <div className={classNames(projectcss.all, sty.freeBox__wOwW)}>
+              <XIcon
+                className={classNames(projectcss.all, sty.svg__sPaHh)}
+                onClick={async event => {
+                  const $steps = {};
 
-                $steps["runBack"] = true
-                  ? (() => {
-                      const actionArgs = { eventRef: $props["back"] };
-                      return (({ eventRef, args }) => {
-                        return eventRef?.(...(args ?? []));
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["runBack"] != null &&
-                  typeof $steps["runBack"] === "object" &&
-                  typeof $steps["runBack"].then === "function"
-                ) {
-                  $steps["runBack"] = await $steps["runBack"];
+                  $steps["runBack"] = true
+                    ? (() => {
+                        const actionArgs = { eventRef: $props["back"] };
+                        return (({ eventRef, args }) => {
+                          return eventRef?.(...(args ?? []));
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runBack"] != null &&
+                    typeof $steps["runBack"] === "object" &&
+                    typeof $steps["runBack"].then === "function"
+                  ) {
+                    $steps["runBack"] = await $steps["runBack"];
+                  }
+                }}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__tlICk
+                )}
+              >
+                {
+                  "\u0633\u0628\u062f \u062e\u0631\u06cc\u062f \u0634\u0645\u0627"
                 }
-              }}
-              role={"img"}
-            />
-
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__tlICk
-              )}
-            >
-              {"\u0633\u0628\u062f \u062e\u0631\u06cc\u062f \u0634\u0645\u0627"}
+              </div>
             </div>
-          </div>
-        </HeaderLiom>
-      </section>
+          </HeaderLiom>
+        </section>
+      ) : null}
       {(() => {
         try {
           return $state.shopPage;
