@@ -550,7 +550,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
               }
               return 10;
             }
-            let daysPregnant = $state.daysPregnant;
+            let daysPregnant = 280 - $state.daysPregnant;
             let month = getPregnancyMonth(daysPregnant);
             return month;
           })()

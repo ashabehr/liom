@@ -63,11 +63,11 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import MainPage from "../../MainPage"; // plasmic-import: mwylH28Efyne/component
+import FooterMain from "../../FooterMain"; // plasmic-import: ev8_tr4YKTDz/component
 import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import CreaditButten from "../../CreaditButten"; // plasmic-import: 1skTNuQS9BUR/component
-import FooterMain from "../../FooterMain"; // plasmic-import: ev8_tr4YKTDz/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import SettingCycle4 from "../../SettingCycle4"; // plasmic-import: C5hqeG28n8GP/component
 import SubItemsComponnet from "../../SubItemsComponnet"; // plasmic-import: b9qrgB2b1TrW/component
@@ -88,6 +88,7 @@ import sty from "./PlasmicMain.module.css"; // plasmic-import: j_hR0f0gqi6e/css
 
 import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: 3QmHdQOUm1zK/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon270Icon from "./icons/PlasmicIcon__Icon270"; // plasmic-import: Y171g_Z8ZZ84/icon
 import Icon312Icon from "./icons/PlasmicIcon__Icon312"; // plasmic-import: aEjpSnTnJP7A/icon
 
 createPlasmicElementProxy;
@@ -123,14 +124,12 @@ export type PlasmicMain__OverridesType = {
   root?: Flex__<"div">;
   main?: Flex__<"div">;
   mainPage?: Flex__<typeof MainPage>;
+  footerMain?: Flex__<typeof FooterMain>;
   mainHeader?: Flex__<typeof MainHeader>;
-  freeBox?: Flex__<"div">;
-  svg?: Flex__<"svg">;
   button?: Flex__<typeof Button>;
   text?: Flex__<"div">;
   lottie?: Flex__<typeof LottieWrapper>;
   creaditButten?: Flex__<typeof CreaditButten>;
-  footerMain?: Flex__<typeof FooterMain>;
   settingCycle4?: Flex__<typeof SettingCycle4>;
   subItemsComponnet?: Flex__<typeof SubItemsComponnet>;
   editProfile2?: Flex__<typeof EditProfile2>;
@@ -1472,6 +1471,75 @@ function PlasmicMain__RenderFunc(props: {
               ])}
             />
 
+            <section className={classNames(projectcss.all, sty.section__vtIx7)}>
+              {(() => {
+                const child$Props = {
+                  className: classNames("__wab_instance", sty.footerMain),
+                  footer2: (() => {
+                    try {
+                      return $state.footerMain.type;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "calendar";
+                      }
+                      throw e;
+                    }
+                  })(),
+                  onTypeChange: async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "footerMain",
+                      "type"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  },
+                  type: generateStateValueProp($state, ["footerMain", "type"])
+                };
+
+                initializePlasmicStates(
+                  $state,
+                  [
+                    {
+                      name: "footerMain.type",
+                      initFunc: ({ $props, $state, $queries }) =>
+                        (() => {
+                          try {
+                            return (
+                              window.sessionStorage.getItem("footer") ||
+                              "calendar"
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                    }
+                  ],
+                  []
+                );
+                return (
+                  <FooterMain
+                    data-plasmic-name={"footerMain"}
+                    data-plasmic-override={overrides.footerMain}
+                    {...child$Props}
+                  />
+                );
+              })()}
+            </section>
             <section className={classNames(projectcss.all, sty.section__n8IXm)}>
               <MainHeader
                 data-plasmic-name={"mainHeader"}
@@ -2393,10 +2461,7 @@ function PlasmicMain__RenderFunc(props: {
                     ) : null}
                     {(() => {
                       try {
-                        return (
-                          // $state.footerMain.type=="reminder"
-                          false
-                        );
+                        return $state.footerMain.type == "reminder";
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -2407,62 +2472,122 @@ function PlasmicMain__RenderFunc(props: {
                         throw e;
                       }
                     })() ? (
-                      <CreaditButten
-                        data-plasmic-name={"creaditButten"}
-                        data-plasmic-override={overrides.creaditButten}
+                      <div
                         className={classNames(
-                          "__wab_instance",
-                          sty.creaditButten
+                          projectcss.all,
+                          sty.freeBox__obTtx
                         )}
-                        creadit={generateStateValueProp($state, [
-                          "creaditButten",
-                          "creadit"
-                        ])}
-                        onClick={async event => {
-                          const $steps = {};
+                      >
+                        <Icon270Icon
+                          className={classNames(projectcss.all, sty.svg__dqBKl)}
+                          onClick={async event => {
+                            const $steps = {};
 
-                          $steps["goToMojodi"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  destination: `/mojod/${"home"}`
-                                };
-                                return (({ destination }) => {
-                                  if (
-                                    typeof destination === "string" &&
-                                    destination.startsWith("#")
-                                  ) {
-                                    document
-                                      .getElementById(destination.substr(1))
-                                      .scrollIntoView({ behavior: "smooth" });
-                                  } else {
-                                    __nextRouter?.push(destination);
-                                  }
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["goToMojodi"] != null &&
-                            typeof $steps["goToMojodi"] === "object" &&
-                            typeof $steps["goToMojodi"].then === "function"
-                          ) {
-                            $steps["goToMojodi"] = await $steps["goToMojodi"];
-                          }
-                        }}
-                        onCreaditChange2={async (...eventArgs: any) => {
-                          generateStateOnChangeProp($state, [
-                            "creaditButten",
-                            "creadit"
-                          ]).apply(null, eventArgs);
+                            $steps["updateReminderSetting2"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    vgroup: "reminderSetting2",
+                                    operation: 2
+                                  };
+                                  return (({ vgroup, value }) => {
+                                    if (typeof value === "string") {
+                                      value = [value];
+                                    }
 
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
+                                    const oldValue = $stateGet($state, vgroup);
+                                    $stateSet($state, vgroup, !oldValue);
+                                    return !oldValue;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateReminderSetting2"] != null &&
+                              typeof $steps["updateReminderSetting2"] ===
+                                "object" &&
+                              typeof $steps["updateReminderSetting2"].then ===
+                                "function"
+                            ) {
+                              $steps["updateReminderSetting2"] =
+                                await $steps["updateReminderSetting2"];
+                            }
+                          }}
+                          role={"img"}
+                        />
+
+                        {(() => {
+                          try {
+                            return $state.footerMain.type == "reminder";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
                           }
-                        }}
-                      />
+                        })() ? (
+                          <CreaditButten
+                            data-plasmic-name={"creaditButten"}
+                            data-plasmic-override={overrides.creaditButten}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.creaditButten
+                            )}
+                            creadit={generateStateValueProp($state, [
+                              "creaditButten",
+                              "creadit"
+                            ])}
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["goToMojodi"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      destination: `/mojod/${"home"}`
+                                    };
+                                    return (({ destination }) => {
+                                      if (
+                                        typeof destination === "string" &&
+                                        destination.startsWith("#")
+                                      ) {
+                                        document
+                                          .getElementById(destination.substr(1))
+                                          .scrollIntoView({
+                                            behavior: "smooth"
+                                          });
+                                      } else {
+                                        __nextRouter?.push(destination);
+                                      }
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["goToMojodi"] != null &&
+                                typeof $steps["goToMojodi"] === "object" &&
+                                typeof $steps["goToMojodi"].then === "function"
+                              ) {
+                                $steps["goToMojodi"] =
+                                  await $steps["goToMojodi"];
+                              }
+                            }}
+                            onCreaditChange2={async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "creaditButten",
+                                "creadit"
+                              ]).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                          />
+                        ) : null}
+                      </div>
                     ) : null}
                   </React.Fragment>
                 }
@@ -2495,14 +2620,10 @@ function PlasmicMain__RenderFunc(props: {
                 })()}
               >
                 <div
-                  data-plasmic-name={"freeBox"}
-                  data-plasmic-override={overrides.freeBox}
-                  className={classNames(projectcss.all, sty.freeBox)}
+                  className={classNames(projectcss.all, sty.freeBox___2P24Q)}
                 >
                   <Icon185Icon
-                    data-plasmic-name={"svg"}
-                    data-plasmic-override={overrides.svg}
-                    className={classNames(projectcss.all, sty.svg)}
+                    className={classNames(projectcss.all, sty.svg___4PvUj)}
                     onClick={async event => {
                       const $steps = {};
 
@@ -2546,75 +2667,6 @@ function PlasmicMain__RenderFunc(props: {
                   />
                 </div>
               </MainHeader>
-            </section>
-            <section className={classNames(projectcss.all, sty.section__vtIx7)}>
-              {(() => {
-                const child$Props = {
-                  className: classNames("__wab_instance", sty.footerMain),
-                  footer2: (() => {
-                    try {
-                      return $state.footerMain.type;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "calendar";
-                      }
-                      throw e;
-                    }
-                  })(),
-                  onTypeChange: async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
-                      "footerMain",
-                      "type"
-                    ]).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  },
-                  type: generateStateValueProp($state, ["footerMain", "type"])
-                };
-
-                initializePlasmicStates(
-                  $state,
-                  [
-                    {
-                      name: "footerMain.type",
-                      initFunc: ({ $props, $state, $queries }) =>
-                        (() => {
-                          try {
-                            return (
-                              window.sessionStorage.getItem("footer") ||
-                              "calendar"
-                            );
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                    }
-                  ],
-                  []
-                );
-                return (
-                  <FooterMain
-                    data-plasmic-name={"footerMain"}
-                    data-plasmic-override={overrides.footerMain}
-                    {...child$Props}
-                  />
-                );
-              })()}
             </section>
           </div>
           <Reveal
@@ -3995,14 +4047,12 @@ const PlasmicDescendants = {
     "root",
     "main",
     "mainPage",
+    "footerMain",
     "mainHeader",
-    "freeBox",
-    "svg",
     "button",
     "text",
     "lottie",
     "creaditButten",
-    "footerMain",
     "settingCycle4",
     "subItemsComponnet",
     "editProfile2",
@@ -4014,32 +4064,20 @@ const PlasmicDescendants = {
   main: [
     "main",
     "mainPage",
+    "footerMain",
     "mainHeader",
-    "freeBox",
-    "svg",
-    "button",
-    "text",
-    "lottie",
-    "creaditButten",
-    "footerMain"
-  ],
-  mainPage: ["mainPage"],
-  mainHeader: [
-    "mainHeader",
-    "freeBox",
-    "svg",
     "button",
     "text",
     "lottie",
     "creaditButten"
   ],
-  freeBox: ["freeBox", "svg"],
-  svg: ["svg"],
+  mainPage: ["mainPage"],
+  footerMain: ["footerMain"],
+  mainHeader: ["mainHeader", "button", "text", "lottie", "creaditButten"],
   button: ["button", "text", "lottie"],
   text: ["text"],
   lottie: ["lottie"],
   creaditButten: ["creaditButten"],
-  footerMain: ["footerMain"],
   settingCycle4: ["settingCycle4"],
   subItemsComponnet: ["subItemsComponnet"],
   editProfile2: ["editProfile2"],
@@ -4055,14 +4093,12 @@ type NodeDefaultElementType = {
   root: "div";
   main: "div";
   mainPage: typeof MainPage;
+  footerMain: typeof FooterMain;
   mainHeader: typeof MainHeader;
-  freeBox: "div";
-  svg: "svg";
   button: typeof Button;
   text: "div";
   lottie: typeof LottieWrapper;
   creaditButten: typeof CreaditButten;
-  footerMain: typeof FooterMain;
   settingCycle4: typeof SettingCycle4;
   subItemsComponnet: typeof SubItemsComponnet;
   editProfile2: typeof EditProfile2;
@@ -4161,14 +4197,12 @@ export const PlasmicMain = Object.assign(
     // Helper components rendering sub-elements
     main: makeNodeComponent("main"),
     mainPage: makeNodeComponent("mainPage"),
+    footerMain: makeNodeComponent("footerMain"),
     mainHeader: makeNodeComponent("mainHeader"),
-    freeBox: makeNodeComponent("freeBox"),
-    svg: makeNodeComponent("svg"),
     button: makeNodeComponent("button"),
     text: makeNodeComponent("text"),
     lottie: makeNodeComponent("lottie"),
     creaditButten: makeNodeComponent("creaditButten"),
-    footerMain: makeNodeComponent("footerMain"),
     settingCycle4: makeNodeComponent("settingCycle4"),
     subItemsComponnet: makeNodeComponent("subItemsComponnet"),
     editProfile2: makeNodeComponent("editProfile2"),

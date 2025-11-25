@@ -1436,6 +1436,11 @@
   min-width: 0;
   padding: 0px 0px 0px var(--token-uOLZE7OyOW-J);
 }
+@media (max-width: 640px) {
+  .freeBox__x8Ob1 {
+    padding-left: 0px;
+  }
+}
 .button9:global(.__wab_instance) {
   max-width: 100%;
   width: auto;
