@@ -2393,7 +2393,10 @@ function PlasmicMain__RenderFunc(props: {
                     ) : null}
                     {(() => {
                       try {
-                        return $state.footerMain.type == "reminder";
+                        return (
+                          // $state.footerMain.type=="reminder"
+                          false
+                        );
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
