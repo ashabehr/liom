@@ -837,7 +837,10 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
 
             {(() => {
               try {
-                return $state.getSub.loading || $state.loading;
+                return (
+                  //$state.getSub.loading || $state.loading
+                  false
+                );
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -861,7 +864,10 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                 ? true
                 : (() => {
                     try {
-                      return !$state.getSub.loading || !$state.loading;
+                      return (
+                        // (!$state.getSub.loading) && (!$state.loading)
+                        true
+                      );
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -1531,7 +1537,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                   {(() => {
                     try {
                       return (() => {
-                        if ($state.getSub.loading) return false;
+                        if ($state.loading) return false;
+                        else if ($state.getSub.loading) return false;
                         else if (
                           $state?.getSub?.data?.[0]?.result == null ||
                           $state?.getSub?.data?.[0]?.result?.active == false

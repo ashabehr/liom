@@ -3872,7 +3872,9 @@ function PlasmicCustomShop__RenderFunc(props: {
         <EditCustom
           data-plasmic-name={"editCustom"}
           data-plasmic-override={overrides.editCustom}
-          className={classNames("__wab_instance", sty.editCustom)}
+          className={classNames("__wab_instance", sty.editCustom, {
+            [sty.editCustomsubitem]: hasVariant($state, "subitem", "subitem")
+          })}
           data={generateStateValueProp($state, ["editCustom", "data"])}
           index={generateStateValueProp($state, ["editCustom", "index"])}
           onClick={async event => {
