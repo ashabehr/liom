@@ -333,6 +333,12 @@ function PlasmicShopOfferBox__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "redirectUrl",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -1170,6 +1176,41 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                         $steps["updateVisiblebox"] =
                           await $steps["updateVisiblebox"];
                       }
+
+                      $steps["updateDiscountCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["discountCode"]
+                              },
+                              operation: 0,
+                              value: $state.input.value
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateDiscountCode"] != null &&
+                        typeof $steps["updateDiscountCode"] === "object" &&
+                        typeof $steps["updateDiscountCode"].then === "function"
+                      ) {
+                        $steps["updateDiscountCode"] =
+                          await $steps["updateDiscountCode"];
+                      }
                     }}
                     onColorChange={async (...eventArgs: any) => {
                       ((...eventArgs) => {
@@ -1357,6 +1398,116 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                     typeof $steps["updateBuyId"].then === "function"
                   ) {
                     $steps["updateBuyId"] = await $steps["updateBuyId"];
+                  }
+
+                  $steps["invokeGlobalAction"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "POST",
+                            "https://n8n.staas.ir/webhook/rest/shop/list",
+                            undefined,
+                            (() => {
+                              try {
+                                return {
+                                  id: $state.buyId,
+                                  offCode: $state.discountCode || "",
+                                  redirectUrl: $state.redirectUrl,
+                                  authorization: $props.token
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction"] != null &&
+                    typeof $steps["invokeGlobalAction"] === "object" &&
+                    typeof $steps["invokeGlobalAction"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction"] =
+                      await $steps["invokeGlobalAction"];
+                  }
+
+                  $steps["goToPage"] =
+                    $steps.invokeGlobalAction?.data?.success == true &&
+                    $steps.invokeGlobalAction?.data?.result != false
+                      ? (() => {
+                          const actionArgs = {
+                            destination: (() => {
+                              try {
+                                return $steps.invokeGlobalAction.data.result;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                  if (
+                    $steps["goToPage"] != null &&
+                    typeof $steps["goToPage"] === "object" &&
+                    typeof $steps["goToPage"].then === "function"
+                  ) {
+                    $steps["goToPage"] = await $steps["goToPage"];
+                  }
+
+                  $steps["invokeGlobalAction2"] =
+                    $props.token == "" ||
+                    $steps.invokeGlobalAction?.data?.success == false ||
+                    $steps.invokeGlobalAction?.data?.result == false
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              "error",
+                              "\u0645\u062a\u0623\u0633\u0641\u0627\u0646\u0647 \u062e\u0637\u0627\u06cc\u06cc \u0631\u062e \u062f\u0627\u062f\u0647 \u0627\u0633\u062a. \u0644\u0637\u0641\u0627\u064b \u0645\u062c\u062f\u062f\u0627\u064b \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f.",
+                              "bottom-center"
+                            ]
+                          };
+                          return $globalActions["Fragment.showToast"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                  if (
+                    $steps["invokeGlobalAction2"] != null &&
+                    typeof $steps["invokeGlobalAction2"] === "object" &&
+                    typeof $steps["invokeGlobalAction2"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction2"] =
+                      await $steps["invokeGlobalAction2"];
                   }
 
                   $steps["updateLoadingshop2"] = true
