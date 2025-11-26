@@ -834,7 +834,7 @@
   max-width: 100%;
   justify-content: center;
   align-items: center;
-  background: none;
+  background: #ffffff;
   row-gap: 8px;
   border-radius: 8px;
 }

@@ -11893,7 +11893,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                               const filteredItem =
                                                 allowance.find(item =>
                                                   item.type.includes(
-                                                    currentItem.action
+                                                    currentItem?.action || ""
                                                   )
                                                 );
                                               const active = filteredItem
@@ -11906,7 +11906,10 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                                   token.length - 3
                                                 );
                                               }
-                                              switch (currentItem.action) {
+                                              switch (
+                                                currentItem?.action ||
+                                                ""
+                                              ) {
                                                 case "clinic":
                                                   {
                                                     const chars =
@@ -12030,30 +12033,6 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                   typeof $steps["runCode2"].then === "function"
                                 ) {
                                   $steps["runCode2"] = await $steps["runCode2"];
-                                }
-
-                                $steps["toast"] =
-                                  $ctx.query.inApp != "true" &&
-                                  currentItem.action == "hamyar"
-                                    ? (() => {
-                                        const actionArgs = {
-                                          args: [
-                                            "error",
-                                            "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0648\u06cc\u0698\u06af\u06cc \u0644\u0637\u0641\u0627 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u0627\u0632 \u0645\u0627\u0631\u06a9\u062a \u0647\u0627\u06cc \u0645\u0639\u062a\u0628\u0631 \u062f\u0627\u0646\u0644\u0648\u062f \u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f.",
-                                            "bottom-center"
-                                          ]
-                                        };
-                                        return $globalActions[
-                                          "Fragment.showToast"
-                                        ]?.apply(null, [...actionArgs.args]);
-                                      })()
-                                    : undefined;
-                                if (
-                                  $steps["toast"] != null &&
-                                  typeof $steps["toast"] === "object" &&
-                                  typeof $steps["toast"].then === "function"
-                                ) {
-                                  $steps["toast"] = await $steps["toast"];
                                 }
 
                                 $steps["log"] = true
