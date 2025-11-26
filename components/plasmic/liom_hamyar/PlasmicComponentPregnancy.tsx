@@ -1334,6 +1334,31 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "shopOfferBox.redirectUrl",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return `https://tools.liom.app/shopResult?buyId=${$state.shopOfferBox.buyId}&?offCode=&token=${$state.token}&redirectUrl=${encodeURIComponent(window.location.href)}`;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "shopOfferBox.buyId",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -29996,30 +30021,94 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                         }
                         throw e;
                       }
-                    })() ? (
-                      <ShopOfferBox
-                        data-plasmic-name={"shopOfferBox"}
-                        data-plasmic-override={overrides.shopOfferBox}
-                        className={classNames(
-                          "__wab_instance",
-                          sty.shopOfferBox
-                        )}
-                        token={(() => {
-                          try {
-                            return $state.token;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}
-                        type={"pregnancySub"}
-                      />
-                    ) : null}
+                    })()
+                      ? (() => {
+                          const child$Props = {
+                            className: classNames(
+                              "__wab_instance",
+                              sty.shopOfferBox
+                            ),
+                            onBuyIdChange: async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "shopOfferBox",
+                                "buyId"
+                              ]).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            },
+                            onRedirectUrlChange: async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "shopOfferBox",
+                                "redirectUrl"
+                              ]).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            },
+                            redirectUrl: generateStateValueProp($state, [
+                              "shopOfferBox",
+                              "redirectUrl"
+                            ]),
+                            token: (() => {
+                              try {
+                                return $state.token;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })(),
+                            type: "pregnancySub"
+                          };
+
+                          initializePlasmicStates(
+                            $state,
+                            [
+                              {
+                                name: "shopOfferBox.redirectUrl",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  (() => {
+                                    try {
+                                      return `https://tools.liom.app/shopResult?buyId=${$state.shopOfferBox.buyId}&?offCode=&token=${$state.token}&redirectUrl=${encodeURIComponent(window.location.href)}`;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                              }
+                            ],
+                            []
+                          );
+                          return (
+                            <ShopOfferBox
+                              data-plasmic-name={"shopOfferBox"}
+                              data-plasmic-override={overrides.shopOfferBox}
+                              {...child$Props}
+                            />
+                          );
+                        })()
+                      : null}
                   </div>
                 </div>
               ) : null}

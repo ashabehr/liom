@@ -86,11 +86,20 @@ export type PlasmicShopOfferBox__VariantsArgs = {};
 type VariantPropType = keyof PlasmicShopOfferBox__VariantsArgs;
 export const PlasmicShopOfferBox__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicShopOfferBox__ArgsType = { token?: string; type?: string };
+export type PlasmicShopOfferBox__ArgsType = {
+  token?: string;
+  type?: string;
+  onBuyIdChange?: (val: string) => void;
+  redirectUrl?: string;
+  onRedirectUrlChange?: (val: string) => void;
+};
 type ArgPropType = keyof PlasmicShopOfferBox__ArgsType;
 export const PlasmicShopOfferBox__ArgProps = new Array<ArgPropType>(
   "token",
-  "type"
+  "type",
+  "onBuyIdChange",
+  "redirectUrl",
+  "onRedirectUrlChange"
 );
 
 export type PlasmicShopOfferBox__OverridesType = {
@@ -107,6 +116,9 @@ export type PlasmicShopOfferBox__OverridesType = {
 export interface DefaultShopOfferBoxProps {
   token?: string;
   type?: string;
+  onBuyIdChange?: (val: string) => void;
+  redirectUrl?: string;
+  onRedirectUrlChange?: (val: string) => void;
   className?: string;
 }
 
@@ -315,7 +327,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
       },
       {
         path: "buyId",
-        type: "private",
+        type: "readonly",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
@@ -332,13 +344,17 @@ function PlasmicShopOfferBox__RenderFunc(props: {
               }
               throw e;
             }
-          })()
+          })(),
+
+        onChangeProp: "onBuyIdChange"
       },
       {
         path: "redirectUrl",
-        type: "private",
+        type: "writable",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+
+        valueProp: "redirectUrl",
+        onChangeProp: "onRedirectUrlChange"
       }
     ],
     [$props, $ctx, $refs]
