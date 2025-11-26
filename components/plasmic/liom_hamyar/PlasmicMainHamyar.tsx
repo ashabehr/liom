@@ -459,37 +459,24 @@ function PlasmicMainHamyar__RenderFunc(props: {
         data-plasmic-override={overrides.hamyar2}
         className={classNames("__wab_instance", sty.hamyar2, {
           [sty.hamyar2haader]: hasVariant($state, "haader", "haader"),
+          [sty.hamyar2haader_page_bot]:
+            hasVariant($state, "haader", "haader") &&
+            hasVariant($state, "page", "bot"),
           [sty.hamyar2haader_page_hamyar]:
             hasVariant($state, "haader", "haader") &&
             hasVariant($state, "page", "hamyar"),
+          [sty.hamyar2haader_page_reminder]:
+            hasVariant($state, "haader", "haader") &&
+            hasVariant($state, "page", "reminder"),
           [sty.hamyar2haader_page_self]:
             hasVariant($state, "haader", "haader") &&
             hasVariant($state, "page", "self"),
+          [sty.hamyar2page_bot]: hasVariant($state, "page", "bot"),
           [sty.hamyar2page_hamyar]: hasVariant($state, "page", "hamyar"),
           [sty.hamyar2page_self]: hasVariant($state, "page", "self")
         })}
         editCycle2={args.editCycle2}
-        headershow={(() => {
-          try {
-            return (() => {
-              const urlParams = new window.URLSearchParams(
-                window.location.search
-              );
-              const inAppFromUrl = urlParams.get("inApp");
-              return inAppFromUrl !== null
-                ? inAppFromUrl == "true"
-                : localStorage.getItem("inApp") == "true";
-            })();
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return true;
-            }
-            throw e;
-          }
-        })()}
+        headershow={true}
         mobileDialogOpen={generateStateValueProp($state, [
           "hamyar2",
           "mobileDialogOpen"
@@ -701,10 +688,18 @@ function PlasmicMainHamyar__RenderFunc(props: {
       >
         <div
           className={classNames(projectcss.all, sty.freeBox___350JY, {
+            [sty.freeBoxhaader_page_reminder___350JY6UxRFbQe0]:
+              hasVariant($state, "page", "reminder") &&
+              hasVariant($state, "haader", "haader"),
             [sty.freeBoxpage_bot___350JYcUp9K]: hasVariant(
               $state,
               "page",
               "bot"
+            ),
+            [sty.freeBoxpage_reminder___350JYfbQe0]: hasVariant(
+              $state,
+              "page",
+              "reminder"
             )
           })}
           style={(() => {
@@ -731,8 +726,12 @@ function PlasmicMainHamyar__RenderFunc(props: {
               [sty.iframehaader_page_bot]:
                 hasVariant($state, "haader", "haader") &&
                 hasVariant($state, "page", "bot"),
+              [sty.iframehaader_page_reminder]:
+                hasVariant($state, "page", "reminder") &&
+                hasVariant($state, "haader", "haader"),
               [sty.iframepage_bot]: hasVariant($state, "page", "bot"),
-              [sty.iframepage_hamyar]: hasVariant($state, "page", "hamyar")
+              [sty.iframepage_hamyar]: hasVariant($state, "page", "hamyar"),
+              [sty.iframepage_reminder]: hasVariant($state, "page", "reminder")
             })}
             preview={true}
             src={"https://tools.liom.app/chat-bot/"}
@@ -748,6 +747,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
           [sty.selfCare2haader_page_self]:
             hasVariant($state, "haader", "haader") &&
             hasVariant($state, "page", "self"),
+          [sty.selfCare2page_bot]: hasVariant($state, "page", "bot"),
           [sty.selfCare2page_hamyar]: hasVariant($state, "page", "hamyar"),
           [sty.selfCare2page_reminder]: hasVariant($state, "page", "reminder"),
           [sty.selfCare2page_self]: hasVariant($state, "page", "self")
