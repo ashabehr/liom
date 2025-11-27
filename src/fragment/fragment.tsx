@@ -215,8 +215,12 @@ export const Fragment = ({
               break;
             }
             case "#danger": {
-              const link = `https://tools.liom.app/self-medication/?type=pregnancy_danger_sub&inApp=${inApp}&token=${token}&selectStep=0&userId=${userId}&theme=${theme}`;
-              sendMessage("خطرناکه یانه", link,inWebViow);
+              if (typeof window !== "undefined"){
+              window.document.getElementById("collapseDanger").scrollIntoView({
+                  behavior: "smooth",
+                  block: "start"
+                    });
+              }
               break;
             }
               
