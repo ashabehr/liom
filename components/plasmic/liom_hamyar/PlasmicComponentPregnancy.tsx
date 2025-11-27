@@ -1343,7 +1343,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return `https://tools.liom.app/shopResult?buyId=${$state.shopOfferBox.buyId}&?offCode=&token=${$state.token}&redirectUrl=${encodeURIComponent(window.location.href)}`;
+              return `https://apps.liom.app/pregnancy/?token=${$state.token}&userId=${$state.userId}&inApp=${$state.paramsObject.inApp}&theme=${$state.paramsObject.theme}`;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1365,7 +1365,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "button6.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => "link"
       },
       {
         path: "button6.loading",
@@ -9782,312 +9782,322 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                 sty.freeBox__fz62I
                               )}
                             >
-                              <Button
-                                data-plasmic-name={"button6"}
-                                data-plasmic-override={overrides.button6}
+                              <div
                                 className={classNames(
-                                  "__wab_instance",
-                                  sty.button6
+                                  projectcss.all,
+                                  sty.freeBox__nKc6H
                                 )}
-                                color={generateStateValueProp($state, [
-                                  "button6",
-                                  "color"
-                                ])}
-                                load={generateStateValueProp($state, [
-                                  "button6",
-                                  "load"
-                                ])}
-                                loading={generateStateValueProp($state, [
-                                  "button6",
-                                  "loading"
-                                ])}
-                                onClick={async event => {
-                                  const $steps = {};
-
-                                  $steps["updateLoadingGetLink"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          variable: {
-                                            objRoot: $state,
-                                            variablePath: ["loadingGetLink"]
-                                          },
-                                          operation: 0,
-                                          value: true
-                                        };
-                                        return (({
-                                          variable,
-                                          value,
-                                          startIndex,
-                                          deleteCount
-                                        }) => {
-                                          if (!variable) {
-                                            return;
-                                          }
-                                          const { objRoot, variablePath } =
-                                            variable;
-
-                                          $stateSet(
-                                            objRoot,
-                                            variablePath,
-                                            value
-                                          );
-                                          return value;
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["updateLoadingGetLink"] != null &&
-                                    typeof $steps["updateLoadingGetLink"] ===
-                                      "object" &&
-                                    typeof $steps["updateLoadingGetLink"]
-                                      .then === "function"
-                                  ) {
-                                    $steps["updateLoadingGetLink"] =
-                                      await $steps["updateLoadingGetLink"];
-                                  }
-
-                                  $steps["invokeGlobalAction"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          args: [
-                                            "POST",
-                                            "https://n8n.staas.ir/webhook/tools/selfCare/linkV3",
-                                            undefined,
-                                            (() => {
-                                              try {
-                                                return {
-                                                  authorization: $state.token,
-                                                  type: "pregnancy_sub"
-                                                };
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })()
-                                          ]
-                                        };
-                                        return $globalActions[
-                                          "Fragment.apiRequest"
-                                        ]?.apply(null, [...actionArgs.args]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["invokeGlobalAction"] != null &&
-                                    typeof $steps["invokeGlobalAction"] ===
-                                      "object" &&
-                                    typeof $steps["invokeGlobalAction"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["invokeGlobalAction"] =
-                                      await $steps["invokeGlobalAction"];
-                                  }
-
-                                  $steps["invokeGlobalAction2"] = $steps
-                                    .invokeGlobalAction?.data?.result?.link
-                                    ? (() => {
-                                        const actionArgs = {
-                                          args: [
-                                            (() => {
-                                              try {
-                                                return $steps.invokeGlobalAction
-                                                  ?.data?.result?.link;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })(),
-                                            (() => {
-                                              try {
-                                                return $state.token;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })(),
-                                            (() => {
-                                              try {
-                                                return $state.userId;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })(),
-                                            (() => {
-                                              try {
-                                                return $state.paramsObject
-                                                  .inApp;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })(),
-                                            (() => {
-                                              try {
-                                                return $state.paramsObject
-                                                  .theme;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })()
-                                          ]
-                                        };
-                                        return $globalActions[
-                                          "Fragment.deepLink"
-                                        ]?.apply(null, [...actionArgs.args]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["invokeGlobalAction2"] != null &&
-                                    typeof $steps["invokeGlobalAction2"] ===
-                                      "object" &&
-                                    typeof $steps["invokeGlobalAction2"]
-                                      .then === "function"
-                                  ) {
-                                    $steps["invokeGlobalAction2"] =
-                                      await $steps["invokeGlobalAction2"];
-                                  }
-
-                                  $steps["updateLoadingGetLink2"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          variable: {
-                                            objRoot: $state,
-                                            variablePath: ["loadingGetLink"]
-                                          },
-                                          operation: 0,
-                                          value: false
-                                        };
-                                        return (({
-                                          variable,
-                                          value,
-                                          startIndex,
-                                          deleteCount
-                                        }) => {
-                                          if (!variable) {
-                                            return;
-                                          }
-                                          const { objRoot, variablePath } =
-                                            variable;
-
-                                          $stateSet(
-                                            objRoot,
-                                            variablePath,
-                                            value
-                                          );
-                                          return value;
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["updateLoadingGetLink2"] != null &&
-                                    typeof $steps["updateLoadingGetLink2"] ===
-                                      "object" &&
-                                    typeof $steps["updateLoadingGetLink2"]
-                                      .then === "function"
-                                  ) {
-                                    $steps["updateLoadingGetLink2"] =
-                                      await $steps["updateLoadingGetLink2"];
-                                  }
-                                }}
-                                onColorChange={async (...eventArgs: any) => {
-                                  ((...eventArgs) => {
-                                    generateStateOnChangeProp($state, [
-                                      "button6",
-                                      "color"
-                                    ])(eventArgs[0]);
-                                  }).apply(null, eventArgs);
-
-                                  if (
-                                    eventArgs.length > 1 &&
-                                    eventArgs[1] &&
-                                    eventArgs[1]._plasmic_state_init_
-                                  ) {
-                                    return;
-                                  }
-                                }}
-                                onLoadChange={async (...eventArgs: any) => {
-                                  ((...eventArgs) => {
-                                    generateStateOnChangeProp($state, [
-                                      "button6",
-                                      "load"
-                                    ])(eventArgs[0]);
-                                  }).apply(null, eventArgs);
-
-                                  if (
-                                    eventArgs.length > 1 &&
-                                    eventArgs[1] &&
-                                    eventArgs[1]._plasmic_state_init_
-                                  ) {
-                                    return;
-                                  }
-                                }}
-                                onLoadingChange={async (...eventArgs: any) => {
-                                  ((...eventArgs) => {
-                                    generateStateOnChangeProp($state, [
-                                      "button6",
-                                      "loading"
-                                    ])(eventArgs[0]);
-                                  }).apply(null, eventArgs);
-
-                                  if (
-                                    eventArgs.length > 1 &&
-                                    eventArgs[1] &&
-                                    eventArgs[1]._plasmic_state_init_
-                                  ) {
-                                    return;
-                                  }
-                                }}
-                                size={"minimal"}
                               >
-                                <div
+                                <Button
+                                  data-plasmic-name={"button6"}
+                                  data-plasmic-override={overrides.button6}
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__zQHrP
+                                    "__wab_instance",
+                                    sty.button6
                                   )}
+                                  color={generateStateValueProp($state, [
+                                    "button6",
+                                    "color"
+                                  ])}
+                                  load={generateStateValueProp($state, [
+                                    "button6",
+                                    "load"
+                                  ])}
+                                  loading={generateStateValueProp($state, [
+                                    "button6",
+                                    "loading"
+                                  ])}
+                                  onClick={async event => {
+                                    const $steps = {};
+
+                                    $steps["updateLoadingGetLink"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["loadingGetLink"]
+                                            },
+                                            operation: 0,
+                                            value: true
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updateLoadingGetLink"] != null &&
+                                      typeof $steps["updateLoadingGetLink"] ===
+                                        "object" &&
+                                      typeof $steps["updateLoadingGetLink"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["updateLoadingGetLink"] =
+                                        await $steps["updateLoadingGetLink"];
+                                    }
+
+                                    $steps["invokeGlobalAction"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            args: [
+                                              "POST",
+                                              "https://n8n.staas.ir/webhook/tools/selfCare/linkV3",
+                                              undefined,
+                                              (() => {
+                                                try {
+                                                  return {
+                                                    authorization: $state.token,
+                                                    type: "pregnancy_sub"
+                                                  };
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()
+                                            ]
+                                          };
+                                          return $globalActions[
+                                            "Fragment.apiRequest"
+                                          ]?.apply(null, [...actionArgs.args]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["invokeGlobalAction"] != null &&
+                                      typeof $steps["invokeGlobalAction"] ===
+                                        "object" &&
+                                      typeof $steps["invokeGlobalAction"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["invokeGlobalAction"] =
+                                        await $steps["invokeGlobalAction"];
+                                    }
+
+                                    $steps["invokeGlobalAction2"] = $steps
+                                      .invokeGlobalAction?.data?.result?.link
+                                      ? (() => {
+                                          const actionArgs = {
+                                            args: [
+                                              (() => {
+                                                try {
+                                                  return $steps
+                                                    .invokeGlobalAction?.data
+                                                    ?.result?.link;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })(),
+                                              (() => {
+                                                try {
+                                                  return $state.token;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })(),
+                                              (() => {
+                                                try {
+                                                  return $state.userId;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })(),
+                                              (() => {
+                                                try {
+                                                  return $state.paramsObject
+                                                    .inApp;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })(),
+                                              (() => {
+                                                try {
+                                                  return $state.paramsObject
+                                                    .theme;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()
+                                            ]
+                                          };
+                                          return $globalActions[
+                                            "Fragment.deepLink"
+                                          ]?.apply(null, [...actionArgs.args]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["invokeGlobalAction2"] != null &&
+                                      typeof $steps["invokeGlobalAction2"] ===
+                                        "object" &&
+                                      typeof $steps["invokeGlobalAction2"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["invokeGlobalAction2"] =
+                                        await $steps["invokeGlobalAction2"];
+                                    }
+
+                                    $steps["updateLoadingGetLink2"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["loadingGetLink"]
+                                            },
+                                            operation: 0,
+                                            value: false
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updateLoadingGetLink2"] != null &&
+                                      typeof $steps["updateLoadingGetLink2"] ===
+                                        "object" &&
+                                      typeof $steps["updateLoadingGetLink2"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["updateLoadingGetLink2"] =
+                                        await $steps["updateLoadingGetLink2"];
+                                    }
+                                  }}
+                                  onColorChange={async (...eventArgs: any) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button6",
+                                        "color"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  }}
+                                  onLoadChange={async (...eventArgs: any) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button6",
+                                        "load"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  }}
+                                  onLoadingChange={async (
+                                    ...eventArgs: any
+                                  ) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button6",
+                                        "loading"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  }}
+                                  size={"minimal"}
                                 >
-                                  {
-                                    "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647"
-                                  }
-                                </div>
-                              </Button>
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__zQHrP
+                                    )}
+                                  >
+                                    {
+                                      "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647"
+                                    }
+                                  </div>
+                                </Button>
+                              </div>
                             </div>
                           </div>
                         ) : null}
@@ -30483,94 +30493,62 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                         }
                         throw e;
                       }
-                    })()
-                      ? (() => {
-                          const child$Props = {
-                            className: classNames(
-                              "__wab_instance",
-                              sty.shopOfferBox
-                            ),
-                            onBuyIdChange: async (...eventArgs: any) => {
-                              generateStateOnChangeProp($state, [
-                                "shopOfferBox",
-                                "buyId"
-                              ]).apply(null, eventArgs);
+                    })() ? (
+                      <ShopOfferBox
+                        data-plasmic-name={"shopOfferBox"}
+                        data-plasmic-override={overrides.shopOfferBox}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.shopOfferBox
+                        )}
+                        onBuyIdChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "shopOfferBox",
+                            "buyId"
+                          ]).apply(null, eventArgs);
 
-                              if (
-                                eventArgs.length > 1 &&
-                                eventArgs[1] &&
-                                eventArgs[1]._plasmic_state_init_
-                              ) {
-                                return;
-                              }
-                            },
-                            onRedirectUrlChange: async (...eventArgs: any) => {
-                              generateStateOnChangeProp($state, [
-                                "shopOfferBox",
-                                "redirectUrl"
-                              ]).apply(null, eventArgs);
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onRedirectUrlChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "shopOfferBox",
+                            "redirectUrl"
+                          ]).apply(null, eventArgs);
 
-                              if (
-                                eventArgs.length > 1 &&
-                                eventArgs[1] &&
-                                eventArgs[1]._plasmic_state_init_
-                              ) {
-                                return;
-                              }
-                            },
-                            redirectUrl: generateStateValueProp($state, [
-                              "shopOfferBox",
-                              "redirectUrl"
-                            ]),
-                            token: (() => {
-                              try {
-                                return $state.token;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })(),
-                            type: "pregnancySub"
-                          };
-
-                          initializePlasmicStates(
-                            $state,
-                            [
-                              {
-                                name: "shopOfferBox.redirectUrl",
-                                initFunc: ({ $props, $state, $queries }) =>
-                                  (() => {
-                                    try {
-                                      return `https://tools.liom.app/shopResult?buyId=${$state.shopOfferBox.buyId}&?offCode=&token=${$state.token}&redirectUrl=${encodeURIComponent(window.location.href)}`;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                              }
-                            ],
-                            []
-                          );
-                          return (
-                            <ShopOfferBox
-                              data-plasmic-name={"shopOfferBox"}
-                              data-plasmic-override={overrides.shopOfferBox}
-                              {...child$Props}
-                            />
-                          );
-                        })()
-                      : null}
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        redirectUrl={generateStateValueProp($state, [
+                          "shopOfferBox",
+                          "redirectUrl"
+                        ])}
+                        token={(() => {
+                          try {
+                            return $state.token;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        type={"pregnancySub"}
+                      />
+                    ) : null}
                   </div>
                 </div>
               ) : null}

@@ -1708,7 +1708,16 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return (() => {})();
+                            return (() => {
+                              console.log("open dialog");
+                              $state.subscription2[
+                                $state.subscriptionCurrentIndex
+                              ].clickitem = true;
+                              return ($state.buyId =
+                                $state.shapData.result.shopList[
+                                  $state.subscription2
+                                ].id);
+                            })();
                           }
                         };
                         return (({ customFunction }) => {
