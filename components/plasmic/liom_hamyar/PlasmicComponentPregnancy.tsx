@@ -10822,7 +10822,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                             text: "اطلاع رسانی به همسرم",
                             backColor: "#ffffff00",
                             textColor: "#000000",
-                            type: "switch",
+                            type: "normal",
                             borderColor: "#000000",
                             lock: false,
                             isChecked:
@@ -10851,7 +10851,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                             text: "اطلاع رسانی به خودم",
                             backColor: "#ffffff00",
                             textColor: "#000000",
-                            type: "switch",
+                            type: "normal",
                             lock: false,
                             isChecked:
                               $state.userInfo?.[0]?.result?.user

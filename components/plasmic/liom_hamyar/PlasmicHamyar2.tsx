@@ -25988,6 +25988,8 @@ function PlasmicHamyar2__RenderFunc(props: {
           </Button>
         </div>
       </Dialog3>
+      <div className={classNames(projectcss.all, sty.freeBox__ceJk5)} />
+
       <AntdModal
         data-plasmic-name={"warning"}
         data-plasmic-override={overrides.warning}

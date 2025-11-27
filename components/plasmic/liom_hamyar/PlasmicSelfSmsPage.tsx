@@ -988,8 +988,24 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                             {"\u0634\u0627\u062f\u062a\u0631"}
                           </span>
                           <React.Fragment>
+                            {"  \u0628\u0627\u0634."}
+                          </React.Fragment>
+                        </React.Fragment>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__vrRcS
+                        )}
+                        onClick={async event => {
+                          const $steps = {};
+                        }}
+                      >
+                        <React.Fragment>
+                          <React.Fragment>
                             {
-                              "  \u0628\u0627\u0634.\n\u0628\u0647 \u0637\u0648\u0631 \u06a9\u0644\u06cc \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0647 "
+                              "\u0628\u0647 \u0637\u0648\u0631 \u06a9\u0644\u06cc \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0647 "
                             }
                           </React.Fragment>
                           <span
@@ -1238,12 +1254,12 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                         }}
                       >
                         <React.Fragment>
-                          <React.Fragment>{"\u0628\u0627   "}</React.Fragment>
+                          <React.Fragment>{"\u0628\u0627 "}</React.Fragment>
                           <span
                             className={
                               "plasmic_default__all plasmic_default__span"
                             }
-                            style={{ color: "#7444BC", fontWeight: 700 }}
+                            style={{ color: "#8254C6", fontWeight: 700 }}
                           >
                             {
                               "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u062e\u0648\u062f "
@@ -1251,10 +1267,203 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           </span>
                           <React.Fragment>
                             {
-                              "\u0645\u06cc\u062a\u0648\u0646\u06cc \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627\u06cc \u062f\u0648\u0631\u062a \u0631\u0648 \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0646\u06cc \u0648 \u0632\u0645\u0627\u0646 \u062f\u0631\u0633\u062a \u0627\u0646\u062c\u0627\u0645 \u0647\u0631 \u06a9\u0627\u0631\u06cc \u0631\u0648 \u0628\u062f\u0648\u0646\u06cc. \u0627\u0632 \u0631\u0698\u06cc\u0645 \u06af\u0631\u0641\u062a\u0647 \u062a\u0627 \u062a\u0635\u0645\u06cc\u0645 \u0647\u0627\u06cc \u0645\u0647\u0645 \u0632\u0646\u062f\u06af\u06cc!\n \u0648 \u06cc\u0627 \u0634\u0631\u0648\u0639 \u0648\u0631\u0632\u0634 \u06a9\u0631\u062f\u0646\u060c \u0645\u0647\u0645\u0648\u0646\u06cc \u06af\u0631\u0641\u062a\u0646 \u0648 \u06cc\u0627 \u0645\u0647\u0645\u0648\u0646\u06cc \u0631\u0641\u062a\u0646 \u0648 ..."
+                              "\u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc\u200c\u0647\u0627\u06cc \u0645\u0647\u0645 \u0631\u0648 \u062f\u0642\u06cc\u0642 \u0648 \u0628\u0647 \u0645\u0648\u0642\u0639 \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0646\u06cc\u061b \u0686\u06cc\u0632\u0627\u06cc\u06cc \u06a9\u0647 \u06a9\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0646 \u062d\u0648\u0627\u0633\u062a \u0628\u0647 "
+                            }
+                          </React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ color: "#8254C6", fontWeight: 700 }}
+                          >
+                            {"\u062e\u0648\u062f\u062a"}
+                          </span>
+                          <React.Fragment>
+                            {
+                              " \u0628\u0627\u0634\u0647 \u0648 \u0647\u06cc\u0686 \u0645\u0631\u0627\u0642\u0628\u062a\u06cc \u0631\u0648 \u062c\u0627 \u0646\u0646\u062f\u0627\u0632\u06cc.\n\n\u067e\u06cc\u0627\u0645\u06a9\u200c\u0647\u0627 \u0634\u0627\u0645\u0644 \u0627\u06cc\u0646 \u0645\u0648\u0627\u0631\u062f \u0645\u06cc\u0634\u0646:"
                             }
                           </React.Fragment>
                         </React.Fragment>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__rZ4DS
+                        )}
+                      >
+                        <ul
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.ul,
+                            sty.ul__qs5Tj
+                          )}
+                        >
+                          <li
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.li,
+                              sty.li__uwe9
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__lwwzH
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__uiFDw
+                                )}
+                              >
+                                <React.Fragment>
+                                  <React.Fragment>{""}</React.Fragment>
+                                  {
+                                    <ul
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.ul,
+                                        sty.ul__xUnBr
+                                      )}
+                                    >
+                                      <li
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.li,
+                                          projectcss.__wab_text,
+                                          sty.li__mnOx
+                                        )}
+                                      >
+                                        {
+                                          "\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u062f\u0648\u0631\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc"
+                                        }
+                                      </li>
+                                    </ul>
+                                  }
+                                  <React.Fragment>{""}</React.Fragment>
+                                </React.Fragment>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                        <ul
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.ul,
+                            sty.ul__adkIe
+                          )}
+                        >
+                          <li
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.li,
+                              sty.li__v2WzG
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__gEgui
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__t1Cj
+                                )}
+                              >
+                                {
+                                  "\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u062e\u0648\u062f\u0622\u0632\u0645\u0627\u06cc\u06cc \u0633\u0631\u0637\u0627\u0646 \u0633\u06cc\u0646\u0647"
+                                }
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                        <ul
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.ul,
+                            sty.ul__q4Qky
+                          )}
+                        >
+                          <li
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.li,
+                              sty.li__iaBz2
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__cYWbc
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__broLr
+                                )}
+                              >
+                                {
+                                  "\u0646\u06a9\u062a\u0647\u200c\u0647\u0627\u06cc \u0645\u0631\u0627\u0642\u0628\u062a\u06cc \u0628\u0631\u0627\u06cc \u0633\u0644\u0627\u0645\u062a \u0628\u062f\u0646"
+                                }
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                        <ul
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.ul,
+                            sty.ul__n1TkR
+                          )}
+                        >
+                          <li
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.li,
+                              sty.li__hPp2
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__ibCz6
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__wW0Pc
+                                )}
+                              >
+                                {
+                                  "\u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u06cc \u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u062d\u0627\u0644\u0650 \u062e\u0648\u062f\u062a"
+                                }
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__jnXv9
+                        )}
+                        onClick={async event => {
+                          const $steps = {};
+                        }}
+                      >
+                        {
+                          "\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0628\u0647 \u0633\u0644\u0627\u0645\u062a \u0648 \u0622\u0631\u0627\u0645\u0634\u062a \u06a9\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0646 \ud83d\udc9b"
+                        }
                       </div>
                     </div>
                   ) : null}
