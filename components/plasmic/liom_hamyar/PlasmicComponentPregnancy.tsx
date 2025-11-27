@@ -1365,7 +1365,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "button6.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "link"
+        initFunc: ({ $props, $state, $queries, $ctx }) => "white"
       },
       {
         path: "button6.loading",
