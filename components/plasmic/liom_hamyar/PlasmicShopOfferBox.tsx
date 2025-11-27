@@ -1710,13 +1710,9 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                           customFunction: async () => {
                             return (() => {
                               console.log("open dialog");
-                              $state.subscription2[
+                              return ($state.subscription2[
                                 $state.subscriptionCurrentIndex
-                              ].clickitem = true;
-                              return ($state.buyId =
-                                $state.shapData.result.shopList[
-                                  $state.subscription2
-                                ].id);
+                              ].clickitem = true);
                             })();
                           }
                         };
@@ -1731,6 +1727,43 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                     typeof $steps["runCode"].then === "function"
                   ) {
                     $steps["runCode"] = await $steps["runCode"];
+                  }
+
+                  $steps["updateBuyId"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["buyId"]
+                          },
+                          operation: 0,
+                          value:
+                            $state.shapData.result.shopList[
+                              $state.subscriptionCurrentIndex
+                            ].id
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateBuyId"] != null &&
+                    typeof $steps["updateBuyId"] === "object" &&
+                    typeof $steps["updateBuyId"].then === "function"
+                  ) {
+                    $steps["updateBuyId"] = await $steps["updateBuyId"];
                   }
 
                   $steps["updateShapData2"] = true
@@ -1772,9 +1805,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                   "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
                 }
               </p>
-              {(
-                hasVariant(globalVariants, "screen", "mobile") ? true : false
-              ) ? (
+              {false ? (
                 <p
                   className={classNames(
                     projectcss.all,

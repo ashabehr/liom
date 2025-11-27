@@ -707,13 +707,14 @@
   flex-direction: column;
   position: relative;
   width: 100%;
-  height: auto;
+  height: 100%;
   max-width: 100%;
   justify-content: center;
   align-items: center;
   row-gap: 6px;
   padding-bottom: 8px;
   min-width: 0;
+  min-height: 0;
 }
 .img__o2Qkz {
   object-fit: cover;

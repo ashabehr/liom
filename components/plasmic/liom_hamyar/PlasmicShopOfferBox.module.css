@@ -694,13 +694,8 @@
   text-overflow: clip;
   cursor: pointer;
   font-family: "Roboto", sans-serif;
-}
-@media (max-width: 640px) {
-  .p___8NoGw {
-    animation: none;
-    user-select: none;
-    display: none;
-  }
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 .p__bGIm {
   animation: none;
