@@ -216,10 +216,10 @@ export const Fragment = ({
             }
             case "#danger": {
               if (typeof window !== "undefined"){
-              window.document.getElementById("collapseDanger").scrollIntoView({
+                window.document.getElementById("collapseDanger")?.scrollIntoView({
                   behavior: "smooth",
                   block: "start"
-                    });
+                });
               }
               break;
             }
