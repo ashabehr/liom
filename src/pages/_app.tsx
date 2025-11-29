@@ -7,6 +7,7 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import NotificationToast from "../../components/NotificationToast";
 import { initFcm } from "../firebase/fcm";
+import moment from "jalali-moment";
 
 import React from "react";
 
@@ -71,6 +72,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     // }
       
     // window.onerror send to bot
+    
+    if (typeof window !== "undefined") {
+      window.moment = moment;
+    }
     if (typeof window !== "undefined") {
         window.onerror = (msg, src, line, col, err) => {
           console.error("🔥 Global error:", msg, src, line, col, err);
