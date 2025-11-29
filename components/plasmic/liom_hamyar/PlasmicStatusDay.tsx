@@ -2946,6 +2946,35 @@ function PlasmicStatusDay__RenderFunc(props: {
                   await $steps["updateHealthStatus"];
               }
 
+              $steps["updateUserId"] = $steps.invokeGlobalAction?.data?.id
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["userId"]
+                      },
+                      operation: 0,
+                      value: $steps.invokeGlobalAction?.data?.id
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateUserId"] != null &&
+                typeof $steps["updateUserId"] === "object" &&
+                typeof $steps["updateUserId"].then === "function"
+              ) {
+                $steps["updateUserId"] = await $steps["updateUserId"];
+              }
+
               $steps["updateHealthStatus2"] = true
                 ? (() => {
                     const actionArgs = {
@@ -2986,8 +3015,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                     const actionArgs = {
                       customFunction: async () => {
                         return (() => {
-                          console.log($state.healthStatus);
-                          return console.log($state.userId);
+                          console.log("status:" + $state.healthStatus);
+                          return console.log("userid:" + $state.userId);
                         })();
                       }
                     };
