@@ -270,7 +270,8 @@ export const Fragment = ({
 
             case "#bioritm": {
                 const link = `/bioritm/?token=${token}`;
-                sendMessage("بیوریتم", link,inWebViow);
+                if (typeof window !== "undefined")
+                  window.open(link, "_self");
                 break;
             }
             case "#appoinment": {
