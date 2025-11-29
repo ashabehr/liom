@@ -8,6 +8,7 @@ import { UnnamedGlobalGroupOfVariants4ContextProvider } from "../../components/p
 import { UnnamedGlobalGroupOfVariants5ContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants5";
 import { PlasmicStatusDay } from "../../components/plasmic/liom_hamyar/PlasmicStatusDay";
 import { useRouter } from "next/router";
+import moment from "jalali-moment";
 
 function StatusDay() {
   // Use PlasmicStatusDay to render this component as it was
@@ -36,7 +37,7 @@ function StatusDay() {
             params={useRouter()?.query}
             query={useRouter()?.query}
           >
-            <PlasmicStatusDay />
+            <PlasmicStatusDay moment={moment} />
           </PageParamsProvider__>
         </GlobalContextsProvider>
       </UnnamedGlobalGroupOfVariants4ContextProvider>
