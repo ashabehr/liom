@@ -37,7 +37,7 @@ function StatusDay() {
             params={useRouter()?.query}
             query={useRouter()?.query}
           >
-            <PlasmicStatusDay moment={moment} />
+            <PlasmicStatusDay />
           </PageParamsProvider__>
         </GlobalContextsProvider>
       </UnnamedGlobalGroupOfVariants4ContextProvider>
