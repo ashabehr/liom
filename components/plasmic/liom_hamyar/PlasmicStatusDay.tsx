@@ -85,7 +85,6 @@ import Medisene from "../../Medisene"; // plasmic-import: S8dzLP5nduJ8/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
-import moment from "jalali-moment";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -1902,32 +1901,41 @@ function PlasmicStatusDay__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                const options = [];
-                
-                // ایجاد تاریخ اول ماه
-                const year = $state.jalali.jy;
-                const month = $state.jalali.jm;
-      
-                const m = moment(`${year}/${month}/01`, "jYYYY/jM/jD").locale("fa");
-      
-                const daysOfWeek = ["ی", "د", "س", "چ", "پ", "ج", "ش"];
-                const daysInMonth = m.jDaysInMonth();
-      
-                for (let day = 1; day <= daysInMonth; day++) {
-                  const date = moment(`${year}/${month}/${day}`, "jYYYY/jM/jD").locale("fa");
-      
-                  // ایجاد تاریخ میلادی ISO بدون اختلاف ساعت
-                  const iso = date.clone().locale("en").format("YYYY-MM-DD");
-      
-                  const dayOfWeek = date.day(); // 0–6
-                  const label = `${daysOfWeek[dayOfWeek]} - ${day}`;
-      
-                  options.push({
-                    value: iso,
-                    label
-                  });
+                let retryCount = 0;
+                const maxRetries = 20;
+                while (!window.jalaali && retryCount < maxRetries) {
+                  const start = Date.now();
+                  while (Date.now() - start < 200) {}
+                  retryCount++;
                 }
-      
+                let options = [];
+                if (window.jalaali) {
+                  const daysOfWeek = ["ی", "د", "س", "چ", "پ", "ج", "ش"];
+
+                  const daysInMonth = window.jalaali.jalaaliMonthLength(
+                    $state.jalali.jy,
+                    $state.jalali.jm
+                  );
+                  for (let day = 1; day <= daysInMonth; day++) {
+                    const gregorian = window.jalaali.toGregorian(
+                      $state.jalali.jy,
+                      $state.jalali.jm,
+                      day
+                    );
+                    const date = new Date(
+                      gregorian.gy,
+                      gregorian.gm - 1,
+                      gregorian.gd
+                    );
+                    const timezoneOffset = date.getTimezoneOffset() * 60000;
+                    const localDate = new Date(date.getTime() - timezoneOffset);
+                    const dayOfWeek = date.getDay();
+                    options.push({
+                      value: localDate.toISOString().split("T")[0],
+                      label: `${daysOfWeek[dayOfWeek]} - ${day}`
+                    });
+                  }
+                }
                 return options;
               })();
             } catch (e) {
@@ -2038,20 +2046,15 @@ function PlasmicStatusDay__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                  const today = new Date();
-                  const currentYear = today.getFullYear();
-                  const currentMonth = today.getMonth() + 1;
-                  const currentDay = today.getDate();
-                  
-                  // تبدیل با moment
-                  const j = moment(`${currentYear}-${currentMonth}-${currentDay}`, "YYYY-M-D")
-                    .locale("fa");
-                  
-                  return {
-                    jy: j.jYear(),
-                    jm: j.jMonth() + 1, // به دلیل صفرمحور بودن moment
-                    jd: j.jDate()
-                  };
+                const today = new Date();
+                const currentYear = today.getFullYear();
+                const currentMonth = today.getMonth() + 1;
+                const currentDay = today.getDate();
+                return window.jalaali.toJalaali(
+                  currentYear,
+                  currentMonth,
+                  currentDay
+                );
               })();
             } catch (e) {
               if (
@@ -2954,7 +2957,9 @@ function PlasmicStatusDay__RenderFunc(props: {
                       value:
                         $ctx.query.status == "pregnancy"
                           ? "pregnancy"
-                          : $steps.invokeGlobalAction?.data?.healthStatus
+                          : $ctx.query.status == "period"
+                            ? "period"
+                            : $steps.invokeGlobalAction?.data?.healthStatus
                     };
                     return (({ variable, value, startIndex, deleteCount }) => {
                       if (!variable) {
@@ -3076,16 +3081,12 @@ function PlasmicStatusDay__RenderFunc(props: {
                               const currentMonth = today.getMonth() + 1;
                               const currentDay = today.getDate();
                               const week = today.getDay();
-                              const date = moment(`${currentYear}-${currentMonth}-${currentDay}`, "YYYY-M-D")
-                                .locale("fa");
-                              
-                              // استخراج بخش‌های جلالی
-                              const jYear = date.jYear();
-                              const jMonth = date.jMonth() + 1; // از 0 شروع می‌شود
-                              const jDay = date.jDate();
-                              
-                              return `وضعیت ${daysOfWeekFull[week]} ${jDay} ${$state.currentMonth[jMonth - 1]} ${jYear}`;
-
+                              var j = window.jalaali.toJalaali(
+                                currentYear,
+                                currentMonth,
+                                currentDay
+                              );
+                              return `وضعیت ${daysOfWeekFull[week]} ${j.jd} ${$state.currentMonth[j.jm - 1]} ${j.jy}`;
                             }
                           })();
                         } catch (e) {
@@ -4805,16 +4806,25 @@ function PlasmicStatusDay__RenderFunc(props: {
                 })}
                 style={(() => {
                   try {
-                    return {
-                      "padding-top":
-                        $state.healthStatus == "pregnancy"
-                          ? "100px"
-                          : new window.URLSearchParams(
-                                window.location.search
-                              ).get("inApp") == "true"
-                            ? "14px"
-                            : "0px"
-                    };
+                    return (() => {
+                      var padding = "0px";
+                      if ($state.healthStatus == "pregnancy") {
+                        if (
+                          new window.URLSearchParams(
+                            window.location.search
+                          ).get("inApp") == "true"
+                        )
+                          padding = "14px";
+                        else padding = "100px";
+                      } else if (
+                        new window.URLSearchParams(window.location.search).get(
+                          "inApp"
+                        ) == "true"
+                      )
+                        padding = "14px";
+                      else padding = "0px";
+                      return { "padding-top": padding };
+                    })();
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -4849,21 +4859,9 @@ function PlasmicStatusDay__RenderFunc(props: {
                       sty.text__gmtcU
                     )}
                   >
-                    <React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{ fontWeight: 500 }}
-                      >
-                        {
-                          "\u0628\u0627 \u0627\u06cc\u0646 \u0628\u0632\u0627\u0631 \u0645\u06cc\u062a\u0648\u0646\u06cc \u062d\u0633\u200c\u0648\u062d\u0627\u0644\u060c \u0639\u0644\u0627\u0626\u0645 \u0648 \u062d\u0627\u0644\u200c\u0648\u0647\u0648\u0627\u06cc \u0627\u0645\u0631\u0648\u0632\u062a \u0631\u0648 \u062b\u0628\u062a \u06a9\u0646\u06cc \u062a\u0627 \u0647\u0631 \u0631\u0648\u0632 \u06cc\u0647 \u062f\u06cc\u062f \u0628\u0647\u062a\u0631 \u0627\u0632 \u0631\u0648\u0646\u062f \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc.\n"
-                        }
-                      </span>
-                      <React.Fragment>
-                        {
-                          "\u0648\u0642\u062a\u06cc \u0639\u0644\u0627\u0626\u0645 \u0631\u0648\u0632\u0627\u0646\u0647\u200c\u062a \u0631\u0648 \u062b\u0628\u062a \u0645\u06cc\u200c\u06a9\u0646\u06cc\u060c \u0647\u0645 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a\u062a \u0628\u0647\u062a\u0631 \u062f\u06cc\u062f\u0647 \u0645\u06cc\u200c\u0634\u0646\u060c \u0647\u0645 \u0647\u06cc\u0686 \u062c\u0632\u0626\u06cc\u0627\u062a\u06cc \u0627\u0632 \u0642\u0644\u0645 \u0646\u0645\u06cc\u200c\u0627\u0641\u062a\u0647. \u0628\u0639\u062f\u0627\u064b \u0647\u0645 \u0627\u06af\u0647 \u062e\u0648\u0627\u0633\u062a\u06cc \u0628\u0647 \u062f\u06a9\u062a\u0631 \u0646\u0634\u0648\u0646 \u0628\u062f\u06cc\u060c \u06cc\u0647 \u06af\u0632\u0627\u0631\u0634 \u0645\u0631\u062a\u0628 \u0648 \u0642\u0627\u0628\u0644 \u0627\u0639\u062a\u0645\u0627\u062f \u062f\u0627\u0631\u06cc."
-                        }
-                      </React.Fragment>
-                    </React.Fragment>
+                    {
+                      "\u0628\u0627 \u0627\u06cc\u0646 \u0628\u062e\u0634 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u062d\u0627\u0644\u200c\u0648\u0647\u0648\u0627\u06cc \u0627\u0645\u0631\u0648\u0632\u062a \u0631\u0648 \u062b\u0628\u062a \u06a9\u0646\u06cc \u062a\u0627 \u0631\u0648\u0646\u062f \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a\u0648 \u062f\u0642\u06cc\u0642\u200c\u062a\u0631 \u0628\u0628\u06cc\u0646\u06cc."
+                    }
                   </div>
                 ) : null}
                 {(() => {

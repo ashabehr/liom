@@ -845,9 +845,12 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                   <React.Fragment>
                     {(() => {
                       try {
-                        return $state.shapData.result.shopList.find(
-                          item => item.selected === 1
-                        ).title;
+                        return (
+                          // $state.shapData.result.shopList.find(item => item.selected === 1).title + " - " + $state.shapData.result.shopList.find(item => item.selected === 1).value + " ماهه"
+                          $state.shapData.result.shopList.find(
+                            item => item.selected === 1
+                          ).name
+                        );
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -1690,7 +1693,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                   )}
                 >
                   {
-                    "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647"
+                    "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u06a9\u0627\u0645\u0644 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
                   }
                 </div>
               </Button>
@@ -2015,7 +2018,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                       initFunc: ({ $props, $state, $queries }) =>
                         (() => {
                           try {
-                            return currentItem.title;
+                            return currentItem.name;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -2433,9 +2436,9 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                 {(() => {
                   try {
                     return (
-                      "فعال سازی " +
-                      $state.subscription2?.[$state.subscriptionCurrentIndex]
-                        .title
+                      // "فعال سازی " +
+                      // $state.subscription2?.[$state.subscriptionCurrentIndex].title
+                      "فعالسازی اشتراک کامل بارداری"
                     );
                   } catch (e) {
                     if (
