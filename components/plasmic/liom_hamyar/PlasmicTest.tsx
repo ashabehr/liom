@@ -64,6 +64,7 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
+import DialogTooltip from "../../DialogTooltip"; // plasmic-import: 0nKndp-acHhb/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -91,6 +92,7 @@ export type PlasmicTest__OverridesType = {
   button?: Flex__<typeof Button>;
   lineClomp?: Flex__<typeof LineClomp>;
   text?: Flex__<"div">;
+  dialogTooltip?: Flex__<typeof DialogTooltip>;
 };
 
 export interface DefaultTestProps {}
@@ -171,6 +173,12 @@ function PlasmicTest__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "dialogTooltip.opendialog",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -398,6 +406,29 @@ function PlasmicTest__RenderFunc(props: {
           >
             {"Enter some text"}
           </div>
+          <DialogTooltip
+            data-plasmic-name={"dialogTooltip"}
+            data-plasmic-override={overrides.dialogTooltip}
+            className={classNames("__wab_instance", sty.dialogTooltip)}
+            onOpendialogChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "dialogTooltip",
+                "opendialog"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            opendialog={generateStateValueProp($state, [
+              "dialogTooltip",
+              "opendialog"
+            ])}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -405,10 +436,11 @@ function PlasmicTest__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "button", "lineClomp", "text"],
+  root: ["root", "button", "lineClomp", "text", "dialogTooltip"],
   button: ["button"],
   lineClomp: ["lineClomp"],
-  text: ["text"]
+  text: ["text"],
+  dialogTooltip: ["dialogTooltip"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -418,6 +450,7 @@ type NodeDefaultElementType = {
   button: typeof Button;
   lineClomp: typeof LineClomp;
   text: "div";
+  dialogTooltip: typeof DialogTooltip;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -510,6 +543,7 @@ export const PlasmicTest = Object.assign(
     button: makeNodeComponent("button"),
     lineClomp: makeNodeComponent("lineClomp"),
     text: makeNodeComponent("text"),
+    dialogTooltip: makeNodeComponent("dialogTooltip"),
 
     // Metadata about props expected for PlasmicTest
     internalVariantProps: PlasmicTest__VariantProps,

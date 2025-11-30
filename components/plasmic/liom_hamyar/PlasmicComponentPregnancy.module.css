@@ -4342,6 +4342,9 @@
 .img__qt0FL > picture > img {
   object-fit: contain;
 }
+.dialogTooltip:global(.__wab_instance):global(.__wab_instance) {
+  max-width: 100%;
+}
 .directDialog2:global(.__wab_instance) {
   max-width: 100%;
 }

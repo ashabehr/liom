@@ -148,32 +148,34 @@ function PlasmicDialogTooltip__RenderFunc(props: {
             result: {
               dialogs: [
                 {
-                  acceptTextColor: "#b8004c",
-                  rejectTextColor: "#6e015c",
-                  acceptText: "\u0628\u0632\u0646 \u0628\u0631\u06cc\u0645",
+                  acceptTextColor: "#ffffff",
+                  rejectTextColor: "#52a382",
+                  acceptText:
+                    "\u0641\u0639\u0627\u0644 \u06a9\u0646\u06cc\u0645",
                   acceptAction: "#healthSubscription",
-                  type: "native",
                   title:
-                    "\u0648\u0642\u062a\u06cc PMS \u0627\u0630\u06cc\u062a\u062a \u0645\u06cc\u200c\u06a9\u0646\u0647\u060c \u0644\u06cc\u0648\u0645 \u0647\u0648\u0627\u062a \u0631\u0648 \u062f\u0627\u0631\u0647!",
-                  isActive: false,
-                  titel:
-                    "\u0648\u0642\u062a\u06cc PMS \u0627\u0630\u06cc\u062a\u062a \u0645\u06cc\u200c\u06a9\u0646\u0647\u060c \u0644\u06cc\u0648\u0645 \u0647\u0648\u0627\u062a \u0631\u0648 \u062f\u0627\u0631\u0647!",
-                  titleColor: "#f7990a",
+                    "\u067e\u06cc\u0627\u0645\u06a9 \u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u0628\u0647 \u0647\u0645\u0633\u0631\u062a",
+                  type: "native",
+                  createdAt: "datetime()",
+                  titleColor: "#2B6D50",
                   isSpecial: false,
-                  text: "\u0628\u0627 \u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627\u06cc \u0627\u062e\u062a\u0635\u0627\u0635\u06cc \u0648 \u0645\u0631\u0627\u0642\u0628\u062a\u200c\u0647\u0627\u06cc \u0647\u0645\u062f\u0644\u0627\u0646\u0647\u060c \u0627\u06cc\u0646 \u0631\u0648\u0632\u0627 \u0631\u0648 \u0628\u0631\u0627\u062a \u0622\u0633\u0648\u0646\u200c\u062a\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0645.\n\u0645\u062b\u0644 \u06cc\u0647 \u062f\u0648\u0633\u062a \u0646\u0632\u062f\u06cc\u06a9 \u06a9\u0646\u0627\u0631\u062a \u0647\u0633\u062a\u0645 \u062a\u0627 \u0628\u062f\u0648\u0646 \u0627\u0633\u062a\u0631\u0633 \u0627\u0632\u0634 \u0631\u062f \u0634\u06cc \u2764\ufe0f\n\u0647\u0645\u06cc\u0646 \u0627\u0644\u0627\u0646 \u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627\u062a \u0631\u0648 \u0628\u06af\u06cc\u0631 \u0648 \u0628\u0647 \u062e\u0648\u062f\u062a \u062a\u0648\u062c\u0647 \u06a9\u0646\u060c \u0686\u0648\u0646 \u0644\u06cc\u0627\u0642\u062a \u0628\u0647\u062a\u0631\u06cc\u0646\u200c\u0647\u0627 \u0631\u0648 \u062f\u0627\u0631\u06cc! \u2728",
-                  id: "0b4d8510-8d07-47f3-81c5-21d5a5131046",
-                  image: "",
-                  backgroundColor: "#ffe3ec",
-                  custom: true,
+                  text: "\u0647\u0631 \u0647\u0641\u062a\u0647 \u0627\u06cc\u0646\u062c\u0627 \u0647\u0633\u062a\u06cc\u0645 \u062a\u0627 <b>\u0647\u0645\u0633\u0631\u062a \u0628\u062f\u0648\u0646\u0647 \u0686\u0647 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a\u06cc \u062f\u0631 \u0645\u0633\u06cc\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u062a\u062c\u0631\u0628\u0647 \u0645\u06cc\u200c\u06a9\u0646\u06cc</b> \u0648 \u0686\u0637\u0648\u0631 \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u0628\u0647\u062a\u0631\u06cc\u0646 \u0647\u0645\u0631\u0627\u0647 \u062a\u0648 \u0628\u0627\u0634\u0647.<br><br><b>\u0647\u0631 \u0647\u0641\u062a\u0647 \u0628\u0631\u0627\u0634 \u0645\u0634\u062e\u0635 \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645:</b><br>\u25cf \u062f\u0631\u0628\u0627\u0631\u0647 \u0631\u0634\u062f \u062c\u0646\u06cc\u0646: \u0686\u0647 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a\u06cc \u062f\u0631 \u0628\u062f\u0646 \u062a\u0648 \u0631\u062e \u0645\u06cc\u200c\u062f\u0647<br>\u25cf \u0646\u06a9\u0627\u062a\u06cc \u0628\u0631\u0627\u06cc \u0628\u0647\u0628\u0648\u062f \u0631\u0627\u0628\u0637\u0647\u200c\u062a\u0648\u0646 \u0648 \u0627\u06cc\u0646\u06a9\u0647 \u0686\u0637\u0648\u0631 \u0628\u0647\u062a\u0631 \u0627\u0632 \u062a\u0648 \u062d\u0645\u0627\u06cc\u062a \u06a9\u0646\u0647<br>\u25cf \u0631\u0627\u0647\u0646\u0645\u0627\u06cc\u06cc \u067e\u062f\u0631 \u0628\u0648\u062f\u0646: \u0646\u06a9\u0627\u062a \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc \u06a9\u0647 \u0647\u0631 \u067e\u062f\u0631\u06cc \u0628\u0627\u06cc\u062f \u0628\u062f\u0648\u0646\u0647<br><br>\u062f\u06cc\u06af\u0647 \u0644\u0627\u0632\u0645 \u0646\u06cc\u0633\u062a \u062d\u062f\u0633 \u0628\u0632\u0646\u0647 \u06cc\u0627 \u0686\u06cc\u0632\u06cc \u06cc\u0627\u062f\u0634 \u0628\u0631\u0647\u061b \u0647\u0631 \u0647\u0641\u062a\u0647 \u067e\u06cc\u0627\u0645 \u0645\u06cc\u0627\u062f \u062a\u0627 \u0647\u0645\u0633\u0631\u062a <b>\u0647\u0645\u06cc\u0634\u0647 \u062f\u0631 \u062c\u0631\u06cc\u0627\u0646 \u0628\u0627\u0634\u0647 \u0648 \u0628\u062a\u0648\u0646\u0647 \u0628\u0647\u062a\u0631\u06cc\u0646 \u0647\u0645\u0631\u0627\u0647 \u0628\u0627\u0634\u0647 \ud83e\udd0d</b><br><b>\u0645\u06cc\u200c\u062e\u0648\u0627\u06cc \u0647\u0645\u06cc\u0646 \u0647\u0641\u062a\u0647 \u0627\u06cc\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0631\u0648 \u0628\u0631\u0627\u06cc \u0647\u0645\u0633\u0631\u062a \u0641\u0639\u0627\u0644 \u06a9\u0646\u06cc \u0648 \u0647\u0631 \u067e\u06cc\u0627\u0645 \u0647\u0641\u062a\u06af\u06cc \u0631\u0648 \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0646\u0647\u061f \ud83d\udc9b</b>",
+                  id: "apoc.create.uuid()",
+                  startAt: "datetime()",
+                  updatedAt: "datetime()",
+                  backgroundColor: "#E8F9F1",
                   active: false,
-                  rejectText: "\u0628\u0639\u062f\u0627",
-                  textColor: "#6b0033",
-                  target: "buy-again-special_advice",
+                  rejectText:
+                    "\u0628\u0627\u0634\u0647 \u0628\u0639\u062f\u0627",
+                  disableViewCondition: 0,
+                  textColor: "#52a382",
+                  target: "pregnanyWeek1",
                   badge: "",
-                  healthStatus: "period",
-                  subName: "specialAdviceSubStatus",
-                  background: "#ffe3ec",
-                  btnColor: "#ffaf36"
+                  healthStatus: "pregnancy",
+                  background: "#E8F9F1",
+                  btnColor: "#52B888",
+                  custom: true,
+                  finishAt: "datetime()"
                 }
               ]
             }
@@ -544,21 +546,24 @@ function PlasmicDialogTooltip__RenderFunc(props: {
               }
             })()}
           >
-            <React.Fragment>
-              {(() => {
-                try {
-                  return $props.data.result.dialogs[0].text;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "";
+            <div
+              className={projectcss.__wab_expr_html_text}
+              dangerouslySetInnerHTML={{
+                __html: (() => {
+                  try {
+                    return $props.data.result.dialogs[0].text;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
+                    }
+                    throw e;
                   }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
+                })()
+              }}
+            />
           </div>
           <Load
             data-plasmic-name={"load"}

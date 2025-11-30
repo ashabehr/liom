@@ -75,6 +75,7 @@ import BuyComponenct from "../../BuyComponenct"; // plasmic-import: Ww7_RchUYDdQ
 import TodoList from "../../TodoList"; // plasmic-import: 0x91e3BeeLCM/component
 import ShopOfferBox from "../../ShopOfferBox"; // plasmic-import: w_9X12-Cs5Eb/component
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
+import DialogTooltip from "../../DialogTooltip"; // plasmic-import: 0nKndp-acHhb/component
 import DirectDialog2 from "../../DirectDialog2"; // plasmic-import: TQdexUKMB_Ec/component
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
@@ -139,6 +140,7 @@ export type PlasmicComponentPregnancy__OverridesType = {
   shopOfferBox?: Flex__<typeof ShopOfferBox>;
   subDialog?: Flex__<typeof AntdModal>;
   button4?: Flex__<typeof Button>;
+  dialogTooltip?: Flex__<typeof DialogTooltip>;
   directDialog2?: Flex__<typeof DirectDialog2>;
   slideinModal?: Flex__<typeof SlideinModal>;
 };
@@ -1388,6 +1390,12 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
       },
       {
         path: "button6.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "dialogTooltip.opendialog",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
@@ -13419,6 +13427,61 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                     )
                                   }
                                 )}
+                                onClick={async event => {
+                                  const $steps = {};
+
+                                  $steps["updateDialogTooltipOpendialog"] =
+                                    $state.userId ==
+                                    "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: [
+                                                "dialogTooltip",
+                                                "opendialog"
+                                              ]
+                                            },
+                                            operation: 0,
+                                            value: true
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                  if (
+                                    $steps["updateDialogTooltipOpendialog"] !=
+                                      null &&
+                                    typeof $steps[
+                                      "updateDialogTooltipOpendialog"
+                                    ] === "object" &&
+                                    typeof $steps[
+                                      "updateDialogTooltipOpendialog"
+                                    ].then === "function"
+                                  ) {
+                                    $steps["updateDialogTooltipOpendialog"] =
+                                      await $steps[
+                                        "updateDialogTooltipOpendialog"
+                                      ];
+                                  }
+                                }}
                               >
                                 {
                                   "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632\u0650 \u062a\u0648"
@@ -32307,6 +32370,30 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
             </div>
           </Button>
         </AntdModal>
+        <DialogTooltip
+          data-plasmic-name={"dialogTooltip"}
+          data-plasmic-override={overrides.dialogTooltip}
+          className={classNames("__wab_instance", sty.dialogTooltip)}
+          onOpendialogChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, [
+              "dialogTooltip",
+              "opendialog"
+            ]).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          opendialog={generateStateValueProp($state, [
+            "dialogTooltip",
+            "opendialog"
+          ])}
+        />
+
         <DirectDialog2
           data-plasmic-name={"directDialog2"}
           data-plasmic-override={overrides.directDialog2}
@@ -32459,6 +32546,7 @@ const PlasmicDescendants = {
     "shopOfferBox",
     "subDialog",
     "button4",
+    "dialogTooltip",
     "directDialog2",
     "slideinModal"
   ],
@@ -32486,6 +32574,7 @@ const PlasmicDescendants = {
     "shopOfferBox",
     "subDialog",
     "button4",
+    "dialogTooltip",
     "directDialog2"
   ],
   button: ["button"],
@@ -32510,6 +32599,7 @@ const PlasmicDescendants = {
   shopOfferBox: ["shopOfferBox"],
   subDialog: ["subDialog", "button4"],
   button4: ["button4"],
+  dialogTooltip: ["dialogTooltip"],
   directDialog2: ["directDialog2"],
   slideinModal: ["slideinModal"]
 } as const;
@@ -32541,6 +32631,7 @@ type NodeDefaultElementType = {
   shopOfferBox: typeof ShopOfferBox;
   subDialog: typeof AntdModal;
   button4: typeof Button;
+  dialogTooltip: typeof DialogTooltip;
   directDialog2: typeof DirectDialog2;
   slideinModal: typeof SlideinModal;
 };
@@ -32630,6 +32721,7 @@ export const PlasmicComponentPregnancy = Object.assign(
     shopOfferBox: makeNodeComponent("shopOfferBox"),
     subDialog: makeNodeComponent("subDialog"),
     button4: makeNodeComponent("button4"),
+    dialogTooltip: makeNodeComponent("dialogTooltip"),
     directDialog2: makeNodeComponent("directDialog2"),
     slideinModal: makeNodeComponent("slideinModal"),
 
