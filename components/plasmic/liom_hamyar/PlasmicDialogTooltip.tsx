@@ -151,7 +151,7 @@ function PlasmicDialogTooltip__RenderFunc(props: {
                   acceptTextColor: "#FFFFFF",
                   rejectTextColor: "#666f80",
                   acceptText:
-                    "\u0647\u0645\u06cc\u0646 \u0627\u0644\u0627\u0646 \u0634\u0631\u0648\u0639 \u06a9\u0646",
+                    "\u0634\u0631\u0648\u0639 \u06a9\u0646\u06cc\u0645",
                   acceptAction: "#healthSubscription",
                   title:
                     "\u067e\u06cc\u0634\u06af\u06cc\u0631\u06cc \u0627\u0632 \u062a\u0631\u06a9 \u0634\u06a9\u0645",
