@@ -206,7 +206,7 @@
   padding: var(--token-O5TjkXII_aat) 0px;
 }
 .customItem__dtEiw:global(.__wab_instance) {
-  width: 200px;
+  width: 150px;
   height: auto;
   flex-shrink: 0;
 }
@@ -646,7 +646,7 @@
   display: flex;
   position: sticky;
   width: auto;
-  height: 25px;
+  height: auto;
   max-width: 100%;
   left: 0px;
   top: 0px;
@@ -671,7 +671,7 @@
   color: #ffffff;
   text-align: center;
   text-transform: none;
-  line-height: 1.5;
+  line-height: 1;
   letter-spacing: normal;
   white-space: pre-wrap;
   user-select: text;

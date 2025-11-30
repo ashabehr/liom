@@ -523,6 +523,11 @@ function PlasmicCustomItem__RenderFunc(props: {
                       $state,
                       "shopBox",
                       "shopBox"
+                    ),
+                    [sty.textverticalBox__dObvCs8Cq]: hasVariant(
+                      $state,
+                      "verticalBox",
+                      "verticalBox"
                     )
                   }
                 )}
@@ -625,6 +630,11 @@ function PlasmicCustomItem__RenderFunc(props: {
                     $state,
                     "select",
                     "select"
+                  ),
+                  [sty.textverticalBox__kEoQfs8Cq]: hasVariant(
+                    $state,
+                    "verticalBox",
+                    "verticalBox"
                   )
                 }
               )}

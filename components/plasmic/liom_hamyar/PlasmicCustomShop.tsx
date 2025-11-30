@@ -693,7 +693,7 @@ function PlasmicCustomShop__RenderFunc(props: {
         path: "order",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+        initFunc: ({ $props, $state, $queries, $ctx }) => "all"
       }
     ],
     [$props, $ctx, $refs]
@@ -3453,7 +3453,7 @@ function PlasmicCustomShop__RenderFunc(props: {
                           "radioGroupLiom",
                           "selects"
                         ])}
-                        size={"small"}
+                        size={"textSize"}
                       />
                     </div>
                   </section>

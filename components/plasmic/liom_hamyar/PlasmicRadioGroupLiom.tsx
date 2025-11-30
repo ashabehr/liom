@@ -73,7 +73,7 @@ createPlasmicElementProxy;
 
 export type PlasmicRadioGroupLiom__VariantMembers = {
   unnamedVariant: "unnamedVariant";
-  size: "small" | "mini";
+  size: "small" | "mini" | "textSize";
   moulty: "moulty";
   color: "line" | "base2";
   icon: "icon";
@@ -83,7 +83,7 @@ export type PlasmicRadioGroupLiom__VariantMembers = {
 };
 export type PlasmicRadioGroupLiom__VariantsArgs = {
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
-  size?: SingleChoiceArg<"small" | "mini">;
+  size?: SingleChoiceArg<"small" | "mini" | "textSize">;
   moulty?: SingleBooleanChoiceArg<"moulty">;
   color?: SingleChoiceArg<"line" | "base2">;
   icon?: SingleBooleanChoiceArg<"icon">;
@@ -141,7 +141,7 @@ export interface DefaultRadioGroupLiomProps {
   accessclicke?: () => void;
   click?: () => void;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
-  size?: SingleChoiceArg<"small" | "mini">;
+  size?: SingleChoiceArg<"small" | "mini" | "textSize">;
   moulty?: SingleBooleanChoiceArg<"moulty">;
   color?: SingleChoiceArg<"line" | "base2">;
   icon?: SingleBooleanChoiceArg<"icon">;
@@ -301,6 +301,7 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
           [sty.rootmoulty]: hasVariant($state, "moulty", "moulty"),
           [sty.rootsize_mini]: hasVariant($state, "size", "mini"),
           [sty.rootsize_small]: hasVariant($state, "size", "small"),
+          [sty.rootsize_textSize]: hasVariant($state, "size", "textSize"),
           [sty.rootstyle2_cycle]: hasVariant($state, "style2", "cycle"),
           [sty.rootunnamedVariant]: hasVariant(
             $state,
@@ -369,6 +370,11 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
                 $state,
                 "size",
                 "small"
+              ),
+              [sty.radioGropsize_textSize__xDgqnlVh23]: hasVariant(
+                $state,
+                "size",
+                "textSize"
               ),
               [sty.radioGropstyle2_cycle__xDgqniTqtf]: hasVariant(
                 $state,
@@ -518,7 +524,13 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
             <div
               data-plasmic-name={"freeBox"}
               data-plasmic-override={overrides.freeBox}
-              className={classNames(projectcss.all, sty.freeBox)}
+              className={classNames(projectcss.all, sty.freeBox, {
+                [sty.freeBoxsize_textSize]: hasVariant(
+                  $state,
+                  "size",
+                  "textSize"
+                )
+              })}
             >
               <div
                 className={classNames(
@@ -540,6 +552,11 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
                       $state,
                       "size",
                       "small"
+                    ),
+                    [sty.textsize_textSize__h0HhjlVh23]: hasVariant(
+                      $state,
+                      "size",
+                      "textSize"
                     )
                   }
                 )}

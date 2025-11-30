@@ -39,6 +39,11 @@
   min-width: auto;
   width: auto;
 }
+.radioGropsize_textSize__xDgqnlVh23:global(.__wab_instance) {
+  width: auto;
+  min-width: auto;
+  height: auto;
+}
 .radioGropmoulty__xDgqnQublj:global(.__wab_instance) {
   display: none;
 }
@@ -63,6 +68,11 @@
   min-width: 0;
   padding: 0px;
 }
+.freeBoxsize_textSize {
+  width: auto;
+  padding-right: var(--token-O5TjkXII_aat);
+  padding-left: var(--token-O5TjkXII_aat);
+}
 .text__h0Hhj {
   font-weight: 500;
 }
@@ -70,6 +80,9 @@
   font-size: 14px;
 }
 .textsize_mini__h0HhjaMdd {
+  font-size: 14px;
+}
+.textsize_textSize__h0HhjlVh23 {
   font-size: 14px;
 }
 .text___2KgJ1 {
