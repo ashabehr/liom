@@ -2949,7 +2949,11 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                         undefined,
                         (() => {
                           try {
-                            return { authorization: $state.token };
+                            return {
+                              headers: {
+                                authorization: $state.token
+                              }
+                            };
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
