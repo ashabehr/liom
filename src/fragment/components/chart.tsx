@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-import { CodeComponentMeta } from "@plasmicapp/host";
+import { CodeComponentMeta, useSelector } from "@plasmicapp/host";
 import * as ChartPrimitive from "@/components/ui/chart";
 import {
   Bar,
@@ -55,25 +55,43 @@ export const Chart = (props: ChartType) => {
     className,
   } = props;
 
-  const reformmatedConfig =
-    ([dataKey ?? {}, ...chartConfig]?.reduce?.((acc, item) => {
+  const reformmatedConfig = ([dataKey ?? {}, ...chartConfig]?.reduce?.(
+    (acc, item) => {
       const key = item.key;
       acc[key] = item;
       return acc;
-    }, {}) ?? {}) satisfies ChartConfig;
+    },
+    {}
+  ) ?? {}) satisfies ChartConfig;
 
   const ComponentContainerChart: any = useMemo(() => {
-    if (type === "bar") return BarChart;
-    if (type === "area") return AreaChart;
-    if (type === "line") return LineChart;
-    if (type === "pie") return PieChart;
+    if (type === "bar") {
+      return BarChart;
+    }
+    if (type === "area") {
+      return AreaChart;
+    }
+    if (type === "line") {
+      return LineChart;
+    }
+    if (type === "pie") {
+      return PieChart;
+    }
   }, [type]);
 
   const ComponentChart: any = useMemo(() => {
-    if (type === "bar") return Bar;
-    if (type === "area") return Area;
-    if (type === "line") return Line;
-    if (type === "pie") return Pie;
+    if (type === "bar") {
+      return Bar;
+    }
+    if (type === "area") {
+      return Area;
+    }
+    if (type === "line") {
+      return Line;
+    }
+    if (type === "pie") {
+      return Pie;
+    }
   }, [type]);
 
   return (
@@ -85,7 +103,11 @@ export const Chart = (props: ChartType) => {
         accessibilityLayer
         {...(type === "bar" && { layout })}
         {...(type !== "pie" && { data })}
-        margin={{ right: 16, left: 16, top: 16 }}
+        margin={{
+          right: 16,
+          left: 16,
+          top: 16,
+        }}
       >
         {type !== "pie" && cartesianGrid?.length > 0 && (
           <CartesianGrid
@@ -153,9 +175,8 @@ export const Chart = (props: ChartType) => {
               {...(type !== "bar" && { dot: item?.dot ?? false })}
               {...(stack && { stackId: "a" })}
               allowReorder="yes"
-              hide={item.hidden} // 👈 سری رو مخفی می‌کنه
             >
-              {label && !item.hidden && ( // 👈 فقط وقتی hidden=false لیبل نشون داده بشه
+              {label && (
                 <LabelList
                   dataKey={item.key}
                   position={
@@ -181,7 +202,7 @@ export const chartMeta: CodeComponentMeta<ChartType> = {
   displayName: "Fragment/Chart",
   importPath: "@/fragment/components/chart",
   figmaMappings: [{ figmaComponentName: "Chart" }],
-
+  section: "Fragment",
   props: {
     type: {
       type: "cardPicker",
@@ -294,10 +315,6 @@ export const chartMeta: CodeComponentMeta<ChartType> = {
             defaultValueHint: false,
             defaultValue: false,
           },
-          hidden: { // 👈 پراپ جدید برای مخفی کردن سری
-            type: "boolean",
-            defaultValue: false,
-          },
         },
       },
     },
@@ -307,8 +324,14 @@ export const chartMeta: CodeComponentMeta<ChartType> = {
         return ps.type != "bar";
       },
       options: [
-        { label: "Vertical", value: "vertical" },
-        { label: "Horizontal", value: "horizontal" },
+        {
+          label: "Vertical",
+          value: "vertical",
+        },
+        {
+          label: "Horizontal",
+          value: "horizontal",
+        },
       ],
       defaultValue: "vertical",
       defaultValueHint: "horizontal",
@@ -319,8 +342,14 @@ export const chartMeta: CodeComponentMeta<ChartType> = {
       hidden: (ps) => ps.type === "pie",
       multiSelect: true,
       options: [
-        { label: "Vertical", value: "vertical" },
-        { label: "Horizontal", value: "horizontal" },
+        {
+          label: "Vertical",
+          value: "vertical",
+        },
+        {
+          label: "Horizontal",
+          value: "horizontal",
+        },
       ],
     },
     xAxis: {
@@ -342,12 +371,22 @@ export const chartMeta: CodeComponentMeta<ChartType> = {
             return ps.item?.key === "auto";
           },
           options: [
-            { label: "Category", value: "category" },
-            { label: "Number", value: "number" },
+            {
+              label: "Category",
+              value: "category",
+            },
+            {
+              label: "Number",
+              value: "number",
+            },
           ],
         },
         tickLine: "boolean",
-        tickMargin: { type: "number", defaultValue: 10, defaultValueHint: 10 },
+        tickMargin: {
+          type: "number",
+          defaultValue: 10,
+          defaultValueHint: 10,
+        },
         axisLine: "boolean",
       },
     },
@@ -370,12 +409,22 @@ export const chartMeta: CodeComponentMeta<ChartType> = {
             return ps.item?.key === "auto";
           },
           options: [
-            { label: "Category", value: "category" },
-            { label: "Number", value: "number" },
+            {
+              label: "Category",
+              value: "category",
+            },
+            {
+              label: "Number",
+              value: "number",
+            },
           ],
         },
         tickLine: "boolean",
-        tickMargin: { type: "number", defaultValue: 10, defaultValueHint: 10 },
+        tickMargin: {
+          type: "number",
+          defaultValue: 10,
+          defaultValueHint: 10,
+        },
         axisLine: "boolean",
       },
     },
@@ -387,9 +436,18 @@ export const chartMeta: CodeComponentMeta<ChartType> = {
         indicator: {
           type: "choice",
           options: [
-            { label: "dot", value: "dot" },
-            { label: "line", value: "line" },
-            { label: "dashed", value: "dashed" },
+            {
+              label: "dot",
+              value: "dot",
+            },
+            {
+              label: "line",
+              value: "line",
+            },
+            {
+              label: "dashed",
+              value: "dashed",
+            },
           ],
         },
         hideLabel: "boolean",
@@ -406,5 +464,7 @@ export const chartMeta: CodeComponentMeta<ChartType> = {
     },
   },
   classNameProp: "className",
-  defaultStyles: { width: "stretch" },
+  defaultStyles: {
+    width: "stretch",
+  },
 };
