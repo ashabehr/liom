@@ -3007,6 +3007,32 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
               ) {
                 $steps["updateDialog"] = await $steps["updateDialog"];
               }
+
+              $steps["runCode"] = $state?.dialog?.data?.result
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          console.log($state.dialog);
+                          return ($state.dialogTooltip.opendialog =
+                            $state.dialog.data.result.dialogs.length > 0
+                              ? true
+                              : false);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
             }}
             runWhileEditing={true}
           />
