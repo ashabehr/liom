@@ -2939,27 +2939,6 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 $steps["wait"] = await $steps["wait"];
               }
 
-              $steps["addCustomDialog"] = true
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        undefined,
-                        "https://n8n.staas.ir/webhook/customDialog"
-                      ]
-                    };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
-              if (
-                $steps["addCustomDialog"] != null &&
-                typeof $steps["addCustomDialog"] === "object" &&
-                typeof $steps["addCustomDialog"].then === "function"
-              ) {
-                $steps["addCustomDialog"] = await $steps["addCustomDialog"];
-              }
-
               $steps["getCustomDialog"] = true
                 ? (() => {
                     const actionArgs = {
