@@ -1399,6 +1399,12 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "dialog",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -2915,6 +2921,108 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 typeof $steps["log"].then === "function"
               ) {
                 $steps["log"] = await $steps["log"];
+              }
+
+              $steps["wait"] = true
+                ? (() => {
+                    const actionArgs = { args: [3000] };
+                    return $globalActions["Fragment.wait"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["wait"] != null &&
+                typeof $steps["wait"] === "object" &&
+                typeof $steps["wait"].then === "function"
+              ) {
+                $steps["wait"] = await $steps["wait"];
+              }
+
+              $steps["addCustomDialog"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        "https://n8n.staas.ir/webhook/customDialog"
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["addCustomDialog"] != null &&
+                typeof $steps["addCustomDialog"] === "object" &&
+                typeof $steps["addCustomDialog"].then === "function"
+              ) {
+                $steps["addCustomDialog"] = await $steps["addCustomDialog"];
+              }
+
+              $steps["getCustomDialog"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        "https://n8n.staas.ir/webhook/user/onConnect",
+                        undefined,
+                        undefined,
+                        (() => {
+                          try {
+                            return { authorization: $state.token };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["getCustomDialog"] != null &&
+                typeof $steps["getCustomDialog"] === "object" &&
+                typeof $steps["getCustomDialog"].then === "function"
+              ) {
+                $steps["getCustomDialog"] = await $steps["getCustomDialog"];
+              }
+
+              $steps["updateDialog"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["dialog"]
+                      },
+                      operation: 0,
+                      value: $steps.getCustomDialog
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateDialog"] != null &&
+                typeof $steps["updateDialog"] === "object" &&
+                typeof $steps["updateDialog"].then === "function"
+              ) {
+                $steps["updateDialog"] = await $steps["updateDialog"];
               }
             }}
             runWhileEditing={true}
@@ -32374,6 +32482,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
           data-plasmic-name={"dialogTooltip"}
           data-plasmic-override={overrides.dialogTooltip}
           className={classNames("__wab_instance", sty.dialogTooltip)}
+          data={$state.dialog?.data}
           onOpendialogChange={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, [
               "dialogTooltip",
@@ -32392,6 +32501,19 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
             "dialogTooltip",
             "opendialog"
           ])}
+          token={(() => {
+            try {
+              return $state.token;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
         />
 
         <DirectDialog2
