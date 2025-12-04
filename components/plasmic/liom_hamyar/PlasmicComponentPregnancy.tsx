@@ -992,7 +992,124 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "getTools",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          {
+            id: 7,
+            title:
+              "\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f",
+            icon: "https://liom.storage.c2.liara.space/config/self_care/chatBotOutlined.png",
+            anim: "",
+            textColor: "#00796B",
+            color: "#B2EBF2",
+            action: "chatBot",
+            orderr: 2,
+            shopType: "",
+            isActive: 1
+          },
+          {
+            id: 19,
+            title:
+              "\u0648\u0636\u0639\u06cc\u062a \u0627\u0645\u0631\u0648\u0632",
+            icon: "https://teh-1.s3.poshtiban.com/liom/tools/mainPage/today_status.png",
+            anim: "",
+            textColor: "#535353",
+            color: "#FFFFFF",
+            action: "events",
+            orderr: 1,
+            shopType: "",
+            isActive: 1
+          },
+          {
+            id: 1,
+            title:
+              "\u067e\u06cc\u0634\u06af\u06cc\u0631\u06cc \u062a\u0631\u06a9 \u067e\u0648\u0633\u062a\u06cc",
+            icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/stretchMarkOutlined.png",
+            anim: "",
+            textColor: "#535353",
+            color: "#FFFFFF",
+            action: "stretchMarks",
+            orderr: 0,
+            shopType: "stretch_marks_sub",
+            isActive: 1
+          },
+          {
+            id: 3,
+            title:
+              "\u0631\u0648\u062a\u06cc\u0646 \u067e\u0648\u0633\u062a\u06cc",
+            icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/skinCareOutlined.png",
+            anim: "",
+            textColor: "#535353",
+            color: "#FFFFFF",
+            action: "skinCare",
+            orderr: 0,
+            shopType: "skinCare",
+            isActive: 1
+          },
+          {
+            id: 4,
+            title:
+              "\u06a9\u0644\u06cc\u0646\u06cc\u06a9 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
+            icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/clinicOutlined.png",
+            anim: "",
+            textColor: "#535353",
+            color: "#FFFFFF",
+            action: "appoinment",
+            orderr: 0,
+            shopType: "",
+            isActive: 1
+          },
+          {
+            id: 5,
+            title:
+              "\u0647\u0645\u06cc\u0627\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
+            icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/hamyarOutlined.png",
+            anim: "",
+            textColor: "#535353",
+            color: "#FFFFFF",
+            action: "care_partner",
+            orderr: 0,
+            shopType: "",
+            isActive: 1
+          },
+          {
+            id: 13,
+            title: "\u0633\u06cc\u0633\u0645\u0648\u0646\u06cc",
+            icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/sismoonyOutlined.png",
+            anim: "",
+            textColor: "#535353",
+            color: "#FFFFFF",
+            action: "sismony",
+            orderr: 0,
+            shopType: "",
+            isActive: 1
+          },
+          {
+            id: 18,
+            title:
+              "\u06a9\u0646\u062a\u0631\u0644 \u0627\u0636\u0627\u0641\u0647 \u0648\u0632\u0646",
+            icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/bmiOutlined.png",
+            anim: "",
+            textColor: "#535353",
+            color: "#FFFFFF",
+            action: "weight",
+            orderr: 0,
+            shopType: "",
+            isActive: 1
+          },
+          {
+            id: 20,
+            title:
+              "\u0648\u06cc\u062f\u06cc\u0648 \u0622\u0645\u0648\u0634\u06cc",
+            icon: "https://teh-1.s3.poshtiban.com/liom/config/self_care/videoOutlined.png",
+            anim: "",
+            textColor: "#535353",
+            color: "#FFFFFF",
+            action: "video",
+            orderr: 0,
+            shopType: "",
+            isActive: 1
+          }
+        ]
       },
       {
         path: "button2.color",
@@ -13500,32 +13617,6 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                   }
                                 })()}
                               >
-                                {(() => {
-                                  try {
-                                    return currentItem.icon == "";
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return false;
-                                    }
-                                    throw e;
-                                  }
-                                })() ? (
-                                  <LottieWrapper
-                                    animationData={(() => {
-                                      const fixedString =
-                                        currentItem.anim.replace(/'/g, '"');
-                                      return JSON.parse(fixedString);
-                                    })()}
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.lottie__zqtB5
-                                    )}
-                                  />
-                                ) : null}
                                 {(() => {
                                   try {
                                     return (currentItem.icon ?? "") != "";

@@ -93,6 +93,7 @@ export type PlasmicTest__OverridesType = {
   lineClomp?: Flex__<typeof LineClomp>;
   text?: Flex__<"div">;
   dialogTooltip?: Flex__<typeof DialogTooltip>;
+  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultTestProps {}
@@ -178,7 +179,7 @@ function PlasmicTest__RenderFunc(props: {
         path: "dialogTooltip.opendialog",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -429,6 +430,23 @@ function PlasmicTest__RenderFunc(props: {
               "opendialog"
             ])}
           />
+
+          <PlasmicImg__
+            data-plasmic-name={"img"}
+            data-plasmic-override={overrides.img}
+            alt={""}
+            className={classNames(sty.img, "colorize")}
+            displayHeight={"auto"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"auto"}
+            loading={"lazy"}
+            src={
+              "https://liom.storage.c2.liara.space/config/self_care/chatBotOutlined.png"
+            }
+          />
         </div>
       </div>
     </React.Fragment>
@@ -436,11 +454,12 @@ function PlasmicTest__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "button", "lineClomp", "text", "dialogTooltip"],
+  root: ["root", "button", "lineClomp", "text", "dialogTooltip", "img"],
   button: ["button"],
   lineClomp: ["lineClomp"],
   text: ["text"],
-  dialogTooltip: ["dialogTooltip"]
+  dialogTooltip: ["dialogTooltip"],
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -451,6 +470,7 @@ type NodeDefaultElementType = {
   lineClomp: typeof LineClomp;
   text: "div";
   dialogTooltip: typeof DialogTooltip;
+  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -544,6 +564,7 @@ export const PlasmicTest = Object.assign(
     lineClomp: makeNodeComponent("lineClomp"),
     text: makeNodeComponent("text"),
     dialogTooltip: makeNodeComponent("dialogTooltip"),
+    img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicTest
     internalVariantProps: PlasmicTest__VariantProps,

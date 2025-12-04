@@ -838,7 +838,8 @@ function PlasmicReminder__RenderFunc(props: {
                 customFunction: async () => {
                   return (() => {
                     if (window.localStorage.getItem("reminder") == "false")
-                      return ($state.slide3 = true);
+                      $state.slide3 = true;
+                    return console.log($props.profile);
                   })();
                 }
               };
