@@ -855,45 +855,46 @@ function PlasmicReminder__RenderFunc(props: {
           $steps["runCode"] = await $steps["runCode"];
         }
 
-        $steps["invokeGlobalAction"] = true
-          ? (() => {
-              const actionArgs = {
-                args: [
-                  "GET",
-                  "https://n8n.staas.ir/webhook/reminders/suggestions",
-                  (() => {
-                    try {
-                      return (() => {
-                        var tag = [];
-                        if ($props?.profile?.result?.user?.sex != null) {
-                          tag.push($props.profile.result.user.sex);
+        $steps["invokeGlobalAction"] =
+          $state.slide3 == true && $state.ofline.length == 0
+            ? (() => {
+                const actionArgs = {
+                  args: [
+                    "GET",
+                    "https://n8n.staas.ir/webhook/reminders/suggestions",
+                    (() => {
+                      try {
+                        return (() => {
+                          var tag = [];
+                          if ($props?.profile?.result?.user?.sex != null) {
+                            tag.push($props.profile.result.user.sex);
+                          }
+                          if ($props?.profile?.result?.user?.married != null) {
+                            tag.push(
+                              $props.profile.result.user.married
+                                ? "married"
+                                : "single"
+                            );
+                          }
+                          return { tag: JSON.stringify(tag) };
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
                         }
-                        if ($props?.profile?.result?.user?.married != null) {
-                          tag.push(
-                            $props.profile.result.user.married
-                              ? "married"
-                              : "single"
-                          );
-                        }
-                        return { tag: tag };
-                      })();
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
+                        throw e;
                       }
-                      throw e;
-                    }
-                  })()
-                ]
-              };
-              return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                ...actionArgs.args
-              ]);
-            })()
-          : undefined;
+                    })()
+                  ]
+                };
+                return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                  ...actionArgs.args
+                ]);
+              })()
+            : undefined;
         if (
           $steps["invokeGlobalAction"] != null &&
           typeof $steps["invokeGlobalAction"] === "object" &&
