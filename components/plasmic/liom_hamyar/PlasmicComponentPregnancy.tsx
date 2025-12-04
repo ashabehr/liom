@@ -9897,7 +9897,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                 </span>
                                 <React.Fragment>
                                   {
-                                    " \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u0647\u0645\u06cc\u0646 \u0627\u0644\u0627\u0646 \u0641\u0639\u0627\u0644\u0634 \u06a9\u0646 \ud83d\udd13"
+                                    " \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u0647\u0645\u06cc\u0646 \u0627\u0644\u0627\u0646 \u0627\u0633\u062a\u0631\u0633\u062a \u0631\u0648 \u06a9\u0645 \u06a9\u0646 \ud83d\udd13"
                                   }
                                 </React.Fragment>
                               </React.Fragment>
