@@ -203,6 +203,7 @@ export type PlasmicReminder__OverridesType = {
   button9?: Flex__<typeof Button>;
   creaditButten?: Flex__<typeof CreaditButten>;
   wallet?: Flex__<typeof ApiRequest>;
+  apiRequest?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultReminderProps {
@@ -559,7 +560,23 @@ function PlasmicReminder__RenderFunc(props: {
         path: "ofline",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (
+                $state.apiRequest?.data ||
+                JSON.stringify(window.sessionStorage.getItem("ofline") || "[]")
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "slide3",
@@ -794,6 +811,24 @@ function PlasmicReminder__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "apiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -853,72 +888,6 @@ function PlasmicReminder__RenderFunc(props: {
           typeof $steps["runCode"].then === "function"
         ) {
           $steps["runCode"] = await $steps["runCode"];
-        }
-
-        $steps["invokeGlobalAction"] =
-          $state.slide3 == true && $state.ofline.length == 0
-            ? (() => {
-                const actionArgs = {
-                  args: [
-                    "GET",
-                    "https://n8n.staas.ir/webhook/reminders/suggestions",
-                    (() => {
-                      try {
-                        return {
-                          authorization: $props.token
-                        };
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()
-                  ]
-                };
-                return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                  ...actionArgs.args
-                ]);
-              })()
-            : undefined;
-        if (
-          $steps["invokeGlobalAction"] != null &&
-          typeof $steps["invokeGlobalAction"] === "object" &&
-          typeof $steps["invokeGlobalAction"].then === "function"
-        ) {
-          $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
-        }
-
-        $steps["updateOfline"] = $steps.invokeGlobalAction?.data
-          ? (() => {
-              const actionArgs = {
-                variable: {
-                  objRoot: $state,
-                  variablePath: ["ofline"]
-                },
-                operation: 0,
-                value: $steps.invokeGlobalAction.data
-              };
-              return (({ variable, value, startIndex, deleteCount }) => {
-                if (!variable) {
-                  return;
-                }
-                const { objRoot, variablePath } = variable;
-
-                $stateSet(objRoot, variablePath, value);
-                return value;
-              })?.apply(null, [actionArgs]);
-            })()
-          : undefined;
-        if (
-          $steps["updateOfline"] != null &&
-          typeof $steps["updateOfline"] === "object" &&
-          typeof $steps["updateOfline"].then === "function"
-        ) {
-          $steps["updateOfline"] = await $steps["updateOfline"];
         }
 
         $steps["runCode2"] = true
@@ -5232,6 +5201,111 @@ function PlasmicReminder__RenderFunc(props: {
         })()}
         url={"https://n8n.staas.ir/webhook/wallet"}
       />
+
+      <ApiRequest
+        data-plasmic-name={"apiRequest"}
+        data-plasmic-override={overrides.apiRequest}
+        className={classNames("__wab_instance", sty.apiRequest)}
+        errorDisplay={
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__lL1Il
+            )}
+          >
+            {"Error fetching data"}
+          </div>
+        }
+        loadingDisplay={
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__tvq4E
+            )}
+          >
+            {"Loading..."}
+          </div>
+        }
+        method={"GET"}
+        onError={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(
+            null,
+            eventArgs
+          );
+        }}
+        onLoading={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["apiRequest", "loading"]).apply(
+            null,
+            eventArgs
+          );
+        }}
+        onSuccess={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
+            null,
+            eventArgs
+          );
+
+          (async data => {
+            const $steps = {};
+
+            $steps["runCode"] = $state.apiRequest?.data
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return window.sessionStorage.setItem(
+                        "ofline",
+                        JSON.parse($state.apiRequest.data)
+                      );
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
+            }
+          }).apply(null, eventArgs);
+        }}
+        params={(() => {
+          try {
+            return {
+              authorization: $props.token
+            };
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
+        shouldFetch={(() => {
+          try {
+            return (
+              !window.sessionStorage.getItem("ofline") && $state.slide3 == true
+            );
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return true;
+            }
+            throw e;
+          }
+        })()}
+        url={"https://n8n.staas.ir/webhook/reminders/suggestions"}
+      />
     </div>
   ) as React.ReactElement | null;
 }
@@ -5272,7 +5346,8 @@ const PlasmicDescendants = {
     "reminderSetting",
     "button9",
     "creaditButten",
-    "wallet"
+    "wallet",
+    "apiRequest"
   ],
   dialog: ["dialog", "input", "select", "switchbest3", "button5"],
   input: ["input"],
@@ -5314,7 +5389,8 @@ const PlasmicDescendants = {
   reminderSetting: ["reminderSetting"],
   button9: ["button9"],
   creaditButten: ["creaditButten"],
-  wallet: ["wallet"]
+  wallet: ["wallet"],
+  apiRequest: ["apiRequest"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -5355,6 +5431,7 @@ type NodeDefaultElementType = {
   button9: typeof Button;
   creaditButten: typeof CreaditButten;
   wallet: typeof ApiRequest;
+  apiRequest: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -5453,6 +5530,7 @@ export const PlasmicReminder = Object.assign(
     button9: makeNodeComponent("button9"),
     creaditButten: makeNodeComponent("creaditButten"),
     wallet: makeNodeComponent("wallet"),
+    apiRequest: makeNodeComponent("apiRequest"),
 
     // Metadata about props expected for PlasmicReminder
     internalVariantProps: PlasmicReminder__VariantProps,

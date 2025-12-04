@@ -94,6 +94,7 @@ export type PlasmicShopOfferBox__ArgsType = {
   onBuyIdChange?: (val: string) => void;
   redirectUrl?: string;
   onRedirectUrlChange?: (val: string) => void;
+  inApp?: string;
 };
 type ArgPropType = keyof PlasmicShopOfferBox__ArgsType;
 export const PlasmicShopOfferBox__ArgProps = new Array<ArgPropType>(
@@ -101,7 +102,8 @@ export const PlasmicShopOfferBox__ArgProps = new Array<ArgPropType>(
   "type",
   "onBuyIdChange",
   "redirectUrl",
-  "onRedirectUrlChange"
+  "onRedirectUrlChange",
+  "inApp"
 );
 
 export type PlasmicShopOfferBox__OverridesType = {
@@ -124,6 +126,7 @@ export interface DefaultShopOfferBoxProps {
   onBuyIdChange?: (val: string) => void;
   redirectUrl?: string;
   onRedirectUrlChange?: (val: string) => void;
+  inApp?: string;
   className?: string;
 }
 
@@ -1536,45 +1539,37 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                       await $steps["invokeGlobalAction"];
                   }
 
-                  $steps["goToPage"] =
+                  $steps["runCode"] =
                     $steps.invokeGlobalAction?.data?.success == true &&
                     $steps.invokeGlobalAction?.data?.result != false
                       ? (() => {
                           const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return $steps.invokeGlobalAction.data.result;
-                              } catch (e) {
+                            customFunction: async () => {
+                              return (() => {
+                                var link =
+                                  $steps.invokeGlobalAction.data.result;
                                 if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
+                                  $props.inApp == "true" &&
+                                  window?.FlutterChannel
+                                )
+                                  return window.FlutterChannel.postMessage(
+                                    link
+                                  );
+                                else return window.open(link, "_self");
+                              })();
                             }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
                           })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
                   if (
-                    $steps["goToPage"] != null &&
-                    typeof $steps["goToPage"] === "object" &&
-                    typeof $steps["goToPage"].then === "function"
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
                   ) {
-                    $steps["goToPage"] = await $steps["goToPage"];
+                    $steps["runCode"] = await $steps["runCode"];
                   }
 
                   $steps["invokeGlobalAction2"] =
