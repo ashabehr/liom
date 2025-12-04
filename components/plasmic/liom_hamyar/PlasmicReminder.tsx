@@ -134,6 +134,7 @@ export type PlasmicReminder__ArgsType = {
   active?: boolean;
   onActiveChange?: (val: string) => void;
   setNumber?: () => void;
+  profile?: any;
 };
 type ArgPropType = keyof PlasmicReminder__ArgsType;
 export const PlasmicReminder__ArgProps = new Array<ArgPropType>(
@@ -162,7 +163,8 @@ export const PlasmicReminder__ArgProps = new Array<ArgPropType>(
   "onBalanceChange",
   "active",
   "onActiveChange",
-  "setNumber"
+  "setNumber",
+  "profile"
 );
 
 export type PlasmicReminder__OverridesType = {
@@ -230,6 +232,7 @@ export interface DefaultReminderProps {
   active?: boolean;
   onActiveChange?: (val: string) => void;
   setNumber?: () => void;
+  profile?: any;
   slide3?: SingleBooleanChoiceArg<"slide3">;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
   className?: string;
@@ -852,19 +855,46 @@ function PlasmicReminder__RenderFunc(props: {
           $steps["runCode"] = await $steps["runCode"];
         }
 
-        $steps["invokeGlobalAction"] = true
-          ? (() => {
-              const actionArgs = {
-                args: [
-                  "GET",
-                  "https://n8n.staas.ir/webhook/reminders/suggestions"
-                ]
-              };
-              return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                ...actionArgs.args
-              ]);
-            })()
-          : undefined;
+        $steps["invokeGlobalAction"] =
+          $state.slide3 == true
+            ? (() => {
+                const actionArgs = {
+                  args: [
+                    "GET",
+                    "https://n8n.staas.ir/webhook/reminders/suggestions",
+                    (() => {
+                      try {
+                        return (() => {
+                          var tag = [];
+                          if ($props?.profile?.result?.user?.sex != null) {
+                            tag.push($props.profile.result.user.sex);
+                          }
+                          if ($props?.profile?.result?.user?.married != null) {
+                            tag.push(
+                              $props.profile.result.user.married
+                                ? "married"
+                                : "single"
+                            );
+                          }
+                          return { tag: tag };
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+                  ]
+                };
+                return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                  ...actionArgs.args
+                ]);
+              })()
+            : undefined;
         if (
           $steps["invokeGlobalAction"] != null &&
           typeof $steps["invokeGlobalAction"] === "object" &&

@@ -322,7 +322,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
         path: "shop.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "loadingshop",

@@ -2587,20 +2587,6 @@
           "path": "/noname-2"
         },
         {
-          "id": "1kOlF8ZxmgdR",
-          "name": "Calendar",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicCalendar.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/calendar.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicCalendar.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/calendar"
-        },
-        {
           "id": "NW80jtwK9h1z",
           "name": "Cyclebox2",
           "type": "managed",

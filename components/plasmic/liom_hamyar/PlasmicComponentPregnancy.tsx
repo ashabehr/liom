@@ -3012,13 +3012,10 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
-                        return (() => {
-                          console.log($state.dialog);
-                          return ($state.dialogTooltip.opendialog =
-                            $state.dialog.data.result.dialogs.length > 0
-                              ? true
-                              : false);
-                        })();
+                        return ($state.dialogTooltip.opendialog =
+                          $state.dialog.data.result.dialogs.length > 0
+                            ? true
+                            : false);
                       }
                     };
                     return (({ customFunction }) => {

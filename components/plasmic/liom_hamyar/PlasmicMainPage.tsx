@@ -445,6 +445,12 @@ function PlasmicMainPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => 0,
 
         onChangeProp: "onReminderBalanceChange"
+      },
+      {
+        path: "calendar2.profile",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -544,6 +550,20 @@ function PlasmicMainPage__RenderFunc(props: {
               }
             }).apply(null, eventArgs);
           }}
+          onProfileChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["calendar2", "profile"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
           onTokenChange={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, ["calendar2", "token"]).apply(
               null,
@@ -638,6 +658,7 @@ function PlasmicMainPage__RenderFunc(props: {
               }
             }).apply(null, eventArgs);
           }}
+          profile={generateStateValueProp($state, ["calendar2", "profile"])}
           setting={args.setting}
           token={generateStateValueProp($state, ["calendar2", "token"])}
           userInfo={generateStateValueProp($state, ["calendar2", "userInfo"])}
@@ -1233,6 +1254,19 @@ function PlasmicMainPage__RenderFunc(props: {
           phone={(() => {
             try {
               return $state.calendar2.userInfo?.result?.user?.phoneNumber;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+          profile={(() => {
+            try {
+              return $state.calendar2.profile;
             } catch (e) {
               if (
                 e instanceof TypeError ||

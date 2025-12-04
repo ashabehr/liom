@@ -118,6 +118,8 @@ export const PlasmicCalendar2__VariantProps = new Array<VariantPropType>(
 );
 
 export type PlasmicCalendar2__ArgsType = {
+  profile?: any;
+  onProfileChange?: (val: string) => void;
   userInfo?: any;
   onUserInfoChange?: (val: string) => void;
   token?: string;
@@ -130,6 +132,8 @@ export type PlasmicCalendar2__ArgsType = {
 };
 type ArgPropType = keyof PlasmicCalendar2__ArgsType;
 export const PlasmicCalendar2__ArgProps = new Array<ArgPropType>(
+  "profile",
+  "onProfileChange",
   "userInfo",
   "onUserInfoChange",
   "token",
@@ -210,6 +214,8 @@ export type PlasmicCalendar2__OverridesType = {
 };
 
 export interface DefaultCalendar2Props {
+  profile?: any;
+  onProfileChange?: (val: string) => void;
   userInfo?: any;
   onUserInfoChange?: (val: string) => void;
   token?: string;
@@ -1523,9 +1529,11 @@ function PlasmicCalendar2__RenderFunc(props: {
       },
       {
         path: "profile",
-        type: "private",
+        type: "writable",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+
+        valueProp: "profile",
+        onChangeProp: "onProfileChange"
       },
       {
         path: "addHome",
