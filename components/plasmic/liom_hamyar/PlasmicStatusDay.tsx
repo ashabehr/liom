@@ -1900,44 +1900,7 @@ function PlasmicStatusDay__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return (() => {
-                let retryCount = 0;
-                const maxRetries = 20;
-                while (!window.jalaali && retryCount < maxRetries) {
-                  const start = Date.now();
-                  while (Date.now() - start < 200) {}
-                  retryCount++;
-                }
-                let options = [];
-                if (window.jalaali) {
-                  const daysOfWeek = ["ی", "د", "س", "چ", "پ", "ج", "ش"];
-
-                  const daysInMonth = window.jalaali.jalaaliMonthLength(
-                    $state.jalali.jy,
-                    $state.jalali.jm
-                  );
-                  for (let day = 1; day <= daysInMonth; day++) {
-                    const gregorian = window.jalaali.toGregorian(
-                      $state.jalali.jy,
-                      $state.jalali.jm,
-                      day
-                    );
-                    const date = new Date(
-                      gregorian.gy,
-                      gregorian.gm - 1,
-                      gregorian.gd
-                    );
-                    const timezoneOffset = date.getTimezoneOffset() * 60000;
-                    const localDate = new Date(date.getTime() - timezoneOffset);
-                    const dayOfWeek = date.getDay();
-                    options.push({
-                      value: localDate.toISOString().split("T")[0],
-                      label: `${daysOfWeek[dayOfWeek]} - ${day}`
-                    });
-                  }
-                }
-                return options;
-              })();
+              return [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -2050,11 +2013,25 @@ function PlasmicStatusDay__RenderFunc(props: {
                 const currentYear = today.getFullYear();
                 const currentMonth = today.getMonth() + 1;
                 const currentDay = today.getDate();
-                return window.jalaali.toJalaali(
-                  currentYear,
-                  currentMonth,
-                  currentDay
-                );
+                window.jalaali.toJalaali(currentYear, currentMonth, currentDay);
+                function faToEn(str) {
+                  return str.replace(/[۰-۹]/g, d =>
+                    String("۰۱۲۳۴۵۶۷۸۹".indexOf(d))
+                  );
+                }
+                const faDate = new Date().toLocaleDateString("fa-IR", {
+                  year: "numeric",
+                  month: "2-digit",
+                  day: "2-digit"
+                });
+                const enDate = faToEn(faDate);
+                const [jy, jm, jd] = enDate.split("/").map(Number);
+                const dateObj = {
+                  jy,
+                  jm,
+                  jd
+                };
+                return dateObj;
               })();
             } catch (e) {
               if (
@@ -3983,6 +3960,82 @@ function PlasmicStatusDay__RenderFunc(props: {
                 ) {
                   $steps["updateInDay"] = await $steps["updateInDay"];
                 }
+
+                $steps["updateMonth"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["month"]
+                        },
+                        operation: 0,
+                        value: (() => {
+                          let options = [];
+                          if (window.jalaali) {
+                            const daysOfWeek = [
+                              "ی",
+                              "د",
+                              "س",
+                              "چ",
+                              "پ",
+                              "ج",
+                              "ش"
+                            ];
+
+                            const daysInMonth =
+                              window.jalaali.jalaaliMonthLength(
+                                $state.jalali.jy,
+                                $state.jalali.jm
+                              );
+                            for (let day = 1; day <= daysInMonth; day++) {
+                              const gregorian = window.jalaali.toGregorian(
+                                $state.jalali.jy,
+                                $state.jalali.jm,
+                                day
+                              );
+                              const date = new Date(
+                                gregorian.gy,
+                                gregorian.gm - 1,
+                                gregorian.gd
+                              );
+                              const timezoneOffset =
+                                date.getTimezoneOffset() * 60000;
+                              const localDate = new Date(
+                                date.getTime() - timezoneOffset
+                              );
+                              const dayOfWeek = date.getDay();
+                              options.push({
+                                value: localDate.toISOString().split("T")[0],
+                                label: `${daysOfWeek[dayOfWeek]} - ${day}`
+                              });
+                            }
+                          }
+                          return options;
+                        })()
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateMonth"] != null &&
+                  typeof $steps["updateMonth"] === "object" &&
+                  typeof $steps["updateMonth"].then === "function"
+                ) {
+                  $steps["updateMonth"] = await $steps["updateMonth"];
+                }
               }).apply(null, eventArgs);
             }}
             params={(() => {
@@ -4202,7 +4255,48 @@ function PlasmicStatusDay__RenderFunc(props: {
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
-                      return $state.month;
+                      return (() => {
+                        let options = [];
+                        if (window.jalaali) {
+                          const daysOfWeek = [
+                            "ی",
+                            "د",
+                            "س",
+                            "چ",
+                            "پ",
+                            "ج",
+                            "ش"
+                          ];
+
+                          const daysInMonth = window.jalaali.jalaaliMonthLength(
+                            $state.jalali.jy,
+                            $state.jalali.jm
+                          );
+                          for (let day = 1; day <= daysInMonth; day++) {
+                            const gregorian = window.jalaali.toGregorian(
+                              $state.jalali.jy,
+                              $state.jalali.jm,
+                              day
+                            );
+                            const date = new Date(
+                              gregorian.gy,
+                              gregorian.gm - 1,
+                              gregorian.gd
+                            );
+                            const timezoneOffset =
+                              date.getTimezoneOffset() * 60000;
+                            const localDate = new Date(
+                              date.getTime() - timezoneOffset
+                            );
+                            const dayOfWeek = date.getDay();
+                            options.push({
+                              value: localDate.toISOString().split("T")[0],
+                              label: `${daysOfWeek[dayOfWeek]} - ${day}`
+                            });
+                          }
+                        }
+                        return options || $state.month;
+                      })();
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
