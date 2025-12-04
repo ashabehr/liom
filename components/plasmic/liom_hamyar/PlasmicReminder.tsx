@@ -904,7 +904,7 @@ function PlasmicReminder__RenderFunc(props: {
           $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
         }
 
-        $steps["updateOfline"] = $steps.invokeGlobalAction.data
+        $steps["updateOfline"] = $steps.invokeGlobalAction?.data
           ? (() => {
               const actionArgs = {
                 variable: {

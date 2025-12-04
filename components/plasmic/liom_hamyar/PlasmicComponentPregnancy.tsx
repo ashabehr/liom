@@ -2273,45 +2273,26 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
               $steps["goToPageSetting"] = $state.isNoData
                 ? (() => {
                     const actionArgs = {
-                      destination: (() => {
-                        try {
-                          return (() => {
-                            var token = $state.token;
-                            return (
-                              "https://apps.liom.app/setting-pregnancy/?token=" +
-                              token +
-                              "&userId=" +
-                              $state.userId +
-                              "&theme=" +
-                              $ctx.query.theme +
-                              "&inApp=" +
-                              $ctx.query.inApp +
-                              "&inBo=t" +
-                              $ctx.query.inBot
-                            );
-                          })();
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })()
-                    };
-                    return (({ destination }) => {
-                      if (
-                        typeof destination === "string" &&
-                        destination.startsWith("#")
-                      ) {
-                        document
-                          .getElementById(destination.substr(1))
-                          .scrollIntoView({ behavior: "smooth" });
-                      } else {
-                        __nextRouter?.push(destination);
+                      customFunction: async () => {
+                        return (() => {
+                          var token = $state.token;
+                          var link =
+                            "https://apps.liom.app/setting-pregnancy/?token=" +
+                            token +
+                            "&userId=" +
+                            $state.userId +
+                            "&theme=" +
+                            $state.paramsObject.theme +
+                            "&inApp=" +
+                            $state.paramsObject.inApp +
+                            "&inBo=t" +
+                            $state.paramsObject.inBot;
+                          return window.open(link, "_self");
+                        })();
                       }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
                     })?.apply(null, [actionArgs]);
                   })()
                 : undefined;
@@ -9779,10 +9760,18 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                         </div>
                         {(() => {
                           try {
-                            return (
-                              $state.userId !=
-                              "4ddd1fab-100c-49f0-b843-e70bff8add34"
-                            );
+                            return (() => {
+                              const allowance =
+                                $state.userInfo?.[0]?.result?.allowance || [];
+                              const filteredItem = allowance.find(item =>
+                                item.type.includes("pregnancy_sub")
+                              );
+                              const active = filteredItem
+                                ? filteredItem.active
+                                : false;
+                              if (active) return true;
+                              else return false;
+                            })();
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -9923,10 +9912,18 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                         ) : null}
                         {(() => {
                           try {
-                            return (
-                              $state.userId ==
-                              "4ddd1fab-100c-49f0-b843-e70bff8add34"
-                            );
+                            return (() => {
+                              const allowance =
+                                $state.userInfo?.[0]?.result?.allowance || [];
+                              const filteredItem = allowance.find(item =>
+                                item.type.includes("pregnancy_sub")
+                              );
+                              const active = filteredItem
+                                ? filteredItem.active
+                                : false;
+                              if (active) return false;
+                              else return true;
+                            })();
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -11849,7 +11846,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                     try {
                                       return {
                                         authorization: $state.token,
-                                        type: "care_partner"
+                                        type: "pregnancy_sub_better_relation"
                                       };
                                     } catch (e) {
                                       if (
@@ -17402,14 +17399,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                           block: "start"
                                         });
                                       $state.collapseDanger.open = true;
-                                      if ($state.paramsObject.inApp != "true") {
-                                        $state.typeBuy = "pregnancy_sub";
-                                        return ($state.subDialog.open = true);
-                                      } else {
-                                        return window.FlutterChannel.postMessage(
-                                          "#healthSubscription"
-                                        );
-                                      }
+                                      $state.typeBuy = "pregnancy_sub";
+                                      return ($state.subDialog.open = true);
                                     })();
                                   }
                                 };
