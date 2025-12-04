@@ -838,8 +838,7 @@ function PlasmicReminder__RenderFunc(props: {
                 customFunction: async () => {
                   return (() => {
                     if (window.localStorage.getItem("reminder") == "false")
-                      $state.slide3 = true;
-                    return console.log($props.profile);
+                      return ($state.slide3 = true);
                   })();
                 }
               };
@@ -865,20 +864,9 @@ function PlasmicReminder__RenderFunc(props: {
                     "https://n8n.staas.ir/webhook/reminders/suggestions",
                     (() => {
                       try {
-                        return (() => {
-                          var tag = [];
-                          if ($props?.profile?.result?.user?.sex != null) {
-                            tag.push($props.profile.result.user.sex);
-                          }
-                          if ($props?.profile?.result?.user?.married != null) {
-                            tag.push(
-                              $props.profile.result.user.married
-                                ? "married"
-                                : "single"
-                            );
-                          }
-                          return { tag: JSON.stringify(tag) };
-                        })();
+                        return {
+                          authorization: $props.token
+                        };
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
