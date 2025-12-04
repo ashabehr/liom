@@ -74,7 +74,6 @@ import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/compo
 import BuyComponenct from "../../BuyComponenct"; // plasmic-import: Ww7_RchUYDdQ/component
 import TodoList from "../../TodoList"; // plasmic-import: 0x91e3BeeLCM/component
 import ShopOfferBox from "../../ShopOfferBox"; // plasmic-import: w_9X12-Cs5Eb/component
-import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import DialogTooltip from "../../DialogTooltip"; // plasmic-import: 0nKndp-acHhb/component
 import DirectDialog2 from "../../DirectDialog2"; // plasmic-import: TQdexUKMB_Ec/component
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
@@ -138,8 +137,6 @@ export type PlasmicComponentPregnancy__OverridesType = {
   collapseHealth?: Flex__<typeof AntdSingleCollapse>;
   todoList?: Flex__<typeof TodoList>;
   shopOfferBox?: Flex__<typeof ShopOfferBox>;
-  subDialog?: Flex__<typeof AntdModal>;
-  button4?: Flex__<typeof Button>;
   dialogTooltip?: Flex__<typeof DialogTooltip>;
   directDialog2?: Flex__<typeof DirectDialog2>;
   slideinModal?: Flex__<typeof SlideinModal>;
@@ -1265,44 +1262,6 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
-      },
-      {
-        path: "subDialog.open",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant(globalVariants, "screen", "mobile") ? false : false
-      },
-      {
-        path: "button4.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button4.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.loadingGetLink;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return [];
-              }
-              throw e;
-            }
-          })()
-      },
-      {
-        path: "button4.load",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "loadingGetLink",
@@ -13505,7 +13464,9 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                   )}
                                   style={(() => {
                                     try {
-                                      return (() => {})();
+                                      return {
+                                        "white-space": "nowrap"
+                                      };
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -17217,45 +17178,140 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
-                        $steps["runCode"] =
-                          $state.userId ==
-                          "4ddd1fab-100c-49f0-b843-e70bff8add34"
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return (() => {
-                                      const allowance =
-                                        $state.userInfo?.[0]?.result
-                                          ?.allowance || [];
-                                      const filteredItem = allowance.find(
-                                        item => item.type.includes("danger")
-                                      );
-                                      const active = filteredItem
-                                        ? filteredItem.active
-                                        : false;
-                                      document
-                                        .getElementById("collapseDanger")
-                                        .scrollIntoView({
-                                          behavior: "smooth",
-                                          block: "start"
-                                        });
-                                      $state.collapseDanger.open = true;
-                                      $state.typeBuy = "pregnancy_sub";
-                                      return ($state.subDialog.open = true);
-                                    })();
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
+                        $steps["invokeGlobalAction"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://n8n.staas.ir/webhook/tools/selfCare/linkV3",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        authorization: $state.token,
+                                        type: "pregnancy_danger_sub"
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
                         if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
                         ) {
-                          $steps["runCode"] = await $steps["runCode"];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
+                        }
+
+                        $steps["invokeGlobalAction2"] = false
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  (() => {
+                                    try {
+                                      return $steps.invokeGlobalAction?.data
+                                        ?.result?.link;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  (() => {
+                                    try {
+                                      return $state.token;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  (() => {
+                                    try {
+                                      return $state.userId;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  (() => {
+                                    try {
+                                      return $state.paramsObject.inApp;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  (() => {
+                                    try {
+                                      return $state.paramsObject.theme;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  undefined,
+                                  undefined
+                                ]
+                              };
+                              return $globalActions["Fragment.deepLink"]?.apply(
+                                null,
+                                [...actionArgs.args]
+                              );
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction2"] != null &&
+                          typeof $steps["invokeGlobalAction2"] === "object" &&
+                          typeof $steps["invokeGlobalAction2"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction2"] =
+                            await $steps["invokeGlobalAction2"];
                         }
                       }}
                     >
@@ -32273,370 +32329,6 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
             </div>
           ) : null}
         </div>
-        <AntdModal
-          data-plasmic-name={"subDialog"}
-          data-plasmic-override={overrides.subDialog}
-          className={classNames("__wab_instance", sty.subDialog)}
-          defaultStylesClassName={classNames(
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
-            styleTokensClassNames
-          )}
-          hideFooter={true}
-          modalScopeClassName={sty["subDialog__modal"]}
-          onOpenChange={async (...eventArgs: any) => {
-            generateStateOnChangeProp($state, ["subDialog", "open"]).apply(
-              null,
-              eventArgs
-            );
-          }}
-          open={generateStateValueProp($state, ["subDialog", "open"])}
-          title={
-            <PlasmicImg__
-              alt={""}
-              className={classNames(sty.img__qt0FL)}
-              displayHeight={"auto"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={"auto"}
-              loading={"lazy"}
-              src={{
-                src: "/plasmic/liom_hamyar/images/vipImagePng.png",
-                fullWidth: 1218,
-                fullHeight: 664,
-                aspectRatio: undefined
-              }}
-            />
-          }
-          trigger={null}
-        >
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__fuFu3
-            )}
-          >
-            {
-              "\u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u062e\u0648\u062f\u062a\u060c \u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u0628\u0686\u062a\u0647"
-            }
-          </div>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__xcRq
-            )}
-          >
-            <div
-              className={projectcss.__wab_expr_html_text}
-              dangerouslySetInnerHTML={{
-                __html: (() => {
-                  try {
-                    return `<div style="
-  font-family: 'IRANSans', sans-serif;
-  text-align: right;
-  line-height: 1.6;
-  padding: 14px 12px;
-">
-  <p style="font-size: 13px; margin: 0;">
-    ✨ فقط این هفته نیست… <strong>هر هفته راهنمایی مخصوص </strong> خودش رو داره!
-  </p>
-
-  <p style="font-size: 15px; font-weight:800; margin: 6px 0;">
-    چیزایی که هر هفته بهش نیاز داری:
-  </p>
-
-  <ul style="list-style: none; padding: 0; margin: 0;">
-    <li style="display: flex; gap: 6px; align-items: center; margin-bottom: 4px;">
-      <span style="font-weight:bold; color: #1abc9c;">✓</span> مکمل‌ها و ویتامین‌های لازم مخصوص هر هفته
-    </li>
-    <li style="display: flex; gap: 6px; align-items: center; margin-bottom: 4px;">
-      <span style="font-weight:bold; color: #1abc9c;">✓</span> آزمایش‌ها و چکاپ‌های ضروری
-    </li>
-    <li style="display: flex; gap: 6px; align-items: center; margin-bottom: 4px;">
-      <span style="font-weight:bold; color: #1abc9c;">✓</span> چیزهایی که تو هر هفته خطرناک هستن و باید حواست باشه
-    </li>
-    <li style="display: flex; gap: 6px; align-items: center;">
-      <span style="font-weight:bold; color: #1abc9c;">✓</span> نکات سلامتی برای هر هفته
-    </li>
-    <li style="display: flex; gap: 6px; align-items: center;">
-      <span style="font-weight:bold; color: #1abc9c;">✓</span> نکات رفع استرس و آرامش
-    </li>
-  </ul>
-</div>
-`;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
-                    }
-                    throw e;
-                  }
-                })()
-              }}
-            />
-          </div>
-          <Button
-            data-plasmic-name={"button4"}
-            data-plasmic-override={overrides.button4}
-            className={classNames("__wab_instance", sty.button4)}
-            color={generateStateValueProp($state, ["button4", "color"])}
-            load={generateStateValueProp($state, ["button4", "load"])}
-            loading={generateStateValueProp($state, ["button4", "loading"])}
-            onClick={async event => {
-              const $steps = {};
-
-              $steps["updateLoadingGetLink"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["loadingGetLink"]
-                      },
-                      operation: 0,
-                      value: true
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateLoadingGetLink"] != null &&
-                typeof $steps["updateLoadingGetLink"] === "object" &&
-                typeof $steps["updateLoadingGetLink"].then === "function"
-              ) {
-                $steps["updateLoadingGetLink"] =
-                  await $steps["updateLoadingGetLink"];
-              }
-
-              $steps["invokeGlobalAction"] = true
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        "POST",
-                        "https://n8n.staas.ir/webhook/tools/selfCare/linkV3",
-                        undefined,
-                        (() => {
-                          try {
-                            return {
-                              authorization: $state.token,
-                              type: "pregnancy_sub"
-                            };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                      ]
-                    };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
-              if (
-                $steps["invokeGlobalAction"] != null &&
-                typeof $steps["invokeGlobalAction"] === "object" &&
-                typeof $steps["invokeGlobalAction"].then === "function"
-              ) {
-                $steps["invokeGlobalAction"] =
-                  await $steps["invokeGlobalAction"];
-              }
-
-              $steps["invokeGlobalAction2"] = $steps.invokeGlobalAction?.data
-                ?.result?.link
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        (() => {
-                          try {
-                            return $steps.invokeGlobalAction?.data?.result
-                              ?.link;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })(),
-                        (() => {
-                          try {
-                            return $state.token;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })(),
-                        (() => {
-                          try {
-                            return $state.userId;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })(),
-                        (() => {
-                          try {
-                            return $state.paramsObject.inApp;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })(),
-                        (() => {
-                          try {
-                            return $state.paramsObject.theme;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                      ]
-                    };
-                    return $globalActions["Fragment.deepLink"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
-              if (
-                $steps["invokeGlobalAction2"] != null &&
-                typeof $steps["invokeGlobalAction2"] === "object" &&
-                typeof $steps["invokeGlobalAction2"].then === "function"
-              ) {
-                $steps["invokeGlobalAction2"] =
-                  await $steps["invokeGlobalAction2"];
-              }
-
-              $steps["updateLoadingGetLink2"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["loadingGetLink"]
-                      },
-                      operation: 0,
-                      value: false
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateLoadingGetLink2"] != null &&
-                typeof $steps["updateLoadingGetLink2"] === "object" &&
-                typeof $steps["updateLoadingGetLink2"].then === "function"
-              ) {
-                $steps["updateLoadingGetLink2"] =
-                  await $steps["updateLoadingGetLink2"];
-              }
-            }}
-            onColorChange={async (...eventArgs: any) => {
-              ((...eventArgs) => {
-                generateStateOnChangeProp($state, ["button4", "color"])(
-                  eventArgs[0]
-                );
-              }).apply(null, eventArgs);
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            onLoadChange={async (...eventArgs: any) => {
-              ((...eventArgs) => {
-                generateStateOnChangeProp($state, ["button4", "load"])(
-                  eventArgs[0]
-                );
-              }).apply(null, eventArgs);
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            onLoadingChange={async (...eventArgs: any) => {
-              ((...eventArgs) => {
-                generateStateOnChangeProp($state, ["button4", "loading"])(
-                  eventArgs[0]
-                );
-              }).apply(null, eventArgs);
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__qjWmZ
-              )}
-            >
-              {
-                "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647"
-              }
-            </div>
-          </Button>
-        </AntdModal>
         <DialogTooltip
           data-plasmic-name={"dialogTooltip"}
           data-plasmic-override={overrides.dialogTooltip}
@@ -32825,8 +32517,6 @@ const PlasmicDescendants = {
     "collapseHealth",
     "todoList",
     "shopOfferBox",
-    "subDialog",
-    "button4",
     "dialogTooltip",
     "directDialog2",
     "slideinModal"
@@ -32853,8 +32543,6 @@ const PlasmicDescendants = {
     "collapseHealth",
     "todoList",
     "shopOfferBox",
-    "subDialog",
-    "button4",
     "dialogTooltip",
     "directDialog2"
   ],
@@ -32878,8 +32566,6 @@ const PlasmicDescendants = {
   collapseHealth: ["collapseHealth"],
   todoList: ["todoList"],
   shopOfferBox: ["shopOfferBox"],
-  subDialog: ["subDialog", "button4"],
-  button4: ["button4"],
   dialogTooltip: ["dialogTooltip"],
   directDialog2: ["directDialog2"],
   slideinModal: ["slideinModal"]
@@ -32910,8 +32596,6 @@ type NodeDefaultElementType = {
   collapseHealth: typeof AntdSingleCollapse;
   todoList: typeof TodoList;
   shopOfferBox: typeof ShopOfferBox;
-  subDialog: typeof AntdModal;
-  button4: typeof Button;
   dialogTooltip: typeof DialogTooltip;
   directDialog2: typeof DirectDialog2;
   slideinModal: typeof SlideinModal;
@@ -33000,8 +32684,6 @@ export const PlasmicComponentPregnancy = Object.assign(
     collapseHealth: makeNodeComponent("collapseHealth"),
     todoList: makeNodeComponent("todoList"),
     shopOfferBox: makeNodeComponent("shopOfferBox"),
-    subDialog: makeNodeComponent("subDialog"),
-    button4: makeNodeComponent("button4"),
     dialogTooltip: makeNodeComponent("dialogTooltip"),
     directDialog2: makeNodeComponent("directDialog2"),
     slideinModal: makeNodeComponent("slideinModal"),

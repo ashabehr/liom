@@ -5104,6 +5104,32 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicSocialMain2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "AN1CTDBmHKor",
+          "name": "PregnancyShopDialog",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicPregnancyShopDialog.tsx",
+          "importSpec": {
+            "modulePath": "PregnancyShopDialog.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicPregnancyShopDialog.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "IAJ66TL6W-0T",
+          "name": "DialogTooltip2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicDialogTooltip2.tsx",
+          "importSpec": {
+            "modulePath": "DialogTooltip2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicDialogTooltip2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
