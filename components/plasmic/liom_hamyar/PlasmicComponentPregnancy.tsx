@@ -11611,8 +11611,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                             borderColor: "#000000",
                             lock: false,
                             isChecked:
-                              $state.userInfo?.[0]?.result?.hamyars[0].rel
-                                .statusSms
+                              $state.userInfo?.[0]?.result?.hamyars?.[0]?.rel
+                                ?.statusSms ?? false
                           };
                         } catch (e) {
                           if (
@@ -11639,10 +11639,11 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                             type: "normal",
                             lock: false,
                             isChecked:
-                              $state.userInfo?.[0]?.result?.user
-                                .selfHamyarSms ||
-                              $state.userInfo?.[0]?.result?.user
-                                .selfHamyarSmsSubStatus,
+                              ($state.userInfo?.[0]?.result?.user
+                                ?.selfHamyarSms ||
+                                $state.userInfo?.[0]?.result?.user
+                                  ?.selfHamyarSmsSubStatus) ??
+                              false,
                             borderColor: "#000000"
                           };
                         } catch (e) {
@@ -12049,7 +12050,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                       btn1={(() => {
                         var btn = JSON.parse($state.getTooltip.buttons)[0];
                         btn.isChecked =
-                          $state.userInfo?.[0]?.result?.hamyars[0].rel.statusSms;
+                          $state.userInfo?.[0]?.result?.hamyars?.[0].rel
+                            ?.statusSms ?? false;
                         return btn;
                       })()}
                       btn2={(() => {
@@ -12058,9 +12060,11 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                         ) {
                           var btn = JSON.parse($state.getTooltip.buttons)[1];
                           btn.isChecked =
-                            $state.userInfo?.[0]?.result?.user.selfHamyarSms ||
-                            $state.userInfo?.[0]?.result?.user
-                              .selfHamyarSmsSubStatus;
+                            ($state.userInfo?.[0]?.result?.user
+                              ?.selfHamyarSms ||
+                              $state.userInfo?.[0]?.result?.user
+                                ?.selfHamyarSmsSubStatus) ??
+                            false;
                           return btn;
                         } else {
                           return "{}";
