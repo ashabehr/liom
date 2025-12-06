@@ -2529,28 +2529,29 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 $steps["tools"] = await $steps["tools"];
               }
 
-              $steps["tooltip"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return fetch("https://n8n.staas.ir/webhook/tooltip", {
-                          method: "GET"
-                        })
-                          .then(response => response.json())
-                          .then(data => {
-                            console.log("tooltip");
-                            $state.getTooltip = data;
+              $steps["tooltip"] =
+                $state.userId == "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return fetch("https://n8n.staas.ir/webhook/tooltip", {
+                            method: "GET"
                           })
-                          .catch(error =>
-                            console.error("Error-tooltip:", error)
-                          );
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
+                            .then(response => response.json())
+                            .then(data => {
+                              console.log("tooltip");
+                              $state.getTooltip = data;
+                            })
+                            .catch(error =>
+                              console.error("Error-tooltip:", error)
+                            );
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
               if (
                 $steps["tooltip"] != null &&
                 typeof $steps["tooltip"] === "object" &&
