@@ -1695,16 +1695,13 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                             $state.token,
                           {
                             method: "GET",
-                            headers: {
-                              "Content-Type": "application/json"
-                            }
+                            headers: { "Content-Type": "application/json" }
                           }
                         )
                           .then(response => response.json())
                           .then(data => {
                             $state.userInfo = data;
                             console.log("user get liommm");
-
                             try {
                               console.log("savingInfo....");
                               localStorage.setItem(
@@ -2214,74 +2211,30 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 $steps["updateRandomIndex"] = await $steps["updateRandomIndex"];
               }
 
-              $steps["updateIsTimer"] = true
+              $steps["updateDayCounter"] = !$state.isNoData
                 ? (() => {
                     const actionArgs = {
                       variable: {
                         objRoot: $state,
-                        variablePath: ["isTimer"]
-                      },
-                      operation: 4,
-                      value: false
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      const oldValue = $stateGet(objRoot, variablePath);
-                      $stateSet(objRoot, variablePath, !oldValue);
-                      return !oldValue;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateIsTimer"] != null &&
-                typeof $steps["updateIsTimer"] === "object" &&
-                typeof $steps["updateIsTimer"].then === "function"
-              ) {
-                $steps["updateIsTimer"] = await $steps["updateIsTimer"];
-              }
-            }}
-          />
-
-          <Timer
-            data-plasmic-name={"timer"}
-            data-plasmic-override={overrides.timer}
-            className={classNames("__wab_instance", sty.timer, {
-              [sty.timerglobal_newView_newView]: hasVariant(
-                globalVariants,
-                "newView",
-                "newView"
-              )
-            })}
-            intervalSeconds={1}
-            isRunning={(() => {
-              try {
-                return !$state.isTimer;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return false;
-                }
-                throw e;
-              }
-            })()}
-            onTick={async () => {
-              const $steps = {};
-
-              $steps["updateIsTimer"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["isTimer"]
+                        variablePath: ["dayCounter"]
                       },
                       operation: 0,
-                      value: true
+                      value: (() => {
+                        const list = [
+                          "نی نی کوچولوت تو بغلته :)",
+                          "فرشته کوچولوت به دنیا میاد :)"
+                        ];
+
+                        return (
+                          $state.daysPregnant +
+                          " روز دیگه " +
+                          list[
+                            Math.floor(
+                              Math.random() * (list.length - 1) - 0 + 1
+                            ) + 0
+                          ]
+                        );
+                      })()
                     };
                     return (({ variable, value, startIndex, deleteCount }) => {
                       if (!variable) {
@@ -2295,11 +2248,11 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                   })()
                 : undefined;
               if (
-                $steps["updateIsTimer"] != null &&
-                typeof $steps["updateIsTimer"] === "object" &&
-                typeof $steps["updateIsTimer"].then === "function"
+                $steps["updateDayCounter"] != null &&
+                typeof $steps["updateDayCounter"] === "object" &&
+                typeof $steps["updateDayCounter"].then === "function"
               ) {
-                $steps["updateIsTimer"] = await $steps["updateIsTimer"];
+                $steps["updateDayCounter"] = await $steps["updateDayCounter"];
               }
 
               $steps["advice"] = !$state.isNoData
@@ -2354,6 +2307,64 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 typeof $steps["advice"].then === "function"
               ) {
                 $steps["advice"] = await $steps["advice"];
+              }
+
+              $steps["tools"] = !$state.isNoData
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return fetch("https://n8n.staas.ir/webhook/tools", {
+                          method: "GET"
+                        })
+                          .then(response => response.json())
+                          .then(data => {
+                            console.log("tools");
+                            $state.getTools = data;
+                          })
+                          .catch(error => console.error("Error-tools:", error));
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["tools"] != null &&
+                typeof $steps["tools"] === "object" &&
+                typeof $steps["tools"].then === "function"
+              ) {
+                $steps["tools"] = await $steps["tools"];
+              }
+
+              $steps["tooltip"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return fetch("https://n8n.staas.ir/webhook/tooltip", {
+                          method: "GET"
+                        })
+                          .then(response => response.json())
+                          .then(data => {
+                            console.log("tooltip");
+                            $state.getTooltip = data;
+                          })
+                          .catch(error =>
+                            console.error("Error-tooltip:", error)
+                          );
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["tooltip"] != null &&
+                typeof $steps["tooltip"] === "object" &&
+                typeof $steps["tooltip"].then === "function"
+              ) {
+                $steps["tooltip"] = await $steps["tooltip"];
               }
 
               $steps["danger"] = !$state.isNoData
@@ -2441,34 +2452,6 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 $steps["task"] = await $steps["task"];
               }
 
-              $steps["ads"] = false
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return fetch("https://n8n.staas.ir/webhook/ads", {
-                          method: "GET"
-                        })
-                          .then(response => response.json())
-                          .then(data => {
-                            console.log("ads");
-                            $state.getAds = data;
-                          })
-                          .catch(error => console.error("Error-ads:", error));
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["ads"] != null &&
-                typeof $steps["ads"] === "object" &&
-                typeof $steps["ads"].then === "function"
-              ) {
-                $steps["ads"] = await $steps["ads"];
-              }
-
               $steps["question"] = !$state.isNoData
                 ? (() => {
                     const actionArgs = {
@@ -2501,19 +2484,19 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                 $steps["question"] = await $steps["question"];
               }
 
-              $steps["tools"] = !$state.isNoData
+              $steps["ads"] = false
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
-                        return fetch("https://n8n.staas.ir/webhook/tools", {
+                        return fetch("https://n8n.staas.ir/webhook/ads", {
                           method: "GET"
                         })
                           .then(response => response.json())
                           .then(data => {
-                            console.log("tools");
-                            $state.getTools = data;
+                            console.log("ads");
+                            $state.getAds = data;
                           })
-                          .catch(error => console.error("Error-tools:", error));
+                          .catch(error => console.error("Error-ads:", error));
                       }
                     };
                     return (({ customFunction }) => {
@@ -2522,68 +2505,81 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                   })()
                 : undefined;
               if (
-                $steps["tools"] != null &&
-                typeof $steps["tools"] === "object" &&
-                typeof $steps["tools"].then === "function"
+                $steps["ads"] != null &&
+                typeof $steps["ads"] === "object" &&
+                typeof $steps["ads"].then === "function"
               ) {
-                $steps["tools"] = await $steps["tools"];
+                $steps["ads"] = await $steps["ads"];
               }
 
-              $steps["tooltip"] =
-                $state.userId == "4ddd1fab-100c-49f0-b843-e70bff8add34"
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return fetch("https://n8n.staas.ir/webhook/tooltip", {
-                            method: "GET"
-                          })
-                            .then(response => response.json())
-                            .then(data => {
-                              console.log("tooltip");
-                              $state.getTooltip = data;
-                            })
-                            .catch(error =>
-                              console.error("Error-tooltip:", error)
-                            );
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["tooltip"] != null &&
-                typeof $steps["tooltip"] === "object" &&
-                typeof $steps["tooltip"].then === "function"
-              ) {
-                $steps["tooltip"] = await $steps["tooltip"];
-              }
-
-              $steps["updateDayCounter"] = true
+              $steps["updateIsTimer"] = true
                 ? (() => {
                     const actionArgs = {
                       variable: {
                         objRoot: $state,
-                        variablePath: ["dayCounter"]
+                        variablePath: ["isTimer"]
+                      },
+                      operation: 4,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      const oldValue = $stateGet(objRoot, variablePath);
+                      $stateSet(objRoot, variablePath, !oldValue);
+                      return !oldValue;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateIsTimer"] != null &&
+                typeof $steps["updateIsTimer"] === "object" &&
+                typeof $steps["updateIsTimer"].then === "function"
+              ) {
+                $steps["updateIsTimer"] = await $steps["updateIsTimer"];
+              }
+            }}
+          />
+
+          <Timer
+            data-plasmic-name={"timer"}
+            data-plasmic-override={overrides.timer}
+            className={classNames("__wab_instance", sty.timer, {
+              [sty.timerglobal_newView_newView]: hasVariant(
+                globalVariants,
+                "newView",
+                "newView"
+              )
+            })}
+            intervalSeconds={1}
+            isRunning={(() => {
+              try {
+                return !$state.isTimer;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()}
+            onTick={async () => {
+              const $steps = {};
+
+              $steps["updateIsTimer"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["isTimer"]
                       },
                       operation: 0,
-                      value: (() => {
-                        const list = [
-                          "نی نی کوچولوت تو بغلته :)",
-                          "فرشته کوچولوت به دنیا میاد :)"
-                        ];
-
-                        return (
-                          $state.daysPregnant +
-                          " روز دیگه " +
-                          list[
-                            Math.floor(
-                              Math.random() * (list.length - 1) - 0 + 1
-                            ) + 0
-                          ]
-                        );
-                      })()
+                      value: true
                     };
                     return (({ variable, value, startIndex, deleteCount }) => {
                       if (!variable) {
@@ -2597,11 +2593,11 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                   })()
                 : undefined;
               if (
-                $steps["updateDayCounter"] != null &&
-                typeof $steps["updateDayCounter"] === "object" &&
-                typeof $steps["updateDayCounter"].then === "function"
+                $steps["updateIsTimer"] != null &&
+                typeof $steps["updateIsTimer"] === "object" &&
+                typeof $steps["updateIsTimer"].then === "function"
               ) {
-                $steps["updateDayCounter"] = await $steps["updateDayCounter"];
+                $steps["updateIsTimer"] = await $steps["updateIsTimer"];
               }
 
               $steps["setUser"] = !$state.isNoData
@@ -17193,7 +17189,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                     try {
                                       return {
                                         authorization: $state.token,
-                                        type: "pregnancy_danger_sub"
+                                        type: "pregnancy_shop_dialog"
                                       };
                                     } catch (e) {
                                       if (
@@ -30895,6 +30891,19 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                           "__wab_instance",
                           sty.shopOfferBox
                         )}
+                        inApp={(() => {
+                          try {
+                            return $state.paramsObject.inApp;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
                         onBuyIdChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
                             "shopOfferBox",
