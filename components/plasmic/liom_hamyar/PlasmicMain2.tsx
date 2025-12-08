@@ -204,7 +204,7 @@ function PlasmicMain2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $ctx.params.footer;
+              return $ctx.params.page[0] || "calendar";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1148,7 +1148,7 @@ function PlasmicMain2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $ctx.params.page[0];
+              return $ctx.params.page[1];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1252,18 +1252,6 @@ function PlasmicMain2__RenderFunc(props: {
                   ? (() => {
                       const actionArgs = {
                         destination: `/main2/${(() => {
-                          try {
-                            return $ctx.params.footer;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}/${(() => {
                           try {
                             return (() => {
                               var s = $ctx.params.page;
@@ -1421,7 +1409,7 @@ function PlasmicMain2__RenderFunc(props: {
               }}
               page={(() => {
                 try {
-                  return $ctx.params.footer;
+                  return $ctx.params.page[0];
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -1445,18 +1433,6 @@ function PlasmicMain2__RenderFunc(props: {
                   ? (() => {
                       const actionArgs = {
                         destination: `/main2/${(() => {
-                          try {
-                            return $ctx.params.footer;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}/${(() => {
                           try {
                             return (() => {
                               var s = $ctx.params.page;
@@ -1503,18 +1479,6 @@ function PlasmicMain2__RenderFunc(props: {
                   ? (() => {
                       const actionArgs = {
                         destination: `/main2/${(() => {
-                          try {
-                            return $ctx.params.footer;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}/${(() => {
                           try {
                             return (() => {
                               var s = $ctx.params.page;
@@ -1564,7 +1528,13 @@ function PlasmicMain2__RenderFunc(props: {
             <section className={classNames(projectcss.all, sty.section__ajlUx)}>
               {(() => {
                 const child$Props = {
-                  className: classNames("__wab_instance", sty.footerMain),
+                  className: classNames("__wab_instance", sty.footerMain, {
+                    [sty.footerMainpage2_edit]: hasVariant(
+                      $state,
+                      "page2",
+                      "edit"
+                    )
+                  }),
                   footer2: (() => {
                     try {
                       return $state.footerMain.type;
@@ -1611,7 +1581,7 @@ function PlasmicMain2__RenderFunc(props: {
                                   }
                                   throw e;
                                 }
-                              })()}/${""}`
+                              })()}`
                             };
                             return (({ destination }) => {
                               if (
@@ -1647,7 +1617,7 @@ function PlasmicMain2__RenderFunc(props: {
                       initFunc: ({ $props, $state, $queries }) =>
                         (() => {
                           try {
-                            return $ctx.params.footer;
+                            return $ctx.params.page[0] || "calendar";
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -1711,18 +1681,6 @@ function PlasmicMain2__RenderFunc(props: {
                       ? (() => {
                           const actionArgs = {
                             destination: `/main2/${(() => {
-                              try {
-                                return $ctx.params.footer;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()}/${(() => {
                               try {
                                 return (() => {
                                   var s = $ctx.params.page;
@@ -2712,19 +2670,6 @@ function PlasmicMain2__RenderFunc(props: {
                                     const actionArgs = {
                                       destination: `/main2/${(() => {
                                         try {
-                                          return $ctx.params.footer;
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
-                                          }
-                                          throw e;
-                                        }
-                                      })()}/${(() => {
-                                        try {
                                           return (() => {
                                             var s = $ctx.params.page;
                                             s.push("reminderSetting");
@@ -2921,7 +2866,7 @@ function PlasmicMain2__RenderFunc(props: {
                                 const actionArgs = {
                                   destination: `/main2/${(() => {
                                     try {
-                                      return $ctx.params.footer;
+                                      return $ctx.params.page.join("/");
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -2932,7 +2877,7 @@ function PlasmicMain2__RenderFunc(props: {
                                       }
                                       throw e;
                                     }
-                                  })()}/[[...page]]?menu=${"true"}`
+                                  })()}?menu=${"true"}`
                                 };
                                 return (({ destination }) => {
                                   if (
@@ -3025,18 +2970,6 @@ function PlasmicMain2__RenderFunc(props: {
                   ? (() => {
                       const actionArgs = {
                         destination: `/main2/${(() => {
-                          try {
-                            return $ctx.params.footer;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}/${(() => {
                           try {
                             return $ctx.params.page
                               .filter(i => i != "setting")
@@ -3271,18 +3204,6 @@ function PlasmicMain2__RenderFunc(props: {
                       const actionArgs = {
                         destination: `/main2/${(() => {
                           try {
-                            return $ctx.params.footer;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}/${(() => {
-                          try {
                             return $ctx.params.page
                               .filter(i => i != "edit")
                               .join("/");
@@ -3393,18 +3314,6 @@ function PlasmicMain2__RenderFunc(props: {
                   ? (() => {
                       const actionArgs = {
                         destination: `/main2/${(() => {
-                          try {
-                            return $ctx.params.footer;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}/${(() => {
                           try {
                             return $ctx.params.page
                               .filter(i => i != "cycle")
@@ -3657,18 +3566,6 @@ function PlasmicMain2__RenderFunc(props: {
                   ? (() => {
                       const actionArgs = {
                         destination: `/main2/${(() => {
-                          try {
-                            return $ctx.params.footer;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}/${(() => {
                           try {
                             return $ctx.params.page
                               .filter(i => i != "reminderSetting")
