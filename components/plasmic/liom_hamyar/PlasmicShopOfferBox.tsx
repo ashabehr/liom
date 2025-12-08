@@ -368,7 +368,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
         path: "moreShop.opendialog",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "subscription2[].clickitem",

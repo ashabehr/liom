@@ -216,7 +216,7 @@ function PlasmicMain2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return window.sessionStorage.getItem("footer") || "calendar";
+              return $ctx.params.footer;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1587,10 +1587,7 @@ function PlasmicMain2__RenderFunc(props: {
                       initFunc: ({ $props, $state, $queries }) =>
                         (() => {
                           try {
-                            return (
-                              window.sessionStorage.getItem("footer") ||
-                              "calendar"
-                            );
+                            return $ctx.params.footer;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -2805,7 +2802,7 @@ function PlasmicMain2__RenderFunc(props: {
                                       }
                                       throw e;
                                     }
-                                  })()}/[...page]?menu=${"true"}`
+                                  })()}/[[...page]]?menu=${"true"}`
                                 };
                                 return (({ destination }) => {
                                   if (
