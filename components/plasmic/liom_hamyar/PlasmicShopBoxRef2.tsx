@@ -1366,10 +1366,13 @@ function PlasmicShopBoxRef2__RenderFunc(props: {
                               (() => {
                                 try {
                                   return {
-                                    userId: $props.userId,
-                                    pageName: "shop-item",
+                                    userId: $props.refcode,
+                                    pageName: "shop-s",
                                     action: "shop",
-                                    extraData: {}
+                                    extraData: {
+                                      refCode: $props.refCode,
+                                      shopItem: $props.shopItem
+                                    }
                                   };
                                 } catch (e) {
                                   if (
@@ -1521,6 +1524,59 @@ function PlasmicShopBoxRef2__RenderFunc(props: {
                       ) {
                         $steps["updateDialog2Opendialog"] =
                           await $steps["updateDialog2Opendialog"];
+                      }
+
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://api.liom.app/service/log",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      userId: $props.refcode,
+                                      pageName: "shop-s",
+                                      action: "more",
+                                      extraData: {
+                                        refCode: $props.refCode,
+                                        shopItem: $props.shopItem
+                                      }
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
+                                {
+                                  headers: {
+                                    "Content-Type": "application/json",
+                                    Authorization:
+                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                  }
+                                }
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
                     }}
                   >
@@ -2126,6 +2182,57 @@ function PlasmicShopBoxRef2__RenderFunc(props: {
                   typeof $steps["updateLoading2"].then === "function"
                 ) {
                   $steps["updateLoading2"] = await $steps["updateLoading2"];
+                }
+
+                $steps["updateLoading4"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://api.liom.app/service/log",
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                userId: $props.refcode,
+                                pageName: "shop-s",
+                                action: "shop",
+                                extraData: {
+                                  refCode: $props.refCode,
+                                  shopItem: $props.shopItem
+                                }
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })(),
+                          {
+                            headers: {
+                              "Content-Type": "application/json",
+                              Authorization:
+                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                            }
+                          }
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateLoading4"] != null &&
+                  typeof $steps["updateLoading4"] === "object" &&
+                  typeof $steps["updateLoading4"].then === "function"
+                ) {
+                  $steps["updateLoading4"] = await $steps["updateLoading4"];
                 }
               }}
               onColorChange={async (...eventArgs: any) => {

@@ -845,13 +845,12 @@ function PlasmicSShopItem2__RenderFunc(props: {
                         (() => {
                           try {
                             return {
-                              userId:
-                                $state.paramsObject.userId ||
-                                $state.paramsObject.user_id,
-                              pageName: "shop-item",
+                              userId: $state.refCode,
+                              pageName: "shop-s",
                               action: "loadePage",
                               extraData: {
-                                shopType: $state.paramsObject["shop_type"]
+                                refCode: $state.refCode,
+                                shopItem: $state.shopItem
                               }
                             };
                           } catch (e) {
