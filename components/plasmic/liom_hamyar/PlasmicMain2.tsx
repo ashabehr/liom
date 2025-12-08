@@ -94,28 +94,16 @@ import Icon312Icon from "./icons/PlasmicIcon__Icon312"; // plasmic-import: aEjpS
 createPlasmicElementProxy;
 
 export type PlasmicMain2__VariantMembers = {
-  setting: "setting";
   subItem: "subItem";
-  edit: "edit";
-  cycle: "cycle";
-  reminderSetting2: "reminderSetting2";
-  page2: "setting";
+  page2: "setting" | "cycle" | "edit" | "reminderSetting";
 };
 export type PlasmicMain2__VariantsArgs = {
-  setting?: SingleBooleanChoiceArg<"setting">;
   subItem?: SingleBooleanChoiceArg<"subItem">;
-  edit?: SingleBooleanChoiceArg<"edit">;
-  cycle?: SingleBooleanChoiceArg<"cycle">;
-  reminderSetting2?: SingleBooleanChoiceArg<"reminderSetting2">;
-  page2?: SingleChoiceArg<"setting">;
+  page2?: SingleChoiceArg<"setting" | "cycle" | "edit" | "reminderSetting">;
 };
 type VariantPropType = keyof PlasmicMain2__VariantsArgs;
 export const PlasmicMain2__VariantProps = new Array<VariantPropType>(
-  "setting",
   "subItem",
-  "edit",
-  "cycle",
-  "reminderSetting2",
   "page2"
 );
 
@@ -252,12 +240,6 @@ function PlasmicMain2__RenderFunc(props: {
           })()
       },
       {
-        path: "setting",
-        type: "private",
-        variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.setting
-      },
-      {
         path: "settingCycle4.editTime",
         type: "private",
         variableType: "text",
@@ -293,12 +275,6 @@ function PlasmicMain2__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.subItem
-      },
-      {
-        path: "edit",
-        type: "private",
-        variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.edit
       },
       {
         path: "editProfile2.token",
@@ -379,12 +355,6 @@ function PlasmicMain2__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ``
-      },
-      {
-        path: "cycle",
-        type: "private",
-        variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.cycle
       },
       {
         path: "reminderSetting.refresh",
@@ -775,13 +745,6 @@ function PlasmicMain2__RenderFunc(props: {
               throw e;
             }
           })()
-      },
-      {
-        path: "reminderSetting2",
-        type: "private",
-        variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          $props.reminderSetting2
       },
       {
         path: "mainPage.remind",
@@ -1182,7 +1145,20 @@ function PlasmicMain2__RenderFunc(props: {
         path: "page2",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.page2
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $ctx.params.page[0];
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })() ?? $props.page2
       }
     ],
     [$props, $ctx, $refs]
@@ -1220,18 +1196,14 @@ function PlasmicMain2__RenderFunc(props: {
             styleTokensClassNames,
             sty.root,
             {
-              [sty.rootcycle]: hasVariant($state, "cycle", "cycle"),
-              [sty.rootedit]: hasVariant($state, "edit", "edit"),
-              [sty.rootpage2_setting]: hasVariant($state, "page2", "setting"),
-              [sty.rootpage2_setting_setting]:
-                hasVariant($state, "page2", "setting") &&
-                hasVariant($state, "setting", "setting"),
-              [sty.rootreminderSetting2]: hasVariant(
+              [sty.rootpage2_cycle]: hasVariant($state, "page2", "cycle"),
+              [sty.rootpage2_edit]: hasVariant($state, "page2", "edit"),
+              [sty.rootpage2_reminderSetting]: hasVariant(
                 $state,
-                "reminderSetting2",
-                "reminderSetting2"
+                "page2",
+                "reminderSetting"
               ),
-              [sty.rootsetting]: hasVariant($state, "setting", "setting"),
+              [sty.rootpage2_setting]: hasVariant($state, "page2", "setting"),
               [sty.rootsubItem]: hasVariant($state, "subItem", "subItem")
             }
           )}
@@ -1240,18 +1212,14 @@ function PlasmicMain2__RenderFunc(props: {
             data-plasmic-name={"main"}
             data-plasmic-override={overrides.main}
             className={classNames(projectcss.all, sty.main, {
-              [sty.maincycle]: hasVariant($state, "cycle", "cycle"),
-              [sty.maincycle_reminderSetting2]:
-                hasVariant($state, "reminderSetting2", "reminderSetting2") &&
-                hasVariant($state, "cycle", "cycle"),
-              [sty.mainedit]: hasVariant($state, "edit", "edit"),
-              [sty.mainpage2_setting]: hasVariant($state, "page2", "setting"),
-              [sty.mainreminderSetting2]: hasVariant(
+              [sty.mainpage2_cycle]: hasVariant($state, "page2", "cycle"),
+              [sty.mainpage2_edit]: hasVariant($state, "page2", "edit"),
+              [sty.mainpage2_reminderSetting]: hasVariant(
                 $state,
-                "reminderSetting2",
-                "reminderSetting2"
+                "page2",
+                "reminderSetting"
               ),
-              [sty.mainsetting]: hasVariant($state, "setting", "setting"),
+              [sty.mainpage2_setting]: hasVariant($state, "page2", "setting"),
               [sty.mainsubItem]: hasVariant($state, "subItem", "subItem")
             })}
           >
@@ -1259,17 +1227,17 @@ function PlasmicMain2__RenderFunc(props: {
               data-plasmic-name={"mainPage"}
               data-plasmic-override={overrides.mainPage}
               className={classNames("__wab_instance", sty.mainPage, {
-                [sty.mainPagecycle]: hasVariant($state, "cycle", "cycle"),
-                [sty.mainPageedit]: hasVariant($state, "edit", "edit"),
+                [sty.mainPagepage2_cycle]: hasVariant($state, "page2", "cycle"),
+                [sty.mainPagepage2_edit]: hasVariant($state, "page2", "edit"),
+                [sty.mainPagepage2_reminderSetting]: hasVariant(
+                  $state,
+                  "page2",
+                  "reminderSetting"
+                ),
                 [sty.mainPagepage2_setting]: hasVariant(
                   $state,
                   "page2",
                   "setting"
-                ),
-                [sty.mainPagereminderSetting2]: hasVariant(
-                  $state,
-                  "reminderSetting2",
-                  "reminderSetting2"
                 ),
                 [sty.mainPagesubItem]: hasVariant($state, "subItem", "subItem")
               })}
@@ -1280,26 +1248,59 @@ function PlasmicMain2__RenderFunc(props: {
               fuchereCycle={async event => {
                 const $steps = {};
 
-                $steps["updateCycle"] = true
+                $steps["goToMain2"] = true
                   ? (() => {
-                      const actionArgs = { vgroup: "cycle", operation: 2 };
-                      return (({ vgroup, value }) => {
-                        if (typeof value === "string") {
-                          value = [value];
+                      const actionArgs = {
+                        destination: `/main-/${(() => {
+                          try {
+                            return $ctx.params.footer;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}/${(() => {
+                          try {
+                            return (() => {
+                              var s = $ctx.params.page;
+                              s.push("cycle");
+                              return s.join("/");
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}`
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
                         }
-
-                        const oldValue = $stateGet($state, vgroup);
-                        $stateSet($state, vgroup, !oldValue);
-                        return !oldValue;
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["updateCycle"] != null &&
-                  typeof $steps["updateCycle"] === "object" &&
-                  typeof $steps["updateCycle"].then === "function"
+                  $steps["goToMain2"] != null &&
+                  typeof $steps["goToMain2"] === "object" &&
+                  typeof $steps["goToMain2"].then === "function"
                 ) {
-                  $steps["updateCycle"] = await $steps["updateCycle"];
+                  $steps["goToMain2"] = await $steps["goToMain2"];
                 }
               }}
               mobileDialogOpen={generateStateValueProp($state, [
@@ -1440,58 +1441,117 @@ function PlasmicMain2__RenderFunc(props: {
               reminderSetting={async () => {
                 const $steps = {};
 
-                $steps["updateReminderSetting2"] = true
+                $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        vgroup: "reminderSetting2",
-                        operation: 2
+                        destination: `/main-/${(() => {
+                          try {
+                            return $ctx.params.footer;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}/${(() => {
+                          try {
+                            return (() => {
+                              var s = $ctx.params.page;
+                              s.push("reminderSetting");
+                              return s.join("/");
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}`
                       };
-                      return (({ vgroup, value }) => {
-                        if (typeof value === "string") {
-                          value = [value];
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
                         }
-
-                        const oldValue = $stateGet($state, vgroup);
-                        $stateSet($state, vgroup, !oldValue);
-                        return !oldValue;
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["updateReminderSetting2"] != null &&
-                  typeof $steps["updateReminderSetting2"] === "object" &&
-                  typeof $steps["updateReminderSetting2"].then === "function"
+                  $steps["goToMain2"] != null &&
+                  typeof $steps["goToMain2"] === "object" &&
+                  typeof $steps["goToMain2"].then === "function"
                 ) {
-                  $steps["updateReminderSetting2"] =
-                    await $steps["updateReminderSetting2"];
+                  $steps["goToMain2"] = await $steps["goToMain2"];
                 }
               }}
               setting={async () => {
                 const $steps = {};
 
-                $steps["updatePage2"] = true
+                $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        vgroup: "page2",
-                        operation: 0,
-                        value: []
+                        destination: `/main-/${(() => {
+                          try {
+                            return $ctx.params.footer;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}/${(() => {
+                          try {
+                            return (() => {
+                              var s = $ctx.params.page;
+                              s.push("setting");
+                              return s.join("/");
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}`
                       };
-                      return (({ vgroup, value }) => {
-                        if (typeof value === "string") {
-                          value = [value];
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
                         }
-
-                        $stateSet($state, vgroup, value);
-                        return value;
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["updatePage2"] != null &&
-                  typeof $steps["updatePage2"] === "object" &&
-                  typeof $steps["updatePage2"].then === "function"
+                  $steps["goToMain2"] != null &&
+                  typeof $steps["goToMain2"] === "object" &&
+                  typeof $steps["goToMain2"].then === "function"
                 ) {
-                  $steps["updatePage2"] = await $steps["updatePage2"];
+                  $steps["goToMain2"] = await $steps["goToMain2"];
                 }
               }}
               token={generateStateValueProp($state, ["mainPage", "token"])}
@@ -1615,7 +1675,16 @@ function PlasmicMain2__RenderFunc(props: {
               {(() => {
                 const child$Props = {
                   className: classNames("__wab_instance", sty.mainHeader, {
-                    [sty.mainHeadercycle]: hasVariant($state, "cycle", "cycle")
+                    [sty.mainHeaderpage2_cycle]: hasVariant(
+                      $state,
+                      "page2",
+                      "cycle"
+                    ),
+                    [sty.mainHeaderpage2_edit]: hasVariant(
+                      $state,
+                      "page2",
+                      "edit"
+                    )
                   }),
                   dopen: generateStateValueProp($state, [
                     "mainHeader",
@@ -1638,26 +1707,59 @@ function PlasmicMain2__RenderFunc(props: {
                   openEdit: async () => {
                     const $steps = {};
 
-                    $steps["updateEdit"] = true
+                    $steps["goToMain2"] = true
                       ? (() => {
-                          const actionArgs = { vgroup: "edit", operation: 2 };
-                          return (({ vgroup, value }) => {
-                            if (typeof value === "string") {
-                              value = [value];
+                          const actionArgs = {
+                            destination: `/main-/${(() => {
+                              try {
+                                return $ctx.params.footer;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}/${(() => {
+                              try {
+                                return (() => {
+                                  var s = $ctx.params.page;
+                                  s.push("edit");
+                                  return s.join("/");
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}`
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
                             }
-
-                            const oldValue = $stateGet($state, vgroup);
-                            $stateSet($state, vgroup, !oldValue);
-                            return !oldValue;
                           })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
                     if (
-                      $steps["updateEdit"] != null &&
-                      typeof $steps["updateEdit"] === "object" &&
-                      typeof $steps["updateEdit"].then === "function"
+                      $steps["goToMain2"] != null &&
+                      typeof $steps["goToMain2"] === "object" &&
+                      typeof $steps["goToMain2"].then === "function"
                     ) {
-                      $steps["updateEdit"] = await $steps["updateEdit"];
+                      $steps["goToMain2"] = await $steps["goToMain2"];
                     }
                   },
                   slot: (
@@ -2605,35 +2707,63 @@ function PlasmicMain2__RenderFunc(props: {
                             onClick={async event => {
                               const $steps = {};
 
-                              $steps["updateReminderSetting2"] = true
+                              $steps["goToMain2"] = true
                                 ? (() => {
                                     const actionArgs = {
-                                      vgroup: "reminderSetting2",
-                                      operation: 2
+                                      destination: `/main-/${(() => {
+                                        try {
+                                          return $ctx.params.footer;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}/${(() => {
+                                        try {
+                                          return (() => {
+                                            var s = $ctx.params.page;
+                                            s.push("reminderSetting");
+                                            return s.join("/");
+                                          })();
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}`
                                     };
-                                    return (({ vgroup, value }) => {
-                                      if (typeof value === "string") {
-                                        value = [value];
+                                    return (({ destination }) => {
+                                      if (
+                                        typeof destination === "string" &&
+                                        destination.startsWith("#")
+                                      ) {
+                                        document
+                                          .getElementById(destination.substr(1))
+                                          .scrollIntoView({
+                                            behavior: "smooth"
+                                          });
+                                      } else {
+                                        __nextRouter?.push(destination);
                                       }
-
-                                      const oldValue = $stateGet(
-                                        $state,
-                                        vgroup
-                                      );
-                                      $stateSet($state, vgroup, !oldValue);
-                                      return !oldValue;
                                     })?.apply(null, [actionArgs]);
                                   })()
                                 : undefined;
                               if (
-                                $steps["updateReminderSetting2"] != null &&
-                                typeof $steps["updateReminderSetting2"] ===
-                                  "object" &&
-                                typeof $steps["updateReminderSetting2"].then ===
-                                  "function"
+                                $steps["goToMain2"] != null &&
+                                typeof $steps["goToMain2"] === "object" &&
+                                typeof $steps["goToMain2"].then === "function"
                               ) {
-                                $steps["updateReminderSetting2"] =
-                                  await $steps["updateReminderSetting2"];
+                                $steps["goToMain2"] = await $steps["goToMain2"];
                               }
                             }}
                             role={"img"}
@@ -2841,11 +2971,6 @@ function PlasmicMain2__RenderFunc(props: {
                 "page2",
                 "setting"
               ),
-              [sty.revealsetting__sDhUbDfQ5H]: hasVariant(
-                $state,
-                "setting",
-                "setting"
-              ),
               [sty.revealsubItem__sDhUboQrvl]: hasVariant(
                 $state,
                 "subItem",
@@ -2861,7 +2986,7 @@ function PlasmicMain2__RenderFunc(props: {
               data-plasmic-override={overrides.settingCycle4}
               active={(() => {
                 try {
-                  return $state.setting == true;
+                  return $ctx.params.page.includes("setting");
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -2873,14 +2998,19 @@ function PlasmicMain2__RenderFunc(props: {
                 }
               })()}
               className={classNames("__wab_instance", sty.settingCycle4, {
+                [sty.settingCycle4page2_cycle]: hasVariant(
+                  $state,
+                  "page2",
+                  "cycle"
+                ),
+                [sty.settingCycle4page2_edit]: hasVariant(
+                  $state,
+                  "page2",
+                  "edit"
+                ),
                 [sty.settingCycle4page2_setting]: hasVariant(
                   $state,
                   "page2",
-                  "setting"
-                ),
-                [sty.settingCycle4setting]: hasVariant(
-                  $state,
-                  "setting",
                   "setting"
                 )
               })}
@@ -2908,7 +3038,9 @@ function PlasmicMain2__RenderFunc(props: {
                           }
                         })()}/${(() => {
                           try {
-                            return undefined;
+                            return $ctx.params.page
+                              .filter(i => i != "setting")
+                              .join("/");
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -3062,19 +3194,19 @@ function PlasmicMain2__RenderFunc(props: {
           </Reveal>
           <Reveal
             className={classNames("__wab_instance", sty.reveal__osq1U, {
-              [sty.revealcycle__osq1U9S3S8]: hasVariant(
+              [sty.revealpage2_cycle__osq1UrOs5]: hasVariant(
                 $state,
-                "cycle",
+                "page2",
                 "cycle"
+              ),
+              [sty.revealpage2_edit__osq1UyLEd]: hasVariant(
+                $state,
+                "page2",
+                "edit"
               ),
               [sty.revealpage2_setting__osq1Ubvq4R]: hasVariant(
                 $state,
                 "page2",
-                "setting"
-              ),
-              [sty.revealsetting__osq1UDfQ5H]: hasVariant(
-                $state,
-                "setting",
                 "setting"
               ),
               [sty.revealsubItem__osq1UoQrvl]: hasVariant(
@@ -3095,15 +3227,14 @@ function PlasmicMain2__RenderFunc(props: {
           </Reveal>
           <Reveal
             className={classNames("__wab_instance", sty.reveal__a5Et7, {
-              [sty.revealedit__a5Et71SFz]: hasVariant($state, "edit", "edit"),
+              [sty.revealpage2_edit__a5Et7YLEd]: hasVariant(
+                $state,
+                "page2",
+                "edit"
+              ),
               [sty.revealpage2_setting__a5Et7Bvq4R]: hasVariant(
                 $state,
                 "page2",
-                "setting"
-              ),
-              [sty.revealsetting__a5Et7DfQ5H]: hasVariant(
-                $state,
-                "setting",
                 "setting"
               ),
               [sty.revealsubItem__a5Et7OQrvl]: hasVariant(
@@ -3121,7 +3252,7 @@ function PlasmicMain2__RenderFunc(props: {
               data-plasmic-override={overrides.editProfile2}
               active={(() => {
                 try {
-                  return $state.edit == "true";
+                  return $ctx.params.page.includes("edit");
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -3135,29 +3266,65 @@ function PlasmicMain2__RenderFunc(props: {
               back={async () => {
                 const $steps = {};
 
-                $steps["updateEdit"] = true
+                $steps["goToMain2"] = true
                   ? (() => {
-                      const actionArgs = { vgroup: "edit", operation: 4 };
-                      return (({ vgroup, value }) => {
-                        if (typeof value === "string") {
-                          value = [value];
+                      const actionArgs = {
+                        destination: `/main-/${(() => {
+                          try {
+                            return $ctx.params.footer;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}/${(() => {
+                          try {
+                            return $ctx.params.page
+                              .filter(i => i != "edit")
+                              .join("/");
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}`
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
                         }
-
-                        $stateSet($state, vgroup, true);
-                        return true;
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["updateEdit"] != null &&
-                  typeof $steps["updateEdit"] === "object" &&
-                  typeof $steps["updateEdit"].then === "function"
+                  $steps["goToMain2"] != null &&
+                  typeof $steps["goToMain2"] === "object" &&
+                  typeof $steps["goToMain2"].then === "function"
                 ) {
-                  $steps["updateEdit"] = await $steps["updateEdit"];
+                  $steps["goToMain2"] = await $steps["goToMain2"];
                 }
               }}
               className={classNames("__wab_instance", sty.editProfile2, {
-                [sty.editProfile2edit]: hasVariant($state, "edit", "edit")
+                [sty.editProfile2page2_edit]: hasVariant(
+                  $state,
+                  "page2",
+                  "edit"
+                )
               })}
               onTokenChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
@@ -3178,20 +3345,19 @@ function PlasmicMain2__RenderFunc(props: {
           </Reveal>
           <Reveal
             className={classNames("__wab_instance", sty.reveal__sFxv, {
-              [sty.revealcycle__sFxv9S3S8]: hasVariant(
+              [sty.revealpage2_cycle__sFxvrOs5]: hasVariant(
                 $state,
-                "cycle",
+                "page2",
                 "cycle"
               ),
-              [sty.revealedit__sFxv1SFz]: hasVariant($state, "edit", "edit"),
+              [sty.revealpage2_edit__sFxVyLEd]: hasVariant(
+                $state,
+                "page2",
+                "edit"
+              ),
               [sty.revealpage2_setting__sFxvbvq4R]: hasVariant(
                 $state,
                 "page2",
-                "setting"
-              ),
-              [sty.revealsetting__sFxvDfQ5H]: hasVariant(
-                $state,
-                "setting",
                 "setting"
               ),
               [sty.revealsubItem__sFxvoQrvl]: hasVariant(
@@ -3209,7 +3375,7 @@ function PlasmicMain2__RenderFunc(props: {
               data-plasmic-override={overrides.history}
               active={(() => {
                 try {
-                  return $state.cycle == true;
+                  return $ctx.params.page.includes("cycle");
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -3223,36 +3389,72 @@ function PlasmicMain2__RenderFunc(props: {
               back={async event => {
                 const $steps = {};
 
-                $steps["updateCycle"] = true
+                $steps["goToMain2"] = true
                   ? (() => {
-                      const actionArgs = { vgroup: "cycle", operation: 2 };
-                      return (({ vgroup, value }) => {
-                        if (typeof value === "string") {
-                          value = [value];
+                      const actionArgs = {
+                        destination: `/main-/${(() => {
+                          try {
+                            return $ctx.params.footer;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}/${(() => {
+                          try {
+                            return $ctx.params.page
+                              .filter(i => i != "cycle")
+                              .join("/");
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}`
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
                         }
-
-                        const oldValue = $stateGet($state, vgroup);
-                        $stateSet($state, vgroup, !oldValue);
-                        return !oldValue;
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["updateCycle"] != null &&
-                  typeof $steps["updateCycle"] === "object" &&
-                  typeof $steps["updateCycle"].then === "function"
+                  $steps["goToMain2"] != null &&
+                  typeof $steps["goToMain2"] === "object" &&
+                  typeof $steps["goToMain2"].then === "function"
                 ) {
-                  $steps["updateCycle"] = await $steps["updateCycle"];
+                  $steps["goToMain2"] = await $steps["goToMain2"];
                 }
               }}
               className={classNames("__wab_instance", sty.history, {
-                [sty.historycycle]: hasVariant($state, "cycle", "cycle"),
+                [sty.historypage2_cycle]: hasVariant($state, "page2", "cycle"),
+                [sty.historypage2_edit]: hasVariant($state, "page2", "edit"),
+                [sty.historypage2_reminderSetting]: hasVariant(
+                  $state,
+                  "page2",
+                  "reminderSetting"
+                ),
                 [sty.historypage2_setting]: hasVariant(
                   $state,
                   "page2",
                   "setting"
-                ),
-                [sty.historysetting]: hasVariant($state, "setting", "setting")
+                )
               })}
               slot={
                 <div
@@ -3415,25 +3617,24 @@ function PlasmicMain2__RenderFunc(props: {
           </Reveal>
           <Reveal
             className={classNames("__wab_instance", sty.reveal__uDuJ, {
-              [sty.revealcycle__uDuJ9S3S8]: hasVariant(
+              [sty.revealpage2_cycle__uDuJrOs5]: hasVariant(
                 $state,
-                "cycle",
+                "page2",
                 "cycle"
               ),
-              [sty.revealedit__uDuJ1SFz]: hasVariant($state, "edit", "edit"),
+              [sty.revealpage2_edit__uDuJyLEd]: hasVariant(
+                $state,
+                "page2",
+                "edit"
+              ),
+              [sty.revealpage2_reminderSetting__uDuJtq73D]: hasVariant(
+                $state,
+                "page2",
+                "reminderSetting"
+              ),
               [sty.revealpage2_setting__uDuJbvq4R]: hasVariant(
                 $state,
                 "page2",
-                "setting"
-              ),
-              [sty.revealreminderSetting2__uDuJhcIdq]: hasVariant(
-                $state,
-                "reminderSetting2",
-                "reminderSetting2"
-              ),
-              [sty.revealsetting__uDuJDfQ5H]: hasVariant(
-                $state,
-                "setting",
                 "setting"
               ),
               [sty.revealsubItem__uDuJoQrvl]: hasVariant(
@@ -3452,37 +3653,64 @@ function PlasmicMain2__RenderFunc(props: {
               back={async () => {
                 const $steps = {};
 
-                $steps["updateReminderSetting2"] = true
+                $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        vgroup: "reminderSetting2",
-                        operation: 2
+                        destination: `/main-/${(() => {
+                          try {
+                            return $ctx.params.footer;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}/${(() => {
+                          try {
+                            return $ctx.params.page
+                              .filter(i => i != "reminderSetting")
+                              .join("/");
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}`
                       };
-                      return (({ vgroup, value }) => {
-                        if (typeof value === "string") {
-                          value = [value];
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
                         }
-
-                        const oldValue = $stateGet($state, vgroup);
-                        $stateSet($state, vgroup, !oldValue);
-                        return !oldValue;
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["updateReminderSetting2"] != null &&
-                  typeof $steps["updateReminderSetting2"] === "object" &&
-                  typeof $steps["updateReminderSetting2"].then === "function"
+                  $steps["goToMain2"] != null &&
+                  typeof $steps["goToMain2"] === "object" &&
+                  typeof $steps["goToMain2"].then === "function"
                 ) {
-                  $steps["updateReminderSetting2"] =
-                    await $steps["updateReminderSetting2"];
+                  $steps["goToMain2"] = await $steps["goToMain2"];
                 }
               }}
               className={classNames("__wab_instance", sty.reminderSetting, {
-                [sty.reminderSettingreminderSetting2]: hasVariant(
+                [sty.reminderSettingpage2_reminderSetting]: hasVariant(
                   $state,
-                  "reminderSetting2",
-                  "reminderSetting2"
+                  "page2",
+                  "reminderSetting"
                 )
               })}
               creaditButtenCreadit={generateStateValueProp($state, [
@@ -4380,11 +4608,6 @@ function PlasmicMain2__RenderFunc(props: {
               [sty.serviceWorkerpage2_setting]: hasVariant(
                 $state,
                 "page2",
-                "setting"
-              ),
-              [sty.serviceWorkersetting]: hasVariant(
-                $state,
-                "setting",
                 "setting"
               )
             })}
