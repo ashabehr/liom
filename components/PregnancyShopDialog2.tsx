@@ -2,9 +2,10 @@
 // This file is owned by you, feel free to edit as you see fit.
 import * as React from "react";
 import {
-  PlasmicPregnancyShopDialog,
-  DefaultPregnancyShopDialogProps
-} from "./plasmic/liom_hamyar/PlasmicPregnancyShopDialog";
+  PlasmicPregnancyShopDialog2,
+  DefaultPregnancyShopDialog2Props
+} from "./plasmic/liom_hamyar/PlasmicPregnancyShopDialog2";
+import { HTMLElementRefOf } from "@plasmicapp/react-web";
 
 // Your component props start with props for variants and slots you defined
 // in Plasmic, but you can add more here, like event handlers that you can
@@ -13,32 +14,36 @@ import {
 // If you don't want to expose certain variants or slots as a prop, you can use
 // Omit to hide them:
 //
-// interface PregnancyShopDialogProps extends Omit<DefaultPregnancyShopDialogProps, "hideProps1"|"hideProp2"> {
+// interface PregnancyShopDialog2Props extends Omit<DefaultPregnancyShopDialog2Props, "hideProps1"|"hideProp2"> {
 //   // etc.
 // }
 //
-// You can also stop extending from DefaultPregnancyShopDialogProps altogether and have
+// You can also stop extending from DefaultPregnancyShopDialog2Props altogether and have
 // total control over the props for your component.
-export interface PregnancyShopDialogProps
-  extends DefaultPregnancyShopDialogProps {}
+export interface PregnancyShopDialog2Props
+  extends DefaultPregnancyShopDialog2Props {}
 
-function PregnancyShopDialog(props: PregnancyShopDialogProps) {
-  // Use PlasmicPregnancyShopDialog to render this component as it was
+function PregnancyShopDialog2_(
+  props: PregnancyShopDialog2Props,
+  ref: HTMLElementRefOf<"div">
+) {
+  // Use PlasmicPregnancyShopDialog2 to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
   // can also install whatever React hooks you need here to manage state or
   // fetch data.
   //
-  // Props you can pass into PlasmicPregnancyShopDialog are:
+  // Props you can pass into PlasmicPregnancyShopDialog2 are:
   // 1. Variants you want to activate,
   // 2. Contents for slots you want to fill,
   // 3. Overrides for any named node in the component to attach behavior and data,
   // 4. Props to set on the root node.
   //
-  // By default, we are just piping all PregnancyShopDialogProps here, but feel free
+  // By default, we are just piping all PregnancyShopDialog2Props here, but feel free
   // to do whatever works for you.
 
-  return <PlasmicPregnancyShopDialog {...props} />;
+  return <PlasmicPregnancyShopDialog2 root={{ ref }} {...props} />;
 }
 
-export default PregnancyShopDialog;
+const PregnancyShopDialog2 = React.forwardRef(PregnancyShopDialog2_);
+export default PregnancyShopDialog2;

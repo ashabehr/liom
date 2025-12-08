@@ -1,4 +1,121 @@
-.root {
+.dialog3:global(.__wab_instance) {
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+  -webkit-backdrop-filter: blur(10px);
+}
+.pcls_aq6PKg0Zwc3s {
+  background: var(--token-Le07ngBUPl2h);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  outline: none;
+}
+@media (max-width: 640px) {
+  .pcls_64XLusZRmO3d {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+  }
+}
+.button3:global(.__wab_instance) {
+  display: none;
+}
+.svg__z6PrD {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__x0OSa {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.dialogContent:global(.__wab_instance) {
+  box-shadow: 0px 4px 16px 0px #00000033;
+  background: #ffffff;
+  width: auto;
+  max-width: 600px;
+  object-fit: cover;
+  position: relative;
+  left: auto;
+  top: auto;
+  min-width: 600px;
+  max-height: 100%;
+  align-self: center;
+  z-index: 1;
+  right: auto;
+  bottom: auto;
+  border-radius: 8px;
+}
+@media (max-width: 640px) {
+  .dialogContent:global(.__wab_instance) {
+    min-width: 85vw;
+    max-width: 85vw;
+    align-self: center;
+    left: auto;
+    top: auto;
+    position: relative;
+    right: auto;
+    bottom: auto;
+    background: none;
+    border-radius: 16px;
+    padding: 0px;
+  }
+}
+.dialogContentfullpage:global(.__wab_instance) {
+  min-width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  background: var(--token-R_Rsn0nP9oIv);
+  border-radius: 0px;
+  padding: 0px;
+}
+.dialogTitle:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__qSkff {
+  display: none;
+}
+.freeBox__lKaeq {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 16px;
+}
+.img {
+  animation: none;
+  object-fit: contain;
+  max-width: 100%;
+}
+.img > picture > img {
+  object-fit: contain;
+}
+.freeBox__mtOBf {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -8,48 +125,41 @@
   justify-content: flex-start;
   align-items: center;
   min-width: 0;
-  padding: 8px;
+  padding: 0px 12px 20px;
+  margin: 0px;
 }
-.subDialog:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-@media (max-width: 640px) {
-  .subDialog:global(.__wab_instance) {
-    padding-right: 12px;
-    padding-left: 12px;
-  }
-}
-.text___2P7Xu {
+.text__daNbF {
+  animation: none;
   text-align: center;
   font-size: 18px;
   font-weight: 500;
-  margin: 20px 0px 0px;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  color: #535353;
+  text-transform: none;
+  line-height: 1.5;
+  letter-spacing: normal;
+  white-space: pre-wrap;
 }
-.text__igCXl {
+.text__xE1Di {
+  position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
-  text-align: right;
-  color: var(--token-7PpYZbnZ9AQj);
   min-width: 0;
 }
-.button4:global(.__wab_instance) {
+.button:global(.__wab_instance) {
   max-width: 100%;
   width: 100%;
   min-width: 0;
 }
-.svg___76VvT {
+.svg__uk1B2 {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.text__yygep {
-  font-weight: 700;
-  font-size: 15px;
-}
-.svg___6ZbCo {
+.svg__arFrD {
   object-fit: cover;
   max-width: 100%;
   width: 40px;
@@ -63,10 +173,24 @@
   bottom: auto;
   display: none;
 }
-.img {
-  object-fit: contain;
-  max-width: 100%;
+.dialogClose:global(.__wab_instance) {
+  position: absolute;
+  top: 16px;
+  opacity: 0.7;
+  object-fit: cover;
+  width: auto;
+  left: 16px;
+  border-radius: 999px;
 }
-.img > picture > img {
-  object-fit: contain;
+@media (max-width: 640px) {
+  .dialogClose:global(.__wab_instance) {
+    display: none;
+  }
+}
+.svg__vHBjY {
+  object-fit: cover;
+  max-width: 100%;
+  cursor: pointer;
+  height: 1em;
+  display: none;
 }

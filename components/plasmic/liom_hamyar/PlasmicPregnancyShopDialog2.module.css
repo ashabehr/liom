@@ -1,0 +1,72 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 8px;
+}
+.subDialog:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+@media (max-width: 640px) {
+  .subDialog:global(.__wab_instance) {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+}
+.text___2P7Xu {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 20px 0px 0px;
+}
+.text__igCXl {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  color: var(--token-7PpYZbnZ9AQj);
+  min-width: 0;
+}
+.button4:global(.__wab_instance) {
+  max-width: 100%;
+  width: 100%;
+  min-width: 0;
+}
+.svg___76VvT {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.text__yygep {
+  font-weight: 700;
+  font-size: 15px;
+}
+.svg___6ZbCo {
+  object-fit: cover;
+  max-width: 100%;
+  width: 40px;
+  height: 50px;
+  position: relative;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  color: var(--token-jgohepLVeKvh);
+  right: auto;
+  bottom: auto;
+  display: none;
+}
+.img {
+  object-fit: contain;
+  max-width: 100%;
+}
+.img > picture > img {
+  object-fit: contain;
+}
