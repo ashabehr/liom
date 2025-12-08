@@ -462,6 +462,21 @@ function PlasmicSShopItem2__RenderFunc(props: {
                     }
                   }}
                   open={generateStateValueProp($state, ["shopBoxRef2", "open"])}
+                  params={(() => {
+                    try {
+                      return Object.keys($ctx.query)
+                        .map(i => `${i}=${$ctx.query[i]}&`)
+                        .join("");
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
                   redirectUrl={(() => {
                     try {
                       return window.location.href;

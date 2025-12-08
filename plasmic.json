@@ -5138,7 +5138,7 @@
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
           "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMain2.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/main-/[footer]/[...page].tsx"
+            "modulePath": "../src/pages/main2/[footer]/[[...page]].tsx"
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicMain2.module.css",
           "scheme": "blackbox",

@@ -1251,7 +1251,7 @@ function PlasmicMain2__RenderFunc(props: {
                 $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: `/main-/${(() => {
+                        destination: `/main2/${(() => {
                           try {
                             return $ctx.params.footer;
                           } catch (e) {
@@ -1444,7 +1444,7 @@ function PlasmicMain2__RenderFunc(props: {
                 $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: `/main-/${(() => {
+                        destination: `/main2/${(() => {
                           try {
                             return $ctx.params.footer;
                           } catch (e) {
@@ -1502,7 +1502,7 @@ function PlasmicMain2__RenderFunc(props: {
                 $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: `/main-/${(() => {
+                        destination: `/main2/${(() => {
                           try {
                             return $ctx.params.footer;
                           } catch (e) {
@@ -1598,7 +1598,7 @@ function PlasmicMain2__RenderFunc(props: {
                       $steps["goToMain2"] = true
                         ? (() => {
                             const actionArgs = {
-                              destination: `/main-/${(() => {
+                              destination: `/main2/${(() => {
                                 try {
                                   return $state.footerMain.type;
                                 } catch (e) {
@@ -1710,7 +1710,7 @@ function PlasmicMain2__RenderFunc(props: {
                     $steps["goToMain2"] = true
                       ? (() => {
                           const actionArgs = {
-                            destination: `/main-/${(() => {
+                            destination: `/main2/${(() => {
                               try {
                                 return $ctx.params.footer;
                               } catch (e) {
@@ -2710,7 +2710,7 @@ function PlasmicMain2__RenderFunc(props: {
                               $steps["goToMain2"] = true
                                 ? (() => {
                                     const actionArgs = {
-                                      destination: `/main-/${(() => {
+                                      destination: `/main2/${(() => {
                                         try {
                                           return $ctx.params.footer;
                                         } catch (e) {
@@ -2919,7 +2919,7 @@ function PlasmicMain2__RenderFunc(props: {
                           $steps["goToMain2"] = true
                             ? (() => {
                                 const actionArgs = {
-                                  destination: `/main-/${(() => {
+                                  destination: `/main2/${(() => {
                                     try {
                                       return $ctx.params.footer;
                                     } catch (e) {
@@ -3024,7 +3024,7 @@ function PlasmicMain2__RenderFunc(props: {
                 $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: `/main-/${(() => {
+                        destination: `/main2/${(() => {
                           try {
                             return $ctx.params.footer;
                           } catch (e) {
@@ -3269,7 +3269,7 @@ function PlasmicMain2__RenderFunc(props: {
                 $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: `/main-/${(() => {
+                        destination: `/main2/${(() => {
                           try {
                             return $ctx.params.footer;
                           } catch (e) {
@@ -3392,7 +3392,7 @@ function PlasmicMain2__RenderFunc(props: {
                 $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: `/main-/${(() => {
+                        destination: `/main2/${(() => {
                           try {
                             return $ctx.params.footer;
                           } catch (e) {
@@ -3656,7 +3656,7 @@ function PlasmicMain2__RenderFunc(props: {
                 $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: `/main-/${(() => {
+                        destination: `/main2/${(() => {
                           try {
                             return $ctx.params.footer;
                           } catch (e) {

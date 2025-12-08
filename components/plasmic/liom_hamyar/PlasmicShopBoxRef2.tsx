@@ -98,6 +98,7 @@ export type PlasmicShopBoxRef2__ArgsType = {
   userId?: string;
   refcode?: string;
   id?: number;
+  params?: string;
 };
 type ArgPropType = keyof PlasmicShopBoxRef2__ArgsType;
 export const PlasmicShopBoxRef2__ArgProps = new Array<ArgPropType>(
@@ -112,7 +113,8 @@ export const PlasmicShopBoxRef2__ArgProps = new Array<ArgPropType>(
   "onOpenChange",
   "userId",
   "refcode",
-  "id"
+  "id",
+  "params"
 );
 
 export type PlasmicShopBoxRef2__OverridesType = {
@@ -142,6 +144,7 @@ export interface DefaultShopBoxRef2Props {
   userId?: string;
   refcode?: string;
   id?: number;
+  params?: string;
   className?: string;
 }
 
@@ -1319,7 +1322,7 @@ function PlasmicShopBoxRef2__RenderFunc(props: {
                           const actionArgs = {
                             destination: (() => {
                               try {
-                                return `https://pay.liom.app/p/${$props.refcode}_${$state.topShop.int_id}?redirectUrl=${window.encodeURIComponent($props.redirectUrl)}`;
+                                return `https://pay.liom.app/p/${$props.refcode}_${$state.topShop.int_id}?redirectUrl=${window.encodeURIComponent($props.redirectUrl)}&${$props.params}`;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -2057,7 +2060,7 @@ function PlasmicShopBoxRef2__RenderFunc(props: {
                       const actionArgs = {
                         destination: (() => {
                           try {
-                            return `https://pay.liom.app/p/${$props.refcode}_${$state.selectShop.int_id}?redirectUrl=${window.encodeURIComponent($props.redirectUrl)}`;
+                            return `https://pay.liom.app/p/${$props.refcode}_${$state.selectShop.int_id}?redirectUrl=${window.encodeURIComponent($props.redirectUrl)}&${$props.params}`;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
