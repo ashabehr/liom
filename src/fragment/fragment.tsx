@@ -331,7 +331,7 @@ export const Fragment = ({
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage(action);}
               else {    
-                    toast.error(" این ابزار به زودی برای شما فعال می شود. ", {
+                    toast.error("برای استفاده از این ابزار لیوم رو از مارکت های متعبر نصب کنید", {
                       duration: 3000,
                       position: "bottom-center",
                     });
