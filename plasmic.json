@@ -5130,6 +5130,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicDialogTooltip2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "K9RuCwPDEAQe",
+          "name": "Main2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMain2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/main-/[footer]/[...page].tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicMain2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/main-/[footer]/[...page]"
         }
       ],
       "icons": [
