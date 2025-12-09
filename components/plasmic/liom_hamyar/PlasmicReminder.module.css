@@ -677,6 +677,11 @@
   align-items: center;
   left: auto;
   top: auto;
+  font-size: var(--token-UXPBeNJ4rrVx);
+  font-weight: 700;
+  color: var(--token-fn6i10-y5r1L);
+  text-align: center;
+  letter-spacing: 0px;
   column-gap: var(--token-O5TjkXII_aat);
   background: #f7f7f7;
   min-height: 0;

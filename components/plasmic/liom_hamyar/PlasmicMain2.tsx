@@ -204,7 +204,7 @@ function PlasmicMain2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $ctx.params.page[0] || "calendar";
+              return $ctx.params.page?.[0] || "calendar";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1409,7 +1409,7 @@ function PlasmicMain2__RenderFunc(props: {
               }}
               page={(() => {
                 try {
-                  return $ctx.params.page[0];
+                  return $ctx.params.page?.[0] || "calendar";
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -1617,7 +1617,7 @@ function PlasmicMain2__RenderFunc(props: {
                       initFunc: ({ $props, $state, $queries }) =>
                         (() => {
                           try {
-                            return $ctx.params.page[0] || "calendar";
+                            return $ctx.params.page?.[0] || "calendar";
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -1673,6 +1673,51 @@ function PlasmicMain2__RenderFunc(props: {
                     ) {
                       return;
                     }
+
+                    (async val => {
+                      const $steps = {};
+
+                      $steps["goToMain2"] =
+                        $state.mainHeader.dopen == false
+                          ? (() => {
+                              const actionArgs = {
+                                destination: `/main2/${(() => {
+                                  try {
+                                    return $ctx.params.page.join("/");
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()}`
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["goToMain2"] != null &&
+                        typeof $steps["goToMain2"] === "object" &&
+                        typeof $steps["goToMain2"].then === "function"
+                      ) {
+                        $steps["goToMain2"] = await $steps["goToMain2"];
+                      }
+                    }).apply(null, eventArgs);
                   },
                   openEdit: async () => {
                     const $steps = {};

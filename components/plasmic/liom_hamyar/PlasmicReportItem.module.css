@@ -167,6 +167,10 @@
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
+  font-size: var(--token-Wa5tmrNKVUYF);
+  font-weight: 700;
+  text-align: right;
+  white-space: pre;
   column-gap: var(--token-B5WvIYiqPJW-);
   padding: 0px var(--token-uOLZE7OyOW-J) 0px 0px;
 }

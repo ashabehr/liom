@@ -910,6 +910,16 @@
   justify-content: space-evenly;
   display: flex;
   flex-direction: row;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  color: #535353;
+  text-align: center;
+  text-transform: none;
+  line-height: 1.5;
+  letter-spacing: normal;
+  white-space: pre-wrap;
   width: 100%;
   column-gap: 0px;
   min-width: 0;
