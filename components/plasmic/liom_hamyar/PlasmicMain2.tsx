@@ -1572,7 +1572,7 @@ function PlasmicMain2__RenderFunc(props: {
                               const actionArgs = {
                                 destination: `/main/${(() => {
                                   try {
-                                    return $state.footerMain.type;
+                                    return $state.footerMain.type || "calendar";
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
