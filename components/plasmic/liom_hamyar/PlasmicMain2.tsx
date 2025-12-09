@@ -1565,40 +1565,49 @@ function PlasmicMain2__RenderFunc(props: {
                     (async val => {
                       const $steps = {};
 
-                      $steps["goToMain2"] =
-                        $state.footerMain.type != null ||
-                        $state.footerMain.type != ""
-                          ? (() => {
-                              const actionArgs = {
-                                destination: `/main/${(() => {
-                                  try {
-                                    return $state.footerMain.type || "calendar";
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
+                      $steps["goToMain2"] = (() => {
+                        const val = $state.footerMain?.type;
+                        const type =
+                          val === null ||
+                          val === undefined ||
+                          String(val).trim().toLowerCase() === "null" ||
+                          String(val).trim().toLowerCase() === "undefined" ||
+                          String(val).trim() === ""
+                            ? false
+                            : true;
+                        return type;
+                      })()
+                        ? (() => {
+                            const actionArgs = {
+                              destination: `/main/${(() => {
+                                try {
+                                  return $state.footerMain.type || "calendar";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
                                   }
-                                })()}`
-                              };
-                              return (({ destination }) => {
-                                if (
-                                  typeof destination === "string" &&
-                                  destination.startsWith("#")
-                                ) {
-                                  document
-                                    .getElementById(destination.substr(1))
-                                    .scrollIntoView({ behavior: "smooth" });
-                                } else {
-                                  __nextRouter?.push(destination);
+                                  throw e;
                                 }
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
+                              })()}`
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
                       if (
                         $steps["goToMain2"] != null &&
                         typeof $steps["goToMain2"] === "object" &&
