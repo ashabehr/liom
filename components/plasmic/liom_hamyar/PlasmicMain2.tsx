@@ -204,7 +204,7 @@ function PlasmicMain2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $ctx.params.page?.[0] || "calendar";
+              return (() => {})();
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1251,7 +1251,7 @@ function PlasmicMain2__RenderFunc(props: {
                 $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: `/main/${(() => {
+                        destination: `/main2/${(() => {
                           try {
                             return (() => {
                               var s = $ctx.params.page;
@@ -1432,7 +1432,7 @@ function PlasmicMain2__RenderFunc(props: {
                 $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: `/main/${(() => {
+                        destination: `/main2/${(() => {
                           try {
                             return (() => {
                               var s = $ctx.params.page;
@@ -1478,7 +1478,7 @@ function PlasmicMain2__RenderFunc(props: {
                 $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: `/main/${(() => {
+                        destination: `/main2/${(() => {
                           try {
                             return (() => {
                               var s = $ctx.params.page;
@@ -1526,131 +1526,99 @@ function PlasmicMain2__RenderFunc(props: {
             />
 
             <section className={classNames(projectcss.all, sty.section__ajlUx)}>
-              {(() => {
-                const child$Props = {
-                  className: classNames("__wab_instance", sty.footerMain, {
-                    [sty.footerMainpage2_edit]: hasVariant(
-                      $state,
-                      "page2",
-                      "edit"
-                    )
-                  }),
-                  footer2: (() => {
-                    try {
-                      return $state.footerMain.type;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "calendar";
-                      }
-                      throw e;
-                    }
-                  })(),
-                  onTypeChange: async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
-                      "footerMain",
-                      "type"
-                    ]).apply(null, eventArgs);
-
+              <FooterMain
+                data-plasmic-name={"footerMain"}
+                data-plasmic-override={overrides.footerMain}
+                className={classNames("__wab_instance", sty.footerMain, {
+                  [sty.footerMainpage2_edit]: hasVariant(
+                    $state,
+                    "page2",
+                    "edit"
+                  )
+                })}
+                footer2={(() => {
+                  try {
+                    return $state.footerMain.type;
+                  } catch (e) {
                     if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
                     ) {
-                      return;
+                      return "calendar";
                     }
+                    throw e;
+                  }
+                })()}
+                onTypeChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "footerMain",
+                    "type"
+                  ]).apply(null, eventArgs);
 
-                    (async val => {
-                      const $steps = {};
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
 
-                      $steps["goToMain2"] = (() => {
-                        const val = $state.footerMain?.type;
-                        const type =
-                          val === null ||
-                          val === undefined ||
-                          String(val).trim().toLowerCase() === "null" ||
-                          String(val).trim().toLowerCase() === "undefined" ||
-                          String(val).trim() === ""
-                            ? false
-                            : true;
-                        return type;
-                      })()
-                        ? (() => {
-                            const actionArgs = {
-                              destination: `/main/${(() => {
-                                try {
-                                  return $state.footerMain.type || "calendar";
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
+                  (async val => {
+                    const $steps = {};
+
+                    $steps["goToMain2"] = (() => {
+                      const val = $state.footerMain?.type;
+                      const type =
+                        val === null ||
+                        val === undefined ||
+                        String(val).trim().toLowerCase() === "null" ||
+                        String(val).trim().toLowerCase() === "undefined" ||
+                        String(val).trim() === ""
+                          ? false
+                          : true;
+                      return type;
+                    })()
+                      ? (() => {
+                          const actionArgs = {
+                            destination: `/main2/${(() => {
+                              try {
+                                return $state.footerMain.type || "calendar";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
                                 }
-                              })()}`
-                            };
-                            return (({ destination }) => {
-                              if (
-                                typeof destination === "string" &&
-                                destination.startsWith("#")
-                              ) {
-                                document
-                                  .getElementById(destination.substr(1))
-                                  .scrollIntoView({ behavior: "smooth" });
-                              } else {
-                                __nextRouter?.push(destination);
+                                throw e;
                               }
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["goToMain2"] != null &&
-                        typeof $steps["goToMain2"] === "object" &&
-                        typeof $steps["goToMain2"].then === "function"
-                      ) {
-                        $steps["goToMain2"] = await $steps["goToMain2"];
-                      }
-                    }).apply(null, eventArgs);
-                  },
-                  type: generateStateValueProp($state, ["footerMain", "type"])
-                };
-
-                initializePlasmicStates(
-                  $state,
-                  [
-                    {
-                      name: "footerMain.type",
-                      initFunc: ({ $props, $state, $queries }) =>
-                        (() => {
-                          try {
-                            return $ctx.params.page?.[0] || "calendar";
-                          } catch (e) {
+                            })()}`
+                          };
+                          return (({ destination }) => {
                             if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
                             ) {
-                              return undefined;
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
                             }
-                            throw e;
-                          }
+                          })?.apply(null, [actionArgs]);
                         })()
+                      : undefined;
+                    if (
+                      $steps["goToMain2"] != null &&
+                      typeof $steps["goToMain2"] === "object" &&
+                      typeof $steps["goToMain2"].then === "function"
+                    ) {
+                      $steps["goToMain2"] = await $steps["goToMain2"];
                     }
-                  ],
-                  []
-                );
-                return (
-                  <FooterMain
-                    data-plasmic-name={"footerMain"}
-                    data-plasmic-override={overrides.footerMain}
-                    {...child$Props}
-                  />
-                );
-              })()}
+                  }).apply(null, eventArgs);
+                }}
+                type={generateStateValueProp($state, ["footerMain", "type"])}
+              />
             </section>
             <section className={classNames(projectcss.all, sty.section__byo4Z)}>
               {(() => {
@@ -1692,7 +1660,7 @@ function PlasmicMain2__RenderFunc(props: {
                         $state.mainHeader.dopen == false
                           ? (() => {
                               const actionArgs = {
-                                destination: `/main/${(() => {
+                                destination: `/main2/${(() => {
                                   try {
                                     return $ctx.params.page.join("/");
                                   } catch (e) {
@@ -1736,7 +1704,7 @@ function PlasmicMain2__RenderFunc(props: {
                     $steps["goToMain2"] = true
                       ? (() => {
                           const actionArgs = {
-                            destination: `/main/${(() => {
+                            destination: `/main2/${(() => {
                               try {
                                 return (() => {
                                   var s = $ctx.params.page;
@@ -2724,7 +2692,7 @@ function PlasmicMain2__RenderFunc(props: {
                               $steps["goToMain2"] = true
                                 ? (() => {
                                     const actionArgs = {
-                                      destination: `/main/${(() => {
+                                      destination: `/main2/${(() => {
                                         try {
                                           return (() => {
                                             var s = $ctx.params.page;
@@ -2920,7 +2888,7 @@ function PlasmicMain2__RenderFunc(props: {
                           $steps["goToMain2"] = true
                             ? (() => {
                                 const actionArgs = {
-                                  destination: `/main/${(() => {
+                                  destination: `/main2/${(() => {
                                     try {
                                       return $ctx.params.page.join("/");
                                     } catch (e) {
@@ -3025,7 +2993,7 @@ function PlasmicMain2__RenderFunc(props: {
                 $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: `/main/${(() => {
+                        destination: `/main2/${(() => {
                           try {
                             return $ctx.params.page
                               .filter(i => i != "setting")
@@ -3258,7 +3226,7 @@ function PlasmicMain2__RenderFunc(props: {
                 $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: `/main/${(() => {
+                        destination: `/main2/${(() => {
                           try {
                             return $ctx.params.page
                               .filter(i => i != "edit")
@@ -3369,7 +3337,7 @@ function PlasmicMain2__RenderFunc(props: {
                 $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: `/main/${(() => {
+                        destination: `/main2/${(() => {
                           try {
                             return $ctx.params.page
                               .filter(i => i != "cycle")
@@ -3621,7 +3589,7 @@ function PlasmicMain2__RenderFunc(props: {
                 $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: `/main/${(() => {
+                        destination: `/main2/${(() => {
                           try {
                             return $ctx.params.page
                               .filter(i => i != "reminderSetting")
