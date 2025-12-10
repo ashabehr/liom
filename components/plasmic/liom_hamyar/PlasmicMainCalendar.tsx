@@ -1564,18 +1564,7 @@ function PlasmicMainCalendar__RenderFunc(props: {
                     (async val => {
                       const $steps = {};
 
-                      $steps["goToMain2"] = (() => {
-                        const val = $state.footerMain?.type;
-                        const type =
-                          val === null ||
-                          val === undefined ||
-                          String(val).trim().toLowerCase() === "null" ||
-                          String(val).trim().toLowerCase() === "undefined" ||
-                          String(val).trim() === ""
-                            ? false
-                            : true;
-                        return type;
-                      })()
+                      $steps["goToMain2"] = true
                         ? (() => {
                             const actionArgs = {
                               destination: `/main/${(() => {
