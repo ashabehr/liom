@@ -10,23 +10,23 @@ import { UnnamedGlobalGroupOfVariants6ContextProvider } from "../../../component
 import { NewViewContextProvider } from "../../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__NewView";
 import { UnnamedGlobalGroupOfVariants7ContextProvider } from "../../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants7";
 import { UnnamedGlobalGroupOfVariants8ContextProvider } from "../../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants8";
-import { PlasmicMain2 } from "../../../components/plasmic/liom_hamyar/PlasmicMain2";
+import { PlasmicMainCalendar } from "../../../components/plasmic/liom_hamyar/PlasmicMainCalendar";
 import { useRouter } from "next/router";
 
-function Main2() {
-  // Use PlasmicMain2 to render this component as it was
+function MainCalendar() {
+  // Use PlasmicMainCalendar to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
   // can also install whatever React hooks you need here to manage state or
   // fetch data.
   //
-  // Props you can pass into PlasmicMain2 are:
+  // Props you can pass into PlasmicMainCalendar are:
   // 1. Variants you want to activate,
   // 2. Contents for slots you want to fill,
   // 3. Overrides for any named node in the component to attach behavior and data,
   // 4. Props to set on the root node.
   //
-  // By default, PlasmicMain2 is wrapped by your project's global
+  // By default, PlasmicMainCalendar is wrapped by your project's global
   // variant context providers. These wrappers may be moved to
   // Next.js Custom App component
   // (https://nextjs.org/docs/advanced-features/custom-app).
@@ -44,7 +44,7 @@ function Main2() {
                     params={useRouter()?.query}
                     query={useRouter()?.query}
                   >
-                    <PlasmicMain2 />
+                    <PlasmicMainCalendar />
                   </PageParamsProvider__>
                 </GlobalContextsProvider>
               </UnnamedGlobalGroupOfVariants4ContextProvider>
@@ -56,4 +56,4 @@ function Main2() {
   );
 }
 
-export default Main2;
+export default MainCalendar;

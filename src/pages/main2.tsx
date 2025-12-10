@@ -6,42 +6,54 @@ import GlobalContextsProvider from "../../components/plasmic/liom_hamyar/Plasmic
 
 import { UnnamedGlobalGroupOfVariants4ContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants4";
 import { UnnamedGlobalGroupOfVariants5ContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants5";
-import { PlasmicMain } from "../../components/plasmic/liom_hamyar/PlasmicMain";
+import { UnnamedGlobalGroupOfVariants6ContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants6";
+import { NewViewContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__NewView";
+import { UnnamedGlobalGroupOfVariants7ContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants7";
+import { UnnamedGlobalGroupOfVariants8ContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants8";
+import { PlasmicMain3 } from "../../components/plasmic/liom_hamyar/PlasmicMain3";
 import { useRouter } from "next/router";
 
-function Main() {
-  // Use PlasmicMain to render this component as it was
+function Main3() {
+  // Use PlasmicMain3 to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
   // can also install whatever React hooks you need here to manage state or
   // fetch data.
   //
-  // Props you can pass into PlasmicMain are:
+  // Props you can pass into PlasmicMain3 are:
   // 1. Variants you want to activate,
   // 2. Contents for slots you want to fill,
   // 3. Overrides for any named node in the component to attach behavior and data,
   // 4. Props to set on the root node.
   //
-  // By default, PlasmicMain is wrapped by your project's global
+  // By default, PlasmicMain3 is wrapped by your project's global
   // variant context providers. These wrappers may be moved to
   // Next.js Custom App component
   // (https://nextjs.org/docs/advanced-features/custom-app).
 
   return (
-    <UnnamedGlobalGroupOfVariants5ContextProvider value={undefined}>
-      <UnnamedGlobalGroupOfVariants4ContextProvider value={undefined}>
-        <GlobalContextsProvider>
-          <PageParamsProvider__
-            route={useRouter()?.pathname}
-            params={useRouter()?.query}
-            query={useRouter()?.query}
-          >
-            <PlasmicMain />
-          </PageParamsProvider__>
-        </GlobalContextsProvider>
-      </UnnamedGlobalGroupOfVariants4ContextProvider>
-    </UnnamedGlobalGroupOfVariants5ContextProvider>
+    <UnnamedGlobalGroupOfVariants8ContextProvider value={undefined}>
+      <UnnamedGlobalGroupOfVariants7ContextProvider value={undefined}>
+        <NewViewContextProvider value={undefined}>
+          <UnnamedGlobalGroupOfVariants6ContextProvider value={undefined}>
+            <UnnamedGlobalGroupOfVariants5ContextProvider value={undefined}>
+              <UnnamedGlobalGroupOfVariants4ContextProvider value={undefined}>
+                <GlobalContextsProvider>
+                  <PageParamsProvider__
+                    route={useRouter()?.pathname}
+                    params={useRouter()?.query}
+                    query={useRouter()?.query}
+                  >
+                    <PlasmicMain3 />
+                  </PageParamsProvider__>
+                </GlobalContextsProvider>
+              </UnnamedGlobalGroupOfVariants4ContextProvider>
+            </UnnamedGlobalGroupOfVariants5ContextProvider>
+          </UnnamedGlobalGroupOfVariants6ContextProvider>
+        </NewViewContextProvider>
+      </UnnamedGlobalGroupOfVariants7ContextProvider>
+    </UnnamedGlobalGroupOfVariants8ContextProvider>
   );
 }
 
-export default Main;
+export default Main3;

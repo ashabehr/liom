@@ -3588,20 +3588,6 @@
           "path": "/is-ready"
         },
         {
-          "id": "j_hR0f0gqi6e",
-          "name": "Main",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMain.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/main2.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicMain.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/main"
-        },
-        {
           "id": "g_La9K58nhrs",
           "name": "Calendar2",
           "type": "managed",
@@ -5106,20 +5092,6 @@
           "componentType": "component"
         },
         {
-          "id": "K9RuCwPDEAQe",
-          "name": "Main2",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMain2.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/main/[[...page]].tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicMain2.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/main-/[footer]/[...page]"
-        },
-        {
           "id": "AN1CTDBmHKor",
           "name": "PregnancyShopDialog2",
           "type": "managed",
@@ -5144,6 +5116,34 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicPregnancyShopDialog.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "j_hR0f0gqi6e",
+          "name": "Main3",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMain3.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/main2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicMain3.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/main2"
+        },
+        {
+          "id": "K9RuCwPDEAQe",
+          "name": "MainCalendar",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMainCalendar.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/main/[[...page]].tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicMainCalendar.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/main/[[...page]]"
         }
       ],
       "icons": [
