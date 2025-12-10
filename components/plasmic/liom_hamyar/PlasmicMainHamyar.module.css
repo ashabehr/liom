@@ -39,6 +39,13 @@
 .hamyar2haader_page_hamyar:global(.__wab_instance) {
   margin: -60px 0px 0px;
 }
+.reminder3:global(.__wab_instance) {
+  max-width: 100%;
+  display: none;
+}
+.reminder3page_reminder:global(.__wab_instance) {
+  display: grid;
+}
 .section {
   position: fixed;
   align-content: flex-start;

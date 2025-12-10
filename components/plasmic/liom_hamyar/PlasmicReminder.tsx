@@ -97,15 +97,18 @@ createPlasmicElementProxy;
 export type PlasmicReminder__VariantMembers = {
   slide3: "slide3";
   hamyar: "hamyar";
+  smallReminder: "smallReminder";
 };
 export type PlasmicReminder__VariantsArgs = {
   slide3?: SingleBooleanChoiceArg<"slide3">;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
+  smallReminder?: SingleBooleanChoiceArg<"smallReminder">;
 };
 type VariantPropType = keyof PlasmicReminder__VariantsArgs;
 export const PlasmicReminder__VariantProps = new Array<VariantPropType>(
   "slide3",
-  "hamyar"
+  "hamyar",
+  "smallReminder"
 );
 
 export type PlasmicReminder__ArgsType = {
@@ -198,9 +201,9 @@ export type PlasmicReminder__OverridesType = {
   lottie?: Flex__<typeof LottieWrapper>;
   button3?: Flex__<typeof Button>;
   button11?: Flex__<typeof Button>;
-  button10?: Flex__<typeof Button>;
   button?: Flex__<typeof Button>;
   reminderSetting?: Flex__<typeof ReminderSetting>;
+  button10?: Flex__<typeof Button>;
   button9?: Flex__<typeof Button>;
   creaditButten?: Flex__<typeof CreaditButten>;
   wallet?: Flex__<typeof ApiRequest>;
@@ -238,6 +241,7 @@ export interface DefaultReminderProps {
   profile?: any;
   slide3?: SingleBooleanChoiceArg<"slide3">;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
+  smallReminder?: SingleBooleanChoiceArg<"smallReminder">;
   className?: string;
 }
 
@@ -567,7 +571,7 @@ function PlasmicReminder__RenderFunc(props: {
             try {
               return (
                 $state.apiRequest?.data ||
-                JSON.stringify(window.sessionStorage.getItem("ofline") || "[]")
+                JSON.parse(window.sessionStorage.getItem("ofline") || "[]")
               );
             } catch (e) {
               if (
@@ -661,7 +665,8 @@ function PlasmicReminder__RenderFunc(props: {
         path: "button10.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "smallReminder", "smallReminder") ? "line" : []
       },
       {
         path: "button10.loading",
@@ -831,6 +836,12 @@ function PlasmicReminder__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "smallReminder",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.smallReminder
       }
     ],
     [$props, $ctx, $refs]
@@ -931,17 +942,90 @@ function PlasmicReminder__RenderFunc(props: {
         ) {
           $steps["runCode2"] = await $steps["runCode2"];
         }
+
+        $steps["invokeGlobalAction"] = true
+          ? (() => {
+              const actionArgs = {
+                args: [
+                  "POST",
+                  "https://api.liom.app/service/log",
+                  undefined,
+                  (() => {
+                    try {
+                      return {
+                        appKey:
+                          "eyiaophkahaMAQwpqwjhr218aeewfuiaey-xxluyhawd2012-qigwi-oooh",
+                        userId: "{{ $('Code2').item.json.liomId }}",
+                        pageName: "reminder",
+                        action: "reminderload",
+                        extraData: {}
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })(),
+                  (() => {
+                    try {
+                      return {
+                        headers: {
+                          Authorization:
+                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                        }
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+                ]
+              };
+              return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                ...actionArgs.args
+              ]);
+            })()
+          : undefined;
+        if (
+          $steps["invokeGlobalAction"] != null &&
+          typeof $steps["invokeGlobalAction"] === "object" &&
+          typeof $steps["invokeGlobalAction"].then === "function"
+        ) {
+          $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
+        }
       }}
     >
       <section
         className={classNames(projectcss.all, sty.section__wVsy2, {
-          [sty.sectionslide3__wVsy2WyFt]: hasVariant($state, "slide3", "slide3")
+          [sty.sectionslide3__wVsy2WyFt]: hasVariant(
+            $state,
+            "slide3",
+            "slide3"
+          ),
+          [sty.sectionsmallReminder__wVsy2QVctK]: hasVariant(
+            $state,
+            "smallReminder",
+            "smallReminder"
+          )
         })}
       >
         <Dialog
           data-plasmic-name={"dialog"}
           data-plasmic-override={overrides.dialog}
-          className={classNames("__wab_instance", sty.dialog)}
+          className={classNames("__wab_instance", sty.dialog, {
+            [sty.dialogslide3_smallReminder]:
+              hasVariant($state, "smallReminder", "smallReminder") &&
+              hasVariant($state, "slide3", "slide3")
+          })}
           onOpendialogChange={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, ["dialog", "opendialog"]).apply(
               null,
@@ -1491,7 +1575,11 @@ function PlasmicReminder__RenderFunc(props: {
         <Dialog
           data-plasmic-name={"dialog2"}
           data-plasmic-override={overrides.dialog2}
-          className={classNames("__wab_instance", sty.dialog2)}
+          className={classNames("__wab_instance", sty.dialog2, {
+            [sty.dialog2slide3_smallReminder]:
+              hasVariant($state, "smallReminder", "smallReminder") &&
+              hasVariant($state, "slide3", "slide3")
+          })}
           onOpendialogChange={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, ["dialog2", "opendialog"]).apply(
               null,
@@ -1681,7 +1769,12 @@ function PlasmicReminder__RenderFunc(props: {
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__bGhoM
+                  sty.text__bGhoM,
+                  {
+                    [sty.textslide3_smallReminder__bGhoMWyFtQVctK]:
+                      hasVariant($state, "smallReminder", "smallReminder") &&
+                      hasVariant($state, "slide3", "slide3")
+                  }
                 )}
               >
                 {"\u062a\u0627\u06cc\u06cc\u062f"}
@@ -1924,7 +2017,16 @@ function PlasmicReminder__RenderFunc(props: {
             "hamyar",
             "hamyar"
           ),
-          [sty.freeBoxslide3__xMddUWyFt]: hasVariant($state, "slide3", "slide3")
+          [sty.freeBoxslide3__xMddUWyFt]: hasVariant(
+            $state,
+            "slide3",
+            "slide3"
+          ),
+          [sty.freeBoxsmallReminder__xMddUqVctK]: hasVariant(
+            $state,
+            "smallReminder",
+            "smallReminder"
+          )
         })}
       >
         <div className={classNames(projectcss.all, sty.freeBox__sSYaM)}>
@@ -2716,7 +2818,14 @@ function PlasmicReminder__RenderFunc(props: {
           className={classNames(
             projectcss.all,
             projectcss.__wab_text,
-            sty.text__o4PAk
+            sty.text__o4PAk,
+            {
+              [sty.textsmallReminder__o4PAkqVctK]: hasVariant(
+                $state,
+                "smallReminder",
+                "smallReminder"
+              )
+            }
           )}
         >
           <React.Fragment>
@@ -2783,7 +2892,15 @@ function PlasmicReminder__RenderFunc(props: {
             throw e;
           }
         })() ? (
-          <div className={classNames(projectcss.all, sty.freeBox___2TeVq)}>
+          <div
+            className={classNames(projectcss.all, sty.freeBox___2TeVq, {
+              [sty.freeBoxsmallReminder___2TeVqqVctK]: hasVariant(
+                $state,
+                "smallReminder",
+                "smallReminder"
+              )
+            })}
+          >
             <PlasmicImg__
               data-plasmic-name={"img"}
               data-plasmic-override={overrides.img}
@@ -2808,7 +2925,14 @@ function PlasmicReminder__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text___4Uf40
+                sty.text___4Uf40,
+                {
+                  [sty.textsmallReminder___4Uf40QVctK]: hasVariant(
+                    $state,
+                    "smallReminder",
+                    "smallReminder"
+                  )
+                }
               )}
             >
               <React.Fragment>
@@ -3804,7 +3928,10 @@ function PlasmicReminder__RenderFunc(props: {
             data-plasmic-name={"button11"}
             data-plasmic-override={overrides.button11}
             className={classNames("__wab_instance", sty.button11, {
-              [sty.button11slide3]: hasVariant($state, "slide3", "slide3")
+              [sty.button11slide3]: hasVariant($state, "slide3", "slide3"),
+              [sty.button11slide3_smallReminder]:
+                hasVariant($state, "smallReminder", "smallReminder") &&
+                hasVariant($state, "slide3", "slide3")
             })}
             color={generateStateValueProp($state, ["button11", "color"])}
             endIcon={
@@ -3937,134 +4064,14 @@ function PlasmicReminder__RenderFunc(props: {
           </Button>
         ) : null}
       </div>
-      <section
-        className={classNames(projectcss.all, sty.section__wBpwR, {
-          [sty.sectionhamyar__wBpwRxX8Tw]: hasVariant(
-            $state,
-            "hamyar",
-            "hamyar"
-          ),
-          [sty.sectionslide3__wBpwRWyFt]: hasVariant(
-            $state,
-            "slide3",
-            "slide3"
-          ),
-          [sty.sectionslide3_hamyar__wBpwRWyFtXX8Tw]:
-            hasVariant($state, "hamyar", "hamyar") &&
-            hasVariant($state, "slide3", "slide3")
-        })}
-      >
-        <div
-          className={classNames(projectcss.all, sty.freeBox__nYlDo, {
-            [sty.freeBoxslide3__nYlDoWyFt]: hasVariant(
-              $state,
-              "slide3",
-              "slide3"
-            )
-          })}
-        >
-          <div className={classNames(projectcss.all, sty.freeBox__sjaPa)}>
-            <div
-              className={classNames(projectcss.all, sty.freeBox__pDska, {
-                [sty.freeBoxslide3__pDskaWyFt]: hasVariant(
-                  $state,
-                  "slide3",
-                  "slide3"
-                )
-              })}
-            >
-              <Button
-                data-plasmic-name={"button10"}
-                data-plasmic-override={overrides.button10}
-                className={classNames("__wab_instance", sty.button10, {
-                  [sty.button10slide3]: hasVariant($state, "slide3", "slide3")
-                })}
-                color={generateStateValueProp($state, ["button10", "color"])}
-                load={generateStateValueProp($state, ["button10", "load"])}
-                loading={generateStateValueProp($state, [
-                  "button10",
-                  "loading"
-                ])}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return ($state.reminderSetting.dialogOpendialog3 = true);
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
-                }}
-                onColorChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button10", "color"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onLoadChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button10", "load"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onLoadingChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button10", "loading"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                shape={"round"}
-              >
-                <Icon50Icon
-                  className={classNames(projectcss.all, sty.svg__rSu4)}
-                  role={"img"}
-                />
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-      {(hasVariant($state, "slide3", "slide3") ? true : false) ? (
+      {(
+        hasVariant($state, "smallReminder", "smallReminder") &&
+        hasVariant($state, "slide3", "slide3")
+          ? true
+          : hasVariant($state, "slide3", "slide3")
+            ? true
+            : false
+      ) ? (
         <section
           className={classNames(projectcss.all, sty.section__ekiQp, {
             [sty.sectionhamyar__ekiQPxX8Tw]: hasVariant(
@@ -4079,10 +4086,19 @@ function PlasmicReminder__RenderFunc(props: {
             ),
             [sty.sectionslide3_hamyar__ekiQpWyFtXX8Tw]:
               hasVariant($state, "hamyar", "hamyar") &&
+              hasVariant($state, "slide3", "slide3"),
+            [sty.sectionslide3_smallReminder__ekiQpWyFtQVctK]:
+              hasVariant($state, "smallReminder", "smallReminder") &&
               hasVariant($state, "slide3", "slide3")
           })}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__xFtDc)}>
+          <div
+            className={classNames(projectcss.all, sty.freeBox__xFtDc, {
+              [sty.freeBoxslide3_smallReminder__xFtDcWyFtQVctK]:
+                hasVariant($state, "smallReminder", "smallReminder") &&
+                hasVariant($state, "slide3", "slide3")
+            })}
+          >
             {(
               hasVariant($state, "slide3", "slide3")
                 ? (() => {
@@ -4104,7 +4120,10 @@ function PlasmicReminder__RenderFunc(props: {
                 data-plasmic-name={"button"}
                 data-plasmic-override={overrides.button}
                 className={classNames("__wab_instance", sty.button, {
-                  [sty.buttonslide3]: hasVariant($state, "slide3", "slide3")
+                  [sty.buttonslide3]: hasVariant($state, "slide3", "slide3"),
+                  [sty.buttonslide3_smallReminder]:
+                    hasVariant($state, "smallReminder", "smallReminder") &&
+                    hasVariant($state, "slide3", "slide3")
                 })}
                 color={generateStateValueProp($state, ["button", "color"])}
                 load={generateStateValueProp($state, ["button", "load"])}
@@ -4197,7 +4216,14 @@ function PlasmicReminder__RenderFunc(props: {
       ) : null}
       <div
         className={classNames(projectcss.all, sty.freeBox__uUg9N, {
-          [sty.freeBoxslide3__uUg9NWyFt]: hasVariant($state, "slide3", "slide3")
+          [sty.freeBoxslide3__uUg9NWyFt]: hasVariant(
+            $state,
+            "slide3",
+            "slide3"
+          ),
+          [sty.freeBoxslide3_smallReminder__uUg9NWyFtQVctK]:
+            hasVariant($state, "smallReminder", "smallReminder") &&
+            hasVariant($state, "slide3", "slide3")
         })}
       >
         <div
@@ -4206,7 +4232,10 @@ function PlasmicReminder__RenderFunc(props: {
               $state,
               "slide3",
               "slide3"
-            )
+            ),
+            [sty.freeBoxslide3_smallReminder__epwedWyFtQVctK]:
+              hasVariant($state, "smallReminder", "smallReminder") &&
+              hasVariant($state, "slide3", "slide3")
           })}
         >
           <div
@@ -4236,7 +4265,10 @@ function PlasmicReminder__RenderFunc(props: {
                     $state,
                     "slide3",
                     "slide3"
-                  )
+                  ),
+                  [sty.textslide3_smallReminder__abeZpWyFtQVctK]:
+                    hasVariant($state, "smallReminder", "smallReminder") &&
+                    hasVariant($state, "slide3", "slide3")
                 }
               )}
             >
@@ -4250,7 +4282,10 @@ function PlasmicReminder__RenderFunc(props: {
           data-plasmic-name={"reminderSetting"}
           data-plasmic-override={overrides.reminderSetting}
           className={classNames("__wab_instance", sty.reminderSetting, {
-            [sty.reminderSettingslide3]: hasVariant($state, "slide3", "slide3")
+            [sty.reminderSettingslide3]: hasVariant($state, "slide3", "slide3"),
+            [sty.reminderSettingslide3_smallReminder]:
+              hasVariant($state, "smallReminder", "smallReminder") &&
+              hasVariant($state, "slide3", "slide3")
           })}
           creaditButtenCreadit={generateStateValueProp($state, [
             "reminderSetting",
@@ -4934,9 +4969,218 @@ function PlasmicReminder__RenderFunc(props: {
         />
       </div>
       <section
-        className={classNames(projectcss.all, sty.section__vml6V, "top-header")}
+        className={classNames(projectcss.all, sty.section__wBpwR, {
+          [sty.sectionhamyar__wBpwRxX8Tw]: hasVariant(
+            $state,
+            "hamyar",
+            "hamyar"
+          ),
+          [sty.sectionslide3__wBpwRWyFt]: hasVariant(
+            $state,
+            "slide3",
+            "slide3"
+          ),
+          [sty.sectionslide3_hamyar__wBpwRWyFtXX8Tw]:
+            hasVariant($state, "hamyar", "hamyar") &&
+            hasVariant($state, "slide3", "slide3"),
+          [sty.sectionslide3_smallReminder__wBpwRWyFtQVctK]:
+            hasVariant($state, "smallReminder", "smallReminder") &&
+            hasVariant($state, "slide3", "slide3"),
+          [sty.sectionsmallReminder__wBpwRqVctK]: hasVariant(
+            $state,
+            "smallReminder",
+            "smallReminder"
+          )
+        })}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__x8Ob1)}>
+        <div
+          className={classNames(projectcss.all, sty.freeBox__nYlDo, {
+            [sty.freeBoxslide3__nYlDoWyFt]: hasVariant(
+              $state,
+              "slide3",
+              "slide3"
+            ),
+            [sty.freeBoxsmallReminder__nYlDOqVctK]: hasVariant(
+              $state,
+              "smallReminder",
+              "smallReminder"
+            )
+          })}
+        >
+          <div
+            className={classNames(projectcss.all, sty.freeBox__sjaPa, {
+              [sty.freeBoxsmallReminder__sjaPAqVctK]: hasVariant(
+                $state,
+                "smallReminder",
+                "smallReminder"
+              )
+            })}
+          >
+            <div
+              className={classNames(projectcss.all, sty.freeBox__pDska, {
+                [sty.freeBoxslide3__pDskaWyFt]: hasVariant(
+                  $state,
+                  "slide3",
+                  "slide3"
+                ),
+                [sty.freeBoxsmallReminder__pDskAqVctK]: hasVariant(
+                  $state,
+                  "smallReminder",
+                  "smallReminder"
+                )
+              })}
+            >
+              <Button
+                data-plasmic-name={"button10"}
+                data-plasmic-override={overrides.button10}
+                className={classNames("__wab_instance", sty.button10, {
+                  [sty.button10slide3]: hasVariant($state, "slide3", "slide3"),
+                  [sty.button10smallReminder]: hasVariant(
+                    $state,
+                    "smallReminder",
+                    "smallReminder"
+                  )
+                })}
+                color={generateStateValueProp($state, ["button10", "color"])}
+                load={generateStateValueProp($state, ["button10", "load"])}
+                loading={generateStateValueProp($state, [
+                  "button10",
+                  "loading"
+                ])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return ($state.reminderSetting.dialogOpendialog3 = true);
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button10", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button10", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button10", "loading"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                shape={
+                  hasVariant($state, "smallReminder", "smallReminder")
+                    ? undefined
+                    : "round"
+                }
+              >
+                <Icon50Icon
+                  className={classNames(projectcss.all, sty.svg__rSu4, {
+                    [sty.svgsmallReminder__rSu4QVctK]: hasVariant(
+                      $state,
+                      "smallReminder",
+                      "smallReminder"
+                    )
+                  })}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__m5IjJ,
+                    {
+                      [sty.textsmallReminder__m5IjJqVctK]: hasVariant(
+                        $state,
+                        "smallReminder",
+                        "smallReminder"
+                      )
+                    }
+                  )}
+                >
+                  {
+                    "\u0627\u0641\u0632\u0648\u062f\u0646 \u06cc\u0627\u062f \u0622\u0648\u0631\u06cc"
+                  }
+                </div>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        className={classNames(
+          projectcss.all,
+          sty.section__vml6V,
+          "top-header",
+          {
+            [sty.sectionslide3_smallReminder__vml6VWyFtQVctK]:
+              hasVariant($state, "smallReminder", "smallReminder") &&
+              hasVariant($state, "slide3", "slide3"),
+            [sty.sectionsmallReminder__vml6VqVctK]: hasVariant(
+              $state,
+              "smallReminder",
+              "smallReminder"
+            )
+          }
+        )}
+      >
+        <div
+          className={classNames(projectcss.all, sty.freeBox__x8Ob1, {
+            [sty.freeBoxsmallReminder__x8Ob1QVctK]: hasVariant(
+              $state,
+              "smallReminder",
+              "smallReminder"
+            )
+          })}
+        >
           <Button
             data-plasmic-name={"button9"}
             data-plasmic-override={overrides.button9}
@@ -5352,9 +5596,9 @@ const PlasmicDescendants = {
     "lottie",
     "button3",
     "button11",
-    "button10",
     "button",
     "reminderSetting",
+    "button10",
     "button9",
     "creaditButten",
     "wallet",
@@ -5396,9 +5640,9 @@ const PlasmicDescendants = {
   lottie: ["lottie"],
   button3: ["button3"],
   button11: ["button11"],
-  button10: ["button10"],
   button: ["button"],
   reminderSetting: ["reminderSetting"],
+  button10: ["button10"],
   button9: ["button9"],
   creaditButten: ["creaditButten"],
   wallet: ["wallet"],
@@ -5438,9 +5682,9 @@ type NodeDefaultElementType = {
   lottie: typeof LottieWrapper;
   button3: typeof Button;
   button11: typeof Button;
-  button10: typeof Button;
   button: typeof Button;
   reminderSetting: typeof ReminderSetting;
+  button10: typeof Button;
   button9: typeof Button;
   creaditButten: typeof CreaditButten;
   wallet: typeof ApiRequest;
@@ -5538,9 +5782,9 @@ export const PlasmicReminder = Object.assign(
     lottie: makeNodeComponent("lottie"),
     button3: makeNodeComponent("button3"),
     button11: makeNodeComponent("button11"),
-    button10: makeNodeComponent("button10"),
     button: makeNodeComponent("button"),
     reminderSetting: makeNodeComponent("reminderSetting"),
+    button10: makeNodeComponent("button10"),
     button9: makeNodeComponent("button9"),
     creaditButten: makeNodeComponent("creaditButten"),
     wallet: makeNodeComponent("wallet"),

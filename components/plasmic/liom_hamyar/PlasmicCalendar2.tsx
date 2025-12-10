@@ -3356,7 +3356,7 @@ function PlasmicCalendar2__RenderFunc(props: {
       <Embed
         className={classNames("__wab_instance", sty.embedHtml__tfHV)}
         code={
-          "<!-- Hotjar Tracking Code for Site 5171830 (name missing) -->\r\n<script>\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:5171830,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n</script>\r\n<script src=\"https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js\"></script>\r\n<script src=\"https://cdn.jsdelivr.net/npm/ua-parser-js/dist/ua-parser.min.js\"></script>\r\n\r\n"
+          '\r\n<script src="https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js"></script>\r\n<script src="https://cdn.jsdelivr.net/npm/ua-parser-js/dist/ua-parser.min.js"></script>\r\n\r\n'
         }
       />
 

@@ -2624,7 +2624,7 @@
   max-width: 100%;
   row-gap: 10px;
   min-width: 0;
-  padding: 8px 16px 8px 0px;
+  padding: var(--token-uOLZE7OyOW-J);
 }
 @media (max-width: 640px) {
   .freeBox__oIk5R {
@@ -2641,6 +2641,10 @@
 }
 .freeBoxnoPartner__oIk5RmzwVj {
   display: none;
+}
+.reminder__o1GLi:global(.__wab_instance) {
+  animation: none;
+  max-width: 100%;
 }
 .nopartner3 {
   flex-direction: column;
