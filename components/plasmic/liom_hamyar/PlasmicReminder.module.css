@@ -1239,7 +1239,7 @@
 }
 .freeBoxslide3_smallReminder__uUg9NWyFtQVctK {
   background: none;
-  height: 300px;
+  height: 200px;
   overflow: auto;
   padding: 0px 0px 0rem;
 }
@@ -1298,6 +1298,10 @@
 }
 .reminderSetting:global(.__wab_instance) {
   max-width: 100%;
+}
+.reminderSettingslide3_smallReminder:global(.__wab_instance) {
+  height: 100%;
+  min-height: 0;
 }
 .section__wBpwR {
   display: grid;
@@ -1465,7 +1469,7 @@
   height: 1em;
 }
 .svgslide3_smallReminder__ppt8WWyFtQVctK {
-  color: var(--token-MAnhFXGh8Ir8);
+  color: var(--token-qvl81LxkOSoe);
 }
 .svg__rSu4 {
   object-fit: cover;
@@ -1488,7 +1492,7 @@
   display: block;
 }
 .textslide3_smallReminder__m5IjJWyFtQVctK {
-  color: var(--token-MAnhFXGh8Ir8);
+  color: var(--token-qvl81LxkOSoe);
 }
 .svg__xjESm {
   object-fit: cover;

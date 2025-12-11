@@ -7385,6 +7385,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     $state,
                                     "slide",
                                     "_1"
+                                  ),
+                                  [sty.frame26smallReminder]: hasVariant(
+                                    $state,
+                                    "smallReminder",
+                                    "smallReminder"
                                   )
                                 }
                               )}
@@ -8350,7 +8355,13 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     sty.freeBox___0V7N,
                                     {
                                       [sty.freeBoxslide__1___0V7Nedcqc]:
-                                        hasVariant($state, "slide", "_1")
+                                        hasVariant($state, "slide", "_1"),
+                                      [sty.freeBoxsmallReminder___0V7NhIhRd]:
+                                        hasVariant(
+                                          $state,
+                                          "smallReminder",
+                                          "smallReminder"
+                                        )
                                     }
                                   )}
                                 >
@@ -10300,6 +10311,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
             })() ? (
               <div
                 className={classNames(projectcss.all, sty.freeBox__prs8I, {
+                  [sty.freeBoxslide__1__prs8Iedcqc]: hasVariant(
+                    $state,
+                    "slide",
+                    "_1"
+                  ),
                   [sty.freeBoxslide__1_smallReminder__prs8IedcqcHIhRd]:
                     hasVariant($state, "smallReminder", "smallReminder") &&
                     hasVariant($state, "slide", "_1"),
@@ -10388,6 +10404,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 $state,
                 "report",
                 "report"
+              ),
+              [sty.freeBoxsmallReminder__mO9UNhIhRd]: hasVariant(
+                $state,
+                "smallReminder",
+                "smallReminder"
               )
             })}
           >
