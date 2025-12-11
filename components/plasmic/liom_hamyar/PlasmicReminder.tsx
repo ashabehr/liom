@@ -5623,7 +5623,10 @@ function PlasmicReminder__RenderFunc(props: {
         data-plasmic-name={"wallet"}
         data-plasmic-override={overrides.wallet}
         className={classNames("__wab_instance", sty.wallet, {
-          [sty.walletslide3]: hasVariant($state, "slide3", "slide3")
+          [sty.walletslide3]: hasVariant($state, "slide3", "slide3"),
+          [sty.walletslide3_smallReminder]:
+            hasVariant($state, "smallReminder", "smallReminder") &&
+            hasVariant($state, "slide3", "slide3")
         })}
         config={(() => {
           try {
@@ -5721,28 +5724,8 @@ function PlasmicReminder__RenderFunc(props: {
             hasVariant($state, "slide3", "slide3") &&
             hasVariant($state, "smallReminder", "smallReminder")
         })}
-        errorDisplay={
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__lL1Il
-            )}
-          >
-            {"Error fetching data"}
-          </div>
-        }
-        loadingDisplay={
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__tvq4E
-            )}
-          >
-            {"Loading..."}
-          </div>
-        }
+        errorDisplay={null}
+        loadingDisplay={null}
         method={"GET"}
         onError={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(

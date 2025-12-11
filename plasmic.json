@@ -5118,20 +5118,6 @@
           "componentType": "component"
         },
         {
-          "id": "j_hR0f0gqi6e",
-          "name": "Main3",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMain3.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/main2.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicMain3.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/main2"
-        },
-        {
           "id": "K9RuCwPDEAQe",
           "name": "MainCalendar",
           "type": "managed",

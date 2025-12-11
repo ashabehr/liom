@@ -7164,6 +7164,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         $state,
                         "slide",
                         "_2"
+                      ),
+                      [sty.freeBoxsmall__fN6Vez1Mcd]: hasVariant(
+                        $state,
+                        "small",
+                        "small"
                       )
                     }
                   )}
