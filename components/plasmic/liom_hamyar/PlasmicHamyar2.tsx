@@ -15903,7 +15903,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                           )}
                         >
                           {hasVariant(globalVariants, "screen", "mobile")
-                            ? ""
+                            ? "\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627"
                             : "\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627"}
                         </div>
                       </div>

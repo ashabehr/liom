@@ -36,6 +36,9 @@
 .rootslide3_hamyar > * {
   grid-column: 4;
 }
+.rootslide3_smallReminder > * {
+  grid-column: 4;
+}
 .section__wVsy2 {
   display: grid;
   position: fixed;
@@ -1227,7 +1230,15 @@
 }
 .freeBoxslide3_smallReminder__uUg9NWyFtQVctK {
   background: none;
+  height: 300px;
+  overflow: auto;
   padding: 0px 0px 0rem;
+}
+@media (max-width: 640px) {
+  .freeBoxslide3_smallReminder__uUg9NWyFtQVctK {
+    overflow: auto;
+    height: 300px;
+  }
 }
 .freeBox__epwed {
   display: flex;
@@ -1392,6 +1403,9 @@
   width: 100%;
   min-width: 0;
 }
+.freeBoxslide3_smallReminder__sjaPaWyFtQVctK {
+  padding: var(--token-uOLZE7OyOW-J);
+}
 .freeBox__pDska {
   display: flex;
   flex-direction: column;
@@ -1409,6 +1423,11 @@
   width: 100%;
   box-shadow: none;
   min-width: 0;
+}
+@media (max-width: 640px) {
+  .freeBoxslide3_smallReminder__pDskaWyFtQVctK {
+    padding: var(--token-uOLZE7OyOW-J);
+  }
 }
 .button10:global(.__wab_instance) {
   max-width: 100%;
@@ -1431,6 +1450,9 @@
   object-fit: cover;
   width: auto;
   height: 1em;
+}
+.svgslide3_smallReminder__ppt8WWyFtQVctK {
+  color: var(--token-qvl81LxkOSoe);
 }
 .svg__rSu4 {
   object-fit: cover;

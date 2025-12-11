@@ -2633,7 +2633,7 @@
     row-gap: 8px;
     column-gap: 0px;
     min-height: 0;
-    padding: 0px 12px 0px 0px;
+    padding: 0px var(--token-uOLZE7OyOW-J) var(--token-uOLZE7OyOW-J);
   }
 }
 .freeBoxlackOfCourseInformation__oIk5RMyTcU {

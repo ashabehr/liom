@@ -90,6 +90,7 @@ import Icon295Icon from "./icons/PlasmicIcon__Icon295"; // plasmic-import: SfM64
 import Icon322Icon from "./icons/PlasmicIcon__Icon322"; // plasmic-import: YXpo7oAohDig/icon
 import Icon291Icon from "./icons/PlasmicIcon__Icon291"; // plasmic-import: U9F0Jow4owN9/icon
 import Icon278Icon from "./icons/PlasmicIcon__Icon278"; // plasmic-import: CPpihkrGcjaH/icon
+import Icon92Icon from "./icons/PlasmicIcon__Icon92"; // plasmic-import: s1v5WdwgCpwX/icon
 import Icon50Icon from "./icons/PlasmicIcon__Icon50"; // plasmic-import: OWul-aq2fF6T/icon
 
 createPlasmicElementProxy;
@@ -874,7 +875,10 @@ function PlasmicReminder__RenderFunc(props: {
           [sty.rootslide3]: hasVariant($state, "slide3", "slide3"),
           [sty.rootslide3_hamyar]:
             hasVariant($state, "hamyar", "hamyar") &&
-            hasVariant($state, "slide3", "slide3")
+            hasVariant($state, "slide3", "slide3"),
+          [sty.rootslide3_smallReminder]:
+            hasVariant($state, "slide3", "slide3") &&
+            hasVariant($state, "smallReminder", "smallReminder")
         }
       )}
       onAnimationStart={async event => {
@@ -5070,6 +5074,9 @@ function PlasmicReminder__RenderFunc(props: {
         >
           <div
             className={classNames(projectcss.all, sty.freeBox__sjaPa, {
+              [sty.freeBoxslide3_smallReminder__sjaPaWyFtQVctK]:
+                hasVariant($state, "slide3", "slide3") &&
+                hasVariant($state, "smallReminder", "smallReminder"),
               [sty.freeBoxsmallReminder__sjaPAqVctK]: hasVariant(
                 $state,
                 "smallReminder",
@@ -5084,6 +5091,9 @@ function PlasmicReminder__RenderFunc(props: {
                   "slide3",
                   "slide3"
                 ),
+                [sty.freeBoxslide3_smallReminder__pDskaWyFtQVctK]:
+                  hasVariant($state, "slide3", "slide3") &&
+                  hasVariant($state, "smallReminder", "smallReminder"),
                 [sty.freeBoxsmallReminder__pDskAqVctK]: hasVariant(
                   $state,
                   "smallReminder",
@@ -5096,6 +5106,9 @@ function PlasmicReminder__RenderFunc(props: {
                 data-plasmic-override={overrides.button10}
                 className={classNames("__wab_instance", sty.button10, {
                   [sty.button10slide3]: hasVariant($state, "slide3", "slide3"),
+                  [sty.button10slide3_smallReminder]:
+                    hasVariant($state, "slide3", "slide3") &&
+                    hasVariant($state, "smallReminder", "smallReminder"),
                   [sty.button10smallReminder]: hasVariant(
                     $state,
                     "smallReminder",
@@ -5180,6 +5193,28 @@ function PlasmicReminder__RenderFunc(props: {
                   hasVariant($state, "smallReminder", "smallReminder")
                     ? undefined
                     : "round"
+                }
+                showStartIcon={
+                  hasVariant($state, "slide3", "slide3") &&
+                  hasVariant($state, "smallReminder", "smallReminder")
+                    ? true
+                    : undefined
+                }
+                startIcon={
+                  <PlasmicIcon__
+                    PlasmicIconType={
+                      hasVariant($state, "slide3", "slide3") &&
+                      hasVariant($state, "smallReminder", "smallReminder")
+                        ? Icon92Icon
+                        : CheckSvgIcon
+                    }
+                    className={classNames(projectcss.all, sty.svg__ppt8W, {
+                      [sty.svgslide3_smallReminder__ppt8WWyFtQVctK]:
+                        hasVariant($state, "slide3", "slide3") &&
+                        hasVariant($state, "smallReminder", "smallReminder")
+                    })}
+                    role={"img"}
+                  />
                 }
               >
                 <Icon50Icon

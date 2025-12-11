@@ -4650,7 +4650,7 @@
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
           "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicHamyar.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/hamyar.tsx"
+            "modulePath": "../src/pages/hamyar/[[...page]].tsx"
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicHamyar.module.css",
           "scheme": "blackbox",

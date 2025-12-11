@@ -1392,7 +1392,7 @@ function PlasmicHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return window.sessionStorage.getItem("footer") || "hamyar";
+              return $ctx.params.page[0] || "hamyar";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -3115,6 +3115,50 @@ function PlasmicHamyar__RenderFunc(props: {
                       ) {
                         return;
                       }
+
+                      (async val => {
+                        const $steps = {};
+
+                        $steps["goToHamyar"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                destination: `/hamyar/${(() => {
+                                  try {
+                                    return $state.footerMain.type;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()}`
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["goToHamyar"] != null &&
+                          typeof $steps["goToHamyar"] === "object" &&
+                          typeof $steps["goToHamyar"].then === "function"
+                        ) {
+                          $steps["goToHamyar"] = await $steps["goToHamyar"];
+                        }
+                      }).apply(null, eventArgs);
                     },
                     type: generateStateValueProp($state, ["footerMain", "type"])
                   };
@@ -3127,10 +3171,7 @@ function PlasmicHamyar__RenderFunc(props: {
                         initFunc: ({ $props, $state, $queries }) =>
                           (() => {
                             try {
-                              return (
-                                window.sessionStorage.getItem("footer") ||
-                                "hamyar"
-                              );
+                              return $ctx.params.page[0] || "hamyar";
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
