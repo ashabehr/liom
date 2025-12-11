@@ -667,7 +667,12 @@ function PlasmicReminder__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant($state, "smallReminder", "smallReminder") ? "line" : []
+          hasVariant($state, "slide3", "slide3") &&
+          hasVariant($state, "smallReminder", "smallReminder")
+            ? ["line", "yellow"]
+            : hasVariant($state, "smallReminder", "smallReminder")
+              ? "line"
+              : []
       },
       {
         path: "button10.loading",
@@ -871,6 +876,10 @@ function PlasmicReminder__RenderFunc(props: {
         sty.root,
         "fade-in",
         {
+          [sty.rootglobal_newView_newView_slide3_smallReminder]:
+            hasVariant($state, "slide3", "slide3") &&
+            hasVariant($state, "smallReminder", "smallReminder") &&
+            hasVariant(globalVariants, "newView", "newView"),
           [sty.roothamyar]: hasVariant($state, "hamyar", "hamyar"),
           [sty.rootslide3]: hasVariant($state, "slide3", "slide3"),
           [sty.rootslide3_hamyar]:
@@ -4974,6 +4983,12 @@ function PlasmicReminder__RenderFunc(props: {
             }
           }}
           slide={"_1"}
+          smallReminder={
+            hasVariant($state, "smallReminder", "smallReminder") &&
+            hasVariant($state, "slide3", "slide3")
+              ? true
+              : undefined
+          }
           sms={generateStateValueProp($state, ["reminderSetting", "sms"])}
           subscription={(() => {
             try {
@@ -5086,6 +5101,10 @@ function PlasmicReminder__RenderFunc(props: {
           >
             <div
               className={classNames(projectcss.all, sty.freeBox__pDska, {
+                [sty.freeBoxglobal_newView_newView_slide3_smallReminder__pDska0DHvaWyFtQVctK]:
+                  hasVariant($state, "slide3", "slide3") &&
+                  hasVariant($state, "smallReminder", "smallReminder") &&
+                  hasVariant(globalVariants, "newView", "newView"),
                 [sty.freeBoxslide3__pDskaWyFt]: hasVariant(
                   $state,
                   "slide3",
@@ -5234,6 +5253,9 @@ function PlasmicReminder__RenderFunc(props: {
                     projectcss.__wab_text,
                     sty.text__m5IjJ,
                     {
+                      [sty.textslide3_smallReminder__m5IjJWyFtQVctK]:
+                        hasVariant($state, "slide3", "slide3") &&
+                        hasVariant($state, "smallReminder", "smallReminder"),
                       [sty.textsmallReminder__m5IjJqVctK]: hasVariant(
                         $state,
                         "smallReminder",

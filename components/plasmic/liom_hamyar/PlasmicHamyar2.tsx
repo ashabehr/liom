@@ -113,13 +113,14 @@ import Icon304Icon from "./icons/PlasmicIcon__Icon304"; // plasmic-import: 703Sh
 import Icon280Icon from "./icons/PlasmicIcon__Icon280"; // plasmic-import: Q1zg9JItuLZ-/icon
 import Icon281Icon from "./icons/PlasmicIcon__Icon281"; // plasmic-import: LFRF9KNEKTKm/icon
 import Icon282Icon from "./icons/PlasmicIcon__Icon282"; // plasmic-import: 7X0kotbii7tD/icon
+import Icon354Icon from "./icons/PlasmicIcon__Icon354"; // plasmic-import: CaXVVzodVxFK/icon
+import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 import Icon272Icon from "./icons/PlasmicIcon__Icon272"; // plasmic-import: HLKs0puyq9Ra/icon
 import Icon142Icon from "./icons/PlasmicIcon__Icon142"; // plasmic-import: SJsM-_NDX4Yl/icon
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
 import Icon144Icon from "./icons/PlasmicIcon__Icon144"; // plasmic-import: 1DQk0pCQHybZ/icon
-import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 import Icon140Icon from "./icons/PlasmicIcon__Icon140"; // plasmic-import: KzO15XHeI3j-/icon
 
 import { v4 as __lib_uuid__v4 } from "uuid";
@@ -15877,6 +15878,11 @@ function PlasmicHamyar2__RenderFunc(props: {
                           }
                         )}
                       >
+                        <Icon354Icon
+                          className={classNames(projectcss.all, sty.svg__fDdK)}
+                          role={"img"}
+                        />
+
                         <div
                           className={classNames(
                             projectcss.all,
@@ -15903,9 +15909,39 @@ function PlasmicHamyar2__RenderFunc(props: {
                           )}
                         >
                           {hasVariant(globalVariants, "screen", "mobile")
-                            ? "\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627"
-                            : "\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627"}
+                            ? "\u0646\u0630\u0627\u0631 \u06cc\u0627\u062f\u062a \u0628\u0631\u0647\u061b \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0627\u06cc\u0646 \u0631\u0648\u0632\u0627 \u0631\u0648 \u0631\u0648\u0634\u0646 \u06a9\u0646."
+                            : "\u0646\u0630\u0627\u0631 \u06cc\u0627\u062f\u062a \u0628\u0631\u0647\u061b \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0627\u06cc\u0646 \u0631\u0648\u0632\u0627 \u0631\u0648 \u0631\u0648\u0634\u0646 \u06a9\u0646."}
                         </div>
+                        <XIcon
+                          className={classNames(projectcss.all, sty.svg__bvWc)}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return window.localStorage.setItem(
+                                        "SugRec",
+                                        "false"
+                                      );
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+                          }}
+                          role={"img"}
+                        />
                       </div>
                       <div
                         className={classNames(

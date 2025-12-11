@@ -111,19 +111,22 @@ export type PlasmicReminderSetting__VariantMembers = {
   hamyar: "hamyar";
   add: "add";
   report: "report";
+  smallReminder: "smallReminder";
 };
 export type PlasmicReminderSetting__VariantsArgs = {
   slide?: SingleChoiceArg<"_1" | "_2">;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
   add?: SingleBooleanChoiceArg<"add">;
   report?: SingleBooleanChoiceArg<"report">;
+  smallReminder?: SingleBooleanChoiceArg<"smallReminder">;
 };
 type VariantPropType = keyof PlasmicReminderSetting__VariantsArgs;
 export const PlasmicReminderSetting__VariantProps = new Array<VariantPropType>(
   "slide",
   "hamyar",
   "add",
-  "report"
+  "report",
+  "smallReminder"
 );
 
 export type PlasmicReminderSetting__ArgsType = {
@@ -285,6 +288,7 @@ export interface DefaultReminderSettingProps {
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
   add?: SingleBooleanChoiceArg<"add">;
   report?: SingleBooleanChoiceArg<"report">;
+  smallReminder?: SingleBooleanChoiceArg<"smallReminder">;
   className?: string;
 }
 
@@ -1980,6 +1984,12 @@ function PlasmicReminderSetting__RenderFunc(props: {
         path: "lineClomp4[][].line",
         type: "private",
         variableType: "boolean"
+      },
+      {
+        path: "smallReminder",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.smallReminder
       }
     ],
     [$props, $ctx, $refs]
@@ -2014,7 +2024,15 @@ function PlasmicReminderSetting__RenderFunc(props: {
             hasVariant($state, "add", "add") &&
             hasVariant($state, "report", "report"),
           [sty.rootslide__1]: hasVariant($state, "slide", "_1"),
-          [sty.rootslide__2]: hasVariant($state, "slide", "_2")
+          [sty.rootslide__1_smallReminder]:
+            hasVariant($state, "smallReminder", "smallReminder") &&
+            hasVariant($state, "slide", "_1"),
+          [sty.rootslide__2]: hasVariant($state, "slide", "_2"),
+          [sty.rootsmallReminder]: hasVariant(
+            $state,
+            "smallReminder",
+            "smallReminder"
+          )
         }
       )}
     >
@@ -2024,7 +2042,15 @@ function PlasmicReminderSetting__RenderFunc(props: {
         className={classNames(projectcss.all, sty.section, {
           [sty.sectionadd]: hasVariant($state, "add", "add"),
           [sty.sectionslide__1]: hasVariant($state, "slide", "_1"),
-          [sty.sectionslide__2]: hasVariant($state, "slide", "_2")
+          [sty.sectionslide__1_smallReminder]:
+            hasVariant($state, "smallReminder", "smallReminder") &&
+            hasVariant($state, "slide", "_1"),
+          [sty.sectionslide__2]: hasVariant($state, "slide", "_2"),
+          [sty.sectionsmallReminder]: hasVariant(
+            $state,
+            "smallReminder",
+            "smallReminder"
+          )
         })}
       >
         <HeaderLiom
@@ -6367,7 +6393,15 @@ function PlasmicReminderSetting__RenderFunc(props: {
             "report"
           ),
           [sty.freeBoxslide__1__roMeMedcqc]: hasVariant($state, "slide", "_1"),
-          [sty.freeBoxslide__2__roMeMvJmCw]: hasVariant($state, "slide", "_2")
+          [sty.freeBoxslide__1_smallReminder__roMeMedcqcHIhRd]:
+            hasVariant($state, "smallReminder", "smallReminder") &&
+            hasVariant($state, "slide", "_1"),
+          [sty.freeBoxslide__2__roMeMvJmCw]: hasVariant($state, "slide", "_2"),
+          [sty.freeBoxsmallReminder__roMeMhIhRd]: hasVariant(
+            $state,
+            "smallReminder",
+            "smallReminder"
+          )
         })}
       >
         <div
@@ -6378,6 +6412,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
               "slide",
               "_1"
             ),
+            [sty.freeBoxslide__1_smallReminder__dVXpGedcqcHIhRd]:
+              hasVariant($state, "smallReminder", "smallReminder") &&
+              hasVariant($state, "slide", "_1"),
             [sty.freeBoxslide__2__dVXpGvJmCw]: hasVariant($state, "slide", "_2")
           })}
         >
@@ -6864,6 +6901,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
           data-plasmic-override={overrides.frame}
           className={classNames(projectcss.all, sty.frame, {
             [sty.frameadd]: hasVariant($state, "add", "add"),
+            [sty.frameslide__1_smallReminder]:
+              hasVariant($state, "smallReminder", "smallReminder") &&
+              hasVariant($state, "slide", "_1"),
             [sty.frameslide__2]: hasVariant($state, "slide", "_2")
           })}
         >
@@ -7064,7 +7104,15 @@ function PlasmicReminderSetting__RenderFunc(props: {
             className={classNames(projectcss.all, sty.todayMeeting, "days", {
               [sty.todayMeetingadd]: hasVariant($state, "add", "add"),
               [sty.todayMeetingslide__1]: hasVariant($state, "slide", "_1"),
-              [sty.todayMeetingslide__2]: hasVariant($state, "slide", "_2")
+              [sty.todayMeetingslide__1_smallReminder]:
+                hasVariant($state, "smallReminder", "smallReminder") &&
+                hasVariant($state, "slide", "_1"),
+              [sty.todayMeetingslide__2]: hasVariant($state, "slide", "_2"),
+              [sty.todayMeetingsmallReminder]: hasVariant(
+                $state,
+                "smallReminder",
+                "smallReminder"
+              )
             })}
             id={"scrollBox"}
             onScroll={async event => {
@@ -7146,6 +7194,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         "slide",
                         "_1"
                       ),
+                      [sty.freeBoxslide__1_smallReminder__fN6VeedcqcHIhRd]:
+                        hasVariant($state, "smallReminder", "smallReminder") &&
+                        hasVariant($state, "slide", "_1"),
                       [sty.freeBoxslide__2__fN6VeVJmCw]: hasVariant(
                         $state,
                         "slide",
@@ -10247,7 +10298,18 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 throw e;
               }
             })() ? (
-              <div className={classNames(projectcss.all, sty.freeBox__prs8I)}>
+              <div
+                className={classNames(projectcss.all, sty.freeBox__prs8I, {
+                  [sty.freeBoxslide__1_smallReminder__prs8IedcqcHIhRd]:
+                    hasVariant($state, "smallReminder", "smallReminder") &&
+                    hasVariant($state, "slide", "_1"),
+                  [sty.freeBoxsmallReminder__prs8IhIhRd]: hasVariant(
+                    $state,
+                    "smallReminder",
+                    "smallReminder"
+                  )
+                })}
+              >
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -10286,6 +10348,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             $state,
                             "slide",
                             "_2"
+                          ),
+                          [sty.freeBoxsmallReminder__suk35HIhRd]: hasVariant(
+                            $state,
+                            "smallReminder",
+                            "smallReminder"
                           )
                         }
                       )}

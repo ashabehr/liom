@@ -1392,7 +1392,7 @@ function PlasmicHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $ctx.params.page[0] || "hamyar";
+              return $ctx.params.page?.[0] || "hamyar";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -3171,7 +3171,7 @@ function PlasmicHamyar__RenderFunc(props: {
                         initFunc: ({ $props, $state, $queries }) =>
                           (() => {
                             try {
-                              return $ctx.params.page[0] || "hamyar";
+                              return $ctx.params.page?.[0] || "hamyar";
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
