@@ -33,6 +33,9 @@
 .roothamyar > * {
   grid-column: 4;
 }
+.rootsmallReminder > * {
+  grid-column: 4;
+}
 .rootslide3_hamyar > * {
   grid-column: 4;
 }

@@ -887,7 +887,12 @@ function PlasmicReminder__RenderFunc(props: {
             hasVariant($state, "slide3", "slide3"),
           [sty.rootslide3_smallReminder]:
             hasVariant($state, "slide3", "slide3") &&
-            hasVariant($state, "smallReminder", "smallReminder")
+            hasVariant($state, "smallReminder", "smallReminder"),
+          [sty.rootsmallReminder]: hasVariant(
+            $state,
+            "smallReminder",
+            "smallReminder"
+          )
         }
       )}
       onAnimationStart={async event => {
@@ -5691,7 +5696,12 @@ function PlasmicReminder__RenderFunc(props: {
       <ApiRequest
         data-plasmic-name={"apiRequest"}
         data-plasmic-override={overrides.apiRequest}
-        className={classNames("__wab_instance", sty.apiRequest)}
+        className={classNames("__wab_instance", sty.apiRequest, {
+          [sty.apiRequestslide3]: hasVariant($state, "slide3", "slide3"),
+          [sty.apiRequestslide3_smallReminder]:
+            hasVariant($state, "slide3", "slide3") &&
+            hasVariant($state, "smallReminder", "smallReminder")
+        })}
         errorDisplay={
           <div
             className={classNames(
@@ -5790,7 +5800,12 @@ function PlasmicReminder__RenderFunc(props: {
             throw e;
           }
         })()}
-        url={"https://n8n.staas.ir/webhook/reminders/suggestions"}
+        url={
+          hasVariant($state, "slide3", "slide3") &&
+          hasVariant($state, "smallReminder", "smallReminder")
+            ? "https://n8n.staas.ir/webhook/reminders/suggestions1"
+            : "https://n8n.staas.ir/webhook/reminders/suggestions"
+        }
       />
 
       <Embed
