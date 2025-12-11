@@ -1252,7 +1252,7 @@ function PlasmicMainCalendar__RenderFunc(props: {
                         destination: `/main/${(() => {
                           try {
                             return (() => {
-                              var s = $ctx.params.page;
+                              var s = $ctx.params.page || ["calendar"];
                               s.push("cycle");
                               return s.join("/");
                             })();
@@ -1433,7 +1433,7 @@ function PlasmicMainCalendar__RenderFunc(props: {
                         destination: `/main/${(() => {
                           try {
                             return (() => {
-                              var s = $ctx.params.page;
+                              var s = $ctx.params.page || ["calendar"];
                               s.push("reminderSetting");
                               return s.join("/");
                             })();
@@ -1479,7 +1479,7 @@ function PlasmicMainCalendar__RenderFunc(props: {
                         destination: `/main/${(() => {
                           try {
                             return (() => {
-                              var s = $ctx.params.page;
+                              var s = $ctx.params.page || ["calendar"];
                               s.push("setting");
                               return s.join("/");
                             })();

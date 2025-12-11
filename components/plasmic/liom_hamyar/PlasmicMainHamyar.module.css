@@ -43,6 +43,9 @@
   max-width: 100%;
   display: none;
 }
+.reminder3page_hamyar:global(.__wab_instance) {
+  display: grid;
+}
 .reminder3page_reminder:global(.__wab_instance) {
   display: grid;
 }
