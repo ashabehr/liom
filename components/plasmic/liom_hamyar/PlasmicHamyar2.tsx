@@ -113,7 +113,6 @@ import Icon304Icon from "./icons/PlasmicIcon__Icon304"; // plasmic-import: 703Sh
 import Icon280Icon from "./icons/PlasmicIcon__Icon280"; // plasmic-import: Q1zg9JItuLZ-/icon
 import Icon281Icon from "./icons/PlasmicIcon__Icon281"; // plasmic-import: LFRF9KNEKTKm/icon
 import Icon282Icon from "./icons/PlasmicIcon__Icon282"; // plasmic-import: 7X0kotbii7tD/icon
-import Icon354Icon from "./icons/PlasmicIcon__Icon354"; // plasmic-import: CaXVVzodVxFK/icon
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 import Icon272Icon from "./icons/PlasmicIcon__Icon272"; // plasmic-import: HLKs0puyq9Ra/icon
 import Icon142Icon from "./icons/PlasmicIcon__Icon142"; // plasmic-import: SJsM-_NDX4Yl/icon
@@ -15878,11 +15877,6 @@ function PlasmicHamyar2__RenderFunc(props: {
                           }
                         )}
                       >
-                        <Icon354Icon
-                          className={classNames(projectcss.all, sty.svg__fDdK)}
-                          role={"img"}
-                        />
-
                         <div
                           className={classNames(
                             projectcss.all,
@@ -15909,8 +15903,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                           )}
                         >
                           {hasVariant(globalVariants, "screen", "mobile")
-                            ? "\u0646\u0630\u0627\u0631 \u06cc\u0627\u062f\u062a \u0628\u0631\u0647\u061b \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0627\u06cc\u0646 \u0631\u0648\u0632\u0627 \u0631\u0648 \u0631\u0648\u0634\u0646 \u06a9\u0646."
-                            : "\u0646\u0630\u0627\u0631 \u06cc\u0627\u062f\u062a \u0628\u0631\u0647\u061b \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0627\u06cc\u0646 \u0631\u0648\u0632\u0627 \u0631\u0648 \u0631\u0648\u0634\u0646 \u06a9\u0646."}
+                            ? "\u0631\u0648\u0632\u0647\u0627\u06cc \u0645\u0647\u0645 \u0631\u0648 \u0641\u0631\u0627\u0645\u0648\u0634 \u0646\u06a9\u0646!"
+                            : "\u0631\u0648\u0632\u0647\u0627\u06cc \u0645\u0647\u0645 \u0631\u0648 \u0641\u0631\u0627\u0645\u0648\u0634 \u0646\u06a9\u0646!"}
                         </div>
                         <XIcon
                           className={classNames(projectcss.all, sty.svg__bvWc)}

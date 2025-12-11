@@ -1484,6 +1484,12 @@
 .freeBoxreport__roMeMJjOjP {
   display: none;
 }
+.freeBoxsmallReminder__roMeMhIhRd {
+  width: 100%;
+  justify-self: flex-start;
+  grid-column-start: 1 !important;
+  grid-column-end: -1 !important;
+}
 .freeBoxslide__1_smallReminder__roMeMedcqcHIhRd {
   background: none;
 }
@@ -1998,8 +2004,18 @@
   display: flex;
 }
 .todayMeetingsmallReminder {
-  row-gap: var(--token-O5TjkXII_aat);
-  column-gap: 0px;
+  display: flex;
+  flex-direction: row;
+  column-gap: var(--token-O5TjkXII_aat);
+  overflow: auto;
+  width: 100vw;
+  position: relative;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  row-gap: 0px;
 }
 .todayMeetingslide__1_smallReminder {
   background: none;
@@ -2013,7 +2029,7 @@
   justify-content: flex-start;
   width: 100%;
   height: auto;
-  max-width: 100%;
+  max-width: none;
   align-self: stretch;
   column-gap: var(--token-O5TjkXII_aat);
   overflow: visible;
@@ -2026,6 +2042,10 @@
 }
 .freeBoxadd__fN6VeuWxSg {
   padding: 0px;
+}
+.freeBoxsmallReminder__fN6VehIhRd {
+  width: 100%;
+  min-width: 150px;
 }
 .freeBoxslide__1_smallReminder__fN6VeedcqcHIhRd {
   padding: 0px;
@@ -2047,6 +2067,12 @@
 }
 .freeBoxslide__1__laNy3Edcqc {
   background: none;
+}
+.freeBoxsmallReminder__laNy3HIhRd {
+  display: flex;
+  flex-direction: row;
+  column-gap: 12px;
+  row-gap: 0px;
 }
 .freeBox___3Qy8 {
   display: flex;
@@ -2104,6 +2130,12 @@
 }
 .frame26smallReminder {
   background: var(--token-R_Rsn0nP9oIv);
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  width: 150px;
+  column-gap: 0px;
+  flex-shrink: 0;
 }
 .frame27 {
   height: auto;
@@ -2114,6 +2146,12 @@
   align-items: flex-start;
   justify-content: flex-start;
   column-gap: 10px;
+}
+.frame27smallReminder {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  column-gap: 0px;
 }
 .frame28 {
   height: auto;
@@ -2456,6 +2494,10 @@
 }
 .freeBoxsmallReminder__prs8IhIhRd {
   background: none;
+  display: flex;
+  flex-direction: row;
+  column-gap: var(--token-B5WvIYiqPJW-);
+  row-gap: 0px;
 }
 .freeBoxslide__1_smallReminder__prs8IedcqcHIhRd {
   padding: 0px;
@@ -2482,6 +2524,11 @@
 }
 .freeBoxadd__suk35UWxSg {
   padding: 0px;
+}
+.freeBoxsmallReminder__suk35HIhRd {
+  width: 150px;
+  height: 80px;
+  flex-shrink: 0;
 }
 .freeBox__mO9Un {
   display: flex;

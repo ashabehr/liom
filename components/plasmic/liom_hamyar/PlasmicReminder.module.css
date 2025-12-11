@@ -30,11 +30,21 @@
 .rootslide3 > * {
   grid-column: 4;
 }
+@media (max-width: 640px) {
+  .rootslide3 > * {
+    grid-column: 4;
+  }
+}
 .roothamyar > * {
   grid-column: 4;
 }
 .rootsmallReminder > * {
   grid-column: 4;
+}
+@media (max-width: 640px) {
+  .rootsmallReminder > * {
+    grid-column: 4;
+  }
 }
 .rootslide3_hamyar > * {
   grid-column: 4;
@@ -1239,14 +1249,12 @@
 }
 .freeBoxslide3_smallReminder__uUg9NWyFtQVctK {
   background: none;
-  height: 200px;
-  overflow: auto;
+  height: auto;
   padding: 0px 0px 0rem;
 }
 @media (max-width: 640px) {
   .freeBoxslide3_smallReminder__uUg9NWyFtQVctK {
-    overflow: auto;
-    height: 300px;
+    height: auto;
   }
 }
 .freeBox__epwed {
@@ -1300,8 +1308,7 @@
   max-width: 100%;
 }
 .reminderSettingslide3_smallReminder:global(.__wab_instance) {
-  height: 100%;
-  min-height: 0;
+  height: auto;
 }
 .section__wBpwR {
   display: grid;
@@ -1438,7 +1445,7 @@
   min-width: 0;
 }
 .freeBoxslide3_smallReminder__pDskaWyFtQVctK {
-  background: var(--token-R_Rsn0nP9oIv);
+  background: none;
   border-radius: var(--token-O5TjkXII_aat);
 }
 @media (max-width: 640px) {
@@ -1462,6 +1469,9 @@
   height: auto;
   min-width: 0;
 }
+.button10slide3_smallReminder:global(.__wab_instance) {
+  width: auto;
+}
 .svg__ppt8W {
   position: relative;
   object-fit: cover;
@@ -1469,7 +1479,7 @@
   height: 1em;
 }
 .svgslide3_smallReminder__ppt8WWyFtQVctK {
-  color: var(--token-qvl81LxkOSoe);
+  color: var(--token-R_Rsn0nP9oIv);
 }
 .svg__rSu4 {
   object-fit: cover;
@@ -1492,7 +1502,7 @@
   display: block;
 }
 .textslide3_smallReminder__m5IjJWyFtQVctK {
-  color: var(--token-qvl81LxkOSoe);
+  color: var(--token-R_Rsn0nP9oIv);
 }
 .svg__xjESm {
   object-fit: cover;

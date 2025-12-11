@@ -669,7 +669,7 @@ function PlasmicReminder__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           hasVariant($state, "slide3", "slide3") &&
           hasVariant($state, "smallReminder", "smallReminder")
-            ? "line"
+            ? []
             : hasVariant($state, "smallReminder", "smallReminder")
               ? "line"
               : []
@@ -4302,7 +4302,12 @@ function PlasmicReminder__RenderFunc(props: {
           ),
           [sty.freeBoxslide3_smallReminder__uUg9NWyFtQVctK]:
             hasVariant($state, "smallReminder", "smallReminder") &&
-            hasVariant($state, "slide3", "slide3")
+            hasVariant($state, "slide3", "slide3"),
+          [sty.freeBoxsmallReminder__uUg9NqVctK]: hasVariant(
+            $state,
+            "smallReminder",
+            "smallReminder"
+          )
         })}
       >
         <div
@@ -5214,9 +5219,12 @@ function PlasmicReminder__RenderFunc(props: {
                   }
                 }}
                 shape={
+                  hasVariant($state, "slide3", "slide3") &&
                   hasVariant($state, "smallReminder", "smallReminder")
-                    ? undefined
-                    : "round"
+                    ? "rounded"
+                    : hasVariant($state, "smallReminder", "smallReminder")
+                      ? undefined
+                      : "round"
                 }
                 showStartIcon={
                   hasVariant($state, "slide3", "slide3") &&
