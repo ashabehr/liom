@@ -2544,13 +2544,11 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  background: linear-gradient(
-    45deg,
-    var(--token-6G9-A5vsJlrH) 0%,
-    var(--token-8lqFm4pa_96a) 100%
-  );
+  background: var(--token-RfhqiwT2YAVo);
   box-shadow: 0px 4px 16px 0px #00000014;
   row-gap: 16px;
+  outline-color: var(--token-IlR0iqdnKI_m);
+  outline-style: solid;
   min-width: 0;
   border-radius: 8px;
   padding: 0px;
@@ -2558,11 +2556,6 @@
 @media (max-width: 640px) {
   .freeBox___1UDay {
     row-gap: 16px;
-    background: linear-gradient(
-      45deg,
-      var(--token-6G9-A5vsJlrH) 0%,
-      var(--token-7yzgT3X0hxHm) 100%
-    );
     column-gap: 0px;
   }
 }
@@ -2602,7 +2595,7 @@
   text-align: right;
   font-size: var(--token-cunRwTCjQp3O);
   font-weight: 900;
-  color: var(--token-R_Rsn0nP9oIv);
+  color: var(--token-dqshVX6SoHxS);
   background: none;
   padding-top: 0px;
   min-width: 0;
@@ -2611,7 +2604,7 @@
   .text__ilJe {
     font-size: 18px;
     opacity: 1;
-    color: var(--token-jgohepLVeKvh);
+    color: var(--token-dqshVX6SoHxS);
     text-align: justify;
     width: 100%;
     font-weight: 700;
@@ -2637,6 +2630,7 @@
   height: auto;
   max-width: 100%;
   row-gap: 10px;
+  overflow: hidden;
   min-width: 0;
   padding: var(--token-uOLZE7OyOW-J);
 }

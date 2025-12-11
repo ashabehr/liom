@@ -4319,7 +4319,12 @@ function PlasmicReminder__RenderFunc(props: {
             ),
             [sty.freeBoxslide3_smallReminder__epwedWyFtQVctK]:
               hasVariant($state, "smallReminder", "smallReminder") &&
-              hasVariant($state, "slide3", "slide3")
+              hasVariant($state, "slide3", "slide3"),
+            [sty.freeBoxsmallReminder__epweDqVctK]: hasVariant(
+              $state,
+              "smallReminder",
+              "smallReminder"
+            )
           })}
         >
           <div
@@ -4369,7 +4374,12 @@ function PlasmicReminder__RenderFunc(props: {
             [sty.reminderSettingslide3]: hasVariant($state, "slide3", "slide3"),
             [sty.reminderSettingslide3_smallReminder]:
               hasVariant($state, "smallReminder", "smallReminder") &&
-              hasVariant($state, "slide3", "slide3")
+              hasVariant($state, "slide3", "slide3"),
+            [sty.reminderSettingsmallReminder]: hasVariant(
+              $state,
+              "smallReminder",
+              "smallReminder"
+            )
           })}
           creaditButtenCreadit={generateStateValueProp($state, [
             "reminderSetting",
@@ -4993,7 +5003,7 @@ function PlasmicReminder__RenderFunc(props: {
             }
           }}
           slide={"_1"}
-          smallReminder={
+          small={
             hasVariant($state, "smallReminder", "smallReminder") &&
             hasVariant($state, "slide3", "slide3")
               ? true
