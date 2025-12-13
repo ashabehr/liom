@@ -4021,19 +4021,6 @@
           "componentType": "component"
         },
         {
-          "id": "qh0CBDuGi8tY",
-          "name": "Main2",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMain2.tsx",
-          "importSpec": {
-            "modulePath": "Main2.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicMain2.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "pmKDqHBtiLCT",
           "name": "Reports",
           "type": "managed",
@@ -5128,6 +5115,19 @@
             "modulePath": "SubItems2.tsx"
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicSubItems2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "qh0CBDuGi8tY",
+          "name": "Mainpan",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMainpan.tsx",
+          "importSpec": {
+            "modulePath": "Mainpan.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicMainpan.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }

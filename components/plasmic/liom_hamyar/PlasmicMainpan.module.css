@@ -1,0 +1,190 @@
+.root {
+  background: var(--token-R_Rsn0nP9oIv);
+  box-shadow: 0px 4px 16px 0px #c0bcbc14;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  min-width: 0;
+  border-radius: var(--token-O5TjkXII_aat);
+  padding: var(--token-1KusGK5GePTh);
+}
+@media (max-width: 640px) {
+  .root {
+    padding: 0px;
+  }
+}
+.sideEffect:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.userPage:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: none;
+}
+.userPagepage_reports:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: none;
+}
+.userPagepage_tabPage:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: none;
+}
+.userPagepage_charts:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.userPageuser:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: flex;
+}
+.userPagedataUser:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.userPagechartViow:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.userPageuser_page_reports:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: flex;
+}
+.userPageuser_page_tabPage:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: flex;
+}
+.userPageuser_dataUser:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: none;
+}
+.freeBox {
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  display: none;
+  padding: 8px;
+}
+.freeBoxuser {
+  display: flex;
+}
+.text__yW1U {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  min-width: 0;
+}
+.text__fbb6B {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.apiRequest:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.reports:global(.__wab_instance) {
+  position: relative;
+  flex-shrink: 0;
+  display: none;
+}
+@media (max-width: 640px) {
+  .reports:global(.__wab_instance) {
+    flex-shrink: 0;
+  }
+}
+.reportspage_reports:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: flex;
+}
+.reportspage_tabPage:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: none;
+}
+.reportspage_notifs:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.reportsuser:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: none;
+}
+.reportsdataUser:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: none;
+}
+.reportsuser_page_reports:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.userPage2:global(.__wab_instance) {
+  max-width: 100%;
+  flex-shrink: 0;
+  display: none;
+}
+.userPage2page_tabPage:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.userPage2page_notifs:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.userPage2dataUser:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: flex;
+}
+.sendMessage:global(.__wab_instance) {
+  max-width: 100%;
+  display: none;
+}
+.sendMessagepage_notifs:global(.__wab_instance) {
+  display: none;
+}
+.nitif:global(.__wab_instance) {
+  max-width: 100%;
+  flex-shrink: 0;
+  display: none;
+}
+.nitifpage_notifs:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: flex;
+}
+.nitifpage_charts:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.charts:global(.__wab_instance) {
+  max-width: 100%;
+  flex-shrink: 0;
+  display: none;
+}
+.chartspage_charts:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: flex;
+}
+.chartschartViow:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.chartspage_charts_chartViow:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: none;
+}
+.chartViow2:global(.__wab_instance) {
+  max-width: 100%;
+  flex-shrink: 0;
+  display: none;
+}
+.chartViow2page_charts:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.chartViow2chartViow:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: flex;
+}
+.text__fRB4 {
+  font-size: var(--token-UXPBeNJ4rrVx);
+}

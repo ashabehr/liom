@@ -63,7 +63,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import Menu from "../../Menu"; // plasmic-import: YitzRDB2rU0M/component
-import Main2 from "../../Main2"; // plasmic-import: qh0CBDuGi8tY/component
+import Mainpan from "../../Mainpan"; // plasmic-import: qh0CBDuGi8tY/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -87,7 +87,7 @@ export type PlasmicPan__OverridesType = {
   root?: Flex__<"div">;
   freeBox?: Flex__<"div">;
   menu2?: Flex__<typeof Menu>;
-  main2?: Flex__<typeof Main2>;
+  main2?: Flex__<typeof Mainpan>;
 };
 
 export interface DefaultPanProps {}
@@ -282,7 +282,7 @@ function PlasmicPan__RenderFunc(props: {
               select={generateStateValueProp($state, ["menu2", "select"])}
             />
 
-            <Main2
+            <Mainpan
               data-plasmic-name={"main2"}
               data-plasmic-override={overrides.main2}
               className={classNames("__wab_instance", sty.main2)}
@@ -337,7 +337,7 @@ type NodeDefaultElementType = {
   root: "div";
   freeBox: "div";
   menu2: typeof Menu;
-  main2: typeof Main2;
+  main2: typeof Mainpan;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
