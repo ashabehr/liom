@@ -6181,7 +6181,7 @@ function PlasmicReminder__RenderFunc(props: {
           hasVariant($state, "smallReminder", "smallReminder")
             ? (() => {
                 try {
-                  return $state.slide3 == true;
+                  return true;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||

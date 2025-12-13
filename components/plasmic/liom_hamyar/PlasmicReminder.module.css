@@ -1461,9 +1461,9 @@
   background: none;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  column-gap: var(--token-1KusGK5GePTh);
+  column-gap: var(--token-O5TjkXII_aat);
   row-gap: 0px;
   border-radius: var(--token-O5TjkXII_aat);
 }
@@ -1502,8 +1502,8 @@
 }
 .svgslide3_smallReminder__yeyvwWyFtQVctK {
   color: var(--token-R_Rsn0nP9oIv);
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   display: block;
 }
 .svg__rSu4 {
