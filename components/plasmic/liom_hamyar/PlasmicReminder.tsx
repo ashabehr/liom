@@ -5651,7 +5651,7 @@ function PlasmicReminder__RenderFunc(props: {
                   >
                     {hasVariant($state, "slide3", "slide3") &&
                     hasVariant($state, "smallReminder", "smallReminder")
-                      ? "\u0646\u0645\u0627\u06cc\u0634 \u0647\u0645\u0647 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627"
+                      ? "\u0646\u0645\u0627\u06cc\u0634 \u0647\u0645\u0647 "
                       : "\u0627\u0641\u0632\u0648\u062f\u0646 \u06cc\u0627\u062f \u0622\u0648\u0631\u06cc"}
                   </div>
                 </Button>
