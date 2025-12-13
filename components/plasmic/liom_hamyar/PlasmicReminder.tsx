@@ -72,7 +72,6 @@ import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import ReminderSetting from "../../ReminderSetting"; // plasmic-import: VZcPBQBUFNbT/component
 import CreaditButten from "../../CreaditButten"; // plasmic-import: 1skTNuQS9BUR/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
-import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -209,7 +208,6 @@ export type PlasmicReminder__OverridesType = {
   creaditButten?: Flex__<typeof CreaditButten>;
   wallet?: Flex__<typeof ApiRequest>;
   apiRequest?: Flex__<typeof ApiRequest>;
-  hotjarReminder?: Flex__<typeof Embed>;
 };
 
 export interface DefaultReminderProps {
@@ -6218,19 +6216,6 @@ function PlasmicReminder__RenderFunc(props: {
             : "https://n8n.staas.ir/webhook/reminders/suggestions"
         }
       />
-
-      <Embed
-        data-plasmic-name={"hotjarReminder"}
-        data-plasmic-override={overrides.hotjarReminder}
-        className={classNames("__wab_instance", sty.hotjarReminder, {
-          [sty.hotjarReminderslide3_smallReminder]:
-            hasVariant($state, "slide3", "slide3") &&
-            hasVariant($state, "smallReminder", "smallReminder")
-        })}
-        code={
-          "<script>\r\n  if (window.location.href.startsWith(\"https://apps.liom.app/main/reminder/\")) {\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:6597966,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n  }\r\n</script>\r\n"
-        }
-      />
     </div>
   ) as React.ReactElement | null;
 }
@@ -6273,8 +6258,7 @@ const PlasmicDescendants = {
     "button9",
     "creaditButten",
     "wallet",
-    "apiRequest",
-    "hotjarReminder"
+    "apiRequest"
   ],
   dialog: ["dialog", "input", "select", "switchbest3", "button5"],
   input: ["input"],
@@ -6318,8 +6302,7 @@ const PlasmicDescendants = {
   button9: ["button9"],
   creaditButten: ["creaditButten"],
   wallet: ["wallet"],
-  apiRequest: ["apiRequest"],
-  hotjarReminder: ["hotjarReminder"]
+  apiRequest: ["apiRequest"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -6362,7 +6345,6 @@ type NodeDefaultElementType = {
   creaditButten: typeof CreaditButten;
   wallet: typeof ApiRequest;
   apiRequest: typeof ApiRequest;
-  hotjarReminder: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -6463,7 +6445,6 @@ export const PlasmicReminder = Object.assign(
     creaditButten: makeNodeComponent("creaditButten"),
     wallet: makeNodeComponent("wallet"),
     apiRequest: makeNodeComponent("apiRequest"),
-    hotjarReminder: makeNodeComponent("hotjarReminder"),
 
     // Metadata about props expected for PlasmicReminder
     internalVariantProps: PlasmicReminder__VariantProps,

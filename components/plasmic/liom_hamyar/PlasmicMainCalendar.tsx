@@ -62,6 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import MainPage from "../../MainPage"; // plasmic-import: mwylH28Efyne/component
 import FooterMain from "../../FooterMain"; // plasmic-import: ev8_tr4YKTDz/component
 import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/component
@@ -75,7 +76,6 @@ import History from "../../History"; // plasmic-import: 5t5YNzyUHdtX/component
 import SliderThumb from "../../SliderThumb"; // plasmic-import: pmF7IoE0FUg-/component
 import ReminderSetting from "../../ReminderSetting"; // plasmic-import: VZcPBQBUFNbT/component
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
-import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -111,6 +111,7 @@ export const PlasmicMainCalendar__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicMainCalendar__OverridesType = {
   root?: Flex__<"div">;
+  hotjarReminder?: Flex__<typeof Embed>;
   main?: Flex__<"div">;
   mainPage?: Flex__<typeof MainPage>;
   footerMain?: Flex__<typeof FooterMain>;
@@ -1204,6 +1205,15 @@ function PlasmicMainCalendar__RenderFunc(props: {
             }
           )}
         >
+          <Embed
+            data-plasmic-name={"hotjarReminder"}
+            data-plasmic-override={overrides.hotjarReminder}
+            className={classNames("__wab_instance", sty.hotjarReminder)}
+            code={
+              "<script>\r\n  if (window.location.href.startsWith(\"https://apps.liom.app/main/reminder/\")) {\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:6597966,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n  }\r\n</script>\r\n"
+            }
+          />
+
           <div
             data-plasmic-name={"main"}
             data-plasmic-override={overrides.main}
@@ -4470,6 +4480,7 @@ function PlasmicMainCalendar__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "hotjarReminder",
     "main",
     "mainPage",
     "footerMain",
@@ -4483,6 +4494,7 @@ const PlasmicDescendants = {
     "reminderSetting",
     "serviceWorker"
   ],
+  hotjarReminder: ["hotjarReminder"],
   main: [
     "main",
     "mainPage",
@@ -4509,6 +4521,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  hotjarReminder: typeof Embed;
   main: "div";
   mainPage: typeof MainPage;
   footerMain: typeof FooterMain;
@@ -4610,6 +4623,7 @@ export const PlasmicMainCalendar = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    hotjarReminder: makeNodeComponent("hotjarReminder"),
     main: makeNodeComponent("main"),
     mainPage: makeNodeComponent("mainPage"),
     footerMain: makeNodeComponent("footerMain"),

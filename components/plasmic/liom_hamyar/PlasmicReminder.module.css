@@ -1715,8 +1715,3 @@
   max-width: 100%;
   object-fit: cover;
 }
-.hotjarReminder:global(.__wab_instance) {
-  animation: none;
-  max-width: 100%;
-  object-fit: cover;
-}
