@@ -4997,7 +4997,10 @@ function PlasmicReminderSetting__RenderFunc(props: {
           data-plasmic-override={overrides.dialog2}
           className={classNames("__wab_instance", sty.dialog2, {
             [sty.dialog2report]: hasVariant($state, "report", "report"),
-            [sty.dialog2slide__1]: hasVariant($state, "slide", "_1")
+            [sty.dialog2slide__1]: hasVariant($state, "slide", "_1"),
+            [sty.dialog2slide__1_small]:
+              hasVariant($state, "slide", "_1") &&
+              hasVariant($state, "small", "small")
           })}
           onOpendialogChange={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, ["dialog2", "opendialog"]).apply(
@@ -7160,6 +7163,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         "slide",
                         "_1"
                       ),
+                      [sty.freeBoxslide__1_small__fN6VeedcqcZ1Mcd]:
+                        hasVariant($state, "slide", "_1") &&
+                        hasVariant($state, "small", "small"),
                       [sty.freeBoxslide__2__fN6VeVJmCw]: hasVariant(
                         $state,
                         "slide",

@@ -92,6 +92,16 @@
   height: 40px;
   color: var(--token-qvl81LxkOSoe);
 }
+.text___266Yl {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-weight: 700;
+  font-size: var(--token-cunRwTCjQp3O);
+  text-align: center;
+  min-width: 0;
+}
 .freeBox__xYEpS {
   animation: none;
   display: flex;
@@ -156,7 +166,7 @@
   min-width: 0;
   padding: 0px;
 }
-.text {
+.text__xGlTn {
   animation: none;
   width: 100%;
   height: auto;

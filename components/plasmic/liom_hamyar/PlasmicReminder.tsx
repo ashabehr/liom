@@ -90,7 +90,6 @@ import Icon295Icon from "./icons/PlasmicIcon__Icon295"; // plasmic-import: SfM64
 import Icon322Icon from "./icons/PlasmicIcon__Icon322"; // plasmic-import: YXpo7oAohDig/icon
 import Icon291Icon from "./icons/PlasmicIcon__Icon291"; // plasmic-import: U9F0Jow4owN9/icon
 import Icon278Icon from "./icons/PlasmicIcon__Icon278"; // plasmic-import: CPpihkrGcjaH/icon
-import Icon92Icon from "./icons/PlasmicIcon__Icon92"; // plasmic-import: s1v5WdwgCpwX/icon
 import Icon50Icon from "./icons/PlasmicIcon__Icon50"; // plasmic-import: OWul-aq2fF6T/icon
 
 createPlasmicElementProxy;
@@ -205,6 +204,7 @@ export type PlasmicReminder__OverridesType = {
   button?: Flex__<typeof Button>;
   reminderSetting?: Flex__<typeof ReminderSetting>;
   button10?: Flex__<typeof Button>;
+  button12?: Flex__<typeof Button>;
   button9?: Flex__<typeof Button>;
   creaditButten?: Flex__<typeof CreaditButten>;
   wallet?: Flex__<typeof ApiRequest>;
@@ -848,6 +848,31 @@ function PlasmicReminder__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.smallReminder
+      },
+      {
+        path: "button12.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "slide3", "slide3") &&
+          hasVariant($state, "smallReminder", "smallReminder")
+            ? "clear"
+            : hasVariant($state, "smallReminder", "smallReminder")
+              ? "line"
+              : []
+      },
+      {
+        path: "button12.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button12.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobile") ? false : false
       }
     ],
     [$props, $ctx, $refs]
@@ -902,10 +927,7 @@ function PlasmicReminder__RenderFunc(props: {
           ? (() => {
               const actionArgs = {
                 customFunction: async () => {
-                  return (() => {
-                    if (window.localStorage.getItem("reminder") == "false")
-                      return ($state.slide3 = true);
-                  })();
+                  return $props.data.length === 0 ? ($state.slide3 = true) : "";
                 }
               };
               return (({ customFunction }) => {
@@ -959,66 +981,6 @@ function PlasmicReminder__RenderFunc(props: {
           typeof $steps["runCode2"].then === "function"
         ) {
           $steps["runCode2"] = await $steps["runCode2"];
-        }
-
-        $steps["invokeGlobalAction"] = true
-          ? (() => {
-              const actionArgs = {
-                args: [
-                  "POST",
-                  "https://api.liom.app/service/log",
-                  undefined,
-                  (() => {
-                    try {
-                      return {
-                        appKey:
-                          "eyiaophkahaMAQwpqwjhr218aeewfuiaey-xxluyhawd2012-qigwi-oooh",
-                        userId: $props.manId,
-                        pageName: "reminder",
-                        action: "reminderload",
-                        extraData: {}
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })(),
-                  (() => {
-                    try {
-                      return {
-                        headers: {
-                          Authorization:
-                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
-                        }
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()
-                ]
-              };
-              return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                ...actionArgs.args
-              ]);
-            })()
-          : undefined;
-        if (
-          $steps["invokeGlobalAction"] != null &&
-          typeof $steps["invokeGlobalAction"] === "object" &&
-          typeof $steps["invokeGlobalAction"].then === "function"
-        ) {
-          $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
         }
       }}
     >
@@ -4386,6 +4348,7 @@ function PlasmicReminder__RenderFunc(props: {
             "creaditButtenCreadit"
           ])}
           data={
+            hasVariant($state, "smallReminder", "smallReminder") &&
             hasVariant($state, "slide3", "slide3")
               ? (() => {
                   try {
@@ -4416,18 +4379,7 @@ function PlasmicReminder__RenderFunc(props: {
                         active: 0,
                         add: true
                       }));
-                      const updatedResult = result.map(item => {
-                        const match = $props.data.find(
-                          d => d.type === item.type
-                        );
-                        return match
-                          ? {
-                              ...item,
-                              ...match
-                            }
-                          : item;
-                      });
-                      return updatedResult;
+                      return result;
                     })();
                   } catch (e) {
                     if (
@@ -4575,155 +4527,344 @@ function PlasmicReminder__RenderFunc(props: {
                     throw e;
                   }
                 })()
-              : (() => {
-                  try {
-                    return $state.ofline;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return [
-                        {
-                          id: "04d77165-ab7d-4537-86ba-1099e4f66091-1",
-                          progressGroupId: null,
-                          userId: "1",
-                          doctorId: "21353",
-                          name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
-                          text: "",
-                          actionText: null,
-                          canSkip: null,
-                          actionIcon: null,
-                          actionType: null,
-                          action: null,
-                          type: "SpouseBirthday",
-                          category: "personal",
-                          category_fa:
-                            "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
-                          status: "waiting",
-                          done: false,
-                          date: "2025-09-10T00:00:00.000Z",
-                          dependId: null,
-                          dependAt: null,
-                          exclude: [],
-                          order: 7,
-                          priority: 10,
-                          createdAt: "2025-09-08T07:45:09.172Z",
-                          updatedAt: "2025-09-08T07:45:09.172Z"
-                        },
-                        {
-                          id: "d2e905f3-2837-4bda-8404-368f6a63527b-1",
-                          progressGroupId: null,
-                          userId: "1",
-                          doctorId: "21353",
-                          name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c",
-                          text: "",
-                          actionText: null,
-                          canSkip: null,
-                          actionIcon: null,
-                          actionType: null,
-                          action: null,
-                          type: "WeddingAnniversary",
-                          category: "notification",
-                          category_fa:
-                            "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-                          status: "waiting",
-                          done: false,
-                          date: "2025-10-01T00:00:00.000Z",
-                          dependId: null,
-                          dependAt: null,
-                          exclude: [],
-                          order: 9,
-                          priority: 10,
-                          createdAt: "2025-09-08T08:47:52.446Z",
-                          updatedAt: "2025-09-08T08:47:52.446Z"
-                        },
-                        {
-                          id: "04d77165-ab7d-4537-86ba-1099e4f66091-2",
-                          progressGroupId: null,
-                          userId: "1",
-                          doctorId: "21353",
-                          name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
-                          text: "\u0631\u0648\u0632 \u0639\u0634\u0642 \u062c\u0647\u0627\u0646\u06cc",
-                          actionText: null,
-                          canSkip: null,
-                          actionIcon: null,
-                          actionType: null,
-                          action: null,
-                          type: "occasion",
-                          category: "notification",
-                          category_fa:
-                            "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-                          status: "waiting",
-                          done: false,
-                          date: "2026-02-14T00:00:00.000Z",
-                          dependId: null,
-                          dependAt: null,
-                          exclude: [],
-                          order: 4,
-                          priority: 10,
-                          createdAt: "2025-09-08T07:50:00.000Z",
-                          updatedAt: "2025-09-08T07:50:00.000Z"
-                        },
-                        {
-                          id: "04d77165-ab7d-4537-86ba-1099e4f66091-3",
-                          progressGroupId: null,
-                          userId: "1",
-                          doctorId: "21353",
-                          name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
-                          text: "\u0631\u0648\u0632 \u0632\u0646 \u0648 \u0639\u0634\u0642 \u062f\u0631 \u0627\u06cc\u0631\u0627\u0646 \u0628\u0627\u0633\u062a\u0627\u0646",
-                          actionText: null,
-                          canSkip: null,
-                          actionIcon: null,
-                          actionType: null,
-                          action: null,
-                          type: "occasion",
-                          category: "notification",
-                          category_fa:
-                            "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-                          status: "waiting",
-                          done: false,
-                          date: "2026-02-18T00:00:00.000Z",
-                          dependId: null,
-                          dependAt: null,
-                          exclude: [],
-                          order: 5,
-                          priority: 10,
-                          createdAt: "2025-09-08T07:51:00.000Z",
-                          updatedAt: "2025-09-08T07:51:00.000Z"
-                        },
-                        {
-                          id: "04d77165-ab7d-4537-86ba-1099e4f66091-4",
-                          progressGroupId: null,
-                          userId: "1",
-                          doctorId: "21353",
-                          name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
-                          text: "International Women's Day",
-                          actionText: null,
-                          canSkip: null,
-                          actionIcon: null,
-                          actionType: null,
-                          action: null,
-                          type: "occasion",
-                          category: "notification",
-                          category_fa:
-                            "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
-                          status: "waiting",
-                          done: false,
-                          date: "2026-03-08T00:00:00.000Z",
-                          dependId: null,
-                          dependAt: null,
-                          exclude: [],
-                          order: 3,
-                          priority: 10,
-                          createdAt: "2025-09-08T07:52:00.000Z",
-                          updatedAt: "2025-09-08T07:52:00.000Z"
-                        }
-                      ];
+              : hasVariant($state, "slide3", "slide3")
+                ? (() => {
+                    try {
+                      return (() => {
+                        const result = $state.ofline.map(a => ({
+                          liomId: $props.manId,
+                          telegramId: $props.telegramId,
+                          phoneNumber: $props.phone,
+                          name: a.type_fa,
+                          text: a.text || a.type,
+                          schedule_type: a.schedule_type,
+                          type: a.type,
+                          dates: a.date ? JSON.stringify([a.date]) : "[]",
+                          channels: JSON.stringify(["notification"]),
+                          times: "[]",
+                          weekdays:
+                            a.schedule_type === "everyDay"
+                              ? JSON.stringify([
+                                  "saturday",
+                                  "sunday",
+                                  "monday",
+                                  "tuesday",
+                                  "wednesday",
+                                  "thursday",
+                                  "friday"
+                                ])
+                              : null,
+                          active: 0,
+                          add: true
+                        }));
+                        const updatedResult = result.map(item => {
+                          const match = $props.data.find(
+                            d => d.type === item.type
+                          );
+                          return match
+                            ? {
+                                ...item,
+                                ...match
+                              }
+                            : item;
+                        });
+                        return updatedResult;
+                      })();
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [
+                          {
+                            id: "04d77165-ab7d-4537-86ba-1099e4f66091-1",
+                            progressGroupId: null,
+                            userId: "1",
+                            doctorId: "21353",
+                            name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
+                            text: "",
+                            actionText: null,
+                            canSkip: null,
+                            actionIcon: null,
+                            actionType: null,
+                            action: null,
+                            type: "SpouseBirthday",
+                            category: "personal",
+                            category_fa:
+                              "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
+                            status: "waiting",
+                            done: false,
+                            date: "2025-09-10T00:00:00.000Z",
+                            dependId: null,
+                            dependAt: null,
+                            exclude: [],
+                            order: 7,
+                            priority: 10,
+                            createdAt: "2025-09-08T07:45:09.172Z",
+                            updatedAt: "2025-09-08T07:45:09.172Z"
+                          },
+                          {
+                            id: "d2e905f3-2837-4bda-8404-368f6a63527b-1",
+                            progressGroupId: null,
+                            userId: "1",
+                            doctorId: "21353",
+                            name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c",
+                            text: "",
+                            actionText: null,
+                            canSkip: null,
+                            actionIcon: null,
+                            actionType: null,
+                            action: null,
+                            type: "WeddingAnniversary",
+                            category: "notification",
+                            category_fa:
+                              "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
+                            status: "waiting",
+                            done: false,
+                            date: "2025-10-01T00:00:00.000Z",
+                            dependId: null,
+                            dependAt: null,
+                            exclude: [],
+                            order: 9,
+                            priority: 10,
+                            createdAt: "2025-09-08T08:47:52.446Z",
+                            updatedAt: "2025-09-08T08:47:52.446Z"
+                          },
+                          {
+                            id: "04d77165-ab7d-4537-86ba-1099e4f66091-2",
+                            progressGroupId: null,
+                            userId: "1",
+                            doctorId: "21353",
+                            name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
+                            text: "\u0631\u0648\u0632 \u0639\u0634\u0642 \u062c\u0647\u0627\u0646\u06cc",
+                            actionText: null,
+                            canSkip: null,
+                            actionIcon: null,
+                            actionType: null,
+                            action: null,
+                            type: "occasion",
+                            category: "notification",
+                            category_fa:
+                              "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
+                            status: "waiting",
+                            done: false,
+                            date: "2026-02-14T00:00:00.000Z",
+                            dependId: null,
+                            dependAt: null,
+                            exclude: [],
+                            order: 4,
+                            priority: 10,
+                            createdAt: "2025-09-08T07:50:00.000Z",
+                            updatedAt: "2025-09-08T07:50:00.000Z"
+                          },
+                          {
+                            id: "04d77165-ab7d-4537-86ba-1099e4f66091-3",
+                            progressGroupId: null,
+                            userId: "1",
+                            doctorId: "21353",
+                            name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
+                            text: "\u0631\u0648\u0632 \u0632\u0646 \u0648 \u0639\u0634\u0642 \u062f\u0631 \u0627\u06cc\u0631\u0627\u0646 \u0628\u0627\u0633\u062a\u0627\u0646",
+                            actionText: null,
+                            canSkip: null,
+                            actionIcon: null,
+                            actionType: null,
+                            action: null,
+                            type: "occasion",
+                            category: "notification",
+                            category_fa:
+                              "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
+                            status: "waiting",
+                            done: false,
+                            date: "2026-02-18T00:00:00.000Z",
+                            dependId: null,
+                            dependAt: null,
+                            exclude: [],
+                            order: 5,
+                            priority: 10,
+                            createdAt: "2025-09-08T07:51:00.000Z",
+                            updatedAt: "2025-09-08T07:51:00.000Z"
+                          },
+                          {
+                            id: "04d77165-ab7d-4537-86ba-1099e4f66091-4",
+                            progressGroupId: null,
+                            userId: "1",
+                            doctorId: "21353",
+                            name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
+                            text: "International Women's Day",
+                            actionText: null,
+                            canSkip: null,
+                            actionIcon: null,
+                            actionType: null,
+                            action: null,
+                            type: "occasion",
+                            category: "notification",
+                            category_fa:
+                              "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
+                            status: "waiting",
+                            done: false,
+                            date: "2026-03-08T00:00:00.000Z",
+                            dependId: null,
+                            dependAt: null,
+                            exclude: [],
+                            order: 3,
+                            priority: 10,
+                            createdAt: "2025-09-08T07:52:00.000Z",
+                            updatedAt: "2025-09-08T07:52:00.000Z"
+                          }
+                        ];
+                      }
+                      throw e;
                     }
-                    throw e;
-                  }
-                })()
+                  })()
+                : (() => {
+                    try {
+                      return $state.ofline;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [
+                          {
+                            id: "04d77165-ab7d-4537-86ba-1099e4f66091-1",
+                            progressGroupId: null,
+                            userId: "1",
+                            doctorId: "21353",
+                            name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
+                            text: "",
+                            actionText: null,
+                            canSkip: null,
+                            actionIcon: null,
+                            actionType: null,
+                            action: null,
+                            type: "SpouseBirthday",
+                            category: "personal",
+                            category_fa:
+                              "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
+                            status: "waiting",
+                            done: false,
+                            date: "2025-09-10T00:00:00.000Z",
+                            dependId: null,
+                            dependAt: null,
+                            exclude: [],
+                            order: 7,
+                            priority: 10,
+                            createdAt: "2025-09-08T07:45:09.172Z",
+                            updatedAt: "2025-09-08T07:45:09.172Z"
+                          },
+                          {
+                            id: "d2e905f3-2837-4bda-8404-368f6a63527b-1",
+                            progressGroupId: null,
+                            userId: "1",
+                            doctorId: "21353",
+                            name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c",
+                            text: "",
+                            actionText: null,
+                            canSkip: null,
+                            actionIcon: null,
+                            actionType: null,
+                            action: null,
+                            type: "WeddingAnniversary",
+                            category: "notification",
+                            category_fa:
+                              "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
+                            status: "waiting",
+                            done: false,
+                            date: "2025-10-01T00:00:00.000Z",
+                            dependId: null,
+                            dependAt: null,
+                            exclude: [],
+                            order: 9,
+                            priority: 10,
+                            createdAt: "2025-09-08T08:47:52.446Z",
+                            updatedAt: "2025-09-08T08:47:52.446Z"
+                          },
+                          {
+                            id: "04d77165-ab7d-4537-86ba-1099e4f66091-2",
+                            progressGroupId: null,
+                            userId: "1",
+                            doctorId: "21353",
+                            name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
+                            text: "\u0631\u0648\u0632 \u0639\u0634\u0642 \u062c\u0647\u0627\u0646\u06cc",
+                            actionText: null,
+                            canSkip: null,
+                            actionIcon: null,
+                            actionType: null,
+                            action: null,
+                            type: "occasion",
+                            category: "notification",
+                            category_fa:
+                              "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
+                            status: "waiting",
+                            done: false,
+                            date: "2026-02-14T00:00:00.000Z",
+                            dependId: null,
+                            dependAt: null,
+                            exclude: [],
+                            order: 4,
+                            priority: 10,
+                            createdAt: "2025-09-08T07:50:00.000Z",
+                            updatedAt: "2025-09-08T07:50:00.000Z"
+                          },
+                          {
+                            id: "04d77165-ab7d-4537-86ba-1099e4f66091-3",
+                            progressGroupId: null,
+                            userId: "1",
+                            doctorId: "21353",
+                            name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
+                            text: "\u0631\u0648\u0632 \u0632\u0646 \u0648 \u0639\u0634\u0642 \u062f\u0631 \u0627\u06cc\u0631\u0627\u0646 \u0628\u0627\u0633\u062a\u0627\u0646",
+                            actionText: null,
+                            canSkip: null,
+                            actionIcon: null,
+                            actionType: null,
+                            action: null,
+                            type: "occasion",
+                            category: "notification",
+                            category_fa:
+                              "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
+                            status: "waiting",
+                            done: false,
+                            date: "2026-02-18T00:00:00.000Z",
+                            dependId: null,
+                            dependAt: null,
+                            exclude: [],
+                            order: 5,
+                            priority: 10,
+                            createdAt: "2025-09-08T07:51:00.000Z",
+                            updatedAt: "2025-09-08T07:51:00.000Z"
+                          },
+                          {
+                            id: "04d77165-ab7d-4537-86ba-1099e4f66091-4",
+                            progressGroupId: null,
+                            userId: "1",
+                            doctorId: "21353",
+                            name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
+                            text: "International Women's Day",
+                            actionText: null,
+                            canSkip: null,
+                            actionIcon: null,
+                            actionType: null,
+                            action: null,
+                            type: "occasion",
+                            category: "notification",
+                            category_fa:
+                              "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646",
+                            status: "waiting",
+                            done: false,
+                            date: "2026-03-08T00:00:00.000Z",
+                            dependId: null,
+                            dependAt: null,
+                            exclude: [],
+                            order: 3,
+                            priority: 10,
+                            createdAt: "2025-09-08T07:52:00.000Z",
+                            updatedAt: "2025-09-08T07:52:00.000Z"
+                          }
+                        ];
+                      }
+                      throw e;
+                    }
+                  })()
           }
           dialogOpendialog3={generateStateValueProp($state, [
             "reminderSetting",
@@ -5243,24 +5384,45 @@ function PlasmicReminder__RenderFunc(props: {
                     : undefined
                 }
                 startIcon={
-                  <PlasmicIcon__
-                    PlasmicIconType={
-                      hasVariant($state, "slide3", "slide3") &&
-                      hasVariant($state, "smallReminder", "smallReminder")
-                        ? Icon92Icon
-                        : CheckSvgIcon
-                    }
-                    className={classNames(projectcss.all, sty.svg__ppt8W, {
-                      [sty.svgslide3_smallReminder__ppt8WWyFtQVctK]:
-                        hasVariant($state, "slide3", "slide3") &&
-                        hasVariant($state, "smallReminder", "smallReminder")
-                    })}
-                    role={"img"}
-                  />
+                  (
+                    hasVariant($state, "slide3", "slide3") &&
+                    hasVariant($state, "smallReminder", "smallReminder")
+                      ? true
+                      : hasVariant($state, "smallReminder", "smallReminder")
+                        ? true
+                        : false
+                  ) ? (
+                    <Icon50Icon
+                      className={classNames(projectcss.all, sty.svg__yeyvw, {
+                        [sty.svgslide3__yeyvwWyFt]: hasVariant(
+                          $state,
+                          "slide3",
+                          "slide3"
+                        ),
+                        [sty.svgslide3_smallReminder__yeyvwWyFtQVctK]:
+                          hasVariant($state, "slide3", "slide3") &&
+                          hasVariant($state, "smallReminder", "smallReminder"),
+                        [sty.svgsmallReminder__yeyvwqVctK]: hasVariant(
+                          $state,
+                          "smallReminder",
+                          "smallReminder"
+                        )
+                      })}
+                      role={"img"}
+                    />
+                  ) : null
                 }
               >
                 <Icon50Icon
                   className={classNames(projectcss.all, sty.svg__rSu4, {
+                    [sty.svgslide3__rSu4WyFt]: hasVariant(
+                      $state,
+                      "slide3",
+                      "slide3"
+                    ),
+                    [sty.svgslide3_smallReminder__rSu4WyFtQVctK]:
+                      hasVariant($state, "slide3", "slide3") &&
+                      hasVariant($state, "smallReminder", "smallReminder"),
                     [sty.svgsmallReminder__rSu4QVctK]: hasVariant(
                       $state,
                       "smallReminder",
@@ -5293,6 +5455,209 @@ function PlasmicReminder__RenderFunc(props: {
                     : "\u0627\u0641\u0632\u0648\u062f\u0646 \u06cc\u0627\u062f \u0622\u0648\u0631\u06cc"}
                 </div>
               </Button>
+              {(
+                hasVariant($state, "slide3", "slide3") &&
+                hasVariant($state, "smallReminder", "smallReminder")
+                  ? (() => {
+                      try {
+                        return $props.data.length > 0;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })()
+                  : false
+              ) ? (
+                <Button
+                  data-plasmic-name={"button12"}
+                  data-plasmic-override={overrides.button12}
+                  className={classNames("__wab_instance", sty.button12, {
+                    [sty.button12slide3]: hasVariant(
+                      $state,
+                      "slide3",
+                      "slide3"
+                    ),
+                    [sty.button12slide3_smallReminder]:
+                      hasVariant($state, "slide3", "slide3") &&
+                      hasVariant($state, "smallReminder", "smallReminder"),
+                    [sty.button12smallReminder]: hasVariant(
+                      $state,
+                      "smallReminder",
+                      "smallReminder"
+                    )
+                  })}
+                  color={generateStateValueProp($state, ["button12", "color"])}
+                  load={generateStateValueProp($state, ["button12", "load"])}
+                  loading={generateStateValueProp($state, [
+                    "button12",
+                    "loading"
+                  ])}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToHamyar"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: `/hamyar/${"reminder"}`
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToHamyar"] != null &&
+                      typeof $steps["goToHamyar"] === "object" &&
+                      typeof $steps["goToHamyar"].then === "function"
+                    ) {
+                      $steps["goToHamyar"] = await $steps["goToHamyar"];
+                    }
+                  }}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button12", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button12", "load"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadingChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "button12",
+                        "loading"
+                      ])(eventArgs[0]);
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  shape={
+                    hasVariant($state, "slide3", "slide3") &&
+                    hasVariant($state, "smallReminder", "smallReminder")
+                      ? "rounded"
+                      : hasVariant($state, "smallReminder", "smallReminder")
+                        ? undefined
+                        : "round"
+                  }
+                  startIcon={
+                    (
+                      hasVariant($state, "slide3", "slide3") &&
+                      hasVariant($state, "smallReminder", "smallReminder")
+                        ? true
+                        : hasVariant($state, "smallReminder", "smallReminder")
+                          ? true
+                          : false
+                    ) ? (
+                      <Icon50Icon
+                        className={classNames(projectcss.all, sty.svg__gyeza, {
+                          [sty.svgslide3__gyezaWyFt]: hasVariant(
+                            $state,
+                            "slide3",
+                            "slide3"
+                          ),
+                          [sty.svgslide3_smallReminder__gyezaWyFtQVctK]:
+                            hasVariant($state, "slide3", "slide3") &&
+                            hasVariant(
+                              $state,
+                              "smallReminder",
+                              "smallReminder"
+                            ),
+                          [sty.svgsmallReminder__gyezaqVctK]: hasVariant(
+                            $state,
+                            "smallReminder",
+                            "smallReminder"
+                          )
+                        })}
+                        role={"img"}
+                      />
+                    ) : null
+                  }
+                >
+                  <Icon50Icon
+                    className={classNames(projectcss.all, sty.svg__nGwh5, {
+                      [sty.svgslide3__nGwh5WyFt]: hasVariant(
+                        $state,
+                        "slide3",
+                        "slide3"
+                      ),
+                      [sty.svgslide3_smallReminder__nGwh5WyFtQVctK]:
+                        hasVariant($state, "slide3", "slide3") &&
+                        hasVariant($state, "smallReminder", "smallReminder"),
+                      [sty.svgsmallReminder__nGwh5QVctK]: hasVariant(
+                        $state,
+                        "smallReminder",
+                        "smallReminder"
+                      )
+                    })}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__cs78W,
+                      {
+                        [sty.textslide3_smallReminder__cs78WWyFtQVctK]:
+                          hasVariant($state, "slide3", "slide3") &&
+                          hasVariant($state, "smallReminder", "smallReminder"),
+                        [sty.textsmallReminder__cs78WqVctK]: hasVariant(
+                          $state,
+                          "smallReminder",
+                          "smallReminder"
+                        )
+                      }
+                    )}
+                  >
+                    {hasVariant($state, "slide3", "slide3") &&
+                    hasVariant($state, "smallReminder", "smallReminder")
+                      ? "\u0646\u0645\u0627\u06cc\u0634 \u0647\u0645\u0647 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627"
+                      : "\u0627\u0641\u0632\u0648\u062f\u0646 \u06cc\u0627\u062f \u0622\u0648\u0631\u06cc"}
+                  </div>
+                </Button>
+              ) : null}
             </div>
           </div>
         </div>
@@ -5722,7 +6087,12 @@ function PlasmicReminder__RenderFunc(props: {
           [sty.apiRequestslide3]: hasVariant($state, "slide3", "slide3"),
           [sty.apiRequestslide3_smallReminder]:
             hasVariant($state, "slide3", "slide3") &&
-            hasVariant($state, "smallReminder", "smallReminder")
+            hasVariant($state, "smallReminder", "smallReminder"),
+          [sty.apiRequestsmallReminder]: hasVariant(
+            $state,
+            "smallReminder",
+            "smallReminder"
+          )
         })}
         errorDisplay={null}
         loadingDisplay={null}
@@ -5772,36 +6142,75 @@ function PlasmicReminder__RenderFunc(props: {
             }
           }).apply(null, eventArgs);
         }}
-        params={(() => {
-          try {
-            return {
-              authorization: $props.token
-            };
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return undefined;
-            }
-            throw e;
-          }
-        })()}
-        shouldFetch={(() => {
-          try {
-            return (
-              !window.sessionStorage.getItem("ofline") && $state.slide3 == true
-            );
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return true;
-            }
-            throw e;
-          }
-        })()}
+        params={
+          hasVariant($state, "slide3", "slide3") &&
+          hasVariant($state, "smallReminder", "smallReminder")
+            ? (() => {
+                try {
+                  return {
+                    authorization: $props.token,
+                    id: $props.manId,
+                    r: $state.refresh
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
+            : (() => {
+                try {
+                  return {
+                    authorization: $props.token
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
+        }
+        shouldFetch={
+          hasVariant($state, "slide3", "slide3") &&
+          hasVariant($state, "smallReminder", "smallReminder")
+            ? (() => {
+                try {
+                  return $state.slide3 == true;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })()
+            : (() => {
+                try {
+                  return (
+                    !window.sessionStorage.getItem("ofline") &&
+                    $state.slide3 == true
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })()
+        }
         url={
           hasVariant($state, "slide3", "slide3") &&
           hasVariant($state, "smallReminder", "smallReminder")
@@ -5813,7 +6222,11 @@ function PlasmicReminder__RenderFunc(props: {
       <Embed
         data-plasmic-name={"hotjarReminder"}
         data-plasmic-override={overrides.hotjarReminder}
-        className={classNames("__wab_instance", sty.hotjarReminder)}
+        className={classNames("__wab_instance", sty.hotjarReminder, {
+          [sty.hotjarReminderslide3_smallReminder]:
+            hasVariant($state, "slide3", "slide3") &&
+            hasVariant($state, "smallReminder", "smallReminder")
+        })}
         code={
           "<script>\r\n  if (window.location.href.startsWith(\"https://apps.liom.app/main/reminder/\")) {\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:6597966,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n  }\r\n</script>\r\n"
         }
@@ -5856,6 +6269,7 @@ const PlasmicDescendants = {
     "button",
     "reminderSetting",
     "button10",
+    "button12",
     "button9",
     "creaditButten",
     "wallet",
@@ -5900,6 +6314,7 @@ const PlasmicDescendants = {
   button: ["button"],
   reminderSetting: ["reminderSetting"],
   button10: ["button10"],
+  button12: ["button12"],
   button9: ["button9"],
   creaditButten: ["creaditButten"],
   wallet: ["wallet"],
@@ -5942,6 +6357,7 @@ type NodeDefaultElementType = {
   button: typeof Button;
   reminderSetting: typeof ReminderSetting;
   button10: typeof Button;
+  button12: typeof Button;
   button9: typeof Button;
   creaditButten: typeof CreaditButten;
   wallet: typeof ApiRequest;
@@ -6042,6 +6458,7 @@ export const PlasmicReminder = Object.assign(
     button: makeNodeComponent("button"),
     reminderSetting: makeNodeComponent("reminderSetting"),
     button10: makeNodeComponent("button10"),
+    button12: makeNodeComponent("button12"),
     button9: makeNodeComponent("button9"),
     creaditButten: makeNodeComponent("creaditButten"),
     wallet: makeNodeComponent("wallet"),

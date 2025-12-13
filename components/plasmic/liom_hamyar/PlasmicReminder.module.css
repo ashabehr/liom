@@ -1459,6 +1459,12 @@
 }
 .freeBoxslide3_smallReminder__pDskaWyFtQVctK {
   background: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: var(--token-1KusGK5GePTh);
+  row-gap: 0px;
   border-radius: var(--token-O5TjkXII_aat);
 }
 @media (max-width: 640px) {
@@ -1485,14 +1491,20 @@
 .button10slide3_smallReminder:global(.__wab_instance) {
   width: auto;
 }
-.svg__ppt8W {
-  position: relative;
+.svg__yeyvw {
   object-fit: cover;
-  width: auto;
-  height: 1em;
+  max-width: 100%;
+  width: 25px;
+  height: 25px;
 }
-.svgslide3_smallReminder__ppt8WWyFtQVctK {
+.svgsmallReminder__yeyvwqVctK {
+  display: none;
+}
+.svgslide3_smallReminder__yeyvwWyFtQVctK {
   color: var(--token-R_Rsn0nP9oIv);
+  width: 20px;
+  height: 20px;
+  display: block;
 }
 .svg__rSu4 {
   object-fit: cover;
@@ -1516,8 +1528,84 @@
 }
 .textslide3_smallReminder__m5IjJWyFtQVctK {
   color: var(--token-R_Rsn0nP9oIv);
+  font-size: var(--token-Wa5tmrNKVUYF);
+  font-weight: 700;
 }
 .svg__xjESm {
+  object-fit: cover;
+  max-width: 100%;
+  width: 40px;
+  height: 50px;
+  position: relative;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  color: var(--token-jgohepLVeKvh);
+  right: auto;
+  bottom: auto;
+  display: none;
+}
+.button12:global(.__wab_instance) {
+  max-width: 100%;
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .button12:global(.__wab_instance) {
+    width: 58px;
+  }
+}
+.button12smallReminder:global(.__wab_instance) {
+  width: 100%;
+  height: auto;
+  min-width: 0;
+}
+.button12slide3_smallReminder:global(.__wab_instance) {
+  width: auto;
+  display: flex;
+}
+.svg__gyeza {
+  object-fit: cover;
+  max-width: 100%;
+  width: 25px;
+  height: 25px;
+}
+.svgsmallReminder__gyezaqVctK {
+  display: none;
+}
+.svgslide3_smallReminder__gyezaWyFtQVctK {
+  color: var(--token-R_Rsn0nP9oIv);
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+.svg__nGwh5 {
+  object-fit: cover;
+  max-width: 100%;
+  width: 25px;
+  height: 25px;
+}
+.svgsmallReminder__nGwh5QVctK {
+  display: none;
+}
+.text__cs78W {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  display: none;
+}
+.textsmallReminder__cs78WqVctK {
+  display: block;
+}
+.textslide3_smallReminder__cs78WWyFtQVctK {
+  color: var(--token--AiIiH6B786R);
+  font-size: var(--token-Wa5tmrNKVUYF);
+  font-weight: 500;
+}
+.svg__vKlB3 {
   object-fit: cover;
   max-width: 100%;
   width: 40px;

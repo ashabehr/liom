@@ -111,7 +111,6 @@ export type PlasmicReminderCategory__OverridesType = {
   reveal?: Flex__<typeof Reveal>;
   svg?: Flex__<"svg">;
   sort?: Flex__<typeof RadioGroupLiom>;
-  text?: Flex__<"div">;
   radioGroupLiom2?: Flex__<typeof RadioGroupLiom>;
 };
 
@@ -415,6 +414,17 @@ function PlasmicReminderCategory__RenderFunc(props: {
         <div
           className={classNames(
             projectcss.all,
+            projectcss.__wab_text,
+            sty.text___266Yl
+          )}
+        >
+          {
+            "\u0646\u0648\u0639 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0645\u0648\u0631\u062f\u0646\u0638\u0631\u062a \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646"
+          }
+        </div>
+        <div
+          className={classNames(
+            projectcss.all,
             sty.freeBox__xYEpS,
             "container-scroll"
           )}
@@ -652,12 +662,10 @@ function PlasmicReminderCategory__RenderFunc(props: {
             >
               <div className={classNames(projectcss.all, sty.freeBox__j3Dgd)}>
                 <div
-                  data-plasmic-name={"text"}
-                  data-plasmic-override={overrides.text}
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text
+                    sty.text__xGlTn
                   )}
                 >
                   <React.Fragment>
@@ -862,20 +870,11 @@ function PlasmicReminderCategory__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "htmlInput",
-    "reveal",
-    "svg",
-    "sort",
-    "text",
-    "radioGroupLiom2"
-  ],
+  root: ["root", "htmlInput", "reveal", "svg", "sort", "radioGroupLiom2"],
   htmlInput: ["htmlInput"],
   reveal: ["reveal", "svg"],
   svg: ["svg"],
   sort: ["sort"],
-  text: ["text"],
   radioGroupLiom2: ["radioGroupLiom2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -887,7 +886,6 @@ type NodeDefaultElementType = {
   reveal: typeof Reveal;
   svg: "svg";
   sort: typeof RadioGroupLiom;
-  text: "div";
   radioGroupLiom2: typeof RadioGroupLiom;
 };
 
@@ -957,7 +955,6 @@ export const PlasmicReminderCategory = Object.assign(
     reveal: makeNodeComponent("reveal"),
     svg: makeNodeComponent("svg"),
     sort: makeNodeComponent("sort"),
-    text: makeNodeComponent("text"),
     radioGroupLiom2: makeNodeComponent("radioGroupLiom2"),
 
     // Metadata about props expected for PlasmicReminderCategory

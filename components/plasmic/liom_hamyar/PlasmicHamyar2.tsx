@@ -2946,6 +2946,25 @@ function PlasmicHamyar2__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "reminderSub",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return window.localStorage.getItem("SugRec") != "false";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -15786,7 +15805,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                   ? true
                   : (() => {
                       try {
-                        return window.localStorage.getItem("SugRec") != "false";
+                        return $state.reminderSub;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -15874,10 +15893,13 @@ function PlasmicHamyar2__RenderFunc(props: {
                             ? (() => {
                                 const actionArgs = {
                                   customFunction: async () => {
-                                    return window.localStorage.setItem(
-                                      "SugRec",
-                                      "false"
-                                    );
+                                    return (() => {
+                                      window.localStorage.setItem(
+                                        "SugRec",
+                                        "false"
+                                      );
+                                      return ($state.reminderSub = false);
+                                    })();
                                   }
                                 };
                                 return (({ customFunction }) => {

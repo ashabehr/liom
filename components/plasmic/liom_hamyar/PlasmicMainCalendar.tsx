@@ -70,7 +70,6 @@ import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import CreaditButten from "../../CreaditButten"; // plasmic-import: 1skTNuQS9BUR/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import SettingCycle4 from "../../SettingCycle4"; // plasmic-import: C5hqeG28n8GP/component
-import SubItemsComponnet from "../../SubItemsComponnet"; // plasmic-import: b9qrgB2b1TrW/component
 import EditProfile2 from "../../EditProfile2"; // plasmic-import: BZ95kklWU6Jb/component
 import History from "../../History"; // plasmic-import: 5t5YNzyUHdtX/component
 import SliderThumb from "../../SliderThumb"; // plasmic-import: pmF7IoE0FUg-/component
@@ -120,7 +119,6 @@ export type PlasmicMainCalendar__OverridesType = {
   lottie?: Flex__<typeof LottieWrapper>;
   creaditButten?: Flex__<typeof CreaditButten>;
   settingCycle4?: Flex__<typeof SettingCycle4>;
-  subItemsComponnet?: Flex__<typeof SubItemsComponnet>;
   editProfile2?: Flex__<typeof EditProfile2>;
   history?: Flex__<typeof History>;
   reminderSetting?: Flex__<typeof ReminderSetting>;
@@ -3169,39 +3167,6 @@ function PlasmicMainCalendar__RenderFunc(props: {
             />
           </Reveal>
           <Reveal
-            className={classNames("__wab_instance", sty.reveal__osq1U, {
-              [sty.revealpage2_cycle__osq1UrOs5]: hasVariant(
-                $state,
-                "page2",
-                "cycle"
-              ),
-              [sty.revealpage2_edit__osq1UyLEd]: hasVariant(
-                $state,
-                "page2",
-                "edit"
-              ),
-              [sty.revealpage2_setting__osq1Ubvq4R]: hasVariant(
-                $state,
-                "page2",
-                "setting"
-              ),
-              [sty.revealsubItem__osq1UoQrvl]: hasVariant(
-                $state,
-                "subItem",
-                "subItem"
-              )
-            })}
-            damping={0.2}
-            effect={"fade"}
-            triggerOnce={true}
-          >
-            <SubItemsComponnet
-              data-plasmic-name={"subItemsComponnet"}
-              data-plasmic-override={overrides.subItemsComponnet}
-              className={classNames("__wab_instance", sty.subItemsComponnet)}
-            />
-          </Reveal>
-          <Reveal
             className={classNames("__wab_instance", sty.reveal__a5Et7, {
               [sty.revealpage2_edit__a5Et7YLEd]: hasVariant(
                 $state,
@@ -4513,7 +4478,6 @@ const PlasmicDescendants = {
     "lottie",
     "creaditButten",
     "settingCycle4",
-    "subItemsComponnet",
     "editProfile2",
     "history",
     "reminderSetting",
@@ -4535,7 +4499,6 @@ const PlasmicDescendants = {
   lottie: ["lottie"],
   creaditButten: ["creaditButten"],
   settingCycle4: ["settingCycle4"],
-  subItemsComponnet: ["subItemsComponnet"],
   editProfile2: ["editProfile2"],
   history: ["history"],
   reminderSetting: ["reminderSetting"],
@@ -4554,7 +4517,6 @@ type NodeDefaultElementType = {
   lottie: typeof LottieWrapper;
   creaditButten: typeof CreaditButten;
   settingCycle4: typeof SettingCycle4;
-  subItemsComponnet: typeof SubItemsComponnet;
   editProfile2: typeof EditProfile2;
   history: typeof History;
   reminderSetting: typeof ReminderSetting;
@@ -4656,7 +4618,6 @@ export const PlasmicMainCalendar = Object.assign(
     lottie: makeNodeComponent("lottie"),
     creaditButten: makeNodeComponent("creaditButten"),
     settingCycle4: makeNodeComponent("settingCycle4"),
-    subItemsComponnet: makeNodeComponent("subItemsComponnet"),
     editProfile2: makeNodeComponent("editProfile2"),
     history: makeNodeComponent("history"),
     reminderSetting: makeNodeComponent("reminderSetting"),

@@ -68,7 +68,6 @@ import MainPregnancyHeader from "../../MainPregnancyHeader"; // plasmic-import: 
 import FooterPregnancyMain from "../../FooterPregnancyMain"; // plasmic-import: -kbj-rjG1hPY/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import SettingCycle4 from "../../SettingCycle4"; // plasmic-import: C5hqeG28n8GP/component
-import SubItemsComponnet from "../../SubItemsComponnet"; // plasmic-import: b9qrgB2b1TrW/component
 import EditProfile2 from "../../EditProfile2"; // plasmic-import: BZ95kklWU6Jb/component
 import { BackHandler } from "@/components/BackHandler"; // plasmic-import: wpIQCsQJqUoV/codeComponent
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
@@ -113,7 +112,6 @@ export type PlasmicMainPregnancy__OverridesType = {
   mainHeader?: Flex__<typeof MainPregnancyHeader>;
   footerMain?: Flex__<typeof FooterPregnancyMain>;
   settingCycle4?: Flex__<typeof SettingCycle4>;
-  subItemsComponnet?: Flex__<typeof SubItemsComponnet>;
   editProfile2?: Flex__<typeof EditProfile2>;
   backHandler?: Flex__<typeof BackHandler>;
 };
@@ -1059,29 +1057,6 @@ function PlasmicMainPregnancy__RenderFunc(props: {
             />
           </Reveal>
           <Reveal
-            className={classNames("__wab_instance", sty.reveal__iCgWr, {
-              [sty.revealsetting__iCgWrztgwk]: hasVariant(
-                $state,
-                "setting",
-                "setting"
-              ),
-              [sty.revealsubItem__iCgWr9ErvH]: hasVariant(
-                $state,
-                "subItem",
-                "subItem"
-              )
-            })}
-            damping={0.2}
-            effect={"fade"}
-            triggerOnce={true}
-          >
-            <SubItemsComponnet
-              data-plasmic-name={"subItemsComponnet"}
-              data-plasmic-override={overrides.subItemsComponnet}
-              className={classNames("__wab_instance", sty.subItemsComponnet)}
-            />
-          </Reveal>
-          <Reveal
             className={classNames("__wab_instance", sty.reveal__t750E, {
               [sty.revealedit__t750EJdhbO]: hasVariant($state, "edit", "edit"),
               [sty.revealsetting__t750Eztgwk]: hasVariant(
@@ -1211,7 +1186,6 @@ const PlasmicDescendants = {
     "mainHeader",
     "footerMain",
     "settingCycle4",
-    "subItemsComponnet",
     "editProfile2",
     "backHandler"
   ],
@@ -1221,7 +1195,6 @@ const PlasmicDescendants = {
   mainHeader: ["mainHeader"],
   footerMain: ["footerMain"],
   settingCycle4: ["settingCycle4"],
-  subItemsComponnet: ["subItemsComponnet"],
   editProfile2: ["editProfile2"],
   backHandler: ["backHandler"]
 } as const;
@@ -1236,7 +1209,6 @@ type NodeDefaultElementType = {
   mainHeader: typeof MainPregnancyHeader;
   footerMain: typeof FooterPregnancyMain;
   settingCycle4: typeof SettingCycle4;
-  subItemsComponnet: typeof SubItemsComponnet;
   editProfile2: typeof EditProfile2;
   backHandler: typeof BackHandler;
 };
@@ -1334,7 +1306,6 @@ export const PlasmicMainPregnancy = Object.assign(
     mainHeader: makeNodeComponent("mainHeader"),
     footerMain: makeNodeComponent("footerMain"),
     settingCycle4: makeNodeComponent("settingCycle4"),
-    subItemsComponnet: makeNodeComponent("subItemsComponnet"),
     editProfile2: makeNodeComponent("editProfile2"),
     backHandler: makeNodeComponent("backHandler"),
 

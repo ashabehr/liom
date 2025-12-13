@@ -1987,6 +1987,8 @@
 }
 .todayMeetingslide__1_small {
   background: #ffffff00;
+  row-gap: var(--token-O5TjkXII_aat);
+  column-gap: 0px;
 }
 .freeBox__fN6Ve {
   display: flex;
