@@ -918,6 +918,73 @@ function PlasmicReminder__RenderFunc(props: {
           )
         }
       )}
+      onAnimationEnd={async event => {
+        const $steps = {};
+
+        $steps["invokeGlobalAction"] = true
+          ? (() => {
+              const actionArgs = {
+                args: [
+                  "POST",
+                  "https://api.liom.app/service/log",
+                  undefined,
+                  (() => {
+                    try {
+                      return {
+                        appKey:
+                          "eyiaophkahaMAQwpqwjhr218aeewfuiaey-xxluyhawd2012-qigwi-oooh",
+                        userId: $props.manId,
+                        pageName: "reminder",
+                        action: "reminderload",
+                        extraData: {}
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })(),
+                  {
+                    headers: {
+                      Authorization:
+                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                    }
+                  }
+                ]
+              };
+              return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                ...actionArgs.args
+              ]);
+            })()
+          : undefined;
+        if (
+          $steps["invokeGlobalAction"] != null &&
+          typeof $steps["invokeGlobalAction"] === "object" &&
+          typeof $steps["invokeGlobalAction"].then === "function"
+        ) {
+          $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
+        }
+
+        $steps["invokeGlobalAction2"] = true
+          ? (() => {
+              const actionArgs = { args: [1000] };
+              return $globalActions["Fragment.wait"]?.apply(null, [
+                ...actionArgs.args
+              ]);
+            })()
+          : undefined;
+        if (
+          $steps["invokeGlobalAction2"] != null &&
+          typeof $steps["invokeGlobalAction2"] === "object" &&
+          typeof $steps["invokeGlobalAction2"].then === "function"
+        ) {
+          $steps["invokeGlobalAction2"] = await $steps["invokeGlobalAction2"];
+        }
+      }}
       onAnimationStart={async event => {
         const $steps = {};
 
