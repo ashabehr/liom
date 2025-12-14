@@ -59,6 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import SquareBox from "../../SquareBox"; // plasmic-import: 7Z6GzZI75_6F/component
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { Input } from "@/fragment/components/input"; // plasmic-import: zZH7vV9pXyf8/codeComponent
 import { Select } from "@/fragment/components/select"; // plasmic-import: 5Mch6ak-Pshg/codeComponent
@@ -66,7 +67,6 @@ import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/compo
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
-import SquareBox from "../../SquareBox"; // plasmic-import: 7Z6GzZI75_6F/component
 import MenuIcon from "../../MenuIcon"; // plasmic-import: JBF-V8Q5mpWl/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import ReminderSetting from "../../ReminderSetting"; // plasmic-import: VZcPBQBUFNbT/component
@@ -172,6 +172,8 @@ export const PlasmicReminder__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicReminder__OverridesType = {
   root?: Flex__<"div">;
+  alertTelegram?: Flex__<typeof SquareBox>;
+  alertSms?: Flex__<typeof SquareBox>;
   dialog?: Flex__<typeof Dialog>;
   input?: Flex__<typeof Input>;
   select?: Flex__<typeof Select>;
@@ -182,8 +184,6 @@ export type PlasmicReminder__OverridesType = {
   button4?: Flex__<typeof Button>;
   headerLiom?: Flex__<typeof HeaderLiom>;
   button2?: Flex__<typeof Button>;
-  alertTelegram?: Flex__<typeof SquareBox>;
-  alertSms?: Flex__<typeof SquareBox>;
   todayMeeting2?: Flex__<"div">;
   frame22?: Flex__<"div">;
   frame23?: Flex__<"div">;
@@ -854,7 +854,7 @@ function PlasmicReminder__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           hasVariant($state, "slide3", "slide3") &&
           hasVariant($state, "smallReminder", "smallReminder")
-            ? "clear"
+            ? ["sand", "line"]
             : hasVariant($state, "smallReminder", "smallReminder")
               ? "line"
               : []
@@ -982,6 +982,186 @@ function PlasmicReminder__RenderFunc(props: {
         }
       }}
     >
+      <div
+        className={classNames(projectcss.all, sty.freeBox__sSYaM, {
+          [sty.freeBoxslide3__sSYaMWyFt]: hasVariant(
+            $state,
+            "slide3",
+            "slide3"
+          ),
+          [sty.freeBoxslide3_smallReminder__sSYaMWyFtQVctK]:
+            hasVariant($state, "smallReminder", "smallReminder") &&
+            hasVariant($state, "slide3", "slide3"),
+          [sty.freeBoxsmallReminder__sSYaMqVctK]: hasVariant(
+            $state,
+            "smallReminder",
+            "smallReminder"
+          )
+        })}
+      >
+        <SquareBox
+          data-plasmic-name={"alertTelegram"}
+          data-plasmic-override={overrides.alertTelegram}
+          btnText={"\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc"}
+          className={classNames("__wab_instance", sty.alertTelegram, {
+            [sty.alertTelegramslide3_smallReminder]:
+              hasVariant($state, "smallReminder", "smallReminder") &&
+              hasVariant($state, "slide3", "slide3")
+          })}
+          name={generateStateValueProp($state, ["alertTelegram", "name"])}
+          onClick={async event => {
+            const $steps = {};
+
+            $steps["runCode"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        return window.open(
+                          `https://t.me/liomApp_bot`,
+                          "_blank"
+                        );
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
+            }
+          }}
+          onNameChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["alertTelegram", "name"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          onShowChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["alertTelegram", "show"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          show={generateStateValueProp($state, ["alertTelegram", "show"])}
+          text={(() => {
+            try {
+              return `<p>⚠️ شما روش ارسال <strong>یادآوری تلگرام</strong> را انتخاب کرده‌اید اما ربات را فعال نکرده‌اید.</p>`;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+        />
+
+        <SquareBox
+          data-plasmic-name={"alertSms"}
+          data-plasmic-override={overrides.alertSms}
+          btnText={
+            "\u0627\u0641\u0632\u0648\u062f\u0646 \u0634\u0645\u0627\u0631\u0647"
+          }
+          className={classNames("__wab_instance", sty.alertSms, {
+            [sty.alertSmsslide3]: hasVariant($state, "slide3", "slide3"),
+            [sty.alertSmsslide3_smallReminder]:
+              hasVariant($state, "smallReminder", "smallReminder") &&
+              hasVariant($state, "slide3", "slide3")
+          })}
+          name={generateStateValueProp($state, ["alertSms", "name"])}
+          onClick={async event => {
+            const $steps = {};
+
+            $steps["runSetNumber"] = true
+              ? (() => {
+                  const actionArgs = { eventRef: $props["setNumber"] };
+                  return (({ eventRef, args }) => {
+                    return eventRef?.(...(args ?? []));
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runSetNumber"] != null &&
+              typeof $steps["runSetNumber"] === "object" &&
+              typeof $steps["runSetNumber"].then === "function"
+            ) {
+              $steps["runSetNumber"] = await $steps["runSetNumber"];
+            }
+          }}
+          onNameChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["alertSms", "name"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          onShowChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["alertSms", "show"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+
+            (async val => {
+              const $steps = {};
+            }).apply(null, eventArgs);
+          }}
+          show={generateStateValueProp($state, ["alertSms", "show"])}
+          text={(() => {
+            try {
+              return `<p>⚠️ شما روش ارسال <strong>یادآوری پیامکی</strong> را انتخاب کرده‌اید اما شماره شما ثبت نشده است.</p>
+`;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+        />
+      </div>
       <section
         className={classNames(projectcss.all, sty.section__wVsy2, {
           [sty.sectionslide3__wVsy2WyFt]: hasVariant(
@@ -2000,6 +2180,9 @@ function PlasmicReminder__RenderFunc(props: {
             "slide3",
             "slide3"
           ),
+          [sty.freeBoxslide3_smallReminder__xMddUWyFtQVctK]:
+            hasVariant($state, "smallReminder", "smallReminder") &&
+            hasVariant($state, "slide3", "slide3"),
           [sty.freeBoxsmallReminder__xMddUqVctK]: hasVariant(
             $state,
             "smallReminder",
@@ -2007,161 +2190,6 @@ function PlasmicReminder__RenderFunc(props: {
           )
         })}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__sSYaM)}>
-          <SquareBox
-            data-plasmic-name={"alertTelegram"}
-            data-plasmic-override={overrides.alertTelegram}
-            btnText={"\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc"}
-            className={classNames("__wab_instance", sty.alertTelegram)}
-            name={generateStateValueProp($state, ["alertTelegram", "name"])}
-            onClick={async event => {
-              const $steps = {};
-
-              $steps["runCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          return window.open(
-                            `https://t.me/liomApp_bot`,
-                            "_blank"
-                          );
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
-              }
-            }}
-            onNameChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, [
-                "alertTelegram",
-                "name"
-              ]).apply(null, eventArgs);
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            onShowChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, [
-                "alertTelegram",
-                "show"
-              ]).apply(null, eventArgs);
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            show={generateStateValueProp($state, ["alertTelegram", "show"])}
-            text={(() => {
-              try {
-                return `<p>⚠️ شما روش ارسال <strong>یادآوری تلگرام</strong> را انتخاب کرده‌اید اما ربات را فعال نکرده‌اید.</p>`;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-          />
-
-          <SquareBox
-            data-plasmic-name={"alertSms"}
-            data-plasmic-override={overrides.alertSms}
-            btnText={
-              "\u0627\u0641\u0632\u0648\u062f\u0646 \u0634\u0645\u0627\u0631\u0647"
-            }
-            className={classNames("__wab_instance", sty.alertSms)}
-            name={generateStateValueProp($state, ["alertSms", "name"])}
-            onClick={async event => {
-              const $steps = {};
-
-              $steps["runSetNumber"] = true
-                ? (() => {
-                    const actionArgs = { eventRef: $props["setNumber"] };
-                    return (({ eventRef, args }) => {
-                      return eventRef?.(...(args ?? []));
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runSetNumber"] != null &&
-                typeof $steps["runSetNumber"] === "object" &&
-                typeof $steps["runSetNumber"].then === "function"
-              ) {
-                $steps["runSetNumber"] = await $steps["runSetNumber"];
-              }
-            }}
-            onNameChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["alertSms", "name"]).apply(
-                null,
-                eventArgs
-              );
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            onShowChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["alertSms", "show"]).apply(
-                null,
-                eventArgs
-              );
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-
-              (async val => {
-                const $steps = {};
-              }).apply(null, eventArgs);
-            }}
-            show={generateStateValueProp($state, ["alertSms", "show"])}
-            text={(() => {
-              try {
-                return `<p>⚠️ شما روش ارسال <strong>یادآوری پیامکی</strong> را انتخاب کرده‌اید اما شماره شما ثبت نشده است.</p>
-`;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-          />
-        </div>
         {(() => {
           try {
             return (() => {
@@ -5656,6 +5684,37 @@ function PlasmicReminder__RenderFunc(props: {
                   </div>
                 </Button>
               ) : null}
+              {(
+                hasVariant($state, "smallReminder", "smallReminder") &&
+                hasVariant($state, "slide3", "slide3")
+                  ? (() => {
+                      try {
+                        return $props.data.length > 0;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })()
+                  : true
+              ) ? (
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__a3Rmo, {
+                    [sty.freeBoxslide3__a3RmoWyFt]: hasVariant(
+                      $state,
+                      "slide3",
+                      "slide3"
+                    ),
+                    [sty.freeBoxslide3_smallReminder__a3RmoWyFtQVctK]:
+                      hasVariant($state, "smallReminder", "smallReminder") &&
+                      hasVariant($state, "slide3", "slide3")
+                  })}
+                />
+              ) : null}
             </div>
           </div>
         </div>
@@ -6223,6 +6282,8 @@ function PlasmicReminder__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "alertTelegram",
+    "alertSms",
     "dialog",
     "input",
     "select",
@@ -6233,8 +6294,6 @@ const PlasmicDescendants = {
     "button4",
     "headerLiom",
     "button2",
-    "alertTelegram",
-    "alertSms",
     "todayMeeting2",
     "frame22",
     "frame23",
@@ -6260,6 +6319,8 @@ const PlasmicDescendants = {
     "wallet",
     "apiRequest"
   ],
+  alertTelegram: ["alertTelegram"],
+  alertSms: ["alertSms"],
   dialog: ["dialog", "input", "select", "switchbest3", "button5"],
   input: ["input"],
   select: ["select"],
@@ -6270,8 +6331,6 @@ const PlasmicDescendants = {
   button4: ["button4"],
   headerLiom: ["headerLiom", "button2"],
   button2: ["button2"],
-  alertTelegram: ["alertTelegram"],
-  alertSms: ["alertSms"],
   todayMeeting2: [
     "todayMeeting2",
     "frame22",
@@ -6309,6 +6368,8 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  alertTelegram: typeof SquareBox;
+  alertSms: typeof SquareBox;
   dialog: typeof Dialog;
   input: typeof Input;
   select: typeof Select;
@@ -6319,8 +6380,6 @@ type NodeDefaultElementType = {
   button4: typeof Button;
   headerLiom: typeof HeaderLiom;
   button2: typeof Button;
-  alertTelegram: typeof SquareBox;
-  alertSms: typeof SquareBox;
   todayMeeting2: "div";
   frame22: "div";
   frame23: "div";
@@ -6409,6 +6468,8 @@ export const PlasmicReminder = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    alertTelegram: makeNodeComponent("alertTelegram"),
+    alertSms: makeNodeComponent("alertSms"),
     dialog: makeNodeComponent("dialog"),
     input: makeNodeComponent("input"),
     select: makeNodeComponent("select"),
@@ -6419,8 +6480,6 @@ export const PlasmicReminder = Object.assign(
     button4: makeNodeComponent("button4"),
     headerLiom: makeNodeComponent("headerLiom"),
     button2: makeNodeComponent("button2"),
-    alertTelegram: makeNodeComponent("alertTelegram"),
-    alertSms: makeNodeComponent("alertSms"),
     todayMeeting2: makeNodeComponent("todayMeeting2"),
     frame22: makeNodeComponent("frame22"),
     frame23: makeNodeComponent("frame23"),

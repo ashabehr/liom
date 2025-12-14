@@ -2534,6 +2534,33 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               projectcss.all,
                               sty.freeBox__vdQG
                             )}
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["runCode"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return (() => {
+                                          $state.dateIndex = -1;
+                                          $state.dateDiolog.opendialog = true;
+                                          return ($state.dateType = "start");
+                                        })();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+                            }}
                           >
                             <Icon345Icon
                               className={classNames(
@@ -2585,15 +2612,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
 
                                 $steps["runCode"] = true
                                   ? (() => {
-                                      const actionArgs = {
-                                        customFunction: async () => {
-                                          return (() => {
-                                            $state.dateIndex = -1;
-                                            $state.dateDiolog.opendialog = true;
-                                            return ($state.dateType = "start");
-                                          })();
-                                        }
-                                      };
+                                      const actionArgs = {};
                                       return (({ customFunction }) => {
                                         return customFunction();
                                       })?.apply(null, [actionArgs]);
@@ -3152,6 +3171,32 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           projectcss.all,
                           sty.freeBox___6AMmE
                         )}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["runCode"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      $state.timeIndex = -1;
+                                      return ($state.time.opendialog = true);
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+                        }}
                       >
                         <ClockIcon
                           className={classNames(projectcss.all, sty.svg__twKhv)}
@@ -3175,82 +3220,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             sty.freeBox__cia3Y
                           )}
                           id={``}
-                          onClick={async event => {
-                            const $steps = {};
-
-                            $steps["updateTimeIndex"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["timeIndex"]
-                                    },
-                                    operation: 0,
-                                    value: -1
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
-
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateTimeIndex"] != null &&
-                              typeof $steps["updateTimeIndex"] === "object" &&
-                              typeof $steps["updateTimeIndex"].then ===
-                                "function"
-                            ) {
-                              $steps["updateTimeIndex"] =
-                                await $steps["updateTimeIndex"];
-                            }
-
-                            $steps["updateDialog2Opendialog"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["time", "opendialog"]
-                                    },
-                                    operation: 0,
-                                    value: true
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
-
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateDialog2Opendialog"] != null &&
-                              typeof $steps["updateDialog2Opendialog"] ===
-                                "object" &&
-                              typeof $steps["updateDialog2Opendialog"].then ===
-                                "function"
-                            ) {
-                              $steps["updateDialog2Opendialog"] =
-                                await $steps["updateDialog2Opendialog"];
-                            }
-                          }}
                         >
                           <div
                             className={classNames(
@@ -4569,9 +4538,34 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                       const actionArgs = {
                                         args: [
                                           undefined,
-                                          "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f.",
+                                          (() => {
+                                            try {
+                                              return (() => {
+                                                if (
+                                                  $steps.insert?.data
+                                                    ?.success === true
+                                                ) {
+                                                  return "یادآوری با موفقیت ثبت شد";
+                                                } else if (
+                                                  $steps.edit?.data?.success ===
+                                                  true
+                                                ) {
+                                                  return "یادآوری با موفقیت ویرایش شد";
+                                                }
+                                              })();
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })(),
                                           "bottom-center",
-                                          2000
+                                          5000
                                         ]
                                       };
                                       return $globalActions[
@@ -5462,7 +5456,40 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 }
               })()}
               className={classNames("__wab_instance", sty.datePickers)}
-              customYears={[]}
+              customYears={(() => {
+                try {
+                  return (() => {
+                    function toEnglishDigits(str) {
+                      return str.replace(/[۰-۹]/g, d =>
+                        "۰۱۲۳۴۵۶۷۸۹".indexOf(d)
+                      );
+                    }
+                    const jalaliYearFa = new Intl.DateTimeFormat(
+                      "fa-IR-u-ca-persian",
+                      { year: "numeric" }
+                    ).format(new Date());
+                    const currentJalaliYear = Number(
+                      toEnglishDigits(jalaliYearFa)
+                    );
+                    const yearsArray = Array.from({ length: 11 }, (_, i) => {
+                      const year = currentJalaliYear + i;
+                      return {
+                        label: i === 0 ? `${year}` : `${year}`,
+                        value: year
+                      };
+                    });
+                    return yearsArray;
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [];
+                  }
+                  throw e;
+                }
+              })()}
               hideYear={(() => {
                 try {
                   return $state.select2.schedule_type == "everyYear";

@@ -436,6 +436,9 @@ function PlasmicButton__RenderFunc(props: {
           [sty.rootcolor_perper]: hasVariant($state, "color", "perper"),
           [sty.rootcolor_red]: hasVariant($state, "color", "red"),
           [sty.rootcolor_sand]: hasVariant($state, "color", "sand"),
+          [sty.rootcolor_sand_color_line]:
+            hasVariant($state, "color", "sand") &&
+            hasVariant($state, "color", "line"),
           [sty.rootcolor_softBlack]: hasVariant($state, "color", "softBlack"),
           [sty.rootcolor_softBlue]: hasVariant($state, "color", "softBlue"),
           [sty.rootcolor_softGreen]: hasVariant($state, "color", "softGreen"),
