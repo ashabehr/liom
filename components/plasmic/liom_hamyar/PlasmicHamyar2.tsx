@@ -15824,7 +15824,12 @@ function PlasmicHamyar2__RenderFunc(props: {
                         $state,
                         "lackOfCourseInformation",
                         "lackOfCourseInformation"
-                      )
+                      ),
+                    [sty.freeBoxnoPartner__ar5TwmzwVj]: hasVariant(
+                      $state,
+                      "noPartner",
+                      "noPartner"
+                    )
                   })}
                 >
                   <div
@@ -15969,7 +15974,13 @@ function PlasmicHamyar2__RenderFunc(props: {
                 }
               })() ? (
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__llUq5)}
+                  className={classNames(projectcss.all, sty.freeBox__llUq5, {
+                    [sty.freeBoxnoPartner__llUq5MzwVj]: hasVariant(
+                      $state,
+                      "noPartner",
+                      "noPartner"
+                    )
+                  })}
                   onClick={async event => {
                     const $steps = {};
 
