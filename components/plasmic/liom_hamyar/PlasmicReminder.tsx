@@ -97,17 +97,20 @@ export type PlasmicReminder__VariantMembers = {
   slide3: "slide3";
   hamyar: "hamyar";
   smallReminder: "smallReminder";
+  dateMode: "dateMode";
 };
 export type PlasmicReminder__VariantsArgs = {
   slide3?: SingleBooleanChoiceArg<"slide3">;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
   smallReminder?: SingleBooleanChoiceArg<"smallReminder">;
+  dateMode?: SingleBooleanChoiceArg<"dateMode">;
 };
 type VariantPropType = keyof PlasmicReminder__VariantsArgs;
 export const PlasmicReminder__VariantProps = new Array<VariantPropType>(
   "slide3",
   "hamyar",
-  "smallReminder"
+  "smallReminder",
+  "dateMode"
 );
 
 export type PlasmicReminder__ArgsType = {
@@ -128,6 +131,7 @@ export type PlasmicReminder__ArgsType = {
   onSmsChange?: (val: string) => void;
   tel?: boolean;
   onTelChange?: (val: string) => void;
+  onOflineChange?: (val: string) => void;
   onSlide3Change?: (val: any) => void;
   ferst?: boolean;
   reminderSettingReminderCategory2Data?: any;
@@ -158,6 +162,7 @@ export const PlasmicReminder__ArgProps = new Array<ArgPropType>(
   "onSmsChange",
   "tel",
   "onTelChange",
+  "onOflineChange",
   "onSlide3Change",
   "ferst",
   "reminderSettingReminderCategory2Data",
@@ -228,6 +233,7 @@ export interface DefaultReminderProps {
   onSmsChange?: (val: string) => void;
   tel?: boolean;
   onTelChange?: (val: string) => void;
+  onOflineChange?: (val: string) => void;
   onSlide3Change?: (val: any) => void;
   ferst?: boolean;
   reminderSettingReminderCategory2Data?: any;
@@ -241,6 +247,7 @@ export interface DefaultReminderProps {
   slide3?: SingleBooleanChoiceArg<"slide3">;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
   smallReminder?: SingleBooleanChoiceArg<"smallReminder">;
+  dateMode?: SingleBooleanChoiceArg<"dateMode">;
   className?: string;
 }
 
@@ -563,7 +570,7 @@ function PlasmicReminder__RenderFunc(props: {
       },
       {
         path: "ofline",
-        type: "private",
+        type: "readonly",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
@@ -581,7 +588,9 @@ function PlasmicReminder__RenderFunc(props: {
               }
               throw e;
             }
-          })()
+          })(),
+
+        onChangeProp: "onOflineChange"
       },
       {
         path: "slide3",
@@ -871,6 +880,12 @@ function PlasmicReminder__RenderFunc(props: {
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           hasVariant(globalVariants, "screen", "mobile") ? false : false
+      },
+      {
+        path: "dateMode",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.dateMode
       }
     ],
     [$props, $ctx, $refs]
@@ -899,6 +914,10 @@ function PlasmicReminder__RenderFunc(props: {
         sty.root,
         "fade-in",
         {
+          [sty.rootdateMode_slide3_smallReminder]:
+            hasVariant($state, "smallReminder", "smallReminder") &&
+            hasVariant($state, "slide3", "slide3") &&
+            hasVariant($state, "dateMode", "dateMode"),
           [sty.rootglobal_newView_newView_slide3_smallReminder]:
             hasVariant($state, "slide3", "slide3") &&
             hasVariant($state, "smallReminder", "smallReminder") &&
@@ -4426,6 +4445,10 @@ function PlasmicReminder__RenderFunc(props: {
           data-plasmic-name={"reminderSetting"}
           data-plasmic-override={overrides.reminderSetting}
           className={classNames("__wab_instance", sty.reminderSetting, {
+            [sty.reminderSettingdateMode_slide3_smallReminder]:
+              hasVariant($state, "smallReminder", "smallReminder") &&
+              hasVariant($state, "slide3", "slide3") &&
+              hasVariant($state, "dateMode", "dateMode"),
             [sty.reminderSettingslide3]: hasVariant($state, "slide3", "slide3"),
             [sty.reminderSettingslide3_smallReminder]:
               hasVariant($state, "smallReminder", "smallReminder") &&
@@ -6208,6 +6231,10 @@ function PlasmicReminder__RenderFunc(props: {
         data-plasmic-name={"apiRequest"}
         data-plasmic-override={overrides.apiRequest}
         className={classNames("__wab_instance", sty.apiRequest, {
+          [sty.apiRequestdateMode_slide3_smallReminder]:
+            hasVariant($state, "smallReminder", "smallReminder") &&
+            hasVariant($state, "slide3", "slide3") &&
+            hasVariant($state, "dateMode", "dateMode"),
           [sty.apiRequestslide3]: hasVariant($state, "slide3", "slide3"),
           [sty.apiRequestslide3_smallReminder]:
             hasVariant($state, "slide3", "slide3") &&
@@ -6267,26 +6294,10 @@ function PlasmicReminder__RenderFunc(props: {
           }).apply(null, eventArgs);
         }}
         params={
+          hasVariant($state, "smallReminder", "smallReminder") &&
           hasVariant($state, "slide3", "slide3") &&
-          hasVariant($state, "smallReminder", "smallReminder")
+          hasVariant($state, "dateMode", "dateMode")
             ? (() => {
-                try {
-                  return {
-                    authorization: $props.token,
-                    id: $props.manId,
-                    r: $state.refresh
-                  };
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()
-            : (() => {
                 try {
                   return {
                     authorization: $props.token
@@ -6301,6 +6312,40 @@ function PlasmicReminder__RenderFunc(props: {
                   throw e;
                 }
               })()
+            : hasVariant($state, "slide3", "slide3") &&
+                hasVariant($state, "smallReminder", "smallReminder")
+              ? (() => {
+                  try {
+                    return {
+                      authorization: $props.token,
+                      id: $props.manId,
+                      r: $state.refresh
+                    };
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()
+              : (() => {
+                  try {
+                    return {
+                      authorization: $props.token
+                    };
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()
         }
         shouldFetch={
           hasVariant($state, "slide3", "slide3") &&
@@ -6336,10 +6381,14 @@ function PlasmicReminder__RenderFunc(props: {
               })()
         }
         url={
+          hasVariant($state, "smallReminder", "smallReminder") &&
           hasVariant($state, "slide3", "slide3") &&
-          hasVariant($state, "smallReminder", "smallReminder")
-            ? "https://n8n.staas.ir/webhook/reminders/suggestions1"
-            : "https://n8n.staas.ir/webhook/reminders/suggestions"
+          hasVariant($state, "dateMode", "dateMode")
+            ? "https://n8n.staas.ir/webhook/reminders/occasions"
+            : hasVariant($state, "slide3", "slide3") &&
+                hasVariant($state, "smallReminder", "smallReminder")
+              ? "https://n8n.staas.ir/webhook/reminders/suggestions1"
+              : "https://n8n.staas.ir/webhook/reminders/suggestions"
         }
       />
     </div>

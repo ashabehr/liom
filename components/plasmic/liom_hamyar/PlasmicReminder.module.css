@@ -58,6 +58,9 @@
 .rootglobal_newView_newView_slide3_smallReminder > * {
   grid-column: 4;
 }
+.rootdateMode_slide3_smallReminder > * {
+  grid-column: 4;
+}
 .freeBox__sSYaM {
   display: flex;
   flex-direction: column;

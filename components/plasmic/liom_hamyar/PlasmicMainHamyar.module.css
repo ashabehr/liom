@@ -49,6 +49,10 @@
 .reminder3page_reminder:global(.__wab_instance) {
   display: grid;
 }
+.reminder__omz5B:global(.__wab_instance) {
+  animation: none;
+  max-width: 100%;
+}
 .section {
   position: fixed;
   align-content: flex-start;

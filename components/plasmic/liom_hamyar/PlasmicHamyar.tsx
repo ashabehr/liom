@@ -2581,6 +2581,12 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "reminder2.ofline",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -6791,6 +6797,20 @@ function PlasmicHamyar__RenderFunc(props: {
                 generateStateOnChangeProp($state, [
                   "reminder2",
                   "balance"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onOflineChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminder2",
+                  "ofline"
                 ]).apply(null, eventArgs);
 
                 if (
