@@ -1737,119 +1737,191 @@ function PlasmicSubItems2__RenderFunc(props: {
         }
       })() ? (
         <div className={classNames(projectcss.all, sty.freeBox__fmK)}>
-          <div className={classNames(projectcss.all, sty.freeBox__oHtfe)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__ol6J0
-              )}
-            >
-              {
-                "\u0644\u0637\u0641\u0627 \u0627\u0632 \u0627\u062a\u0635\u0627\u0644 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a \u062e\u0648\u062f \u0645\u0637\u0645\u0639\u0646 \u0634\u0648\u06cc\u062f."
+          {(() => {
+            try {
+              return !$state.selfcare.loading;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
               }
-            </div>
-          </div>
-          <Button
-            data-plasmic-name={"button2"}
-            data-plasmic-override={overrides.button2}
-            className={classNames("__wab_instance", sty.button2)}
-            color={generateStateValueProp($state, ["button2", "color"])}
-            endIcon={
-              <Icon144Icon
-                className={classNames(projectcss.all, sty.svg___7Wgot)}
-                role={"img"}
-              />
+              throw e;
             }
-            load={generateStateValueProp($state, ["button2", "load"])}
-            loading={generateStateValueProp($state, ["button2", "loading"])}
-            onClick={async event => {
-              const $steps = {};
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox__kh41F)}>
+              <div className={classNames(projectcss.all, sty.freeBox__oHtfe)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__ol6J0
+                  )}
+                >
+                  {
+                    "\u0644\u0637\u0641\u0627 \u0627\u0632 \u0627\u062a\u0635\u0627\u0644 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a \u062e\u0648\u062f \u0645\u0637\u0645\u0639\u0646 \u0634\u0648\u06cc\u062f."
+                  }
+                </div>
+              </div>
+              <Button
+                data-plasmic-name={"button2"}
+                data-plasmic-override={overrides.button2}
+                className={classNames("__wab_instance", sty.button2)}
+                color={generateStateValueProp($state, ["button2", "color"])}
+                endIcon={
+                  <Icon144Icon
+                    className={classNames(projectcss.all, sty.svg___7Wgot)}
+                    role={"img"}
+                  />
+                }
+                load={generateStateValueProp($state, ["button2", "load"])}
+                loading={generateStateValueProp($state, ["button2", "loading"])}
+                onClick={async event => {
+                  const $steps = {};
 
-              $steps["runCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return undefined;
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
-              }
-            }}
-            onColorChange={async (...eventArgs: any) => {
-              ((...eventArgs) => {
-                generateStateOnChangeProp($state, ["button2", "color"])(
-                  eventArgs[0]
-                );
-              }).apply(null, eventArgs);
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return window.history.back();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button2", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
 
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            onLoadChange={async (...eventArgs: any) => {
-              ((...eventArgs) => {
-                generateStateOnChangeProp($state, ["button2", "load"])(
-                  eventArgs[0]
-                );
-              }).apply(null, eventArgs);
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button2", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
 
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            onLoadingChange={async (...eventArgs: any) => {
-              ((...eventArgs) => {
-                generateStateOnChangeProp($state, ["button2", "loading"])(
-                  eventArgs[0]
-                );
-              }).apply(null, eventArgs);
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button2", "loading"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
 
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            startIcon={
-              <ChevronRightIcon
-                className={classNames(projectcss.all, sty.svg__vnN)}
-                role={"img"}
-              />
-            }
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__mDhTj
-              )}
-            >
-              {
-                "\u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc \u0645\u062c\u062f\u062f"
-              }
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                startIcon={
+                  <ChevronRightIcon
+                    className={classNames(projectcss.all, sty.svg__vnN)}
+                    role={"img"}
+                  />
+                }
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__mDhTj
+                  )}
+                >
+                  {
+                    "\u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc \u0645\u062c\u062f\u062f"
+                  }
+                </div>
+              </Button>
             </div>
-          </Button>
+          ) : null}
+          {(() => {
+            try {
+              return $state.selfcare.loading;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })()
+            ? (_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))([
+                2, 3, 4
+              ]).map((__plasmic_item_0, __plasmic_idx_0) => {
+                const currentItem = __plasmic_item_0;
+                const currentIndex = __plasmic_idx_0;
+                return (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__ajhDy)}
+                    key={currentIndex}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__dJzZu,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox___8GaH)}
+                    >
+                      {(_par =>
+                        !_par ? [] : Array.isArray(_par) ? _par : [_par])([
+                        2, 3, 4
+                      ]).map((__plasmic_item_1, __plasmic_idx_1) => {
+                        const currentItem = __plasmic_item_1;
+                        const currentIndex = __plasmic_idx_1;
+                        return (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__iTEqq,
+                              "shimmer"
+                            )}
+                            key={currentIndex}
+                          />
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })
+            : null}
         </div>
       ) : null}
       <DirectDialog2
