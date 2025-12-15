@@ -4986,6 +4986,13 @@ function PlasmicReminder__RenderFunc(props: {
                     }
                   })()
           }
+          date2={
+            hasVariant($state, "smallReminder", "smallReminder") &&
+            hasVariant($state, "slide3", "slide3") &&
+            hasVariant($state, "dateMode", "dateMode")
+              ? true
+              : undefined
+          }
           dialogOpendialog3={generateStateValueProp($state, [
             "reminderSetting",
             "dialogOpendialog3"
@@ -6243,10 +6250,14 @@ function PlasmicReminder__RenderFunc(props: {
         data-plasmic-name={"apiRequest"}
         data-plasmic-override={overrides.apiRequest}
         className={classNames("__wab_instance", sty.apiRequest, {
+          [sty.apiRequestdateMode]: hasVariant($state, "dateMode", "dateMode"),
           [sty.apiRequestdateMode_slide3_smallReminder]:
             hasVariant($state, "smallReminder", "smallReminder") &&
             hasVariant($state, "slide3", "slide3") &&
             hasVariant($state, "dateMode", "dateMode"),
+          [sty.apiRequestdateMode_smallReminder]:
+            hasVariant($state, "dateMode", "dateMode") &&
+            hasVariant($state, "smallReminder", "smallReminder"),
           [sty.apiRequestslide3]: hasVariant($state, "slide3", "slide3"),
           [sty.apiRequestslide3_smallReminder]:
             hasVariant($state, "slide3", "slide3") &&
@@ -6312,7 +6323,8 @@ function PlasmicReminder__RenderFunc(props: {
             ? (() => {
                 try {
                   return {
-                    authorization: $props.token
+                    authorization: $props.token,
+                    r: $state.refresh == 200 ? 200 : ""
                   };
                 } catch (e) {
                   if (

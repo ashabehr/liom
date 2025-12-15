@@ -4605,8 +4605,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                             $state.steps2.currentStep = 0;
                                             $state.dialog.opendialog = false;
                                             $state.dialog2.opendialog = false;
-                                            return ($state.select2.id =
-                                              $steps.insert.data.result);
+                                            $state.select2.id =
+                                              $steps.insert.data.result;
+                                            return ($state.refresh = 200);
                                           })();
                                         }
                                       };
@@ -7497,6 +7498,157 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                   return currentItem.token1
                                                     ? `${currentItem.name} ${currentItem.token1}`
                                                     : currentItem.name;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return "Townhall Meeting";
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()}
+                                            </React.Fragment>
+                                          </div>
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text__o4Fns,
+                                              {
+                                                [sty.textdate2__o4FnSm4Mog]:
+                                                  hasVariant(
+                                                    $state,
+                                                    "date2",
+                                                    "date2"
+                                                  ),
+                                                [sty.textslide__1__o4FnSedcqc]:
+                                                  hasVariant(
+                                                    $state,
+                                                    "slide",
+                                                    "_1"
+                                                  ),
+                                                [sty.textsmall__o4FnSz1Mcd]:
+                                                  hasVariant(
+                                                    $state,
+                                                    "small",
+                                                    "small"
+                                                  )
+                                              }
+                                            )}
+                                            onClick={async event => {
+                                              const $steps = {};
+                                            }}
+                                          >
+                                            <React.Fragment>
+                                              {(() => {
+                                                try {
+                                                  return (() => {
+                                                    try {
+                                                      let dates = JSON.parse(
+                                                        currentItem.dates
+                                                      );
+                                                      if (
+                                                        !dates ||
+                                                        dates.length === 0
+                                                      )
+                                                        return "";
+                                                      function daysRemaining(
+                                                        targetDate
+                                                      ) {
+                                                        const today =
+                                                          new Date();
+                                                        const startOfToday =
+                                                          new Date(
+                                                            today.getFullYear(),
+                                                            today.getMonth(),
+                                                            today.getDate()
+                                                          );
+                                                        const diffTime =
+                                                          targetDate -
+                                                          startOfToday;
+                                                        return Math.ceil(
+                                                          diffTime /
+                                                            (1000 *
+                                                              60 *
+                                                              60 *
+                                                              24)
+                                                        );
+                                                      }
+                                                      if (
+                                                        currentItem.schedule_type ===
+                                                        "everyYear"
+                                                      ) {
+                                                        let results = dates.map(
+                                                          dateStr => {
+                                                            let [, month, day] =
+                                                              dateStr
+                                                                .split("-")
+                                                                .map(Number);
+                                                            let now =
+                                                              new Date();
+                                                            let targetDate =
+                                                              new Date(
+                                                                now.getFullYear(),
+                                                                month - 1,
+                                                                day
+                                                              );
+                                                            if (
+                                                              targetDate < now
+                                                            ) {
+                                                              targetDate.setFullYear(
+                                                                now.getFullYear() +
+                                                                  1
+                                                              );
+                                                            }
+                                                            let remaining =
+                                                              daysRemaining(
+                                                                targetDate
+                                                              );
+                                                            if (remaining === 0)
+                                                              return "امروز";
+                                                            return `${remaining} روز مانده`;
+                                                          }
+                                                        );
+                                                        return results.join(
+                                                          " \u060C "
+                                                        );
+                                                      } else {
+                                                        let results = dates.map(
+                                                          dateStr => {
+                                                            let [
+                                                              year,
+                                                              month,
+                                                              day
+                                                            ] = dateStr
+                                                              .split("-")
+                                                              .map(Number);
+                                                            let targetDate =
+                                                              new Date(
+                                                                year,
+                                                                month - 1,
+                                                                day
+                                                              );
+                                                            let remaining =
+                                                              daysRemaining(
+                                                                targetDate
+                                                              );
+                                                            if (remaining > 0)
+                                                              return `${remaining} روز مانده`;
+                                                            if (remaining === 0)
+                                                              return "امروز";
+                                                            return "گذشته";
+                                                          }
+                                                        );
+                                                        return results.join(
+                                                          " \u060C "
+                                                        );
+                                                      }
+                                                    } catch {
+                                                      return "";
+                                                    }
+                                                  })();
                                                 } catch (e) {
                                                   if (
                                                     e instanceof TypeError ||

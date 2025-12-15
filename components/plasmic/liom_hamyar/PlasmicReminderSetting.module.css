@@ -2178,6 +2178,21 @@
   width: auto;
   flex-shrink: 1;
 }
+.text__o4Fns {
+  flex-grow: 0;
+  font-size: var(--token-Wa5tmrNKVUYF);
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  color: #2d1656;
+  text-align: right;
+  width: auto;
+  flex-shrink: 1;
+  display: none;
+}
+.textdate2__o4FnSm4Mog {
+  display: block;
+}
 .freeBox__fdVF {
   display: flex;
   flex-direction: column;

@@ -251,8 +251,7 @@ function PlasmicNotif2__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM1ZmNkNzhjLTBmMGMtNDc0Zi1iZGQzLTdiN2E1MGU2OWVlNyIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzYzMzcxMzg4fQ.thuDEZTy9exxeSqKrtM-ir-ZQ2__cxO736ZIi2Qv6JI"
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "button[].color",
@@ -338,7 +337,7 @@ function PlasmicNotif2__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
-              $steps["params"] = false
+              $steps["params"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -364,7 +363,7 @@ function PlasmicNotif2__RenderFunc(props: {
                 $steps["params"] = await $steps["params"];
               }
 
-              $steps["clearParams"] = false
+              $steps["clearParams"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -393,7 +392,7 @@ function PlasmicNotif2__RenderFunc(props: {
                 $steps["clearParams"] = await $steps["clearParams"];
               }
 
-              $steps["setCookie"] = false
+              $steps["setCookie"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -446,7 +445,8 @@ function PlasmicNotif2__RenderFunc(props: {
                             }
                             return "";
                           };
-                          return ($state.token = getCookie("token"));
+                          $state.token = getCookie("token");
+                          return console.log("1:" + $state.token);
                         })();
                       }
                     };
@@ -682,6 +682,30 @@ function PlasmicNotif2__RenderFunc(props: {
                   null,
                   eventArgs
                 );
+
+                (async data => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return console.log("2:" + $state.token);
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }).apply(null, eventArgs);
               }}
               params={
                 hasVariant($state, "noNotification", "noNotification")
@@ -710,7 +734,7 @@ function PlasmicNotif2__RenderFunc(props: {
                     e instanceof TypeError ||
                     e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    return true;
+                    return false;
                   }
                   throw e;
                 }
