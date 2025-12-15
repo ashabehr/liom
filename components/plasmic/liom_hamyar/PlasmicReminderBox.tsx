@@ -86,9 +86,17 @@ export const PlasmicReminderBox__VariantProps = new Array<VariantPropType>(
   "noPartner"
 );
 
-export type PlasmicReminderBox__ArgsType = { children2?: React.ReactNode };
+export type PlasmicReminderBox__ArgsType = {
+  children2?: React.ReactNode;
+  open?: boolean;
+  onOpenChange?: (val: string) => void;
+};
 type ArgPropType = keyof PlasmicReminderBox__ArgsType;
-export const PlasmicReminderBox__ArgProps = new Array<ArgPropType>("children2");
+export const PlasmicReminderBox__ArgProps = new Array<ArgPropType>(
+  "children2",
+  "open",
+  "onOpenChange"
+);
 
 export type PlasmicReminderBox__OverridesType = {
   reminderbox?: Flex__<"div">;
@@ -98,6 +106,8 @@ export type PlasmicReminderBox__OverridesType = {
 
 export interface DefaultReminderBoxProps {
   children2?: React.ReactNode;
+  open?: boolean;
+  onOpenChange?: (val: string) => void;
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
   noPartner?: SingleBooleanChoiceArg<"noPartner">;
   className?: string;
@@ -163,22 +173,11 @@ function PlasmicReminderBox__RenderFunc(props: {
       },
       {
         path: "open",
-        type: "private",
+        type: "writable",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return window.localStorage.getItem("reminderBox") != "false";
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })()
+
+        valueProp: "open",
+        onChangeProp: "onOpenChange"
       }
     ],
     [$props, $ctx, $refs]

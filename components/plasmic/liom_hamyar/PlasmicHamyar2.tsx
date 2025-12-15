@@ -171,6 +171,10 @@ export type PlasmicHamyar2__ArgsType = {
   onShopPage2OpenChange?: (val: boolean) => void;
   refresh?: string;
   onRefreshChange?: (val: string) => void;
+  reminderSub?: boolean;
+  onReminderSubChange?: (val: string) => void;
+  reminderBoxOpen?: boolean;
+  onReminderBoxOpenChange?: (val: boolean) => void;
   children2?: React.ReactNode;
   children?: React.ReactNode;
 };
@@ -195,6 +199,10 @@ export const PlasmicHamyar2__ArgProps = new Array<ArgPropType>(
   "onShopPage2OpenChange",
   "refresh",
   "onRefreshChange",
+  "reminderSub",
+  "onReminderSubChange",
+  "reminderBoxOpen",
+  "onReminderBoxOpenChange",
   "children2",
   "children"
 );
@@ -288,6 +296,10 @@ export interface DefaultHamyar2Props {
   onShopPage2OpenChange?: (val: boolean) => void;
   refresh?: string;
   onRefreshChange?: (val: string) => void;
+  reminderSub?: boolean;
+  onReminderSubChange?: (val: string) => void;
+  reminderBoxOpen?: boolean;
+  onReminderBoxOpenChange?: (val: boolean) => void;
   children2?: React.ReactNode;
   children?: React.ReactNode;
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
@@ -2955,28 +2967,25 @@ function PlasmicHamyar2__RenderFunc(props: {
       },
       {
         path: "reminderSub",
-        type: "private",
+        type: "writable",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return window.localStorage.getItem("SugRec") != "false";
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })()
+
+        valueProp: "reminderSub",
+        onChangeProp: "onReminderSubChange"
       },
       {
         path: "reminder2.ofline",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "reminderBox.open",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "reminderBoxOpen",
+        onChangeProp: "onReminderBoxOpenChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -12024,6 +12033,21 @@ function PlasmicHamyar2__RenderFunc(props: {
                     ? true
                     : undefined
                 }
+                onOpenChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "reminderBox",
+                    "open"
+                  ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                open={generateStateValueProp($state, ["reminderBox", "open"])}
               />
 
               <div

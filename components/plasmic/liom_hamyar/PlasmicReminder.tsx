@@ -6324,7 +6324,8 @@ function PlasmicReminder__RenderFunc(props: {
                 try {
                   return {
                     authorization: $props.token,
-                    r: $state.refresh == 200 ? 200 : ""
+                    id: $props.manId,
+                    r: $state.refresh
                   };
                 } catch (e) {
                   if (

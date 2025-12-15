@@ -4605,9 +4605,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                             $state.steps2.currentStep = 0;
                                             $state.dialog.opendialog = false;
                                             $state.dialog2.opendialog = false;
-                                            $state.select2.id =
-                                              $steps.insert.data.result;
-                                            return ($state.refresh = 200);
+                                            return ($state.select2.id =
+                                              $steps.insert.data.result);
                                           })();
                                         }
                                       };
