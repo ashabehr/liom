@@ -49,9 +49,15 @@
 .reminder3page_reminder:global(.__wab_instance) {
   display: grid;
 }
-.reminder___8YIcj:global(.__wab_instance) {
-  animation: none;
+.reminder5:global(.__wab_instance) {
   max-width: 100%;
+  display: none;
+}
+.reminder5page_hamyar:global(.__wab_instance) {
+  display: grid;
+}
+.reminder5page_reminder:global(.__wab_instance) {
+  display: grid;
 }
 .section {
   position: fixed;

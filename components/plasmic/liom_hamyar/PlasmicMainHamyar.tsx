@@ -143,6 +143,7 @@ export type PlasmicMainHamyar__OverridesType = {
   root?: Flex__<"div">;
   hamyar2?: Flex__<typeof Hamyar2>;
   reminder3?: Flex__<typeof Reminder>;
+  reminder5?: Flex__<typeof Reminder>;
   section?: Flex__<"section">;
   iframe?: Flex__<typeof Iframe>;
   selfCare2?: Flex__<typeof SelfCare2>;
@@ -850,19 +851,21 @@ function PlasmicMainHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "reminder4.refresh",
+        path: "reminder5.refresh",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
       },
       {
-        path: "reminder4.sms",
+        path: "reminder5.sms",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.activeSmsNotif;
+              return $state.hamyar2.userdata?.result?.man?.activeSmsNotif
+                ? true
+                : false;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -875,25 +878,40 @@ function PlasmicMainHamyar__RenderFunc(props: {
           })()
       },
       {
-        path: "reminder4.tel",
+        path: "reminder5.tel",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.hamyar2.userdata?.result?.man?.activeNotifTel
+                ? true
+                : false;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       },
       {
-        path: "reminder4.ofline",
+        path: "reminder5.ofline",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "reminder4.slide3",
+        path: "reminder5.slide3",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => "slide3"
       },
       {
-        path: "reminder4.reminderSettingReminderCategory2Data",
+        path: "reminder5.reminderSettingReminderCategory2Data",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({
@@ -1233,16 +1251,29 @@ function PlasmicMainHamyar__RenderFunc(props: {
         })
       },
       {
-        path: "reminder4.balance",
+        path: "reminder5.balance",
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
       },
       {
-        path: "reminder4.active",
+        path: "reminder5.active",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.page == "reminder";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -1284,6 +1315,723 @@ function PlasmicMainHamyar__RenderFunc(props: {
       <Hamyar2
         data-plasmic-name={"hamyar2"}
         data-plasmic-override={overrides.hamyar2}
+        children2={
+          <Reminder
+            data-plasmic-name={"reminder5"}
+            data-plasmic-override={overrides.reminder5}
+            active={generateStateValueProp($state, ["reminder5", "active"])}
+            activeSmsNotif={(() => {
+              try {
+                return $state.hamyar2.userdata?.result?.man?.activeSmsNotif
+                  ? true
+                  : false;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()}
+            balance={generateStateValueProp($state, ["reminder5", "balance"])}
+            className={classNames("__wab_instance", sty.reminder5, {
+              [sty.reminder5haader]: hasVariant($state, "haader", "haader"),
+              [sty.reminder5haader_page_bot]:
+                hasVariant($state, "haader", "haader") &&
+                hasVariant($state, "page", "bot"),
+              [sty.reminder5haader_page_hamyar]:
+                hasVariant($state, "page", "hamyar") &&
+                hasVariant($state, "haader", "haader"),
+              [sty.reminder5haader_page_self]:
+                hasVariant($state, "haader", "haader") &&
+                hasVariant($state, "page", "self"),
+              [sty.reminder5page_hamyar]: hasVariant($state, "page", "hamyar"),
+              [sty.reminder5page_reminder]: hasVariant(
+                $state,
+                "page",
+                "reminder"
+              )
+            })}
+            data={(() => {
+              try {
+                return $props.remind;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return [
+                    {
+                      id: 243,
+                      liomId: "1",
+                      telegramId: "5384384618",
+                      phoneNumber: null,
+                      schedule_type: "everyDay",
+                      type: null,
+                      name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628",
+                      text: "drinkWater",
+                      token1: null,
+                      dates: null,
+                      weekdays:
+                        '["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]',
+                      times:
+                        '["08:00","10:00","12:00","15:20","18:00","22:00","00:30"]',
+                      finishTime: "2026-08-27 00:00:00",
+                      chanels: '["notification","telegram"]',
+                      active: 1
+                    },
+                    {
+                      id: 255,
+                      liomId: "1",
+                      telegramId: "5384384618",
+                      phoneNumber: null,
+                      schedule_type: "everyYear",
+                      type: null,
+                      name: "\u062a\u0648\u0644\u062f \u0641\u0631\u0632\u0646\u062f",
+                      text: "birthdayBoyChild",
+                      token1: null,
+                      dates: '["2025-11-19","2026-06-24"]',
+                      weekdays:
+                        '["sunday","monday","tuesday","wednesday","friday","saturday"]',
+                      times: '["10:00"]',
+                      finishTime: null,
+                      chanels: '["notification","telegram"]',
+                      active: 1
+                    },
+                    {
+                      id: 256,
+                      liomId: "1",
+                      telegramId: "573538820",
+                      phoneNumber: "",
+                      schedule_type: "everyDay",
+                      type: null,
+                      name: "\u0642\u0631\u0635 \u0645\u0641\u0646\u0627\u0646\u06cc\u06a9 \u0627\u0633\u06cc\u062f",
+                      text: "pill",
+                      token1: null,
+                      dates: null,
+                      weekdays:
+                        '["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]',
+                      times: '["10:00","18:00","02:00"]',
+                      finishTime: "2025-09-30 23:59:59",
+                      chanels: '["notification","telegram"]',
+                      active: 1
+                    },
+                    {
+                      id: 257,
+                      liomId: "1",
+                      telegramId: "33263188",
+                      phoneNumber: "",
+                      schedule_type: "everyYear",
+                      type: null,
+                      name: "\u062a\u0648\u0644\u062f \u062d\u0644\u0645\u0627",
+                      text: "birthday",
+                      token1: null,
+                      dates: '["2026-03-29"]',
+                      weekdays:
+                        '["sunday","monday","tuesday","wednesday","friday","saturday"]',
+                      times: '["10:00"]',
+                      finishTime: "2026-12-11 23:59:02",
+                      chanels: '["notification","telegram"]',
+                      active: 1
+                    },
+                    {
+                      id: 258,
+                      liomId: "1",
+                      telegramId: "33263188",
+                      phoneNumber: "",
+                      schedule_type: "everyYear",
+                      type: null,
+                      name: "\u0631\u0648\u0632 \u0645\u0627\u062f\u0631 ",
+                      text: "motherAndWifeDayIran",
+                      token1: null,
+                      dates: '["2025-12-11"]',
+                      weekdays:
+                        '["sunday","monday","tuesday","wednesday","friday","saturday"]',
+                      times: '["10:00"]',
+                      finishTime: null,
+                      chanels: '["notification","telegram"]',
+                      active: 1
+                    },
+                    {
+                      id: 259,
+                      liomId: "1",
+                      telegramId: "372883527",
+                      phoneNumber: "09154807701",
+                      schedule_type: "everyDay",
+                      type: null,
+                      name: "\u0631\u0648\u062a\u06cc\u0646 \u067e\u0648\u0633\u062a ",
+                      text: "routineSkinMorning",
+                      token1: null,
+                      dates: null,
+                      weekdays:
+                        '["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]',
+                      times: '["10:07"]',
+                      finishTime: null,
+                      chanels: '["notification","telegram","sms"]',
+                      active: 1
+                    },
+                    {
+                      id: 260,
+                      liomId: "1",
+                      telegramId: "372883527",
+                      phoneNumber: "09154807701",
+                      schedule_type: "everyDay",
+                      type: null,
+                      name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628 ",
+                      text: "drinkWater",
+                      token1: null,
+                      dates: null,
+                      weekdays:
+                        '["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]',
+                      times: '["08:00","10:00","11:46","22:00","00:30"]',
+                      finishTime: null,
+                      chanels: '["notification","telegram","sms"]',
+                      active: 0
+                    },
+                    {
+                      id: 279,
+                      liomId: "1",
+                      telegramId: "5384384618",
+                      phoneNumber: "",
+                      schedule_type: "everyYear",
+                      type: null,
+                      name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
+                      text: "occasion",
+                      token1: null,
+                      dates: '["2026-03-08"]',
+                      weekdays: null,
+                      times: '["09:00"]',
+                      finishTime: "2025-10-04 15:04:26",
+                      chanels: '["notification","telegram"]',
+                      active: 1
+                    },
+                    {
+                      id: 358,
+                      liomId: "1ce6e0a9-217c-4c9e-9b59-2faefdc51487",
+                      telegramId: null,
+                      phoneNumber: "",
+                      schedule_type: "everyYear",
+                      type: null,
+                      name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
+                      text: "occasion",
+                      token1: null,
+                      dates: '["2026-02-14"]',
+                      weekdays: null,
+                      times: '["09:00"]',
+                      finishTime: null,
+                      chanels: "{",
+                      active: 1
+                    },
+                    {
+                      id: 359,
+                      liomId: "1ce6e0a9-217c-4c9e-9b59-2faefdc51487",
+                      telegramId: null,
+                      phoneNumber: "",
+                      schedule_type: "everyYear",
+                      type: null,
+                      name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
+                      text: "occasion",
+                      token1: null,
+                      dates: '["2026-02-18"]',
+                      weekdays: null,
+                      times: '["09:00"]',
+                      finishTime: null,
+                      chanels: '["notification","telegram"]',
+                      active: 1
+                    },
+                    {
+                      id: 360,
+                      liomId: "1ce6e0a9-217c-4c9e-9b59-2faefdc51487",
+                      telegramId: null,
+                      phoneNumber: "",
+                      schedule_type: "everyYear",
+                      type: null,
+                      name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
+                      text: "occasion",
+                      token1: null,
+                      dates: '["2026-02-18"]',
+                      weekdays: null,
+                      times: '["09:00"]',
+                      finishTime: null,
+                      chanels: "{",
+                      active: 1
+                    },
+                    {
+                      id: 361,
+                      liomId: "1ce6e0a9-217c-4c9e-9b59-2faefdc51487",
+                      telegramId: null,
+                      phoneNumber: "",
+                      schedule_type: "everyYear",
+                      type: null,
+                      name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c",
+                      text: "wedding_anniversary",
+                      token1: null,
+                      dates: '["2025-12-31"]',
+                      weekdays: null,
+                      times: '["10:00"]',
+                      finishTime: null,
+                      chanels: '["notification","telegram"]',
+                      active: 1
+                    },
+                    {
+                      id: 365,
+                      liomId: "1ce6e0a9-217c-4c9e-9b59-2faefdc51487",
+                      telegramId: null,
+                      phoneNumber: "",
+                      schedule_type: "everyYear",
+                      type: null,
+                      name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
+                      text: "occasion",
+                      token1: null,
+                      dates: '["2026-10-11"]',
+                      weekdays: null,
+                      times: '["09:00"]',
+                      finishTime: null,
+                      chanels: "{",
+                      active: 1
+                    },
+                    {
+                      id: 491,
+                      liomId: "1",
+                      telegramId: "372883527",
+                      phoneNumber: "",
+                      schedule_type: "everyYear",
+                      type: null,
+                      name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631",
+                      text: "occasion",
+                      token1: null,
+                      dates: '["2026-04-19"]',
+                      weekdays: null,
+                      times: '["10:00"]',
+                      finishTime: null,
+                      chanels: '["notification"]',
+                      active: 1
+                    },
+                    {
+                      id: 492,
+                      liomId: "1",
+                      telegramId: "372883527",
+                      phoneNumber: "",
+                      schedule_type: "everyYear",
+                      type: null,
+                      name: "\u0631\u0648\u0632 \u0648\u0644\u0646\u062a\u0627\u06cc\u0646",
+                      text: "occasion",
+                      token1: null,
+                      dates: '["2026-02-14"]',
+                      weekdays: null,
+                      times: '["10:00"]',
+                      finishTime: null,
+                      chanels: '["notification"]',
+                      active: 1
+                    },
+                    {
+                      id: 500,
+                      liomId: "1",
+                      telegramId: "372883527",
+                      phoneNumber: "",
+                      schedule_type: "everyYear",
+                      type: "wedding_anniversary",
+                      name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c",
+                      text: "wedding_anniversary",
+                      token1: null,
+                      dates: '["2026-01-01"]',
+                      weekdays: null,
+                      times: "[]",
+                      finishTime: null,
+                      chanels: '["notification","telegram"]',
+                      active: 1
+                    },
+                    {
+                      id: 507,
+                      liomId: "1",
+                      telegramId: "372883527",
+                      phoneNumber: "",
+                      schedule_type: "everyYear",
+                      type: "religious_womens_day",
+                      name: "\u0631\u0648\u0632 \u0632\u0646 (\u0627\u0633\u0644\u0627\u0645\u06cc)",
+                      text: "occasion",
+                      token1: null,
+                      dates: '["2025-12-11"]',
+                      weekdays: null,
+                      times: '["09:30"]',
+                      finishTime: null,
+                      chanels: '["notification","telegram"]',
+                      active: 1
+                    },
+                    {
+                      id: 508,
+                      liomId: "1",
+                      telegramId: "372883527",
+                      phoneNumber: "",
+                      schedule_type: "everyYear",
+                      type: "sepandarmazgan",
+                      name: "\u0631\u0648\u0632 \u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646",
+                      text: "occasion",
+                      token1: null,
+                      dates: '["2026-02-18"]',
+                      weekdays: null,
+                      times: "[]",
+                      finishTime: null,
+                      chanels: '["notification","telegram"]',
+                      active: 1
+                    },
+                    {
+                      id: 509,
+                      liomId: "1",
+                      telegramId: "372883527",
+                      phoneNumber: "",
+                      schedule_type: "everyDay",
+                      type: "Water_time",
+                      name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628qq",
+                      text: "Water_time",
+                      token1: null,
+                      dates: null,
+                      weekdays: null,
+                      times: '["00:00","00:05"]',
+                      finishTime: null,
+                      chanels: '["notification","telegram"]',
+                      active: 1
+                    },
+                    {
+                      id: 510,
+                      liomId: "1",
+                      telegramId: "372883527",
+                      phoneNumber: "",
+                      schedule_type: "everyDay",
+                      type: "Water_time",
+                      name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628",
+                      text: "Water_time",
+                      token1: null,
+                      dates: null,
+                      weekdays: null,
+                      times: '["15:15"]',
+                      finishTime: null,
+                      chanels: '["notification","telegram"]',
+                      active: 1
+                    },
+                    {
+                      id: 511,
+                      liomId: "1",
+                      telegramId: "372883527",
+                      phoneNumber: "",
+                      schedule_type: "everyDay",
+                      type: "Water_time",
+                      name: "\u0646\u0648\u0634\u06cc\u062f\u0646 ddddd\u0622\u0628",
+                      text: "Water_time",
+                      token1: null,
+                      dates: null,
+                      weekdays: null,
+                      times: '["22:50","23:05"]',
+                      finishTime: null,
+                      chanels: '["notification","telegram"]',
+                      active: 1
+                    },
+                    {
+                      id: 538,
+                      liomId: "1",
+                      telegramId: "372883527",
+                      phoneNumber: "",
+                      schedule_type: "everyDay",
+                      type: "medicine_time",
+                      name: "\u0645\u0635\u0631\u0641 \u062f\u0627\u0631\u0648",
+                      text: "medicine_time",
+                      token1: null,
+                      dates: null,
+                      weekdays:
+                        '["sunday","monday","tuesday","wednesday","friday","saturday"]',
+                      times: '["09:30"]',
+                      finishTime: null,
+                      chanels: '["notification","telegram"]',
+                      active: 1
+                    },
+                    {
+                      id: 511,
+                      liomId: "1",
+                      telegramId: "372883527",
+                      phoneNumber: "",
+                      schedule_type: "everyDay",
+                      type: "Water_time",
+                      name: "\u0646\u0648\u0634\u06cc\u062f\u0646 ddddd\u0622\u0628",
+                      text: "Water_time",
+                      token1: null,
+                      dates: null,
+                      weekdays:
+                        '["sunday","monday","tuesday","wednesday","friday","saturday"]',
+                      times: '["22:50","23:05"]',
+                      finishTime: null,
+                      chanels: '["notification","telegram"]',
+                      active: 1
+                    }
+                  ];
+                }
+                throw e;
+              }
+            })()}
+            dateMode={true}
+            manId={(() => {
+              try {
+                return $state.hamyar2.userdata?.result?.man?.id;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            onActiveChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["reminder5", "active"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onBalanceChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["reminder5", "balance"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onOflineChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["reminder5", "ofline"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onRefreshChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["reminder5", "refresh"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+
+              args.onRefreshChange.apply(null, eventArgs);
+            }}
+            onReminderSettingReminderCategory2DataChange={async (
+              ...eventArgs: any
+            ) => {
+              generateStateOnChangeProp($state, [
+                "reminder5",
+                "reminderSettingReminderCategory2Data"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onSlide3Change={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["reminder5", "slide3"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onSmsChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["reminder5", "sms"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onTelChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["reminder5", "tel"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            phone={(() => {
+              try {
+                return $state.hamyar2.userdata?.result?.man?.mobile;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            refresh={generateStateValueProp($state, ["reminder5", "refresh"])}
+            reminderSettingReminderCategory2Data={generateStateValueProp(
+              $state,
+              ["reminder5", "reminderSettingReminderCategory2Data"]
+            )}
+            setNumber={async () => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return ($state.hamyar2.mobileDialogOpen = true);
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
+            setting={args.reminderSetting}
+            shop={async () => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          $state.hamyar2.shop = true;
+                          return window.sessionStorage.setItem(
+                            "page",
+                            "settingReminder"
+                          );
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
+            slide3={generateStateValueProp($state, ["reminder5", "slide3"])}
+            smallReminder={true}
+            sms={generateStateValueProp($state, ["reminder5", "sms"])}
+            subscription={(() => {
+              try {
+                return $state.hamyar2.userdata?.result?.man?.hamyarStatus
+                  ? true
+                  : false;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })()}
+            tel={generateStateValueProp($state, ["reminder5", "tel"])}
+            telegram={(() => {
+              try {
+                return $state.hamyar2.userdata?.result?.man?.telegramId
+                  ? true
+                  : false;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()}
+            telegramId={(() => {
+              try {
+                return $state.hamyar2.userdata?.result?.man?.telegramId;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            token={(() => {
+              try {
+                return $state.token;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+          />
+        }
         className={classNames("__wab_instance", sty.hamyar2, {
           [sty.hamyar2haader]: hasVariant($state, "haader", "haader"),
           [sty.hamyar2haader_page_bot]:
@@ -3073,14 +3821,16 @@ const PlasmicDescendants = {
     "root",
     "hamyar2",
     "reminder3",
+    "reminder5",
     "section",
     "iframe",
     "selfCare2",
     "embedHtml",
     "reminder"
   ],
-  hamyar2: ["hamyar2", "reminder3"],
+  hamyar2: ["hamyar2", "reminder3", "reminder5"],
   reminder3: ["reminder3"],
+  reminder5: ["reminder5"],
   section: ["section", "iframe"],
   iframe: ["iframe"],
   selfCare2: ["selfCare2"],
@@ -3094,6 +3844,7 @@ type NodeDefaultElementType = {
   root: "div";
   hamyar2: typeof Hamyar2;
   reminder3: typeof Reminder;
+  reminder5: typeof Reminder;
   section: "section";
   iframe: typeof Iframe;
   selfCare2: typeof SelfCare2;
@@ -3165,6 +3916,7 @@ export const PlasmicMainHamyar = Object.assign(
     // Helper components rendering sub-elements
     hamyar2: makeNodeComponent("hamyar2"),
     reminder3: makeNodeComponent("reminder3"),
+    reminder5: makeNodeComponent("reminder5"),
     section: makeNodeComponent("section"),
     iframe: makeNodeComponent("iframe"),
     selfCare2: makeNodeComponent("selfCare2"),
