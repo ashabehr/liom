@@ -1282,10 +1282,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return (
-                window.localStorage.getItem("SugRec") != "false" &&
-                $state.reminder3.ofline.length > 0
-              );
+              return window.localStorage.getItem("SugRec") != "false";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1304,10 +1301,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return (
-                window.localStorage.getItem("reminderBox") != "false" &&
-                $state.reminder5.ofline.length > 0
-              );
+              return window.localStorage.getItem("reminderBox") != "false";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -2342,10 +2336,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
               initFunc: ({ $props, $state, $queries }) =>
                 (() => {
                   try {
-                    return (
-                      window.localStorage.getItem("SugRec") != "false" &&
-                      $state.reminder3.ofline.length > 0
-                    );
+                    return window.localStorage.getItem("SugRec") != "false";
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -2363,8 +2354,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
                 (() => {
                   try {
                     return (
-                      window.localStorage.getItem("reminderBox") != "false" &&
-                      $state.reminder5.ofline.length > 0
+                      window.localStorage.getItem("reminderBox") != "false"
                     );
                   } catch (e) {
                     if (
