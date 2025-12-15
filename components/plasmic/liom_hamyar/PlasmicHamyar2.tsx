@@ -72,6 +72,7 @@ import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import Cyclebox from "../../Cyclebox"; // plasmic-import: 47YEdMGPo49m/component
 import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
+import ReminderBox from "../../ReminderBox"; // plasmic-import: g0um5JESG1KZ/component
 import Reminder from "../../Reminder"; // plasmic-import: 3v9tn6uUJCPM/component
 import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
@@ -111,9 +112,9 @@ import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKs
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon304Icon from "./icons/PlasmicIcon__Icon304"; // plasmic-import: 703ShUnmEPbT/icon
 import Icon280Icon from "./icons/PlasmicIcon__Icon280"; // plasmic-import: Q1zg9JItuLZ-/icon
-import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 import Icon281Icon from "./icons/PlasmicIcon__Icon281"; // plasmic-import: LFRF9KNEKTKm/icon
 import Icon282Icon from "./icons/PlasmicIcon__Icon282"; // plasmic-import: 7X0kotbii7tD/icon
+import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 import Icon272Icon from "./icons/PlasmicIcon__Icon272"; // plasmic-import: HLKs0puyq9Ra/icon
 import Icon142Icon from "./icons/PlasmicIcon__Icon142"; // plasmic-import: SJsM-_NDX4Yl/icon
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
@@ -212,7 +213,7 @@ export type PlasmicHamyar2__OverridesType = {
   progress?: Flex__<typeof AntdProgress>;
   button23?: Flex__<typeof Button>;
   button21?: Flex__<typeof Button>;
-  reminderbox?: Flex__<"div">;
+  reminderBox?: Flex__<typeof ReminderBox>;
   checkbox?: Flex__<typeof Checkbox>;
   useful2?: Flex__<typeof Useful>;
   useful?: Flex__<typeof Useful>;
@@ -220,6 +221,7 @@ export type PlasmicHamyar2__OverridesType = {
   harmful?: Flex__<typeof Harmful>;
   nopartner2?: Flex__<"div">;
   button20?: Flex__<typeof Button>;
+  reminderSub2?: Flex__<"div">;
   modal2?: Flex__<typeof AntdModal>;
   modal3?: Flex__<typeof AntdModal>;
   shopText?: Flex__<typeof AntdModal>;
@@ -11972,174 +11974,58 @@ function PlasmicHamyar2__RenderFunc(props: {
                   </div>
                 </div>
               ) : null}
-              {(
-                hasVariant(
-                  $state,
-                  "lackOfCourseInformation",
-                  "lackOfCourseInformation"
-                )
-                  ? true
-                  : (() => {
-                      try {
-                        return (
-                          window.localStorage.getItem("testHamyar") == "true"
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
-                        }
-                        throw e;
-                      }
-                    })()
-              ) ? (
-                <div
-                  data-plasmic-name={"reminderbox"}
-                  data-plasmic-override={overrides.reminderbox}
-                  className={classNames(projectcss.all, sty.reminderbox, {
-                    [sty.reminderboxlackOfCourseInformation]: hasVariant(
-                      $state,
-                      "lackOfCourseInformation",
-                      "lackOfCourseInformation"
-                    ),
-                    [sty.reminderboxnoPartner]: hasVariant(
-                      $state,
-                      "noPartner",
-                      "noPartner"
-                    )
-                  })}
-                >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__y8Szd, {
-                      [sty.freeBoxnoPartner__y8SzdmzwVj]: hasVariant(
-                        $state,
-                        "noPartner",
-                        "noPartner"
-                      )
-                    })}
-                  >
-                    <div
+              <ReminderBox
+                data-plasmic-name={"reminderBox"}
+                data-plasmic-override={overrides.reminderBox}
+                children2={renderPlasmicSlot({
+                  defaultContents: (
+                    <Reminder
                       className={classNames(
-                        projectcss.all,
-                        sty.freeBox__iOu6J,
-                        {
-                          [sty.freeBoxlackOfCourseInformation__iOu6JmyTcU]:
-                            hasVariant(
-                              $state,
-                              "lackOfCourseInformation",
-                              "lackOfCourseInformation"
-                            ),
-                          [sty.freeBoxnoPartner__iOu6JmzwVj]: hasVariant(
-                            $state,
-                            "noPartner",
-                            "noPartner"
-                          )
-                        }
+                        "__wab_instance",
+                        sty.reminder__rAeJc
                       )}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__mjd2D,
-                          {
-                            [sty.textlackOfCourseInformation__mjd2DMyTcU]:
-                              hasVariant(
-                                $state,
-                                "lackOfCourseInformation",
-                                "lackOfCourseInformation"
-                              ),
-                            [sty.textpage_reminder__mjd2DOYwi]: hasVariant(
-                              $state,
-                              "page",
-                              "reminder"
-                            ),
-                            [sty.textremindersetting__mjd2DcnrNq]: hasVariant(
-                              $state,
-                              "remindersetting",
-                              "remindersetting"
-                            )
-                          }
-                        )}
-                      >
-                        {hasVariant(globalVariants, "screen", "mobile")
-                          ? "\u0631\u0648\u0632\u0647\u0627\u06cc \u0645\u0647\u0645 \u0631\u0648 \u0641\u0631\u0627\u0645\u0648\u0634 \u0646\u06a9\u0646!"
-                          : "\u0645\u0646\u0627\u0633\u0628\u062a\u200c\u0647\u0627\u06cc \u0646\u0632\u062f\u06cc\u06a9 \u0631\u0648 \u0627\u0632 \u062f\u0633\u062a \u0646\u062f\u0647"}
-                      </div>
-                      <XIcon
-                        className={classNames(projectcss.all, sty.svg__hIikv)}
-                        onClick={async event => {
-                          const $steps = {};
+                      dateMode={true}
+                      slide3={true}
+                      smallReminder={true}
+                    />
+                  ),
 
-                          $steps["runCode"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return (() => {
-                                      window.localStorage.setItem(
-                                        "SugRec",
-                                        "false"
-                                      );
-                                      return ($state.reminderSub = false);
-                                    })();
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
-                          ) {
-                            $steps["runCode"] = await $steps["runCode"];
-                          }
-                        }}
-                        role={"img"}
-                      />
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___2Hka8,
-                        {
-                          [sty.freeBoxlackOfCourseInformation___2Hka8MyTcU]:
-                            hasVariant(
-                              $state,
-                              "lackOfCourseInformation",
-                              "lackOfCourseInformation"
-                            ),
-                          [sty.freeBoxnoPartner___2Hka8MzwVj]: hasVariant(
-                            $state,
-                            "noPartner",
-                            "noPartner"
-                          )
-                        }
-                      )}
-                    >
-                      {renderPlasmicSlot({
-                        defaultContents: (
-                          <Reminder
-                            className={classNames(
-                              "__wab_instance",
-                              sty.reminder__xxQdz
-                            )}
-                            dateMode={true}
-                            slide3={true}
-                            smallReminder={true}
-                          />
-                        ),
+                  value: args.children2
+                })}
+                className={classNames("__wab_instance", sty.reminderBox, {
+                  [sty.reminderBoxlackOfCourseInformation]: hasVariant(
+                    $state,
+                    "lackOfCourseInformation",
+                    "lackOfCourseInformation"
+                  ),
+                  [sty.reminderBoxnoPartner]: hasVariant(
+                    $state,
+                    "noPartner",
+                    "noPartner"
+                  )
+                })}
+                lackOfCourseInformation={
+                  hasVariant(
+                    $state,
+                    "lackOfCourseInformation",
+                    "lackOfCourseInformation"
+                  ) && hasVariant(globalVariants, "screen", "mobile")
+                    ? true
+                    : hasVariant(
+                          $state,
+                          "lackOfCourseInformation",
+                          "lackOfCourseInformation"
+                        )
+                      ? true
+                      : undefined
+                }
+                noPartner={
+                  hasVariant($state, "noPartner", "noPartner")
+                    ? true
+                    : undefined
+                }
+              />
 
-                        value: args.children2
-                      })}
-                    </div>
-                  </div>
-                </div>
-              ) : null}
               <div
                 className={classNames(projectcss.all, sty.freeBox__dF2P4, {
                   [sty.freeBoxlackOfCourseInformation__dF2P4MyTcU]: hasVariant(
@@ -15996,14 +15882,15 @@ function PlasmicHamyar2__RenderFunc(props: {
                     })()
               ) ? (
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__ar5Tw, {
-                    [sty.freeBoxlackOfCourseInformation__ar5TwMyTcU]:
-                      hasVariant(
-                        $state,
-                        "lackOfCourseInformation",
-                        "lackOfCourseInformation"
-                      ),
-                    [sty.freeBoxnoPartner__ar5TwmzwVj]: hasVariant(
+                  data-plasmic-name={"reminderSub2"}
+                  data-plasmic-override={overrides.reminderSub2}
+                  className={classNames(projectcss.all, sty.reminderSub2, {
+                    [sty.reminderSub2lackOfCourseInformation]: hasVariant(
+                      $state,
+                      "lackOfCourseInformation",
+                      "lackOfCourseInformation"
+                    ),
+                    [sty.reminderSub2noPartner]: hasVariant(
                       $state,
                       "noPartner",
                       "noPartner"
@@ -27572,7 +27459,7 @@ const PlasmicDescendants = {
     "progress",
     "button23",
     "button21",
-    "reminderbox",
+    "reminderBox",
     "checkbox",
     "useful2",
     "useful",
@@ -27580,6 +27467,7 @@ const PlasmicDescendants = {
     "harmful",
     "nopartner2",
     "button20",
+    "reminderSub2",
     "modal2",
     "modal3",
     "shopText",
@@ -27638,7 +27526,7 @@ const PlasmicDescendants = {
     "progress",
     "button23",
     "button21",
-    "reminderbox",
+    "reminderBox",
     "checkbox",
     "useful2",
     "useful",
@@ -27646,6 +27534,7 @@ const PlasmicDescendants = {
     "harmful",
     "nopartner2",
     "button20",
+    "reminderSub2",
     "modal2",
     "modal3",
     "shopText",
@@ -27666,7 +27555,7 @@ const PlasmicDescendants = {
   progress: ["progress"],
   button23: ["button23"],
   button21: ["button21"],
-  reminderbox: ["reminderbox"],
+  reminderBox: ["reminderBox"],
   checkbox: ["checkbox"],
   useful2: ["useful2"],
   useful: ["useful"],
@@ -27674,6 +27563,7 @@ const PlasmicDescendants = {
   harmful: ["harmful"],
   nopartner2: ["nopartner2", "button20"],
   button20: ["button20"],
+  reminderSub2: ["reminderSub2"],
   modal2: ["modal2"],
   modal3: ["modal3"],
   shopText: ["shopText"],
@@ -27765,7 +27655,7 @@ type NodeDefaultElementType = {
   progress: typeof AntdProgress;
   button23: typeof Button;
   button21: typeof Button;
-  reminderbox: "div";
+  reminderBox: typeof ReminderBox;
   checkbox: typeof Checkbox;
   useful2: typeof Useful;
   useful: typeof Useful;
@@ -27773,6 +27663,7 @@ type NodeDefaultElementType = {
   harmful: typeof Harmful;
   nopartner2: "div";
   button20: typeof Button;
+  reminderSub2: "div";
   modal2: typeof AntdModal;
   modal3: typeof AntdModal;
   shopText: typeof AntdModal;
@@ -27893,7 +27784,7 @@ export const PlasmicHamyar2 = Object.assign(
     progress: makeNodeComponent("progress"),
     button23: makeNodeComponent("button23"),
     button21: makeNodeComponent("button21"),
-    reminderbox: makeNodeComponent("reminderbox"),
+    reminderBox: makeNodeComponent("reminderBox"),
     checkbox: makeNodeComponent("checkbox"),
     useful2: makeNodeComponent("useful2"),
     useful: makeNodeComponent("useful"),
@@ -27901,6 +27792,7 @@ export const PlasmicHamyar2 = Object.assign(
     harmful: makeNodeComponent("harmful"),
     nopartner2: makeNodeComponent("nopartner2"),
     button20: makeNodeComponent("button20"),
+    reminderSub2: makeNodeComponent("reminderSub2"),
     modal2: makeNodeComponent("modal2"),
     modal3: makeNodeComponent("modal3"),
     shopText: makeNodeComponent("shopText"),

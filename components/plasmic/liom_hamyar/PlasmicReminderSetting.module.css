@@ -58,6 +58,12 @@
     grid-column: 4;
   }
 }
+.rootsmall > * {
+  grid-column: 4;
+}
+.rootdate2 > * {
+  grid-column: 4;
+}
 .rootreport_add > * {
   grid-column: 4;
 }

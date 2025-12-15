@@ -1070,6 +1070,10 @@ function PlasmicReminder__RenderFunc(props: {
     >
       <div
         className={classNames(projectcss.all, sty.freeBox__sSYaM, {
+          [sty.freeBoxdateMode_slide3_smallReminder__sSYaMi4MdvWyFtQVctK]:
+            hasVariant($state, "slide3", "slide3") &&
+            hasVariant($state, "smallReminder", "smallReminder") &&
+            hasVariant($state, "dateMode", "dateMode"),
           [sty.freeBoxslide3__sSYaMWyFt]: hasVariant(
             $state,
             "slide3",
@@ -5327,6 +5331,10 @@ function PlasmicReminder__RenderFunc(props: {
       </div>
       <section
         className={classNames(projectcss.all, sty.section__wBpwR, {
+          [sty.sectiondateMode_slide3_smallReminder__wBpwRi4MdvWyFtQVctK]:
+            hasVariant($state, "dateMode", "dateMode") &&
+            hasVariant($state, "smallReminder", "smallReminder") &&
+            hasVariant($state, "slide3", "slide3"),
           [sty.sectionhamyar__wBpwRxX8Tw]: hasVariant(
             $state,
             "hamyar",
@@ -5378,6 +5386,10 @@ function PlasmicReminder__RenderFunc(props: {
           >
             <div
               className={classNames(projectcss.all, sty.freeBox__pDska, {
+                [sty.freeBoxdateMode_slide3_smallReminder__pDskai4MdvWyFtQVctK]:
+                  hasVariant($state, "dateMode", "dateMode") &&
+                  hasVariant($state, "smallReminder", "smallReminder") &&
+                  hasVariant($state, "slide3", "slide3"),
                 [sty.freeBoxglobal_newView_newView_slide3_smallReminder__pDska0DHvaWyFtQVctK]:
                   hasVariant($state, "slide3", "slide3") &&
                   hasVariant($state, "smallReminder", "smallReminder") &&
@@ -6348,11 +6360,12 @@ function PlasmicReminder__RenderFunc(props: {
                 })()
         }
         shouldFetch={
+          hasVariant($state, "smallReminder", "smallReminder") &&
           hasVariant($state, "slide3", "slide3") &&
-          hasVariant($state, "smallReminder", "smallReminder")
+          hasVariant($state, "dateMode", "dateMode")
             ? (() => {
                 try {
-                  return true;
+                  return $props.token != "" && $props.token != null;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -6363,22 +6376,37 @@ function PlasmicReminder__RenderFunc(props: {
                   throw e;
                 }
               })()
-            : (() => {
-                try {
-                  return (
-                    !window.sessionStorage.getItem("ofline") &&
-                    $state.slide3 == true
-                  );
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
+            : hasVariant($state, "slide3", "slide3") &&
+                hasVariant($state, "smallReminder", "smallReminder")
+              ? (() => {
+                  try {
                     return true;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
                   }
-                  throw e;
-                }
-              })()
+                })()
+              : (() => {
+                  try {
+                    return (
+                      !window.sessionStorage.getItem("ofline") &&
+                      $state.slide3 == true
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()
         }
         url={
           hasVariant($state, "smallReminder", "smallReminder") &&

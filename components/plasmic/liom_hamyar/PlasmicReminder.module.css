@@ -78,6 +78,9 @@
 .freeBoxslide3_smallReminder__sSYaMWyFtQVctK {
   padding: 0px;
 }
+.freeBoxdateMode_slide3_smallReminder__sSYaMi4MdvWyFtQVctK {
+  display: none;
+}
 .alertTelegram:global(.__wab_instance) {
   max-width: 100%;
 }
@@ -1403,6 +1406,12 @@
   display: grid;
 }
 .sectionslide3_smallReminder__wBpwRWyFtQVctK > * {
+  grid-column: 4;
+}
+.sectiondateMode_slide3_smallReminder__wBpwRi4MdvWyFtQVctK {
+  display: none;
+}
+.sectiondateMode_slide3_smallReminder__wBpwRi4MdvWyFtQVctK > * {
   grid-column: 4;
 }
 .freeBox__nYlDo {

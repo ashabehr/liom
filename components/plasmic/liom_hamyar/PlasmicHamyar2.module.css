@@ -1462,7 +1462,6 @@
   min-width: 0;
   border-radius: 8px;
   padding: 0px 8px 8px;
-  border: 1px dashed var(--token-0xHMxyAHbOos);
 }
 @media (max-width: 640px) {
   .freeBox__r5Uxy {
@@ -1609,141 +1608,13 @@
     font-size: 14px;
   }
 }
-.reminderbox {
-  display: flex;
-  flex-direction: row;
+.reminderBox:global(.__wab_instance) {
   position: relative;
-  align-items: stretch;
-  justify-content: flex-start;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-  padding: 0px;
 }
-@media (max-width: 640px) {
-  .reminderbox {
-    padding: 0px;
-  }
-}
-.reminderboxlackOfCourseInformation {
+.reminderBoxlackOfCourseInformation:global(.__wab_instance) {
   display: none;
 }
-.freeBox__y8Szd {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-start;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  background: var(--token-RfhqiwT2YAVo);
-  box-shadow: 0px 4px 16px 0px #00000014;
-  row-gap: 16px;
-  outline-color: var(--token-IlR0iqdnKI_m);
-  outline-style: solid;
-  outline-width: medium;
-  min-width: 0;
-  border-radius: 8px;
-  padding: 0px;
-}
-@media (max-width: 640px) {
-  .freeBox__y8Szd {
-    row-gap: 16px;
-    column-gap: 0px;
-  }
-}
-.freeBox__iOu6J {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  align-items: stretch;
-  justify-content: flex-start;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-  padding: 16px 16px 0px;
-}
-@media (max-width: 640px) {
-  .freeBox__iOu6J {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    border-bottom-width: 0px;
-    row-gap: 0px;
-    min-width: 0;
-    padding: 8px 8px 0px;
-  }
-}
-.text__mjd2D {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  align-self: center;
-  text-align: right;
-  font-size: var(--token-cunRwTCjQp3O);
-  font-weight: 900;
-  color: #270d53;
-  background: none;
-  padding-top: 0px;
-  min-width: 0;
-}
-@media (max-width: 640px) {
-  .text__mjd2D {
-    font-size: 18px;
-    opacity: 1;
-    color: var(--token-dqshVX6SoHxS);
-    text-align: justify;
-    width: 100%;
-    font-weight: 700;
-    min-width: 0;
-    padding: 4px 8px 0px;
-  }
-}
-.svg__hIikv {
-  object-fit: cover;
-  max-width: 100%;
-  width: 25px;
-  height: 24px;
-  color: #535353;
-  flex-shrink: 0;
-}
-.freeBox___2Hka8 {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  row-gap: 10px;
-  overflow: hidden;
-  min-width: 0;
-  padding: var(--token-uOLZE7OyOW-J);
-}
-@media (max-width: 640px) {
-  .freeBox___2Hka8 {
-    height: 100%;
-    width: auto;
-    row-gap: 8px;
-    column-gap: 0px;
-    min-height: 0;
-    padding: 0px var(--token-uOLZE7OyOW-J) var(--token-uOLZE7OyOW-J);
-  }
-}
-.freeBoxlackOfCourseInformation___2Hka8MyTcU {
-  display: none;
-}
-.freeBoxnoPartner___2Hka8MzwVj {
-  display: flex;
-}
-.reminder__xxQdz:global(.__wab_instance) {
+.reminder__rAeJc:global(.__wab_instance) {
   animation: none;
   max-width: 100%;
 }
@@ -2654,7 +2525,7 @@
   bottom: auto;
   display: none;
 }
-.freeBox__ar5Tw {
+.reminderSub2 {
   display: flex;
   flex-direction: row;
   position: relative;
@@ -2667,11 +2538,11 @@
   padding: 0px;
 }
 @media (max-width: 640px) {
-  .freeBox__ar5Tw {
+  .reminderSub2 {
     padding: 0px;
   }
 }
-.freeBoxlackOfCourseInformation__ar5TwMyTcU {
+.reminderSub2lackOfCourseInformation {
   display: none;
 }
 .freeBox___1UDay {
@@ -2685,9 +2556,9 @@
   background: var(--token-RfhqiwT2YAVo);
   box-shadow: 0px 4px 16px 0px #00000014;
   row-gap: 16px;
-  outline-color: var(--token-IlR0iqdnKI_m);
+  outline-color: var(--token-8lqFm4pa_96a);
   outline-style: solid;
-  outline-width: medium;
+  outline-width: thin;
   min-width: 0;
   border-radius: 8px;
   padding: 0px;
@@ -2755,7 +2626,7 @@
   max-width: 100%;
   width: 25px;
   height: 24px;
-  color: #535353;
+  color: var(--token-fyoD0poQfxvl);
   flex-shrink: 0;
 }
 .freeBox__oIk5R {

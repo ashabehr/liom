@@ -112,6 +112,7 @@ export type PlasmicReminderSetting__VariantMembers = {
   add: "add";
   report: "report";
   small: "small";
+  date2: "date2";
 };
 export type PlasmicReminderSetting__VariantsArgs = {
   slide?: SingleChoiceArg<"_1" | "_2">;
@@ -119,6 +120,7 @@ export type PlasmicReminderSetting__VariantsArgs = {
   add?: SingleBooleanChoiceArg<"add">;
   report?: SingleBooleanChoiceArg<"report">;
   small?: SingleBooleanChoiceArg<"small">;
+  date2?: SingleBooleanChoiceArg<"date2">;
 };
 type VariantPropType = keyof PlasmicReminderSetting__VariantsArgs;
 export const PlasmicReminderSetting__VariantProps = new Array<VariantPropType>(
@@ -126,7 +128,8 @@ export const PlasmicReminderSetting__VariantProps = new Array<VariantPropType>(
   "hamyar",
   "add",
   "report",
-  "small"
+  "small",
+  "date2"
 );
 
 export type PlasmicReminderSetting__ArgsType = {
@@ -289,6 +292,7 @@ export interface DefaultReminderSettingProps {
   add?: SingleBooleanChoiceArg<"add">;
   report?: SingleBooleanChoiceArg<"report">;
   small?: SingleBooleanChoiceArg<"small">;
+  date2?: SingleBooleanChoiceArg<"date2">;
   className?: string;
 }
 
@@ -1990,6 +1994,12 @@ function PlasmicReminderSetting__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.small
+      },
+      {
+        path: "date2",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.date2
       }
     ],
     [$props, $ctx, $refs]
@@ -2018,13 +2028,15 @@ function PlasmicReminderSetting__RenderFunc(props: {
         sty.root,
         {
           [sty.rootadd]: hasVariant($state, "add", "add"),
+          [sty.rootdate2]: hasVariant($state, "date2", "date2"),
           [sty.roothamyar]: hasVariant($state, "hamyar", "hamyar"),
           [sty.rootreport]: hasVariant($state, "report", "report"),
           [sty.rootreport_add]:
             hasVariant($state, "add", "add") &&
             hasVariant($state, "report", "report"),
           [sty.rootslide__1]: hasVariant($state, "slide", "_1"),
-          [sty.rootslide__2]: hasVariant($state, "slide", "_2")
+          [sty.rootslide__2]: hasVariant($state, "slide", "_2"),
+          [sty.rootsmall]: hasVariant($state, "small", "small")
         }
       )}
     >
@@ -10322,7 +10334,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
-                      return [0, 1, 2];
+                      return [0];
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -10348,15 +10360,35 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             "add",
                             "add"
                           ),
+                          [sty.freeBoxdate2__suk35M4Mog]: hasVariant(
+                            $state,
+                            "date2",
+                            "date2"
+                          ),
+                          [sty.freeBoxdate2_small__suk35M4MogZ1Mcd]:
+                            hasVariant($state, "small", "small") &&
+                            hasVariant($state, "date2", "date2"),
                           [sty.freeBoxslide__1__suk35Edcqc]: hasVariant(
                             $state,
                             "slide",
                             "_1"
                           ),
+                          [sty.freeBoxslide__1_date2_small__suk35EdcqcM4MogZ1Mcd]:
+                            hasVariant($state, "small", "small") &&
+                            hasVariant($state, "slide", "_1") &&
+                            hasVariant($state, "date2", "date2"),
+                          [sty.freeBoxslide__1_small__suk35EdcqcZ1Mcd]:
+                            hasVariant($state, "small", "small") &&
+                            hasVariant($state, "slide", "_1"),
                           [sty.freeBoxslide__2__suk35VJmCw]: hasVariant(
                             $state,
                             "slide",
                             "_2"
+                          ),
+                          [sty.freeBoxsmall__suk35Z1Mcd]: hasVariant(
+                            $state,
+                            "small",
+                            "small"
                           )
                         }
                       )}

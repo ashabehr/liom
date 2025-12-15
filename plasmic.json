@@ -5130,6 +5130,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicMainpan.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "g0um5JESG1KZ",
+          "name": "ReminderBox",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicReminderBox.tsx",
+          "importSpec": {
+            "modulePath": "ReminderBox.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicReminderBox.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
