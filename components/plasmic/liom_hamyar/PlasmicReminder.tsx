@@ -1015,7 +1015,10 @@ function PlasmicReminder__RenderFunc(props: {
                     if ($props.data.length === 0) {
                       $state.slide3 = true;
                     }
-                    if (window.localStorage.getItem("reminder") === "true") {
+                    if (
+                      !$state.smallReminder &&
+                      window.localStorage.getItem("reminder") === "true"
+                    ) {
                       return ($state.slide3 = false);
                     }
                   })();
