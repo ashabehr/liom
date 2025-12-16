@@ -162,6 +162,8 @@ export type PlasmicReminderSetting__ArgsType = {
   creaditButtenCreadit?: number;
   onCreaditButtenCreaditChange?: (val: number) => void;
   children?: React.ReactNode;
+  topic?: string;
+  onTopicChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicReminderSetting__ArgsType;
 export const PlasmicReminderSetting__ArgProps = new Array<ArgPropType>(
@@ -193,7 +195,9 @@ export const PlasmicReminderSetting__ArgProps = new Array<ArgPropType>(
   "onPageSelectChange",
   "creaditButtenCreadit",
   "onCreaditButtenCreaditChange",
-  "children"
+  "children",
+  "topic",
+  "onTopicChange"
 );
 
 export type PlasmicReminderSetting__OverridesType = {
@@ -287,6 +291,8 @@ export interface DefaultReminderSettingProps {
   creaditButtenCreadit?: number;
   onCreaditButtenCreaditChange?: (val: number) => void;
   children?: React.ReactNode;
+  topic?: string;
+  onTopicChange?: (val: string) => void;
   slide?: SingleChoiceArg<"_1" | "_2">;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
   add?: SingleBooleanChoiceArg<"add">;
@@ -2000,6 +2006,14 @@ function PlasmicReminderSetting__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.date2
+      },
+      {
+        path: "topic",
+        type: "writable",
+        variableType: "text",
+
+        valueProp: "topic",
+        onChangeProp: "onTopicChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -5378,6 +5392,19 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   return;
                 }
               }}
+              selected={(() => {
+                try {
+                  return $state.topic;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
               show={generateStateValueProp($state, [
                 "reminderCategory2",
                 "show"

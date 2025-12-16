@@ -3006,6 +3006,12 @@ function PlasmicHamyar2__RenderFunc(props: {
 
         valueProp: "reminderBoxHide",
         onChangeProp: "onReminderBoxHideChange"
+      },
+      {
+        path: "reminderSetting.topic",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "love"
       }
     ],
     [$props, $ctx, $refs]
@@ -23081,6 +23087,20 @@ function PlasmicHamyar2__RenderFunc(props: {
                 return;
               }
             }}
+            onTopicChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "reminderSetting",
+                "topic"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
             pageSelect={generateStateValueProp($state, [
               "reminderSetting",
               "pageSelect"
@@ -23224,6 +23244,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                 throw e;
               }
             })()}
+            topic={generateStateValueProp($state, ["reminderSetting", "topic"])}
           />
 
           <BackHandler

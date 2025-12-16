@@ -90,6 +90,7 @@ export type PlasmicReminderCategory__ArgsType = {
   onTitleChange?: (val: string) => void;
   data?: any;
   onDataChange?: (val: string) => void;
+  selected?: string;
 };
 type ArgPropType = keyof PlasmicReminderCategory__ArgsType;
 export const PlasmicReminderCategory__ArgProps = new Array<ArgPropType>(
@@ -102,7 +103,8 @@ export const PlasmicReminderCategory__ArgProps = new Array<ArgPropType>(
   "title",
   "onTitleChange",
   "data",
-  "onDataChange"
+  "onDataChange",
+  "selected"
 );
 
 export type PlasmicReminderCategory__OverridesType = {
@@ -125,6 +127,7 @@ export interface DefaultReminderCategoryProps {
   onTitleChange?: (val: string) => void;
   data?: any;
   onDataChange?: (val: string) => void;
+  selected?: string;
   className?: string;
 }
 
@@ -148,7 +151,9 @@ function PlasmicReminderCategory__RenderFunc(props: {
   const args = React.useMemo(
     () =>
       Object.assign(
-        {},
+        {
+          selected: "love"
+        },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
         )
@@ -250,7 +255,7 @@ function PlasmicReminderCategory__RenderFunc(props: {
         path: "sort.selected",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "love"
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props["selected"]
       },
       {
         path: "sort.list",
