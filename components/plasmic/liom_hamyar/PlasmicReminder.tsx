@@ -134,6 +134,8 @@ export type PlasmicReminder__ArgsType = {
   onOflineChange?: (val: string) => void;
   onSlide3Change?: (val: any) => void;
   ferst?: boolean;
+  first?: boolean;
+  onFirstChange?: (val: string) => void;
   reminderSettingReminderCategory2Data?: any;
   onReminderSettingReminderCategory2DataChange?: (val: any) => void;
   balance?: number;
@@ -165,6 +167,8 @@ export const PlasmicReminder__ArgProps = new Array<ArgPropType>(
   "onOflineChange",
   "onSlide3Change",
   "ferst",
+  "first",
+  "onFirstChange",
   "reminderSettingReminderCategory2Data",
   "onReminderSettingReminderCategory2DataChange",
   "balance",
@@ -236,6 +240,8 @@ export interface DefaultReminderProps {
   onOflineChange?: (val: string) => void;
   onSlide3Change?: (val: any) => void;
   ferst?: boolean;
+  first?: boolean;
+  onFirstChange?: (val: string) => void;
   reminderSettingReminderCategory2Data?: any;
   onReminderSettingReminderCategory2DataChange?: (val: any) => void;
   balance?: number;
@@ -608,22 +614,11 @@ function PlasmicReminder__RenderFunc(props: {
       },
       {
         path: "first",
-        type: "private",
+        type: "writable",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return window.localStorage.getItem("reminder") == "false";
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })()
+
+        valueProp: "first",
+        onChangeProp: "onFirstChange"
       },
       {
         path: "reminderSetting.refreshTime",

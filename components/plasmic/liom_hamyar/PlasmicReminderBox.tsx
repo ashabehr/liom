@@ -75,27 +75,32 @@ createPlasmicElementProxy;
 export type PlasmicReminderBox__VariantMembers = {
   lackOfCourseInformation: "lackOfCourseInformation";
   noPartner: "noPartner";
+  hide: "hide";
 };
 export type PlasmicReminderBox__VariantsArgs = {
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
   noPartner?: SingleBooleanChoiceArg<"noPartner">;
+  hide?: SingleBooleanChoiceArg<"hide">;
 };
 type VariantPropType = keyof PlasmicReminderBox__VariantsArgs;
 export const PlasmicReminderBox__VariantProps = new Array<VariantPropType>(
   "lackOfCourseInformation",
-  "noPartner"
+  "noPartner",
+  "hide"
 );
 
 export type PlasmicReminderBox__ArgsType = {
   children2?: React.ReactNode;
   open?: boolean;
   onOpenChange?: (val: string) => void;
+  onHideChange?: (val: any) => void;
 };
 type ArgPropType = keyof PlasmicReminderBox__ArgsType;
 export const PlasmicReminderBox__ArgProps = new Array<ArgPropType>(
   "children2",
   "open",
-  "onOpenChange"
+  "onOpenChange",
+  "onHideChange"
 );
 
 export type PlasmicReminderBox__OverridesType = {
@@ -108,8 +113,10 @@ export interface DefaultReminderBoxProps {
   children2?: React.ReactNode;
   open?: boolean;
   onOpenChange?: (val: string) => void;
+  onHideChange?: (val: any) => void;
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
   noPartner?: SingleBooleanChoiceArg<"noPartner">;
+  hide?: SingleBooleanChoiceArg<"hide">;
   className?: string;
 }
 
@@ -178,6 +185,14 @@ function PlasmicReminderBox__RenderFunc(props: {
 
         valueProp: "open",
         onChangeProp: "onOpenChange"
+      },
+      {
+        path: "hide",
+        type: "writable",
+        variableType: "variant",
+
+        valueProp: "hide",
+        onChangeProp: "onHideChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -225,6 +240,7 @@ function PlasmicReminderBox__RenderFunc(props: {
           styleTokensClassNames,
           sty.reminderbox,
           {
+            [sty.reminderboxhide]: hasVariant($state, "hide", "hide"),
             [sty.reminderboxlackOfCourseInformation]: hasVariant(
               $state,
               "lackOfCourseInformation",

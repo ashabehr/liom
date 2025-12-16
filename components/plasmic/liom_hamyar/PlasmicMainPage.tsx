@@ -457,6 +457,12 @@ function PlasmicMainPage__RenderFunc(props: {
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "reminder.first",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1111,6 +1117,7 @@ function PlasmicMainPage__RenderFunc(props: {
               throw e;
             }
           })()}
+          first={generateStateValueProp($state, ["reminder", "first"])}
           manId={(() => {
             try {
               return $state.calendar2.userInfo?.result?.user?.id;
@@ -1140,6 +1147,20 @@ function PlasmicMainPage__RenderFunc(props: {
           }}
           onBalanceChange={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, ["reminder", "balance"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          onFirstChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["reminder", "first"]).apply(
               null,
               eventArgs
             );

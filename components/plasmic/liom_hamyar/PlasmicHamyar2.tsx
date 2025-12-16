@@ -175,6 +175,8 @@ export type PlasmicHamyar2__ArgsType = {
   onReminderSubChange?: (val: string) => void;
   reminderBoxOpen?: boolean;
   onReminderBoxOpenChange?: (val: boolean) => void;
+  reminderBoxHide?: any;
+  onReminderBoxHideChange?: (val: any) => void;
   children2?: React.ReactNode;
   children?: React.ReactNode;
 };
@@ -203,6 +205,8 @@ export const PlasmicHamyar2__ArgProps = new Array<ArgPropType>(
   "onReminderSubChange",
   "reminderBoxOpen",
   "onReminderBoxOpenChange",
+  "reminderBoxHide",
+  "onReminderBoxHideChange",
   "children2",
   "children"
 );
@@ -300,6 +304,8 @@ export interface DefaultHamyar2Props {
   onReminderSubChange?: (val: string) => void;
   reminderBoxOpen?: boolean;
   onReminderBoxOpenChange?: (val: boolean) => void;
+  reminderBoxHide?: any;
+  onReminderBoxHideChange?: (val: any) => void;
   children2?: React.ReactNode;
   children?: React.ReactNode;
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
@@ -2986,6 +2992,20 @@ function PlasmicHamyar2__RenderFunc(props: {
 
         valueProp: "reminderBoxOpen",
         onChangeProp: "onReminderBoxOpenChange"
+      },
+      {
+        path: "reminder2.first",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "reminderBox.hide",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "reminderBoxHide",
+        onChangeProp: "onReminderBoxHideChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -12013,6 +12033,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                     "noPartner"
                   )
                 })}
+                hide={generateStateValueProp($state, ["reminderBox", "hide"])}
                 lackOfCourseInformation={
                   hasVariant(
                     $state,
@@ -12033,6 +12054,20 @@ function PlasmicHamyar2__RenderFunc(props: {
                     ? true
                     : undefined
                 }
+                onHideChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "reminderBox",
+                    "hide"
+                  ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
                 onOpenChange={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, [
                     "reminderBox",
@@ -22412,6 +22447,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                 throw e;
               }
             })()}
+            first={generateStateValueProp($state, ["reminder2", "first"])}
             manId={(() => {
               try {
                 return $state.userdata?.result?.man?.id;
@@ -22441,6 +22477,20 @@ function PlasmicHamyar2__RenderFunc(props: {
             }}
             onBalanceChange={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["reminder2", "balance"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onFirstChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["reminder2", "first"]).apply(
                 null,
                 eventArgs
               );

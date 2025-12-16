@@ -1312,6 +1312,43 @@ function PlasmicMainHamyar__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "reminder3.first",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "reminder5.first",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "reminder.first",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "hamyar2.reminderBoxHide",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.reminder5.ofline.length == 0;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -1811,6 +1848,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
                 }
               })()}
               dateMode={true}
+              first={generateStateValueProp($state, ["reminder5", "first"])}
               manId={(() => {
                 try {
                   return $state.hamyar2.userdata?.result?.man?.id;
@@ -1843,6 +1881,20 @@ function PlasmicMainHamyar__RenderFunc(props: {
                   "reminder5",
                   "balance"
                 ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onFirstChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["reminder5", "first"]).apply(
+                  null,
+                  eventArgs
+                );
 
                 if (
                   eventArgs.length > 1 &&
@@ -2154,6 +2206,20 @@ function PlasmicMainHamyar__RenderFunc(props: {
               return;
             }
           },
+          onReminderBoxHideChange: async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, [
+              "hamyar2",
+              "reminderBoxHide"
+            ]).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          },
           onReminderBoxOpenChange: async (...eventArgs: any) => {
             generateStateOnChangeProp($state, [
               "hamyar2",
@@ -2310,6 +2376,10 @@ function PlasmicMainHamyar__RenderFunc(props: {
           ]),
           refresh: generateStateValueProp($state, ["hamyar2", "refresh"]),
           remind: generateStateValueProp($state, ["hamyar2", "remind"]),
+          reminderBoxHide: generateStateValueProp($state, [
+            "hamyar2",
+            "reminderBoxHide"
+          ]),
           reminderBoxOpen: generateStateValueProp($state, [
             "hamyar2",
             "reminderBoxOpen"
@@ -2833,6 +2903,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
                   throw e;
                 }
               })()}
+              first={generateStateValueProp($state, ["reminder3", "first"])}
               manId={(() => {
                 try {
                   return $state.hamyar2.userdata?.result?.man?.id;
@@ -2865,6 +2936,20 @@ function PlasmicMainHamyar__RenderFunc(props: {
                   "reminder3",
                   "balance"
                 ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onFirstChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["reminder3", "first"]).apply(
+                  null,
+                  eventArgs
+                );
 
                 if (
                   eventArgs.length > 1 &&
@@ -3689,6 +3774,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
             throw e;
           }
         })()}
+        first={generateStateValueProp($state, ["reminder", "first"])}
         manId={(() => {
           try {
             return $state.hamyar2.userdata?.result?.man?.id;
@@ -3718,6 +3804,20 @@ function PlasmicMainHamyar__RenderFunc(props: {
         }}
         onBalanceChange={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, ["reminder", "balance"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        onFirstChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["reminder", "first"]).apply(
             null,
             eventArgs
           );

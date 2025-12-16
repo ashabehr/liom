@@ -18,6 +18,10 @@
 .reminderboxlackOfCourseInformation {
   display: none;
 }
+.reminderboxhide {
+  opacity: 0;
+  height: 0px;
+}
 .freeBox__qjT2R {
   display: flex;
   flex-direction: column;
