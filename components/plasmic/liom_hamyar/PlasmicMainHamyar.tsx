@@ -2145,7 +2145,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
             [sty.hamyar2page_self]: hasVariant($state, "page", "self")
           }),
           editCycle2: args.editCycle2,
-          headershow: true,
+          headershow: hasVariant($state, "haader", "haader") ? true : false,
           mobileDialogOpen: generateStateValueProp($state, [
             "hamyar2",
             "mobileDialogOpen"
