@@ -194,9 +194,8 @@ function PlasmicCreaditButten__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                if ($state.creadit < 0) return "red";
-                else if ($state.creadit == null) return "load";
-                else if ($state.creadit == 0) return "add";
+                if ($state.apiRequest?.data?.balance < 0) return "red";
+                else if ($state.apiRequest?.data?.balance == 0) return "add";
               })();
             } catch (e) {
               if (
@@ -265,7 +264,9 @@ function PlasmicCreaditButten__RenderFunc(props: {
           <ApiRequest
             data-plasmic-name={"apiRequest"}
             data-plasmic-override={overrides.apiRequest}
-            className={classNames("__wab_instance", sty.apiRequest)}
+            className={classNames("__wab_instance", sty.apiRequest, {
+              [sty.apiRequestaction_red]: hasVariant($state, "action", "red")
+            })}
             config={(() => {
               try {
                 return {
@@ -332,7 +333,7 @@ function PlasmicCreaditButten__RenderFunc(props: {
             }}
             shouldFetch={(() => {
               try {
-                return $props.token != "" && $props.token != null;
+                return $props.token != "";
               } catch (e) {
                 if (
                   e instanceof TypeError ||
