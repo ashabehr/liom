@@ -298,7 +298,6 @@ export const Fragment = ({
               }
               break;
             }
-                          }
             case "#calendar":  {
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage(action);}
