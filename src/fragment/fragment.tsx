@@ -487,6 +487,24 @@ export const Fragment = ({
                   typeof window.FlutterChannel.postMessage === "function"
                 ) {
                   window.FlutterChannel.postMessage(action);
+                  try {
+                    fetch("https://n7n.staas.ir/webhook/error/log", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({
+                        msg: "Unknown deepLink action",
+                        action,
+                        token,
+                        userId,
+                        inApp,
+                        theme,
+                        params,
+                        timestamp: new Date().toISOString(),
+                      }),
+                    });
+                  } catch (error) {
+                    console.error("Error reporting unknown action:", error);
+                  }
                 } else {
                   // 🚨 اینجا می‌فرستیم به سرور لاگ خطا
                   try {
