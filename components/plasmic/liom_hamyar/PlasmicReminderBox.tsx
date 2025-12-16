@@ -212,10 +212,7 @@ function PlasmicReminderBox__RenderFunc(props: {
         ? true
         : (() => {
             try {
-              return (
-                $state.open &&
-                window.localStorage.getItem("testHamyar") == "true"
-              );
+              return $state.open;
             } catch (e) {
               if (
                 e instanceof TypeError ||
