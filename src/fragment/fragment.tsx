@@ -298,6 +298,16 @@ export const Fragment = ({
               }
               break;
             }
+                          }
+            case "#calendar":  {
+              if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
+                window.FlutterChannel.postMessage(action);}
+              else {    
+                  let link = `/main/`;
+                  window.open(link, "_self");
+              }
+              break;
+            }
             case "#rediucePain": case "#reports" :  case "#irregularTest" :  case "#pcos" : {
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage(action);}
