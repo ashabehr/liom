@@ -55,21 +55,28 @@
     animation: none;
   }
 }
+.apiRequest:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
 .svg__cSlIz {
   animation: none;
   object-fit: cover;
   max-width: 100%;
   width: auto;
   height: 25px;
-  display: none;
 }
 @media (max-width: 640px) {
   .svg__cSlIz {
     animation: none;
   }
 }
-.svgaction_load__cSlIzzmZa6 {
-  display: block;
+.text__mb8Nx {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
 }
 .text__yvOe {
   position: relative;

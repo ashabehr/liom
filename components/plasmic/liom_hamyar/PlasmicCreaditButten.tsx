@@ -59,6 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -89,16 +90,19 @@ export type PlasmicCreaditButten__ArgsType = {
   creadit?: number;
   onCreaditChange2?: (val: string) => void;
   onClick?: (event: any) => void;
+  token?: string;
 };
 type ArgPropType = keyof PlasmicCreaditButten__ArgsType;
 export const PlasmicCreaditButten__ArgProps = new Array<ArgPropType>(
   "creadit",
   "onCreaditChange2",
-  "onClick"
+  "onClick",
+  "token"
 );
 
 export type PlasmicCreaditButten__OverridesType = {
   root?: Flex__<"div">;
+  apiRequest?: Flex__<typeof ApiRequest>;
   buttonLiom4?: Flex__<typeof Button>;
 };
 
@@ -106,6 +110,7 @@ export interface DefaultCreaditButtenProps {
   creadit?: number;
   onCreaditChange2?: (val: string) => void;
   onClick?: (event: any) => void;
+  token?: string;
   action?: SingleChoiceArg<"red" | "load" | "add">;
   className?: string;
 }
@@ -203,6 +208,24 @@ function PlasmicCreaditButten__RenderFunc(props: {
               throw e;
             }
           })() ?? $props.action
+      },
+      {
+        path: "apiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -239,63 +262,134 @@ function PlasmicCreaditButten__RenderFunc(props: {
     >
       <div className={classNames(projectcss.all, sty.freeBox__cIMgF)}>
         <div className={classNames(projectcss.all, sty.freeBox__fvhYh)}>
-          <Icon115Icon
-            className={classNames(projectcss.all, sty.svg__cSlIz, {
-              [sty.svgaction_load__cSlIzzmZa6]: hasVariant(
-                $state,
-                "action",
-                "load"
-              ),
-              [sty.svgaction_red__cSlIzWe6Q]: hasVariant(
-                $state,
-                "action",
-                "red"
-              )
-            })}
-            role={"img"}
-          />
-
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__yvOe,
-              "swiper-ltr",
-              {
-                [sty.textaction_add__yvOEaUqTp]: hasVariant(
-                  $state,
-                  "action",
-                  "add"
-                ),
-                [sty.textaction_load__yvOEzmZa6]: hasVariant(
-                  $state,
-                  "action",
-                  "load"
-                ),
-                [sty.textaction_red__yvOeWe6Q]: hasVariant(
-                  $state,
-                  "action",
-                  "red"
-                )
-              }
-            )}
-          >
-            <React.Fragment>
-              {(() => {
-                try {
-                  return " تومان " + $state.creadit.toLocaleString();
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "";
+          <ApiRequest
+            data-plasmic-name={"apiRequest"}
+            data-plasmic-override={overrides.apiRequest}
+            className={classNames("__wab_instance", sty.apiRequest)}
+            config={(() => {
+              try {
+                return {
+                  headers: {
+                    authorization: $props.token
                   }
-                  throw e;
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
                 }
-              })()}
-            </React.Fragment>
-          </div>
+                throw e;
+              }
+            })()}
+            errorDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__mb8Nx
+                )}
+              >
+                {"Error fetching data"}
+              </div>
+            }
+            loadingDisplay={
+              <Icon115Icon
+                className={classNames(projectcss.all, sty.svg__cSlIz, {
+                  [sty.svgaction_load__cSlIzzmZa6]: hasVariant(
+                    $state,
+                    "action",
+                    "load"
+                  ),
+                  [sty.svgaction_red__cSlIzWe6Q]: hasVariant(
+                    $state,
+                    "action",
+                    "red"
+                  )
+                })}
+                role={"img"}
+              />
+            }
+            method={"GET"}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "apiRequest",
+                "loading"
+              ]).apply(null, eventArgs);
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            shouldFetch={(() => {
+              try {
+                return $props.token != "" && $props.token != null;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })()}
+            url={"https://n8n.staas.ir/webhook/wallet"}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__yvOe,
+                "swiper-ltr",
+                {
+                  [sty.textaction_add__yvOEaUqTp]: hasVariant(
+                    $state,
+                    "action",
+                    "add"
+                  ),
+                  [sty.textaction_load__yvOEzmZa6]: hasVariant(
+                    $state,
+                    "action",
+                    "load"
+                  ),
+                  [sty.textaction_red__yvOeWe6Q]: hasVariant(
+                    $state,
+                    "action",
+                    "red"
+                  )
+                }
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $state.apiRequest?.data?.balance !== null &&
+                      $state.apiRequest?.data?.balance !== undefined
+                      ? `${$state.apiRequest.data.balance.toLocaleString()} تومان`
+                      : "";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            </div>
+          </ApiRequest>
         </div>
       </div>
       <Button
@@ -374,7 +468,8 @@ function PlasmicCreaditButten__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "buttonLiom4"],
+  root: ["root", "apiRequest", "buttonLiom4"],
+  apiRequest: ["apiRequest"],
   buttonLiom4: ["buttonLiom4"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -382,6 +477,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  apiRequest: typeof ApiRequest;
   buttonLiom4: typeof Button;
 };
 
@@ -447,6 +543,7 @@ export const PlasmicCreaditButten = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    apiRequest: makeNodeComponent("apiRequest"),
     buttonLiom4: makeNodeComponent("buttonLiom4"),
 
     // Metadata about props expected for PlasmicCreaditButten

@@ -1123,20 +1123,7 @@ function PlasmicMainCalendar__RenderFunc(props: {
         path: "creaditButten.creadit",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.mainPage.reminderBalance || null;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return -6556565565;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => -6556565565
       },
       {
         path: "page2",
@@ -2839,6 +2826,20 @@ function PlasmicMainCalendar__RenderFunc(props: {
                                   return;
                                 }
                               }}
+                              token={(() => {
+                                try {
+                                  return $state.mainPage.token;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}
                             />
                           ) : null}
                         </div>
