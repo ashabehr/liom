@@ -4336,7 +4336,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               }
 
                               $steps["insert"] =
-                                !$state.select2.id && $state.time2.length > 0
+                                !$state.select2.id &&
+                                $state.time2.length > 0 &&
+                                $state.report2.selectchanels.length > 0
                                   ? (() => {
                                       const actionArgs = {
                                         args: [
