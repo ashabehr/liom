@@ -2194,10 +2194,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   className={classNames("__wab_instance", sty.creaditButten, {
                     [sty.creaditButtenadd]: hasVariant($state, "add", "add")
                   })}
-                  creadit={generateStateValueProp($state, [
-                    "creaditButten",
-                    "creadit"
-                  ])}
                   onCreaditChange2={async (...eventArgs: any) => {
                     generateStateOnChangeProp($state, [
                       "creaditButten",

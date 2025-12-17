@@ -717,7 +717,7 @@ function PlasmicReminder__RenderFunc(props: {
         path: "creaditButten.creadit",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => -6556565565
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
         path: "balance",
@@ -6195,10 +6195,6 @@ function PlasmicReminder__RenderFunc(props: {
             className={classNames("__wab_instance", sty.creaditButten, {
               [sty.creaditButtenslide3]: hasVariant($state, "slide3", "slide3")
             })}
-            creadit={generateStateValueProp($state, [
-              "creaditButten",
-              "creadit"
-            ])}
             onClick={async event => {
               const $steps = {};
 

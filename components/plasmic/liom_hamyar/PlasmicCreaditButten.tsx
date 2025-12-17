@@ -76,10 +76,10 @@ import Icon372Icon from "./icons/PlasmicIcon__Icon372"; // plasmic-import: Wg9Ko
 createPlasmicElementProxy;
 
 export type PlasmicCreaditButten__VariantMembers = {
-  action: "red" | "load" | "add";
+  action: "red" | "add";
 };
 export type PlasmicCreaditButten__VariantsArgs = {
-  action?: SingleChoiceArg<"red" | "load" | "add">;
+  action?: SingleChoiceArg<"red" | "add">;
 };
 type VariantPropType = keyof PlasmicCreaditButten__VariantsArgs;
 export const PlasmicCreaditButten__VariantProps = new Array<VariantPropType>(
@@ -87,14 +87,12 @@ export const PlasmicCreaditButten__VariantProps = new Array<VariantPropType>(
 );
 
 export type PlasmicCreaditButten__ArgsType = {
-  creadit?: number;
   onCreaditChange2?: (val: string) => void;
   onClick?: (event: any) => void;
   token?: string;
 };
 type ArgPropType = keyof PlasmicCreaditButten__ArgsType;
 export const PlasmicCreaditButten__ArgProps = new Array<ArgPropType>(
-  "creadit",
   "onCreaditChange2",
   "onClick",
   "token"
@@ -107,11 +105,10 @@ export type PlasmicCreaditButten__OverridesType = {
 };
 
 export interface DefaultCreaditButtenProps {
-  creadit?: number;
   onCreaditChange2?: (val: string) => void;
   onClick?: (event: any) => void;
   token?: string;
-  action?: SingleChoiceArg<"red" | "load" | "add">;
+  action?: SingleChoiceArg<"red" | "add">;
   className?: string;
 }
 
@@ -180,10 +177,23 @@ function PlasmicCreaditButten__RenderFunc(props: {
       },
       {
         path: "creadit",
-        type: "writable",
+        type: "readonly",
         variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })(),
 
-        valueProp: "creadit",
         onChangeProp: "onCreaditChange2"
       },
       {
@@ -253,7 +263,6 @@ function PlasmicCreaditButten__RenderFunc(props: {
         sty.root,
         {
           [sty.rootaction_add]: hasVariant($state, "action", "add"),
-          [sty.rootaction_load]: hasVariant($state, "action", "load"),
           [sty.rootaction_red]: hasVariant($state, "action", "red")
         }
       )}
@@ -298,11 +307,6 @@ function PlasmicCreaditButten__RenderFunc(props: {
             loadingDisplay={
               <Icon115Icon
                 className={classNames(projectcss.all, sty.svg__cSlIz, {
-                  [sty.svgaction_load__cSlIzzmZa6]: hasVariant(
-                    $state,
-                    "action",
-                    "load"
-                  ),
                   [sty.svgaction_red__cSlIzWe6Q]: hasVariant(
                     $state,
                     "action",
@@ -330,6 +334,44 @@ function PlasmicCreaditButten__RenderFunc(props: {
                 null,
                 eventArgs
               );
+
+              (async data => {
+                const $steps = {};
+
+                $steps["updateCreadit"] = $state.apiRequest?.data?.balance
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["creadit"]
+                        },
+                        operation: 0,
+                        value: $state.apiRequest?.data?.balance
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateCreadit"] != null &&
+                  typeof $steps["updateCreadit"] === "object" &&
+                  typeof $steps["updateCreadit"].then === "function"
+                ) {
+                  $steps["updateCreadit"] = await $steps["updateCreadit"];
+                }
+              }).apply(null, eventArgs);
             }}
             shouldFetch={(() => {
               try {
@@ -358,11 +400,6 @@ function PlasmicCreaditButten__RenderFunc(props: {
                     "action",
                     "add"
                   ),
-                  [sty.textaction_load__yvOEzmZa6]: hasVariant(
-                    $state,
-                    "action",
-                    "load"
-                  ),
                   [sty.textaction_red__yvOeWe6Q]: hasVariant(
                     $state,
                     "action",
@@ -377,7 +414,7 @@ function PlasmicCreaditButten__RenderFunc(props: {
                     return $state.apiRequest?.data?.balance !== null &&
                       $state.apiRequest?.data?.balance !== undefined
                       ? `${$state.apiRequest.data.balance.toLocaleString()} تومان`
-                      : "";
+                      : $state.creadit;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||

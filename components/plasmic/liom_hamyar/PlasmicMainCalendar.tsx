@@ -1105,7 +1105,20 @@ function PlasmicMainCalendar__RenderFunc(props: {
         path: "reminderSetting.creaditButtenCreadit",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => -6556565565
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "mainPage.mobileDialogOpen",
@@ -1123,7 +1136,7 @@ function PlasmicMainCalendar__RenderFunc(props: {
         path: "creaditButten.creadit",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => -6556565565
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
         path: "page2",
@@ -2778,10 +2791,6 @@ function PlasmicMainCalendar__RenderFunc(props: {
                                 "__wab_instance",
                                 sty.creaditButten
                               )}
-                              creadit={generateStateValueProp($state, [
-                                "creaditButten",
-                                "creadit"
-                              ])}
                               onClick={async event => {
                                 const $steps = {};
 
