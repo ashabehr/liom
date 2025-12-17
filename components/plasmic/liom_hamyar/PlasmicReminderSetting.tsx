@@ -4734,7 +4734,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                       const actionArgs = {
                                         args: [
                                           "error",
-                                          "\u0644\u0637\u0641\u0627 \u06cc\u06a9\u06cc \u0627\u0632 \u0631\u0648\u0634 \u0647\u0627\u06cc \u0627\u0631\u0633\u0627\u0644 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0631\u0627 \u0627\u0631\u0633\u0627\u0644 \u06a9\u0646\u06cc\u062f.",
+                                          "\u0644\u0637\u0641\u0627 \u06cc\u06a9\u06cc \u0627\u0632 \u0631\u0648\u0634 \u0647\u0627\u06cc \u0627\u0631\u0633\u0627\u0644 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f.",
                                           "bottom-center"
                                         ]
                                       };
