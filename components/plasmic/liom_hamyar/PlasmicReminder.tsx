@@ -5296,7 +5296,10 @@ function PlasmicReminder__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return ($state.reminderSetting.dialogOpendialog3 = true);
+                            return (() => {
+                              $state.reminderSetting.dialogOpendialog3 = true;
+                              return ($state.reminderSetting.topic = "love");
+                            })();
                           }
                         };
                         return (({ customFunction }) => {
