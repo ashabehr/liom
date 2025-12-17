@@ -112,6 +112,7 @@ export const PlasmicMainCalendar__ArgProps = new Array<ArgPropType>();
 export type PlasmicMainCalendar__OverridesType = {
   root?: Flex__<"div">;
   hotjarReminder?: Flex__<typeof Embed>;
+  clarity?: Flex__<typeof Embed>;
   main?: Flex__<"div">;
   mainPage?: Flex__<typeof MainPage>;
   footerMain?: Flex__<typeof FooterMain>;
@@ -1217,6 +1218,15 @@ function PlasmicMainCalendar__RenderFunc(props: {
             className={classNames("__wab_instance", sty.hotjarReminder)}
             code={
               "<!-- Hotjar Tracking Code for reminderr -->\r\n<script>\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:6597966,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n</script>"
+            }
+          />
+
+          <Embed
+            data-plasmic-name={"clarity"}
+            data-plasmic-override={overrides.clarity}
+            className={classNames("__wab_instance", sty.clarity)}
+            code={
+              '<script type="text/javascript">\r\n    (function(c,l,a,r,i,t,y){\r\n        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};\r\n        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;\r\n        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);\r\n    })(window, document, "clarity", "script", "umu1p4k5sh");\r\n</script>'
             }
           />
 
@@ -4515,6 +4525,7 @@ const PlasmicDescendants = {
   root: [
     "root",
     "hotjarReminder",
+    "clarity",
     "main",
     "mainPage",
     "footerMain",
@@ -4529,6 +4540,7 @@ const PlasmicDescendants = {
     "serviceWorker"
   ],
   hotjarReminder: ["hotjarReminder"],
+  clarity: ["clarity"],
   main: [
     "main",
     "mainPage",
@@ -4556,6 +4568,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   hotjarReminder: typeof Embed;
+  clarity: typeof Embed;
   main: "div";
   mainPage: typeof MainPage;
   footerMain: typeof FooterMain;
@@ -4658,6 +4671,7 @@ export const PlasmicMainCalendar = Object.assign(
   {
     // Helper components rendering sub-elements
     hotjarReminder: makeNodeComponent("hotjarReminder"),
+    clarity: makeNodeComponent("clarity"),
     main: makeNodeComponent("main"),
     mainPage: makeNodeComponent("mainPage"),
     footerMain: makeNodeComponent("footerMain"),

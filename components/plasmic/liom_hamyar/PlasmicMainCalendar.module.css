@@ -60,6 +60,11 @@
   max-width: 100%;
   object-fit: cover;
 }
+.clarity:global(.__wab_instance) {
+  animation: none;
+  max-width: 100%;
+  object-fit: cover;
+}
 .main {
   display: flex;
   flex-direction: column;
