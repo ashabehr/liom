@@ -77,13 +77,16 @@ createPlasmicElementProxy;
 
 export type PlasmicReportItem__VariantMembers = {
   select: "select";
+  send: "send";
 };
 export type PlasmicReportItem__VariantsArgs = {
   select?: SingleBooleanChoiceArg<"select">;
+  send?: SingleBooleanChoiceArg<"send">;
 };
 type VariantPropType = keyof PlasmicReportItem__VariantsArgs;
 export const PlasmicReportItem__VariantProps = new Array<VariantPropType>(
-  "select"
+  "select",
+  "send"
 );
 
 export type PlasmicReportItem__ArgsType = {
@@ -113,6 +116,7 @@ export interface DefaultReportItemProps {
   onClick?: (event: any) => void;
   children?: React.ReactNode;
   select?: SingleBooleanChoiceArg<"select">;
+  send?: SingleBooleanChoiceArg<"send">;
   className?: string;
 }
 
@@ -189,7 +193,8 @@ function PlasmicReportItem__RenderFunc(props: {
         path: "button3.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "sand"
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "send", "send") ? [] : "sand"
       },
       {
         path: "button3.loading",
@@ -202,6 +207,12 @@ function PlasmicReportItem__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "send",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.send
       }
     ],
     [$props, $ctx, $refs]
@@ -237,7 +248,8 @@ function PlasmicReportItem__RenderFunc(props: {
             $state,
             "select",
             "select"
-          )
+          ),
+          [sty.freeBoxsend___4R0QHu6NHs]: hasVariant($state, "send", "send")
         })}
         onClick={args.onClick}
       >
@@ -247,7 +259,8 @@ function PlasmicReportItem__RenderFunc(props: {
               $state,
               "select",
               "select"
-            )
+            ),
+            [sty.freeBoxsend__mQuuAu6NHs]: hasVariant($state, "send", "send")
           })}
         >
           <div className={classNames(projectcss.all, sty.freeBox__tSh4J)}>
@@ -340,7 +353,8 @@ function PlasmicReportItem__RenderFunc(props: {
                 $state,
                 "select",
                 "select"
-              )
+              ),
+              [sty.freeBoxsend__qJyFU6NHs]: hasVariant($state, "send", "send")
             })}
           >
             <div
@@ -465,6 +479,11 @@ function PlasmicReportItem__RenderFunc(props: {
                   $state,
                   "select",
                   "select"
+                ),
+                [sty.freeBoxsend___7SeSqu6NHs]: hasVariant(
+                  $state,
+                  "send",
+                  "send"
                 )
               })}
             >
@@ -536,7 +555,8 @@ function PlasmicReportItem__RenderFunc(props: {
                 data-plasmic-name={"button3"}
                 data-plasmic-override={overrides.button3}
                 className={classNames("__wab_instance", sty.button3, {
-                  [sty.button3select]: hasVariant($state, "select", "select")
+                  [sty.button3select]: hasVariant($state, "select", "select"),
+                  [sty.button3send]: hasVariant($state, "send", "send")
                 })}
                 color={generateStateValueProp($state, ["button3", "color"])}
                 load={generateStateValueProp($state, ["button3", "load"])}
@@ -590,7 +610,13 @@ function PlasmicReportItem__RenderFunc(props: {
                 size={"compact"}
                 startIcon={
                   <Icon49Icon
-                    className={classNames(projectcss.all, sty.svg__mqVIg)}
+                    className={classNames(projectcss.all, sty.svg__mqVIg, {
+                      [sty.svgsend__mqVIgU6NHs]: hasVariant(
+                        $state,
+                        "send",
+                        "send"
+                      )
+                    })}
                     role={"img"}
                   />
                 }
@@ -599,7 +625,14 @@ function PlasmicReportItem__RenderFunc(props: {
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__oqVXw
+                    sty.text__oqVXw,
+                    {
+                      [sty.textsend__oqVXwU6NHs]: hasVariant(
+                        $state,
+                        "send",
+                        "send"
+                      )
+                    }
                   )}
                 >
                   {"\u0627\u0641\u0632\u0648\u062f\u0646"}

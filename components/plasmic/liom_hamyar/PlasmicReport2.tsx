@@ -477,6 +477,7 @@ function PlasmicReport2__RenderFunc(props: {
                           throw e;
                         }
                       })()}
+                      send={true}
                     >
                       <div
                         className={classNames(
