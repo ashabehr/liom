@@ -182,7 +182,7 @@ function PlasmicCreaditButten__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return undefined;
+              return window.sessionStorage.getItem("balance");
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -293,17 +293,7 @@ function PlasmicCreaditButten__RenderFunc(props: {
                 throw e;
               }
             })()}
-            errorDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__mb8Nx
-                )}
-              >
-                {"Error fetching data"}
-              </div>
-            }
+            errorDisplay={null}
             loadingDisplay={
               <Icon115Icon
                 className={classNames(projectcss.all, sty.svg__cSlIz, {
@@ -338,38 +328,27 @@ function PlasmicCreaditButten__RenderFunc(props: {
               (async data => {
                 const $steps = {};
 
-                $steps["updateCreadit"] = $state.apiRequest?.data?.balance
+                $steps["runCode"] = $state.apiRequest?.data?.balance
                   ? (() => {
                       const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["creadit"]
-                        },
-                        operation: 0,
-                        value: $state.apiRequest?.data?.balance
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
+                        customFunction: async () => {
+                          return window.sessionStorage.setItem(
+                            "balance",
+                            $state.apiRequest?.data?.balance
+                          );
                         }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["updateCreadit"] != null &&
-                  typeof $steps["updateCreadit"] === "object" &&
-                  typeof $steps["updateCreadit"].then === "function"
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
                 ) {
-                  $steps["updateCreadit"] = await $steps["updateCreadit"];
+                  $steps["runCode"] = await $steps["runCode"];
                 }
               }).apply(null, eventArgs);
             }}

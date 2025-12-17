@@ -2577,7 +2577,7 @@ function PlasmicHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return undefined;
+              return window.sessionStorage.getItem("balance");
             } catch (e) {
               if (
                 e instanceof TypeError ||
