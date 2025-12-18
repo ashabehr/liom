@@ -1162,3 +1162,8 @@
   max-width: 100%;
   min-width: 0;
 }
+.clarity:global(.__wab_instance) {
+  animation: none;
+  max-width: 100%;
+  object-fit: cover;
+}

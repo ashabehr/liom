@@ -159,6 +159,7 @@ export type PlasmicHamyar__OverridesType = {
   editProfile2?: Flex__<typeof EditProfile2>;
   remember?: Flex__<typeof ApiRequest>;
   apiRequest?: Flex__<typeof ApiRequest>;
+  clarity?: Flex__<typeof Embed>;
 };
 
 export interface DefaultHamyarProps {}
@@ -8352,6 +8353,15 @@ function PlasmicHamyar__RenderFunc(props: {
             shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/reminders/category"}
           />
+
+          <Embed
+            data-plasmic-name={"clarity"}
+            data-plasmic-override={overrides.clarity}
+            className={classNames("__wab_instance", sty.clarity)}
+            code={
+              '<script type="text/javascript">\r\n    (function(c,l,a,r,i,t,y){\r\n        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};\r\n        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;\r\n        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);\r\n    })(window, document, "clarity", "script", "uncdpscbcf");\r\n</script>'
+            }
+          />
         </div>
       </div>
     </React.Fragment>
@@ -8387,7 +8397,8 @@ const PlasmicDescendants = {
     "settingCycle4",
     "editProfile2",
     "remember",
-    "apiRequest"
+    "apiRequest",
+    "clarity"
   ],
   sideEffect: ["sideEffect"],
   main: ["main", "mainHamyar", "footerMain", "mainHeader", "button"],
@@ -8436,7 +8447,8 @@ const PlasmicDescendants = {
   settingCycle4: ["settingCycle4"],
   editProfile2: ["editProfile2"],
   remember: ["remember"],
-  apiRequest: ["apiRequest"]
+  apiRequest: ["apiRequest"],
+  clarity: ["clarity"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -8470,6 +8482,7 @@ type NodeDefaultElementType = {
   editProfile2: typeof EditProfile2;
   remember: typeof ApiRequest;
   apiRequest: typeof ApiRequest;
+  clarity: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -8586,6 +8599,7 @@ export const PlasmicHamyar = Object.assign(
     editProfile2: makeNodeComponent("editProfile2"),
     remember: makeNodeComponent("remember"),
     apiRequest: makeNodeComponent("apiRequest"),
+    clarity: makeNodeComponent("clarity"),
 
     // Metadata about props expected for PlasmicHamyar
     internalVariantProps: PlasmicHamyar__VariantProps,
