@@ -54871,57 +54871,90 @@ function PlasmicCalendar2__RenderFunc(props: {
                 })()}
               </div>
             </div>
-            <ReminderBox
-              data-plasmic-name={"reminderBox"}
-              data-plasmic-override={overrides.reminderBox}
-              children2={renderPlasmicSlot({
-                defaultContents: (
-                  <Reminder
-                    className={classNames(
-                      "__wab_instance",
-                      sty.reminder__ac45D
-                    )}
-                    dateMode={true}
-                    slide3={true}
-                    smallReminder={true}
-                  />
-                ),
+            {(() => {
+              const child$Props = {
+                children2: renderPlasmicSlot({
+                  defaultContents: (
+                    <Reminder
+                      className={classNames(
+                        "__wab_instance",
+                        sty.reminder__ac45D
+                      )}
+                      dateMode={true}
+                      slide3={true}
+                      smallReminder={true}
+                    />
+                  ),
 
-                value: args.reminder4
-              })}
-              className={classNames("__wab_instance", sty.reminderBox)}
-              hide={generateStateValueProp($state, ["reminderBox", "hide"])}
-              onHideChange={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "reminderBox",
-                  "hide"
-                ]).apply(null, eventArgs);
+                  value: args.reminder4
+                }),
+                className: classNames("__wab_instance", sty.reminderBox),
+                hide: generateStateValueProp($state, ["reminderBox", "hide"]),
+                onHideChange: async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "reminderBox",
+                    "hide"
+                  ]).apply(null, eventArgs);
 
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              onOpenChange={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "reminderBox",
-                  "open"
-                ]).apply(null, eventArgs);
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                },
+                onOpenChange: async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "reminderBox",
+                    "open"
+                  ]).apply(null, eventArgs);
 
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              open={generateStateValueProp($state, ["reminderBox", "open"])}
-            />
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                },
+                open: generateStateValueProp($state, ["reminderBox", "open"])
+              };
 
+              initializePlasmicStates(
+                $state,
+                [
+                  {
+                    name: "reminderBox.open",
+                    initFunc: ({ $props, $state, $queries }) =>
+                      (() => {
+                        try {
+                          return (
+                            window.localStorage.getItem("reminderBox") !=
+                            "false"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return false;
+                          }
+                          throw e;
+                        }
+                      })()
+                  }
+                ],
+                []
+              );
+              return (
+                <ReminderBox
+                  data-plasmic-name={"reminderBox"}
+                  data-plasmic-override={overrides.reminderBox}
+                  {...child$Props}
+                />
+              );
+            })()}
             <div className={classNames(projectcss.all, sty.freeBox__yaasB)}>
               <div
                 className={classNames(projectcss.all, sty.freeBox__yibS9, {

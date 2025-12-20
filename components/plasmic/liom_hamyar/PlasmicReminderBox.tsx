@@ -242,6 +242,11 @@ function PlasmicReminderBox__RenderFunc(props: {
               $state,
               "lackOfCourseInformation",
               "lackOfCourseInformation"
+            ),
+            [sty.reminderboxnoPartner]: hasVariant(
+              $state,
+              "noPartner",
+              "noPartner"
             )
           }
         )}

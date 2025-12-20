@@ -12,11 +12,16 @@
 }
 @media (max-width: 640px) {
   .reminderbox {
-    padding: 0px;
+    padding: 0px 12px;
   }
 }
 .reminderboxlackOfCourseInformation {
   display: none;
+}
+@media (max-width: 640px) {
+  .reminderboxnoPartner {
+    padding: 0px;
+  }
 }
 .reminderboxhide {
   opacity: 0;

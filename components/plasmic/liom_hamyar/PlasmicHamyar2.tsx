@@ -12104,7 +12104,9 @@ function PlasmicHamyar2__RenderFunc(props: {
                 noPartner={
                   hasVariant($state, "noPartner", "noPartner")
                     ? true
-                    : undefined
+                    : hasVariant(globalVariants, "screen", "mobile")
+                      ? true
+                      : undefined
                 }
                 onHideChange={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, [
