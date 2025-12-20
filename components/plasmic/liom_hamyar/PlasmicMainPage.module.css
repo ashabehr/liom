@@ -43,6 +43,16 @@
 .reminder2page_reminder:global(.__wab_instance) {
   display: grid;
 }
+.reminder3:global(.__wab_instance) {
+  max-width: 100%;
+  display: none;
+}
+.reminder3page_calendar:global(.__wab_instance) {
+  display: grid;
+}
+.reminder3page_reminder:global(.__wab_instance) {
+  display: grid;
+}
 .reveal__drlM:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;

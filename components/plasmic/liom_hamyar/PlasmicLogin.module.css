@@ -550,9 +550,16 @@
 .freeBoxloginPage_mobile___9Kp8K6MmOa {
   position: fixed;
   left: 16px;
-  top: 0;
+  top: 16px;
   width: auto;
   z-index: 1;
+  height: auto;
+  max-width: 100%;
+  background: var(--token-xZSjH46lB6C3);
+  flex-direction: column;
+  column-gap: 0px;
+  border-radius: 8px;
+  padding: 4px;
 }
 @media (max-width: 640px) {
   .freeBoxloginPage_mobile___9Kp8K6MmOa {
@@ -696,8 +703,11 @@
   flex-shrink: 0;
 }
 .svgloginPage_mobile__b2S9S6MmOa {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
+  transform: none;
+  color: var(--token-ODBUExjR6VEF);
+  max-width: 100%;
   flex-shrink: 0;
 }
 @media (max-width: 640px) {
@@ -1728,15 +1738,22 @@
 .freeBoxloginPage_userNameLogin__qzusCh7MIy {
   position: fixed;
   left: 16px;
-  top: 0;
+  top: 16px;
   width: auto;
   z-index: 1;
+  height: auto;
+  max-width: 100%;
+  background: var(--token-xZSjH46lB6C3);
+  flex-direction: column;
+  column-gap: 0px;
+  border-radius: 8px;
+  padding: 4px;
 }
 @media (max-width: 640px) {
   .freeBoxloginPage_userNameLogin__qzusCh7MIy {
     position: fixed;
     left: 16px;
-    top: 0px;
+    top: 16px;
     z-index: 1;
     right: auto;
     width: auto;
@@ -1849,8 +1866,10 @@
   }
 }
 .svgloginPage_userNameLogin__tsQ8YH7MIy {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
+  transform: none;
+  color: var(--token-kjnzcds1FoVY);
   flex-shrink: 0;
 }
 @media (max-width: 640px) {
@@ -3284,15 +3303,22 @@
 .freeBoxloginPage_userNameSingup__rwddxnuYv7 {
   position: fixed;
   left: 16px;
-  top: 0;
+  top: 16px;
   width: auto;
   z-index: 1;
+  height: auto;
+  max-width: 100%;
+  background: var(--token-xZSjH46lB6C3);
+  flex-direction: column;
+  column-gap: 0px;
+  border-radius: 8px;
+  padding: 4px;
 }
 @media (max-width: 640px) {
   .freeBoxloginPage_userNameSingup__rwddxnuYv7 {
     position: fixed;
     left: 16px;
-    top: 0px;
+    top: 16px;
     z-index: 1;
     right: auto;
     width: auto;
@@ -3400,8 +3426,10 @@
   }
 }
 .svgloginPage_userNameSingup__dbu9WnuYv7 {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
+  transform: none;
+  color: var(--token-kjnzcds1FoVY);
   flex-shrink: 0;
 }
 @media (max-width: 640px) {
@@ -8972,9 +9000,11 @@
 .freeBoxloginPage_mobileCode__k2QkM2GXn {
   position: fixed;
   left: 16px;
-  top: 0;
+  top: 16px;
   width: auto;
   z-index: 1;
+  background: var(--token-xZSjH46lB6C3);
+  padding: 4px;
 }
 @media (max-width: 640px) {
   .freeBoxloginPage_mobileCode__k2QkM2GXn {
@@ -9108,8 +9138,10 @@
   }
 }
 .svgloginPage_mobileCode__aydplm2GXn {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
+  color: var(--token-ODBUExjR6VEF);
+  transform: none;
   flex-shrink: 0;
 }
 @media (max-width: 640px) {
@@ -10598,15 +10630,22 @@
 .freeBoxloginPage_emailCode___6Y0UuwqwJl {
   position: fixed;
   left: 16px;
-  top: 0;
+  top: 16px;
   width: auto;
   z-index: 1;
+  height: auto;
+  max-width: 100%;
+  background: var(--token-xZSjH46lB6C3);
+  flex-direction: column;
+  column-gap: 0px;
+  border-radius: 8px;
+  padding: 4px;
 }
 @media (max-width: 640px) {
   .freeBoxloginPage_emailCode___6Y0UuwqwJl {
     position: fixed;
     left: 16px;
-    top: 0px;
+    top: 16px;
     z-index: 1;
     right: auto;
     width: auto;
@@ -10724,8 +10763,10 @@
   }
 }
 .svgloginPage_emailCode__ynPqQwqwJl {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
+  transform: none;
+  color: var(--token-kjnzcds1FoVY);
   flex-shrink: 0;
 }
 @media (max-width: 640px) {
@@ -12092,9 +12133,16 @@
 .freeBoxloginPage_email__v8TouIYwOs {
   position: fixed;
   left: 16px;
-  top: 0;
+  top: 16px;
   width: auto;
   z-index: 1;
+  height: auto;
+  max-width: 100%;
+  background: var(--token-xZSjH46lB6C3);
+  flex-direction: column;
+  column-gap: 0px;
+  border-radius: 8px;
+  padding: 4px;
 }
 @media (max-width: 640px) {
   .freeBoxloginPage_email__v8TouIYwOs {
@@ -12233,8 +12281,10 @@
   }
 }
 .svgloginPage_email__ia5KcIYwOs {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
+  transform: none;
+  color: var(--token-kjnzcds1FoVY);
   flex-shrink: 0;
 }
 @media (max-width: 640px) {
@@ -13440,6 +13490,13 @@
   top: 16px;
   width: auto;
   z-index: 1;
+  height: auto;
+  max-width: 100%;
+  background: var(--token-xZSjH46lB6C3);
+  flex-direction: column;
+  column-gap: 0px;
+  border-radius: 8px;
+  padding: 4px;
 }
 @media (max-width: 640px) {
   .freeBoxloginPage_name__sfpx4HUiKy {
@@ -13568,8 +13625,10 @@
   }
 }
 .svgloginPage_name__nSkk1HUiKy {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
+  transform: none;
+  color: var(--token-kjnzcds1FoVY);
   flex-shrink: 0;
 }
 @media (max-width: 640px) {

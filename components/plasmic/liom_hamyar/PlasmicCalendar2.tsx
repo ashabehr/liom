@@ -133,7 +133,10 @@ export type PlasmicCalendar2__ArgsType = {
   fuchereCycle?: (event: any) => void;
   reminderBoxHide?: any;
   onReminderBoxHideChange?: (val: any) => void;
+  reminderBoxHide2?: any;
+  onReminderBoxHide2Change?: (val: any) => void;
   reminder4?: React.ReactNode;
+  reminder6?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicCalendar2__ArgsType;
 export const PlasmicCalendar2__ArgProps = new Array<ArgPropType>(
@@ -150,7 +153,10 @@ export const PlasmicCalendar2__ArgProps = new Array<ArgPropType>(
   "fuchereCycle",
   "reminderBoxHide",
   "onReminderBoxHideChange",
-  "reminder4"
+  "reminderBoxHide2",
+  "onReminderBoxHide2Change",
+  "reminder4",
+  "reminder6"
 );
 
 export type PlasmicCalendar2__OverridesType = {
@@ -193,6 +199,7 @@ export type PlasmicCalendar2__OverridesType = {
   collapseMother3?: Flex__<typeof AntdSingleCollapse>;
   useful?: Flex__<typeof Useful>;
   harmful?: Flex__<typeof Harmful>;
+  reminderBox2?: Flex__<typeof ReminderBox>;
   shopModalWeb?: Flex__<typeof AntdModal>;
   modal2?: Flex__<typeof AntdModal>;
   modal3?: Flex__<typeof AntdModal>;
@@ -236,7 +243,10 @@ export interface DefaultCalendar2Props {
   fuchereCycle?: (event: any) => void;
   reminderBoxHide?: any;
   onReminderBoxHideChange?: (val: any) => void;
+  reminderBoxHide2?: any;
+  onReminderBoxHide2Change?: (val: any) => void;
   reminder4?: React.ReactNode;
+  reminder6?: React.ReactNode;
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
   className?: string;
 }
@@ -2257,6 +2267,35 @@ function PlasmicCalendar2__RenderFunc(props: {
 
         valueProp: "reminderBoxHide",
         onChangeProp: "onReminderBoxHideChange"
+      },
+      {
+        path: "reminderBox2.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.sugRec
+                ? window.localStorage.getItem("reminderBox") != "false"
+                : window.localStorage.getItem("SugRec") != "false";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "reminderBox2.hide",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "reminderBoxHide2",
+        onChangeProp: "onReminderBoxHide2Change"
       }
     ],
     [$props, $ctx, $refs]
@@ -56836,6 +56875,58 @@ function PlasmicCalendar2__RenderFunc(props: {
                 </div>
               </div>
             ) : null}
+            <ReminderBox
+              data-plasmic-name={"reminderBox2"}
+              data-plasmic-override={overrides.reminderBox2}
+              children2={renderPlasmicSlot({
+                defaultContents: (
+                  <Reminder
+                    className={classNames(
+                      "__wab_instance",
+                      sty.reminder___5P4Ye
+                    )}
+                    dateMode={true}
+                    slide3={true}
+                    smallReminder={true}
+                  />
+                ),
+
+                value: args.reminder6
+              })}
+              className={classNames("__wab_instance", sty.reminderBox2)}
+              hide={generateStateValueProp($state, ["reminderBox2", "hide"])}
+              onHideChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminderBox2",
+                  "hide"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onOpenChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminderBox2",
+                  "open"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              open={generateStateValueProp($state, ["reminderBox2", "open"])}
+              sugRec={true}
+            />
+
             <AntdModal
               data-plasmic-name={"shopModalWeb"}
               data-plasmic-override={overrides.shopModalWeb}
@@ -59844,6 +59935,7 @@ const PlasmicDescendants = {
     "collapseMother3",
     "useful",
     "harmful",
+    "reminderBox2",
     "shopModalWeb",
     "modal2",
     "modal3",
@@ -59911,6 +60003,7 @@ const PlasmicDescendants = {
     "collapseMother3",
     "useful",
     "harmful",
+    "reminderBox2",
     "shopModalWeb",
     "modal2",
     "modal3",
@@ -59945,6 +60038,7 @@ const PlasmicDescendants = {
   collapseMother3: ["collapseMother3", "useful", "harmful"],
   useful: ["useful"],
   harmful: ["harmful"],
+  reminderBox2: ["reminderBox2"],
   shopModalWeb: ["shopModalWeb"],
   modal2: ["modal2"],
   modal3: ["modal3"],
@@ -60030,6 +60124,7 @@ type NodeDefaultElementType = {
   collapseMother3: typeof AntdSingleCollapse;
   useful: typeof Useful;
   harmful: typeof Harmful;
+  reminderBox2: typeof ReminderBox;
   shopModalWeb: typeof AntdModal;
   modal2: typeof AntdModal;
   modal3: typeof AntdModal;
@@ -60159,6 +60254,7 @@ export const PlasmicCalendar2 = Object.assign(
     collapseMother3: makeNodeComponent("collapseMother3"),
     useful: makeNodeComponent("useful"),
     harmful: makeNodeComponent("harmful"),
+    reminderBox2: makeNodeComponent("reminderBox2"),
     shopModalWeb: makeNodeComponent("shopModalWeb"),
     modal2: makeNodeComponent("modal2"),
     modal3: makeNodeComponent("modal3"),

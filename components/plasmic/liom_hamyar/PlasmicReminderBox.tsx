@@ -76,17 +76,20 @@ export type PlasmicReminderBox__VariantMembers = {
   lackOfCourseInformation: "lackOfCourseInformation";
   noPartner: "noPartner";
   hide: "hide";
+  sugRec: "sugRec";
 };
 export type PlasmicReminderBox__VariantsArgs = {
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
   noPartner?: SingleBooleanChoiceArg<"noPartner">;
   hide?: SingleBooleanChoiceArg<"hide">;
+  sugRec?: SingleBooleanChoiceArg<"sugRec">;
 };
 type VariantPropType = keyof PlasmicReminderBox__VariantsArgs;
 export const PlasmicReminderBox__VariantProps = new Array<VariantPropType>(
   "lackOfCourseInformation",
   "noPartner",
-  "hide"
+  "hide",
+  "sugRec"
 );
 
 export type PlasmicReminderBox__ArgsType = {
@@ -117,6 +120,7 @@ export interface DefaultReminderBoxProps {
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
   noPartner?: SingleBooleanChoiceArg<"noPartner">;
   hide?: SingleBooleanChoiceArg<"hide">;
+  sugRec?: SingleBooleanChoiceArg<"sugRec">;
   className?: string;
 }
 
@@ -193,6 +197,33 @@ function PlasmicReminderBox__RenderFunc(props: {
 
         valueProp: "hide",
         onChangeProp: "onHideChange"
+      },
+      {
+        path: "sugRec",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.sugRec
+      },
+      {
+        path: "openBox",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.sugRec
+                ? window.localStorage.getItem("reminderBox") != "false"
+                : window.localStorage.getItem("SugRec") != "false";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -212,7 +243,7 @@ function PlasmicReminderBox__RenderFunc(props: {
         ? true
         : (() => {
             try {
-              return $state.open;
+              return $state.openBox;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -247,33 +278,61 @@ function PlasmicReminderBox__RenderFunc(props: {
               $state,
               "noPartner",
               "noPartner"
-            )
+            ),
+            [sty.reminderboxsugRec]: hasVariant($state, "sugRec", "sugRec"),
+            [sty.reminderboxsugRec_noPartner]:
+              hasVariant($state, "sugRec", "sugRec") &&
+              hasVariant($state, "noPartner", "noPartner")
           }
         )}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__qjT2R)}>
-          <div className={classNames(projectcss.all, sty.freeBox__f6Cap)}>
+        <div
+          className={classNames(projectcss.all, sty.freeBox__qjT2R, {
+            [sty.freeBoxsugRec__qjT2RiJi5]: hasVariant(
+              $state,
+              "sugRec",
+              "sugRec"
+            ),
+            [sty.freeBoxsugRec_noPartner__qjT2RiJi5Kctlb]:
+              hasVariant($state, "sugRec", "sugRec") &&
+              hasVariant($state, "noPartner", "noPartner")
+          })}
+        >
+          <div
+            className={classNames(projectcss.all, sty.freeBox__f6Cap, {
+              [sty.freeBoxsugRec__f6CapIJi5]: hasVariant(
+                $state,
+                "sugRec",
+                "sugRec"
+              )
+            })}
+          >
             <div
               data-plasmic-name={"text"}
               data-plasmic-override={overrides.text}
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text
+                sty.text,
+                { [sty.textsugRec]: hasVariant($state, "sugRec", "sugRec") }
               )}
             >
-              {hasVariant(globalVariants, "screen", "mobile")
-                ? "\u0645\u0646\u0627\u0633\u0628\u062a\u200c\u0647\u0627\u06cc \u0646\u0632\u062f\u06cc\u06a9 \u0631\u0648 \u0641\u0631\u0627\u0645\u0648\u0634 \u0646\u06a9\u0646 ! "
-                : "\u0645\u0646\u0627\u0633\u0628\u062a\u200c\u0647\u0627\u06cc \u0646\u0632\u062f\u06cc\u06a9 \u0631\u0648 \u0641\u0631\u0627\u0645\u0648\u0634 \u0646\u06a9\u0646 ! "}
+              {hasVariant($state, "sugRec", "sugRec")
+                ? "\u0631\u0648\u0632\u0647\u0627\u06cc \u0645\u0647\u0645 \u0631\u0648 \u0641\u0631\u0627\u0645\u0648\u0634 \u0646\u06a9\u0646!"
+                : hasVariant(globalVariants, "screen", "mobile")
+                  ? "\u0645\u0646\u0627\u0633\u0628\u062a\u200c\u0647\u0627\u06cc \u0646\u0632\u062f\u06cc\u06a9 \u0631\u0648 \u0641\u0631\u0627\u0645\u0648\u0634 \u0646\u06a9\u0646 ! "
+                  : "\u0645\u0646\u0627\u0633\u0628\u062a\u200c\u0647\u0627\u06cc \u0646\u0632\u062f\u06cc\u06a9 \u0631\u0648 \u0641\u0631\u0627\u0645\u0648\u0634 \u0646\u06a9\u0646 ! "}
             </div>
             <XIcon
               data-plasmic-name={"svg"}
               data-plasmic-override={overrides.svg}
-              className={classNames(projectcss.all, sty.svg)}
+              className={classNames(projectcss.all, sty.svg, {
+                [sty.svgsugRec]: hasVariant($state, "sugRec", "sugRec")
+              })}
               onClick={async event => {
                 const $steps = {};
 
-                $steps["runCode"] = true
+                $steps["runCode"] = !$state.sugRec
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
@@ -295,6 +354,29 @@ function PlasmicReminderBox__RenderFunc(props: {
                 ) {
                   $steps["runCode"] = await $steps["runCode"];
                 }
+
+                $steps["runCode2"] = $state.sugRec
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            window.localStorage.setItem("SugRec", "false");
+                            return ($state.open = false);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode2"] != null &&
+                  typeof $steps["runCode2"] === "object" &&
+                  typeof $steps["runCode2"].then === "function"
+                ) {
+                  $steps["runCode2"] = await $steps["runCode2"];
+                }
               }}
               role={"img"}
             />
@@ -310,6 +392,11 @@ function PlasmicReminderBox__RenderFunc(props: {
                 $state,
                 "noPartner",
                 "noPartner"
+              ),
+              [sty.freeBoxsugRec__sN06UIJi5]: hasVariant(
+                $state,
+                "sugRec",
+                "sugRec"
               )
             })}
           >

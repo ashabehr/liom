@@ -89,12 +89,14 @@ import Icon108Icon from "./icons/PlasmicIcon__Icon108"; // plasmic-import: P364T
 import Icon109Icon from "./icons/PlasmicIcon__Icon109"; // plasmic-import: rDm5lm_Drjuw/icon
 import Icon110Icon from "./icons/PlasmicIcon__Icon110"; // plasmic-import: yNwSkfuj5hYK/icon
 import IconIcon from "../radix_ui/icons/PlasmicIcon__Icon"; // plasmic-import: MbDRsJU0e3bw/icon
+import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
 import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: rjflJ2D4OoXB/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon116Icon from "./icons/PlasmicIcon__Icon116"; // plasmic-import: VyeEoKQrulIJ/icon
 import Icon117Icon from "./icons/PlasmicIcon__Icon117"; // plasmic-import: LYjQaTZDlGsf/icon
+import ChevronLeftIcon2 from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: DnjmD0szshuz/icon
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
 
@@ -2641,7 +2643,12 @@ function PlasmicLogin__RenderFunc(props: {
                     }
                   }}
                 >
-                  <IconIcon
+                  <PlasmicIcon__
+                    PlasmicIconType={
+                      hasVariant($state, "loginPage", "mobile")
+                        ? ChevronLeftIcon
+                        : IconIcon
+                    }
                     className={classNames(projectcss.all, sty.svg__b2S9S, {
                       [sty.svgloginPage_emailCode__b2S9SwqwJl]: hasVariant(
                         $state,
@@ -4207,7 +4214,12 @@ function PlasmicLogin__RenderFunc(props: {
                     }
                   }}
                 >
-                  <IconIcon
+                  <PlasmicIcon__
+                    PlasmicIconType={
+                      hasVariant($state, "loginPage", "userNameLogin")
+                        ? ChevronLeftIcon
+                        : IconIcon
+                    }
                     className={classNames(projectcss.all, sty.svg__tsQ8Y, {
                       [sty.svgloginPage_emailCode__tsQ8YwqwJl]: hasVariant(
                         $state,
@@ -6299,7 +6311,12 @@ function PlasmicLogin__RenderFunc(props: {
                     }
                   }}
                 >
-                  <IconIcon
+                  <PlasmicIcon__
+                    PlasmicIconType={
+                      hasVariant($state, "loginPage", "userNameSingup")
+                        ? ChevronLeftIcon
+                        : IconIcon
+                    }
                     className={classNames(projectcss.all, sty.svg__dbu9W, {
                       [sty.svgloginPage_emailCode__dbu9WwqwJl]: hasVariant(
                         $state,
@@ -14441,7 +14458,12 @@ function PlasmicLogin__RenderFunc(props: {
                     }
                   }}
                 >
-                  <IconIcon
+                  <PlasmicIcon__
+                    PlasmicIconType={
+                      hasVariant($state, "loginPage", "mobileCode")
+                        ? ChevronLeftIcon
+                        : IconIcon
+                    }
                     className={classNames(projectcss.all, sty.svg__aydpl, {
                       [sty.svgloginPage_emailCode__aydplwqwJl]: hasVariant(
                         $state,
@@ -16772,7 +16794,12 @@ function PlasmicLogin__RenderFunc(props: {
                     }
                   }}
                 >
-                  <IconIcon
+                  <PlasmicIcon__
+                    PlasmicIconType={
+                      hasVariant($state, "loginPage", "emailCode")
+                        ? ChevronLeftIcon
+                        : IconIcon
+                    }
                     className={classNames(projectcss.all, sty.svg__ynPqQ, {
                       [sty.svgloginPage_emailCode__ynPqQwqwJl]: hasVariant(
                         $state,
@@ -18872,7 +18899,12 @@ function PlasmicLogin__RenderFunc(props: {
                     }
                   }}
                 >
-                  <IconIcon
+                  <PlasmicIcon__
+                    PlasmicIconType={
+                      hasVariant($state, "loginPage", "email")
+                        ? ChevronLeftIcon2
+                        : IconIcon
+                    }
                     className={classNames(projectcss.all, sty.svg__ia5Kc, {
                       [sty.svgloginPage_emailCode__ia5KcwqwJl]: hasVariant(
                         $state,
@@ -20673,7 +20705,12 @@ function PlasmicLogin__RenderFunc(props: {
                 }
               }}
             >
-              <IconIcon
+              <PlasmicIcon__
+                PlasmicIconType={
+                  hasVariant($state, "loginPage", "name")
+                    ? ChevronLeftIcon
+                    : IconIcon
+                }
                 className={classNames(projectcss.all, sty.svg__nSkk1, {
                   [sty.svgloginPage_emailCode__nSkk1WqwJl]: hasVariant(
                     $state,
