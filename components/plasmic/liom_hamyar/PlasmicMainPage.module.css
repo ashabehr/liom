@@ -37,6 +37,9 @@
   max-width: 100%;
   display: none;
 }
+.reminder2page_calendar:global(.__wab_instance) {
+  display: grid;
+}
 .reminder2page_reminder:global(.__wab_instance) {
   display: grid;
 }
