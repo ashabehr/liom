@@ -130,7 +130,7 @@
   background: none;
   min-width: 0;
 }
-.svg {
+.svg__evZmj {
   object-fit: cover;
   max-width: 100%;
   width: 25px;
@@ -138,7 +138,19 @@
   color: var(--token-9ZLfeYvkiwTC);
   flex-shrink: 0;
 }
-.svgsugRec {
+.svgsugRec__evZmjIJi5 {
+  color: var(--token-fyoD0poQfxvl);
+}
+.svg__md7W1 {
+  object-fit: cover;
+  max-width: 100%;
+  width: 25px;
+  height: 24px;
+  color: var(--token-9ZLfeYvkiwTC);
+  flex-shrink: 0;
+  display: none;
+}
+.svgsugRec__md7W1IJi5 {
   color: var(--token-fyoD0poQfxvl);
 }
 .freeBox__sN06U {

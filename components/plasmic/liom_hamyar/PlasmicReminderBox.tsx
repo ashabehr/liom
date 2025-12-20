@@ -109,7 +109,6 @@ export const PlasmicReminderBox__ArgProps = new Array<ArgPropType>(
 export type PlasmicReminderBox__OverridesType = {
   reminderbox?: Flex__<"div">;
   text?: Flex__<"div">;
-  svg?: Flex__<"svg">;
 };
 
 export interface DefaultReminderBoxProps {
@@ -211,9 +210,12 @@ function PlasmicReminderBox__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.sugRec
-                ? window.localStorage.getItem("reminderBox") != "false"
-                : window.localStorage.getItem("SugRec") != "false";
+              return (() => {
+                if ($state.sugRec)
+                  return window.localStorage.getItem("SugRec") != "false";
+                else
+                  return window.localStorage.getItem("reminderBox") != "false";
+              })();
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -324,38 +326,17 @@ function PlasmicReminderBox__RenderFunc(props: {
                   : "\u0645\u0646\u0627\u0633\u0628\u062a\u200c\u0647\u0627\u06cc \u0646\u0632\u062f\u06cc\u06a9 \u0631\u0648 \u0641\u0631\u0627\u0645\u0648\u0634 \u0646\u06a9\u0646 ! "}
             </div>
             <XIcon
-              data-plasmic-name={"svg"}
-              data-plasmic-override={overrides.svg}
-              className={classNames(projectcss.all, sty.svg, {
-                [sty.svgsugRec]: hasVariant($state, "sugRec", "sugRec")
+              className={classNames(projectcss.all, sty.svg__evZmj, {
+                [sty.svgsugRec__evZmjIJi5]: hasVariant(
+                  $state,
+                  "sugRec",
+                  "sugRec"
+                )
               })}
               onClick={async event => {
                 const $steps = {};
 
-                $steps["runCode"] = !$state.sugRec
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            window.localStorage.setItem("reminderBox", "false");
-                            return ($state.open = false);
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
-                ) {
-                  $steps["runCode"] = await $steps["runCode"];
-                }
-
-                $steps["runCode2"] = $state.sugRec
+                $steps["runCode2"] = true
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
@@ -376,6 +357,43 @@ function PlasmicReminderBox__RenderFunc(props: {
                   typeof $steps["runCode2"].then === "function"
                 ) {
                   $steps["runCode2"] = await $steps["runCode2"];
+                }
+              }}
+              role={"img"}
+            />
+
+            <XIcon
+              className={classNames(projectcss.all, sty.svg__md7W1, {
+                [sty.svgsugRec__md7W1IJi5]: hasVariant(
+                  $state,
+                  "sugRec",
+                  "sugRec"
+                )
+              })}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            window.localStorage.setItem("reminderBox", "false");
+                            return ($state.open = false);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
                 }
               }}
               role={"img"}
@@ -420,9 +438,8 @@ function PlasmicReminderBox__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  reminderbox: ["reminderbox", "text", "svg"],
-  text: ["text"],
-  svg: ["svg"]
+  reminderbox: ["reminderbox", "text"],
+  text: ["text"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -430,7 +447,6 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   reminderbox: "div";
   text: "div";
-  svg: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -496,7 +512,6 @@ export const PlasmicReminderBox = Object.assign(
   {
     // Helper components rendering sub-elements
     text: makeNodeComponent("text"),
-    svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicReminderBox
     internalVariantProps: PlasmicReminderBox__VariantProps,
