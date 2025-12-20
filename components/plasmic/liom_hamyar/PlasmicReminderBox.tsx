@@ -341,7 +341,7 @@ function PlasmicReminderBox__RenderFunc(props: {
                       const actionArgs = {
                         customFunction: async () => {
                           return (() => {
-                            window.localStorage.setItem("SugRec", "false");
+                            window.localStorage.setItem("reminderBox", "false");
                             return ($state.open = false);
                           })();
                         }
@@ -378,7 +378,7 @@ function PlasmicReminderBox__RenderFunc(props: {
                       const actionArgs = {
                         customFunction: async () => {
                           return (() => {
-                            window.localStorage.setItem("reminderBox", "false");
+                            window.localStorage.setItem("SugRec", "false");
                             return ($state.open = false);
                           })();
                         }

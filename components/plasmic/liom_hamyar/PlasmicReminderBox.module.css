@@ -137,9 +137,12 @@
   height: 24px;
   color: var(--token-9ZLfeYvkiwTC);
   flex-shrink: 0;
+  display: none;
 }
 .svgsugRec__evZmjIJi5 {
   color: var(--token-fyoD0poQfxvl);
+  height: 25px;
+  display: block;
 }
 .svg__md7W1 {
   object-fit: cover;
@@ -148,10 +151,10 @@
   height: 24px;
   color: var(--token-9ZLfeYvkiwTC);
   flex-shrink: 0;
-  display: none;
 }
 .svgsugRec__md7W1IJi5 {
   color: var(--token-fyoD0poQfxvl);
+  display: none;
 }
 .freeBox__sN06U {
   display: flex;
