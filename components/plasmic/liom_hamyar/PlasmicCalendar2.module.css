@@ -2190,6 +2190,13 @@
   color: var(--token-55cSeNPovQFh);
   margin: -20px 0px 0px;
 }
+.reminderBox:global(.__wab_instance) {
+  max-width: 100%;
+}
+.reminder__ac45D:global(.__wab_instance) {
+  animation: none;
+  max-width: 100%;
+}
 .freeBox__yaasB {
   display: flex;
   flex-direction: row;

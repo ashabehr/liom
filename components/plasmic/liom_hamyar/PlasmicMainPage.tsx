@@ -131,6 +131,7 @@ export const PlasmicMainPage__ArgProps = new Array<ArgPropType>(
 export type PlasmicMainPage__OverridesType = {
   root?: Flex__<"div">;
   calendar2?: Flex__<typeof Calendar2>;
+  reminder2?: Flex__<typeof Reminder>;
   reminder?: Flex__<typeof Reminder>;
   selfCare2?: Flex__<typeof SelfCare2>;
   reminderApi?: Flex__<typeof ApiRequest>;
@@ -463,6 +464,463 @@ function PlasmicMainPage__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "reminder2.refresh",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "reminder2.sms",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.activeSmsNotif;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "reminder2.tel",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "reminder2.ofline",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "reminder2.slide3",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "slide3"
+      },
+      {
+        path: "reminder2.first",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "reminder2.reminderSettingReminderCategory2Data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return {
+                category: [
+                  {
+                    id: 1,
+                    name: "love",
+                    name_fa: "عاشقانه",
+                    description: "مناسبت‌ها و یادآورهای احساسی و رمانتیک.",
+                    color: "#E91E63"
+                  },
+                  {
+                    id: 2,
+                    name: "birthday",
+                    name_fa: "تولد",
+                    description: "یادآور تولد عزیزان و دوستان.",
+                    color: "#FFC107"
+                  },
+                  {
+                    id: 3,
+                    name: "health",
+                    name_fa: "سلامت",
+                    description:
+                      "یادآورهای مرتبط با سلامت جسم و روان\u060C مانند چکاپ\u060C دارو و ورزش.",
+                    color: "#4CAF50"
+                  },
+                  {
+                    id: 4,
+                    name: "international_days",
+                    name_fa: "روزهای جهانی",
+                    description:
+                      "یادآور روزهای جهانی مهم مانند روز زمین\u060C روز زن و ...",
+                    color: "#2196F3"
+                  },
+                  {
+                    id: 5,
+                    name: "religious_days",
+                    name_fa: "روزهای مذهبی",
+                    description:
+                      "یادآور مناسبت‌ها و تعطیلات مذهبی مانند عید قربان\u060C رمضان و ...",
+                    color: "#9C27B0"
+                  },
+                  {
+                    id: 6,
+                    name: "national_days",
+                    name_fa: "روزهای ملی",
+                    description:
+                      "یادآور مناسبت‌ها و روزهای ملی مانند روز معلم\u060C پدر\u060C پرستار و دهه فجر",
+                    color: "#FF7043"
+                  }
+                ],
+
+                type: [
+                  {
+                    category_id: 1,
+                    category_name: "love",
+                    category_name_fa: "عاشقانه",
+                    items: [
+                      {
+                        id: 1,
+                        category_id: 1,
+                        type: "wedding_anniversary",
+                        schedule_type: "everyYear",
+                        type_fa: "سالگرد ازدواج",
+                        description: "یادآور سالگرد ازدواج با همسر.",
+                        date: null,
+                        text: "marriage",
+                        tag: null,
+                        color: "#E91E63",
+                        icon: "wedding_anniversary"
+                      },
+                      {
+                        id: 2,
+                        category_id: 1,
+                        type: "relationship_anniversary",
+                        schedule_type: "everyYear",
+                        type_fa: "سالگرد آشنایی",
+                        description: "یادآور سالگرد آشنایی یا شروع رابطه.",
+                        date: null,
+                        text: "relationship_anniversary",
+                        tag: null,
+                        color: "#EC407A",
+                        icon: "relationship_anniversary"
+                      }
+                    ]
+                  },
+                  {
+                    category_id: 2,
+                    category_name: "birthday",
+                    category_name_fa: "تولد",
+                    items: [
+                      {
+                        id: 3,
+                        category_id: 2,
+                        type: "spouse_birthday",
+                        schedule_type: "everyYear",
+                        type_fa: "تولد همسر",
+                        description: "یادآور تولد همسر.",
+                        date: null,
+                        text: "birthdayWife",
+                        tag: null,
+                        color: "#FFB300",
+                        icon: "spouse_birthday"
+                      },
+                      {
+                        id: 4,
+                        category_id: 2,
+                        type: "mother_birthday",
+                        schedule_type: "everyYear",
+                        type_fa: "تولد مادر",
+                        description: "یادآور تولد مادر.",
+                        date: null,
+                        text: "birthdayMother",
+                        tag: null,
+                        color: "#FFC107",
+                        icon: "mother_birthday"
+                      },
+                      {
+                        id: 5,
+                        category_id: 2,
+                        type: "father_birthday",
+                        schedule_type: "everyYear",
+                        type_fa: "تولد پدر",
+                        description: "یادآور تولد پدر.",
+                        date: null,
+                        text: "birthdayFather",
+                        tag: null,
+                        color: "#FFD54F",
+                        icon: "father_birthday"
+                      },
+                      {
+                        id: 6,
+                        category_id: 2,
+                        type: "child_birthday",
+                        schedule_type: "everyYear",
+                        type_fa: "تولد فرزند",
+                        description: "یادآور تولد فرزند.",
+                        date: null,
+                        text: "birthdayChild",
+                        tag: null,
+                        color: "#FFE082",
+                        icon: "child_birthday"
+                      },
+                      {
+                        id: 20,
+                        category_id: 2,
+                        type: "other_birthday",
+                        schedule_type: "everyYear",
+                        type_fa: "تولد ...",
+                        description: "یادآور تولد همسر.",
+                        date: null,
+                        text: "birthday",
+                        tag: null,
+                        color: "#FFB300",
+                        icon: "spouse_birthday"
+                      }
+                    ]
+                  },
+                  {
+                    category_id: 3,
+                    category_name: "health",
+                    category_name_fa: "سلامت",
+                    items: [
+                      {
+                        id: 9,
+                        category_id: 3,
+                        type: "medicine_time",
+                        schedule_type: "everyDay",
+                        type_fa: "مصرف دارو",
+                        description: "یادآور زمان مصرف دارو.",
+                        date: null,
+                        text: "pill",
+                        tag: '["repead"]',
+                        color: "#66BB6A",
+                        icon: "medicine_time"
+                      },
+                      {
+                        id: 18,
+                        category_id: 3,
+                        type: "water_time",
+                        schedule_type: "everyDay",
+                        type_fa: "نوشیدن آب",
+                        description: "یادآور زمان نوشیدن آب.",
+                        date: null,
+                        text: "drinkWater",
+                        tag: null,
+                        color: "#66BB6A",
+                        icon: "water"
+                      },
+                      {
+                        id: 24,
+                        category_id: 3,
+                        type: "routine_skin",
+                        schedule_type: "everyDay",
+                        type_fa: "روتین پوست",
+                        description: "یادآور زمان نوشیدن آب.",
+                        date: null,
+                        text: "routineSkin",
+                        tag: null,
+                        color: "#66BB6A",
+                        icon: "routine_skin"
+                      }
+                    ]
+                  },
+                  {
+                    category_id: 4,
+                    category_name: "international_days",
+                    category_name_fa: "روزهای جهانی",
+                    items: [
+                      {
+                        id: 12,
+                        category_id: 4,
+                        type: "valentine_day",
+                        schedule_type: "everyYear",
+                        type_fa: "روز ولنتاین",
+                        description: "روز جهانی عشق و محبت.",
+                        date: "0000-02-14",
+                        text: "valentine",
+                        tag: null,
+                        color: "#F06292",
+                        icon: "valentine_day"
+                      },
+                      {
+                        id: 13,
+                        category_id: 4,
+                        type: "womens_day",
+                        schedule_type: "everyYear",
+                        type_fa: "روز جهانی دختر",
+                        description: "روز جهانی زن و حقوق برابر.",
+                        date: "0000-04-19",
+                        text: "girlsGlobal",
+                        tag: null,
+                        color: "#42A5F5",
+                        icon: "womens_day"
+                      },
+                      {
+                        id: 14,
+                        category_id: 4,
+                        type: "mothers_day",
+                        schedule_type: "everyYear",
+                        type_fa: "روز جهانی زن",
+                        description: "روز قدردانی از مادران در سراسر جهان.",
+                        date: "0000-03-08",
+                        text: "mothers_day",
+                        tag: null,
+                        color: "#64B5F6",
+                        icon: "mothers_day"
+                      },
+                      {
+                        id: 21,
+                        category_id: 4,
+                        type: "boys_day",
+                        schedule_type: "everyYear",
+                        type_fa: "روز جهانی پسر",
+                        description:
+                          "روز توجه به پسران و اهمیت رشد\u060C آموزش و سلامت روان آنان.",
+                        date: "0000-05-16",
+                        text: "boys_day",
+                        tag: null,
+                        color: "#64B5F6",
+                        icon: "mens_day"
+                      },
+                      {
+                        id: 22,
+                        category_id: 4,
+                        type: "mens_day",
+                        schedule_type: "everyYear",
+                        type_fa: "روز جهانی مرد",
+                        description:
+                          "روز قدردانی از مردان و نقش آنان در خانواده و جامعه.",
+                        date: "0000-11-19",
+                        text: "mens_day",
+                        tag: null,
+                        color: "#4FC3F7",
+                        icon: "mens_day"
+                      }
+                    ]
+                  },
+                  {
+                    category_id: 5,
+                    category_name: "religious_days",
+                    category_name_fa: "روزهای مذهبی",
+                    items: [
+                      {
+                        id: 16,
+                        category_id: 5,
+                        type: "religious_womens_day",
+                        schedule_type: "everyYear",
+                        type_fa: "روز زن ",
+                        description: "روز بزرگداشت مقام زن در اسلام.",
+                        date: "0000-12-11",
+                        text: "motherAndWifeDayIran",
+                        tag: null,
+                        color: "#CE93D8",
+                        icon: "womens_day"
+                      },
+                      {
+                        id: 19,
+                        category_id: 5,
+                        type: "religious_girl_day",
+                        schedule_type: "everyYear",
+                        type_fa: "روز دختر ",
+                        description: "روز بزرگداشت مقام دختر در اسلام.",
+                        date: "0000-04-19",
+                        text: "religious_girl_day",
+                        tag: null,
+                        color: "#CE93D8",
+                        icon: "womens_day"
+                      },
+                      {
+                        id: 23,
+                        category_id: 5,
+                        type: "islamic_mens_day",
+                        schedule_type: "everyYear",
+                        type_fa: "روز مرد",
+                        description:
+                          "روز ولادت حضرت علی (ع) و بزرگداشت مقام پدر و مرد در فرهنگ اسلامی.",
+                        date: "0000-01-03",
+                        text: "islamic_mens_day",
+                        tag: null,
+                        color: "#81C784",
+                        icon: "mens_day"
+                      }
+                    ]
+                  },
+                  {
+                    category_id: 6,
+                    category_name: "national_days",
+                    category_name_fa: "روزهای ملی",
+                    items: [
+                      {
+                        id: 17,
+                        category_id: 6,
+                        type: "sepandarmazgan",
+                        schedule_type: "everyYear",
+                        type_fa: "روز سپندارمذگان",
+                        description:
+                          "روز عشق ایرانی\u060C جشن مهر و محبت در فرهنگ پارسی.",
+                        date: "0000-02-18",
+                        text: "sepandarmazgan",
+                        tag: null,
+                        color: "#F48FB1",
+                        icon: "sepandarmazgan"
+                      }
+                    ]
+                  }
+                ]
+              };
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "reminder2.balance",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "reminder2.active",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.page == "reminder";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "calendar2.reminderBoxHide",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.reminder2.ofline.length == 0;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -576,6 +1034,20 @@ function PlasmicMainPage__RenderFunc(props: {
               return;
             }
           }}
+          onReminderBoxHideChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, [
+              "calendar2",
+              "reminderBoxHide"
+            ]).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
           onTokenChange={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, ["calendar2", "token"]).apply(
               null,
@@ -671,6 +1143,737 @@ function PlasmicMainPage__RenderFunc(props: {
             }).apply(null, eventArgs);
           }}
           profile={generateStateValueProp($state, ["calendar2", "profile"])}
+          reminder4={
+            <Reminder
+              data-plasmic-name={"reminder2"}
+              data-plasmic-override={overrides.reminder2}
+              active={generateStateValueProp($state, ["reminder2", "active"])}
+              balance={generateStateValueProp($state, ["reminder2", "balance"])}
+              className={classNames("__wab_instance", sty.reminder2, {
+                [sty.reminder2page_reminder]: hasVariant(
+                  $state,
+                  "page",
+                  "reminder"
+                )
+              })}
+              data={(() => {
+                try {
+                  return $state.remind;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [
+                      {
+                        id: 243,
+                        liomId: "1",
+                        telegramId: "5384384618",
+                        phoneNumber: null,
+                        schedule_type: "everyDay",
+                        type: null,
+                        name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628",
+                        text: "drinkWater",
+                        token1: null,
+                        dates: null,
+                        weekdays:
+                          '["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]',
+                        times:
+                          '["08:00","10:00","12:00","15:20","18:00","22:00","00:30"]',
+                        finishTime: "2026-08-27 00:00:00",
+                        chanels: '["notification","telegram"]',
+                        active: 1
+                      },
+                      {
+                        id: 255,
+                        liomId: "1",
+                        telegramId: "5384384618",
+                        phoneNumber: null,
+                        schedule_type: "everyYear",
+                        type: null,
+                        name: "\u062a\u0648\u0644\u062f \u0641\u0631\u0632\u0646\u062f",
+                        text: "birthdayBoyChild",
+                        token1: null,
+                        dates: '["2025-11-19","2026-06-24"]',
+                        weekdays:
+                          '["sunday","monday","tuesday","wednesday","friday","saturday"]',
+                        times: '["10:00"]',
+                        finishTime: null,
+                        chanels: '["notification","telegram"]',
+                        active: 1
+                      },
+                      {
+                        id: 256,
+                        liomId: "1",
+                        telegramId: "573538820",
+                        phoneNumber: "",
+                        schedule_type: "everyDay",
+                        type: null,
+                        name: "\u0642\u0631\u0635 \u0645\u0641\u0646\u0627\u0646\u06cc\u06a9 \u0627\u0633\u06cc\u062f",
+                        text: "pill",
+                        token1: null,
+                        dates: null,
+                        weekdays:
+                          '["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]',
+                        times: '["10:00","18:00","02:00"]',
+                        finishTime: "2025-09-30 23:59:59",
+                        chanels: '["notification","telegram"]',
+                        active: 1
+                      },
+                      {
+                        id: 257,
+                        liomId: "1",
+                        telegramId: "33263188",
+                        phoneNumber: "",
+                        schedule_type: "everyYear",
+                        type: null,
+                        name: "\u062a\u0648\u0644\u062f \u062d\u0644\u0645\u0627",
+                        text: "birthday",
+                        token1: null,
+                        dates: '["2026-03-29"]',
+                        weekdays:
+                          '["sunday","monday","tuesday","wednesday","friday","saturday"]',
+                        times: '["10:00"]',
+                        finishTime: "2026-12-11 23:59:02",
+                        chanels: '["notification","telegram"]',
+                        active: 1
+                      },
+                      {
+                        id: 258,
+                        liomId: "1",
+                        telegramId: "33263188",
+                        phoneNumber: "",
+                        schedule_type: "everyYear",
+                        type: null,
+                        name: "\u0631\u0648\u0632 \u0645\u0627\u062f\u0631 ",
+                        text: "motherAndWifeDayIran",
+                        token1: null,
+                        dates: '["2025-12-11"]',
+                        weekdays:
+                          '["sunday","monday","tuesday","wednesday","friday","saturday"]',
+                        times: '["10:00"]',
+                        finishTime: null,
+                        chanels: '["notification","telegram"]',
+                        active: 1
+                      },
+                      {
+                        id: 259,
+                        liomId: "1",
+                        telegramId: "372883527",
+                        phoneNumber: "09154807701",
+                        schedule_type: "everyDay",
+                        type: null,
+                        name: "\u0631\u0648\u062a\u06cc\u0646 \u067e\u0648\u0633\u062a ",
+                        text: "routineSkinMorning",
+                        token1: null,
+                        dates: null,
+                        weekdays:
+                          '["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]',
+                        times: '["10:07"]',
+                        finishTime: null,
+                        chanels: '["notification","telegram","sms"]',
+                        active: 1
+                      },
+                      {
+                        id: 260,
+                        liomId: "1",
+                        telegramId: "372883527",
+                        phoneNumber: "09154807701",
+                        schedule_type: "everyDay",
+                        type: null,
+                        name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628 ",
+                        text: "drinkWater",
+                        token1: null,
+                        dates: null,
+                        weekdays:
+                          '["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]',
+                        times: '["08:00","10:00","11:46","22:00","00:30"]',
+                        finishTime: null,
+                        chanels: '["notification","telegram","sms"]',
+                        active: 0
+                      },
+                      {
+                        id: 279,
+                        liomId: "1",
+                        telegramId: "5384384618",
+                        phoneNumber: "",
+                        schedule_type: "everyYear",
+                        type: null,
+                        name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
+                        text: "occasion",
+                        token1: null,
+                        dates: '["2026-03-08"]',
+                        weekdays: null,
+                        times: '["09:00"]',
+                        finishTime: "2025-10-04 15:04:26",
+                        chanels: '["notification","telegram"]',
+                        active: 1
+                      },
+                      {
+                        id: 358,
+                        liomId: "1ce6e0a9-217c-4c9e-9b59-2faefdc51487",
+                        telegramId: null,
+                        phoneNumber: "",
+                        schedule_type: "everyYear",
+                        type: null,
+                        name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
+                        text: "occasion",
+                        token1: null,
+                        dates: '["2026-02-14"]',
+                        weekdays: null,
+                        times: '["09:00"]',
+                        finishTime: null,
+                        chanels: "{",
+                        active: 1
+                      },
+                      {
+                        id: 359,
+                        liomId: "1ce6e0a9-217c-4c9e-9b59-2faefdc51487",
+                        telegramId: null,
+                        phoneNumber: "",
+                        schedule_type: "everyYear",
+                        type: null,
+                        name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
+                        text: "occasion",
+                        token1: null,
+                        dates: '["2026-02-18"]',
+                        weekdays: null,
+                        times: '["09:00"]',
+                        finishTime: null,
+                        chanels: '["notification","telegram"]',
+                        active: 1
+                      },
+                      {
+                        id: 360,
+                        liomId: "1ce6e0a9-217c-4c9e-9b59-2faefdc51487",
+                        telegramId: null,
+                        phoneNumber: "",
+                        schedule_type: "everyYear",
+                        type: null,
+                        name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
+                        text: "occasion",
+                        token1: null,
+                        dates: '["2026-02-18"]',
+                        weekdays: null,
+                        times: '["09:00"]',
+                        finishTime: null,
+                        chanels: "{",
+                        active: 1
+                      },
+                      {
+                        id: 361,
+                        liomId: "1ce6e0a9-217c-4c9e-9b59-2faefdc51487",
+                        telegramId: null,
+                        phoneNumber: "",
+                        schedule_type: "everyYear",
+                        type: null,
+                        name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c",
+                        text: "wedding_anniversary",
+                        token1: null,
+                        dates: '["2025-12-31"]',
+                        weekdays: null,
+                        times: '["10:00"]',
+                        finishTime: null,
+                        chanels: '["notification","telegram"]',
+                        active: 1
+                      },
+                      {
+                        id: 365,
+                        liomId: "1ce6e0a9-217c-4c9e-9b59-2faefdc51487",
+                        telegramId: null,
+                        phoneNumber: "",
+                        schedule_type: "everyYear",
+                        type: null,
+                        name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
+                        text: "occasion",
+                        token1: null,
+                        dates: '["2026-10-11"]',
+                        weekdays: null,
+                        times: '["09:00"]',
+                        finishTime: null,
+                        chanels: "{",
+                        active: 1
+                      },
+                      {
+                        id: 491,
+                        liomId: "1",
+                        telegramId: "372883527",
+                        phoneNumber: "",
+                        schedule_type: "everyYear",
+                        type: null,
+                        name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631",
+                        text: "occasion",
+                        token1: null,
+                        dates: '["2026-04-19"]',
+                        weekdays: null,
+                        times: '["10:00"]',
+                        finishTime: null,
+                        chanels: '["notification"]',
+                        active: 1
+                      },
+                      {
+                        id: 492,
+                        liomId: "1",
+                        telegramId: "372883527",
+                        phoneNumber: "",
+                        schedule_type: "everyYear",
+                        type: null,
+                        name: "\u0631\u0648\u0632 \u0648\u0644\u0646\u062a\u0627\u06cc\u0646",
+                        text: "occasion",
+                        token1: null,
+                        dates: '["2026-02-14"]',
+                        weekdays: null,
+                        times: '["10:00"]',
+                        finishTime: null,
+                        chanels: '["notification"]',
+                        active: 1
+                      },
+                      {
+                        id: 500,
+                        liomId: "1",
+                        telegramId: "372883527",
+                        phoneNumber: "",
+                        schedule_type: "everyYear",
+                        type: "wedding_anniversary",
+                        name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c",
+                        text: "wedding_anniversary",
+                        token1: null,
+                        dates: '["2026-01-01"]',
+                        weekdays: null,
+                        times: "[]",
+                        finishTime: null,
+                        chanels: '["notification","telegram"]',
+                        active: 1
+                      },
+                      {
+                        id: 507,
+                        liomId: "1",
+                        telegramId: "372883527",
+                        phoneNumber: "",
+                        schedule_type: "everyYear",
+                        type: "religious_womens_day",
+                        name: "\u0631\u0648\u0632 \u0632\u0646 (\u0627\u0633\u0644\u0627\u0645\u06cc)",
+                        text: "occasion",
+                        token1: null,
+                        dates: '["2025-12-11"]',
+                        weekdays: null,
+                        times: '["09:30"]',
+                        finishTime: null,
+                        chanels: '["notification","telegram"]',
+                        active: 1
+                      },
+                      {
+                        id: 508,
+                        liomId: "1",
+                        telegramId: "372883527",
+                        phoneNumber: "",
+                        schedule_type: "everyYear",
+                        type: "sepandarmazgan",
+                        name: "\u0631\u0648\u0632 \u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646",
+                        text: "occasion",
+                        token1: null,
+                        dates: '["2026-02-18"]',
+                        weekdays: null,
+                        times: "[]",
+                        finishTime: null,
+                        chanels: '["notification","telegram"]',
+                        active: 1
+                      },
+                      {
+                        id: 509,
+                        liomId: "1",
+                        telegramId: "372883527",
+                        phoneNumber: "",
+                        schedule_type: "everyDay",
+                        type: "Water_time",
+                        name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628qq",
+                        text: "Water_time",
+                        token1: null,
+                        dates: null,
+                        weekdays: null,
+                        times: '["00:00","00:05"]',
+                        finishTime: null,
+                        chanels: '["notification","telegram"]',
+                        active: 1
+                      },
+                      {
+                        id: 510,
+                        liomId: "1",
+                        telegramId: "372883527",
+                        phoneNumber: "",
+                        schedule_type: "everyDay",
+                        type: "Water_time",
+                        name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628",
+                        text: "Water_time",
+                        token1: null,
+                        dates: null,
+                        weekdays: null,
+                        times: '["15:15"]',
+                        finishTime: null,
+                        chanels: '["notification","telegram"]',
+                        active: 1
+                      },
+                      {
+                        id: 511,
+                        liomId: "1",
+                        telegramId: "372883527",
+                        phoneNumber: "",
+                        schedule_type: "everyDay",
+                        type: "Water_time",
+                        name: "\u0646\u0648\u0634\u06cc\u062f\u0646 ddddd\u0622\u0628",
+                        text: "Water_time",
+                        token1: null,
+                        dates: null,
+                        weekdays: null,
+                        times: '["22:50","23:05"]',
+                        finishTime: null,
+                        chanels: '["notification","telegram"]',
+                        active: 1
+                      },
+                      {
+                        id: 538,
+                        liomId: "1",
+                        telegramId: "372883527",
+                        phoneNumber: "",
+                        schedule_type: "everyDay",
+                        type: "medicine_time",
+                        name: "\u0645\u0635\u0631\u0641 \u062f\u0627\u0631\u0648",
+                        text: "medicine_time",
+                        token1: null,
+                        dates: null,
+                        weekdays:
+                          '["sunday","monday","tuesday","wednesday","friday","saturday"]',
+                        times: '["09:30"]',
+                        finishTime: null,
+                        chanels: '["notification","telegram"]',
+                        active: 1
+                      },
+                      {
+                        id: 511,
+                        liomId: "1",
+                        telegramId: "372883527",
+                        phoneNumber: "",
+                        schedule_type: "everyDay",
+                        type: "Water_time",
+                        name: "\u0646\u0648\u0634\u06cc\u062f\u0646 ddddd\u0622\u0628",
+                        text: "Water_time",
+                        token1: null,
+                        dates: null,
+                        weekdays:
+                          '["sunday","monday","tuesday","wednesday","friday","saturday"]',
+                        times: '["22:50","23:05"]',
+                        finishTime: null,
+                        chanels: '["notification","telegram"]',
+                        active: 1
+                      }
+                    ];
+                  }
+                  throw e;
+                }
+              })()}
+              dateMode={true}
+              first={generateStateValueProp($state, ["reminder2", "first"])}
+              manId={(() => {
+                try {
+                  return $state.calendar2.userInfo?.result?.user?.id;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              onActiveChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminder2",
+                  "active"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onBalanceChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminder2",
+                  "balance"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onFirstChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["reminder2", "first"]).apply(
+                  null,
+                  eventArgs
+                );
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onOflineChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminder2",
+                  "ofline"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onRefreshChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminder2",
+                  "refresh"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+
+                (async val => {
+                  const $steps = {};
+
+                  $steps["updateRefresh"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["refresh"]
+                          },
+                          operation: 0,
+                          value: $state.refresh + 1
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateRefresh"] != null &&
+                    typeof $steps["updateRefresh"] === "object" &&
+                    typeof $steps["updateRefresh"].then === "function"
+                  ) {
+                    $steps["updateRefresh"] = await $steps["updateRefresh"];
+                  }
+                }).apply(null, eventArgs);
+              }}
+              onReminderSettingReminderCategory2DataChange={async (
+                ...eventArgs: any
+              ) => {
+                generateStateOnChangeProp($state, [
+                  "reminder2",
+                  "reminderSettingReminderCategory2Data"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onSlide3Change={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminder2",
+                  "slide3"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onSmsChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["reminder2", "sms"]).apply(
+                  null,
+                  eventArgs
+                );
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onTelChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["reminder2", "tel"]).apply(
+                  null,
+                  eventArgs
+                );
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              phone={(() => {
+                try {
+                  return $state.calendar2.userInfo?.result?.user?.phoneNumber;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              profile={(() => {
+                try {
+                  return $state.calendar2.profile;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              refresh={generateStateValueProp($state, ["reminder2", "refresh"])}
+              reminderSettingReminderCategory2Data={generateStateValueProp(
+                $state,
+                ["reminder2", "reminderSettingReminderCategory2Data"]
+              )}
+              setNumber={async () => {
+                const $steps = {};
+
+                $steps["updateMobileDialogOpen"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["mobileDialog", "open"]
+                        },
+                        operation: 0,
+                        value: true
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateMobileDialogOpen"] != null &&
+                  typeof $steps["updateMobileDialogOpen"] === "object" &&
+                  typeof $steps["updateMobileDialogOpen"].then === "function"
+                ) {
+                  $steps["updateMobileDialogOpen"] =
+                    await $steps["updateMobileDialogOpen"];
+                }
+              }}
+              setting={args.reminderSetting}
+              slide3={generateStateValueProp($state, ["reminder2", "slide3"])}
+              smallReminder={true}
+              sms={generateStateValueProp($state, ["reminder2", "sms"])}
+              subscription={false}
+              tel={generateStateValueProp($state, ["reminder2", "tel"])}
+              telegram={(() => {
+                try {
+                  return $state.calendar2.userInfo?.result?.user?.telegramId
+                    ? true
+                    : false;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })()}
+              telegramId={(() => {
+                try {
+                  return $state.calendar2.userInfo?.result?.user?.telegramId;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              token={(() => {
+                try {
+                  return $state.token;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+            />
+          }
+          reminderBoxHide={generateStateValueProp($state, [
+            "calendar2",
+            "reminderBoxHide"
+          ])}
           setting={args.setting}
           token={generateStateValueProp($state, ["calendar2", "token"])}
           userInfo={generateStateValueProp($state, ["calendar2", "userInfo"])}
@@ -1907,6 +3110,7 @@ const PlasmicDescendants = {
   root: [
     "root",
     "calendar2",
+    "reminder2",
     "reminder",
     "selfCare2",
     "reminderApi",
@@ -1918,7 +3122,8 @@ const PlasmicDescendants = {
     "freeBox",
     "iframe"
   ],
-  calendar2: ["calendar2"],
+  calendar2: ["calendar2", "reminder2"],
+  reminder2: ["reminder2"],
   reminder: ["reminder"],
   selfCare2: ["selfCare2"],
   reminderApi: ["reminderApi"],
@@ -1936,6 +3141,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   calendar2: typeof Calendar2;
+  reminder2: typeof Reminder;
   reminder: typeof Reminder;
   selfCare2: typeof SelfCare2;
   reminderApi: typeof ApiRequest;
@@ -2011,6 +3217,7 @@ export const PlasmicMainPage = Object.assign(
   {
     // Helper components rendering sub-elements
     calendar2: makeNodeComponent("calendar2"),
+    reminder2: makeNodeComponent("reminder2"),
     reminder: makeNodeComponent("reminder"),
     selfCare2: makeNodeComponent("selfCare2"),
     reminderApi: makeNodeComponent("reminderApi"),

@@ -74,6 +74,8 @@ import Tooltip from "../../Tooltip"; // plasmic-import: m8c5Sv3Tr_nB/component
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import PercentageBox from "../../PercentageBox"; // plasmic-import: u0LyXWqR1nAi/component
+import ReminderBox from "../../ReminderBox"; // plasmic-import: g0um5JESG1KZ/component
+import Reminder from "../../Reminder"; // plasmic-import: 3v9tn6uUJCPM/component
 import FutureItem from "../../FutureItem"; // plasmic-import: pKcBaNZ3_IhU/component
 import Useful from "../../Useful"; // plasmic-import: 2qiQ4nSmOYBA/component
 import Harmful from "../../Harmful"; // plasmic-import: XLWl_YcBNVp7/component
@@ -129,6 +131,9 @@ export type PlasmicCalendar2__ArgsType = {
   onEditTimeChange2?: (val: string) => void;
   editPage?: () => void;
   fuchereCycle?: (event: any) => void;
+  reminderBoxHide?: any;
+  onReminderBoxHideChange?: (val: any) => void;
+  reminder4?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicCalendar2__ArgsType;
 export const PlasmicCalendar2__ArgProps = new Array<ArgPropType>(
@@ -142,7 +147,10 @@ export const PlasmicCalendar2__ArgProps = new Array<ArgPropType>(
   "editTime",
   "onEditTimeChange2",
   "editPage",
-  "fuchereCycle"
+  "fuchereCycle",
+  "reminderBoxHide",
+  "onReminderBoxHideChange",
+  "reminder4"
 );
 
 export type PlasmicCalendar2__OverridesType = {
@@ -178,6 +186,7 @@ export type PlasmicCalendar2__OverridesType = {
   button25?: Flex__<typeof Button>;
   button22?: Flex__<typeof Button>;
   advicesLoading?: Flex__<"div">;
+  reminderBox?: Flex__<typeof ReminderBox>;
   collapseMother2?: Flex__<typeof AntdSingleCollapse>;
   button3?: Flex__<typeof Button>;
   button4?: Flex__<typeof Button>;
@@ -225,6 +234,9 @@ export interface DefaultCalendar2Props {
   onEditTimeChange2?: (val: string) => void;
   editPage?: () => void;
   fuchereCycle?: (event: any) => void;
+  reminderBoxHide?: any;
+  onReminderBoxHideChange?: (val: any) => void;
+  reminder4?: React.ReactNode;
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
   className?: string;
 }
@@ -2218,6 +2230,33 @@ function PlasmicCalendar2__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "reminderBox.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return window.localStorage.getItem("reminderBox") != "false";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "reminderBox.hide",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "reminderBoxHide",
+        onChangeProp: "onReminderBoxHideChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -54832,6 +54871,57 @@ function PlasmicCalendar2__RenderFunc(props: {
                 })()}
               </div>
             </div>
+            <ReminderBox
+              data-plasmic-name={"reminderBox"}
+              data-plasmic-override={overrides.reminderBox}
+              children2={renderPlasmicSlot({
+                defaultContents: (
+                  <Reminder
+                    className={classNames(
+                      "__wab_instance",
+                      sty.reminder__ac45D
+                    )}
+                    dateMode={true}
+                    slide3={true}
+                    smallReminder={true}
+                  />
+                ),
+
+                value: args.reminder4
+              })}
+              className={classNames("__wab_instance", sty.reminderBox)}
+              hide={generateStateValueProp($state, ["reminderBox", "hide"])}
+              onHideChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminderBox",
+                  "hide"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onOpenChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "reminderBox",
+                  "open"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              open={generateStateValueProp($state, ["reminderBox", "open"])}
+            />
+
             <div className={classNames(projectcss.all, sty.freeBox__yaasB)}>
               <div
                 className={classNames(projectcss.all, sty.freeBox__yibS9, {
@@ -59714,6 +59804,7 @@ const PlasmicDescendants = {
     "button25",
     "button22",
     "advicesLoading",
+    "reminderBox",
     "collapseMother2",
     "button3",
     "button4",
@@ -59780,6 +59871,7 @@ const PlasmicDescendants = {
     "button25",
     "button22",
     "advicesLoading",
+    "reminderBox",
     "collapseMother2",
     "button3",
     "button4",
@@ -59813,6 +59905,7 @@ const PlasmicDescendants = {
   button25: ["button25"],
   button22: ["button22"],
   advicesLoading: ["advicesLoading"],
+  reminderBox: ["reminderBox"],
   collapseMother2: ["collapseMother2", "button3", "button4"],
   button3: ["button3"],
   button4: ["button4"],
@@ -59897,6 +59990,7 @@ type NodeDefaultElementType = {
   button25: typeof Button;
   button22: typeof Button;
   advicesLoading: "div";
+  reminderBox: typeof ReminderBox;
   collapseMother2: typeof AntdSingleCollapse;
   button3: typeof Button;
   button4: typeof Button;
@@ -60025,6 +60119,7 @@ export const PlasmicCalendar2 = Object.assign(
     button25: makeNodeComponent("button25"),
     button22: makeNodeComponent("button22"),
     advicesLoading: makeNodeComponent("advicesLoading"),
+    reminderBox: makeNodeComponent("reminderBox"),
     collapseMother2: makeNodeComponent("collapseMother2"),
     button3: makeNodeComponent("button3"),
     button4: makeNodeComponent("button4"),
