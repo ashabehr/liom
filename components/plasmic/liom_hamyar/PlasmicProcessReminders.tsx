@@ -178,6 +178,8 @@ function PlasmicProcessReminders__RenderFunc(props: {
                       times = [];
                     }
                     const timesPerDay = times.length || 0;
+                    const pre = Array.isArray(rem.pre) ? rem.pre : [];
+                    const preCount = pre.length || 0;
                     let chList = [];
                     try {
                       chList = Array.isArray(rem.chanels)
@@ -206,11 +208,15 @@ function PlasmicProcessReminders__RenderFunc(props: {
                       activeDates = getDatesBetween(startDate, endDate);
                     }
                     const validDays = activeDates.length;
+                    const totalNotifications =
+                      validDays * timesPerDay + preCount;
                     return {
                       id: rem.id,
                       name: rem.name,
                       timesPerDay,
                       activeDays: validDays,
+                      preCount,
+                      totalNotifications,
                       channels: chList
                     };
                   });
@@ -219,6 +225,18 @@ function PlasmicProcessReminders__RenderFunc(props: {
                     startDate,
                     endDate: oneMonthLater
                   };
+                }
+                if ($props?.data) {
+                  const a = processReminders([$props.data]);
+                  const item = a?.results?.[0];
+                  const period =
+                    $props?.data?.schedule_type === "everyDay" ? "ماه" : "سال";
+                  return item
+                    ? `<span style="font-weight:bold; color:#8254C6;">
+         ${item.totalNotifications}
+       </span>
+       <span> عدد در ${period}</span>`
+                    : `<span></span>`;
                 }
                 if ($props?.data) {
                   const a = processReminders([$props.data]);

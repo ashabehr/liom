@@ -94,13 +94,15 @@ export type PlasmicReportItem__ArgsType = {
   master?: any;
   onClick?: (event: any) => void;
   children?: React.ReactNode;
+  count?: number;
 };
 type ArgPropType = keyof PlasmicReportItem__ArgsType;
 export const PlasmicReportItem__ArgProps = new Array<ArgPropType>(
   "apiRequestData",
   "master",
   "onClick",
-  "children"
+  "children",
+  "count"
 );
 
 export type PlasmicReportItem__OverridesType = {
@@ -115,6 +117,7 @@ export interface DefaultReportItemProps {
   master?: any;
   onClick?: (event: any) => void;
   children?: React.ReactNode;
+  count?: number;
   select?: SingleBooleanChoiceArg<"select">;
   send?: SingleBooleanChoiceArg<"send">;
   className?: string;
@@ -442,7 +445,7 @@ function PlasmicReportItem__RenderFunc(props: {
                   <React.Fragment>
                     {(() => {
                       try {
-                        return ` به ازای ارسال ${$props.apiRequestData.activeDays * $props.apiRequestData.timesPerDay} یادآوری`;
+                        return ` به ازای ارسال ${$props.count} یادآوری`;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -458,7 +461,7 @@ function PlasmicReportItem__RenderFunc(props: {
                   <React.Fragment>
                     {(() => {
                       try {
-                        return ` به ازای ارسال ${$props.apiRequestData.activeDays * $props.apiRequestData.timesPerDay} یادآوری`;
+                        return ` به ازای ارسال ${$props.count} یادآوری`;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||

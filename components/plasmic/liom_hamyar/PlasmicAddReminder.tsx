@@ -181,6 +181,59 @@ function PlasmicAddReminder__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ({
           category: [
             {
+              id: 1,
+              name: "love",
+              name_fa: "\u0639\u0627\u0634\u0642\u0627\u0646\u0647",
+              description:
+                "\u0645\u0646\u0627\u0633\u0628\u062a\u200c\u0647\u0627 \u0648 \u06cc\u0627\u062f\u0622\u0648\u0631\u0647\u0627\u06cc \u0627\u062d\u0633\u0627\u0633\u06cc \u0648 \u0631\u0645\u0627\u0646\u062a\u06cc\u06a9.",
+              color: "#E91E63"
+            },
+            {
+              id: 2,
+              name: "birthday",
+              name_fa: "\u062a\u0648\u0644\u062f",
+              description:
+                "\u06cc\u0627\u062f\u0622\u0648\u0631 \u062a\u0648\u0644\u062f \u0639\u0632\u06cc\u0632\u0627\u0646 \u0648 \u062f\u0648\u0633\u062a\u0627\u0646.",
+              color: "#FFC107"
+            },
+            {
+              id: 3,
+              name: "health",
+              name_fa: "\u0633\u0644\u0627\u0645\u062a",
+              description:
+                "\u06cc\u0627\u062f\u0622\u0648\u0631\u0647\u0627\u06cc \u0645\u0631\u062a\u0628\u0637 \u0628\u0627 \u0633\u0644\u0627\u0645\u062a \u062c\u0633\u0645 \u0648 \u0631\u0648\u0627\u0646\u060c \u0645\u0627\u0646\u0646\u062f \u0686\u06a9\u0627\u067e\u060c \u062f\u0627\u0631\u0648 \u0648 \u0648\u0631\u0632\u0634.",
+              color: "#4CAF50"
+            },
+            {
+              id: 4,
+              name: "international_days",
+              name_fa:
+                "\u0631\u0648\u0632\u0647\u0627\u06cc \u062c\u0647\u0627\u0646\u06cc",
+              description:
+                "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u062c\u0647\u0627\u0646\u06cc \u0645\u0647\u0645 \u0645\u0627\u0646\u0646\u062f \u0631\u0648\u0632 \u0632\u0645\u06cc\u0646\u060c \u0631\u0648\u0632 \u0632\u0646 \u0648 ...",
+              color: "#2196F3"
+            },
+            {
+              id: 5,
+              name: "religious_days",
+              name_fa:
+                "\u0631\u0648\u0632\u0647\u0627\u06cc \u0645\u0630\u0647\u0628\u06cc",
+              description:
+                "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0645\u0646\u0627\u0633\u0628\u062a\u200c\u0647\u0627 \u0648 \u062a\u0639\u0637\u06cc\u0644\u0627\u062a \u0645\u0630\u0647\u0628\u06cc \u0645\u0627\u0646\u0646\u062f \u0639\u06cc\u062f \u0642\u0631\u0628\u0627\u0646\u060c \u0631\u0645\u0636\u0627\u0646 \u0648 ...",
+              color: "#9C27B0"
+            },
+            {
+              id: 6,
+              name: "national_days",
+              name_fa:
+                "\u0631\u0648\u0632\u0647\u0627\u06cc \u0645\u0644\u06cc",
+              description:
+                "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0645\u0646\u0627\u0633\u0628\u062a\u200c\u0647\u0627 \u0648 \u0631\u0648\u0632\u0647\u0627\u06cc \u0645\u0644\u06cc \u0645\u0627\u0646\u0646\u062f \u0631\u0648\u0632 \u0645\u0639\u0644\u0645\u060c \u067e\u062f\u0631\u060c \u067e\u0631\u0633\u062a\u0627\u0631 \u0648 \u062f\u0647\u0647 \u0641\u062c\u0631",
+              color: "#FF7043"
+            }
+          ],
+          type: [
+            {
               category_id: 1,
               category_name: "love",
               category_name_fa: "\u0639\u0627\u0634\u0642\u0627\u0646\u0647",
@@ -195,6 +248,7 @@ function PlasmicAddReminder__RenderFunc(props: {
                   description:
                     "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c \u0628\u0627 \u0647\u0645\u0633\u0631.",
                   date: null,
+                  pre_reminders: "[null, null, null, null]",
                   text: "marriage",
                   tag: null,
                   color: "#E91E63",
@@ -210,6 +264,7 @@ function PlasmicAddReminder__RenderFunc(props: {
                   description:
                     "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc \u06cc\u0627 \u0634\u0631\u0648\u0639 \u0631\u0627\u0628\u0637\u0647.",
                   date: null,
+                  pre_reminders: "[null, null, null, null]",
                   text: "relationship_anniversary",
                   tag: null,
                   color: "#EC407A",
@@ -231,6 +286,7 @@ function PlasmicAddReminder__RenderFunc(props: {
                   description:
                     "\u06cc\u0627\u062f\u0622\u0648\u0631 \u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631.",
                   date: null,
+                  pre_reminders: "[null, null, null, null]",
                   text: "birthdayWife",
                   tag: null,
                   color: "#FFB300",
@@ -245,6 +301,7 @@ function PlasmicAddReminder__RenderFunc(props: {
                   description:
                     "\u06cc\u0627\u062f\u0622\u0648\u0631 \u062a\u0648\u0644\u062f \u0645\u0627\u062f\u0631.",
                   date: null,
+                  pre_reminders: "[null, null, null, null]",
                   text: "birthdayMother",
                   tag: null,
                   color: "#FFC107",
@@ -259,6 +316,7 @@ function PlasmicAddReminder__RenderFunc(props: {
                   description:
                     "\u06cc\u0627\u062f\u0622\u0648\u0631 \u062a\u0648\u0644\u062f \u067e\u062f\u0631.",
                   date: null,
+                  pre_reminders: "[null, null, null, null]",
                   text: "birthdayFather",
                   tag: null,
                   color: "#FFD54F",
@@ -274,6 +332,7 @@ function PlasmicAddReminder__RenderFunc(props: {
                   description:
                     "\u06cc\u0627\u062f\u0622\u0648\u0631 \u062a\u0648\u0644\u062f \u0641\u0631\u0632\u0646\u062f.",
                   date: null,
+                  pre_reminders: "[null, null, null, null]",
                   text: "birthdayChild",
                   tag: null,
                   color: "#FFE082",
@@ -288,6 +347,7 @@ function PlasmicAddReminder__RenderFunc(props: {
                   description:
                     "\u06cc\u0627\u062f\u0622\u0648\u0631 \u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631.",
                   date: null,
+                  pre_reminders: "[null, null, null, null]",
                   text: "birthday",
                   tag: null,
                   color: "#FFB300",
@@ -309,6 +369,7 @@ function PlasmicAddReminder__RenderFunc(props: {
                   description:
                     "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0632\u0645\u0627\u0646 \u0645\u0635\u0631\u0641 \u062f\u0627\u0631\u0648.",
                   date: null,
+                  pre_reminders: "[null, null, null, null]",
                   text: "pill",
                   tag: '["repead"]',
                   color: "#66BB6A",
@@ -323,6 +384,7 @@ function PlasmicAddReminder__RenderFunc(props: {
                   description:
                     "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0632\u0645\u0627\u0646 \u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628.",
                   date: null,
+                  pre_reminders: "[null, null, null, null]",
                   text: "drinkWater",
                   tag: null,
                   color: "#66BB6A",
@@ -338,6 +400,7 @@ function PlasmicAddReminder__RenderFunc(props: {
                   description:
                     "\u06cc\u0627\u062f\u0622\u0648\u0631 \u0632\u0645\u0627\u0646 \u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628.",
                   date: null,
+                  pre_reminders: "[null, null, null, null]",
                   text: "routineSkin",
                   tag: null,
                   color: "#66BB6A",
@@ -361,6 +424,7 @@ function PlasmicAddReminder__RenderFunc(props: {
                   description:
                     "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0639\u0634\u0642 \u0648 \u0645\u062d\u0628\u062a.",
                   date: "0000-02-14",
+                  pre_reminders: '["02-07", "02-11", "02-12", "02-13"]',
                   text: "valentine",
                   tag: null,
                   color: "#F06292",
@@ -376,6 +440,7 @@ function PlasmicAddReminder__RenderFunc(props: {
                   description:
                     "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646 \u0648 \u062d\u0642\u0648\u0642 \u0628\u0631\u0627\u0628\u0631.",
                   date: "0000-04-19",
+                  pre_reminders: '["04-12", "04-16", "04-17", "04-18"]',
                   text: "girlsGlobal",
                   tag: null,
                   color: "#42A5F5",
@@ -391,6 +456,7 @@ function PlasmicAddReminder__RenderFunc(props: {
                   description:
                     "\u0631\u0648\u0632 \u0642\u062f\u0631\u062f\u0627\u0646\u06cc \u0627\u0632 \u0645\u0627\u062f\u0631\u0627\u0646 \u062f\u0631 \u0633\u0631\u0627\u0633\u0631 \u062c\u0647\u0627\u0646.",
                   date: "0000-03-08",
+                  pre_reminders: '["03-01", "03-05", "03-06", "03-07"]',
                   text: "mothers_day",
                   tag: null,
                   color: "#64B5F6",
@@ -406,6 +472,7 @@ function PlasmicAddReminder__RenderFunc(props: {
                   description:
                     "\u0631\u0648\u0632 \u062a\u0648\u062c\u0647 \u0628\u0647 \u067e\u0633\u0631\u0627\u0646 \u0648 \u0627\u0647\u0645\u06cc\u062a \u0631\u0634\u062f\u060c \u0622\u0645\u0648\u0632\u0634 \u0648 \u0633\u0644\u0627\u0645\u062a \u0631\u0648\u0627\u0646 \u0622\u0646\u0627\u0646.",
                   date: "0000-05-16",
+                  pre_reminders: '["05-09", "05-13", "05-14", "05-15"]',
                   text: "boys_day",
                   tag: null,
                   color: "#64B5F6",
@@ -421,6 +488,7 @@ function PlasmicAddReminder__RenderFunc(props: {
                   description:
                     "\u0631\u0648\u0632 \u0642\u062f\u0631\u062f\u0627\u0646\u06cc \u0627\u0632 \u0645\u0631\u062f\u0627\u0646 \u0648 \u0646\u0642\u0634 \u0622\u0646\u0627\u0646 \u062f\u0631 \u062e\u0627\u0646\u0648\u0627\u062f\u0647 \u0648 \u062c\u0627\u0645\u0639\u0647.",
                   date: "0000-11-19",
+                  pre_reminders: '["11-12", "11-16", "11-17", "11-18"]',
                   text: "mens_day",
                   tag: null,
                   color: "#4FC3F7",
@@ -442,7 +510,8 @@ function PlasmicAddReminder__RenderFunc(props: {
                   type_fa: "\u0631\u0648\u0632 \u0632\u0646 ",
                   description:
                     "\u0631\u0648\u0632 \u0628\u0632\u0631\u06af\u062f\u0627\u0634\u062a \u0645\u0642\u0627\u0645 \u0632\u0646 \u062f\u0631 \u0627\u0633\u0644\u0627\u0645.",
-                  date: "0000-12-11",
+                  date: "0000-11-30",
+                  pre_reminders: '["11-23", "11-27", "11-28", "11-29"]',
                   text: "motherAndWifeDayIran",
                   tag: null,
                   color: "#CE93D8",
@@ -457,6 +526,7 @@ function PlasmicAddReminder__RenderFunc(props: {
                   description:
                     "\u0631\u0648\u0632 \u0628\u0632\u0631\u06af\u062f\u0627\u0634\u062a \u0645\u0642\u0627\u0645 \u062f\u062e\u062a\u0631 \u062f\u0631 \u0627\u0633\u0644\u0627\u0645.",
                   date: "0000-04-19",
+                  pre_reminders: '["04-12", "04-16", "04-17", "04-18"]',
                   text: "religious_girl_day",
                   tag: null,
                   color: "#CE93D8",
@@ -471,6 +541,7 @@ function PlasmicAddReminder__RenderFunc(props: {
                   description:
                     "\u0631\u0648\u0632 \u0648\u0644\u0627\u062f\u062a \u062d\u0636\u0631\u062a \u0639\u0644\u06cc (\u0639) \u0648 \u0628\u0632\u0631\u06af\u062f\u0627\u0634\u062a \u0645\u0642\u0627\u0645 \u067e\u062f\u0631 \u0648 \u0645\u0631\u062f \u062f\u0631 \u0641\u0631\u0647\u0646\u06af \u0627\u0633\u0644\u0627\u0645\u06cc.",
                   date: "0000-01-03",
+                  pre_reminders: '["12-27", "12-31", "01-01", "01-02"]',
                   text: "islamic_mens_day",
                   tag: null,
                   color: "#81C784",
@@ -494,6 +565,7 @@ function PlasmicAddReminder__RenderFunc(props: {
                   description:
                     "\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc\u060c \u062c\u0634\u0646 \u0645\u0647\u0631 \u0648 \u0645\u062d\u0628\u062a \u062f\u0631 \u0641\u0631\u0647\u0646\u06af \u067e\u0627\u0631\u0633\u06cc.",
                   date: "0000-02-18",
+                  pre_reminders: '["02-11", "02-15", "02-16", "02-17"]',
                   text: "sepandarmazgan",
                   tag: null,
                   color: "#F48FB1",

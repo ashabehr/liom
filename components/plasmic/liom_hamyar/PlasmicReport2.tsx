@@ -425,6 +425,19 @@ function PlasmicReport2__RenderFunc(props: {
                       data-plasmic-override={overrides.reportItem}
                       apiRequestData={$state.apiRequest.data?.results?.[0]}
                       className={classNames("__wab_instance", sty.reportItem)}
+                      count={(() => {
+                        try {
+                          return $state.apiRequest.data.totalNotifications;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
                       master={master}
                       onClick={async event => {
                         const $steps = {};
@@ -593,7 +606,7 @@ function PlasmicReport2__RenderFunc(props: {
                           <React.Fragment>
                             {(() => {
                               try {
-                                return `(${$state.apiRequest.data.results[0].activeDays * $state.apiRequest.data.results[0].timesPerDay})`;
+                                return `(${$state.apiRequest.data.totalNotifications})`;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||

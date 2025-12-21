@@ -74,6 +74,7 @@ import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5x
 import { Pickers } from "@/components/Pickers"; // plasmic-import: htE-oGSeNx82/codeComponent
 import { TimePickerCustom } from "@/components/TimePickerCustom"; // plasmic-import: GRoigtq491XH/codeComponent
 import CheckboxGroup from "../../CheckboxGroup"; // plasmic-import: AhgoIztCTzjf/component
+import PreReminderSelect from "../../PreReminderSelect"; // plasmic-import: qFMZ0PFjrBv1/component
 import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import MenuIcon from "../../MenuIcon"; // plasmic-import: JBF-V8Q5mpWl/component
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
@@ -91,6 +92,7 @@ import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 import Icon345Icon from "./icons/PlasmicIcon__Icon345"; // plasmic-import: JAvtUzC6_U9X/icon
 import Icon49Icon from "./icons/PlasmicIcon__Icon49"; // plasmic-import: VT7Wd_x-12ob/icon
 import Icon306Icon from "./icons/PlasmicIcon__Icon306"; // plasmic-import: jxGdzfvYEdqR/icon
+import Icon387Icon from "./icons/PlasmicIcon__Icon387"; // plasmic-import: rax53RqY-SpO/icon
 import Icon344Icon from "./icons/PlasmicIcon__Icon344"; // plasmic-import: yGnMTXTyjf2m/icon
 import ClockIcon from "../fragment_icons/icons/PlasmicIcon__Clock"; // plasmic-import: rW7v27ONOoUe/icon
 import Icon346Icon from "./icons/PlasmicIcon__Icon346"; // plasmic-import: Z4J9kCEKbiAp/icon
@@ -226,6 +228,9 @@ export type PlasmicReminderSetting__OverridesType = {
   checkboxGroup?: Flex__<typeof CheckboxGroup>;
   checkbox?: Flex__<typeof Checkbox>;
   button11?: Flex__<typeof Button>;
+  preReminder?: Flex__<typeof Dialog>;
+  preReminderSelect?: Flex__<typeof PreReminderSelect>;
+  button12?: Flex__<typeof Button>;
   slide2?: Flex__<"div">;
   button9?: Flex__<typeof Button>;
   button10?: Flex__<typeof Button>;
@@ -325,412 +330,111 @@ function PlasmicReminderSetting__RenderFunc(props: {
         {
           data: [
             {
-              id: 243,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: null,
-              schedule_type: "everyDay",
-              type: "water_time",
-              name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628",
-              text: "drinkWater",
-              token1: null,
-              dates: null,
-              weekdays:
-                '["sunday","monday","wednesday","thursday","friday","saturday"]',
-              times:
-                '["08:00","10:00","12:00","15:30","18:00","15:31","00:30"]',
-              finishTime: "2026-08-27 00:00:00",
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 255,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: null,
+              id: 831,
+              liomId: "579f1109-03c4-4e1e-b088-e185832696d3",
+              telegramId: "480992663",
+              phoneNumber: "09228951264",
               schedule_type: "everyYear",
-              type: null,
-              name: "\u062a\u0648\u0644\u062f \u0641\u0631\u0632\u0646\u062f",
-              text: "birthdayBoyChild",
-              token1: null,
-              dates: '["2025-11-19","2026-06-24"]',
-              weekdays:
-                '["sunday","monday","tuesday","wednesday","friday","saturday"]',
-              times: '["10:00"]',
-              finishTime: null,
-              chanels: '["notification","telegram","sms"]',
-              active: 1
-            },
-            {
-              id: 256,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyDay",
-              type: "medicine_time",
-              name: "\u0642\u0631\u0635 \u0645\u0641\u0646\u0627\u0646\u06cc\u06a9 \u0627\u0633\u06cc\u062f",
-              text: "pill",
-              token1: null,
-              dates: null,
-              weekdays:
-                '["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]',
-              times: '["10:00","18:00"]',
-              finishTime: "2025-09-30 00:00:00",
-              chanels: '["notification"]',
-              active: 1
-            },
-            {
-              id: 257,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyYear",
-              type: null,
-              name: "\u062a\u0648\u0644\u062f \u062d\u0644\u0645\u0627",
-              text: "birthday",
-              token1: null,
-              dates: '["2026-03-29","2026-06-30"]',
-              weekdays:
-                '["sunday","monday","tuesday","wednesday","friday","saturday"]',
-              times: '["10:00","04:05"]',
-              finishTime: "2026-12-11 00:00:00",
-              chanels: '["notification"]',
-              active: 1
-            },
-            {
-              id: 258,
-              liomId: "1",
-              telegramId: "33263188",
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: null,
-              name: "\u0631\u0648\u0632 \u0645\u0627\u062f\u0631 ",
-              text: "motherAndWifeDayIran",
-              token1: null,
-              dates: '["2025-12-11"]',
-              weekdays:
-                '["sunday","monday","tuesday","wednesday","friday","saturday"]',
-              times: '["10:00"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 259,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyDay",
-              type: "routine_skin",
-              name: "\u0631\u0648\u062a\u06cc\u0646 \u067e\u0648\u0633\u062a ",
-              text: "routineSkinMorning",
-              token1: null,
-              dates: null,
-              weekdays:
-                '["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]',
-              times: '["10:07"]',
-              finishTime: null,
-              chanels: "[]",
-              active: 1
-            },
-            {
-              id: 260,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyDay",
-              type: "water_time",
-              name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628 ",
-              text: "drinkWater",
-              token1: null,
-              dates: null,
-              weekdays:
-                '["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]',
-              times: '["08:00","10:00","11:46","22:00","00:30"]',
-              finishTime: null,
-              chanels: "[]",
-              active: 1
-            },
-            {
-              id: 279,
-              liomId: "1",
-              telegramId: "5384384618",
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: null,
-              name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
-              text: "occasion",
-              token1: null,
-              dates: '["2026-03-08"]',
-              weekdays: null,
-              times: '["09:00"]',
-              finishTime: "2025-10-04 15:04:26",
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 358,
-              liomId: "1ce6e0a9-217c-4c9e-9b59-2faefdc51487",
-              telegramId: null,
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: null,
-              name: "\u0648\u0644\u0646\u062a\u0627\u06cc\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642)",
-              text: "occasion",
-              token1: null,
-              dates: '["2026-02-14"]',
-              weekdays: null,
-              times: '["09:00"]',
-              finishTime: null,
-              chanels: "{",
-              active: 1
-            },
-            {
-              id: 359,
-              liomId: "1ce6e0a9-217c-4c9e-9b59-2faefdc51487",
-              telegramId: null,
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: null,
-              name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
-              text: "occasion",
-              token1: null,
-              dates: '["2026-02-18"]',
-              weekdays: null,
-              times: '["09:00"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 360,
-              liomId: "1ce6e0a9-217c-4c9e-9b59-2faefdc51487",
-              telegramId: null,
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: null,
-              name: "\u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646 (\u0631\u0648\u0632 \u0639\u0634\u0642 \u0627\u06cc\u0631\u0627\u0646\u06cc)",
-              text: "occasion",
-              token1: null,
-              dates: '["2026-02-18"]',
-              weekdays: null,
-              times: '["09:00"]',
-              finishTime: null,
-              chanels: "{",
-              active: 1
-            },
-            {
-              id: 361,
-              liomId: "1ce6e0a9-217c-4c9e-9b59-2faefdc51487",
-              telegramId: null,
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: null,
-              name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c",
-              text: "marriage",
-              token1: null,
-              dates: '["2025-12-31"]',
-              weekdays: null,
-              times: '["10:00"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 365,
-              liomId: "1ce6e0a9-217c-4c9e-9b59-2faefdc51487",
-              telegramId: null,
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: null,
-              name: "\u0631\u0648\u0632  \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631\u0627\u0646",
-              text: "occasion",
-              token1: null,
-              dates: '["2026-10-11"]',
-              weekdays: null,
-              times: '["09:00"]',
-              finishTime: null,
-              chanels: "{",
-              active: 1
-            },
-            {
-              id: 491,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: null,
+              type: "womens_day",
               name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631",
-              text: "occasion",
+              text: "girlsGlobal",
               token1: null,
               dates: '["2026-04-19"]',
               weekdays: null,
-              times: '["10:00"]',
+              times: '["13:30"]',
               finishTime: null,
               chanels: '["notification"]',
-              active: 1
+              pre_reminders: null,
+              times_pre_reminders: null,
+              active: 1,
+              timestamp: "2025-12-08 11:35:46"
             },
             {
-              id: 492,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: null,
-              name: "\u0631\u0648\u0632 \u0648\u0644\u0646\u062a\u0627\u06cc\u0646",
-              text: "occasion",
-              token1: null,
-              dates: '["2026-02-14"]',
-              weekdays: null,
-              times: '["10:00"]',
-              finishTime: null,
-              chanels: '["notification"]',
-              active: 1
-            },
-            {
-              id: 500,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "",
+              id: 832,
+              liomId: "579f1109-03c4-4e1e-b088-e185832696d3",
+              telegramId: "480992663",
+              phoneNumber: "09228951264",
               schedule_type: "everyYear",
               type: "wedding_anniversary",
               name: "\u0633\u0627\u0644\u06af\u0631\u062f \u0627\u0632\u062f\u0648\u0627\u062c",
               text: "marriage",
               token1: null,
-              dates: '["2026-01-01"]',
+              dates: '["2025-12-31"]',
               weekdays: null,
-              times: '["09:00"]',
+              times: '["11:55"]',
               finishTime: null,
               chanels: '["notification","telegram"]',
-              active: 1
+              pre_reminders: null,
+              times_pre_reminders: null,
+              active: 1,
+              timestamp: "2025-12-14 13:21:20"
             },
             {
-              id: 507,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "",
+              id: 835,
+              liomId: "579f1109-03c4-4e1e-b088-e185832696d3",
+              telegramId: "480992663",
+              phoneNumber: "09228951264",
               schedule_type: "everyYear",
-              type: "religious_womens_day",
-              name: "\u0631\u0648\u0632 \u0632\u0646 (\u0627\u0633\u0644\u0627\u0645\u06cc)",
-              text: "motherAndWifeDayIran",
+              type: "boys_day",
+              name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u067e\u0633\u0631",
+              text: "boys_day",
               token1: null,
-              dates: '["2025-12-11"]',
+              dates: '["2026-05-16"]',
               weekdays: null,
-              times: '["09:30"]',
+              times: '["16:30"]',
               finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
+              chanels: '["notification"]',
+              pre_reminders: null,
+              times_pre_reminders: null,
+              active: 1,
+              timestamp: "2025-12-08 11:35:46"
             },
             {
-              id: 508,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: "sepandarmazgan",
-              name: "\u0631\u0648\u0632 \u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646",
-              text: "sepandarmazgan",
-              token1: null,
-              dates: '["2026-02-18"]',
-              weekdays: null,
-              times: '["09:00"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 538,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "",
+              id: 1069,
+              liomId: "579f1109-03c4-4e1e-b088-e185832696d3",
+              telegramId: "480992663",
+              phoneNumber: "09228951264",
               schedule_type: "everyDay",
               type: "medicine_time",
-              name: "\u0645\u0635\u0631\u0641 \u062f\u0627\u0631\u0648",
+              name: "\u062f\u0646\u062f\u0648\u0646 \u062f\u0631\u062f",
               text: "pill",
               token1: null,
               dates: null,
-              weekdays:
-                '["saturday","sunday","monday","tuesday","wednesday","thursday","friday"]',
-              times: '["09:30"]',
+              weekdays: '["saturday"]',
+              times: '["20:00"]',
               finishTime: null,
-              chanels: '["telegram","notification"]',
-              active: 1
+              chanels: '["telegram"]',
+              pre_reminders: null,
+              times_pre_reminders: null,
+              active: 1,
+              timestamp: "2025-12-14 13:38:40"
             },
             {
-              id: 539,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "",
+              id: 1190,
+              liomId: "579f1109-03c4-4e1e-b088-e185832696d3",
+              telegramId: "480992663",
+              phoneNumber: "09228951264",
               schedule_type: "everyYear",
               type: "spouse_birthday",
               name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
-              text: "spouse_birthday",
+              text: "birthdayWife",
               token1: null,
               dates: '["2025-12-31"]',
               weekdays: null,
-              times: '["09:30"]',
+              times: '["04:30"]',
               finishTime: null,
               chanels: '["notification","telegram"]',
-              active: 1
+              pre_reminders:
+                '["0000-12-21", "0000-12-24", "0000-12-28", "0000-12-30"]',
+              times_pre_reminders: '["09:55"]',
+              active: 1,
+              timestamp: "2025-12-19 17:34:18"
             },
             {
-              id: 541,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyDay",
-              type: "checkup",
-              name: "\u0686\u06a9\u0627\u067e \u062f\u0648\u0631\u0647\u200c\u0627\u06cc",
-              text: "checkup",
-              token1: null,
-              dates: null,
-              weekdays:
-                '["saturday","sunday","monday","tuesday","wednesday","thursday","friday"]',
-              times: '["03:30"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 542,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "",
-              schedule_type: "everyYear",
-              type: "father_birthday",
-              name: "\u062a\u0648\u0644\u062f \u067e\u062f\u0631",
-              text: "father_birthday",
-              token1: null,
-              dates: '["2026-03-04"]',
-              weekdays: null,
-              times: '["09:00"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 550,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyDay",
-              type: "water_time",
-              name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628",
-              text: "drinkWater",
-              token1: null,
-              dates: null,
-              weekdays:
-                '["saturday","sunday","monday","tuesday","wednesday","thursday","friday"]',
-              times: '["12:30"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 0
-            },
-            {
-              id: 572,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
+              id: 1248,
+              liomId: "579f1109-03c4-4e1e-b088-e185832696d3",
+              telegramId: "480992663",
+              phoneNumber: "09228951264",
               schedule_type: "everyYear",
               type: "mothers_day",
               name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u0632\u0646",
@@ -738,87 +442,19 @@ function PlasmicReminderSetting__RenderFunc(props: {
               token1: null,
               dates: '["2026-03-08"]',
               weekdays: null,
-              times: '["09:00"]',
+              times: '["09:30"]',
               finishTime: null,
-              chanels: "[]",
-              active: 1
+              chanels: '["notification"]',
+              pre_reminders: null,
+              times_pre_reminders: null,
+              active: 0,
+              timestamp: "2025-12-15 11:52:12"
             },
             {
-              id: 573,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyYear",
-              type: "islamic_mens_day",
-              name: "\u0631\u0648\u0632 \u0645\u0631\u062f",
-              text: "islamic_mens_day",
-              token1: null,
-              dates: '["2026-01-03"]',
-              weekdays: null,
-              times: '["09:00"]',
-              finishTime: null,
-              chanels: "[]",
-              active: 1
-            },
-            {
-              id: 730,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyDay",
-              type: "medicine_time",
-              name: "\u0645\u0635\u0631\u0641 \u062f\u0627\u0631\u0648 d",
-              text: "pill",
-              token1: null,
-              dates: null,
-              weekdays:
-                '["saturday","sunday","monday","tuesday","wednesday","thursday","friday"]',
-              times: '["06:30"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 731,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyDay",
-              type: "medicine_time",
-              name: "\u0645\u0635\u0631\u0641 \u062f\u0627\u0631\u0648",
-              text: "medicine_time",
-              token1: null,
-              dates: null,
-              weekdays:
-                '["saturday","sunday","monday","tuesday","wednesday","thursday","friday"]',
-              times: '["05:30"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 732,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyDay",
-              type: "medicine_time",
-              name: "\u0645\u0635\u0631\u0641 \u062f\u0627\u0631\u0648kjhkhk",
-              text: "pill",
-              token1: null,
-              dates: null,
-              weekdays:
-                '["saturday","sunday","monday","tuesday","wednesday","thursday","friday"]',
-              times: '["03:30"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 733,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
+              id: 1264,
+              liomId: "579f1109-03c4-4e1e-b088-e185832696d3",
+              telegramId: "480992663",
+              phoneNumber: "09228951264",
               schedule_type: "everyYear",
               type: "valentine_day",
               name: "\u0631\u0648\u0632 \u0648\u0644\u0646\u062a\u0627\u06cc\u0646",
@@ -826,113 +462,55 @@ function PlasmicReminderSetting__RenderFunc(props: {
               token1: null,
               dates: '["2026-02-14"]',
               weekdays: null,
-              times: "[]",
+              times: '["17:30"]',
               finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
+              chanels: '["notification"]',
+              pre_reminders:
+                '["0000-02-04","0000-02-09","0000-02-11","0000-02-13"]',
+              times_pre_reminders: '["09:45"]',
+              active: 1,
+              timestamp: "2025-12-19 17:16:25"
             },
             {
-              id: 771,
-              liomId: "1d7b7869-bf14-4c96-8cc9-b71cafc9f518",
-              telegramId: null,
-              phoneNumber: "09053001641",
+              id: 1265,
+              liomId: "579f1109-03c4-4e1e-b088-e185832696d3",
+              telegramId: "480992663",
+              phoneNumber: "09228951264",
               schedule_type: "everyYear",
-              type: "valentine_day",
-              name: "\u0631\u0648\u0632 \u0648\u0644\u0646\u062a\u0627\u06cc\u0646",
-              text: "occasion",
+              type: "sepandarmazgan",
+              name: "\u0631\u0648\u0632 \u0633\u067e\u0646\u062f\u0627\u0631\u0645\u0630\u06af\u0627\u0646",
+              text: "sepandarmazgan",
               token1: null,
-              dates: '["2026-02-14"]',
+              dates: '["2026-02-18"]',
               weekdays: null,
-              times: '["09:30"]',
+              times: '["18:30"]',
               finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
+              chanels: '["notification"]',
+              pre_reminders: null,
+              times_pre_reminders: null,
+              active: 1,
+              timestamp: "2025-12-16 09:57:59"
             },
             {
-              id: 772,
-              liomId: "1d7b7869-bf14-4c96-8cc9-b71cafc9f518",
-              telegramId: null,
-              phoneNumber: "09053001641",
+              id: 1291,
+              liomId: "579f1109-03c4-4e1e-b088-e185832696d3",
+              telegramId: "480992663",
+              phoneNumber: "09228951264",
               schedule_type: "everyYear",
-              type: "religious_womens_day",
-              name: "\u0631\u0648\u0632 \u0632\u0646 ",
-              text: "occasion",
+              type: "spouse_birthday",
+              name: "\u062a\u0648\u0644\u062f \u0647\u0645\u0633\u0631",
+              text: "birthdayWife",
               token1: null,
-              dates: '["2025-12-11"]',
+              dates: '["2025-12-31"]',
               weekdays: null,
-              times: '["09:30"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 797,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyYear",
-              type: "valentine_day",
-              name: "\u0631\u0648\u0632 \u0648\u0644\u0646\u062a\u0627\u06cc\u0646",
-              text: "valentine",
-              token1: null,
-              dates: '["2026-02-14"]',
-              weekdays: null,
-              times: '["09:30"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 812,
-              liomId: "1",
-              telegramId: null,
-              phoneNumber: null,
-              schedule_type: "everyYear",
-              type: "womens_day",
-              name: "\u0631\u0648\u0632 \u062c\u0647\u0627\u0646\u06cc \u062f\u062e\u062a\u0631",
-              text: "occasion",
-              token1: null,
-              dates: '["2026-04-19"]',
-              weekdays: null,
-              times: '["09:30"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
-            },
-            {
-              id: 814,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyDay",
-              type: "medicine_time",
-              name: "\u0646\u0648\u0634\u06cc\u062f\u0646 \u0622\u0628 ",
-              text: "medicine_time",
-              token1: null,
-              dates: null,
-              weekdays:
-                '["saturday","sunday","monday","tuesday","wednesday","thursday","friday"]',
               times: '["09:30"]',
               finishTime: null,
               chanels: "[]",
-              active: 1
-            },
-            {
-              id: 815,
-              liomId: "1",
-              telegramId: "372883527",
-              phoneNumber: "09154807701",
-              schedule_type: "everyYear",
-              type: "religious_womens_day",
-              name: "\u0631\u0648\u0632 \u0632\u0646 ",
-              text: "motherAndWifeDayIran",
-              token1: null,
-              dates: '["2025-12-11"]',
-              weekdays: null,
-              times: '["09:30"]',
-              finishTime: null,
-              chanels: '["notification","telegram"]',
-              active: 1
+              pre_reminders:
+                '["0000-12-21", "0000-12-24", "0000-12-28", "0000-12-30"]',
+              times_pre_reminders: '["09:55"]',
+              active: 1,
+              timestamp: "2025-12-19 17:34:18"
             }
           ],
           subscription: false,
@@ -1290,6 +868,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       type: r.type || null,
                       weekdays: r.weekdays || null,
                       times: r.times || null,
+                      pre_reminders: r.pre_reminders || [],
                       finishTime: r.finishTime || null,
                       active: r.active ?? 0,
                       channels:
@@ -1702,6 +1281,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   report.finishTime = undefined;
                 }
                 report.active = 1;
+                report.pre = $state.pre;
                 report.times = JSON.stringify(
                   $state.time2.map(
                     t =>
@@ -2014,6 +1594,99 @@ function PlasmicReminderSetting__RenderFunc(props: {
 
         valueProp: "topic",
         onChangeProp: "onTopicChange"
+      },
+      {
+        path: "preReminder.opendialog",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobile") ? false : false
+      },
+      {
+        path: "button12.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button12.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button12.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "preReminderSelect.item",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          {
+            label:
+              ' <span style="font-size:1.2em; font-weight:600;">\u06f1</span> <span style="font-size:0.85em; color:#888;">\u0631\u0648\u0632 \u0642\u0628\u0644</span>',
+            value: -1
+          },
+          {
+            label:
+              ' <span style="font-size:1.2em; font-weight:600;">\u06f2</span> <span style="font-size:0.85em; color:#888;">\u0631\u0648\u0632 \u0642\u0628\u0644</span>',
+            value: -2
+          },
+          {
+            label:
+              ' <span style="font-size:1.2em; font-weight:600;">\u06f3</span> <span style="font-size:0.85em; color:#888;">\u0631\u0648\u0632 \u0642\u0628\u0644</span>',
+            value: -3
+          },
+          {
+            label:
+              ' <span style="font-size:1.2em; font-weight:600;">\u06f7</span> <span style="font-size:0.85em; color:#888;">\u0631\u0648\u0632 \u0642\u0628\u0644</span>',
+            value: -7
+          },
+          {
+            label:
+              ' <span style="font-size:1.2em; font-weight:600;">\u06f1\u06f4</span> <span style="font-size:0.85em; color:#888;">\u0631\u0648\u0632 \u0642\u0628\u0644</span>',
+            value: -14
+          }
+        ]
+      },
+      {
+        path: "preReminderSelect.selectItem",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.pre;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [
+                  {
+                    label:
+                      ' <span style="font-size:1.2em; font-weight:600;">\u06f3</span> <span style="font-size:0.85em; color:#888;">\u0631\u0648\u0632 \u0642\u0628\u0644</span>',
+                    value: -3
+                  },
+                  {
+                    label:
+                      ' <span style="font-size:1.2em; font-weight:600;">\u06f7</span> <span style="font-size:0.85em; color:#888;">\u0631\u0648\u0632 \u0642\u0628\u0644</span>',
+                    value: -7
+                  }
+                ];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "pre",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [-3, -7]
       }
     ],
     [$props, $ctx, $refs]
@@ -2882,6 +2555,327 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                     currentIndex,
                                                     1
                                                   );
+                                                }
+                                              };
+                                              return (({ customFunction }) => {
+                                                return customFunction();
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["runCode"] != null &&
+                                          typeof $steps["runCode"] ===
+                                            "object" &&
+                                          typeof $steps["runCode"].then ===
+                                            "function"
+                                        ) {
+                                          $steps["runCode"] =
+                                            await $steps["runCode"];
+                                        }
+                                      }}
+                                      role={"img"}
+                                    />
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          ) : null}
+                        </div>
+                      ) : null}
+                      {(() => {
+                        try {
+                          return $state.select2.schedule_type != "everyDay";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__pIu4P
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__qj1Qb
+                            )}
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["runCode"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return (() => {
+                                          return ($state.preReminder.opendialog = true);
+                                        })();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+                            }}
+                          >
+                            <Icon387Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__l0ZoD
+                              )}
+                              role={"img"}
+                            />
+
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__d9WVt
+                              )}
+                            >
+                              <div
+                                className={projectcss.__wab_expr_html_text}
+                                dangerouslySetInnerHTML={{
+                                  __html: (() => {
+                                    try {
+                                      return `پیش یادآوری <span style="font-size:0.85em; color:#888;">(اختیاری)</span>`;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "\u062a\u0627\u0631\u06cc\u062e \u0634\u0631\u0648\u0639 ";
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                }}
+                              />
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__xm8OU
+                              )}
+                              id={``}
+                              onClick={async event => {
+                                const $steps = {};
+                              }}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox___4OrXs
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__a76B
+                                  )}
+                                >
+                                  <Icon49Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__lnzer
+                                    )}
+                                    role={"img"}
+                                  />
+
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__damdt
+                                    )}
+                                  >
+                                    {
+                                      "\u062a\u0646\u0638\u06cc\u0645 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc"
+                                    }
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          {(() => {
+                            try {
+                              return $state.pre.length > 0;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox___9Hjq
+                              )}
+                            >
+                              {(_par =>
+                                !_par
+                                  ? []
+                                  : Array.isArray(_par)
+                                    ? _par
+                                    : [_par])(
+                                (() => {
+                                  try {
+                                    return $state.pre;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [];
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                                const currentItem = __plasmic_item_0;
+                                const currentIndex = __plasmic_idx_0;
+                                return (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox___9QcYo
+                                    )}
+                                    key={currentIndex}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox__xHMnm
+                                      )}
+                                      onClick={async event => {
+                                        const $steps = {};
+
+                                        $steps["updatePreReminderOpendialog"] =
+                                          true
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  variable: {
+                                                    objRoot: $state,
+                                                    variablePath: [
+                                                      "preReminder",
+                                                      "opendialog"
+                                                    ]
+                                                  },
+                                                  operation: 0,
+                                                  value: true
+                                                };
+                                                return (({
+                                                  variable,
+                                                  value,
+                                                  startIndex,
+                                                  deleteCount
+                                                }) => {
+                                                  if (!variable) {
+                                                    return;
+                                                  }
+                                                  const {
+                                                    objRoot,
+                                                    variablePath
+                                                  } = variable;
+
+                                                  $stateSet(
+                                                    objRoot,
+                                                    variablePath,
+                                                    value
+                                                  );
+                                                  return value;
+                                                })?.apply(null, [actionArgs]);
+                                              })()
+                                            : undefined;
+                                        if (
+                                          $steps[
+                                            "updatePreReminderOpendialog"
+                                          ] != null &&
+                                          typeof $steps[
+                                            "updatePreReminderOpendialog"
+                                          ] === "object" &&
+                                          typeof $steps[
+                                            "updatePreReminderOpendialog"
+                                          ].then === "function"
+                                        ) {
+                                          $steps[
+                                            "updatePreReminderOpendialog"
+                                          ] =
+                                            await $steps[
+                                              "updatePreReminderOpendialog"
+                                            ];
+                                        }
+                                      }}
+                                    >
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.__wab_text,
+                                          sty.text___1DCnc
+                                        )}
+                                      >
+                                        <div
+                                          className={
+                                            projectcss.__wab_expr_html_text
+                                          }
+                                          dangerouslySetInnerHTML={{
+                                            __html: (() => {
+                                              try {
+                                                return `<span style=\"font-size:1.2em; font-weight:600;\">${Math.abs(currentItem)}</span> <span style=\"font-size:0.85em; color:#888;\">روز قبل</span>`;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return "\u0628\u0631\u0627\u06cc \u0645\u062b\u0627\u0644 1404/1/1";
+                                                }
+                                                throw e;
+                                              }
+                                            })()
+                                          }}
+                                        />
+                                      </div>
+                                    </div>
+                                    <Icon306Icon
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.svg__y4KIv
+                                      )}
+                                      onClick={async event => {
+                                        const $steps = {};
+
+                                        $steps["runCode"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                customFunction: async () => {
+                                                  return (() => {
+                                                    return ($state.pre =
+                                                      $state.pre.filter(
+                                                        item =>
+                                                          item !== currentItem
+                                                      ));
+                                                  })();
                                                 }
                                               };
                                               return (({ customFunction }) => {
@@ -4044,6 +4038,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                 } else {
                                   report.finishTime = undefined;
                                 }
+                                report.pre = $state.pre;
                                 report.active = 1;
                                 report.times = JSON.stringify(
                                   $state.time2.map(
@@ -4396,6 +4391,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                       `${String(t.hour).padStart(2, "0")}:${String(t.minute).padStart(2, "0")}`
                                                   )
                                                 );
+                                                if ($state.pre.length > 0)
+                                                  select3.pre_reminders =
+                                                    $state.pre;
                                                 select3.name = $state.title;
                                                 select3.channels =
                                                   JSON.stringify(
@@ -4518,6 +4516,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                       $state.report2
                                                         .selectchanels
                                                     );
+                                                  if ($state.pre.length > 0)
+                                                    select3.pre_reminders =
+                                                      $state.pre;
                                                 } catch (err) {
                                                   select3 = {
                                                     weekdays: undefined,
@@ -4944,6 +4945,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                       report.finishTime = undefined;
                                     }
                                     report.active = 1;
+                                    report.pre = $state.pre;
                                     report.times = JSON.stringify(
                                       $state.time2.map(
                                         t =>
@@ -5243,7 +5245,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   );
                               }
                               if ($state.week.length === 0) {
-                                return ($state.repead.selected = "once");
+                                $state.repead.selected = "once";
                               } else if (
                                 arraysEqualIgnoreOrder($state.week, [
                                   "saturday",
@@ -5255,7 +5257,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   "friday"
                                 ])
                               ) {
-                                return ($state.repead.selected = "daily");
+                                $state.repead.selected = "daily";
                               } else if (
                                 arraysEqualIgnoreOrder($state.week, [
                                   "saturday",
@@ -5265,13 +5267,16 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   "wednesday"
                                 ])
                               ) {
-                                return ($state.repead.selected = "sat_to_wed");
+                                $state.repead.selected = "sat_to_wed";
                               } else {
-                                return ($state.repead.selected = "custom");
+                                $state.repead.selected = "custom";
                               }
                             } catch {
-                              return ($state.week = []);
+                              $state.week = [];
                             }
+                            if ($state?.select2?.schedule_type == "everyYear")
+                              return ($state.pre = [-3, -7]);
+                            else return ($state.pre = []);
                           })();
                         }
                       };
@@ -5441,6 +5446,17 @@ function PlasmicReminderSetting__RenderFunc(props: {
           ])}
         >
           <div className={classNames(projectcss.all, sty.freeBox__eatO7)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__pEj2E
+              )}
+            >
+              {
+                " \u062a\u0627\u0631\u06cc\u062e \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc"
+              }
+            </div>
             <DatePickers
               data-plasmic-name={"datePickers"}
               data-plasmic-override={overrides.datePickers}
@@ -5855,25 +5871,16 @@ function PlasmicReminderSetting__RenderFunc(props: {
           opendialog={generateStateValueProp($state, ["time", "opendialog"])}
         >
           <div className={classNames(projectcss.all, sty.freeBox___8MDPm)}>
-            <div className={classNames(projectcss.all, sty.freeBox___0OmFq)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__pyuK
-                )}
-              >
-                {"\u062f\u0642\u06cc\u0642\u0647"}
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__iIqSt
-                )}
-              >
-                {"\u0633\u0627\u0639\u062a"}
-              </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__mcKl
+              )}
+            >
+              {
+                " \u0632\u0645\u0627\u0646 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc"
+              }
             </div>
             <div
               className={classNames(projectcss.all, sty.freeBox__fmOzt, "time")}
@@ -6131,7 +6138,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 sty.text__dKlLc
               )}
             >
-              {"\u0631\u0648\u0632 \u0647\u0627\u06cc \u0647\u0641\u062a\u0647"}
+              {
+                " \u062a\u06a9\u0631\u0627\u0631 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc"
+              }
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__mpTf4)}>
               <CheckboxGroup
@@ -6303,7 +6312,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   <React.Fragment>
                                     {(() => {
                                       try {
-                                        return currentItem.label;
+                                        return "هر " + currentItem.label;
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
@@ -6414,6 +6423,205 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 onLoadingChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
                     generateStateOnChangeProp($state, ["button11", "loading"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+              >
+                {"\u062a\u0627\u06cc\u06cc\u062f"}
+              </Button>
+            </div>
+          </div>
+        </Dialog>
+        <Dialog
+          data-plasmic-name={"preReminder"}
+          data-plasmic-override={overrides.preReminder}
+          className={classNames("__wab_instance", sty.preReminder, {
+            [sty.preReminderreport]: hasVariant($state, "report", "report")
+          })}
+          onOpendialogChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, [
+              "preReminder",
+              "opendialog"
+            ]).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          opendialog={generateStateValueProp($state, [
+            "preReminder",
+            "opendialog"
+          ])}
+        >
+          <div className={classNames(projectcss.all, sty.freeBox___940Jz)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__frTi
+              )}
+            >
+              {" \u067e\u06cc\u0634 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc"}
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__nlLxl)}>
+              <PreReminderSelect
+                data-plasmic-name={"preReminderSelect"}
+                data-plasmic-override={overrides.preReminderSelect}
+                className={classNames("__wab_instance", sty.preReminderSelect)}
+                item={generateStateValueProp($state, [
+                  "preReminderSelect",
+                  "item"
+                ])}
+                onItemChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "preReminderSelect",
+                    "item"
+                  ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onSelectItemChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "preReminderSelect",
+                    "selectItem"
+                  ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                selectItem={generateStateValueProp($state, [
+                  "preReminderSelect",
+                  "selectItem"
+                ])}
+              />
+
+              <Button
+                data-plasmic-name={"button12"}
+                data-plasmic-override={overrides.button12}
+                className={classNames("__wab_instance", sty.button12)}
+                color={generateStateValueProp($state, ["button12", "color"])}
+                load={generateStateValueProp($state, ["button12", "load"])}
+                loading={generateStateValueProp($state, [
+                  "button12",
+                  "loading"
+                ])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return ($state.pre =
+                              $state.preReminderSelect.selectItem);
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+
+                  $steps["updateWeekDaysOpendialog"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["preReminder", "opendialog"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateWeekDaysOpendialog"] != null &&
+                    typeof $steps["updateWeekDaysOpendialog"] === "object" &&
+                    typeof $steps["updateWeekDaysOpendialog"].then ===
+                      "function"
+                  ) {
+                    $steps["updateWeekDaysOpendialog"] =
+                      await $steps["updateWeekDaysOpendialog"];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button12", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button12", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button12", "loading"])(
                       eventArgs[0]
                     );
                   }).apply(null, eventArgs);
@@ -9003,22 +9211,32 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                                       )
                                                                     )
                                                                   );
-                                                                return ($state.finishDate =
+                                                                $state.finishDate =
                                                                   {
                                                                     f,
                                                                     g,
                                                                     year: jy,
                                                                     month: jm,
                                                                     day: jd
-                                                                  });
+                                                                  };
                                                               } else {
-                                                                return ($state.finishDate =
-                                                                  {});
+                                                                $state.finishDate =
+                                                                  {};
                                                               }
                                                             } catch {
-                                                              return ($state.finishDate =
-                                                                {});
+                                                              $state.finishDate =
+                                                                {};
                                                             }
+                                                            if (
+                                                              $state?.select2
+                                                                ?.schedule_type ==
+                                                              "everyYear"
+                                                            )
+                                                              return ($state.pre =
+                                                                $state.select2.pre_reminders);
+                                                            else
+                                                              return ($state.pre =
+                                                                []);
                                                           })();
                                                         }
                                                     };
@@ -13762,19 +13980,22 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   }).format(today)
                                 )
                               );
-                              return ($state.finishDate = {
+                              $state.finishDate = {
                                 f,
                                 g,
                                 year: jy,
                                 month: jm,
                                 day: jd
-                              });
+                              };
                             } else {
-                              return ($state.finishDate = {});
+                              $state.finishDate = {};
                             }
                           } catch {
-                            return ($state.finishDate = {});
+                            $state.finishDate = {};
                           }
+                          if ($state?.select2?.schedule_type == "everyYear")
+                            return ($state.pre = $state.select2.pre_reminders);
+                          else return ($state.pre = []);
                         })();
                       }
                     };
@@ -14390,6 +14611,9 @@ const PlasmicDescendants = {
     "checkboxGroup",
     "checkbox",
     "button11",
+    "preReminder",
+    "preReminderSelect",
+    "button12",
     "slide2",
     "button9",
     "button10",
@@ -14448,7 +14672,10 @@ const PlasmicDescendants = {
     "weekDays",
     "checkboxGroup",
     "checkbox",
-    "button11"
+    "button11",
+    "preReminder",
+    "preReminderSelect",
+    "button12"
   ],
   dialog: [
     "dialog",
@@ -14483,6 +14710,9 @@ const PlasmicDescendants = {
   checkboxGroup: ["checkboxGroup", "checkbox"],
   checkbox: ["checkbox"],
   button11: ["button11"],
+  preReminder: ["preReminder", "preReminderSelect", "button12"],
+  preReminderSelect: ["preReminderSelect"],
+  button12: ["button12"],
   slide2: ["slide2", "button9", "button10"],
   button9: ["button9"],
   button10: ["button10"],
@@ -14612,6 +14842,9 @@ type NodeDefaultElementType = {
   checkboxGroup: typeof CheckboxGroup;
   checkbox: typeof Checkbox;
   button11: typeof Button;
+  preReminder: typeof Dialog;
+  preReminderSelect: typeof PreReminderSelect;
+  button12: typeof Button;
   slide2: "div";
   button9: typeof Button;
   button10: typeof Button;
@@ -14733,6 +14966,9 @@ export const PlasmicReminderSetting = Object.assign(
     checkboxGroup: makeNodeComponent("checkboxGroup"),
     checkbox: makeNodeComponent("checkbox"),
     button11: makeNodeComponent("button11"),
+    preReminder: makeNodeComponent("preReminder"),
+    preReminderSelect: makeNodeComponent("preReminderSelect"),
+    button12: makeNodeComponent("button12"),
     slide2: makeNodeComponent("slide2"),
     button9: makeNodeComponent("button9"),
     button10: makeNodeComponent("button10"),
