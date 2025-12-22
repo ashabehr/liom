@@ -102,7 +102,6 @@ export type PlasmicNotif2__OverridesType = {
   section?: Flex__<"section">;
   headerLiom?: Flex__<typeof HeaderLiom>;
   svg?: Flex__<"svg">;
-  img?: Flex__<typeof PlasmicImg__>;
   apiRequest?: Flex__<typeof ApiRequest>;
   notifBox2?: Flex__<typeof NotifBox>;
   button?: Flex__<typeof Button>;
@@ -534,7 +533,9 @@ function PlasmicNotif2__RenderFunc(props: {
                       sty.text__m3Uzh
                     )}
                   >
-                    {"\u0627\u0639\u0644\u0627\u0646\u0627\u062a"}
+                    {
+                      "\u0627\u0637\u0644\u0627\u0639\u06cc\u0647\u200c\u0647\u0627"
+                    }
                   </div>
                 </div>
               </HeaderLiom>
@@ -550,11 +551,9 @@ function PlasmicNotif2__RenderFunc(props: {
             })}
           >
             <PlasmicImg__
-              data-plasmic-name={"img"}
-              data-plasmic-override={overrides.img}
               alt={""}
-              className={classNames(sty.img, {
-                [sty.imgnoNotification]: hasVariant(
+              className={classNames(sty.img__majxv, {
+                [sty.imgnoNotification__majxvNShOl]: hasVariant(
                   $state,
                   "noNotification",
                   "noNotification"
@@ -741,6 +740,62 @@ function PlasmicNotif2__RenderFunc(props: {
               })()}
               url={"https://n8n.staas.ir/webhook/getData-notification"}
             >
+              {(() => {
+                try {
+                  return ($state.apiRequest.data ?? []).length == 0;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div className={classNames(projectcss.all, sty.freeBox__jeVng)}>
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img__mben)}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"30%"}
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/liom_hamyar/images/image130.png",
+                      fullWidth: 640,
+                      fullHeight: 647,
+                      aspectRatio: undefined
+                    }}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___13Nln
+                    )}
+                  >
+                    {
+                      "\u0641\u0639\u0644\u0627\u064b \u0627\u0637\u0644\u0627\u0639\u06cc\u0647\u200c\u0627\u06cc \u0646\u062f\u0627\u0631\u06cc"
+                    }
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__av2Cc
+                    )}
+                  >
+                    {
+                      "\u0627\u06af\u0647 \u0627\u0637\u0644\u0627\u0639\u06cc\u0647 \u062c\u062f\u06cc\u062f\u06cc \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc\u060c \u0647\u0645\u06cc\u0646\u200c\u062c\u0627 \u0628\u0647\u062a \u0646\u0634\u0648\u0646 \u0645\u06cc\u200c\u062f\u06cc\u0645."
+                    }
+                  </div>
+                </div>
+              ) : null}
               <div
                 className={classNames(projectcss.all, sty.freeBox__ougy7, {
                   [sty.freeBoxnoNotification__ougy7NShOl]: hasVariant(
@@ -1399,6 +1454,21 @@ function PlasmicNotif2__RenderFunc(props: {
                           return;
                         }
                       },
+                      open: (() => {
+                        try {
+                          return (
+                            currentIndex == $state.apiRequest.data.length - 1
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return false;
+                          }
+                          throw e;
+                        }
+                      })(),
                       seen: generateStateValueProp($state, [
                         "notifBox2",
                         __plasmic_idx_0,
@@ -1606,7 +1676,6 @@ const PlasmicDescendants = {
     "section",
     "headerLiom",
     "svg",
-    "img",
     "apiRequest",
     "notifBox2",
     "button"
@@ -1615,7 +1684,6 @@ const PlasmicDescendants = {
   section: ["section", "headerLiom", "svg"],
   headerLiom: ["headerLiom", "svg"],
   svg: ["svg"],
-  img: ["img"],
   apiRequest: ["apiRequest", "notifBox2", "button"],
   notifBox2: ["notifBox2", "button"],
   button: ["button"]
@@ -1629,7 +1697,6 @@ type NodeDefaultElementType = {
   section: "section";
   headerLiom: typeof HeaderLiom;
   svg: "svg";
-  img: typeof PlasmicImg__;
   apiRequest: typeof ApiRequest;
   notifBox2: typeof NotifBox;
   button: typeof Button;
@@ -1726,7 +1793,6 @@ export const PlasmicNotif2 = Object.assign(
     section: makeNodeComponent("section"),
     headerLiom: makeNodeComponent("headerLiom"),
     svg: makeNodeComponent("svg"),
-    img: makeNodeComponent("img"),
     apiRequest: makeNodeComponent("apiRequest"),
     notifBox2: makeNodeComponent("notifBox2"),
     button: makeNodeComponent("button"),

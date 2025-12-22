@@ -5453,9 +5453,23 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 sty.text__pEj2E
               )}
             >
-              {
-                " \u062a\u0627\u0631\u06cc\u062e \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc"
-              }
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $state.dateType == "end"
+                      ? "تاریخ پایان  یادآوری"
+                      : "تاریخ یادآوری";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return " \u062a\u0627\u0631\u06cc\u062e \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
             </div>
             <DatePickers
               data-plasmic-name={"datePickers"}
@@ -5701,35 +5715,55 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           },
                           operation: 0,
                           value: (() => {
-                            const m = $state.datePickers.value.gregorian.month;
-                            const d = $state.datePickers.value.gregorian.day;
+                            const { year, month, day } =
+                              $state.datePickers.value.gregorian;
                             const nowUtc = new Date();
                             const now = new Date(
                               nowUtc.getTime() + 3.5 * 60 * 60 * 1000
                             );
-                            const currentYear = now.getFullYear();
-                            let todayUtc = new Date(
-                              Date.UTC(currentYear, m - 1, d)
+                            const selectedUtc = new Date(
+                              Date.UTC(year, month - 1, day)
                             );
-                            let today = new Date(
-                              todayUtc.getTime() + 3.5 * 60 * 60 * 1000
+                            let selectedDate = new Date(
+                              selectedUtc.getTime() + 3.5 * 60 * 60 * 1000
                             );
-                            if (today < now) {
-                              today.setFullYear(currentYear + 1);
+                            if (selectedDate < now) {
+                              selectedDate.setFullYear(
+                                selectedDate.getFullYear() + 1
+                              );
                             }
-                            const f = today.toISOString().split("T")[0];
+                            const f = selectedDate.toISOString().split("T")[0];
+                            const formatter = new Intl.DateTimeFormat(
+                              "fa-IR-u-nu-latn",
+                              {
+                                timeZone: "Asia/Tehran",
+                                year: "numeric",
+                                month: "numeric",
+                                day: "numeric"
+                              }
+                            );
+                            const parts = formatter.formatToParts(selectedDate);
+                            const shYear = Number(
+                              parts.find(p => p.type === "year").value
+                            );
+                            const shMonth = Number(
+                              parts.find(p => p.type === "month").value
+                            );
+                            const shDay = Number(
+                              parts.find(p => p.type === "day").value
+                            );
                             const g = new Intl.DateTimeFormat("fa-IR", {
                               timeZone: "Asia/Tehran",
                               year: "numeric",
                               month: "long",
                               day: "numeric"
-                            }).format(today);
+                            }).format(selectedDate);
                             return ($state.finishDate = {
                               f,
                               g,
-                              year: $state.datePickers.value.year,
-                              month: $state.datePickers.value.month,
-                              day: $state.datePickers.value.day
+                              year: shYear,
+                              month: shMonth,
+                              day: shDay
                             });
                           })()
                         };
