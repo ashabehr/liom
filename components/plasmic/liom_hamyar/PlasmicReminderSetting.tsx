@@ -92,9 +92,9 @@ import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 import Icon345Icon from "./icons/PlasmicIcon__Icon345"; // plasmic-import: JAvtUzC6_U9X/icon
 import Icon49Icon from "./icons/PlasmicIcon__Icon49"; // plasmic-import: VT7Wd_x-12ob/icon
 import Icon306Icon from "./icons/PlasmicIcon__Icon306"; // plasmic-import: jxGdzfvYEdqR/icon
-import Icon387Icon from "./icons/PlasmicIcon__Icon387"; // plasmic-import: rax53RqY-SpO/icon
 import Icon344Icon from "./icons/PlasmicIcon__Icon344"; // plasmic-import: yGnMTXTyjf2m/icon
 import ClockIcon from "../fragment_icons/icons/PlasmicIcon__Clock"; // plasmic-import: rW7v27ONOoUe/icon
+import Icon387Icon from "./icons/PlasmicIcon__Icon387"; // plasmic-import: rax53RqY-SpO/icon
 import Icon346Icon from "./icons/PlasmicIcon__Icon346"; // plasmic-import: Z4J9kCEKbiAp/icon
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
 import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: DnjmD0szshuz/icon
@@ -872,9 +872,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       finishTime: r.finishTime || null,
                       active: r.active ?? 0,
                       channels:
-                        r.channels === "{" || !r.chanels
-                          ? '["notification"]'
-                          : r.chanels
+                        r.channels === "{" || !r.chanels ? "[]" : r.chanels
                     };
                     updatedList.push(newEvent);
                   });
@@ -1374,7 +1372,22 @@ function PlasmicReminderSetting__RenderFunc(props: {
         path: "steps2.look",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.select2.schedule_type === "everyYear"
+                ? $state.time2.length != 0 && $state.date.length != 0
+                : $state.time2.length != 0;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "steps23.currentStep",
@@ -1722,6 +1735,13 @@ function PlasmicReminderSetting__RenderFunc(props: {
             hasVariant($state, "add", "add") &&
             hasVariant($state, "report", "report"),
           [sty.rootslide__1]: hasVariant($state, "slide", "_1"),
+          [sty.rootslide__1_date2_small]:
+            hasVariant($state, "date2", "date2") &&
+            hasVariant($state, "small", "small") &&
+            hasVariant($state, "slide", "_1"),
+          [sty.rootslide__1_small]:
+            hasVariant($state, "small", "small") &&
+            hasVariant($state, "slide", "_1"),
           [sty.rootslide__2]: hasVariant($state, "slide", "_2"),
           [sty.rootsmall]: hasVariant($state, "small", "small")
         }
@@ -1801,8 +1821,16 @@ function PlasmicReminderSetting__RenderFunc(props: {
           data-plasmic-override={overrides.dialog}
           className={classNames("__wab_instance", sty.dialog, {
             [sty.dialogadd]: hasVariant($state, "add", "add"),
+            [sty.dialogdate2]: hasVariant($state, "date2", "date2"),
+            [sty.dialogdate2_small]:
+              hasVariant($state, "date2", "date2") &&
+              hasVariant($state, "small", "small"),
             [sty.dialogreport]: hasVariant($state, "report", "report"),
-            [sty.dialogslide__1]: hasVariant($state, "slide", "_1")
+            [sty.dialogslide__1]: hasVariant($state, "slide", "_1"),
+            [sty.dialogslide__1_date2_small]:
+              hasVariant($state, "date2", "date2") &&
+              hasVariant($state, "small", "small") &&
+              hasVariant($state, "slide", "_1")
           })}
           fullpage={true}
           onOpendialogChange={async (...eventArgs: any) => {
@@ -2349,9 +2377,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                       sty.text__tzt2Q
                                     )}
                                   >
-                                    {
-                                      "\u0627\u0641\u0632\u0648\u062f\u0646 \u062a\u0627\u0631\u06cc\u062e"
-                                    }
+                                    {"\u0627\u0641\u0632\u0648\u062f\u0646 "}
                                   </div>
                                 </div>
                               </div>
@@ -2555,327 +2581,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                     currentIndex,
                                                     1
                                                   );
-                                                }
-                                              };
-                                              return (({ customFunction }) => {
-                                                return customFunction();
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                        if (
-                                          $steps["runCode"] != null &&
-                                          typeof $steps["runCode"] ===
-                                            "object" &&
-                                          typeof $steps["runCode"].then ===
-                                            "function"
-                                        ) {
-                                          $steps["runCode"] =
-                                            await $steps["runCode"];
-                                        }
-                                      }}
-                                      role={"img"}
-                                    />
-                                  </div>
-                                );
-                              })}
-                            </div>
-                          ) : null}
-                        </div>
-                      ) : null}
-                      {(() => {
-                        try {
-                          return $state.select2.schedule_type != "everyDay";
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__pIu4P
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__qj1Qb
-                            )}
-                            onClick={async event => {
-                              const $steps = {};
-
-                              $steps["runCode"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      customFunction: async () => {
-                                        return (() => {
-                                          return ($state.preReminder.opendialog = true);
-                                        })();
-                                      }
-                                    };
-                                    return (({ customFunction }) => {
-                                      return customFunction();
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["runCode"] != null &&
-                                typeof $steps["runCode"] === "object" &&
-                                typeof $steps["runCode"].then === "function"
-                              ) {
-                                $steps["runCode"] = await $steps["runCode"];
-                              }
-                            }}
-                          >
-                            <Icon387Icon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg__l0ZoD
-                              )}
-                              role={"img"}
-                            />
-
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__d9WVt
-                              )}
-                            >
-                              <div
-                                className={projectcss.__wab_expr_html_text}
-                                dangerouslySetInnerHTML={{
-                                  __html: (() => {
-                                    try {
-                                      return `پیش یادآوری <span style="font-size:0.85em; color:#888;">(اختیاری)</span>`;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "\u062a\u0627\u0631\u06cc\u062e \u0634\u0631\u0648\u0639 ";
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                }}
-                              />
-                            </div>
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__xm8OU
-                              )}
-                              id={``}
-                              onClick={async event => {
-                                const $steps = {};
-                              }}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox___4OrXs
-                                )}
-                              >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__a76B
-                                  )}
-                                >
-                                  <Icon49Icon
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.svg__lnzer
-                                    )}
-                                    role={"img"}
-                                  />
-
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__damdt
-                                    )}
-                                  >
-                                    {
-                                      "\u062a\u0646\u0638\u06cc\u0645 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc"
-                                    }
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          {(() => {
-                            try {
-                              return $state.pre.length > 0;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return true;
-                              }
-                              throw e;
-                            }
-                          })() ? (
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox___9Hjq
-                              )}
-                            >
-                              {(_par =>
-                                !_par
-                                  ? []
-                                  : Array.isArray(_par)
-                                    ? _par
-                                    : [_par])(
-                                (() => {
-                                  try {
-                                    return $state.pre;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return [];
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                                const currentItem = __plasmic_item_0;
-                                const currentIndex = __plasmic_idx_0;
-                                return (
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox___9QcYo
-                                    )}
-                                    key={currentIndex}
-                                  >
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__xHMnm
-                                      )}
-                                      onClick={async event => {
-                                        const $steps = {};
-
-                                        $steps["updatePreReminderOpendialog"] =
-                                          true
-                                            ? (() => {
-                                                const actionArgs = {
-                                                  variable: {
-                                                    objRoot: $state,
-                                                    variablePath: [
-                                                      "preReminder",
-                                                      "opendialog"
-                                                    ]
-                                                  },
-                                                  operation: 0,
-                                                  value: true
-                                                };
-                                                return (({
-                                                  variable,
-                                                  value,
-                                                  startIndex,
-                                                  deleteCount
-                                                }) => {
-                                                  if (!variable) {
-                                                    return;
-                                                  }
-                                                  const {
-                                                    objRoot,
-                                                    variablePath
-                                                  } = variable;
-
-                                                  $stateSet(
-                                                    objRoot,
-                                                    variablePath,
-                                                    value
-                                                  );
-                                                  return value;
-                                                })?.apply(null, [actionArgs]);
-                                              })()
-                                            : undefined;
-                                        if (
-                                          $steps[
-                                            "updatePreReminderOpendialog"
-                                          ] != null &&
-                                          typeof $steps[
-                                            "updatePreReminderOpendialog"
-                                          ] === "object" &&
-                                          typeof $steps[
-                                            "updatePreReminderOpendialog"
-                                          ].then === "function"
-                                        ) {
-                                          $steps[
-                                            "updatePreReminderOpendialog"
-                                          ] =
-                                            await $steps[
-                                              "updatePreReminderOpendialog"
-                                            ];
-                                        }
-                                      }}
-                                    >
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text___1DCnc
-                                        )}
-                                      >
-                                        <div
-                                          className={
-                                            projectcss.__wab_expr_html_text
-                                          }
-                                          dangerouslySetInnerHTML={{
-                                            __html: (() => {
-                                              try {
-                                                return `<span style=\"font-size:1.2em; font-weight:600;\">${Math.abs(currentItem)}</span> <span style=\"font-size:0.85em; color:#888;\">روز قبل</span>`;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return "\u0628\u0631\u0627\u06cc \u0645\u062b\u0627\u0644 1404/1/1";
-                                                }
-                                                throw e;
-                                              }
-                                            })()
-                                          }}
-                                        />
-                                      </div>
-                                    </div>
-                                    <Icon306Icon
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.svg__y4KIv
-                                      )}
-                                      onClick={async event => {
-                                        const $steps = {};
-
-                                        $steps["runCode"] = true
-                                          ? (() => {
-                                              const actionArgs = {
-                                                customFunction: async () => {
-                                                  return (() => {
-                                                    return ($state.pre =
-                                                      $state.pre.filter(
-                                                        item =>
-                                                          item !== currentItem
-                                                      ));
-                                                  })();
                                                 }
                                               };
                                               return (({ customFunction }) => {
@@ -3125,9 +2830,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     sty.text___3VAjo
                                   )}
                                 >
-                                  {
-                                    "\u0627\u0641\u0632\u0648\u062f\u0646 \u062a\u0627\u0631\u06cc\u062e"
-                                  }
+                                  {"\u0627\u0641\u0632\u0648\u062f\u0646 "}
                                 </div>
                               </div>
                             ) : null}
@@ -3264,9 +2967,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   sty.text__ja0
                                 )}
                               >
-                                {
-                                  "\u0627\u0641\u0632\u0648\u062f\u0646 \u0632\u0645\u0627\u0646"
-                                }
+                                {"\u0627\u0641\u0632\u0648\u062f\u0646 "}
                               </div>
                             </div>
                           </div>
@@ -3479,6 +3180,321 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         </div>
                       ) : null}
                     </div>
+                    {(() => {
+                      try {
+                        return $state.select2.schedule_type != "everyDay";
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__pIu4P
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__qj1Qb
+                          )}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        return ($state.preReminder.opendialog = true);
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+                          }}
+                        >
+                          <Icon387Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__l0ZoD
+                            )}
+                            role={"img"}
+                          />
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__d9WVt
+                            )}
+                          >
+                            <div
+                              className={projectcss.__wab_expr_html_text}
+                              dangerouslySetInnerHTML={{
+                                __html: (() => {
+                                  try {
+                                    return `پیش یادآوری <span style="font-size:0.85em; color:#888;">(اختیاری)</span>`;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u062a\u0627\u0631\u06cc\u062e \u0634\u0631\u0648\u0639 ";
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              }}
+                            />
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__xm8OU
+                            )}
+                            id={``}
+                            onClick={async event => {
+                              const $steps = {};
+                            }}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox___4OrXs
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__a76B
+                                )}
+                              >
+                                <Icon49Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__lnzer
+                                  )}
+                                  role={"img"}
+                                />
+
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__damdt
+                                  )}
+                                >
+                                  {"\u0627\u0641\u0632\u0648\u062f\u0646"}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        {(() => {
+                          try {
+                            return $state.pre.length > 0;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox___9Hjq
+                            )}
+                          >
+                            {(_par =>
+                              !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                              (() => {
+                                try {
+                                  return (() => {
+                                    if ($state.date.length > 0)
+                                      return $state.pre;
+                                    else return [];
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                              const currentItem = __plasmic_item_0;
+                              const currentIndex = __plasmic_idx_0;
+                              return (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox___9QcYo
+                                  )}
+                                  key={currentIndex}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__xHMnm
+                                    )}
+                                    onClick={async event => {
+                                      const $steps = {};
+
+                                      $steps["updatePreReminderOpendialog"] =
+                                        true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: [
+                                                    "preReminder",
+                                                    "opendialog"
+                                                  ]
+                                                },
+                                                operation: 0,
+                                                value: true
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
+                                                );
+                                                return value;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                      if (
+                                        $steps["updatePreReminderOpendialog"] !=
+                                          null &&
+                                        typeof $steps[
+                                          "updatePreReminderOpendialog"
+                                        ] === "object" &&
+                                        typeof $steps[
+                                          "updatePreReminderOpendialog"
+                                        ].then === "function"
+                                      ) {
+                                        $steps["updatePreReminderOpendialog"] =
+                                          await $steps[
+                                            "updatePreReminderOpendialog"
+                                          ];
+                                      }
+                                    }}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text___1DCnc
+                                      )}
+                                    >
+                                      <div
+                                        className={
+                                          projectcss.__wab_expr_html_text
+                                        }
+                                        dangerouslySetInnerHTML={{
+                                          __html: (() => {
+                                            try {
+                                              return `<span style=\"font-size:1.2em; font-weight:600;\">${Math.abs(currentItem)}</span> <span style=\"font-size:0.85em; color:#888;\">روز قبل</span>`;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return "\u0628\u0631\u0627\u06cc \u0645\u062b\u0627\u0644 1404/1/1";
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                        }}
+                                      />
+                                    </div>
+                                  </div>
+                                  <Icon306Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__y4KIv
+                                    )}
+                                    onClick={async event => {
+                                      const $steps = {};
+
+                                      $steps["runCode"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              customFunction: async () => {
+                                                return (() => {
+                                                  return ($state.pre =
+                                                    $state.pre.filter(
+                                                      item =>
+                                                        item !== currentItem
+                                                    ));
+                                                })();
+                                              }
+                                            };
+                                            return (({ customFunction }) => {
+                                              return customFunction();
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["runCode"] != null &&
+                                        typeof $steps["runCode"] === "object" &&
+                                        typeof $steps["runCode"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["runCode"] =
+                                          await $steps["runCode"];
+                                      }
+                                    }}
+                                    role={"img"}
+                                  />
+                                </div>
+                              );
+                            })}
+                          </div>
+                        ) : null}
+                      </div>
+                    ) : null}
                     {(() => {
                       try {
                         return (() => {
@@ -4038,7 +4054,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                 } else {
                                   report.finishTime = undefined;
                                 }
-                                report.pre = $state.pre;
+                                report.pre =
+                                  $state.date.length > 0 ? $state.pre : [];
                                 report.active = 1;
                                 report.times = JSON.stringify(
                                   $state.time2.map(
@@ -4157,6 +4174,43 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           ) {
                             $steps["invokeGlobalAction2"] =
                               await $steps["invokeGlobalAction2"];
+                          }
+
+                          $steps["runCode2"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      if (
+                                        $state.select2.schedule_type ==
+                                        "everyYear"
+                                      ) {
+                                        if ($state.time2.length === 0) {
+                                          $state.timeIndex = -1;
+                                          return ($state.time.opendialog = true);
+                                        } else if ($state.date.length === 0) {
+                                          $state.dateIndex = -1;
+                                          $state.dateDiolog.opendialog = true;
+                                          return ($state.dateType = "start");
+                                        }
+                                      } else if ($state.time2.length === 0) {
+                                        $state.timeIndex = -1;
+                                        return ($state.time.opendialog = true);
+                                      }
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode2"] != null &&
+                            typeof $steps["runCode2"] === "object" &&
+                            typeof $steps["runCode2"].then === "function"
+                          ) {
+                            $steps["runCode2"] = await $steps["runCode2"];
                           }
                         }}
                         onColorChange={async (...eventArgs: any) => {
@@ -6508,7 +6562,24 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 sty.text__frTi
               )}
             >
-              {" \u067e\u06cc\u0634 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc"}
+              <div
+                className={projectcss.__wab_expr_html_text}
+                dangerouslySetInnerHTML={{
+                  __html: (() => {
+                    try {
+                      return `چند روز قبل از <span style="font-weight:bold;">${$state.textbox.value}</span> بهت یادآوری کنم؟`;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return " \u067e\u06cc\u0634 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc";
+                      }
+                      throw e;
+                    }
+                  })()
+                }}
+              />
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__nlLxl)}>
               <PreReminderSelect
@@ -7754,6 +7825,22 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                     $state,
                                                     "slide",
                                                     "_1"
+                                                  ),
+                                                [sty.textslide__1_date2_small__yZzHXedcqcM4MogZ1Mcd]:
+                                                  hasVariant(
+                                                    $state,
+                                                    "date2",
+                                                    "date2"
+                                                  ) &&
+                                                  hasVariant(
+                                                    $state,
+                                                    "small",
+                                                    "small"
+                                                  ) &&
+                                                  hasVariant(
+                                                    $state,
+                                                    "slide",
+                                                    "_1"
                                                   )
                                               }
                                             )}
@@ -7767,157 +7854,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                   return currentItem.token1
                                                     ? `${currentItem.name} ${currentItem.token1}`
                                                     : currentItem.name;
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return "Townhall Meeting";
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()}
-                                            </React.Fragment>
-                                          </div>
-                                          <div
-                                            className={classNames(
-                                              projectcss.all,
-                                              projectcss.__wab_text,
-                                              sty.text__o4Fns,
-                                              {
-                                                [sty.textdate2__o4FnSm4Mog]:
-                                                  hasVariant(
-                                                    $state,
-                                                    "date2",
-                                                    "date2"
-                                                  ),
-                                                [sty.textslide__1__o4FnSedcqc]:
-                                                  hasVariant(
-                                                    $state,
-                                                    "slide",
-                                                    "_1"
-                                                  ),
-                                                [sty.textsmall__o4FnSz1Mcd]:
-                                                  hasVariant(
-                                                    $state,
-                                                    "small",
-                                                    "small"
-                                                  )
-                                              }
-                                            )}
-                                            onClick={async event => {
-                                              const $steps = {};
-                                            }}
-                                          >
-                                            <React.Fragment>
-                                              {(() => {
-                                                try {
-                                                  return (() => {
-                                                    try {
-                                                      let dates = JSON.parse(
-                                                        currentItem.dates
-                                                      );
-                                                      if (
-                                                        !dates ||
-                                                        dates.length === 0
-                                                      )
-                                                        return "";
-                                                      function daysRemaining(
-                                                        targetDate
-                                                      ) {
-                                                        const today =
-                                                          new Date();
-                                                        const startOfToday =
-                                                          new Date(
-                                                            today.getFullYear(),
-                                                            today.getMonth(),
-                                                            today.getDate()
-                                                          );
-                                                        const diffTime =
-                                                          targetDate -
-                                                          startOfToday;
-                                                        return Math.ceil(
-                                                          diffTime /
-                                                            (1000 *
-                                                              60 *
-                                                              60 *
-                                                              24)
-                                                        );
-                                                      }
-                                                      if (
-                                                        currentItem.schedule_type ===
-                                                        "everyYear"
-                                                      ) {
-                                                        let results = dates.map(
-                                                          dateStr => {
-                                                            let [, month, day] =
-                                                              dateStr
-                                                                .split("-")
-                                                                .map(Number);
-                                                            let now =
-                                                              new Date();
-                                                            let targetDate =
-                                                              new Date(
-                                                                now.getFullYear(),
-                                                                month - 1,
-                                                                day
-                                                              );
-                                                            if (
-                                                              targetDate < now
-                                                            ) {
-                                                              targetDate.setFullYear(
-                                                                now.getFullYear() +
-                                                                  1
-                                                              );
-                                                            }
-                                                            let remaining =
-                                                              daysRemaining(
-                                                                targetDate
-                                                              );
-                                                            if (remaining === 0)
-                                                              return "امروز";
-                                                            return `${remaining} روز مانده`;
-                                                          }
-                                                        );
-                                                        return results.join(
-                                                          " \u060C "
-                                                        );
-                                                      } else {
-                                                        let results = dates.map(
-                                                          dateStr => {
-                                                            let [
-                                                              year,
-                                                              month,
-                                                              day
-                                                            ] = dateStr
-                                                              .split("-")
-                                                              .map(Number);
-                                                            let targetDate =
-                                                              new Date(
-                                                                year,
-                                                                month - 1,
-                                                                day
-                                                              );
-                                                            let remaining =
-                                                              daysRemaining(
-                                                                targetDate
-                                                              );
-                                                            if (remaining > 0)
-                                                              return `${remaining} روز مانده`;
-                                                            if (remaining === 0)
-                                                              return "امروز";
-                                                            return "گذشته";
-                                                          }
-                                                        );
-                                                        return results.join(
-                                                          " \u060C "
-                                                        );
-                                                      }
-                                                    } catch {
-                                                      return "";
-                                                    }
-                                                  })();
                                                 } catch (e) {
                                                   if (
                                                     e instanceof TypeError ||
@@ -8298,6 +8234,22 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                       $state,
                                                       "slide",
                                                       "_1"
+                                                    ),
+                                                  [sty.freeBoxslide__1_date2_small__tPVjjedcqcM4MogZ1Mcd]:
+                                                    hasVariant(
+                                                      $state,
+                                                      "date2",
+                                                      "date2"
+                                                    ) &&
+                                                    hasVariant(
+                                                      $state,
+                                                      "small",
+                                                      "small"
+                                                    ) &&
+                                                    hasVariant(
+                                                      $state,
+                                                      "slide",
+                                                      "_1"
                                                     )
                                                 }
                                               )}
@@ -8347,7 +8299,25 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                   className={classNames(
                                                     projectcss.all,
                                                     projectcss.__wab_text,
-                                                    sty.text__z1Vcs
+                                                    sty.text__z1Vcs,
+                                                    {
+                                                      [sty.textslide__1_date2_small__z1VcsedcqcM4MogZ1Mcd]:
+                                                        hasVariant(
+                                                          $state,
+                                                          "date2",
+                                                          "date2"
+                                                        ) &&
+                                                        hasVariant(
+                                                          $state,
+                                                          "small",
+                                                          "small"
+                                                        ) &&
+                                                        hasVariant(
+                                                          $state,
+                                                          "slide",
+                                                          "_1"
+                                                        )
+                                                    }
                                                   )}
                                                   onClick={async event => {
                                                     const $steps = {};
@@ -8544,6 +8514,194 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                   </React.Fragment>
                                                 </div>
                                               </LineClomp>
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  projectcss.__wab_text,
+                                                  sty.text__o4Fns,
+                                                  {
+                                                    [sty.textdate2__o4FnSm4Mog]:
+                                                      hasVariant(
+                                                        $state,
+                                                        "date2",
+                                                        "date2"
+                                                      ),
+                                                    [sty.textslide__1__o4FnSedcqc]:
+                                                      hasVariant(
+                                                        $state,
+                                                        "slide",
+                                                        "_1"
+                                                      ),
+                                                    [sty.textslide__1_date2_small__o4FnSedcqcM4MogZ1Mcd]:
+                                                      hasVariant(
+                                                        $state,
+                                                        "date2",
+                                                        "date2"
+                                                      ) &&
+                                                      hasVariant(
+                                                        $state,
+                                                        "small",
+                                                        "small"
+                                                      ) &&
+                                                      hasVariant(
+                                                        $state,
+                                                        "slide",
+                                                        "_1"
+                                                      ),
+                                                    [sty.textsmall__o4FnSz1Mcd]:
+                                                      hasVariant(
+                                                        $state,
+                                                        "small",
+                                                        "small"
+                                                      )
+                                                  }
+                                                )}
+                                                onClick={async event => {
+                                                  const $steps = {};
+                                                }}
+                                              >
+                                                <React.Fragment>
+                                                  {(() => {
+                                                    try {
+                                                      return (() => {
+                                                        try {
+                                                          let dates =
+                                                            JSON.parse(
+                                                              currentItem.dates
+                                                            );
+                                                          if (
+                                                            !dates ||
+                                                            dates.length === 0
+                                                          )
+                                                            return "";
+                                                          function daysRemaining(
+                                                            targetDate
+                                                          ) {
+                                                            const today =
+                                                              new Date();
+                                                            const startOfToday =
+                                                              new Date(
+                                                                today.getFullYear(),
+                                                                today.getMonth(),
+                                                                today.getDate()
+                                                              );
+                                                            const diffTime =
+                                                              targetDate -
+                                                              startOfToday;
+                                                            return Math.ceil(
+                                                              diffTime /
+                                                                (1000 *
+                                                                  60 *
+                                                                  60 *
+                                                                  24)
+                                                            );
+                                                          }
+                                                          if (
+                                                            currentItem.schedule_type ===
+                                                            "everyYear"
+                                                          ) {
+                                                            let results =
+                                                              dates.map(
+                                                                dateStr => {
+                                                                  let [
+                                                                    ,
+                                                                    month,
+                                                                    day
+                                                                  ] = dateStr
+                                                                    .split("-")
+                                                                    .map(
+                                                                      Number
+                                                                    );
+                                                                  let now =
+                                                                    new Date();
+                                                                  let targetDate =
+                                                                    new Date(
+                                                                      now.getFullYear(),
+                                                                      month - 1,
+                                                                      day
+                                                                    );
+                                                                  if (
+                                                                    targetDate <
+                                                                    now
+                                                                  ) {
+                                                                    targetDate.setFullYear(
+                                                                      now.getFullYear() +
+                                                                        1
+                                                                    );
+                                                                  }
+                                                                  let remaining =
+                                                                    daysRemaining(
+                                                                      targetDate
+                                                                    );
+                                                                  if (
+                                                                    remaining ===
+                                                                    0
+                                                                  )
+                                                                    return "امروز";
+                                                                  return `${remaining} روز مانده`;
+                                                                }
+                                                              );
+                                                            return results.join(
+                                                              " \u060C "
+                                                            );
+                                                          } else {
+                                                            let results =
+                                                              dates.map(
+                                                                dateStr => {
+                                                                  let [
+                                                                    year,
+                                                                    month,
+                                                                    day
+                                                                  ] = dateStr
+                                                                    .split("-")
+                                                                    .map(
+                                                                      Number
+                                                                    );
+                                                                  let targetDate =
+                                                                    new Date(
+                                                                      year,
+                                                                      month - 1,
+                                                                      day
+                                                                    );
+                                                                  let remaining =
+                                                                    daysRemaining(
+                                                                      targetDate
+                                                                    );
+                                                                  if (
+                                                                    remaining >
+                                                                    0
+                                                                  )
+                                                                    return `${remaining} روز مانده`;
+                                                                  if (
+                                                                    remaining ===
+                                                                    0
+                                                                  )
+                                                                    return "امروز";
+                                                                  return "گذشته";
+                                                                }
+                                                              );
+                                                            return results.join(
+                                                              " \u060C "
+                                                            );
+                                                          }
+                                                        } catch {
+                                                          return "";
+                                                        }
+                                                      })();
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return "Townhall Meeting";
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}
+                                                </React.Fragment>
+                                              </div>
                                             </div>
                                           ) : null}
                                           {(
@@ -10539,8 +10697,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                               $state.week
                                                                 .length === 0
                                                             ) {
-                                                              return ($state.repead.selected =
-                                                                "once");
+                                                              $state.repead.selected =
+                                                                "once";
                                                             } else if (
                                                               arraysEqualIgnoreOrder(
                                                                 $state.week,
@@ -10555,8 +10713,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                                 ]
                                                               )
                                                             ) {
-                                                              return ($state.repead.selected =
-                                                                "daily");
+                                                              $state.repead.selected =
+                                                                "daily";
                                                             } else if (
                                                               arraysEqualIgnoreOrder(
                                                                 $state.week,
@@ -10569,16 +10727,25 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                                                 ]
                                                               )
                                                             ) {
-                                                              return ($state.repead.selected =
-                                                                "sat_to_wed");
+                                                              $state.repead.selected =
+                                                                "sat_to_wed";
                                                             } else {
-                                                              return ($state.repead.selected =
-                                                                "custom");
+                                                              $state.repead.selected =
+                                                                "custom";
                                                             }
                                                           } catch {
-                                                            return ($state.week =
-                                                              []);
+                                                            $state.week = [];
                                                           }
+                                                          if (
+                                                            $state?.select2
+                                                              ?.schedule_type ==
+                                                            "everyYear"
+                                                          )
+                                                            return ($state.pre =
+                                                              [-3, -7]);
+                                                          else
+                                                            return ($state.pre =
+                                                              []);
                                                         })();
                                                       }
                                                   };
@@ -10718,7 +10885,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                               )}
                                             >
                                               {
-                                                "\u062b\u0628\u062a \u0631\u0648\u06cc\u062f\u0627\u062f"
+                                                "\u062b\u0628\u062a \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc"
                                               }
                                             </div>
                                           </Button>
