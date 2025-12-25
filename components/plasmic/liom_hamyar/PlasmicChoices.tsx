@@ -354,7 +354,7 @@ function PlasmicChoices__RenderFunc(props: {
                     return $state.list.filter(
                       item => item === currentItem.value
                     ).length === 1
-                      ? currentItem.iconselect ?? currentItem.icon
+                      ? (currentItem.iconselect ?? currentItem.icon)
                       : currentItem.icon;
                   } catch (e) {
                     if (
@@ -691,7 +691,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicChoices__VariantsArgs;
     args?: PlasmicChoices__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicChoices__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicChoices__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicChoices__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

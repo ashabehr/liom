@@ -205,7 +205,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicButtonSocial__VariantsArgs;
     args?: PlasmicButtonSocial__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicButtonSocial__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicButtonSocial__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicButtonSocial__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

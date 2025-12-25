@@ -271,9 +271,8 @@ function PlasmicReplyLikeButton__RenderFunc(props: {
           typeof $steps["updateVariableForReplyLike"] === "object" &&
           typeof $steps["updateVariableForReplyLike"].then === "function"
         ) {
-          $steps["updateVariableForReplyLike"] = await $steps[
-            "updateVariableForReplyLike"
-          ];
+          $steps["updateVariableForReplyLike"] =
+            await $steps["updateVariableForReplyLike"];
         }
 
         $steps["updateVariableForReplyLike2"] = true
@@ -289,9 +288,8 @@ function PlasmicReplyLikeButton__RenderFunc(props: {
           typeof $steps["updateVariableForReplyLike2"] === "object" &&
           typeof $steps["updateVariableForReplyLike2"].then === "function"
         ) {
-          $steps["updateVariableForReplyLike2"] = await $steps[
-            "updateVariableForReplyLike2"
-          ];
+          $steps["updateVariableForReplyLike2"] =
+            await $steps["updateVariableForReplyLike2"];
         }
       }}
     >
@@ -362,7 +360,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicReplyLikeButton__VariantsArgs;
     args?: PlasmicReplyLikeButton__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicReplyLikeButton__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicReplyLikeButton__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicReplyLikeButton__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

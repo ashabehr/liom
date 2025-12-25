@@ -202,7 +202,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicVigetLiom2__VariantsArgs;
     args?: PlasmicVigetLiom2__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicVigetLiom2__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicVigetLiom2__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicVigetLiom2__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

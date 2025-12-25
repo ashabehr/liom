@@ -7,10 +7,8 @@
   height: 48px;
   max-width: 100%;
   position: relative;
-  background: linear-gradient(
-      var(--token-IdKt2w2aRFZS),
-      var(--token-IdKt2w2aRFZS)
-    ),
+  background:
+    linear-gradient(var(--token-IdKt2w2aRFZS), var(--token-IdKt2w2aRFZS)),
     var(--token-R_Rsn0nP9oIv);
   border-radius: 50%;
   padding: 0px;

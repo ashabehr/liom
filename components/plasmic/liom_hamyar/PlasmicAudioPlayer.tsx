@@ -232,7 +232,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicAudioPlayer__VariantsArgs;
     args?: PlasmicAudioPlayer__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicAudioPlayer__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicAudioPlayer__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicAudioPlayer__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

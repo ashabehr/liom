@@ -1858,7 +1858,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicComingSoon__VariantsArgs;
     args?: PlasmicComingSoon__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicComingSoon__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicComingSoon__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicComingSoon__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -165,12 +165,8 @@ function PlasmicUptime__RenderFunc(props: {
                 const today = new Date();
                 const updatedAt = $props.posttime || {};
                 const postTime =
-                  `${updatedAt.year}-${pad(updatedAt.month)}-${pad(
-                    updatedAt.day
-                  )}T` +
-                  `${pad(updatedAt.hour)}:${pad(updatedAt.minute)}:${pad(
-                    updatedAt.second
-                  )}`;
+                  `${updatedAt.year}-${pad(updatedAt.month)}-${pad(updatedAt.day)}T` +
+                  `${pad(updatedAt.hour)}:${pad(updatedAt.minute)}:${pad(updatedAt.second)}`;
                 const inputDate = new Date(postTime);
                 const diffInMillis = today.getTime() - inputDate.getTime();
                 const diffInDays = Math.floor(
@@ -227,7 +223,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicUptime__VariantsArgs;
     args?: PlasmicUptime__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicUptime__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicUptime__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicUptime__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -1456,9 +1456,7 @@ function PlasmicNotif2__RenderFunc(props: {
                       },
                       open: (() => {
                         try {
-                          return (
-                            currentIndex == $state.apiRequest.data.length - 1
-                          );
+                          return currentIndex == 0;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||

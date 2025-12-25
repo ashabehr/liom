@@ -292,9 +292,8 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
             typeof $steps["updateVariableForLikeCountComment"].then ===
               "function"
           ) {
-            $steps["updateVariableForLikeCountComment"] = await $steps[
-              "updateVariableForLikeCountComment"
-            ];
+            $steps["updateVariableForLikeCountComment"] =
+              await $steps["updateVariableForLikeCountComment"];
           }
 
           $steps["updateIslikecomment2"] = true
@@ -324,9 +323,8 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
             typeof $steps["updateIslikecomment2"] === "object" &&
             typeof $steps["updateIslikecomment2"].then === "function"
           ) {
-            $steps["updateIslikecomment2"] = await $steps[
-              "updateIslikecomment2"
-            ];
+            $steps["updateIslikecomment2"] =
+              await $steps["updateIslikecomment2"];
           }
 
           $steps["runOnClick"] = true
@@ -427,7 +425,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicCommentlikebutton__VariantsArgs;
     args?: PlasmicCommentlikebutton__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicCommentlikebutton__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicCommentlikebutton__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicCommentlikebutton__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

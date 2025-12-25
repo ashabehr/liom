@@ -1692,9 +1692,8 @@ function PlasmicSignsComponent__RenderFunc(props: {
                     typeof $steps["updateLoadingBtn"] === "object" &&
                     typeof $steps["updateLoadingBtn"].then === "function"
                   ) {
-                    $steps["updateLoadingBtn"] = await $steps[
-                      "updateLoadingBtn"
-                    ];
+                    $steps["updateLoadingBtn"] =
+                      await $steps["updateLoadingBtn"];
                   }
 
                   $steps["invokeGlobalAction"] = true
@@ -1740,9 +1739,8 @@ function PlasmicSignsComponent__RenderFunc(props: {
                     typeof $steps["invokeGlobalAction"] === "object" &&
                     typeof $steps["invokeGlobalAction"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
+                    $steps["invokeGlobalAction"] =
+                      await $steps["invokeGlobalAction"];
                   }
 
                   $steps["invokeGlobalAction2"] =
@@ -1766,9 +1764,8 @@ function PlasmicSignsComponent__RenderFunc(props: {
                     typeof $steps["invokeGlobalAction2"] === "object" &&
                     typeof $steps["invokeGlobalAction2"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction2"] = await $steps[
-                      "invokeGlobalAction2"
-                    ];
+                    $steps["invokeGlobalAction2"] =
+                      await $steps["invokeGlobalAction2"];
                   }
 
                   $steps["updateLoadingBtn2"] = true
@@ -1802,9 +1799,8 @@ function PlasmicSignsComponent__RenderFunc(props: {
                     typeof $steps["updateLoadingBtn2"] === "object" &&
                     typeof $steps["updateLoadingBtn2"].then === "function"
                   ) {
-                    $steps["updateLoadingBtn2"] = await $steps[
-                      "updateLoadingBtn2"
-                    ];
+                    $steps["updateLoadingBtn2"] =
+                      await $steps["updateLoadingBtn2"];
                   }
 
                   $steps["invokeGlobalAction3"] = true
@@ -1854,9 +1850,8 @@ function PlasmicSignsComponent__RenderFunc(props: {
                     typeof $steps["invokeGlobalAction3"] === "object" &&
                     typeof $steps["invokeGlobalAction3"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction3"] = await $steps[
-                      "invokeGlobalAction3"
-                    ];
+                    $steps["invokeGlobalAction3"] =
+                      await $steps["invokeGlobalAction3"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
@@ -2017,7 +2012,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSignsComponent__VariantsArgs;
     args?: PlasmicSignsComponent__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSignsComponent__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSignsComponent__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSignsComponent__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

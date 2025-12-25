@@ -904,7 +904,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicHistory2__VariantsArgs;
     args?: PlasmicHistory2__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicHistory2__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicHistory2__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicHistory2__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

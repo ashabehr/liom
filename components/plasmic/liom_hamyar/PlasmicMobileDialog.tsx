@@ -760,9 +760,8 @@ function PlasmicMobileDialog__RenderFunc(props: {
                       typeof $steps["updateLoadedbtn"] === "object" &&
                       typeof $steps["updateLoadedbtn"].then === "function"
                     ) {
-                      $steps["updateLoadedbtn"] = await $steps[
-                        "updateLoadedbtn"
-                      ];
+                      $steps["updateLoadedbtn"] =
+                        await $steps["updateLoadedbtn"];
                     }
 
                     $steps["updateMobile"] = true
@@ -856,9 +855,8 @@ function PlasmicMobileDialog__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
 
                     $steps["updateCode"] =
@@ -962,9 +960,8 @@ function PlasmicMobileDialog__RenderFunc(props: {
                       typeof $steps["updateLoadedbtn2"] === "object" &&
                       typeof $steps["updateLoadedbtn2"].then === "function"
                     ) {
-                      $steps["updateLoadedbtn2"] = await $steps[
-                        "updateLoadedbtn2"
-                      ];
+                      $steps["updateLoadedbtn2"] =
+                        await $steps["updateLoadedbtn2"];
                     }
 
                     $steps["updateMessage"] =
@@ -1037,9 +1034,8 @@ function PlasmicMobileDialog__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction2"] === "object" &&
                       typeof $steps["invokeGlobalAction2"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction2"] = await $steps[
-                        "invokeGlobalAction2"
-                      ];
+                      $steps["invokeGlobalAction2"] =
+                        await $steps["invokeGlobalAction2"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
@@ -1494,9 +1490,8 @@ function PlasmicMobileDialog__RenderFunc(props: {
                           typeof $steps["updateLoadedbtn"] === "object" &&
                           typeof $steps["updateLoadedbtn"].then === "function"
                         ) {
-                          $steps["updateLoadedbtn"] = await $steps[
-                            "updateLoadedbtn"
-                          ];
+                          $steps["updateLoadedbtn"] =
+                            await $steps["updateLoadedbtn"];
                         }
 
                         $steps["updateMobile"] = true
@@ -1591,9 +1586,8 @@ function PlasmicMobileDialog__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
 
                         $steps["updateCode"] =
@@ -1697,9 +1691,8 @@ function PlasmicMobileDialog__RenderFunc(props: {
                           typeof $steps["updateLoadedbtn2"] === "object" &&
                           typeof $steps["updateLoadedbtn2"].then === "function"
                         ) {
-                          $steps["updateLoadedbtn2"] = await $steps[
-                            "updateLoadedbtn2"
-                          ];
+                          $steps["updateLoadedbtn2"] =
+                            await $steps["updateLoadedbtn2"];
                         }
                       }}
                       onColorChange={async (...eventArgs: any) => {
@@ -1840,9 +1833,8 @@ function PlasmicMobileDialog__RenderFunc(props: {
                         typeof $steps["updateLoadedbtn"] === "object" &&
                         typeof $steps["updateLoadedbtn"].then === "function"
                       ) {
-                        $steps["updateLoadedbtn"] = await $steps[
-                          "updateLoadedbtn"
-                        ];
+                        $steps["updateLoadedbtn"] =
+                          await $steps["updateLoadedbtn"];
                       }
 
                       $steps["updateCodeNumber"] = true
@@ -1876,9 +1868,8 @@ function PlasmicMobileDialog__RenderFunc(props: {
                         typeof $steps["updateCodeNumber"] === "object" &&
                         typeof $steps["updateCodeNumber"].then === "function"
                       ) {
-                        $steps["updateCodeNumber"] = await $steps[
-                          "updateCodeNumber"
-                        ];
+                        $steps["updateCodeNumber"] =
+                          await $steps["updateCodeNumber"];
                       }
 
                       $steps["invokeGlobalAction"] = true
@@ -1938,9 +1929,8 @@ function PlasmicMobileDialog__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["updateLoadedbtn2"] = true
@@ -1974,9 +1964,8 @@ function PlasmicMobileDialog__RenderFunc(props: {
                         typeof $steps["updateLoadedbtn2"] === "object" &&
                         typeof $steps["updateLoadedbtn2"].then === "function"
                       ) {
-                        $steps["updateLoadedbtn2"] = await $steps[
-                          "updateLoadedbtn2"
-                        ];
+                        $steps["updateLoadedbtn2"] =
+                          await $steps["updateLoadedbtn2"];
                       }
 
                       $steps["invokeGlobalAction2"] =
@@ -1998,9 +1987,8 @@ function PlasmicMobileDialog__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction2"] === "object" &&
                         typeof $steps["invokeGlobalAction2"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction2"] = await $steps[
-                          "invokeGlobalAction2"
-                        ];
+                        $steps["invokeGlobalAction2"] =
+                          await $steps["invokeGlobalAction2"];
                       }
 
                       $steps["updateDialogOpendialog"] =
@@ -2036,9 +2024,8 @@ function PlasmicMobileDialog__RenderFunc(props: {
                         typeof $steps["updateDialogOpendialog"].then ===
                           "function"
                       ) {
-                        $steps["updateDialogOpendialog"] = await $steps[
-                          "updateDialogOpendialog"
-                        ];
+                        $steps["updateDialogOpendialog"] =
+                          await $steps["updateDialogOpendialog"];
                       }
 
                       $steps["invokeGlobalAction3"] =
@@ -2060,9 +2047,8 @@ function PlasmicMobileDialog__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction3"] === "object" &&
                         typeof $steps["invokeGlobalAction3"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction3"] = await $steps[
-                          "invokeGlobalAction3"
-                        ];
+                        $steps["invokeGlobalAction3"] =
+                          await $steps["invokeGlobalAction3"];
                       }
 
                       $steps["runCode"] =
@@ -2238,7 +2224,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicMobileDialog__VariantsArgs;
     args?: PlasmicMobileDialog__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicMobileDialog__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicMobileDialog__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicMobileDialog__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

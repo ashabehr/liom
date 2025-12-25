@@ -247,8 +247,8 @@ function PlasmicCommentNum__RenderFunc(props: {
           hasVariant($state, "active", "active")
             ? Icon256Icon
             : hasVariant($state, "main", "main")
-            ? Icon150Icon
-            : Icon150Icon
+              ? Icon150Icon
+              : Icon150Icon
         }
         className={classNames(projectcss.all, sty.svg, {
           [sty.svgactive]: hasVariant($state, "active", "active"),
@@ -313,7 +313,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicCommentNum__VariantsArgs;
     args?: PlasmicCommentNum__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicCommentNum__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicCommentNum__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicCommentNum__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

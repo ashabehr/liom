@@ -381,7 +381,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicNoNet__VariantsArgs;
     args?: PlasmicNoNet__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicNoNet__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicNoNet__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicNoNet__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

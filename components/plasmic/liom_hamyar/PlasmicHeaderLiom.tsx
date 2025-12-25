@@ -252,7 +252,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicHeaderLiom__VariantsArgs;
     args?: PlasmicHeaderLiom__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicHeaderLiom__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicHeaderLiom__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicHeaderLiom__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -820,9 +820,8 @@ function PlasmicComment__RenderFunc(props: {
                       typeof $steps["updatePopoverOpen"] === "object" &&
                       typeof $steps["updatePopoverOpen"].then === "function"
                     ) {
-                      $steps["updatePopoverOpen"] = await $steps[
-                        "updatePopoverOpen"
-                      ];
+                      $steps["updatePopoverOpen"] =
+                        await $steps["updatePopoverOpen"];
                     }
 
                     $steps["updateDeleteModalOpen"] = true
@@ -856,9 +855,8 @@ function PlasmicComment__RenderFunc(props: {
                       typeof $steps["updateDeleteModalOpen"] === "object" &&
                       typeof $steps["updateDeleteModalOpen"].then === "function"
                     ) {
-                      $steps["updateDeleteModalOpen"] = await $steps[
-                        "updateDeleteModalOpen"
-                      ];
+                      $steps["updateDeleteModalOpen"] =
+                        await $steps["updateDeleteModalOpen"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
@@ -1181,9 +1179,8 @@ function PlasmicComment__RenderFunc(props: {
               typeof $steps["updateCommentDataIsLiked"] === "object" &&
               typeof $steps["updateCommentDataIsLiked"].then === "function"
             ) {
-              $steps["updateCommentDataIsLiked"] = await $steps[
-                "updateCommentDataIsLiked"
-              ];
+              $steps["updateCommentDataIsLiked"] =
+                await $steps["updateCommentDataIsLiked"];
             }
 
             $steps["invokeGlobalAction"] =
@@ -1263,9 +1260,8 @@ function PlasmicComment__RenderFunc(props: {
               typeof $steps["invokeGlobalAction2"] === "object" &&
               typeof $steps["invokeGlobalAction2"].then === "function"
             ) {
-              $steps["invokeGlobalAction2"] = await $steps[
-                "invokeGlobalAction2"
-              ];
+              $steps["invokeGlobalAction2"] =
+                await $steps["invokeGlobalAction2"];
             }
 
             $steps["invokeGlobalAction3"] = true
@@ -1306,9 +1302,8 @@ function PlasmicComment__RenderFunc(props: {
               typeof $steps["invokeGlobalAction3"] === "object" &&
               typeof $steps["invokeGlobalAction3"].then === "function"
             ) {
-              $steps["invokeGlobalAction3"] = await $steps[
-                "invokeGlobalAction3"
-              ];
+              $steps["invokeGlobalAction3"] =
+                await $steps["invokeGlobalAction3"];
             }
           }}
           onIslikecommentChange={async (...eventArgs: any) => {
@@ -2080,9 +2075,8 @@ function PlasmicComment__RenderFunc(props: {
             typeof $steps["updateUnnamedGroupOfVariants"] === "object" &&
             typeof $steps["updateUnnamedGroupOfVariants"].then === "function"
           ) {
-            $steps["updateUnnamedGroupOfVariants"] = await $steps[
-              "updateUnnamedGroupOfVariants"
-            ];
+            $steps["updateUnnamedGroupOfVariants"] =
+              await $steps["updateUnnamedGroupOfVariants"];
           }
         }}
       >
@@ -2244,9 +2238,8 @@ function PlasmicComment__RenderFunc(props: {
                     typeof $steps["updateDeleteModalOpen"] === "object" &&
                     typeof $steps["updateDeleteModalOpen"].then === "function"
                   ) {
-                    $steps["updateDeleteModalOpen"] = await $steps[
-                      "updateDeleteModalOpen"
-                    ];
+                    $steps["updateDeleteModalOpen"] =
+                      await $steps["updateDeleteModalOpen"];
                   }
 
                   $steps["invokeGlobalAction"] = true
@@ -2269,9 +2262,8 @@ function PlasmicComment__RenderFunc(props: {
                     typeof $steps["invokeGlobalAction"] === "object" &&
                     typeof $steps["invokeGlobalAction"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
+                    $steps["invokeGlobalAction"] =
+                      await $steps["invokeGlobalAction"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
@@ -2365,9 +2357,8 @@ function PlasmicComment__RenderFunc(props: {
                   typeof $steps["updateDeleteModalOpen"] === "object" &&
                   typeof $steps["updateDeleteModalOpen"].then === "function"
                 ) {
-                  $steps["updateDeleteModalOpen"] = await $steps[
-                    "updateDeleteModalOpen"
-                  ];
+                  $steps["updateDeleteModalOpen"] =
+                    await $steps["updateDeleteModalOpen"];
                 }
               }}
               onColorChange={async (...eventArgs: any) => {
@@ -2488,7 +2479,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicComment__VariantsArgs;
     args?: PlasmicComment__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicComment__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicComment__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicComment__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

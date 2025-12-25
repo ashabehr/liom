@@ -307,7 +307,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSocialIcon__VariantsArgs;
     args?: PlasmicSocialIcon__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSocialIcon__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSocialIcon__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSocialIcon__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

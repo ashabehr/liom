@@ -196,7 +196,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicLine__VariantsArgs;
     args?: PlasmicLine__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicLine__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicLine__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicLine__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

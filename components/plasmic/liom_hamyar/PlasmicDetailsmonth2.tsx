@@ -935,10 +935,7 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                           const eventsMap = new Map(
                             events.map(e => {
                               const { year, month, day } = e.date;
-                              const dateStr = `${year}-${String(month).padStart(
-                                2,
-                                "0"
-                              )}-${String(day).padStart(2, "0")}`;
+                              const dateStr = `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
                               return [dateStr, e.value];
                             })
                           );
@@ -1076,12 +1073,7 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                               const eventsMap = new Map(
                                 events.map(e => {
                                   const { year, month, day } = e.date;
-                                  const dateStr = `${year}-${String(
-                                    month
-                                  ).padStart(2, "0")}-${String(day).padStart(
-                                    2,
-                                    "0"
-                                  )}`;
+                                  const dateStr = `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
                                   return [dateStr, e.sex];
                                 })
                               );
@@ -1458,9 +1450,8 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                 typeof $steps["updateButton2Color2"] === "object" &&
                 typeof $steps["updateButton2Color2"].then === "function"
               ) {
-                $steps["updateButton2Color2"] = await $steps[
-                  "updateButton2Color2"
-                ];
+                $steps["updateButton2Color2"] =
+                  await $steps["updateButton2Color2"];
               }
             }}
             onColorChange={async (...eventArgs: any) => {
@@ -1569,7 +1560,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicDetailsmonth2__VariantsArgs;
     args?: PlasmicDetailsmonth2__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicDetailsmonth2__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicDetailsmonth2__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicDetailsmonth2__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

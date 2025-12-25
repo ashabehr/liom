@@ -380,7 +380,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicReactionBar2ForSocialMain__VariantsArgs;
     args?: PlasmicReactionBar2ForSocialMain__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicReactionBar2ForSocialMain__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicReactionBar2ForSocialMain__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicReactionBar2ForSocialMain__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

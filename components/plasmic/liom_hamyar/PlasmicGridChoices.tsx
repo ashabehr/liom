@@ -350,7 +350,7 @@ function PlasmicGridChoices__RenderFunc(props: {
                       return $state.list.filter(
                         item => item === currentItem.value
                       ).length === 1
-                        ? currentItem.iconselect ?? currentItem.icon
+                        ? (currentItem.iconselect ?? currentItem.icon)
                         : currentItem.icon;
                     } catch (e) {
                       if (
@@ -693,7 +693,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicGridChoices__VariantsArgs;
     args?: PlasmicGridChoices__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicGridChoices__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicGridChoices__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicGridChoices__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -883,12 +883,12 @@ function PlasmicRepeatPost2__RenderFunc(props: {
                 ($props.postData.post.actionText === "بازکردن تصویر"
                   ? "image"
                   : $props.postData.post.actionText === "بازکردن صدا"
-                  ? "audio"
-                  : $props.postData.post.actionText === "نمایش ویدیو"
-                  ? "video"
-                  : $props.postData.post.actionText === "دانلود لوگو"
-                  ? "file"
-                  : "jastText")
+                    ? "audio"
+                    : $props.postData.post.actionText === "نمایش ویدیو"
+                      ? "video"
+                      : $props.postData.post.actionText === "دانلود لوگو"
+                        ? "file"
+                        : "jastText")
               );
             } catch (e) {
               if (
@@ -1421,7 +1421,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicRepeatPost2__VariantsArgs;
     args?: PlasmicRepeatPost2__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicRepeatPost2__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicRepeatPost2__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicRepeatPost2__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

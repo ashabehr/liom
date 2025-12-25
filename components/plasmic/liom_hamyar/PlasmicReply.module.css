@@ -14,10 +14,8 @@
   border: 1px solid var(--token-rGxK1TpZE_rW);
 }
 .root:hover {
-  background: linear-gradient(
-      var(--token-Y4frplZPI0IJ),
-      var(--token-Y4frplZPI0IJ)
-    ),
+  background:
+    linear-gradient(var(--token-Y4frplZPI0IJ), var(--token-Y4frplZPI0IJ)),
     var(--token-R_Rsn0nP9oIv);
 }
 .text {

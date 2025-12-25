@@ -414,9 +414,8 @@ function PlasmicHamyarAddComponent__RenderFunc(props: {
                               typeof $steps["updateNumber"] === "object" &&
                               typeof $steps["updateNumber"].then === "function"
                             ) {
-                              $steps["updateNumber"] = await $steps[
-                                "updateNumber"
-                              ];
+                              $steps["updateNumber"] =
+                                await $steps["updateNumber"];
                             }
                           }).apply(null, eventArgs);
                         },
@@ -600,9 +599,8 @@ function PlasmicHamyarAddComponent__RenderFunc(props: {
                                 typeof $steps["updateName"] === "object" &&
                                 typeof $steps["updateName"].then === "function"
                               ) {
-                                $steps["updateName"] = await $steps[
-                                  "updateName"
-                                ];
+                                $steps["updateName"] =
+                                  await $steps["updateName"];
                               }
                             }).apply(null, eventArgs);
                           },
@@ -735,7 +733,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicHamyarAddComponent__VariantsArgs;
     args?: PlasmicHamyarAddComponent__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicHamyarAddComponent__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicHamyarAddComponent__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicHamyarAddComponent__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -194,12 +194,8 @@ function PlasmicUploudeTime__RenderFunc(props: {
                 const today = new Date();
                 const updatedAt = $state.time;
                 const postTime =
-                  `${updatedAt.year}-${pad(updatedAt.month)}-${pad(
-                    updatedAt.day
-                  )}T` +
-                  `${pad(updatedAt.hour)}:${pad(updatedAt.minute)}:${pad(
-                    updatedAt.second
-                  )}+03:30`;
+                  `${updatedAt.year}-${pad(updatedAt.month)}-${pad(updatedAt.day)}T` +
+                  `${pad(updatedAt.hour)}:${pad(updatedAt.minute)}:${pad(updatedAt.second)}+03:30`;
                 const inputDate = new Date(postTime);
                 const diffInMillis = today.getTime() - inputDate.getTime();
                 const diffInMinutes = Math.floor(diffInMillis / (1000 * 60));
@@ -271,7 +267,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicUploudeTime__VariantsArgs;
     args?: PlasmicUploudeTime__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicUploudeTime__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicUploudeTime__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicUploudeTime__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

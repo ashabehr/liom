@@ -154,7 +154,7 @@ function PlasmicPost__RenderFunc(props: {
       Object.assign(
         {
           image2:
-            "https://teh-1.s3.poshtiban.com/liom/2025-03/post/2025-03-28-38fa0b71-308d-49f8-87e0-290a8573a25c.mp4\n"
+            "https://storage.c2.liara.space/liom/2025-03/post/2025-03-28-38fa0b71-308d-49f8-87e0-290a8573a25c.mp4\n"
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -656,7 +656,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicPost__VariantsArgs;
     args?: PlasmicPost__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicPost__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicPost__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicPost__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

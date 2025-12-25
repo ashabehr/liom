@@ -33,10 +33,8 @@
   padding: 8px;
 }
 .butBoxselect {
-  background: linear-gradient(
-      var(--token-my-eDT9W5v2h),
-      var(--token-my-eDT9W5v2h)
-    ),
+  background:
+    linear-gradient(var(--token-my-eDT9W5v2h), var(--token-my-eDT9W5v2h)),
     var(--token-R_Rsn0nP9oIv);
   border-radius: 8px;
   border: 1px solid var(--token-_ZJXI4jrgWEl);
@@ -59,10 +57,8 @@
   border-width: 1px;
 }
 .butBoxselect_shaoe_circle {
-  background: linear-gradient(
-      var(--token-dqshVX6SoHxS),
-      var(--token-dqshVX6SoHxS)
-    ),
+  background:
+    linear-gradient(var(--token-dqshVX6SoHxS), var(--token-dqshVX6SoHxS)),
     var(--token-R_Rsn0nP9oIv);
   border-width: 0px;
 }

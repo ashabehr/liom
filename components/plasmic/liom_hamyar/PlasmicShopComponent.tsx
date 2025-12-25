@@ -20173,9 +20173,8 @@ function PlasmicShopComponent__RenderFunc(props: {
                           typeof $steps["updateLoading"] === "object" &&
                           typeof $steps["updateLoading"].then === "function"
                         ) {
-                          $steps["updateLoading"] = await $steps[
-                            "updateLoading"
-                          ];
+                          $steps["updateLoading"] =
+                            await $steps["updateLoading"];
                         }
 
                         $steps["invokeGlobalAction"] = $state.select.isOpen
@@ -20214,9 +20213,8 @@ function PlasmicShopComponent__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
 
                         $steps["updateShopList"] = true
@@ -20250,9 +20248,8 @@ function PlasmicShopComponent__RenderFunc(props: {
                           typeof $steps["updateShopList"] === "object" &&
                           typeof $steps["updateShopList"].then === "function"
                         ) {
-                          $steps["updateShopList"] = await $steps[
-                            "updateShopList"
-                          ];
+                          $steps["updateShopList"] =
+                            await $steps["updateShopList"];
                         }
 
                         $steps["runCode"] = true
@@ -20311,9 +20308,8 @@ function PlasmicShopComponent__RenderFunc(props: {
                           typeof $steps["updateLoading2"] === "object" &&
                           typeof $steps["updateLoading2"].then === "function"
                         ) {
-                          $steps["updateLoading2"] = await $steps[
-                            "updateLoading2"
-                          ];
+                          $steps["updateLoading2"] =
+                            await $steps["updateLoading2"];
                         }
                       }).apply(null, eventArgs);
                     },
@@ -20534,9 +20530,8 @@ function PlasmicShopComponent__RenderFunc(props: {
                                 typeof $steps["updateItemselected"].then ===
                                   "function"
                               ) {
-                                $steps["updateItemselected"] = await $steps[
-                                  "updateItemselected"
-                                ];
+                                $steps["updateItemselected"] =
+                                  await $steps["updateItemselected"];
                               }
 
                               $steps["updateShopId"] = true
@@ -20572,9 +20567,8 @@ function PlasmicShopComponent__RenderFunc(props: {
                                 typeof $steps["updateShopId"].then ===
                                   "function"
                               ) {
-                                $steps["updateShopId"] = await $steps[
-                                  "updateShopId"
-                                ];
+                                $steps["updateShopId"] =
+                                  await $steps["updateShopId"];
                               }
                             }}
                             style={(() => {
@@ -20994,13 +20988,7 @@ function PlasmicShopComponent__RenderFunc(props: {
                       customFunction: async () => {
                         return (() => {
                           const url = new URL(
-                            `https://tools.liom.app/shopResult?buyId=${
-                              $state.shopId
-                            }&?offCode=&token=${
-                              $props.token
-                            }&redirectUrl=${encodeURIComponent(
-                              window.location.href
-                            )}`
+                            `https://tools.liom.app/shopResult?buyId=${$state.shopId}&?offCode=&token=${$props.token}&redirectUrl=${encodeURIComponent(window.location.href)}`
                           );
                           url.searchParams.set("buyId", $state.shopId);
                           return ($state.redirectUrl2 = url.toString());
@@ -21086,9 +21074,8 @@ function PlasmicShopComponent__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction"] === "object" &&
                 typeof $steps["invokeGlobalAction"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
               }
 
               $steps["goToPage"] =
@@ -21153,9 +21140,8 @@ function PlasmicShopComponent__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction2"] === "object" &&
                 typeof $steps["invokeGlobalAction2"].then === "function"
               ) {
-                $steps["invokeGlobalAction2"] = await $steps[
-                  "invokeGlobalAction2"
-                ];
+                $steps["invokeGlobalAction2"] =
+                  await $steps["invokeGlobalAction2"];
               }
 
               $steps["updateLoading2"] = true
@@ -21330,7 +21316,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicShopComponent__VariantsArgs;
     args?: PlasmicShopComponent__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicShopComponent__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicShopComponent__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicShopComponent__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

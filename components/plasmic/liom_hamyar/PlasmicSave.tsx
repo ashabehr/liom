@@ -498,9 +498,8 @@ function PlasmicSave__RenderFunc(props: {
             typeof $steps["updateBookmarkcount4"] === "object" &&
             typeof $steps["updateBookmarkcount4"].then === "function"
           ) {
-            $steps["updateBookmarkcount4"] = await $steps[
-              "updateBookmarkcount4"
-            ];
+            $steps["updateBookmarkcount4"] =
+              await $steps["updateBookmarkcount4"];
           }
 
           $steps["updateBookmarkcount2"] = $state.isbookMarked
@@ -539,9 +538,8 @@ function PlasmicSave__RenderFunc(props: {
             typeof $steps["updateBookmarkcount2"] === "object" &&
             typeof $steps["updateBookmarkcount2"].then === "function"
           ) {
-            $steps["updateBookmarkcount2"] = await $steps[
-              "updateBookmarkcount2"
-            ];
+            $steps["updateBookmarkcount2"] =
+              await $steps["updateBookmarkcount2"];
           }
 
           $steps["updateBookmarkcount3"] = !$state.isbookMarked
@@ -581,9 +579,8 @@ function PlasmicSave__RenderFunc(props: {
             typeof $steps["updateBookmarkcount3"] === "object" &&
             typeof $steps["updateBookmarkcount3"].then === "function"
           ) {
-            $steps["updateBookmarkcount3"] = await $steps[
-              "updateBookmarkcount3"
-            ];
+            $steps["updateBookmarkcount3"] =
+              await $steps["updateBookmarkcount3"];
           }
 
           $steps["invokeGlobalAction"] = true
@@ -716,7 +713,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSave__VariantsArgs;
     args?: PlasmicSave__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSave__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSave__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSave__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

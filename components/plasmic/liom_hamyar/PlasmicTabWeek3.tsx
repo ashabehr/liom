@@ -292,7 +292,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicTabWeek3__VariantsArgs;
     args?: PlasmicTabWeek3__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicTabWeek3__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicTabWeek3__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicTabWeek3__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

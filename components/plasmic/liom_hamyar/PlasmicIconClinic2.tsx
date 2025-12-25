@@ -230,18 +230,18 @@ function PlasmicIconClinic2__RenderFunc(props: {
           hasVariant($state, "unnamedGroupOfVariants", "_7")
             ? Icon75Icon
             : hasVariant($state, "unnamedGroupOfVariants", "_6")
-            ? MindSvgIcon
-            : hasVariant($state, "unnamedGroupOfVariants", "_5")
-            ? Icon75Icon
-            : hasVariant($state, "unnamedGroupOfVariants", "_4")
-            ? BabyBlanketSvgIcon
-            : hasVariant($state, "unnamedGroupOfVariants", "_3")
-            ? DietFoodSvgIcon
-            : hasVariant($state, "unnamedGroupOfVariants", "_2")
-            ? Icon119Icon
-            : hasVariant($state, "unnamedGroupOfVariants", "_1")
-            ? MindSvgIcon
-            : Icon115Icon
+              ? MindSvgIcon
+              : hasVariant($state, "unnamedGroupOfVariants", "_5")
+                ? Icon75Icon
+                : hasVariant($state, "unnamedGroupOfVariants", "_4")
+                  ? BabyBlanketSvgIcon
+                  : hasVariant($state, "unnamedGroupOfVariants", "_3")
+                    ? DietFoodSvgIcon
+                    : hasVariant($state, "unnamedGroupOfVariants", "_2")
+                      ? Icon119Icon
+                      : hasVariant($state, "unnamedGroupOfVariants", "_1")
+                        ? MindSvgIcon
+                        : Icon115Icon
         }
         className={classNames(projectcss.all, sty.svg, {
           [sty.svgunnamedGroupOfVariants__1]: hasVariant(
@@ -395,7 +395,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicIconClinic2__VariantsArgs;
     args?: PlasmicIconClinic2__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicIconClinic2__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicIconClinic2__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicIconClinic2__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
