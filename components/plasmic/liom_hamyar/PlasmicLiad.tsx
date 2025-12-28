@@ -1219,6 +1219,12 @@ function PlasmicLiad__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "mainLiad.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -1308,6 +1314,20 @@ function PlasmicLiad__RenderFunc(props: {
                 generateStateOnChangeProp($state, [
                   "mainLiad",
                   "editTime"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onLoadingChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "mainLiad",
+                  "loading"
                 ]).apply(null, eventArgs);
 
                 if (
@@ -3093,7 +3113,7 @@ function PlasmicLiad__RenderFunc(props: {
                 $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: `/main/${(() => {
+                        destination: `/liad/${(() => {
                           try {
                             return $ctx.params.page
                               .filter(i => i != "edit")
@@ -3138,6 +3158,7 @@ function PlasmicLiad__RenderFunc(props: {
                   "edit"
                 )
               })}
+              hamyar={true}
               onTokenChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "editProfile2",
@@ -3196,7 +3217,7 @@ function PlasmicLiad__RenderFunc(props: {
                 $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: `/main/${(() => {
+                        destination: `/liad/${(() => {
                           try {
                             return $ctx.params.page
                               .filter(i => i != "reminderSetting")

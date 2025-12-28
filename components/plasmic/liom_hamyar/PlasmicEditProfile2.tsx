@@ -71,7 +71,6 @@ import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/compo
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { Pickers } from "@/components/Pickers"; // plasmic-import: htE-oGSeNx82/codeComponent
 import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
-import { BackHandler } from "@/components/BackHandler"; // plasmic-import: wpIQCsQJqUoV/codeComponent
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -185,7 +184,6 @@ export type PlasmicEditProfile2__OverridesType = {
   dialogForTheDateOfTheFirstDayOfYourLastPeriod?: Flex__<typeof Dialog>;
   pickersForTheDateOfTheFirstDayOfYourLastPeriod?: Flex__<typeof Pickers>;
   button18?: Flex__<typeof Button>;
-  backHandler?: Flex__<typeof BackHandler>;
 };
 
 export interface DefaultEditProfile2Props {
@@ -4490,31 +4488,6 @@ function PlasmicEditProfile2__RenderFunc(props: {
           </Button>
         </div>
       </Dialog>
-      <BackHandler
-        data-plasmic-name={"backHandler"}
-        data-plasmic-override={overrides.backHandler}
-        active={args.active}
-        className={classNames("__wab_instance", sty.backHandler)}
-        onBack={async () => {
-          const $steps = {};
-
-          $steps["runBack"] = true
-            ? (() => {
-                const actionArgs = { eventRef: $props["back"] };
-                return (({ eventRef, args }) => {
-                  return eventRef?.(...(args ?? []));
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["runBack"] != null &&
-            typeof $steps["runBack"] === "object" &&
-            typeof $steps["runBack"].then === "function"
-          ) {
-            $steps["runBack"] = await $steps["runBack"];
-          }
-        }}
-      />
     </div>
   ) as React.ReactElement | null;
 }
@@ -4585,8 +4558,7 @@ const PlasmicDescendants = {
     "button15",
     "dialogForTheDateOfTheFirstDayOfYourLastPeriod",
     "pickersForTheDateOfTheFirstDayOfYourLastPeriod",
-    "button18",
-    "backHandler"
+    "button18"
   ],
   embedHtml: ["embedHtml"],
   getInfo: [
@@ -4801,8 +4773,7 @@ const PlasmicDescendants = {
   pickersForTheDateOfTheFirstDayOfYourLastPeriod: [
     "pickersForTheDateOfTheFirstDayOfYourLastPeriod"
   ],
-  button18: ["button18"],
-  backHandler: ["backHandler"]
+  button18: ["button18"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -4873,7 +4844,6 @@ type NodeDefaultElementType = {
   dialogForTheDateOfTheFirstDayOfYourLastPeriod: typeof Dialog;
   pickersForTheDateOfTheFirstDayOfYourLastPeriod: typeof Pickers;
   button18: typeof Button;
-  backHandler: typeof BackHandler;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -5014,7 +4984,6 @@ export const PlasmicEditProfile2 = Object.assign(
       "pickersForTheDateOfTheFirstDayOfYourLastPeriod"
     ),
     button18: makeNodeComponent("button18"),
-    backHandler: makeNodeComponent("backHandler"),
 
     // Metadata about props expected for PlasmicEditProfile2
     internalVariantProps: PlasmicEditProfile2__VariantProps,

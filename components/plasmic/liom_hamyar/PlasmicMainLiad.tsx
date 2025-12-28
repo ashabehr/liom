@@ -106,6 +106,7 @@ export type PlasmicMainLiad__ArgsType = {
   onReminderBalanceChange?: (val: number) => void;
   profile2?: any;
   onProfileChange?: (val: any) => void;
+  onLoadingChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicMainLiad__ArgsType;
 export const PlasmicMainLiad__ArgProps = new Array<ArgPropType>(
@@ -128,7 +129,8 @@ export const PlasmicMainLiad__ArgProps = new Array<ArgPropType>(
   "onMobileDialogOpenChange",
   "onReminderBalanceChange",
   "profile2",
-  "onProfileChange"
+  "onProfileChange",
+  "onLoadingChange"
 );
 
 export type PlasmicMainLiad__OverridesType = {
@@ -167,6 +169,7 @@ export interface DefaultMainLiadProps {
   onReminderBalanceChange?: (val: number) => void;
   profile2?: any;
   onProfileChange?: (val: any) => void;
+  onLoadingChange?: (val: string) => void;
   page?: SingleChoiceArg<"calendar" | "self" | "reminder" | "bot" | "l">;
   className?: string;
 }
@@ -445,6 +448,14 @@ function PlasmicMainLiad__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "loading",
+        type: "readonly",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true,
+
+        onChangeProp: "onLoadingChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -1393,6 +1404,39 @@ function PlasmicMainLiad__RenderFunc(props: {
             null,
             eventArgs
           );
+
+          (async loading => {
+            const $steps = {};
+
+            $steps["updateLoading"] = true
+              ? (() => {
+                  const actionArgs = {
+                    variable: {
+                      objRoot: $state,
+                      variablePath: ["loading"]
+                    },
+                    operation: 0,
+                    value: true
+                  };
+                  return (({ variable, value, startIndex, deleteCount }) => {
+                    if (!variable) {
+                      return;
+                    }
+                    const { objRoot, variablePath } = variable;
+
+                    $stateSet(objRoot, variablePath, value);
+                    return value;
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["updateLoading"] != null &&
+              typeof $steps["updateLoading"] === "object" &&
+              typeof $steps["updateLoading"].then === "function"
+            ) {
+              $steps["updateLoading"] = await $steps["updateLoading"];
+            }
+          }).apply(null, eventArgs);
         }}
         onSuccess={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, ["reminderApi", "data"]).apply(
@@ -1758,9 +1802,7 @@ function PlasmicMainLiad__RenderFunc(props: {
 
       {(() => {
         try {
-          return (
-            $state.profile?.data?.result?.user && $state.reminderApi.loading
-          );
+          return $state.loading && $state.reminderApi.loading;
         } catch (e) {
           if (
             e instanceof TypeError ||
