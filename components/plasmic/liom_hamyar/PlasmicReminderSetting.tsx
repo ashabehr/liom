@@ -1812,7 +1812,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
             >
               {hasVariant($state, "add", "add")
                 ? "\u0627\u0641\u0632\u0648\u062f\u0646 \u0631\u0648\u06cc\u062f\u0627\u062f"
-                : "\u062a\u0646\u0638\u06cc\u0645\u0627\u062a \u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627"}
+                : "\u062a\u0646\u0638\u06cc\u0645\u0627\u062a \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc "}
             </div>
           </div>
         </HeaderLiom>
@@ -6790,7 +6790,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
             )}
           >
             {
-              "\u0645\u0633\u06cc\u0631 \u0647\u0627\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627"
+              "\u0645\u0633\u06cc\u0631 \u0647\u0627\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc "
             }
           </div>
         </div>
@@ -6927,16 +6927,13 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         const actionArgs = {
                           customFunction: async () => {
                             return (() => {
-                              if ($props.man.refCode)
-                                return window.open(
-                                  `https://t.me/liomApp_bot?start=ref_${$props.man.refCode}`,
-                                  "_blank"
-                                );
-                              else
-                                return window.open(
-                                  `https://t.me/liomApp_bot`,
-                                  "_blank"
-                                );
+                              const refCode = $props.man?.refCode;
+                              return window.open(
+                                refCode
+                                  ? `https://t.me/liomApp_bot?start=ref_${refCode}`
+                                  : "https://t.me/liomApp_bot",
+                                "_blank"
+                              );
                             })();
                           }
                         };
@@ -7296,7 +7293,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                     }
                   )}
                 >
-                  {"\u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627"}
+                  {"\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627"}
                 </div>
                 <Button
                   data-plasmic-name={"button7"}
@@ -7641,10 +7638,10 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                       );
                                       return faDate;
                                     } else {
-                                      return "رویدادهای روزانه";
+                                      return "یادآوری روزانه";
                                     }
                                   } catch {
-                                    return "رویدادهای روزانه";
+                                    return "یادآوری روزانه";
                                   }
                                 else
                                   try {
@@ -7670,10 +7667,10 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                       );
                                       return faDate;
                                     } else {
-                                      return "رویدادهای روزانه";
+                                      return "یادآوری روزانه";
                                     }
                                   } catch {
-                                    return "رویدادهای روزانه";
+                                    return "یادآوری روزانه";
                                   }
                               })();
                             } catch (e) {

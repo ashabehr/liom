@@ -2804,54 +2804,91 @@ function PlasmicLiad__RenderFunc(props: {
                           </div>
                         </Button>
                       ) : null}
-                      {(() => {
-                        try {
-                          return $state.footerMain.type == "reminder";
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__yikWx
+                        )}
+                      >
+                        <Icon270Icon
+                          className={classNames(projectcss.all, sty.svg__zeh1)}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["goToMain2"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    destination: `/main/${(() => {
+                                      try {
+                                        return (() => {
+                                          var s = $ctx.params.page;
+                                          s.push("reminderSetting");
+                                          return s.join("/");
+                                        })();
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()}`
+                                  };
+                                  return (({ destination }) => {
+                                    if (
+                                      typeof destination === "string" &&
+                                      destination.startsWith("#")
+                                    ) {
+                                      document
+                                        .getElementById(destination.substr(1))
+                                        .scrollIntoView({ behavior: "smooth" });
+                                    } else {
+                                      __nextRouter?.push(destination);
+                                    }
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["goToMain2"] != null &&
+                              typeof $steps["goToMain2"] === "object" &&
+                              typeof $steps["goToMain2"].then === "function"
+                            ) {
+                              $steps["goToMain2"] = await $steps["goToMain2"];
+                            }
+                          }}
+                          role={"img"}
+                        />
+
+                        {(() => {
+                          try {
+                            return $state.footerMain.type == "reminder";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
                           }
-                          throw e;
-                        }
-                      })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__yikWx
-                          )}
-                        >
-                          <Icon270Icon
+                        })() ? (
+                          <CreaditButten
+                            data-plasmic-name={"creaditButten"}
+                            data-plasmic-override={overrides.creaditButten}
                             className={classNames(
-                              projectcss.all,
-                              sty.svg__zeh1
+                              "__wab_instance",
+                              sty.creaditButten
                             )}
                             onClick={async event => {
                               const $steps = {};
 
-                              $steps["goToMain2"] = true
+                              $steps["goToMojodi"] = true
                                 ? (() => {
                                     const actionArgs = {
-                                      destination: `/main/${(() => {
-                                        try {
-                                          return (() => {
-                                            var s = $ctx.params.page;
-                                            s.push("reminderSetting");
-                                            return s.join("/");
-                                          })();
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
-                                          }
-                                          throw e;
-                                        }
-                                      })()}`
+                                      destination: `/mojod/${"home"}`
                                     };
                                     return (({ destination }) => {
                                       if (
@@ -2870,90 +2907,31 @@ function PlasmicLiad__RenderFunc(props: {
                                   })()
                                 : undefined;
                               if (
-                                $steps["goToMain2"] != null &&
-                                typeof $steps["goToMain2"] === "object" &&
-                                typeof $steps["goToMain2"].then === "function"
+                                $steps["goToMojodi"] != null &&
+                                typeof $steps["goToMojodi"] === "object" &&
+                                typeof $steps["goToMojodi"].then === "function"
                               ) {
-                                $steps["goToMain2"] = await $steps["goToMain2"];
+                                $steps["goToMojodi"] =
+                                  await $steps["goToMojodi"];
                               }
                             }}
-                            role={"img"}
-                          />
+                            onCreaditChange2={async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "creaditButten",
+                                "creadit"
+                              ]).apply(null, eventArgs);
 
-                          {(() => {
-                            try {
-                              return $state.footerMain.type == "reminder";
-                            } catch (e) {
                               if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
                               ) {
-                                return true;
+                                return;
                               }
-                              throw e;
-                            }
-                          })() ? (
-                            <CreaditButten
-                              data-plasmic-name={"creaditButten"}
-                              data-plasmic-override={overrides.creaditButten}
-                              className={classNames(
-                                "__wab_instance",
-                                sty.creaditButten
-                              )}
-                              onClick={async event => {
-                                const $steps = {};
-
-                                $steps["goToMojodi"] = true
-                                  ? (() => {
-                                      const actionArgs = {
-                                        destination: `/mojod/${"home"}`
-                                      };
-                                      return (({ destination }) => {
-                                        if (
-                                          typeof destination === "string" &&
-                                          destination.startsWith("#")
-                                        ) {
-                                          document
-                                            .getElementById(
-                                              destination.substr(1)
-                                            )
-                                            .scrollIntoView({
-                                              behavior: "smooth"
-                                            });
-                                        } else {
-                                          __nextRouter?.push(destination);
-                                        }
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["goToMojodi"] != null &&
-                                  typeof $steps["goToMojodi"] === "object" &&
-                                  typeof $steps["goToMojodi"].then ===
-                                    "function"
-                                ) {
-                                  $steps["goToMojodi"] =
-                                    await $steps["goToMojodi"];
-                                }
-                              }}
-                              onCreaditChange2={async (...eventArgs: any) => {
-                                generateStateOnChangeProp($state, [
-                                  "creaditButten",
-                                  "creadit"
-                                ]).apply(null, eventArgs);
-
-                                if (
-                                  eventArgs.length > 1 &&
-                                  eventArgs[1] &&
-                                  eventArgs[1]._plasmic_state_init_
-                                ) {
-                                  return;
-                                }
-                              }}
-                            />
-                          ) : null}
-                        </div>
-                      ) : null}
+                            }}
+                          />
+                        ) : null}
+                      </div>
                     </React.Fragment>
                   ),
                   token: (() => {

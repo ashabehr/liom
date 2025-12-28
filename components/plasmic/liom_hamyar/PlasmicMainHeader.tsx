@@ -1973,15 +1973,18 @@ function PlasmicMainHeader__RenderFunc(props: {
                       $state,
                       "liad",
                       "liad"
-                    )
+                    ),
+                    [sty.textliad_hamyar___1IMnQRakT6S1T6S]:
+                      hasVariant($state, "hamyar", "hamyar") &&
+                      hasVariant($state, "liad", "liad")
                   }
                 )}
               >
                 {hasVariant($state, "liad", "liad")
-                  ? "\u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627\u06cc \u0645\u0646"
+                  ? "\u062a\u0646\u0638\u06cc\u0645\u0627\u062a \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc"
                   : hasVariant($state, "hamyar", "hamyar")
                     ? "\u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627\u06cc \u0645\u0646"
-                    : "\u062f\u0631\u0628\u0627\u0631\u0647 \u0645\u0627"}
+                    : "\u062a\u0646\u0638\u06cc\u0645\u0627\u062a \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc"}
               </div>
               <ChevronLeftIcon
                 className={classNames(projectcss.all, sty.svg__v0Is6)}

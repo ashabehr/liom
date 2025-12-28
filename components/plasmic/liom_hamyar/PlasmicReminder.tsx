@@ -2387,7 +2387,7 @@ function PlasmicReminder__RenderFunc(props: {
               )}
             >
               {
-                "\u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627\u06cc \u0645\u0647\u0645 \u067e\u06cc\u0634 \u0631\u0648"
+                "\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627\u06cc  \u067e\u06cc\u0634 \u0631\u0648"
               }
             </div>
             {(() => {
@@ -2933,7 +2933,7 @@ function PlasmicReminder__RenderFunc(props: {
                     timeZone: "Asia/Tehran"
                   });
                   const todayFa = formatter.format(today);
-                  const title = `رویدادهای امروز (${todayFa})`;
+                  const title = `یادآوری های امروز (${todayFa})`;
                   return title;
                 })();
               } catch (e) {
@@ -3058,7 +3058,7 @@ function PlasmicReminder__RenderFunc(props: {
               <React.Fragment>
                 {(() => {
                   try {
-                    return "« برای امروز رویدادی وجود ندارد »";
+                    return "\xAB برای امروز یادآوری وجود ندارد \xBB";
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -3088,7 +3088,7 @@ function PlasmicReminder__RenderFunc(props: {
               <React.Fragment>
                 {(() => {
                   try {
-                    return ` ثبت یادآوری و رویداد های پیش رو >`;
+                    return ` ثبت یادآوری های پیش رو >`;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
