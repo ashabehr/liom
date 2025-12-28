@@ -62,6 +62,7 @@ import {
 import { AntdDrawer } from "@plasmicpkgs/antd5/skinny/registerDrawer";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import CreaditButten from "../../CreaditButten"; // plasmic-import: 1skTNuQS9BUR/component
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -90,13 +91,16 @@ createPlasmicElementProxy;
 
 export type PlasmicMainHeader__VariantMembers = {
   hamyar: "hamyar";
+  liad: "liad";
 };
 export type PlasmicMainHeader__VariantsArgs = {
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
+  liad?: SingleBooleanChoiceArg<"liad">;
 };
 type VariantPropType = keyof PlasmicMainHeader__VariantsArgs;
 export const PlasmicMainHeader__VariantProps = new Array<VariantPropType>(
-  "hamyar"
+  "hamyar",
+  "liad"
 );
 
 export type PlasmicMainHeader__ArgsType = {
@@ -130,6 +134,7 @@ export type PlasmicMainHeader__OverridesType = {
   drawer?: Flex__<typeof AntdDrawer>;
   button?: Flex__<typeof Button>;
   button4?: Flex__<typeof Button>;
+  creaditButten?: Flex__<typeof CreaditButten>;
   modal?: Flex__<typeof AntdModal>;
   button2?: Flex__<typeof Button>;
   button3?: Flex__<typeof Button>;
@@ -147,6 +152,7 @@ export interface DefaultMainHeaderProps {
   children?: React.ReactNode;
   slot?: React.ReactNode;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
+  liad?: SingleBooleanChoiceArg<"liad">;
   className?: string;
 }
 
@@ -356,6 +362,18 @@ function PlasmicMainHeader__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "liad",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.liad
+      },
+      {
+        path: "creaditButten.creadit",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -382,7 +400,10 @@ function PlasmicMainHeader__RenderFunc(props: {
         projectcss.plasmic_mixins,
         styleTokensClassNames,
         sty.root,
-        { [sty.roothamyar]: hasVariant($state, "hamyar", "hamyar") }
+        {
+          [sty.roothamyar]: hasVariant($state, "hamyar", "hamyar"),
+          [sty.rootliad]: hasVariant($state, "liad", "liad")
+        }
       )}
     >
       {renderPlasmicSlot({
@@ -417,7 +438,8 @@ function PlasmicMainHeader__RenderFunc(props: {
             $state,
             "hamyar",
             "hamyar"
-          )
+          ),
+          [sty.freeBoxliad__t17FmRakT6]: hasVariant($state, "liad", "liad")
         })}
       >
         {renderPlasmicSlot({
@@ -429,7 +451,8 @@ function PlasmicMainHeader__RenderFunc(props: {
         data-plasmic-name={"drawer"}
         data-plasmic-override={overrides.drawer}
         className={classNames("__wab_instance", sty.drawer, {
-          [sty.drawerhamyar]: hasVariant($state, "hamyar", "hamyar")
+          [sty.drawerhamyar]: hasVariant($state, "hamyar", "hamyar"),
+          [sty.drawerliad]: hasVariant($state, "liad", "liad")
         })}
         closeButtonClassName={classNames({ [sty["pcls_lqSQHfqD67bF"]]: true })}
         defaultStylesClassName={classNames(
@@ -493,10 +516,23 @@ function PlasmicMainHeader__RenderFunc(props: {
                     $state,
                     "hamyar",
                     "hamyar"
+                  ),
+                  [sty.freeBoxliad__pywp4RakT6]: hasVariant(
+                    $state,
+                    "liad",
+                    "liad"
                   )
                 })}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__aMfd1)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__aMfd1, {
+                    [sty.freeBoxliad__aMfd1RakT6]: hasVariant(
+                      $state,
+                      "liad",
+                      "liad"
+                    )
+                  })}
+                >
                   <div
                     className={classNames(
                       projectcss.all,
@@ -507,6 +543,11 @@ function PlasmicMainHeader__RenderFunc(props: {
                           $state,
                           "hamyar",
                           "hamyar"
+                        ),
+                        [sty.textliad__yvPVbRakT6]: hasVariant(
+                          $state,
+                          "liad",
+                          "liad"
                         )
                       }
                     )}
@@ -684,14 +725,22 @@ function PlasmicMainHeader__RenderFunc(props: {
                 code={"<hr></hr>"}
               />
 
-              <div className={classNames(projectcss.all, sty.freeBox__nq9Fh)}>
+              <div
+                className={classNames(projectcss.all, sty.freeBox__nq9Fh, {
+                  [sty.freeBoxliad__nq9FhRakT6]: hasVariant(
+                    $state,
+                    "liad",
+                    "liad"
+                  )
+                })}
+              >
                 <Icon188Icon
                   className={classNames(projectcss.all, sty.svg__l51C0)}
                   role={"img"}
                 />
 
                 {(
-                  hasVariant($state, "hamyar", "hamyar")
+                  hasVariant($state, "liad", "liad")
                     ? (() => {
                         try {
                           return !$props.userinfo.hamyarStatus;
@@ -705,19 +754,33 @@ function PlasmicMainHeader__RenderFunc(props: {
                           throw e;
                         }
                       })()
-                    : (() => {
-                        try {
-                          return $state.allowanceUser.length == 0;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
+                    : hasVariant($state, "hamyar", "hamyar")
+                      ? (() => {
+                          try {
+                            return !$props.userinfo.hamyarStatus;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
                           }
-                          throw e;
-                        }
-                      })()
+                        })()
+                      : (() => {
+                          try {
+                            return $state.allowanceUser.length == 0;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
                 ) ? (
                   <div
                     className={classNames(
@@ -729,6 +792,11 @@ function PlasmicMainHeader__RenderFunc(props: {
                           $state,
                           "hamyar",
                           "hamyar"
+                        ),
+                        [sty.textliad__xyhefRakT6]: hasVariant(
+                          $state,
+                          "liad",
+                          "liad"
                         )
                       }
                     )}
@@ -739,21 +807,23 @@ function PlasmicMainHeader__RenderFunc(props: {
                   </div>
                 ) : null}
                 {(
-                  hasVariant($state, "hamyar", "hamyar")
+                  hasVariant($state, "liad", "liad")
                     ? true
-                    : (() => {
-                        try {
-                          return $state.allowanceUser.length > 0;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
+                    : hasVariant($state, "hamyar", "hamyar")
+                      ? true
+                      : (() => {
+                          try {
+                            return $state.allowanceUser.length > 0;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
                           }
-                          throw e;
-                        }
-                      })()
+                        })()
                 ) ? (
                   <div
                     className={classNames(
@@ -765,6 +835,11 @@ function PlasmicMainHeader__RenderFunc(props: {
                           $state,
                           "hamyar",
                           "hamyar"
+                        ),
+                        [sty.textliad__azfXxRakT6]: hasVariant(
+                          $state,
+                          "liad",
+                          "liad"
                         )
                       }
                     )}
@@ -844,7 +919,7 @@ function PlasmicMainHeader__RenderFunc(props: {
                   </div>
                 ) : null}
                 {(
-                  hasVariant($state, "hamyar", "hamyar")
+                  hasVariant($state, "liad", "liad")
                     ? (() => {
                         try {
                           return $props.userinfo.hamyarStatus;
@@ -858,7 +933,21 @@ function PlasmicMainHeader__RenderFunc(props: {
                           throw e;
                         }
                       })()
-                    : false
+                    : hasVariant($state, "hamyar", "hamyar")
+                      ? (() => {
+                          try {
+                            return $props.userinfo.hamyarStatus;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : false
                 ) ? (
                   <div
                     className={classNames(
@@ -870,6 +959,11 @@ function PlasmicMainHeader__RenderFunc(props: {
                           $state,
                           "hamyar",
                           "hamyar"
+                        ),
+                        [sty.textliad___1MNyYRakT6]: hasVariant(
+                          $state,
+                          "liad",
+                          "liad"
                         )
                       }
                     )}
@@ -985,6 +1079,135 @@ function PlasmicMainHeader__RenderFunc(props: {
                   </div>
                 ) : null}
               </div>
+              {(hasVariant($state, "liad", "liad") ? true : false) ? (
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__gIdq9, {
+                    [sty.freeBoxliad__gIdq9RakT6]: hasVariant(
+                      $state,
+                      "liad",
+                      "liad"
+                    )
+                  })}
+                >
+                  <Icon188Icon
+                    className={classNames(projectcss.all, sty.svg__gskra, {
+                      [sty.svgliad__gskraRakT6]: hasVariant(
+                        $state,
+                        "liad",
+                        "liad"
+                      )
+                    })}
+                    role={"img"}
+                  />
+
+                  {(
+                    hasVariant($state, "liad", "liad")
+                      ? (() => {
+                          try {
+                            return !$props.userinfo.hamyarStatus;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : hasVariant($state, "hamyar", "hamyar")
+                        ? (() => {
+                            try {
+                              return !$props.userinfo.hamyarStatus;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })()
+                        : (() => {
+                            try {
+                              return $state.allowanceUser.length == 0;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })()
+                  ) ? (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__rcKSp,
+                        {
+                          [sty.texthamyar__rcKSps1T6S]: hasVariant(
+                            $state,
+                            "hamyar",
+                            "hamyar"
+                          ),
+                          [sty.textliad__rcKSpRakT6]: hasVariant(
+                            $state,
+                            "liad",
+                            "liad"
+                          )
+                        }
+                      )}
+                    >
+                      {hasVariant($state, "liad", "liad")
+                        ? "\u0645\u0648\u062c\u0648\u062f\u06cc \u06a9\u06cc\u0641 \u067e\u0648\u0644 \u0634\u0645\u0627"
+                        : "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0641\u0639\u0627\u0644\u06cc \u0646\u062f\u0627\u0631\u06cc!"}
+                    </div>
+                  ) : null}
+                  <CreaditButten
+                    data-plasmic-name={"creaditButten"}
+                    data-plasmic-override={overrides.creaditButten}
+                    className={classNames("__wab_instance", sty.creaditButten, {
+                      [sty.creaditButtenliad]: hasVariant(
+                        $state,
+                        "liad",
+                        "liad"
+                      )
+                    })}
+                    liad={true}
+                    onCreaditChange2={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "creaditButten",
+                        "creadit"
+                      ]).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    token={(() => {
+                      try {
+                        return $props.token;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                  />
+                </div>
+              ) : null}
             </div>
           </div>
         }
@@ -995,7 +1218,8 @@ function PlasmicMainHeader__RenderFunc(props: {
               $state,
               "hamyar",
               "hamyar"
-            )
+            ),
+            [sty.freeBoxliad__kyVHqRakT6]: hasVariant($state, "liad", "liad")
           })}
         >
           <div
@@ -1004,7 +1228,8 @@ function PlasmicMainHeader__RenderFunc(props: {
                 $state,
                 "hamyar",
                 "hamyar"
-              )
+              ),
+              [sty.freeBoxliad__b3XddRakT6]: hasVariant($state, "liad", "liad")
             })}
           >
             <div
@@ -1013,6 +1238,11 @@ function PlasmicMainHeader__RenderFunc(props: {
                   $state,
                   "hamyar",
                   "hamyar"
+                ),
+                [sty.freeBoxliad__v9VFdRakT6]: hasVariant(
+                  $state,
+                  "liad",
+                  "liad"
                 )
               })}
               onClick={async event => {
@@ -1219,13 +1449,24 @@ function PlasmicMainHeader__RenderFunc(props: {
                 </div>
               </Button>
             </div>
-            {(hasVariant($state, "hamyar", "hamyar") ? true : false) ? (
+            {(
+              hasVariant($state, "liad", "liad")
+                ? true
+                : hasVariant($state, "hamyar", "hamyar")
+                  ? true
+                  : false
+            ) ? (
               <div
                 className={classNames(projectcss.all, sty.freeBox__zEJji, {
                   [sty.freeBoxhamyar__zEJjis1T6S]: hasVariant(
                     $state,
                     "hamyar",
                     "hamyar"
+                  ),
+                  [sty.freeBoxliad__zEJjiRakT6]: hasVariant(
+                    $state,
+                    "liad",
+                    "liad"
                   )
                 })}
                 onClick={async event => {
@@ -1452,6 +1693,11 @@ function PlasmicMainHeader__RenderFunc(props: {
                   $state,
                   "hamyar",
                   "hamyar"
+                ),
+                [sty.freeBoxliad__uiHmzRakT6]: hasVariant(
+                  $state,
+                  "liad",
+                  "liad"
                 )
               })}
               onClick={async event => {
@@ -1539,6 +1785,11 @@ function PlasmicMainHeader__RenderFunc(props: {
                   $state,
                   "hamyar",
                   "hamyar"
+                ),
+                [sty.freeBoxliad__nngrkRakT6]: hasVariant(
+                  $state,
+                  "liad",
+                  "liad"
                 )
               })}
               onClick={async event => {
@@ -1631,7 +1882,8 @@ function PlasmicMainHeader__RenderFunc(props: {
                   $state,
                   "hamyar",
                   "hamyar"
-                )
+                ),
+                [sty.freeBoxliad__pk8SRakT6]: hasVariant($state, "liad", "liad")
               })}
               onClick={async event => {
                 const $steps = {};
@@ -1689,16 +1941,19 @@ function PlasmicMainHeader__RenderFunc(props: {
             >
               <PlasmicIcon__
                 PlasmicIconType={
-                  hasVariant($state, "hamyar", "hamyar")
+                  hasVariant($state, "liad", "liad")
                     ? Icon304Icon
-                    : Icon193Icon
+                    : hasVariant($state, "hamyar", "hamyar")
+                      ? Icon304Icon
+                      : Icon193Icon
                 }
                 className={classNames(projectcss.all, sty.svg__f8NU, {
                   [sty.svghamyar__f8NUs1T6S]: hasVariant(
                     $state,
                     "hamyar",
                     "hamyar"
-                  )
+                  ),
+                  [sty.svgliad__f8NURakT6]: hasVariant($state, "liad", "liad")
                 })}
                 role={"img"}
               />
@@ -1713,13 +1968,20 @@ function PlasmicMainHeader__RenderFunc(props: {
                       $state,
                       "hamyar",
                       "hamyar"
+                    ),
+                    [sty.textliad___1IMnQRakT6]: hasVariant(
+                      $state,
+                      "liad",
+                      "liad"
                     )
                   }
                 )}
               >
-                {hasVariant($state, "hamyar", "hamyar")
+                {hasVariant($state, "liad", "liad")
                   ? "\u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627\u06cc \u0645\u0646"
-                  : "\u062f\u0631\u0628\u0627\u0631\u0647 \u0645\u0627"}
+                  : hasVariant($state, "hamyar", "hamyar")
+                    ? "\u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627\u06cc \u0645\u0646"
+                    : "\u062f\u0631\u0628\u0627\u0631\u0647 \u0645\u0627"}
               </div>
               <ChevronLeftIcon
                 className={classNames(projectcss.all, sty.svg__v0Is6)}
@@ -1732,6 +1994,11 @@ function PlasmicMainHeader__RenderFunc(props: {
                   $state,
                   "hamyar",
                   "hamyar"
+                ),
+                [sty.freeBoxliad__jANpXRakT6]: hasVariant(
+                  $state,
+                  "liad",
+                  "liad"
                 )
               })}
               onClick={async event => {
@@ -1807,6 +2074,11 @@ function PlasmicMainHeader__RenderFunc(props: {
                       $state,
                       "hamyar",
                       "hamyar"
+                    ),
+                    [sty.textliad___32OrbRakT6]: hasVariant(
+                      $state,
+                      "liad",
+                      "liad"
                     )
                   }
                 )}
@@ -1824,7 +2096,8 @@ function PlasmicMainHeader__RenderFunc(props: {
                   $state,
                   "hamyar",
                   "hamyar"
-                )
+                ),
+                [sty.freeBoxliad__sLwdRakT6]: hasVariant($state, "liad", "liad")
               })}
               onClick={async event => {
                 const $steps = {};
@@ -1930,6 +2203,11 @@ function PlasmicMainHeader__RenderFunc(props: {
                       $state,
                       "hamyar",
                       "hamyar"
+                    ),
+                    [sty.freeBoxliad__tpGb7RakT6]: hasVariant(
+                      $state,
+                      "liad",
+                      "liad"
                     )
                   })}
                   onClick={async event => {
@@ -2018,6 +2296,11 @@ function PlasmicMainHeader__RenderFunc(props: {
                       $state,
                       "hamyar",
                       "hamyar"
+                    ),
+                    [sty.freeBoxliad___1Yv3ZRakT6]: hasVariant(
+                      $state,
+                      "liad",
+                      "liad"
                     )
                   })}
                   onClick={async event => {
@@ -2120,7 +2403,8 @@ function PlasmicMainHeader__RenderFunc(props: {
                   $state,
                   "hamyar",
                   "hamyar"
-                )
+                ),
+                [sty.freeBoxliad__yGySRakT6]: hasVariant($state, "liad", "liad")
               })}
             >
               <Embed
@@ -2134,6 +2418,11 @@ function PlasmicMainHeader__RenderFunc(props: {
                     $state,
                     "hamyar",
                     "hamyar"
+                  ),
+                  [sty.freeBoxliad___0WkzoRakT6]: hasVariant(
+                    $state,
+                    "liad",
+                    "liad"
                   )
                 })}
                 onClick={async event => {
@@ -2517,10 +2806,20 @@ function PlasmicMainHeader__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "drawer", "button", "button4", "modal", "button2", "button3"],
-  drawer: ["drawer", "button", "button4"],
+  root: [
+    "root",
+    "drawer",
+    "button",
+    "button4",
+    "creaditButten",
+    "modal",
+    "button2",
+    "button3"
+  ],
+  drawer: ["drawer", "button", "button4", "creaditButten"],
   button: ["button"],
   button4: ["button4"],
+  creaditButten: ["creaditButten"],
   modal: ["modal", "button2", "button3"],
   button2: ["button2"],
   button3: ["button3"]
@@ -2533,6 +2832,7 @@ type NodeDefaultElementType = {
   drawer: typeof AntdDrawer;
   button: typeof Button;
   button4: typeof Button;
+  creaditButten: typeof CreaditButten;
   modal: typeof AntdModal;
   button2: typeof Button;
   button3: typeof Button;
@@ -2603,6 +2903,7 @@ export const PlasmicMainHeader = Object.assign(
     drawer: makeNodeComponent("drawer"),
     button: makeNodeComponent("button"),
     button4: makeNodeComponent("button4"),
+    creaditButten: makeNodeComponent("creaditButten"),
     modal: makeNodeComponent("modal"),
     button2: makeNodeComponent("button2"),
     button3: makeNodeComponent("button3"),

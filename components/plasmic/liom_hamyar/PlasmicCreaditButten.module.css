@@ -18,6 +18,9 @@
     animation: none;
   }
 }
+.rootliad {
+  border-width: 0px;
+}
 .freeBox__cIMgF {
   animation: none;
   display: flex;
@@ -98,6 +101,9 @@
   .buttonLiom4:global(.__wab_instance) {
     animation: none;
   }
+}
+.buttonLiom4liad:global(.__wab_instance) {
+  display: none;
 }
 .svg__pB9Fy {
   position: relative;

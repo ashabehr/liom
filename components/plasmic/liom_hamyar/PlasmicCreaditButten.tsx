@@ -77,13 +77,16 @@ createPlasmicElementProxy;
 
 export type PlasmicCreaditButten__VariantMembers = {
   action: "red" | "add";
+  liad: "liad";
 };
 export type PlasmicCreaditButten__VariantsArgs = {
   action?: SingleChoiceArg<"red" | "add">;
+  liad?: SingleBooleanChoiceArg<"liad">;
 };
 type VariantPropType = keyof PlasmicCreaditButten__VariantsArgs;
 export const PlasmicCreaditButten__VariantProps = new Array<VariantPropType>(
-  "action"
+  "action",
+  "liad"
 );
 
 export type PlasmicCreaditButten__ArgsType = {
@@ -109,6 +112,7 @@ export interface DefaultCreaditButtenProps {
   onClick?: (event: any) => void;
   token?: string;
   action?: SingleChoiceArg<"red" | "add">;
+  liad?: SingleBooleanChoiceArg<"liad">;
   className?: string;
 }
 
@@ -235,6 +239,12 @@ function PlasmicCreaditButten__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "liad",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.liad
       }
     ],
     [$props, $ctx, $refs]
@@ -263,7 +273,8 @@ function PlasmicCreaditButten__RenderFunc(props: {
         sty.root,
         {
           [sty.rootaction_add]: hasVariant($state, "action", "add"),
-          [sty.rootaction_red]: hasVariant($state, "action", "red")
+          [sty.rootaction_red]: hasVariant($state, "action", "red"),
+          [sty.rootliad]: hasVariant($state, "liad", "liad")
         }
       )}
       onClick={args.onClick}
@@ -393,7 +404,7 @@ function PlasmicCreaditButten__RenderFunc(props: {
                     return $state.apiRequest?.data?.balance !== null &&
                       $state.apiRequest?.data?.balance !== undefined
                       ? `${$state.apiRequest.data.balance.toLocaleString()} تومان`
-                      : $state.creadit;
+                      : parseInt($state.creadit).toLocaleString() + " تومان";
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -413,7 +424,8 @@ function PlasmicCreaditButten__RenderFunc(props: {
         data-plasmic-name={"buttonLiom4"}
         data-plasmic-override={overrides.buttonLiom4}
         className={classNames("__wab_instance", sty.buttonLiom4, {
-          [sty.buttonLiom4action_add]: hasVariant($state, "action", "add")
+          [sty.buttonLiom4action_add]: hasVariant($state, "action", "add"),
+          [sty.buttonLiom4liad]: hasVariant($state, "liad", "liad")
         })}
         color={generateStateValueProp($state, ["buttonLiom4", "color"])}
         load={generateStateValueProp($state, ["buttonLiom4", "load"])}

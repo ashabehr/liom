@@ -129,6 +129,9 @@
 .freeBoxhamyar__v9VFds1T6S {
   display: none;
 }
+.freeBoxliad__v9VFdRakT6 {
+  display: none;
+}
 .freeBox__xcm9E {
   display: flex;
   flex-direction: row;
@@ -205,6 +208,9 @@
   min-width: 0;
   border-radius: 16px;
   padding: 8px 8px 16px;
+}
+.freeBoxliad__zEJjiRakT6 {
+  display: none;
 }
 .freeBox__dr9Xd {
   display: flex;
@@ -285,6 +291,9 @@
 .freeBoxhamyar__uiHmzs1T6S {
   display: none;
 }
+.freeBoxliad__uiHmzRakT6 {
+  display: none;
+}
 .svg__hSoM5 {
   object-fit: cover;
   max-width: 100%;
@@ -328,6 +337,9 @@
   padding: 0px;
 }
 .freeBoxhamyar__nngrks1T6S {
+  display: none;
+}
+.freeBoxliad__nngrkRakT6 {
   display: none;
 }
 .svg__yq9O {
@@ -387,6 +399,9 @@
   padding: 0px;
 }
 .freeBoxhamyar__pk8SS1T6S {
+  display: flex;
+}
+.freeBoxliad__pk8SRakT6 {
   display: flex;
 }
 .svg__f8NU {
@@ -787,6 +802,9 @@
   min-width: 0;
   padding: 8px 8px 0px;
 }
+.freeBoxliad__nq9FhRakT6 {
+  display: none;
+}
 .svg__l51C0 {
   object-fit: cover;
   max-width: 100%;
@@ -804,6 +822,9 @@
 .texthamyar__xyhefs1T6S {
   display: block;
 }
+.textliad__xyhefRakT6 {
+  display: block;
+}
 .text__azfXx {
   position: relative;
   width: 100%;
@@ -815,6 +836,9 @@
   min-width: 0;
 }
 .texthamyar__azfXxs1T6S {
+  display: none;
+}
+.textliad__azfXxRakT6 {
   display: none;
 }
 .text___1MNyY {
@@ -829,6 +853,48 @@
 }
 .texthamyar___1MNyYs1T6S {
   display: block;
+}
+.textliad___1MNyYRakT6 {
+  display: block;
+}
+.freeBox__gIdq9 {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  column-gap: 8px;
+  min-width: 0;
+  padding: 8px 8px 0px;
+}
+.freeBoxliad__gIdq9RakT6 {
+  display: flex;
+}
+.svg__gskra {
+  object-fit: cover;
+  max-width: 100%;
+  height: 1em;
+}
+.text__rcKSp {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  font-size: 12px;
+  min-width: 0;
+}
+.texthamyar__rcKSps1T6S {
+  display: block;
+}
+.textliad__rcKSpRakT6 {
+  display: block;
+}
+.creaditButten:global(.__wab_instance) {
+  max-width: 100%;
 }
 .modal:global(.__wab_instance) {
   max-width: 100%;

@@ -99,19 +99,22 @@ export type PlasmicReminder__VariantMembers = {
   hamyar: "hamyar";
   smallReminder: "smallReminder";
   dateMode: "dateMode";
+  liad: "liad";
 };
 export type PlasmicReminder__VariantsArgs = {
   slide3?: SingleBooleanChoiceArg<"slide3">;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
   smallReminder?: SingleBooleanChoiceArg<"smallReminder">;
   dateMode?: SingleBooleanChoiceArg<"dateMode">;
+  liad?: SingleBooleanChoiceArg<"liad">;
 };
 type VariantPropType = keyof PlasmicReminder__VariantsArgs;
 export const PlasmicReminder__VariantProps = new Array<VariantPropType>(
   "slide3",
   "hamyar",
   "smallReminder",
-  "dateMode"
+  "dateMode",
+  "liad"
 );
 
 export type PlasmicReminder__ArgsType = {
@@ -254,6 +257,7 @@ export interface DefaultReminderProps {
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
   smallReminder?: SingleBooleanChoiceArg<"smallReminder">;
   dateMode?: SingleBooleanChoiceArg<"dateMode">;
+  liad?: SingleBooleanChoiceArg<"liad">;
   className?: string;
 }
 
@@ -860,6 +864,12 @@ function PlasmicReminder__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "love"
+      },
+      {
+        path: "liad",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.liad
       }
     ],
     [$props, $ctx, $refs]
@@ -897,6 +907,7 @@ function PlasmicReminder__RenderFunc(props: {
             hasVariant($state, "smallReminder", "smallReminder") &&
             hasVariant(globalVariants, "newView", "newView"),
           [sty.roothamyar]: hasVariant($state, "hamyar", "hamyar"),
+          [sty.rootliad]: hasVariant($state, "liad", "liad"),
           [sty.rootslide3]: hasVariant($state, "slide3", "slide3"),
           [sty.rootslide3_hamyar]:
             hasVariant($state, "hamyar", "hamyar") &&
@@ -5188,6 +5199,7 @@ function PlasmicReminder__RenderFunc(props: {
             "hamyar",
             "hamyar"
           ),
+          [sty.sectionliad__wBpwRaGNpi]: hasVariant($state, "liad", "liad"),
           [sty.sectionslide3__wBpwRWyFt]: hasVariant(
             $state,
             "slide3",
@@ -6362,10 +6374,14 @@ function PlasmicReminder__RenderFunc(props: {
               ? (() => {
                   const actionArgs = {
                     customFunction: async () => {
-                      return window.sessionStorage.setItem(
-                        "ofline",
-                        JSON.parse($state.apiRequest.data)
-                      );
+                      return (() => {
+                        try {
+                          return window.sessionStorage.setItem(
+                            "ofline",
+                            JSON.parse($state.apiRequest.data)
+                          );
+                        } catch {}
+                      })();
                     }
                   };
                   return (({ customFunction }) => {

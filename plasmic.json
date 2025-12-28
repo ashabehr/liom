@@ -5156,6 +5156,33 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicPreReminderSelect.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "SxAwAOw1n0hI",
+          "name": "Liad",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicLiad.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/liad/[[...page]].tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicLiad.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/liad/[[...page]]"
+        },
+        {
+          "id": "jDa193IxIcJU",
+          "name": "MainLiad",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMainLiad.tsx",
+          "importSpec": {
+            "modulePath": "MainLiad.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicMainLiad.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

@@ -46,6 +46,9 @@
     grid-column: 4;
   }
 }
+.rootliad > * {
+  grid-column: 4;
+}
 .rootslide3_hamyar > * {
   grid-column: 4;
 }
@@ -1380,6 +1383,17 @@
 }
 .sectionsmallReminder__wBpwRqVctK > * {
   grid-column: 4;
+}
+.sectionliad__wBpwRaGNpi {
+  padding-bottom: var(--token-uOLZE7OyOW-J);
+}
+.sectionliad__wBpwRaGNpi > * {
+  grid-column: 4;
+}
+@media (max-width: 640px) {
+  .sectionliad__wBpwRaGNpi > * {
+    grid-column: 4;
+  }
 }
 .sectionslide3_hamyar__wBpwRWyFtXX8Tw > * {
   grid-column: 4;
