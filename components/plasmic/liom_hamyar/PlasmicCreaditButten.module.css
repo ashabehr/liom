@@ -93,6 +93,10 @@
 .textaction_red__yvOeWe6Q {
   color: var(--token-4RAe7M2gInqR);
 }
+.textsize_larg__yvOeGg7Em {
+  font-size: var(--token-Wa5tmrNKVUYF);
+  font-weight: 700;
+}
 .buttonLiom4:global(.__wab_instance) {
   animation: none;
   max-width: 100%;

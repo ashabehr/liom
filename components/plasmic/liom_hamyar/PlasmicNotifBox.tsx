@@ -426,7 +426,7 @@ function PlasmicNotifBox__RenderFunc(props: {
                     className={classNames("__wab_instance", sty.lineClomp, {
                       [sty.lineClompseen]: hasVariant($state, "seen", "seen")
                     })}
-                    numberOfLine={1}
+                    numberOfLine={2}
                     onLineChange={async (...eventArgs: any) => {
                       generateStateOnChangeProp($state, [
                         "lineClomp",

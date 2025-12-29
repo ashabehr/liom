@@ -85,6 +85,7 @@ import Icon194Icon from "./icons/PlasmicIcon__Icon194"; // plasmic-import: uU66A
 import Icon385Icon from "./icons/PlasmicIcon__Icon385"; // plasmic-import: ZPKKCArd0-D6/icon
 import Icon226Icon from "./icons/PlasmicIcon__Icon226"; // plasmic-import: i72W_8jC8xCg/icon
 import Icon187Icon from "./icons/PlasmicIcon__Icon187"; // plasmic-import: TGEaylyFP26z/icon
+import Icon372Icon from "./icons/PlasmicIcon__Icon372"; // plasmic-import: Wg9KoT29yh50/icon
 import Icon157Icon from "./icons/PlasmicIcon__Icon157"; // plasmic-import: pYMHtMPOTSpB/icon
 
 createPlasmicElementProxy;
@@ -508,7 +509,11 @@ function PlasmicMainHeader__RenderFunc(props: {
         }}
         open={generateStateValueProp($state, ["drawer", "open"])}
         title={
-          <div className={classNames(projectcss.all, sty.freeBox__yxJdj)}>
+          <div
+            className={classNames(projectcss.all, sty.freeBox__yxJdj, {
+              [sty.freeBoxliad__yxJdjRakT6]: hasVariant($state, "liad", "liad")
+            })}
+          >
             <div className={classNames(projectcss.all, sty.freeBox__qO33Y)}>
               <div
                 className={classNames(projectcss.all, sty.freeBox__pywp4, {
@@ -1088,8 +1093,38 @@ function PlasmicMainHeader__RenderFunc(props: {
                       "liad"
                     )
                   })}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToMojodi"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: `/mojod/${"home"}`
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToMojodi"] != null &&
+                      typeof $steps["goToMojodi"] === "object" &&
+                      typeof $steps["goToMojodi"].then === "function"
+                    ) {
+                      $steps["goToMojodi"] = await $steps["goToMojodi"];
+                    }
+                  }}
                 >
-                  <Icon188Icon
+                  <Icon372Icon
                     className={classNames(projectcss.all, sty.svg__gskra, {
                       [sty.svgliad__gskraRakT6]: hasVariant(
                         $state,
@@ -1192,6 +1227,7 @@ function PlasmicMainHeader__RenderFunc(props: {
                         return;
                       }
                     }}
+                    size={"larg"}
                     token={(() => {
                       try {
                         return $props.token;

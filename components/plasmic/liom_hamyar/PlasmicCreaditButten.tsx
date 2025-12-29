@@ -78,15 +78,18 @@ createPlasmicElementProxy;
 export type PlasmicCreaditButten__VariantMembers = {
   action: "red" | "add";
   liad: "liad";
+  size: "larg";
 };
 export type PlasmicCreaditButten__VariantsArgs = {
   action?: SingleChoiceArg<"red" | "add">;
   liad?: SingleBooleanChoiceArg<"liad">;
+  size?: SingleChoiceArg<"larg">;
 };
 type VariantPropType = keyof PlasmicCreaditButten__VariantsArgs;
 export const PlasmicCreaditButten__VariantProps = new Array<VariantPropType>(
   "action",
-  "liad"
+  "liad",
+  "size"
 );
 
 export type PlasmicCreaditButten__ArgsType = {
@@ -113,6 +116,7 @@ export interface DefaultCreaditButtenProps {
   token?: string;
   action?: SingleChoiceArg<"red" | "add">;
   liad?: SingleBooleanChoiceArg<"liad">;
+  size?: SingleChoiceArg<"larg">;
   className?: string;
 }
 
@@ -245,6 +249,12 @@ function PlasmicCreaditButten__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.liad
+      },
+      {
+        path: "size",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.size
       }
     ],
     [$props, $ctx, $refs]
@@ -274,18 +284,32 @@ function PlasmicCreaditButten__RenderFunc(props: {
         {
           [sty.rootaction_add]: hasVariant($state, "action", "add"),
           [sty.rootaction_red]: hasVariant($state, "action", "red"),
-          [sty.rootliad]: hasVariant($state, "liad", "liad")
+          [sty.rootliad]: hasVariant($state, "liad", "liad"),
+          [sty.rootsize_larg]: hasVariant($state, "size", "larg")
         }
       )}
       onClick={args.onClick}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__cIMgF)}>
-        <div className={classNames(projectcss.all, sty.freeBox__fvhYh)}>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__cIMgF, {
+          [sty.freeBoxsize_larg__cIMgFGg7Em]: hasVariant($state, "size", "larg")
+        })}
+      >
+        <div
+          className={classNames(projectcss.all, sty.freeBox__fvhYh, {
+            [sty.freeBoxsize_larg__fvhYhGg7Em]: hasVariant(
+              $state,
+              "size",
+              "larg"
+            )
+          })}
+        >
           <ApiRequest
             data-plasmic-name={"apiRequest"}
             data-plasmic-override={overrides.apiRequest}
             className={classNames("__wab_instance", sty.apiRequest, {
-              [sty.apiRequestaction_red]: hasVariant($state, "action", "red")
+              [sty.apiRequestaction_red]: hasVariant($state, "action", "red"),
+              [sty.apiRequestsize_larg]: hasVariant($state, "size", "larg")
             })}
             config={(() => {
               try {
@@ -394,6 +418,11 @@ function PlasmicCreaditButten__RenderFunc(props: {
                     $state,
                     "action",
                     "red"
+                  ),
+                  [sty.textsize_larg__yvOeGg7Em]: hasVariant(
+                    $state,
+                    "size",
+                    "larg"
                   )
                 }
               )}
