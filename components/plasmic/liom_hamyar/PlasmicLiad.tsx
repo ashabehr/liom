@@ -1199,6 +1199,12 @@ function PlasmicLiad__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "mainLiad.telegramDialog",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1396,6 +1402,20 @@ function PlasmicLiad__RenderFunc(props: {
                   return;
                 }
               }}
+              onTelegramDialogChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "mainLiad",
+                  "telegramDialog"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
               onTokenChange2={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, ["mainLiad", "token"]).apply(
                   null,
@@ -1527,6 +1547,10 @@ function PlasmicLiad__RenderFunc(props: {
                   $steps["goToLiad"] = await $steps["goToLiad"];
                 }
               }}
+              telegramDialog={generateStateValueProp($state, [
+                "mainLiad",
+                "telegramDialog"
+              ])}
               token={generateStateValueProp($state, ["mainLiad", "token"])}
               userInfo={generateStateValueProp($state, [
                 "mainLiad",
@@ -2237,6 +2261,45 @@ function PlasmicLiad__RenderFunc(props: {
             <ReminderSetting
               data-plasmic-name={"reminderSetting"}
               data-plasmic-override={overrides.reminderSetting}
+              activeTelegram={async () => {
+                const $steps = {};
+
+                $steps["updateMainLiadTelegramDialog"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["mainLiad", "telegramDialog"]
+                        },
+                        operation: 0,
+                        value: true
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateMainLiadTelegramDialog"] != null &&
+                  typeof $steps["updateMainLiadTelegramDialog"] === "object" &&
+                  typeof $steps["updateMainLiadTelegramDialog"].then ===
+                    "function"
+                ) {
+                  $steps["updateMainLiadTelegramDialog"] =
+                    await $steps["updateMainLiadTelegramDialog"];
+                }
+              }}
               back={async () => {
                 const $steps = {};
 

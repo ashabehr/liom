@@ -66,6 +66,9 @@ import Reminder from "../../Reminder"; // plasmic-import: 3v9tn6uUJCPM/component
 import MobileDialog from "../../MobileDialog"; // plasmic-import: h7ceF9lBthFF/component
 import DialogTooltip from "../../DialogTooltip"; // plasmic-import: 0nKndp-acHhb/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
+import Dialog2 from "../../Dialog2"; // plasmic-import: DuWIegJ6qGVC/component
+import CopyBox from "../../CopyBox"; // plasmic-import: IlYMwGyFMVen/component
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
@@ -73,6 +76,9 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 
 import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicMainLiad.module.css"; // plasmic-import: jDa193IxIcJU/css
+
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
 createPlasmicElementProxy;
 
@@ -107,6 +113,8 @@ export type PlasmicMainLiad__ArgsType = {
   profile2?: any;
   onProfileChange?: (val: any) => void;
   onLoadingChange?: (val: string) => void;
+  telegramDialog?: boolean;
+  onTelegramDialogChange?: (val: boolean) => void;
 };
 type ArgPropType = keyof PlasmicMainLiad__ArgsType;
 export const PlasmicMainLiad__ArgProps = new Array<ArgPropType>(
@@ -130,7 +138,9 @@ export const PlasmicMainLiad__ArgProps = new Array<ArgPropType>(
   "onReminderBalanceChange",
   "profile2",
   "onProfileChange",
-  "onLoadingChange"
+  "onLoadingChange",
+  "telegramDialog",
+  "onTelegramDialogChange"
 );
 
 export type PlasmicMainLiad__OverridesType = {
@@ -144,8 +154,11 @@ export type PlasmicMainLiad__OverridesType = {
   mobileDialog?: Flex__<typeof MobileDialog>;
   dialogTooltip?: Flex__<typeof DialogTooltip>;
   dialog?: Flex__<typeof ApiRequest>;
-  freeBox?: Flex__<"div">;
   lottie?: Flex__<typeof LottieWrapper>;
+  telegram?: Flex__<typeof Dialog2>;
+  img?: Flex__<typeof PlasmicImg__>;
+  copyBox?: Flex__<typeof CopyBox>;
+  button?: Flex__<typeof Button>;
 };
 
 export interface DefaultMainLiadProps {
@@ -170,6 +183,8 @@ export interface DefaultMainLiadProps {
   profile2?: any;
   onProfileChange?: (val: any) => void;
   onLoadingChange?: (val: string) => void;
+  telegramDialog?: boolean;
+  onTelegramDialogChange?: (val: boolean) => void;
   page?: SingleChoiceArg<"calendar" | "self" | "reminder" | "bot" | "l">;
   className?: string;
 }
@@ -456,6 +471,32 @@ function PlasmicMainLiad__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => true,
 
         onChangeProp: "onLoadingChange"
+      },
+      {
+        path: "telegram.opendialog",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "telegramDialog",
+        onChangeProp: "onTelegramDialogChange"
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -663,6 +704,29 @@ function PlasmicMainLiad__RenderFunc(props: {
           data-plasmic-name={"reminder"}
           data-plasmic-override={overrides.reminder}
           active={generateStateValueProp($state, ["reminder", "active"])}
+          activeTelegram={async () => {
+            const $steps = {};
+
+            $steps["runCode"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return ($state.telegram.opendialog = true);
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
+            }
+          }}
           balance={generateStateValueProp($state, ["reminder", "balance"])}
           className={classNames("__wab_instance", sty.reminder, {
             [sty.reminderpage_reminder]: hasVariant($state, "page", "reminder")
@@ -1813,11 +1877,7 @@ function PlasmicMainLiad__RenderFunc(props: {
           throw e;
         }
       })() ? (
-        <div
-          data-plasmic-name={"freeBox"}
-          data-plasmic-override={overrides.freeBox}
-          className={classNames(projectcss.all, sty.freeBox)}
-        >
+        <div className={classNames(projectcss.all, sty.freeBox__k65Q)}>
           <LottieWrapper
             data-plasmic-name={"lottie"}
             data-plasmic-override={overrides.lottie}
@@ -2645,6 +2705,212 @@ function PlasmicMainLiad__RenderFunc(props: {
           />
         </div>
       ) : null}
+      <Dialog2
+        data-plasmic-name={"telegram"}
+        data-plasmic-override={overrides.telegram}
+        className={classNames("__wab_instance", sty.telegram)}
+        onOpendialogChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["telegram", "opendialog"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        opendialog={generateStateValueProp($state, ["telegram", "opendialog"])}
+      >
+        <div className={classNames(projectcss.all, sty.freeBox__cFdVx)}>
+          <PlasmicImg__
+            data-plasmic-name={"img"}
+            data-plasmic-override={overrides.img}
+            alt={""}
+            className={classNames(sty.img)}
+            displayHeight={"80px"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"80px"}
+            loading={"lazy"}
+            src={{
+              src: "/plasmic/liom_hamyar/images/image131.svg",
+              fullWidth: 1880,
+              fullHeight: 1694,
+              aspectRatio: undefined
+            }}
+          />
+
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__lHaSi
+            )}
+          >
+            {
+              "\u0648\u0631\u0648\u062f \u0628\u0647 \u0631\u0628\u0627\u062a \u062a\u0644\u06af\u0631\u0627\u0645\r"
+            }
+          </div>
+          <CopyBox
+            data-plasmic-name={"copyBox"}
+            data-plasmic-override={overrides.copyBox}
+            className={classNames("__wab_instance", sty.copyBox)}
+            text={"@liomApp_bot"}
+          />
+
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__d1VLp
+            )}
+          >
+            <React.Fragment>
+              <span
+                className={"plasmic_default__all plasmic_default__span"}
+                style={{ fontWeight: 500 }}
+              >
+                {
+                  "\u0628\u0631\u0627\u06cc \u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0627\u0632 \u0637\u0631\u06cc\u0642 \u062a\u0644\u06af\u0631\u0627\u0645 \u0631\u0648\u06cc \u062f\u06a9\u0645\u0647 \u0632\u06cc\u0631 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f."
+                }
+              </span>
+              <React.Fragment>{"\n"}</React.Fragment>
+              <span
+                className={"plasmic_default__all plasmic_default__span"}
+                style={{ color: "#d48806" }}
+              >
+                {
+                  "\u0646\u06a9\u062a\u0647: \u062f\u0631 \u0635\u0648\u0631\u062a \u0639\u062f\u0645 \u06a9\u0627\u0631\u06a9\u0631\u062f \u062f\u06a9\u0645\u0647 \u0632\u06cc\u0631  \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f id \u0631\u0628\u0627\u062a \u0631\u0627 \u06a9\u067e\u06cc \u06a9\u0631\u062f\u0647 \u0648 \u0645\u0633\u062a\u0642\u06cc\u0645\u0627\u064b \u062f\u0631 \u062a\u0644\u06af\u0631\u0627\u0645 \u062c\u0633\u062a\u062c\u0648 \u06a9\u0646\u06cc\u062f."
+                }
+              </span>
+            </React.Fragment>
+          </div>
+          <Button
+            data-plasmic-name={"button"}
+            data-plasmic-override={overrides.button}
+            className={classNames("__wab_instance", sty.button)}
+            color={generateStateValueProp($state, ["button", "color"])}
+            load={generateStateValueProp($state, ["button", "load"])}
+            loading={generateStateValueProp($state, ["button", "loading"])}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return window.open("https://t.me/liomApp_bot");
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+
+              $steps["updateTelegramOpendialog"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["telegram", "opendialog"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateTelegramOpendialog"] != null &&
+                typeof $steps["updateTelegramOpendialog"] === "object" &&
+                typeof $steps["updateTelegramOpendialog"].then === "function"
+              ) {
+                $steps["updateTelegramOpendialog"] =
+                  await $steps["updateTelegramOpendialog"];
+              }
+            }}
+            onColorChange={async (...eventArgs: any) => {
+              ((...eventArgs) => {
+                generateStateOnChangeProp($state, ["button", "color"])(
+                  eventArgs[0]
+                );
+              }).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onLoadChange={async (...eventArgs: any) => {
+              ((...eventArgs) => {
+                generateStateOnChangeProp($state, ["button", "load"])(
+                  eventArgs[0]
+                );
+              }).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onLoadingChange={async (...eventArgs: any) => {
+              ((...eventArgs) => {
+                generateStateOnChangeProp($state, ["button", "loading"])(
+                  eventArgs[0]
+                );
+              }).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__pMnb5
+              )}
+            >
+              {
+                "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u062a\u0644\u06af\u0631\u0627\u0645"
+              }
+            </div>
+          </Button>
+        </div>
+      </Dialog2>
     </div>
   ) as React.ReactElement | null;
 }
@@ -2661,8 +2927,11 @@ const PlasmicDescendants = {
     "mobileDialog",
     "dialogTooltip",
     "dialog",
-    "freeBox",
-    "lottie"
+    "lottie",
+    "telegram",
+    "img",
+    "copyBox",
+    "button"
   ],
   sideEffect: ["sideEffect"],
   profile: ["profile"],
@@ -2673,8 +2942,11 @@ const PlasmicDescendants = {
   mobileDialog: ["mobileDialog"],
   dialogTooltip: ["dialogTooltip"],
   dialog: ["dialog"],
-  freeBox: ["freeBox", "lottie"],
-  lottie: ["lottie"]
+  lottie: ["lottie"],
+  telegram: ["telegram", "img", "copyBox", "button"],
+  img: ["img"],
+  copyBox: ["copyBox"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -2690,8 +2962,11 @@ type NodeDefaultElementType = {
   mobileDialog: typeof MobileDialog;
   dialogTooltip: typeof DialogTooltip;
   dialog: typeof ApiRequest;
-  freeBox: "div";
   lottie: typeof LottieWrapper;
+  telegram: typeof Dialog2;
+  img: typeof PlasmicImg__;
+  copyBox: typeof CopyBox;
+  button: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2765,8 +3040,11 @@ export const PlasmicMainLiad = Object.assign(
     mobileDialog: makeNodeComponent("mobileDialog"),
     dialogTooltip: makeNodeComponent("dialogTooltip"),
     dialog: makeNodeComponent("dialog"),
-    freeBox: makeNodeComponent("freeBox"),
     lottie: makeNodeComponent("lottie"),
+    telegram: makeNodeComponent("telegram"),
+    img: makeNodeComponent("img"),
+    copyBox: makeNodeComponent("copyBox"),
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicMainLiad
     internalVariantProps: PlasmicMainLiad__VariantProps,

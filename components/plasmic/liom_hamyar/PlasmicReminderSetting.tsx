@@ -166,6 +166,7 @@ export type PlasmicReminderSetting__ArgsType = {
   children?: React.ReactNode;
   topic?: string;
   onTopicChange?: (val: string) => void;
+  activeTelegram?: () => void;
 };
 type ArgPropType = keyof PlasmicReminderSetting__ArgsType;
 export const PlasmicReminderSetting__ArgProps = new Array<ArgPropType>(
@@ -199,7 +200,8 @@ export const PlasmicReminderSetting__ArgProps = new Array<ArgPropType>(
   "onCreaditButtenCreaditChange",
   "children",
   "topic",
-  "onTopicChange"
+  "onTopicChange",
+  "activeTelegram"
 );
 
 export type PlasmicReminderSetting__OverridesType = {
@@ -298,6 +300,7 @@ export interface DefaultReminderSettingProps {
   children?: React.ReactNode;
   topic?: string;
   onTopicChange?: (val: string) => void;
+  activeTelegram?: () => void;
   slide?: SingleChoiceArg<"_1" | "_2">;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
   add?: SingleBooleanChoiceArg<"add">;
@@ -6922,52 +6925,23 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["runCode"] = true
+                  $steps["runActiveTelegram"] = true
                     ? (() => {
                         const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              const refCode = $props.man?.refCode;
-                              return window.open(
-                                refCode
-                                  ? `https://t.me/liomApp_bot?start=ref_${refCode}`
-                                  : "https://t.me/liomApp_bot",
-                                "_blank"
-                              );
-                            })();
-                          }
+                          eventRef: $props["activeTelegram"]
                         };
-                        return (({ customFunction }) => {
-                          return customFunction();
+                        return (({ eventRef, args }) => {
+                          return eventRef?.(...(args ?? []));
                         })?.apply(null, [actionArgs]);
                       })()
                     : undefined;
                   if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
+                    $steps["runActiveTelegram"] != null &&
+                    typeof $steps["runActiveTelegram"] === "object" &&
+                    typeof $steps["runActiveTelegram"].then === "function"
                   ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
-
-                  $steps["runCode2"] = false
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return ($props.telegramOn = !$props.telegramOn);
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode2"] != null &&
-                    typeof $steps["runCode2"] === "object" &&
-                    typeof $steps["runCode2"].then === "function"
-                  ) {
-                    $steps["runCode2"] = await $steps["runCode2"];
+                    $steps["runActiveTelegram"] =
+                      await $steps["runActiveTelegram"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {

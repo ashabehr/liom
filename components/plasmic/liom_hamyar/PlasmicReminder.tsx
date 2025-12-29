@@ -148,6 +148,7 @@ export type PlasmicReminder__ArgsType = {
   onActiveChange?: (val: string) => void;
   setNumber?: () => void;
   profile?: any;
+  activeTelegram?: () => void;
 };
 type ArgPropType = keyof PlasmicReminder__ArgsType;
 export const PlasmicReminder__ArgProps = new Array<ArgPropType>(
@@ -180,7 +181,8 @@ export const PlasmicReminder__ArgProps = new Array<ArgPropType>(
   "active",
   "onActiveChange",
   "setNumber",
-  "profile"
+  "profile",
+  "activeTelegram"
 );
 
 export type PlasmicReminder__OverridesType = {
@@ -253,6 +255,7 @@ export interface DefaultReminderProps {
   onActiveChange?: (val: string) => void;
   setNumber?: () => void;
   profile?: any;
+  activeTelegram?: () => void;
   slide3?: SingleBooleanChoiceArg<"slide3">;
   hamyar?: SingleBooleanChoiceArg<"hamyar">;
   smallReminder?: SingleBooleanChoiceArg<"smallReminder">;
@@ -1100,29 +1103,20 @@ function PlasmicReminder__RenderFunc(props: {
           onClick={async event => {
             const $steps = {};
 
-            $steps["runCode"] = true
+            $steps["runActiveTelegram"] = true
               ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return (() => {
-                        return window.open(
-                          `https://t.me/liomApp_bot`,
-                          "_blank"
-                        );
-                      })();
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
+                  const actionArgs = { eventRef: $props["activeTelegram"] };
+                  return (({ eventRef, args }) => {
+                    return eventRef?.(...(args ?? []));
                   })?.apply(null, [actionArgs]);
                 })()
               : undefined;
             if (
-              $steps["runCode"] != null &&
-              typeof $steps["runCode"] === "object" &&
-              typeof $steps["runCode"].then === "function"
+              $steps["runActiveTelegram"] != null &&
+              typeof $steps["runActiveTelegram"] === "object" &&
+              typeof $steps["runActiveTelegram"].then === "function"
             ) {
-              $steps["runCode"] = await $steps["runCode"];
+              $steps["runActiveTelegram"] = await $steps["runActiveTelegram"];
             }
           }}
           onNameChange={async (...eventArgs: any) => {
@@ -5967,7 +5961,7 @@ function PlasmicReminder__RenderFunc(props: {
                   )}
                 >
                   {
-                    "\u0645\u062f\u06cc\u0631\u06cc\u062a  \u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627"
+                    "\u0645\u062f\u06cc\u0631\u06cc\u062a  \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627"
                   }
                 </div>
               </Button>

@@ -1,0 +1,33 @@
+.root {
+  display: inline-flex;
+  flex-direction: row;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  background: none;
+  column-gap: var(--token-O5TjkXII_aat);
+  position: relative;
+  border-radius: var(--token-O5TjkXII_aat);
+  padding: var(--token-38wfsm-OP2Vm) var(--token-uOLZE7OyOW-J);
+}
+.text {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-5OZEb1MGGCI4);
+  font-size: var(--token-Wa5tmrNKVUYF);
+  text-align: left;
+  font-weight: 500;
+  align-self: center;
+}
+.svg {
+  object-fit: cover;
+  max-width: 100%;
+  width: var(--token-zSh3nOEaBBWl);
+  height: var(--token-zSh3nOEaBBWl);
+  color: var(--token-fyoD0poQfxvl);
+  flex-shrink: 0;
+}

@@ -2761,6 +2761,12 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "love"
+      },
+      {
+        path: "mainHamyar.telegramOpendialog",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -3082,6 +3088,20 @@ function PlasmicHamyar__RenderFunc(props: {
                   return;
                 }
               }}
+              onTelegramOpendialogChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "mainHamyar",
+                  "telegramOpendialog"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
               onTokenChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "mainHamyar",
@@ -3207,6 +3227,10 @@ function PlasmicHamyar__RenderFunc(props: {
                     await $steps["updateRemindersetting"];
                 }
               }}
+              telegramOpendialog={generateStateValueProp($state, [
+                "mainHamyar",
+                "telegramOpendialog"
+              ])}
               token={generateStateValueProp($state, ["mainHamyar", "token"])}
               userData={generateStateValueProp($state, [
                 "mainHamyar",
@@ -7387,6 +7411,46 @@ function PlasmicHamyar__RenderFunc(props: {
             <ReminderSetting
               data-plasmic-name={"reminderSetting"}
               data-plasmic-override={overrides.reminderSetting}
+              activeTelegram={async () => {
+                const $steps = {};
+
+                $steps["updateMainHamyarTelegramOpendialog"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["mainHamyar", "telegramOpendialog"]
+                        },
+                        operation: 0,
+                        value: true
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateMainHamyarTelegramOpendialog"] != null &&
+                  typeof $steps["updateMainHamyarTelegramOpendialog"] ===
+                    "object" &&
+                  typeof $steps["updateMainHamyarTelegramOpendialog"].then ===
+                    "function"
+                ) {
+                  $steps["updateMainHamyarTelegramOpendialog"] =
+                    await $steps["updateMainHamyarTelegramOpendialog"];
+                }
+              }}
               back={async () => {
                 const $steps = {};
 
