@@ -1056,13 +1056,14 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  width: auto;
+  width: 100%;
   height: auto;
   max-width: 100%;
   justify-content: center;
   align-items: center;
   box-shadow: 0px 4px 16px 0px #12121214;
   row-gap: 8px;
+  min-width: 0;
   border-radius: 8px;
   padding: 8px 16px;
 }
@@ -1078,13 +1079,14 @@
 }
 .text___0I14M {
   position: relative;
-  width: auto;
+  width: 100%;
   height: auto;
   max-width: 100%;
-  white-space: pre;
+  white-space: pre-wrap;
   flex-shrink: 1;
   text-align: center;
   color: var(--token-7PpYZbnZ9AQj);
+  min-width: 0;
 }
 @media (max-width: 640px) {
   .text___0I14M {
