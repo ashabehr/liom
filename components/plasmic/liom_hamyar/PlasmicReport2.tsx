@@ -632,15 +632,16 @@ function PlasmicReport2__RenderFunc(props: {
                           dangerouslySetInnerHTML={{
                             __html: (() => {
                               try {
-                                return (() => {
-                                  return $state.apiRequest.data.results[0]
-                                    .costs[currentItem] == 0
-                                    ? '<span class="swiper-ltr" style="background-color:rgba(34,197,94,0.2); padding:2px 6px; border-radius:6px; font-weight:bold;">رایگان</span>'
-                                    : $state.apiRequest.data.results[0].costs[
+                                return $state.apiRequest.data.results[0].costs[
+                                  currentItem
+                                ] == 0
+                                  ? '<span class="swiper-ltr" style="background-color:rgba(34,197,94,0.2); padding:2px 6px; border-radius:6px; font-weight:bold;">رایگان</span>'
+                                  : (
+                                      $state.apiRequest.data.results[0].costs[
                                         currentItem
-                                      ].toLocaleString() +
-                                        ' <span style="font-size:0.85em;">تومان</span>';
-                                })();
+                                      ] * 10
+                                    ).toLocaleString() +
+                                      ' <span style="font-size:0.85em;">ریال</span>';
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||

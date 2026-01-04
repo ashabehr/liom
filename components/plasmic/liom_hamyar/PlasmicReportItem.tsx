@@ -389,14 +389,19 @@ function PlasmicReportItem__RenderFunc(props: {
                     __html: (() => {
                       try {
                         return (() => {
-                          return $props.apiRequestData.costs[
-                            $props.master.value
-                          ] == 0
-                            ? '<span class="swiper-ltr" style="background-color:rgba(34,197,94,0.2); padding:2px 6px; border-radius:6px; font-weight:bold;">رایگان</span>'
-                            : $props.apiRequestData.costs[
-                                $props.master.value
-                              ].toLocaleString() +
-                                ' <span style="font-size:0.85em;">تومان</span>';
+                          const cost = Number(
+                            $props.apiRequestData?.costs?.[$props.master.value]
+                          );
+                          if (cost === 0) {
+                            return '<span class="swiper-ltr" style="background-color:rgba(34,197,94,0.2); padding:2px 6px; border-radius:6px; font-weight:bold;">رایگان</span>';
+                          }
+                          if (cost == null || cost == undefined) {
+                            return "-";
+                          }
+                          return (
+                            (cost * 10).toLocaleString() +
+                            ' <span style="font-size:0.85em;">ریال</span>'
+                          );
                         })();
                       } catch (e) {
                         if (
@@ -411,70 +416,110 @@ function PlasmicReportItem__RenderFunc(props: {
                   }}
                 />
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__oOec,
-                  {
-                    [sty.textselect__oOecP3TGe]: hasVariant(
-                      $state,
-                      "select",
-                      "select"
-                    )
-                  }
-                )}
-              >
-                {hasVariant($state, "select", "select") ? "|" : "|"}
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__qk4An,
-                  {
-                    [sty.textselect__qk4AnP3TGe]: hasVariant(
-                      $state,
-                      "select",
-                      "select"
-                    )
-                  }
-                )}
-              >
-                {hasVariant($state, "select", "select") ? (
-                  <React.Fragment>
-                    {(() => {
+              {(
+                hasVariant($state, "select", "select")
+                  ? true
+                  : (() => {
                       try {
-                        return ` به ازای ارسال ${$props.count} یادآوری`;
+                        return (
+                          $props.apiRequestData.costs[$props.master.value] != 0
+                        );
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
                           e?.plasmicType === "PlasmicUndefinedDataError"
                         ) {
-                          return "";
+                          return true;
                         }
                         throw e;
                       }
-                    })()}
-                  </React.Fragment>
-                ) : (
-                  <React.Fragment>
-                    {(() => {
+                    })()
+              ) ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__oOec,
+                    {
+                      [sty.textselect__oOecP3TGe]: hasVariant(
+                        $state,
+                        "select",
+                        "select"
+                      )
+                    }
+                  )}
+                >
+                  {hasVariant($state, "select", "select") ? "|" : "|"}
+                </div>
+              ) : null}
+              {(
+                hasVariant($state, "select", "select")
+                  ? true
+                  : (() => {
                       try {
-                        return ` به ازای ارسال ${$props.count} یادآوری`;
+                        return (
+                          $props.apiRequestData.costs[$props.master.value] != 0
+                        );
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
                           e?.plasmicType === "PlasmicUndefinedDataError"
                         ) {
-                          return "";
+                          return true;
                         }
                         throw e;
                       }
-                    })()}
-                  </React.Fragment>
-                )}
-              </div>
+                    })()
+              ) ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__qk4An,
+                    {
+                      [sty.textselect__qk4AnP3TGe]: hasVariant(
+                        $state,
+                        "select",
+                        "select"
+                      )
+                    }
+                  )}
+                >
+                  {hasVariant($state, "select", "select") ? (
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return ` به ازای ارسال ${$props.count} یادآوری`;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  ) : (
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return ` به ازای ارسال ${$props.count} یادآوری`;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  )}
+                </div>
+              ) : null}
             </div>
             <div
               className={classNames(projectcss.all, sty.freeBox___7SeSq, {

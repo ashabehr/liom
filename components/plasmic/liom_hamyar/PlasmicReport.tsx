@@ -1078,7 +1078,8 @@ function PlasmicReport__RenderFunc(props: {
               {(() => {
                 try {
                   return (
-                    $state.apiRequest.data.total.toLocaleString() + " تومان "
+                    ($state.apiRequest.data.total * 10).toLocaleString() +
+                    " ریال "
                   );
                 } catch (e) {
                   if (
@@ -1339,8 +1340,8 @@ function PlasmicReport__RenderFunc(props: {
                                     try {
                                       return master.value === 0
                                         ? "رایگان"
-                                        : master.value.toLocaleString() +
-                                            " تومان ";
+                                        : (master.value * 10).toLocaleString() +
+                                            " ریال ";
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -1500,10 +1501,12 @@ function PlasmicReport__RenderFunc(props: {
                                                   master.type
                                                 ] === 0
                                                   ? "رایگان"
-                                                  : currentItem.costs[
-                                                      master.type
-                                                    ].toLocaleString() +
-                                                      " تومان ";
+                                                  : (
+                                                      currentItem.costs[
+                                                        master.type
+                                                      ] * 10
+                                                    ).toLocaleString() +
+                                                      " ریال ";
                                               } catch (e) {
                                                 if (
                                                   e instanceof TypeError ||

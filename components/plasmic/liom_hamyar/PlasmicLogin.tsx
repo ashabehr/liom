@@ -66,15 +66,17 @@ import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import LoginBox from "../../LoginBox"; // plasmic-import: eH_yQdxVywwP/component
+import DownloadBage from "../../DownloadBage"; // plasmic-import: JCsCFZNgLR_x/component
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import TextInput from "../../TextInput"; // plasmic-import: cOSV4CnhD7mN/component
 import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
 import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
-import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import RadioGrop from "../../RadioGrop"; // plasmic-import: mcNKMbL_6N75/component
 import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
-import AddToHome from "../../AddToHome"; // plasmic-import: XwX6W3jU5LyW/component
+import Dialog2 from "../../Dialog2"; // plasmic-import: DuWIegJ6qGVC/component
+import DownloadBox from "../../DownloadBox"; // plasmic-import: y3lWERlStWu0/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
@@ -88,12 +90,14 @@ import Icon107Icon from "./icons/PlasmicIcon__Icon107"; // plasmic-import: HFiB-
 import Icon108Icon from "./icons/PlasmicIcon__Icon108"; // plasmic-import: P364T549veD9/icon
 import Icon109Icon from "./icons/PlasmicIcon__Icon109"; // plasmic-import: rDm5lm_Drjuw/icon
 import Icon110Icon from "./icons/PlasmicIcon__Icon110"; // plasmic-import: yNwSkfuj5hYK/icon
+import Icon240Icon from "./icons/PlasmicIcon__Icon240"; // plasmic-import: G267E1dmH3Jx/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon391Icon from "./icons/PlasmicIcon__Icon391"; // plasmic-import: i6Cl73ku3_E1/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import IconIcon from "../radix_ui/icons/PlasmicIcon__Icon"; // plasmic-import: MbDRsJU0e3bw/icon
 import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
 import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: rjflJ2D4OoXB/icon
-import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
-import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon116Icon from "./icons/PlasmicIcon__Icon116"; // plasmic-import: VyeEoKQrulIJ/icon
 import Icon117Icon from "./icons/PlasmicIcon__Icon117"; // plasmic-import: LYjQaTZDlGsf/icon
 import ChevronLeftIcon2 from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: DnjmD0szshuz/icon
@@ -140,6 +144,8 @@ export type PlasmicLogin__OverridesType = {
   root?: Flex__<"div">;
   favicon?: Flex__<typeof Embed>;
   sideEffect?: Flex__<typeof SideEffect>;
+  downloadBage?: Flex__<typeof DownloadBage>;
+  button11?: Flex__<typeof Button>;
   textInput?: Flex__<typeof TextInput>;
   antdInput?: Flex__<typeof Input>;
   button?: Flex__<typeof Button>;
@@ -179,7 +185,8 @@ export type PlasmicLogin__OverridesType = {
   button5?: Flex__<typeof Button>;
   rules?: Flex__<typeof AntdModal>;
   top?: Flex__<"div">;
-  addToHome?: Flex__<typeof AddToHome>;
+  download?: Flex__<typeof Dialog2>;
+  downloadBox?: Flex__<typeof DownloadBox>;
 };
 
 export interface DefaultLoginProps {}
@@ -1099,6 +1106,31 @@ function PlasmicLogin__RenderFunc(props: {
                   throw e;
                 }
               })()
+      },
+      {
+        path: "download.opendialog",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobile") ? false : false
+      },
+      {
+        path: "button11.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "sand"
+      },
+      {
+        path: "button11.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button11.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1794,7 +1826,7 @@ function PlasmicLogin__RenderFunc(props: {
                     : "100px"
                 }
                 src={{
-                  src: "/plasmic/liom_hamyar/images/image35.png",
+                  src: "/plasmic/liom_hamyar/images/image133.svg",
                   fullWidth: 1029,
                   fullHeight: 1029,
                   aspectRatio: undefined
@@ -2463,6 +2495,205 @@ function PlasmicLogin__RenderFunc(props: {
                   }
                 </div>
               ) : null}
+              <DownloadBage
+                data-plasmic-name={"downloadBage"}
+                data-plasmic-override={overrides.downloadBage}
+                className={classNames("__wab_instance", sty.downloadBage)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateDownloadOpendialog"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["download", "opendialog"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateDownloadOpendialog"] != null &&
+                    typeof $steps["updateDownloadOpendialog"] === "object" &&
+                    typeof $steps["updateDownloadOpendialog"].then ===
+                      "function"
+                  ) {
+                    $steps["updateDownloadOpendialog"] =
+                      await $steps["updateDownloadOpendialog"];
+                  }
+                }}
+              />
+
+              <section
+                className={classNames(projectcss.all, sty.section__oUvB)}
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__pIhyt)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateDownloadOpendialog"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["download", "opendialog"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDownloadOpendialog"] != null &&
+                      typeof $steps["updateDownloadOpendialog"] === "object" &&
+                      typeof $steps["updateDownloadOpendialog"].then ===
+                        "function"
+                    ) {
+                      $steps["updateDownloadOpendialog"] =
+                        await $steps["updateDownloadOpendialog"];
+                    }
+                  }}
+                >
+                  <Icon240Icon
+                    className={classNames(projectcss.all, sty.svg__h1Hj8)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__oqq2M)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__sNwtS
+                      )}
+                    >
+                      {
+                        "\u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u062f\u0627\u0646\u0644\u0648\u062f \u06a9\u0646"
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__xDzJo
+                      )}
+                    >
+                      {
+                        "\u0628\u0631\u0627\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u0628 \u062a\u0645\u0627\u0645 \u0627\u0645\u06a9\u0627\u0646\u0627\u062a \u060c\u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0644\u06cc\u0648\u0645 \u0631\u0627 \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f"
+                      }
+                    </div>
+                  </div>
+                  <Button
+                    data-plasmic-name={"button11"}
+                    data-plasmic-override={overrides.button11}
+                    className={classNames("__wab_instance", sty.button11)}
+                    color={generateStateValueProp($state, [
+                      "button11",
+                      "color"
+                    ])}
+                    load={generateStateValueProp($state, ["button11", "load"])}
+                    loading={generateStateValueProp($state, [
+                      "button11",
+                      "loading"
+                    ])}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button11",
+                          "color"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button11", "load"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadingChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button11",
+                          "loading"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    size={"compact"}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__ncR5Z
+                      )}
+                    >
+                      {"\u062f\u0627\u0646\u0644\u0648\u062f"}
+                    </div>
+                    <Icon391Icon
+                      className={classNames(projectcss.all, sty.svg___0Hox9)}
+                      role={"img"}
+                    />
+                  </Button>
+                </div>
+              </section>
             </div>
           </Reveal>
           {(
@@ -20503,7 +20734,7 @@ function PlasmicLogin__RenderFunc(props: {
                 }
                 loading={"lazy"}
                 src={{
-                  src: "/plasmic/liom_hamyar/images/image129.png",
+                  src: "/plasmic/liom_hamyar/images/image132.svg",
                   fullWidth: 724,
                   fullHeight: 724,
                   aspectRatio: undefined
@@ -20549,88 +20780,6 @@ function PlasmicLogin__RenderFunc(props: {
                 </div>
               </div>
             </div>
-          ) : null}
-          {(() => {
-            try {
-              return (
-                !$state.addHome &&
-                /iPhone|iPod/.test(window.navigator.userAgent) &&
-                !(
-                  window.navigator.standalone === true ||
-                  window.matchMedia("(display-mode: standalone)").matches
-                )
-              );
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })() ? (
-            <Reveal
-              className={classNames("__wab_instance", sty.reveal__bdaGa, {
-                [sty.revealloginPage_mobile__bdaGa6MmOa]: hasVariant(
-                  $state,
-                  "loginPage",
-                  "mobile"
-                )
-              })}
-              effect={"fade"}
-              reverse={false}
-              triggerOnce={true}
-            >
-              <AddToHome
-                data-plasmic-name={"addToHome"}
-                data-plasmic-override={overrides.addToHome}
-                addToHome={async () => {
-                  const $steps = {};
-
-                  $steps["updateAddHome"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["addHome"]
-                          },
-                          operation: 0,
-                          value: true
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateAddHome"] != null &&
-                    typeof $steps["updateAddHome"] === "object" &&
-                    typeof $steps["updateAddHome"].then === "function"
-                  ) {
-                    $steps["updateAddHome"] = await $steps["updateAddHome"];
-                  }
-                }}
-                className={classNames("__wab_instance", sty.addToHome, {
-                  [sty.addToHomeloginPage_mobile]: hasVariant(
-                    $state,
-                    "loginPage",
-                    "mobile"
-                  )
-                })}
-              />
-            </Reveal>
           ) : null}
           {(hasVariant($state, "loginPage", "name") ? true : false) ? (
             <div
@@ -20757,6 +20906,35 @@ function PlasmicLogin__RenderFunc(props: {
               />
             </div>
           ) : null}
+          <Dialog2
+            data-plasmic-name={"download"}
+            data-plasmic-override={overrides.download}
+            className={classNames("__wab_instance", sty.download)}
+            onOpendialogChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "download",
+                "opendialog"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            opendialog={generateStateValueProp($state, [
+              "download",
+              "opendialog"
+            ])}
+          >
+            <DownloadBox
+              data-plasmic-name={"downloadBox"}
+              data-plasmic-override={overrides.downloadBox}
+              className={classNames("__wab_instance", sty.downloadBox)}
+            />
+          </Dialog2>
         </div>
       </div>
     </React.Fragment>
@@ -20768,6 +20946,8 @@ const PlasmicDescendants = {
     "root",
     "favicon",
     "sideEffect",
+    "downloadBage",
+    "button11",
     "textInput",
     "antdInput",
     "button",
@@ -20807,10 +20987,13 @@ const PlasmicDescendants = {
     "button5",
     "rules",
     "top",
-    "addToHome"
+    "download",
+    "downloadBox"
   ],
   favicon: ["favicon"],
   sideEffect: ["sideEffect"],
+  downloadBage: ["downloadBage"],
+  button11: ["button11"],
   textInput: ["textInput", "antdInput"],
   antdInput: ["antdInput"],
   button: ["button"],
@@ -20850,7 +21033,8 @@ const PlasmicDescendants = {
   button5: ["button5"],
   rules: ["rules", "top"],
   top: ["top"],
-  addToHome: ["addToHome"]
+  download: ["download", "downloadBox"],
+  downloadBox: ["downloadBox"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -20859,6 +21043,8 @@ type NodeDefaultElementType = {
   root: "div";
   favicon: typeof Embed;
   sideEffect: typeof SideEffect;
+  downloadBage: typeof DownloadBage;
+  button11: typeof Button;
   textInput: typeof TextInput;
   antdInput: typeof Input;
   button: typeof Button;
@@ -20898,7 +21084,8 @@ type NodeDefaultElementType = {
   button5: typeof Button;
   rules: typeof AntdModal;
   top: "div";
-  addToHome: typeof AddToHome;
+  download: typeof Dialog2;
+  downloadBox: typeof DownloadBox;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -20990,6 +21177,8 @@ export const PlasmicLogin = Object.assign(
     // Helper components rendering sub-elements
     favicon: makeNodeComponent("favicon"),
     sideEffect: makeNodeComponent("sideEffect"),
+    downloadBage: makeNodeComponent("downloadBage"),
+    button11: makeNodeComponent("button11"),
     textInput: makeNodeComponent("textInput"),
     antdInput: makeNodeComponent("antdInput"),
     button: makeNodeComponent("button"),
@@ -21029,7 +21218,8 @@ export const PlasmicLogin = Object.assign(
     button5: makeNodeComponent("button5"),
     rules: makeNodeComponent("rules"),
     top: makeNodeComponent("top"),
-    addToHome: makeNodeComponent("addToHome"),
+    download: makeNodeComponent("download"),
+    downloadBox: makeNodeComponent("downloadBox"),
 
     // Metadata about props expected for PlasmicLogin
     internalVariantProps: PlasmicLogin__VariantProps,

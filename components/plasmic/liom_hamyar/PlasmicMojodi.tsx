@@ -964,7 +964,9 @@ function PlasmicMojodi__RenderFunc(props: {
                   <React.Fragment>
                     {(() => {
                       try {
-                        return $state.history.data.balance.toLocaleString();
+                        return (
+                          $state.history.data.balance * 10
+                        ).toLocaleString();
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -1007,7 +1009,7 @@ function PlasmicMojodi__RenderFunc(props: {
                     }
                   })()}
                 >
-                  {" \u062a\u0648\u0645\u0627\u0646 "}
+                  {"\u0631\u06cc\u0627\u0644"}
                 </div>
               </div>
               <div
@@ -1510,7 +1512,9 @@ function PlasmicMojodi__RenderFunc(props: {
                                       $state,
                                       "full2",
                                       "full2"
-                                    )
+                                    ),
+                                    [sty.textpage_report__i1ADBtxlqB]:
+                                      hasVariant($state, "page", "report")
                                   }
                                 )}
                               >
@@ -1519,26 +1523,7 @@ function PlasmicMojodi__RenderFunc(props: {
                                   dangerouslySetInnerHTML={{
                                     __html: (() => {
                                       try {
-                                        return `${
-                                          currentItem.val === 0
-                                            ? '<span class="swiper-ltr" style="background-color:rgba(34,197,94,0.2); padding:2px 6px; border-radius:6px; font-weight:bold;">رایگان</span>'
-                                            : currentItem.val < 0
-                                              ? '<span class="swiper-ltr" style="background-color:rgba(239,68,68,0.2); padding:2px 6px; border-radius:6px; font-weight:bold;">' +
-                                                "<span>" +
-                                                Math.abs(
-                                                  currentItem.val
-                                                ).toLocaleString() +
-                                                "</span>" + // عدد
-                                                "<span>-</span>" + // علامت منفی
-                                                '<span style="margin: 0 4px;">تومان</span>' + // تومان
-                                                "</span>"
-                                              : '<span class="swiper-ltr">' +
-                                                "<span>" +
-                                                currentItem.val.toLocaleString() +
-                                                "</span>" + // عدد
-                                                '<span style="margin: 0 4px;">تومان</span>' + // تومان
-                                                "</span>"
-                                        }`;
+                                        return `${currentItem.val === 0 ? '<span class="swiper-ltr" style="background-color:rgba(34,197,94,0.2); padding:2px 6px; border-radius:6px; font-weight:bold;">رایگان</span>' : currentItem.val < 0 ? '<span class="swiper-ltr" style="background-color:rgba(239,68,68,0.2); padding:2px 6px; border-radius:6px; font-weight:bold;">' + "<span>" + Math.abs(currentItem.val * 10).toLocaleString() + "</span>" + "<span>-</span>" + '<span style="margin: 0 4px;">ریال</span>' + "</span>" : '<span class="swiper-ltr">' + "<span>" + (currentItem.val * 10).toLocaleString() + "</span>" + '<span style="margin: 0 4px;">ریال</span>' + "</span>"}`;
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||

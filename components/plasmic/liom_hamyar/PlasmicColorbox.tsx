@@ -272,7 +272,7 @@ function PlasmicColorbox__RenderFunc(props: {
                   {
                     return $props.currentItem.price === 0
                       ? "رایگان"
-                      : $props.currentItem.price.toLocaleString();
+                      : ($props.currentItem.price * 10).toLocaleString();
                   }
                 })();
               } catch (e) {
@@ -304,7 +304,7 @@ function PlasmicColorbox__RenderFunc(props: {
           <React.Fragment>
             {(() => {
               try {
-                return "تومان";
+                return "ریال";
               } catch (e) {
                 if (
                   e instanceof TypeError ||
