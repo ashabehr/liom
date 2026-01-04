@@ -161,20 +161,7 @@ function PlasmicDownloadBage__RenderFunc(props: {
         path: "android",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return /Android/i.test(window.navigator.userAgent);
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
