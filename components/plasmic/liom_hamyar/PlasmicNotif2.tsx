@@ -953,6 +953,21 @@ function PlasmicNotif2__RenderFunc(props: {
                                                       }
                                                       throw e;
                                                     }
+                                                  })(),
+                                                  (() => {
+                                                    try {
+                                                      return $state.token;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
                                                   })()
                                                 ]
                                               };
@@ -1001,7 +1016,7 @@ function PlasmicNotif2__RenderFunc(props: {
                                       <React.Fragment>
                                         {(() => {
                                           try {
-                                            return currentItem.btnText;
+                                            return currentItem.text;
                                           } catch (e) {
                                             if (
                                               e instanceof TypeError ||
