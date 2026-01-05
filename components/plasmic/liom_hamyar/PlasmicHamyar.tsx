@@ -2839,6 +2839,26 @@ function PlasmicHamyar__RenderFunc(props: {
           onLoad={async event => {
             const $steps = {};
           }}
+          style={(() => {
+            try {
+              return {
+                "padding-bottom":
+                  new window.URLSearchParams(window.location.search).get(
+                    "noFooter"
+                  ) == "true"
+                    ? "0"
+                    : "8rem"
+              };
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
         >
           <SideEffect
             data-plasmic-name={"sideEffect"}
@@ -3250,7 +3270,11 @@ function PlasmicHamyar__RenderFunc(props: {
                       ? true
                       : (() => {
                           try {
-                            return true;
+                            return (
+                              new window.URLSearchParams(
+                                window.location.search
+                              ).get("noFooter") != "true"
+                            );
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
