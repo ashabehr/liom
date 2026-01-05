@@ -1896,7 +1896,7 @@ function PlasmicLiad__RenderFunc(props: {
                           $steps["goToMain2"] = true
                             ? (() => {
                                 const actionArgs = {
-                                  destination: `/main/${(() => {
+                                  destination: `/liad/${(() => {
                                     try {
                                       return (() => {
                                         var s = $ctx.params.page;
