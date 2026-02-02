@@ -235,6 +235,7 @@ export type PlasmicReminderSetting__OverridesType = {
   button12?: Flex__<typeof Button>;
   slide2?: Flex__<"div">;
   button9?: Flex__<typeof Button>;
+  button13?: Flex__<typeof Button>;
   button10?: Flex__<typeof Button>;
   frame?: Flex__<"div">;
   frame2?: Flex__<"div">;
@@ -1703,6 +1704,24 @@ function PlasmicReminderSetting__RenderFunc(props: {
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => [-3, -7]
+      },
+      {
+        path: "button13.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "button13.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button13.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -7019,6 +7038,167 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 </div>
                 <Icon214Icon
                   className={classNames(projectcss.all, sty.svg__gclh)}
+                  role={"img"}
+                />
+              </div>
+            ) : null}
+          </div>
+          <div className={classNames(projectcss.all, sty.freeBox__yxmvm)}>
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img__n5YQc)}
+              displayHeight={
+                hasVariant(globalVariants, "screen", "mobile") ? "40px" : "45px"
+              }
+              displayMaxHeight={"none"}
+              displayMaxWidth={
+                hasVariant(globalVariants, "screen", "mobile") ? "100%" : "100%"
+              }
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={
+                hasVariant(globalVariants, "screen", "mobile") ? "40px" : "45px"
+              }
+              loading={"lazy"}
+              src={{
+                src: "/plasmic/liom_hamyar/images/image134.svg",
+                fullWidth: 43.3,
+                fullHeight: 43.29,
+                aspectRatio: 1.000231
+              }}
+            />
+
+            <div className={classNames(projectcss.all, sty.freeBox__vLx1M)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__eDdSd
+                )}
+              >
+                {"\u0631\u0628\u0627\u062a \u0628\u0644\u0647"}
+              </div>
+            </div>
+            {(() => {
+              try {
+                return !$props.telegramOn;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <Button
+                data-plasmic-name={"button13"}
+                data-plasmic-override={overrides.button13}
+                className={classNames("__wab_instance", sty.button13)}
+                color={generateStateValueProp($state, ["button13", "color"])}
+                load={generateStateValueProp($state, ["button13", "load"])}
+                loading={generateStateValueProp($state, [
+                  "button13",
+                  "loading"
+                ])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runActiveTelegram"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          eventRef: $props["activeTelegram"]
+                        };
+                        return (({ eventRef, args }) => {
+                          return eventRef?.(...(args ?? []));
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runActiveTelegram"] != null &&
+                    typeof $steps["runActiveTelegram"] === "object" &&
+                    typeof $steps["runActiveTelegram"].then === "function"
+                  ) {
+                    $steps["runActiveTelegram"] =
+                      await $steps["runActiveTelegram"];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button13", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button13", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button13", "loading"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                size={"compact"}
+              >
+                {"\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc"}
+              </Button>
+            ) : null}
+            {(() => {
+              try {
+                return $props.telegramOn;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div className={classNames(projectcss.all, sty.freeBox___1Cxzb)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___4B2Ii
+                  )}
+                >
+                  {"\u0641\u0639\u0627\u0644"}
+                </div>
+                <Icon214Icon
+                  className={classNames(projectcss.all, sty.svg__fcR8T)}
                   role={"img"}
                 />
               </div>
@@ -14788,6 +14968,7 @@ const PlasmicDescendants = {
     "button12",
     "slide2",
     "button9",
+    "button13",
     "button10",
     "frame",
     "frame2",
@@ -14885,8 +15066,9 @@ const PlasmicDescendants = {
   preReminder: ["preReminder", "preReminderSelect", "button12"],
   preReminderSelect: ["preReminderSelect"],
   button12: ["button12"],
-  slide2: ["slide2", "button9", "button10"],
+  slide2: ["slide2", "button9", "button13", "button10"],
   button9: ["button9"],
+  button13: ["button13"],
   button10: ["button10"],
   frame: ["frame", "frame2", "button7"],
   frame2: ["frame2", "button7"],
@@ -15019,6 +15201,7 @@ type NodeDefaultElementType = {
   button12: typeof Button;
   slide2: "div";
   button9: typeof Button;
+  button13: typeof Button;
   button10: typeof Button;
   frame: "div";
   frame2: "div";
@@ -15143,6 +15326,7 @@ export const PlasmicReminderSetting = Object.assign(
     button12: makeNodeComponent("button12"),
     slide2: makeNodeComponent("slide2"),
     button9: makeNodeComponent("button9"),
+    button13: makeNodeComponent("button13"),
     button10: makeNodeComponent("button10"),
     frame: makeNodeComponent("frame"),
     frame2: makeNodeComponent("frame2"),

@@ -1122,7 +1122,7 @@ function PlasmicLoginMan__RenderFunc(props: {
         />
         <meta
           key="twitter:title"
-          name="twitter:title"
+          property="twitter:title"
           content={PlasmicLoginMan.pageMetadata.title}
         />
       </Head>

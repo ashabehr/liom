@@ -1940,72 +1940,58 @@ function PlasmicLiad__RenderFunc(props: {
                         role={"img"}
                       />
 
-                      {(() => {
-                        try {
-                          return $state.footerMain.type == "reminder";
-                        } catch (e) {
+                      <CreaditButten
+                        data-plasmic-name={"creaditButten"}
+                        data-plasmic-override={overrides.creaditButten}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.creaditButten
+                        )}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["goToMojodi"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  destination: `/mojod/${"home"}`
+                                };
+                                return (({ destination }) => {
+                                  if (
+                                    typeof destination === "string" &&
+                                    destination.startsWith("#")
+                                  ) {
+                                    document
+                                      .getElementById(destination.substr(1))
+                                      .scrollIntoView({ behavior: "smooth" });
+                                  } else {
+                                    __nextRouter?.push(destination);
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
                           if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
+                            $steps["goToMojodi"] != null &&
+                            typeof $steps["goToMojodi"] === "object" &&
+                            typeof $steps["goToMojodi"].then === "function"
                           ) {
-                            return true;
+                            $steps["goToMojodi"] = await $steps["goToMojodi"];
                           }
-                          throw e;
-                        }
-                      })() ? (
-                        <CreaditButten
-                          data-plasmic-name={"creaditButten"}
-                          data-plasmic-override={overrides.creaditButten}
-                          className={classNames(
-                            "__wab_instance",
-                            sty.creaditButten
-                          )}
-                          onClick={async event => {
-                            const $steps = {};
+                        }}
+                        onCreaditChange2={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "creaditButten",
+                            "creadit"
+                          ]).apply(null, eventArgs);
 
-                            $steps["goToMojodi"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    destination: `/mojod/${"home"}`
-                                  };
-                                  return (({ destination }) => {
-                                    if (
-                                      typeof destination === "string" &&
-                                      destination.startsWith("#")
-                                    ) {
-                                      document
-                                        .getElementById(destination.substr(1))
-                                        .scrollIntoView({ behavior: "smooth" });
-                                    } else {
-                                      __nextRouter?.push(destination);
-                                    }
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["goToMojodi"] != null &&
-                              typeof $steps["goToMojodi"] === "object" &&
-                              typeof $steps["goToMojodi"].then === "function"
-                            ) {
-                              $steps["goToMojodi"] = await $steps["goToMojodi"];
-                            }
-                          }}
-                          onCreaditChange2={async (...eventArgs: any) => {
-                            generateStateOnChangeProp($state, [
-                              "creaditButten",
-                              "creadit"
-                            ]).apply(null, eventArgs);
-
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          }}
-                        />
-                      ) : null}
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                      />
                     </div>
                   ),
                   token: (() => {

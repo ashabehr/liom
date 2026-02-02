@@ -26,6 +26,9 @@
 .imgicon_telegram__wgx6XwnJRu {
   display: none;
 }
+.imgicon_bale__wgx6XusiVn {
+  display: none;
+}
 .img__cwXb8 {
   object-fit: cover;
   max-width: 100%;
@@ -45,6 +48,9 @@
 .imgicon_notification__cwXb896Mob {
   display: none;
 }
+.imgicon_bale__cwXb8UsiVn {
+  display: none;
+}
 .img__isGdS {
   object-fit: cover;
   max-width: 100%;
@@ -62,5 +68,26 @@
   display: none;
 }
 .imgicon_notification__isGdS96Mob {
+  display: none;
+}
+.imgicon_bale__isGdSusiVn {
+  display: none;
+}
+.img___9Er9 {
+  object-fit: contain;
+  max-width: 100%;
+  width: 20px;
+  height: auto;
+}
+.img___9Er9 > picture > img {
+  object-fit: contain;
+}
+.imgicon_sms___9Er91Y0FX {
+  display: none;
+}
+.imgicon_telegram___9Er9WnJRu {
+  display: none;
+}
+.imgicon_notification___9Er996Mob {
   display: none;
 }

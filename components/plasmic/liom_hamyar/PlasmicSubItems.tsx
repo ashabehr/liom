@@ -1025,7 +1025,7 @@ function PlasmicSubItems__RenderFunc(props: {
         />
         <meta
           key="twitter:title"
-          name="twitter:title"
+          property="twitter:title"
           content={PlasmicSubItems.pageMetadata.title}
         />
       </Head>

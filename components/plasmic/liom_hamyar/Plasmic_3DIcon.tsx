@@ -71,11 +71,11 @@ createPlasmicElementProxy;
 
 export type Plasmic_3DIcon__VariantMembers = {
   sms: "sms";
-  icon: "sms" | "telegram" | "notification";
+  icon: "sms" | "telegram" | "notification" | "bale";
 };
 export type Plasmic_3DIcon__VariantsArgs = {
   sms?: SingleBooleanChoiceArg<"sms">;
-  icon?: SingleChoiceArg<"sms" | "telegram" | "notification">;
+  icon?: SingleChoiceArg<"sms" | "telegram" | "notification" | "bale">;
 };
 type VariantPropType = keyof Plasmic_3DIcon__VariantsArgs;
 export const Plasmic_3DIcon__VariantProps = new Array<VariantPropType>(
@@ -93,7 +93,7 @@ export type Plasmic_3DIcon__OverridesType = {
 
 export interface Default_3DIconProps {
   sms?: SingleBooleanChoiceArg<"sms">;
-  icon?: SingleChoiceArg<"sms" | "telegram" | "notification">;
+  icon?: SingleChoiceArg<"sms" | "telegram" | "notification" | "bale">;
   className?: string;
 }
 
@@ -180,6 +180,7 @@ function Plasmic_3DIcon__RenderFunc(props: {
         styleTokensClassNames,
         sty.root,
         {
+          [sty.rooticon_bale]: hasVariant($state, "icon", "bale"),
           [sty.rooticon_notification]: hasVariant(
             $state,
             "icon",
@@ -193,6 +194,7 @@ function Plasmic_3DIcon__RenderFunc(props: {
       <PlasmicImg__
         alt={""}
         className={classNames(sty.img__wgx6X, {
+          [sty.imgicon_bale__wgx6XusiVn]: hasVariant($state, "icon", "bale"),
           [sty.imgicon_sms__wgx6X1Y0FX]: hasVariant($state, "icon", "sms"),
           [sty.imgicon_telegram__wgx6XwnJRu]: hasVariant(
             $state,
@@ -218,6 +220,7 @@ function Plasmic_3DIcon__RenderFunc(props: {
       <PlasmicImg__
         alt={""}
         className={classNames(sty.img__cwXb8, {
+          [sty.imgicon_bale__cwXb8UsiVn]: hasVariant($state, "icon", "bale"),
           [sty.imgicon_notification__cwXb896Mob]: hasVariant(
             $state,
             "icon",
@@ -248,6 +251,7 @@ function Plasmic_3DIcon__RenderFunc(props: {
       <PlasmicImg__
         alt={""}
         className={classNames(sty.img__isGdS, {
+          [sty.imgicon_bale__isGdSusiVn]: hasVariant($state, "icon", "bale"),
           [sty.imgicon_notification__isGdS96Mob]: hasVariant(
             $state,
             "icon",
@@ -275,6 +279,59 @@ function Plasmic_3DIcon__RenderFunc(props: {
           aspectRatio: undefined
         }}
       />
+
+      {(
+        hasVariant($state, "icon", "bale")
+          ? true
+          : hasVariant($state, "icon", "notification")
+            ? true
+            : hasVariant($state, "icon", "telegram")
+              ? true
+              : hasVariant($state, "icon", "sms")
+                ? true
+                : false
+      ) ? (
+        <PlasmicImg__
+          alt={""}
+          className={classNames(sty.img___9Er9, {
+            [sty.imgicon_bale___9Er9UsiVn]: hasVariant($state, "icon", "bale"),
+            [sty.imgicon_notification___9Er996Mob]: hasVariant(
+              $state,
+              "icon",
+              "notification"
+            ),
+            [sty.imgicon_sms___9Er91Y0FX]: hasVariant($state, "icon", "sms"),
+            [sty.imgicon_telegram___9Er9WnJRu]: hasVariant(
+              $state,
+              "icon",
+              "telegram"
+            ),
+            [sty.imgsms___9Er9OqOje]: hasVariant($state, "sms", "sms")
+          })}
+          displayHeight={"auto"}
+          displayMaxHeight={"none"}
+          displayMaxWidth={"100%"}
+          displayMinHeight={"0"}
+          displayMinWidth={"0"}
+          displayWidth={"20px"}
+          loading={"lazy"}
+          src={
+            hasVariant($state, "icon", "telegram")
+              ? {
+                  src: "/plasmic/liom_hamyar/images/jjjjjjSvg.svg",
+                  fullWidth: 43.3,
+                  fullHeight: 43.29,
+                  aspectRatio: 1.000231
+                }
+              : {
+                  src: "/plasmic/liom_hamyar/images/jjjjjjSvg.svg",
+                  fullWidth: 43.3,
+                  fullHeight: 43.29,
+                  aspectRatio: 1.000231
+                }
+          }
+        />
+      ) : null}
     </div>
   ) as React.ReactElement | null;
 }

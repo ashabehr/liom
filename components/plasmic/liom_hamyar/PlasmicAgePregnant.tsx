@@ -374,7 +374,7 @@ function PlasmicAgePregnant__RenderFunc(props: {
         />
         <meta
           key="twitter:title"
-          name="twitter:title"
+          property="twitter:title"
           content={PlasmicAgePregnant.pageMetadata.title}
         />
       </Head>

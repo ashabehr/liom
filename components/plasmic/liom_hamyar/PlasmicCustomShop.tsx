@@ -719,7 +719,7 @@ function PlasmicCustomShop__RenderFunc(props: {
         />
         <meta
           key="twitter:title"
-          name="twitter:title"
+          property="twitter:title"
           content={PlasmicCustomShop.pageMetadata.title}
         />
       </Head>

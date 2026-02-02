@@ -6776,7 +6776,11 @@ function PlasmicHamyar2__RenderFunc(props: {
                         onClick={async event => {
                           const $steps = {};
 
-                          $steps["updateMobileDialogOpen"] = true
+                          $steps["updateMobileDialogOpen"] = !(
+                            (window.FlutterChannel &&
+                              window.FlutterChannel.postMessage) ??
+                            false
+                          )
                             ? (() => {
                                 const actionArgs = {
                                   variable: {
@@ -6811,6 +6815,31 @@ function PlasmicHamyar2__RenderFunc(props: {
                           ) {
                             $steps["updateMobileDialogOpen"] =
                               await $steps["updateMobileDialogOpen"];
+                          }
+
+                          $steps["runCode"] =
+                            ((window.FlutterChannel &&
+                              window.FlutterChannel.postMessage) ??
+                            false)
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return window.FlutterChannel.postMessage(
+                                        "#mobileModal"
+                                      );
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
                           }
                         }}
                         onColorChange={async (...eventArgs: any) => {
@@ -15933,7 +15962,11 @@ function PlasmicHamyar2__RenderFunc(props: {
                             onClick={async event => {
                               const $steps = {};
 
-                              $steps["updateMobileDialogOpen"] = true
+                              $steps["updateMobileDialogOpen"] = !(
+                                (window.FlutterChannel &&
+                                  window.FlutterChannel.postMessage) ??
+                                false
+                              )
                                 ? (() => {
                                     const actionArgs = {
                                       variable: {
@@ -15969,6 +16002,31 @@ function PlasmicHamyar2__RenderFunc(props: {
                               ) {
                                 $steps["updateMobileDialogOpen"] =
                                   await $steps["updateMobileDialogOpen"];
+                              }
+
+                              $steps["runCode"] =
+                                ((window.FlutterChannel &&
+                                  window.FlutterChannel.postMessage) ??
+                                false)
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return window.FlutterChannel.postMessage(
+                                            "#mobileModal"
+                                          );
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
                               }
                             }}
                             onColorChange={async (...eventArgs: any) => {

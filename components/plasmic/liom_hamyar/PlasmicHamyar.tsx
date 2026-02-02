@@ -2792,7 +2792,7 @@ function PlasmicHamyar__RenderFunc(props: {
         />
         <meta
           key="twitter:title"
-          name="twitter:title"
+          property="twitter:title"
           content={PlasmicHamyar.pageMetadata.title}
         />
       </Head>
@@ -3183,7 +3183,11 @@ function PlasmicHamyar__RenderFunc(props: {
               reminderOpen={async event => {
                 const $steps = {};
 
-                $steps["updateFooterMainType"] = true
+                $steps["updateFooterMainType"] = !(
+                  (window.FlutterChannel &&
+                    window.FlutterChannel.postMessage) ??
+                  false
+                )
                   ? (() => {
                       const actionArgs = {
                         variable: {
@@ -3216,6 +3220,31 @@ function PlasmicHamyar__RenderFunc(props: {
                 ) {
                   $steps["updateFooterMainType"] =
                     await $steps["updateFooterMainType"];
+                }
+
+                $steps["runCode"] =
+                  ((window.FlutterChannel &&
+                    window.FlutterChannel.postMessage) ??
+                  false)
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return window.FlutterChannel.postMessage(
+                              "#liadPage"
+                            );
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
                 }
               }}
               reminderSetting={async () => {

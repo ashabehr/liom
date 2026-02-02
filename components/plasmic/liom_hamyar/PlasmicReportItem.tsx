@@ -302,7 +302,8 @@ function PlasmicReportItem__RenderFunc(props: {
                         const typeMap = {
                           telegram: "تلگرام",
                           sms: "پیامک",
-                          notification: "نوتیفیکیشن"
+                          notification: "نوتیفیکیشن",
+                          bale: "بله"
                         };
                         return `${typeMap[$props.master.value]}`;
                       })();
