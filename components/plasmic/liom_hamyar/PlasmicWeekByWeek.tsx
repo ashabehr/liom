@@ -2624,6 +2624,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         "collapseBaby",
                         "open"
                       ]),
+                      rotationAngle: 90,
                       showArrow: true,
                       size: "large"
                     };
@@ -2886,6 +2887,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         "collapseMother",
                         "open"
                       ]),
+                      rotationAngle: 90,
                       showArrow: true,
                       size: "large"
                     };
@@ -3136,6 +3138,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         "collapseHealth",
                         "open"
                       ]),
+                      rotationAngle: 90,
                       showArrow: true,
                       size: "large"
                     };

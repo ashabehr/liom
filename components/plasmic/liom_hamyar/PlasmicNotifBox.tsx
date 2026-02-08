@@ -592,6 +592,7 @@ function PlasmicNotifBox__RenderFunc(props: {
             args.onChange.apply(null, eventArgs);
           },
           open: generateStateValueProp($state, ["collapse", "open"]),
+          rotationAngle: 90,
           showArrow: true,
           size: hasVariant(globalVariants, "screen", "mobile")
             ? "small"

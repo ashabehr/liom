@@ -1072,6 +1072,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                       "collapseMother",
                       "open"
                     ]),
+                    rotationAngle: 90,
                     showArrow: true,
                     size: "large"
                   };
@@ -1887,6 +1888,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                       "collapseBaby",
                       "open"
                     ]),
+                    rotationAngle: 90,
                     showArrow: true,
                     size: "large"
                   };

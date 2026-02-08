@@ -9229,6 +9229,7 @@ function PlasmicPregnancyy__RenderFunc(props: {
                                 "collapseAdvice",
                                 "open"
                               ]),
+                              rotationAngle: 90,
                               showArrow: true,
                               size: "small"
                             };
@@ -18276,6 +18277,7 @@ function PlasmicPregnancyy__RenderFunc(props: {
                                   "collapseDanger",
                                   "open"
                                 ]),
+                                rotationAngle: 90,
                                 showArrow: true,
                                 size: "large"
                               };
@@ -20215,6 +20217,7 @@ function PlasmicPregnancyy__RenderFunc(props: {
                                   "collapseMedicine2",
                                   "open"
                                 ]),
+                                rotationAngle: 90,
                                 showArrow: true,
                                 size: "large"
                               };
@@ -21878,6 +21881,7 @@ function PlasmicPregnancyy__RenderFunc(props: {
                                   "collapseTest",
                                   "open"
                                 ]),
+                                rotationAngle: 90,
                                 showArrow: true,
                                 size: "large"
                               };
@@ -23221,6 +23225,7 @@ function PlasmicPregnancyy__RenderFunc(props: {
                                 "collapseBaby",
                                 "open"
                               ]),
+                              rotationAngle: 90,
                               showArrow: true,
                               size: "large"
                             };
@@ -24268,6 +24273,7 @@ function PlasmicPregnancyy__RenderFunc(props: {
                                 "collapseMother",
                                 "open"
                               ]),
+                              rotationAngle: 90,
                               showArrow: true,
                               size: "large"
                             };
@@ -25717,6 +25723,7 @@ function PlasmicPregnancyy__RenderFunc(props: {
                                 "collapseHealth",
                                 "open"
                               ]),
+                              rotationAngle: 90,
                               showArrow: true,
                               size: "large"
                             };

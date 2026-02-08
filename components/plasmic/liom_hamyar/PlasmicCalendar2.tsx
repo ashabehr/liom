@@ -28597,6 +28597,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                       "collapseMother",
                       "open"
                     ]),
+                    rotationAngle: 90,
                     showArrow: true,
                     size: "large"
                   };
@@ -55231,6 +55232,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                       "collapseMother2",
                       "open"
                     ]),
+                    rotationAngle: 90,
                     showArrow: true,
                     size: "large"
                   };
@@ -55865,6 +55867,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                         "collapseMother3",
                         "open"
                       ]),
+                      rotationAngle: 90,
                       showArrow: true,
                       size: "large"
                     };
