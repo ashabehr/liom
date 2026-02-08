@@ -16292,7 +16292,11 @@ function PlasmicHamyar2__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["updateShopPageOpen"] = true
+                    $steps["updateShopPageOpen"] = !(
+                      (window.FlutterChannel &&
+                        window.FlutterChannel.postMessage) ??
+                      false
+                    )
                       ? (() => {
                           const actionArgs = {
                             variable: {
@@ -16325,6 +16329,31 @@ function PlasmicHamyar2__RenderFunc(props: {
                     ) {
                       $steps["updateShopPageOpen"] =
                         await $steps["updateShopPageOpen"];
+                    }
+
+                    $steps["runCode"] =
+                      ((window.FlutterChannel &&
+                        window.FlutterChannel.postMessage) ??
+                      false)
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return window.FlutterChannel.postMessage(
+                                  "#healthSubscription"
+                                );
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
                     }
                   }}
                 >
@@ -26834,7 +26863,12 @@ function PlasmicHamyar2__RenderFunc(props: {
 
                 $steps["goToPage"] =
                   $steps.invokeGlobalAction?.data?.success == true &&
-                  $steps.invokeGlobalAction?.data?.result != false
+                  $steps.invokeGlobalAction?.data?.result != false &&
+                  !(
+                    (window.FlutterChannel &&
+                      window.FlutterChannel.postMessage) ??
+                    false
+                  )
                     ? (() => {
                         const actionArgs = {
                           destination: (() => {
@@ -26871,6 +26905,33 @@ function PlasmicHamyar2__RenderFunc(props: {
                   typeof $steps["goToPage"].then === "function"
                 ) {
                   $steps["goToPage"] = await $steps["goToPage"];
+                }
+
+                $steps["goToPageFlutter"] =
+                  $steps.invokeGlobalAction?.data?.success == true &&
+                  $steps.invokeGlobalAction?.data?.result != false &&
+                  ((window.FlutterChannel &&
+                    window.FlutterChannel.postMessage) ??
+                    false)
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return window.FlutterChannel.postMessage(
+                              $steps.invokeGlobalAction?.data?.result
+                            );
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["goToPageFlutter"] != null &&
+                  typeof $steps["goToPageFlutter"] === "object" &&
+                  typeof $steps["goToPageFlutter"].then === "function"
+                ) {
+                  $steps["goToPageFlutter"] = await $steps["goToPageFlutter"];
                 }
 
                 $steps["updateLoadingshop2"] = true

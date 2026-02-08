@@ -2908,6 +2908,11 @@ function PlasmicReminder__RenderFunc(props: {
             projectcss.__wab_text,
             sty.text__o4PAk,
             {
+              [sty.textslide3__o4PAkWyFt]: hasVariant(
+                $state,
+                "slide3",
+                "slide3"
+              ),
               [sty.textsmallReminder__o4PAkqVctK]: hasVariant(
                 $state,
                 "smallReminder",
@@ -3041,6 +3046,11 @@ function PlasmicReminder__RenderFunc(props: {
                 projectcss.__wab_text,
                 sty.text___4Uf40,
                 {
+                  [sty.textslide3___4Uf40WyFt]: hasVariant(
+                    $state,
+                    "slide3",
+                    "slide3"
+                  ),
                   [sty.textsmallReminder___4Uf40QVctK]: hasVariant(
                     $state,
                     "smallReminder",
@@ -3071,6 +3081,11 @@ function PlasmicReminder__RenderFunc(props: {
                 projectcss.__wab_text,
                 sty.text__kc7Tq,
                 {
+                  [sty.textslide3__kc7TqWyFt]: hasVariant(
+                    $state,
+                    "slide3",
+                    "slide3"
+                  ),
                   [sty.textsmallReminder__kc7TqqVctK]: hasVariant(
                     $state,
                     "smallReminder",
@@ -3144,7 +3159,9 @@ function PlasmicReminder__RenderFunc(props: {
             <div
               data-plasmic-name={"frame32"}
               data-plasmic-override={overrides.frame32}
-              className={classNames(projectcss.all, sty.frame32)}
+              className={classNames(projectcss.all, sty.frame32, {
+                [sty.frame32slide3]: hasVariant($state, "slide3", "slide3")
+              })}
               key={currentIndex}
             >
               <div className={classNames(projectcss.all, sty.freeBox___30GP4)}>
@@ -3225,7 +3242,13 @@ function PlasmicReminder__RenderFunc(props: {
                   <div
                     data-plasmic-name={"frame35"}
                     data-plasmic-override={overrides.frame35}
-                    className={classNames(projectcss.all, sty.frame35)}
+                    className={classNames(projectcss.all, sty.frame35, {
+                      [sty.frame35slide3]: hasVariant(
+                        $state,
+                        "slide3",
+                        "slide3"
+                      )
+                    })}
                   >
                     <div
                       data-plasmic-name={"frame36"}
@@ -3986,7 +4009,9 @@ function PlasmicReminder__RenderFunc(props: {
             <Button
               data-plasmic-name={"button3"}
               data-plasmic-override={overrides.button3}
-              className={classNames("__wab_instance", sty.button3)}
+              className={classNames("__wab_instance", sty.button3, {
+                [sty.button3slide3]: hasVariant($state, "slide3", "slide3")
+              })}
               color={generateStateValueProp($state, ["button3", "color"])}
               load={generateStateValueProp($state, ["button3", "load"])}
               loading={generateStateValueProp($state, ["button3", "loading"])}
@@ -4041,7 +4066,14 @@ function PlasmicReminder__RenderFunc(props: {
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__cGkq
+                  sty.text__cGkq,
+                  {
+                    [sty.textslide3__cGkqWyFt]: hasVariant(
+                      $state,
+                      "slide3",
+                      "slide3"
+                    )
+                  }
                 )}
               >
                 {

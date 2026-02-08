@@ -1752,6 +1752,11 @@
 .section__vml6V > * {
   grid-column: 4;
 }
+@media (max-width: 640px) {
+  .section__vml6V > * {
+    grid-column: 4;
+  }
+}
 .sectionslide3__vml6VWyFt > * {
   grid-column: 4;
 }
