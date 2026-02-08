@@ -1595,44 +1595,244 @@ function PlasmicMainCalendar__RenderFunc(props: {
               ])}
             />
 
-            <section className={classNames(projectcss.all, sty.section__ajlUx)}>
-              {(() => {
-                const child$Props = {
-                  className: classNames("__wab_instance", sty.footerMain, {
-                    [sty.footerMainpage2_edit]: hasVariant(
-                      $state,
-                      "page2",
-                      "edit"
-                    )
-                  }),
-                  footer2: (() => {
-                    try {
-                      return $state.footerMain.type;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "calendar";
+            {(() => {
+              try {
+                return (() => {
+                  const urlParams = new window.URLSearchParams(
+                    window.location.search
+                  );
+                  const inAppFromUrl = urlParams.get("inApp");
+                  return !(inAppFromUrl !== null
+                    ? inAppFromUrl == "true"
+                    : localStorage.getItem("inApp") == "true");
+                })();
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })() ? (
+              <section
+                className={classNames(projectcss.all, sty.section__ajlUx)}
+              >
+                {(() => {
+                  const child$Props = {
+                    className: classNames("__wab_instance", sty.footerMain, {
+                      [sty.footerMainpage2_edit]: hasVariant(
+                        $state,
+                        "page2",
+                        "edit"
+                      )
+                    }),
+                    footer2: (() => {
+                      try {
+                        return $state.footerMain.type;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "calendar";
+                        }
+                        throw e;
                       }
-                      throw e;
-                    }
-                  })(),
-                  onTypeChange: async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
-                      "footerMain",
-                      "type"
-                    ]).apply(null, eventArgs);
+                    })(),
+                    onTypeChange: async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "footerMain",
+                        "type"
+                      ]).apply(null, eventArgs);
 
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
 
-                    (async val => {
+                      (async val => {
+                        const $steps = {};
+
+                        $steps["goToMain2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                destination: `/main/${(() => {
+                                  try {
+                                    return $state.footerMain.type || "calendar";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()}`
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["goToMain2"] != null &&
+                          typeof $steps["goToMain2"] === "object" &&
+                          typeof $steps["goToMain2"].then === "function"
+                        ) {
+                          $steps["goToMain2"] = await $steps["goToMain2"];
+                        }
+                      }).apply(null, eventArgs);
+                    },
+                    type: generateStateValueProp($state, ["footerMain", "type"])
+                  };
+
+                  initializePlasmicStates(
+                    $state,
+                    [
+                      {
+                        name: "footerMain.type",
+                        initFunc: ({ $props, $state, $queries }) =>
+                          (() => {
+                            try {
+                              return $ctx.params.page?.[0] || "calendar";
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                      }
+                    ],
+                    []
+                  );
+                  return (
+                    <FooterMain
+                      data-plasmic-name={"footerMain"}
+                      data-plasmic-override={overrides.footerMain}
+                      {...child$Props}
+                    />
+                  );
+                })()}
+              </section>
+            ) : null}
+            {(() => {
+              try {
+                return (
+                  new window.URLSearchParams(window.location.search).get(
+                    "noFooter"
+                  ) != "true"
+                );
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })() ? (
+              <section
+                className={classNames(projectcss.all, sty.section__byo4Z)}
+              >
+                {(() => {
+                  const child$Props = {
+                    className: classNames("__wab_instance", sty.mainHeader, {
+                      [sty.mainHeaderpage2_cycle]: hasVariant(
+                        $state,
+                        "page2",
+                        "cycle"
+                      ),
+                      [sty.mainHeaderpage2_edit]: hasVariant(
+                        $state,
+                        "page2",
+                        "edit"
+                      )
+                    }),
+                    dopen: generateStateValueProp($state, [
+                      "mainHeader",
+                      "dopen"
+                    ]),
+                    onDopenChange2: async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "mainHeader",
+                        "dopen"
+                      ]).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+
+                      (async val => {
+                        const $steps = {};
+
+                        $steps["goToMain2"] =
+                          $state.mainHeader.dopen == false
+                            ? (() => {
+                                const actionArgs = {
+                                  destination: `/main/${(() => {
+                                    try {
+                                      return $ctx.params.page.join("/");
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()}`
+                                };
+                                return (({ destination }) => {
+                                  if (
+                                    typeof destination === "string" &&
+                                    destination.startsWith("#")
+                                  ) {
+                                    document
+                                      .getElementById(destination.substr(1))
+                                      .scrollIntoView({ behavior: "smooth" });
+                                  } else {
+                                    __nextRouter?.push(destination);
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["goToMain2"] != null &&
+                          typeof $steps["goToMain2"] === "object" &&
+                          typeof $steps["goToMain2"].then === "function"
+                        ) {
+                          $steps["goToMain2"] = await $steps["goToMain2"];
+                        }
+                      }).apply(null, eventArgs);
+                    },
+                    openEdit: async () => {
                       const $steps = {};
 
                       $steps["goToMain2"] = true
@@ -1640,7 +1840,11 @@ function PlasmicMainCalendar__RenderFunc(props: {
                             const actionArgs = {
                               destination: `/main/${(() => {
                                 try {
-                                  return $state.footerMain.type || "calendar";
+                                  return (() => {
+                                    var s = $ctx.params.page;
+                                    s.push("edit");
+                                    return s.join("/");
+                                  })();
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -1674,1188 +1878,974 @@ function PlasmicMainCalendar__RenderFunc(props: {
                       ) {
                         $steps["goToMain2"] = await $steps["goToMain2"];
                       }
-                    }).apply(null, eventArgs);
-                  },
-                  type: generateStateValueProp($state, ["footerMain", "type"])
-                };
-
-                initializePlasmicStates(
-                  $state,
-                  [
-                    {
-                      name: "footerMain.type",
-                      initFunc: ({ $props, $state, $queries }) =>
-                        (() => {
+                    },
+                    slot: (
+                      <React.Fragment>
+                        {(() => {
                           try {
-                            return $ctx.params.page?.[0] || "calendar";
+                            return (
+                              !$state.notif &&
+                              $state.footerMain.type == "calendar"
+                            );
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
                               e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              return undefined;
+                              return true;
                             }
                             throw e;
                           }
-                        })()
-                    }
-                  ],
-                  []
-                );
-                return (
-                  <FooterMain
-                    data-plasmic-name={"footerMain"}
-                    data-plasmic-override={overrides.footerMain}
-                    {...child$Props}
-                  />
-                );
-              })()}
-            </section>
-            <section className={classNames(projectcss.all, sty.section__byo4Z)}>
-              {(() => {
-                const child$Props = {
-                  className: classNames("__wab_instance", sty.mainHeader, {
-                    [sty.mainHeaderpage2_cycle]: hasVariant(
-                      $state,
-                      "page2",
-                      "cycle"
-                    ),
-                    [sty.mainHeaderpage2_edit]: hasVariant(
-                      $state,
-                      "page2",
-                      "edit"
-                    )
-                  }),
-                  dopen: generateStateValueProp($state, [
-                    "mainHeader",
-                    "dopen"
-                  ]),
-                  onDopenChange2: async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
-                      "mainHeader",
-                      "dopen"
-                    ]).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-
-                    (async val => {
-                      const $steps = {};
-
-                      $steps["goToMain2"] =
-                        $state.mainHeader.dopen == false
-                          ? (() => {
-                              const actionArgs = {
-                                destination: `/main/${(() => {
-                                  try {
-                                    return $ctx.params.page.join("/");
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()}`
-                              };
-                              return (({ destination }) => {
-                                if (
-                                  typeof destination === "string" &&
-                                  destination.startsWith("#")
-                                ) {
-                                  document
-                                    .getElementById(destination.substr(1))
-                                    .scrollIntoView({ behavior: "smooth" });
-                                } else {
-                                  __nextRouter?.push(destination);
-                                }
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["goToMain2"] != null &&
-                        typeof $steps["goToMain2"] === "object" &&
-                        typeof $steps["goToMain2"].then === "function"
-                      ) {
-                        $steps["goToMain2"] = await $steps["goToMain2"];
-                      }
-                    }).apply(null, eventArgs);
-                  },
-                  openEdit: async () => {
-                    const $steps = {};
-
-                    $steps["goToMain2"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            destination: `/main/${(() => {
-                              try {
-                                return (() => {
-                                  var s = $ctx.params.page;
-                                  s.push("edit");
-                                  return s.join("/");
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()}`
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["goToMain2"] != null &&
-                      typeof $steps["goToMain2"] === "object" &&
-                      typeof $steps["goToMain2"].then === "function"
-                    ) {
-                      $steps["goToMain2"] = await $steps["goToMain2"];
-                    }
-                  },
-                  slot: (
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return (
-                            !$state.notif &&
-                            $state.footerMain.type == "calendar"
-                          );
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })() ? (
-                        <Button
-                          data-plasmic-name={"button"}
-                          data-plasmic-override={overrides.button}
-                          className={classNames("__wab_instance", sty.button)}
-                          color={generateStateValueProp($state, [
-                            "button",
-                            "color"
-                          ])}
-                          endIcon={
-                            <LottieWrapper
-                              data-plasmic-name={"lottie"}
-                              data-plasmic-override={overrides.lottie}
-                              animationData={{
-                                v: "5.7.4",
-                                fr: 60,
-                                ip: 0,
-                                op: 190,
-                                w: 200,
-                                h: 200,
-                                nm: "Notification_Updated",
-                                ddd: 0,
-                                assets: [],
-                                layers: [
-                                  {
-                                    ddd: 0,
-                                    ind: 1,
-                                    ty: 4,
-                                    nm: "Bell 2",
-                                    sr: 1,
-                                    ks: {
-                                      o: { a: 0, k: 100, ix: 11 },
-                                      r: {
-                                        a: 1,
-                                        k: [
-                                          {
-                                            i: { x: [0.667], y: [1] },
-                                            o: { x: [0.333], y: [0] },
-                                            t: 95,
-                                            s: [0]
-                                          },
-                                          {
-                                            i: { x: [0.667], y: [1] },
-                                            o: { x: [0.333], y: [0] },
-                                            t: 110,
-                                            s: [22]
-                                          },
-                                          {
-                                            i: { x: [0.667], y: [1] },
-                                            o: { x: [0.333], y: [0] },
-                                            t: 125,
-                                            s: [-22]
-                                          },
-                                          {
-                                            i: { x: [0.667], y: [1] },
-                                            o: { x: [0.333], y: [0] },
-                                            t: 140,
-                                            s: [15]
-                                          },
-                                          {
-                                            i: { x: [0.667], y: [1] },
-                                            o: { x: [0.333], y: [0] },
-                                            t: 155,
-                                            s: [-10]
-                                          },
-                                          { t: 170, s: [0] }
-                                        ],
-                                        ix: 10
-                                      },
-                                      p: {
-                                        a: 0,
-                                        k: [100, 39.5, 0],
-                                        ix: 2,
-                                        l: 2
-                                      },
-                                      a: {
-                                        a: 0,
-                                        k: [-14.219, -40.102, 0],
-                                        ix: 1,
-                                        l: 2
-                                      },
-                                      s: {
-                                        a: 0,
-                                        k: [100, 100, 100],
-                                        ix: 6,
-                                        l: 2
-                                      }
-                                    },
-                                    ao: 0,
-                                    hasMask: true,
-                                    masksProperties: [
-                                      {
-                                        inv: false,
-                                        mode: "f",
-                                        pt: {
-                                          a: 0,
-                                          k: {
-                                            i: [
-                                              [0, -1.934],
-                                              [4.932, 0],
-                                              [0, 0],
-                                              [0.032, 4.223],
-                                              [-1.547, 1.676],
-                                              [0, 26.361],
-                                              [-18.949, 3.932],
-                                              [0, 0],
-                                              [-4.544, 0],
-                                              [0, -4.544],
-                                              [0, 0],
-                                              [0, -20.045],
-                                              [-4.963, -5.35]
-                                            ],
-                                            o: [
-                                              [-0.033, 4.223],
-                                              [0, 0],
-                                              [-4.931, 0],
-                                              [0, -1.934],
-                                              [4.963, -5.35],
-                                              [0, -20.045],
-                                              [0, 0],
-                                              [0, -4.544],
-                                              [4.544, 0],
-                                              [0, 0],
-                                              [18.949, 3.932],
-                                              [0, 26.361],
-                                              [1.547, 1.676]
-                                            ],
-                                            v: [
-                                              [43.75, 49.5],
-                                              [35.467, 57.75],
-                                              [-63.468, 57.75],
-                                              [-71.75, 49.5],
-                                              [-69.527, 43.892],
-                                              [-55.218, 4.125],
-                                              [-22.25, -35.868],
-                                              [-22.25, -41.25],
-                                              [-14, -49.5],
-                                              [-5.75, -41.25],
-                                              [-5.75, -35.868],
-                                              [27.217, 4.125],
-                                              [41.526, 43.892]
-                                            ],
-                                            c: true
-                                          },
-                                          ix: 1
+                        })() ? (
+                          <Button
+                            data-plasmic-name={"button"}
+                            data-plasmic-override={overrides.button}
+                            className={classNames("__wab_instance", sty.button)}
+                            color={generateStateValueProp($state, [
+                              "button",
+                              "color"
+                            ])}
+                            endIcon={
+                              <LottieWrapper
+                                data-plasmic-name={"lottie"}
+                                data-plasmic-override={overrides.lottie}
+                                animationData={{
+                                  v: "5.7.4",
+                                  fr: 60,
+                                  ip: 0,
+                                  op: 190,
+                                  w: 200,
+                                  h: 200,
+                                  nm: "Notification_Updated",
+                                  ddd: 0,
+                                  assets: [],
+                                  layers: [
+                                    {
+                                      ddd: 0,
+                                      ind: 1,
+                                      ty: 4,
+                                      nm: "Bell 2",
+                                      sr: 1,
+                                      ks: {
+                                        o: { a: 0, k: 100, ix: 11 },
+                                        r: {
+                                          a: 1,
+                                          k: [
+                                            {
+                                              i: { x: [0.667], y: [1] },
+                                              o: { x: [0.333], y: [0] },
+                                              t: 95,
+                                              s: [0]
+                                            },
+                                            {
+                                              i: { x: [0.667], y: [1] },
+                                              o: { x: [0.333], y: [0] },
+                                              t: 110,
+                                              s: [22]
+                                            },
+                                            {
+                                              i: { x: [0.667], y: [1] },
+                                              o: { x: [0.333], y: [0] },
+                                              t: 125,
+                                              s: [-22]
+                                            },
+                                            {
+                                              i: { x: [0.667], y: [1] },
+                                              o: { x: [0.333], y: [0] },
+                                              t: 140,
+                                              s: [15]
+                                            },
+                                            {
+                                              i: { x: [0.667], y: [1] },
+                                              o: { x: [0.333], y: [0] },
+                                              t: 155,
+                                              s: [-10]
+                                            },
+                                            { t: 170, s: [0] }
+                                          ],
+                                          ix: 10
                                         },
-                                        o: { a: 0, k: 100, ix: 3 },
-                                        x: { a: 0, k: 0, ix: 4 },
-                                        nm: "Bell"
-                                      }
-                                    ],
-                                    shapes: [
-                                      {
-                                        ty: "gr",
-                                        it: [
-                                          {
-                                            ty: "rc",
-                                            d: 1,
-                                            s: { a: 0, k: [200, 200], ix: 2 },
-                                            p: { a: 0, k: [0, 0], ix: 3 },
-                                            r: { a: 0, k: 0, ix: 4 },
-                                            nm: "Rectangle Path 1",
-                                            mn: "ADBE Vector Shape - Rect",
-                                            hd: false
-                                          },
-                                          {
-                                            ty: "fl",
-                                            c: {
-                                              a: 0,
-                                              k: [0.447, 0.329, 0.776, 1],
-                                              ix: 4
-                                            },
-                                            o: { a: 0, k: 100, ix: 5 },
-                                            r: 1,
-                                            bm: 0,
-                                            nm: "Fill 1",
-                                            mn: "ADBE Vector Graphic - Fill",
-                                            hd: false
-                                          },
-                                          {
-                                            ty: "tr",
-                                            p: {
-                                              a: 0,
-                                              k: [-14.219, 20.398],
-                                              ix: 2
-                                            },
-                                            a: { a: 0, k: [0, 0], ix: 1 },
-                                            s: { a: 0, k: [100, 100], ix: 3 },
-                                            r: { a: 0, k: 0, ix: 6 },
-                                            o: { a: 0, k: 100, ix: 7 },
-                                            sk: { a: 0, k: 0, ix: 4 },
-                                            sa: { a: 0, k: 0, ix: 5 },
-                                            nm: "Transform"
-                                          }
-                                        ],
-                                        nm: "Rectangle 1",
-                                        np: 3,
-                                        cix: 2,
-                                        bm: 0,
-                                        ix: 1,
-                                        mn: "ADBE Vector Group",
-                                        hd: false
-                                      }
-                                    ],
-                                    ip: 95,
-                                    op: 190,
-                                    st: 95,
-                                    bm: 0
-                                  },
-                                  {
-                                    ddd: 0,
-                                    ind: 2,
-                                    ty: 4,
-                                    nm: "Spindle 2",
-                                    sr: 1,
-                                    ks: {
-                                      o: { a: 0, k: 100, ix: 11 },
-                                      r: {
-                                        a: 1,
-                                        k: [
-                                          {
-                                            i: { x: [0.667], y: [1] },
-                                            o: { x: [0.333], y: [0] },
-                                            t: 95,
-                                            s: [0]
-                                          },
-                                          {
-                                            i: { x: [0.667], y: [1] },
-                                            o: { x: [0.333], y: [0] },
-                                            t: 110,
-                                            s: [35]
-                                          },
-                                          {
-                                            i: { x: [0.667], y: [1] },
-                                            o: { x: [0.333], y: [0] },
-                                            t: 125,
-                                            s: [-35]
-                                          },
-                                          {
-                                            i: { x: [0.667], y: [1] },
-                                            o: { x: [0.333], y: [0] },
-                                            t: 140,
-                                            s: [25]
-                                          },
-                                          {
-                                            i: { x: [0.667], y: [1] },
-                                            o: { x: [0.333], y: [0] },
-                                            t: 155,
-                                            s: [-22]
-                                          },
-                                          { t: 170, s: [0] }
-                                        ],
-                                        ix: 10
-                                      },
-                                      p: {
-                                        a: 0,
-                                        k: [100, 39.5, 0],
-                                        ix: 2,
-                                        l: 2
-                                      },
-                                      a: {
-                                        a: 0,
-                                        k: [-14.219, -40.102, 0],
-                                        ix: 1,
-                                        l: 2
-                                      },
-                                      s: {
-                                        a: 0,
-                                        k: [100, 100, 100],
-                                        ix: 6,
-                                        l: 2
-                                      }
-                                    },
-                                    ao: 0,
-                                    hasMask: true,
-                                    masksProperties: [
-                                      {
-                                        inv: false,
-                                        mode: "f",
-                                        pt: {
+                                        p: {
                                           a: 0,
-                                          k: {
-                                            i: [
-                                              [0, 9.121],
-                                              [0, 0],
-                                              [9.12, 0]
-                                            ],
-                                            o: [
-                                              [0, 0],
-                                              [0, 9.121],
-                                              [-9.12, 0]
-                                            ],
-                                            v: [
-                                              [-30.5, 66],
-                                              [2.5, 66],
-                                              [-14, 82.5]
-                                            ],
-                                            c: true
-                                          },
-                                          ix: 1
+                                          k: [100, 39.5, 0],
+                                          ix: 2,
+                                          l: 2
                                         },
-                                        o: { a: 0, k: 100, ix: 3 },
-                                        x: { a: 0, k: 0, ix: 4 },
-                                        nm: "Spindle"
-                                      }
-                                    ],
-                                    shapes: [
-                                      {
-                                        ty: "gr",
-                                        it: [
-                                          {
-                                            ty: "rc",
-                                            d: 1,
-                                            s: { a: 0, k: [200, 200], ix: 2 },
-                                            p: { a: 0, k: [0, 0], ix: 3 },
-                                            r: { a: 0, k: 0, ix: 4 },
-                                            nm: "Rectangle Path 1",
-                                            mn: "ADBE Vector Shape - Rect",
-                                            hd: false
-                                          },
-                                          {
-                                            ty: "fl",
-                                            c: {
-                                              a: 0,
-                                              k: [0.447, 0.329, 0.776, 1],
-                                              ix: 4
-                                            },
-                                            o: { a: 0, k: 100, ix: 5 },
-                                            r: 1,
-                                            bm: 0,
-                                            nm: "Fill 1",
-                                            mn: "ADBE Vector Graphic - Fill",
-                                            hd: false
-                                          },
-                                          {
-                                            ty: "tr",
-                                            p: {
-                                              a: 0,
-                                              k: [-14.219, 20.398],
-                                              ix: 2
-                                            },
-                                            a: { a: 0, k: [0, 0], ix: 1 },
-                                            s: { a: 0, k: [100, 100], ix: 3 },
-                                            r: { a: 0, k: 0, ix: 6 },
-                                            o: { a: 0, k: 100, ix: 7 },
-                                            sk: { a: 0, k: 0, ix: 4 },
-                                            sa: { a: 0, k: 0, ix: 5 },
-                                            nm: "Transform"
-                                          }
-                                        ],
-                                        nm: "Rectangle 1",
-                                        np: 3,
-                                        cix: 2,
-                                        bm: 0,
-                                        ix: 1,
-                                        mn: "ADBE Vector Group",
-                                        hd: false
-                                      }
-                                    ],
-                                    ip: 95,
-                                    op: 190,
-                                    st: 95,
-                                    bm: 0
-                                  },
-                                  {
-                                    ddd: 0,
-                                    ind: 3,
-                                    ty: 4,
-                                    nm: "Bell",
-                                    sr: 1,
-                                    ks: {
-                                      o: { a: 0, k: 100, ix: 11 },
-                                      r: {
-                                        a: 1,
-                                        k: [
-                                          {
-                                            i: { x: [0.667], y: [1] },
-                                            o: { x: [0.333], y: [0] },
-                                            t: 0,
-                                            s: [0]
-                                          },
-                                          {
-                                            i: { x: [0.667], y: [1] },
-                                            o: { x: [0.333], y: [0] },
-                                            t: 15,
-                                            s: [22]
-                                          },
-                                          {
-                                            i: { x: [0.667], y: [1] },
-                                            o: { x: [0.333], y: [0] },
-                                            t: 30,
-                                            s: [-22]
-                                          },
-                                          {
-                                            i: { x: [0.667], y: [1] },
-                                            o: { x: [0.333], y: [0] },
-                                            t: 45,
-                                            s: [15]
-                                          },
-                                          {
-                                            i: { x: [0.667], y: [1] },
-                                            o: { x: [0.333], y: [0] },
-                                            t: 60,
-                                            s: [-10]
-                                          },
-                                          { t: 75, s: [0] }
-                                        ],
-                                        ix: 10
-                                      },
-                                      p: {
-                                        a: 0,
-                                        k: [100, 39.5, 0],
-                                        ix: 2,
-                                        l: 2
-                                      },
-                                      a: {
-                                        a: 0,
-                                        k: [-14.219, -40.102, 0],
-                                        ix: 1,
-                                        l: 2
-                                      },
-                                      s: {
-                                        a: 0,
-                                        k: [100, 100, 100],
-                                        ix: 6,
-                                        l: 2
-                                      }
-                                    },
-                                    ao: 0,
-                                    hasMask: true,
-                                    masksProperties: [
-                                      {
-                                        inv: false,
-                                        mode: "f",
-                                        pt: {
+                                        a: {
                                           a: 0,
-                                          k: {
-                                            i: [
-                                              [0, -1.934],
-                                              [4.932, 0],
-                                              [0, 0],
-                                              [0.032, 4.223],
-                                              [-1.547, 1.676],
-                                              [0, 26.361],
-                                              [-18.949, 3.932],
-                                              [0, 0],
-                                              [-4.544, 0],
-                                              [0, -4.544],
-                                              [0, 0],
-                                              [0, -20.045],
-                                              [-4.963, -5.35]
-                                            ],
-                                            o: [
-                                              [-0.033, 4.223],
-                                              [0, 0],
-                                              [-4.931, 0],
-                                              [0, -1.934],
-                                              [4.963, -5.35],
-                                              [0, -20.045],
-                                              [0, 0],
-                                              [0, -4.544],
-                                              [4.544, 0],
-                                              [0, 0],
-                                              [18.949, 3.932],
-                                              [0, 26.361],
-                                              [1.547, 1.676]
-                                            ],
-                                            v: [
-                                              [43.75, 49.5],
-                                              [35.467, 57.75],
-                                              [-63.468, 57.75],
-                                              [-71.75, 49.5],
-                                              [-69.527, 43.892],
-                                              [-55.218, 4.125],
-                                              [-22.25, -35.868],
-                                              [-22.25, -41.25],
-                                              [-14, -49.5],
-                                              [-5.75, -41.25],
-                                              [-5.75, -35.868],
-                                              [27.217, 4.125],
-                                              [41.526, 43.892]
-                                            ],
-                                            c: true
-                                          },
-                                          ix: 1
+                                          k: [-14.219, -40.102, 0],
+                                          ix: 1,
+                                          l: 2
                                         },
-                                        o: { a: 0, k: 100, ix: 3 },
-                                        x: { a: 0, k: 0, ix: 4 },
-                                        nm: "Bell"
-                                      }
-                                    ],
-                                    shapes: [
-                                      {
-                                        ty: "gr",
-                                        it: [
-                                          {
-                                            ty: "rc",
-                                            d: 1,
-                                            s: { a: 0, k: [200, 200], ix: 2 },
-                                            p: { a: 0, k: [0, 0], ix: 3 },
-                                            r: { a: 0, k: 0, ix: 4 },
-                                            nm: "Rectangle Path 1",
-                                            mn: "ADBE Vector Shape - Rect",
-                                            hd: false
-                                          },
-                                          {
-                                            ty: "fl",
-                                            c: {
-                                              a: 0,
-                                              k: [0.447, 0.329, 0.776, 1],
-                                              ix: 4
-                                            },
-                                            o: { a: 0, k: 100, ix: 5 },
-                                            r: 1,
-                                            bm: 0,
-                                            nm: "Fill 1",
-                                            mn: "ADBE Vector Graphic - Fill",
-                                            hd: false
-                                          },
-                                          {
-                                            ty: "tr",
-                                            p: {
-                                              a: 0,
-                                              k: [-14.219, 20.398],
-                                              ix: 2
-                                            },
-                                            a: { a: 0, k: [0, 0], ix: 1 },
-                                            s: { a: 0, k: [100, 100], ix: 3 },
-                                            r: { a: 0, k: 0, ix: 6 },
-                                            o: { a: 0, k: 100, ix: 7 },
-                                            sk: { a: 0, k: 0, ix: 4 },
-                                            sa: { a: 0, k: 0, ix: 5 },
-                                            nm: "Transform"
-                                          }
-                                        ],
-                                        nm: "Rectangle 1",
-                                        np: 3,
-                                        cix: 2,
-                                        bm: 0,
-                                        ix: 1,
-                                        mn: "ADBE Vector Group",
-                                        hd: false
-                                      }
-                                    ],
-                                    ip: 0,
-                                    op: 95,
-                                    st: 0,
-                                    bm: 0
-                                  },
-                                  {
-                                    ddd: 0,
-                                    ind: 4,
-                                    ty: 4,
-                                    nm: "Spindle",
-                                    sr: 1,
-                                    ks: {
-                                      o: { a: 0, k: 100, ix: 11 },
-                                      r: {
-                                        a: 1,
-                                        k: [
-                                          {
-                                            i: { x: [0.667], y: [1] },
-                                            o: { x: [0.333], y: [0] },
-                                            t: 0,
-                                            s: [0]
-                                          },
-                                          {
-                                            i: { x: [0.667], y: [1] },
-                                            o: { x: [0.333], y: [0] },
-                                            t: 15,
-                                            s: [35]
-                                          },
-                                          {
-                                            i: { x: [0.667], y: [1] },
-                                            o: { x: [0.333], y: [0] },
-                                            t: 30,
-                                            s: [-35]
-                                          },
-                                          {
-                                            i: { x: [0.667], y: [1] },
-                                            o: { x: [0.333], y: [0] },
-                                            t: 45,
-                                            s: [25]
-                                          },
-                                          {
-                                            i: { x: [0.667], y: [1] },
-                                            o: { x: [0.333], y: [0] },
-                                            t: 60,
-                                            s: [-22]
-                                          },
-                                          { t: 75, s: [0] }
-                                        ],
-                                        ix: 10
-                                      },
-                                      p: {
-                                        a: 0,
-                                        k: [100, 39.5, 0],
-                                        ix: 2,
-                                        l: 2
-                                      },
-                                      a: {
-                                        a: 0,
-                                        k: [-14.219, -40.102, 0],
-                                        ix: 1,
-                                        l: 2
-                                      },
-                                      s: {
-                                        a: 0,
-                                        k: [100, 100, 100],
-                                        ix: 6,
-                                        l: 2
-                                      }
-                                    },
-                                    ao: 0,
-                                    hasMask: true,
-                                    masksProperties: [
-                                      {
-                                        inv: false,
-                                        mode: "f",
-                                        pt: {
+                                        s: {
                                           a: 0,
-                                          k: {
-                                            i: [
-                                              [0, 9.121],
-                                              [0, 0],
-                                              [9.12, 0]
-                                            ],
-                                            o: [
-                                              [0, 0],
-                                              [0, 9.121],
-                                              [-9.12, 0]
-                                            ],
-                                            v: [
-                                              [-30.5, 66],
-                                              [2.5, 66],
-                                              [-14, 82.5]
-                                            ],
-                                            c: true
-                                          },
-                                          ix: 1
-                                        },
-                                        o: { a: 0, k: 100, ix: 3 },
-                                        x: { a: 0, k: 0, ix: 4 },
-                                        nm: "Spindle"
-                                      }
-                                    ],
-                                    shapes: [
-                                      {
-                                        ty: "gr",
-                                        it: [
-                                          {
-                                            ty: "rc",
-                                            d: 1,
-                                            s: { a: 0, k: [200, 200], ix: 2 },
-                                            p: { a: 0, k: [0, 0], ix: 3 },
-                                            r: { a: 0, k: 0, ix: 4 },
-                                            nm: "Rectangle Path 1",
-                                            mn: "ADBE Vector Shape - Rect",
-                                            hd: false
-                                          },
-                                          {
-                                            ty: "fl",
-                                            c: {
-                                              a: 0,
-                                              k: [0.447, 0.329, 0.776, 1],
-                                              ix: 4
-                                            },
-                                            o: { a: 0, k: 100, ix: 5 },
-                                            r: 1,
-                                            bm: 0,
-                                            nm: "Fill 1",
-                                            mn: "ADBE Vector Graphic - Fill",
-                                            hd: false
-                                          },
-                                          {
-                                            ty: "tr",
-                                            p: {
-                                              a: 0,
-                                              k: [-14.219, 20.398],
-                                              ix: 2
-                                            },
-                                            a: { a: 0, k: [0, 0], ix: 1 },
-                                            s: { a: 0, k: [100, 100], ix: 3 },
-                                            r: { a: 0, k: 0, ix: 6 },
-                                            o: { a: 0, k: 100, ix: 7 },
-                                            sk: { a: 0, k: 0, ix: 4 },
-                                            sa: { a: 0, k: 0, ix: 5 },
-                                            nm: "Transform"
-                                          }
-                                        ],
-                                        nm: "Rectangle 1",
-                                        np: 3,
-                                        cix: 2,
-                                        bm: 0,
-                                        ix: 1,
-                                        mn: "ADBE Vector Group",
-                                        hd: false
-                                      }
-                                    ],
-                                    ip: 0,
-                                    op: 95,
-                                    st: 0,
-                                    bm: 0
-                                  }
-                                ],
-                                markers: []
-                              }}
-                              className={classNames(
-                                "__wab_instance",
-                                sty.lottie
-                              )}
-                            />
-                          }
-                          load={generateStateValueProp($state, [
-                            "button",
-                            "load"
-                          ])}
-                          loading={generateStateValueProp($state, [
-                            "button",
-                            "loading"
-                          ])}
-                          onClick={async event => {
-                            const $steps = {};
-
-                            $steps["runCode"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return requestPermission().then(
-                                        result => {
-                                          $state.promise = result;
+                                          k: [100, 100, 100],
+                                          ix: 6,
+                                          l: 2
                                         }
-                                      );
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["runCode"] != null &&
-                              typeof $steps["runCode"] === "object" &&
-                              typeof $steps["runCode"].then === "function"
-                            ) {
-                              $steps["runCode"] = await $steps["runCode"];
-                            }
-
-                            $steps["invokeGlobalAction"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    args: [
-                                      (() => {
-                                        try {
-                                          return $state.promise.ok == true
-                                            ? "success"
-                                            : "error";
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
-                                          }
-                                          throw e;
+                                      },
+                                      ao: 0,
+                                      hasMask: true,
+                                      masksProperties: [
+                                        {
+                                          inv: false,
+                                          mode: "f",
+                                          pt: {
+                                            a: 0,
+                                            k: {
+                                              i: [
+                                                [0, -1.934],
+                                                [4.932, 0],
+                                                [0, 0],
+                                                [0.032, 4.223],
+                                                [-1.547, 1.676],
+                                                [0, 26.361],
+                                                [-18.949, 3.932],
+                                                [0, 0],
+                                                [-4.544, 0],
+                                                [0, -4.544],
+                                                [0, 0],
+                                                [0, -20.045],
+                                                [-4.963, -5.35]
+                                              ],
+                                              o: [
+                                                [-0.033, 4.223],
+                                                [0, 0],
+                                                [-4.931, 0],
+                                                [0, -1.934],
+                                                [4.963, -5.35],
+                                                [0, -20.045],
+                                                [0, 0],
+                                                [0, -4.544],
+                                                [4.544, 0],
+                                                [0, 0],
+                                                [18.949, 3.932],
+                                                [0, 26.361],
+                                                [1.547, 1.676]
+                                              ],
+                                              v: [
+                                                [43.75, 49.5],
+                                                [35.467, 57.75],
+                                                [-63.468, 57.75],
+                                                [-71.75, 49.5],
+                                                [-69.527, 43.892],
+                                                [-55.218, 4.125],
+                                                [-22.25, -35.868],
+                                                [-22.25, -41.25],
+                                                [-14, -49.5],
+                                                [-5.75, -41.25],
+                                                [-5.75, -35.868],
+                                                [27.217, 4.125],
+                                                [41.526, 43.892]
+                                              ],
+                                              c: true
+                                            },
+                                            ix: 1
+                                          },
+                                          o: { a: 0, k: 100, ix: 3 },
+                                          x: { a: 0, k: 0, ix: 4 },
+                                          nm: "Bell"
                                         }
-                                      })(),
-                                      (() => {
-                                        try {
-                                          return $state.promise.message;
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
-                                          }
-                                          throw e;
+                                      ],
+                                      shapes: [
+                                        {
+                                          ty: "gr",
+                                          it: [
+                                            {
+                                              ty: "rc",
+                                              d: 1,
+                                              s: { a: 0, k: [200, 200], ix: 2 },
+                                              p: { a: 0, k: [0, 0], ix: 3 },
+                                              r: { a: 0, k: 0, ix: 4 },
+                                              nm: "Rectangle Path 1",
+                                              mn: "ADBE Vector Shape - Rect",
+                                              hd: false
+                                            },
+                                            {
+                                              ty: "fl",
+                                              c: {
+                                                a: 0,
+                                                k: [0.447, 0.329, 0.776, 1],
+                                                ix: 4
+                                              },
+                                              o: { a: 0, k: 100, ix: 5 },
+                                              r: 1,
+                                              bm: 0,
+                                              nm: "Fill 1",
+                                              mn: "ADBE Vector Graphic - Fill",
+                                              hd: false
+                                            },
+                                            {
+                                              ty: "tr",
+                                              p: {
+                                                a: 0,
+                                                k: [-14.219, 20.398],
+                                                ix: 2
+                                              },
+                                              a: { a: 0, k: [0, 0], ix: 1 },
+                                              s: { a: 0, k: [100, 100], ix: 3 },
+                                              r: { a: 0, k: 0, ix: 6 },
+                                              o: { a: 0, k: 100, ix: 7 },
+                                              sk: { a: 0, k: 0, ix: 4 },
+                                              sa: { a: 0, k: 0, ix: 5 },
+                                              nm: "Transform"
+                                            }
+                                          ],
+                                          nm: "Rectangle 1",
+                                          np: 3,
+                                          cix: 2,
+                                          bm: 0,
+                                          ix: 1,
+                                          mn: "ADBE Vector Group",
+                                          hd: false
                                         }
-                                      })(),
-                                      "top-left"
-                                    ]
-                                  };
-                                  return $globalActions[
-                                    "Fragment.showToast"
-                                  ]?.apply(null, [...actionArgs.args]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["invokeGlobalAction"] != null &&
-                              typeof $steps["invokeGlobalAction"] ===
-                                "object" &&
-                              typeof $steps["invokeGlobalAction"].then ===
-                                "function"
-                            ) {
-                              $steps["invokeGlobalAction"] =
-                                await $steps["invokeGlobalAction"];
-                            }
-
-                            $steps["updateNotif"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["notif"]
+                                      ],
+                                      ip: 95,
+                                      op: 190,
+                                      st: 95,
+                                      bm: 0
                                     },
-                                    operation: 0,
-                                    value: $state.promise.ok == true
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
+                                    {
+                                      ddd: 0,
+                                      ind: 2,
+                                      ty: 4,
+                                      nm: "Spindle 2",
+                                      sr: 1,
+                                      ks: {
+                                        o: { a: 0, k: 100, ix: 11 },
+                                        r: {
+                                          a: 1,
+                                          k: [
+                                            {
+                                              i: { x: [0.667], y: [1] },
+                                              o: { x: [0.333], y: [0] },
+                                              t: 95,
+                                              s: [0]
+                                            },
+                                            {
+                                              i: { x: [0.667], y: [1] },
+                                              o: { x: [0.333], y: [0] },
+                                              t: 110,
+                                              s: [35]
+                                            },
+                                            {
+                                              i: { x: [0.667], y: [1] },
+                                              o: { x: [0.333], y: [0] },
+                                              t: 125,
+                                              s: [-35]
+                                            },
+                                            {
+                                              i: { x: [0.667], y: [1] },
+                                              o: { x: [0.333], y: [0] },
+                                              t: 140,
+                                              s: [25]
+                                            },
+                                            {
+                                              i: { x: [0.667], y: [1] },
+                                              o: { x: [0.333], y: [0] },
+                                              t: 155,
+                                              s: [-22]
+                                            },
+                                            { t: 170, s: [0] }
+                                          ],
+                                          ix: 10
+                                        },
+                                        p: {
+                                          a: 0,
+                                          k: [100, 39.5, 0],
+                                          ix: 2,
+                                          l: 2
+                                        },
+                                        a: {
+                                          a: 0,
+                                          k: [-14.219, -40.102, 0],
+                                          ix: 1,
+                                          l: 2
+                                        },
+                                        s: {
+                                          a: 0,
+                                          k: [100, 100, 100],
+                                          ix: 6,
+                                          l: 2
+                                        }
+                                      },
+                                      ao: 0,
+                                      hasMask: true,
+                                      masksProperties: [
+                                        {
+                                          inv: false,
+                                          mode: "f",
+                                          pt: {
+                                            a: 0,
+                                            k: {
+                                              i: [
+                                                [0, 9.121],
+                                                [0, 0],
+                                                [9.12, 0]
+                                              ],
+                                              o: [
+                                                [0, 0],
+                                                [0, 9.121],
+                                                [-9.12, 0]
+                                              ],
+                                              v: [
+                                                [-30.5, 66],
+                                                [2.5, 66],
+                                                [-14, 82.5]
+                                              ],
+                                              c: true
+                                            },
+                                            ix: 1
+                                          },
+                                          o: { a: 0, k: 100, ix: 3 },
+                                          x: { a: 0, k: 0, ix: 4 },
+                                          nm: "Spindle"
+                                        }
+                                      ],
+                                      shapes: [
+                                        {
+                                          ty: "gr",
+                                          it: [
+                                            {
+                                              ty: "rc",
+                                              d: 1,
+                                              s: { a: 0, k: [200, 200], ix: 2 },
+                                              p: { a: 0, k: [0, 0], ix: 3 },
+                                              r: { a: 0, k: 0, ix: 4 },
+                                              nm: "Rectangle Path 1",
+                                              mn: "ADBE Vector Shape - Rect",
+                                              hd: false
+                                            },
+                                            {
+                                              ty: "fl",
+                                              c: {
+                                                a: 0,
+                                                k: [0.447, 0.329, 0.776, 1],
+                                                ix: 4
+                                              },
+                                              o: { a: 0, k: 100, ix: 5 },
+                                              r: 1,
+                                              bm: 0,
+                                              nm: "Fill 1",
+                                              mn: "ADBE Vector Graphic - Fill",
+                                              hd: false
+                                            },
+                                            {
+                                              ty: "tr",
+                                              p: {
+                                                a: 0,
+                                                k: [-14.219, 20.398],
+                                                ix: 2
+                                              },
+                                              a: { a: 0, k: [0, 0], ix: 1 },
+                                              s: { a: 0, k: [100, 100], ix: 3 },
+                                              r: { a: 0, k: 0, ix: 6 },
+                                              o: { a: 0, k: 100, ix: 7 },
+                                              sk: { a: 0, k: 0, ix: 4 },
+                                              sa: { a: 0, k: 0, ix: 5 },
+                                              nm: "Transform"
+                                            }
+                                          ],
+                                          nm: "Rectangle 1",
+                                          np: 3,
+                                          cix: 2,
+                                          bm: 0,
+                                          ix: 1,
+                                          mn: "ADBE Vector Group",
+                                          hd: false
+                                        }
+                                      ],
+                                      ip: 95,
+                                      op: 190,
+                                      st: 95,
+                                      bm: 0
+                                    },
+                                    {
+                                      ddd: 0,
+                                      ind: 3,
+                                      ty: 4,
+                                      nm: "Bell",
+                                      sr: 1,
+                                      ks: {
+                                        o: { a: 0, k: 100, ix: 11 },
+                                        r: {
+                                          a: 1,
+                                          k: [
+                                            {
+                                              i: { x: [0.667], y: [1] },
+                                              o: { x: [0.333], y: [0] },
+                                              t: 0,
+                                              s: [0]
+                                            },
+                                            {
+                                              i: { x: [0.667], y: [1] },
+                                              o: { x: [0.333], y: [0] },
+                                              t: 15,
+                                              s: [22]
+                                            },
+                                            {
+                                              i: { x: [0.667], y: [1] },
+                                              o: { x: [0.333], y: [0] },
+                                              t: 30,
+                                              s: [-22]
+                                            },
+                                            {
+                                              i: { x: [0.667], y: [1] },
+                                              o: { x: [0.333], y: [0] },
+                                              t: 45,
+                                              s: [15]
+                                            },
+                                            {
+                                              i: { x: [0.667], y: [1] },
+                                              o: { x: [0.333], y: [0] },
+                                              t: 60,
+                                              s: [-10]
+                                            },
+                                            { t: 75, s: [0] }
+                                          ],
+                                          ix: 10
+                                        },
+                                        p: {
+                                          a: 0,
+                                          k: [100, 39.5, 0],
+                                          ix: 2,
+                                          l: 2
+                                        },
+                                        a: {
+                                          a: 0,
+                                          k: [-14.219, -40.102, 0],
+                                          ix: 1,
+                                          l: 2
+                                        },
+                                        s: {
+                                          a: 0,
+                                          k: [100, 100, 100],
+                                          ix: 6,
+                                          l: 2
+                                        }
+                                      },
+                                      ao: 0,
+                                      hasMask: true,
+                                      masksProperties: [
+                                        {
+                                          inv: false,
+                                          mode: "f",
+                                          pt: {
+                                            a: 0,
+                                            k: {
+                                              i: [
+                                                [0, -1.934],
+                                                [4.932, 0],
+                                                [0, 0],
+                                                [0.032, 4.223],
+                                                [-1.547, 1.676],
+                                                [0, 26.361],
+                                                [-18.949, 3.932],
+                                                [0, 0],
+                                                [-4.544, 0],
+                                                [0, -4.544],
+                                                [0, 0],
+                                                [0, -20.045],
+                                                [-4.963, -5.35]
+                                              ],
+                                              o: [
+                                                [-0.033, 4.223],
+                                                [0, 0],
+                                                [-4.931, 0],
+                                                [0, -1.934],
+                                                [4.963, -5.35],
+                                                [0, -20.045],
+                                                [0, 0],
+                                                [0, -4.544],
+                                                [4.544, 0],
+                                                [0, 0],
+                                                [18.949, 3.932],
+                                                [0, 26.361],
+                                                [1.547, 1.676]
+                                              ],
+                                              v: [
+                                                [43.75, 49.5],
+                                                [35.467, 57.75],
+                                                [-63.468, 57.75],
+                                                [-71.75, 49.5],
+                                                [-69.527, 43.892],
+                                                [-55.218, 4.125],
+                                                [-22.25, -35.868],
+                                                [-22.25, -41.25],
+                                                [-14, -49.5],
+                                                [-5.75, -41.25],
+                                                [-5.75, -35.868],
+                                                [27.217, 4.125],
+                                                [41.526, 43.892]
+                                              ],
+                                              c: true
+                                            },
+                                            ix: 1
+                                          },
+                                          o: { a: 0, k: 100, ix: 3 },
+                                          x: { a: 0, k: 0, ix: 4 },
+                                          nm: "Bell"
+                                        }
+                                      ],
+                                      shapes: [
+                                        {
+                                          ty: "gr",
+                                          it: [
+                                            {
+                                              ty: "rc",
+                                              d: 1,
+                                              s: { a: 0, k: [200, 200], ix: 2 },
+                                              p: { a: 0, k: [0, 0], ix: 3 },
+                                              r: { a: 0, k: 0, ix: 4 },
+                                              nm: "Rectangle Path 1",
+                                              mn: "ADBE Vector Shape - Rect",
+                                              hd: false
+                                            },
+                                            {
+                                              ty: "fl",
+                                              c: {
+                                                a: 0,
+                                                k: [0.447, 0.329, 0.776, 1],
+                                                ix: 4
+                                              },
+                                              o: { a: 0, k: 100, ix: 5 },
+                                              r: 1,
+                                              bm: 0,
+                                              nm: "Fill 1",
+                                              mn: "ADBE Vector Graphic - Fill",
+                                              hd: false
+                                            },
+                                            {
+                                              ty: "tr",
+                                              p: {
+                                                a: 0,
+                                                k: [-14.219, 20.398],
+                                                ix: 2
+                                              },
+                                              a: { a: 0, k: [0, 0], ix: 1 },
+                                              s: { a: 0, k: [100, 100], ix: 3 },
+                                              r: { a: 0, k: 0, ix: 6 },
+                                              o: { a: 0, k: 100, ix: 7 },
+                                              sk: { a: 0, k: 0, ix: 4 },
+                                              sa: { a: 0, k: 0, ix: 5 },
+                                              nm: "Transform"
+                                            }
+                                          ],
+                                          nm: "Rectangle 1",
+                                          np: 3,
+                                          cix: 2,
+                                          bm: 0,
+                                          ix: 1,
+                                          mn: "ADBE Vector Group",
+                                          hd: false
+                                        }
+                                      ],
+                                      ip: 0,
+                                      op: 95,
+                                      st: 0,
+                                      bm: 0
+                                    },
+                                    {
+                                      ddd: 0,
+                                      ind: 4,
+                                      ty: 4,
+                                      nm: "Spindle",
+                                      sr: 1,
+                                      ks: {
+                                        o: { a: 0, k: 100, ix: 11 },
+                                        r: {
+                                          a: 1,
+                                          k: [
+                                            {
+                                              i: { x: [0.667], y: [1] },
+                                              o: { x: [0.333], y: [0] },
+                                              t: 0,
+                                              s: [0]
+                                            },
+                                            {
+                                              i: { x: [0.667], y: [1] },
+                                              o: { x: [0.333], y: [0] },
+                                              t: 15,
+                                              s: [35]
+                                            },
+                                            {
+                                              i: { x: [0.667], y: [1] },
+                                              o: { x: [0.333], y: [0] },
+                                              t: 30,
+                                              s: [-35]
+                                            },
+                                            {
+                                              i: { x: [0.667], y: [1] },
+                                              o: { x: [0.333], y: [0] },
+                                              t: 45,
+                                              s: [25]
+                                            },
+                                            {
+                                              i: { x: [0.667], y: [1] },
+                                              o: { x: [0.333], y: [0] },
+                                              t: 60,
+                                              s: [-22]
+                                            },
+                                            { t: 75, s: [0] }
+                                          ],
+                                          ix: 10
+                                        },
+                                        p: {
+                                          a: 0,
+                                          k: [100, 39.5, 0],
+                                          ix: 2,
+                                          l: 2
+                                        },
+                                        a: {
+                                          a: 0,
+                                          k: [-14.219, -40.102, 0],
+                                          ix: 1,
+                                          l: 2
+                                        },
+                                        s: {
+                                          a: 0,
+                                          k: [100, 100, 100],
+                                          ix: 6,
+                                          l: 2
+                                        }
+                                      },
+                                      ao: 0,
+                                      hasMask: true,
+                                      masksProperties: [
+                                        {
+                                          inv: false,
+                                          mode: "f",
+                                          pt: {
+                                            a: 0,
+                                            k: {
+                                              i: [
+                                                [0, 9.121],
+                                                [0, 0],
+                                                [9.12, 0]
+                                              ],
+                                              o: [
+                                                [0, 0],
+                                                [0, 9.121],
+                                                [-9.12, 0]
+                                              ],
+                                              v: [
+                                                [-30.5, 66],
+                                                [2.5, 66],
+                                                [-14, 82.5]
+                                              ],
+                                              c: true
+                                            },
+                                            ix: 1
+                                          },
+                                          o: { a: 0, k: 100, ix: 3 },
+                                          x: { a: 0, k: 0, ix: 4 },
+                                          nm: "Spindle"
+                                        }
+                                      ],
+                                      shapes: [
+                                        {
+                                          ty: "gr",
+                                          it: [
+                                            {
+                                              ty: "rc",
+                                              d: 1,
+                                              s: { a: 0, k: [200, 200], ix: 2 },
+                                              p: { a: 0, k: [0, 0], ix: 3 },
+                                              r: { a: 0, k: 0, ix: 4 },
+                                              nm: "Rectangle Path 1",
+                                              mn: "ADBE Vector Shape - Rect",
+                                              hd: false
+                                            },
+                                            {
+                                              ty: "fl",
+                                              c: {
+                                                a: 0,
+                                                k: [0.447, 0.329, 0.776, 1],
+                                                ix: 4
+                                              },
+                                              o: { a: 0, k: 100, ix: 5 },
+                                              r: 1,
+                                              bm: 0,
+                                              nm: "Fill 1",
+                                              mn: "ADBE Vector Graphic - Fill",
+                                              hd: false
+                                            },
+                                            {
+                                              ty: "tr",
+                                              p: {
+                                                a: 0,
+                                                k: [-14.219, 20.398],
+                                                ix: 2
+                                              },
+                                              a: { a: 0, k: [0, 0], ix: 1 },
+                                              s: { a: 0, k: [100, 100], ix: 3 },
+                                              r: { a: 0, k: 0, ix: 6 },
+                                              o: { a: 0, k: 100, ix: 7 },
+                                              sk: { a: 0, k: 0, ix: 4 },
+                                              sa: { a: 0, k: 0, ix: 5 },
+                                              nm: "Transform"
+                                            }
+                                          ],
+                                          nm: "Rectangle 1",
+                                          np: 3,
+                                          cix: 2,
+                                          bm: 0,
+                                          ix: 1,
+                                          mn: "ADBE Vector Group",
+                                          hd: false
+                                        }
+                                      ],
+                                      ip: 0,
+                                      op: 95,
+                                      st: 0,
+                                      bm: 0
                                     }
-                                    const { objRoot, variablePath } = variable;
-
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateNotif"] != null &&
-                              typeof $steps["updateNotif"] === "object" &&
-                              typeof $steps["updateNotif"].then === "function"
-                            ) {
-                              $steps["updateNotif"] =
-                                await $steps["updateNotif"];
+                                  ],
+                                  markers: []
+                                }}
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.lottie
+                                )}
+                              />
                             }
-                          }}
-                          onColorChange={async (...eventArgs: any) => {
-                            ((...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "button",
-                                "color"
-                              ])(eventArgs[0]);
-                            }).apply(null, eventArgs);
-
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          }}
-                          onLoadChange={async (...eventArgs: any) => {
-                            ((...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "button",
-                                "load"
-                              ])(eventArgs[0]);
-                            }).apply(null, eventArgs);
-
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          }}
-                          onLoadingChange={async (...eventArgs: any) => {
-                            ((...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "button",
-                                "loading"
-                              ])(eventArgs[0]);
-                            }).apply(null, eventArgs);
-
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          }}
-                          shape={"rounded"}
-                          showEndIcon={true}
-                          size={"compact"}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__svDmd
-                            )}
-                          >
-                            {
-                              "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u0634\u0646"
-                            }
-                          </div>
-                        </Button>
-                      ) : null}
-                      {(() => {
-                        try {
-                          return $state.footerMain.type == "reminder";
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__lt1FT
-                          )}
-                        >
-                          <Icon270Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__a4KP
-                            )}
+                            load={generateStateValueProp($state, [
+                              "button",
+                              "load"
+                            ])}
+                            loading={generateStateValueProp($state, [
+                              "button",
+                              "loading"
+                            ])}
                             onClick={async event => {
                               const $steps = {};
 
-                              $steps["goToMain2"] = true
+                              $steps["runCode"] = true
                                 ? (() => {
                                     const actionArgs = {
-                                      destination: `/main/${(() => {
-                                        try {
-                                          return (() => {
-                                            var s = $ctx.params.page;
-                                            s.push("reminderSetting");
-                                            return s.join("/");
-                                          })();
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
+                                      customFunction: async () => {
+                                        return requestPermission().then(
+                                          result => {
+                                            $state.promise = result;
                                           }
-                                          throw e;
-                                        }
-                                      })()}`
-                                    };
-                                    return (({ destination }) => {
-                                      if (
-                                        typeof destination === "string" &&
-                                        destination.startsWith("#")
-                                      ) {
-                                        document
-                                          .getElementById(destination.substr(1))
-                                          .scrollIntoView({
-                                            behavior: "smooth"
-                                          });
-                                      } else {
-                                        __nextRouter?.push(destination);
+                                        );
                                       }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
                                     })?.apply(null, [actionArgs]);
                                   })()
                                 : undefined;
                               if (
-                                $steps["goToMain2"] != null &&
-                                typeof $steps["goToMain2"] === "object" &&
-                                typeof $steps["goToMain2"].then === "function"
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
                               ) {
-                                $steps["goToMain2"] = await $steps["goToMain2"];
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+
+                              $steps["invokeGlobalAction"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      args: [
+                                        (() => {
+                                          try {
+                                            return $state.promise.ok == true
+                                              ? "success"
+                                              : "error";
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })(),
+                                        (() => {
+                                          try {
+                                            return $state.promise.message;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })(),
+                                        "top-left"
+                                      ]
+                                    };
+                                    return $globalActions[
+                                      "Fragment.showToast"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["invokeGlobalAction"] != null &&
+                                typeof $steps["invokeGlobalAction"] ===
+                                  "object" &&
+                                typeof $steps["invokeGlobalAction"].then ===
+                                  "function"
+                              ) {
+                                $steps["invokeGlobalAction"] =
+                                  await $steps["invokeGlobalAction"];
+                              }
+
+                              $steps["updateNotif"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["notif"]
+                                      },
+                                      operation: 0,
+                                      value: $state.promise.ok == true
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateNotif"] != null &&
+                                typeof $steps["updateNotif"] === "object" &&
+                                typeof $steps["updateNotif"].then === "function"
+                              ) {
+                                $steps["updateNotif"] =
+                                  await $steps["updateNotif"];
                               }
                             }}
-                            role={"img"}
-                          />
+                            onColorChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button",
+                                  "color"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
 
-                          {(() => {
-                            try {
-                              return $state.footerMain.type == "reminder";
-                            } catch (e) {
                               if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
                               ) {
-                                return true;
+                                return;
                               }
-                              throw e;
-                            }
-                          })() ? (
-                            <CreaditButten
-                              data-plasmic-name={"creaditButten"}
-                              data-plasmic-override={overrides.creaditButten}
+                            }}
+                            onLoadChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button",
+                                  "load"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadingChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button",
+                                  "loading"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            shape={"rounded"}
+                            showEndIcon={true}
+                            size={"compact"}
+                          >
+                            <div
                               className={classNames(
-                                "__wab_instance",
-                                sty.creaditButten
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__svDmd
+                              )}
+                            >
+                              {
+                                "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u0634\u0646"
+                              }
+                            </div>
+                          </Button>
+                        ) : null}
+                        {(() => {
+                          try {
+                            return $state.footerMain.type == "reminder";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__lt1FT
+                            )}
+                          >
+                            <Icon270Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__a4KP
                               )}
                               onClick={async event => {
                                 const $steps = {};
 
-                                $steps["goToMojodi"] = true
+                                $steps["goToMain2"] = true
                                   ? (() => {
                                       const actionArgs = {
-                                        destination: `/mojod/${"home"}`
+                                        destination: `/main/${(() => {
+                                          try {
+                                            return (() => {
+                                              var s = $ctx.params.page;
+                                              s.push("reminderSetting");
+                                              return s.join("/");
+                                            })();
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()}`
                                       };
                                       return (({ destination }) => {
                                         if (
@@ -2876,163 +2866,225 @@ function PlasmicMainCalendar__RenderFunc(props: {
                                     })()
                                   : undefined;
                                 if (
-                                  $steps["goToMojodi"] != null &&
-                                  typeof $steps["goToMojodi"] === "object" &&
-                                  typeof $steps["goToMojodi"].then ===
-                                    "function"
+                                  $steps["goToMain2"] != null &&
+                                  typeof $steps["goToMain2"] === "object" &&
+                                  typeof $steps["goToMain2"].then === "function"
                                 ) {
-                                  $steps["goToMojodi"] =
-                                    await $steps["goToMojodi"];
+                                  $steps["goToMain2"] =
+                                    await $steps["goToMain2"];
                                 }
                               }}
-                              onCreaditChange2={async (...eventArgs: any) => {
-                                generateStateOnChangeProp($state, [
-                                  "creaditButten",
-                                  "creadit"
-                                ]).apply(null, eventArgs);
-
-                                if (
-                                  eventArgs.length > 1 &&
-                                  eventArgs[1] &&
-                                  eventArgs[1]._plasmic_state_init_
-                                ) {
-                                  return;
-                                }
-                              }}
-                              token={(() => {
-                                try {
-                                  return $state.mainPage.token;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()}
+                              role={"img"}
                             />
-                          ) : null}
-                        </div>
-                      ) : null}
-                    </React.Fragment>
-                  ),
-                  token: (() => {
-                    try {
-                      return localStorage.getItem("token");
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })(),
-                  userinfo: (() => {
-                    try {
-                      return JSON.parse(
-                        localStorage.getItem("userinfo") || "{}"
-                      )?.user;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return {};
-                      }
-                      throw e;
-                    }
-                  })()
-                };
 
-                initializePlasmicStates(
-                  $state,
-                  [
-                    {
-                      name: "mainHeader.dopen",
-                      initFunc: ({ $props, $state, $queries }) =>
-                        (() => {
-                          try {
-                            return $ctx.query.menu == "true";
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return false;
-                            }
-                            throw e;
-                          }
-                        })()
-                    }
-                  ],
-                  []
-                );
-                return (
-                  <MainHeader
-                    data-plasmic-name={"mainHeader"}
-                    data-plasmic-override={overrides.mainHeader}
-                    {...child$Props}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__yWxLk)}
-                    >
-                      <Icon185Icon
-                        className={classNames(projectcss.all, sty.svg__zLLH)}
-                        onClick={async event => {
-                          const $steps = {};
+                            {(() => {
+                              try {
+                                return $state.footerMain.type == "reminder";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return true;
+                                }
+                                throw e;
+                              }
+                            })() ? (
+                              <CreaditButten
+                                data-plasmic-name={"creaditButten"}
+                                data-plasmic-override={overrides.creaditButten}
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.creaditButten
+                                )}
+                                onClick={async event => {
+                                  const $steps = {};
 
-                          $steps["goToMain2"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  destination: `/main/${(() => {
-                                    try {
-                                      return $ctx.params.page.join("/");
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()}?menu=${"true"}`
-                                };
-                                return (({ destination }) => {
+                                  $steps["goToMojodi"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          destination: `/mojod/${"home"}`
+                                        };
+                                        return (({ destination }) => {
+                                          if (
+                                            typeof destination === "string" &&
+                                            destination.startsWith("#")
+                                          ) {
+                                            document
+                                              .getElementById(
+                                                destination.substr(1)
+                                              )
+                                              .scrollIntoView({
+                                                behavior: "smooth"
+                                              });
+                                          } else {
+                                            __nextRouter?.push(destination);
+                                          }
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
                                   if (
-                                    typeof destination === "string" &&
-                                    destination.startsWith("#")
+                                    $steps["goToMojodi"] != null &&
+                                    typeof $steps["goToMojodi"] === "object" &&
+                                    typeof $steps["goToMojodi"].then ===
+                                      "function"
                                   ) {
-                                    document
-                                      .getElementById(destination.substr(1))
-                                      .scrollIntoView({ behavior: "smooth" });
-                                  } else {
-                                    __nextRouter?.push(destination);
+                                    $steps["goToMojodi"] =
+                                      await $steps["goToMojodi"];
                                   }
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["goToMain2"] != null &&
-                            typeof $steps["goToMain2"] === "object" &&
-                            typeof $steps["goToMain2"].then === "function"
-                          ) {
-                            $steps["goToMain2"] = await $steps["goToMain2"];
-                          }
-                        }}
-                        role={"img"}
-                      />
-                    </div>
-                  </MainHeader>
-                );
-              })()}
-            </section>
+                                }}
+                                onCreaditChange2={async (...eventArgs: any) => {
+                                  generateStateOnChangeProp($state, [
+                                    "creaditButten",
+                                    "creadit"
+                                  ]).apply(null, eventArgs);
+
+                                  if (
+                                    eventArgs.length > 1 &&
+                                    eventArgs[1] &&
+                                    eventArgs[1]._plasmic_state_init_
+                                  ) {
+                                    return;
+                                  }
+                                }}
+                                token={(() => {
+                                  try {
+                                    return $state.mainPage.token;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              />
+                            ) : null}
+                          </div>
+                        ) : null}
+                      </React.Fragment>
+                    ),
+                    token: (() => {
+                      try {
+                        return localStorage.getItem("token");
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })(),
+                    userinfo: (() => {
+                      try {
+                        return JSON.parse(
+                          localStorage.getItem("userinfo") || "{}"
+                        )?.user;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return {};
+                        }
+                        throw e;
+                      }
+                    })()
+                  };
+
+                  initializePlasmicStates(
+                    $state,
+                    [
+                      {
+                        name: "mainHeader.dopen",
+                        initFunc: ({ $props, $state, $queries }) =>
+                          (() => {
+                            try {
+                              return $ctx.query.menu == "true";
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
+                              }
+                              throw e;
+                            }
+                          })()
+                      }
+                    ],
+                    []
+                  );
+                  return (
+                    <MainHeader
+                      data-plasmic-name={"mainHeader"}
+                      data-plasmic-override={overrides.mainHeader}
+                      {...child$Props}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__yWxLk
+                        )}
+                      >
+                        <Icon185Icon
+                          className={classNames(projectcss.all, sty.svg__zLLH)}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["goToMain2"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    destination: `/main/${(() => {
+                                      try {
+                                        return $ctx.params.page.join("/");
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()}?menu=${"true"}`
+                                  };
+                                  return (({ destination }) => {
+                                    if (
+                                      typeof destination === "string" &&
+                                      destination.startsWith("#")
+                                    ) {
+                                      document
+                                        .getElementById(destination.substr(1))
+                                        .scrollIntoView({ behavior: "smooth" });
+                                    } else {
+                                      __nextRouter?.push(destination);
+                                    }
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["goToMain2"] != null &&
+                              typeof $steps["goToMain2"] === "object" &&
+                              typeof $steps["goToMain2"].then === "function"
+                            ) {
+                              $steps["goToMain2"] = await $steps["goToMain2"];
+                            }
+                          }}
+                          role={"img"}
+                        />
+                      </div>
+                    </MainHeader>
+                  );
+                })()}
+              </section>
+            ) : null}
           </div>
           <Reveal
             className={classNames("__wab_instance", sty.reveal__sDhUb, {
