@@ -78,15 +78,18 @@ createPlasmicElementProxy;
 export type PlasmicReportItem__VariantMembers = {
   select: "select";
   send: "send";
+  disable: "disable";
 };
 export type PlasmicReportItem__VariantsArgs = {
   select?: SingleBooleanChoiceArg<"select">;
   send?: SingleBooleanChoiceArg<"send">;
+  disable?: SingleBooleanChoiceArg<"disable">;
 };
 type VariantPropType = keyof PlasmicReportItem__VariantsArgs;
 export const PlasmicReportItem__VariantProps = new Array<VariantPropType>(
   "select",
-  "send"
+  "send",
+  "disable"
 );
 
 export type PlasmicReportItem__ArgsType = {
@@ -120,6 +123,7 @@ export interface DefaultReportItemProps {
   count?: number;
   select?: SingleBooleanChoiceArg<"select">;
   send?: SingleBooleanChoiceArg<"send">;
+  disable?: SingleBooleanChoiceArg<"disable">;
   className?: string;
 }
 
@@ -197,7 +201,12 @@ function PlasmicReportItem__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
-          hasVariant($state, "send", "send") ? [] : "sand"
+          hasVariant($state, "disable", "disable") &&
+          hasVariant($state, "send", "send")
+            ? "sand"
+            : hasVariant($state, "send", "send")
+              ? []
+              : "sand"
       },
       {
         path: "button3.loading",
@@ -216,6 +225,12 @@ function PlasmicReportItem__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.send
+      },
+      {
+        path: "disable",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.disable
       }
     ],
     [$props, $ctx, $refs]
@@ -248,6 +263,11 @@ function PlasmicReportItem__RenderFunc(props: {
     >
       <div
         className={classNames(projectcss.all, sty.freeBox___4R0QH, {
+          [sty.freeBoxdisable___4R0QHm6Su]: hasVariant(
+            $state,
+            "disable",
+            "disable"
+          ),
           [sty.freeBoxselect___4R0QHp3TGe]: hasVariant(
             $state,
             "select",
@@ -259,6 +279,11 @@ function PlasmicReportItem__RenderFunc(props: {
       >
         <div
           className={classNames(projectcss.all, sty.freeBox__mQuuA, {
+            [sty.freeBoxdisable__mQuuAm6Su]: hasVariant(
+              $state,
+              "disable",
+              "disable"
+            ),
             [sty.freeBoxselect__mQuuAp3TGe]: hasVariant(
               $state,
               "select",
@@ -267,7 +292,15 @@ function PlasmicReportItem__RenderFunc(props: {
             [sty.freeBoxsend__mQuuAu6NHs]: hasVariant($state, "send", "send")
           })}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__tSh4J)}>
+          <div
+            className={classNames(projectcss.all, sty.freeBox__tSh4J, {
+              [sty.freeBoxdisable__tSh4Jm6Su]: hasVariant(
+                $state,
+                "disable",
+                "disable"
+              )
+            })}
+          >
             <div className={classNames(projectcss.all, sty.freeBox__gRlB)}>
               <_3DIcon
                 data-plasmic-name={"_3DIcon"}
@@ -354,6 +387,11 @@ function PlasmicReportItem__RenderFunc(props: {
           </div>
           <div
             className={classNames(projectcss.all, sty.freeBox__qJyF, {
+              [sty.freeBoxdisable__qJyFm6Su]: hasVariant(
+                $state,
+                "disable",
+                "disable"
+              ),
               [sty.freeBoxselect__qJyFP3TGe]: hasVariant(
                 $state,
                 "select",
@@ -525,6 +563,11 @@ function PlasmicReportItem__RenderFunc(props: {
             </div>
             <div
               className={classNames(projectcss.all, sty.freeBox___7SeSq, {
+                [sty.freeBoxdisable___7SeSQm6Su]: hasVariant(
+                  $state,
+                  "disable",
+                  "disable"
+                ),
                 [sty.freeBoxselect___7SeSqp3TGe]: hasVariant(
                   $state,
                   "select",
@@ -605,8 +648,16 @@ function PlasmicReportItem__RenderFunc(props: {
                 data-plasmic-name={"button3"}
                 data-plasmic-override={overrides.button3}
                 className={classNames("__wab_instance", sty.button3, {
+                  [sty.button3disable]: hasVariant(
+                    $state,
+                    "disable",
+                    "disable"
+                  ),
                   [sty.button3select]: hasVariant($state, "select", "select"),
-                  [sty.button3send]: hasVariant($state, "send", "send")
+                  [sty.button3send]: hasVariant($state, "send", "send"),
+                  [sty.button3send_disable]:
+                    hasVariant($state, "disable", "disable") &&
+                    hasVariant($state, "send", "send")
                 })}
                 color={generateStateValueProp($state, ["button3", "color"])}
                 load={generateStateValueProp($state, ["button3", "load"])}
@@ -665,7 +716,10 @@ function PlasmicReportItem__RenderFunc(props: {
                         $state,
                         "send",
                         "send"
-                      )
+                      ),
+                      [sty.svgsend_disable__mqVIgU6NHsM6Su]:
+                        hasVariant($state, "disable", "disable") &&
+                        hasVariant($state, "send", "send")
                     })}
                     role={"img"}
                   />
@@ -681,7 +735,10 @@ function PlasmicReportItem__RenderFunc(props: {
                         $state,
                         "send",
                         "send"
-                      )
+                      ),
+                      [sty.textsend_disable__oqVXwU6NHsM6Su]:
+                        hasVariant($state, "disable", "disable") &&
+                        hasVariant($state, "send", "send")
                     }
                   )}
                 >

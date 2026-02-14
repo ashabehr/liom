@@ -40,6 +40,9 @@
   border-radius: var(--token-O5TjkXII_aat);
   border-width: 0px;
 }
+.freeBoxdisable___4R0QHm6Su {
+  opacity: 0.5;
+}
 .freeBox__mQuuA {
   display: flex;
   flex-direction: column;
@@ -313,12 +316,18 @@
 .svgsend__mqVIgU6NHs {
   color: var(--token-R_Rsn0nP9oIv);
 }
+.svgsend_disable__mqVIgU6NHsM6Su {
+  color: var(--token--AiIiH6B786R);
+}
 .text__oqVXw {
   animation: none;
   color: var(--token-DFwge94Hey3F);
 }
 .textsend__oqVXwU6NHs {
   color: var(--token-R_Rsn0nP9oIv);
+}
+.textsend_disable__oqVXwU6NHsM6Su {
+  color: var(--token--AiIiH6B786R);
 }
 .svg__eefRq {
   object-fit: cover;
