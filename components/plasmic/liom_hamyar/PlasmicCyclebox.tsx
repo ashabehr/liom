@@ -255,31 +255,31 @@ function PlasmicCyclebox__RenderFunc(props: {
         path: "normalpms",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.normalpms
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.normalpms
       },
       {
         path: "pregnancy",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.pregnancy
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.pregnancy
       },
       {
         path: "button.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "grayLigth"
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => "grayLigth"
       },
       {
         path: "button.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "button.load",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -288,6 +288,7 @@ function PlasmicCyclebox__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

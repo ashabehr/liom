@@ -202,7 +202,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "toolsList",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return [
@@ -346,7 +346,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "darkMod",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $ctx.query.theme == "dark";
@@ -365,7 +365,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "babySize",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [
           {
             h: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
             w: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
@@ -433,7 +433,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "textWeek",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [
           "",
           "اول",
           "دوم",
@@ -481,7 +481,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "weeksPregnant",
         type: "readonly",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             if ($state.user?.[0]?.dueDate) {
               let initialDate = new Date($state.user?.[0]?.dueDate);
@@ -513,7 +513,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "daysPregnant",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             if ($state.user?.[0]?.dueDate) {
               let dueDate = new Date($state.user[0].dueDate);
@@ -540,7 +540,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "monthPregnant",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             function getPregnancyMonth(daysPregnant) {
               const monthEndDays = [29, 59, 89, 119, 149, 179, 209, 239, 280];
@@ -559,25 +559,25 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "dateOfBirth",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({ data: "" })
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({ data: "" })
       },
       {
         path: "lastTime",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({ data: "" })
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({ data: "" })
       },
       {
         path: "typeInterDate",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "sizeByFruit",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [
           "",
           "\u062a\u062e\u0645\u06a9",
           "\u0644\u0642\u0627\u062d",
@@ -625,13 +625,13 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "isTimer",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => true
       },
       {
         path: "getAdvice",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({
           id: 0,
           text: ".",
           weekNumber: 0,
@@ -643,7 +643,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "getTask",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({
           loading: true,
           list: []
         })
@@ -652,31 +652,31 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "user",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       },
       {
         path: "loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => true
       },
       {
         path: "isNoData",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => true
       },
       {
         path: "switchbest.isChecked",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "collapseBaby.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
       },
@@ -684,7 +684,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "collapseMother.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
       },
@@ -692,7 +692,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "collapseHealth.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
       },
@@ -700,7 +700,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "collapseAdvice.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => true,
 
         onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
       },
@@ -708,7 +708,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "selectedWeek",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.weeksPregnant;
@@ -727,13 +727,13 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "button.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "collapseTest.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
       },
@@ -741,13 +741,13 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "loadingAdvice",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "collapseDanger.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
       },
@@ -755,7 +755,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "getDangerItem",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({
           id: 0,
           title: ".",
           stepId: 0
@@ -765,7 +765,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "collapseMedicine2.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
       },
@@ -773,25 +773,25 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "directDialog2.selectShop",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "directDialog2.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "switchbest2.isChecked",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "slideinModal.click",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return false;
@@ -810,13 +810,13 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "typeBuy",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "pregnancySub"
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => "pregnancySub"
       },
       {
         path: "suggest",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return [
@@ -880,7 +880,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "questions",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return [
@@ -927,19 +927,19 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "variable",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "variable2",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "randomQuestion",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return Math.floor(Math.random() * 21);
@@ -958,7 +958,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "getAds",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({
           id: 0,
           name: "",
           banner: "",
@@ -970,7 +970,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "getQuestion",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [
           {
             id: -1,
             text: "\u0686\u0647 \u0686\u06cc\u0632\u0627\u06cc\u06cc \u062f\u0631 \u0627\u06cc\u0646 \u0647\u0641\u062a\u0647 \u0628\u0631\u0627\u0645\u0648\u0646 \u062e\u0637\u0631\u0646\u0627\u06a9\u0647\u061f",
@@ -994,31 +994,31 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "button2.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ``
       },
       {
         path: "paramsObject",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       },
       {
         path: "userId",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ``
       },
       {
         path: "suggestActiveSms",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return (() => {
@@ -1041,7 +1041,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "getAdvice2",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => []
       },
       {
         path: "button3[].color",
@@ -1052,7 +1052,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "playList",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [
           {
             title:
               "\u0622\u0647\u0646 \u062f\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
@@ -1158,13 +1158,13 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "randomIndex",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 0
       },
       {
         path: "serviceInterruption",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return (() => {
@@ -1188,7 +1188,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "button.load",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "button3[].load",
@@ -1199,13 +1199,13 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "button2.load",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "button.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "button3[].loading",
@@ -1216,19 +1216,19 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "button2.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "userInfo",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       },
       {
         path: "newvieww",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return (() => {
@@ -1249,37 +1249,37 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "dayCounter",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "switchbest.data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       },
       {
         path: "switchbest2.data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       },
       {
         path: "loadingGetLink",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "getTooltip",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       },
       {
         path: "showTooltip",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return (() => {
@@ -1300,7 +1300,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "shopOfferBox.redirectUrl",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return `https://apps.liom.app/pregnancy/?token=${$state.token}&userId=${$state.userId}&inApp=${$state.paramsObject.inApp}&theme=${$state.paramsObject.theme}`;
@@ -1319,19 +1319,19 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "shopOfferBox.buyId",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "button6.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "white"
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => "white"
       },
       {
         path: "button6.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.loadingGetLink;
@@ -1350,19 +1350,19 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
         path: "button6.load",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "dialogTooltip.opendialog",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "dialog",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -1371,6 +1371,7 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 
@@ -15310,7 +15311,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                                   initFunc: ({
                                                     $props,
                                                     $state,
-                                                    $queries
+                                                    $queries,
+                                                    $q
                                                   }) => undefined
                                                 },
                                                 {
@@ -15318,7 +15320,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                                   initFunc: ({
                                                     $props,
                                                     $state,
-                                                    $queries
+                                                    $queries,
+                                                    $q
                                                   }) => false
                                                 },
                                                 {
@@ -15326,7 +15329,8 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
                                                   initFunc: ({
                                                     $props,
                                                     $state,
-                                                    $queries
+                                                    $queries,
+                                                    $q
                                                   }) => undefined
                                                 }
                                               ],

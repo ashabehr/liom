@@ -193,13 +193,13 @@ function PlasmicCheckbox__RenderFunc(props: {
         path: "noLabel",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.noLabel
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.noLabel
       },
       {
         path: "isDisabled",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.isDisabled
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.isDisabled
       },
       {
         path: "isChecked",
@@ -213,31 +213,32 @@ function PlasmicCheckbox__RenderFunc(props: {
         path: "isIndeterminate",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.isIndeterminate
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
+          $props.isIndeterminate
       },
       {
         path: "circle",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.circle
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.circle
       },
       {
         path: "filter",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.filter
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.filter
       },
       {
         path: "custom",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.custom
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.custom
       },
       {
         path: "size",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.size
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.size
       }
     ],
     [$props, $ctx, $refs]
@@ -246,6 +247,7 @@ function PlasmicCheckbox__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

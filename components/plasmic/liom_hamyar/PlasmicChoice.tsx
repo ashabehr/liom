@@ -139,7 +139,7 @@ function PlasmicChoice__RenderFunc(props: {
         path: "info",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [
           {
             label: "\u06af\u0632\u06cc\u0646\u0647 \u0627\u0648\u0644",
             value: 1
@@ -163,7 +163,7 @@ function PlasmicChoice__RenderFunc(props: {
         path: "newInfo",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => []
       }
     ],
     [$props, $ctx, $refs]
@@ -172,6 +172,7 @@ function PlasmicChoice__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

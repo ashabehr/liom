@@ -198,7 +198,7 @@ function PlasmicLike__RenderFunc(props: {
         path: "likeCountForLikeBar",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $props.likeCountForBar;
@@ -217,7 +217,7 @@ function PlasmicLike__RenderFunc(props: {
         path: "isLikeForBar",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $props.islikePost;
@@ -236,13 +236,13 @@ function PlasmicLike__RenderFunc(props: {
         path: "modal.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "main",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.main
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.main
       }
     ],
     [$props, $ctx, $refs]
@@ -251,6 +251,7 @@ function PlasmicLike__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

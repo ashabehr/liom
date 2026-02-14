@@ -98,6 +98,30 @@ import Icon217Icon from "./icons/PlasmicIcon__Icon217"; // plasmic-import: LCc0I
 
 import __lib_copyToClipboard from "copy-to-clipboard";
 
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    openGraph: {},
+    twitter: {
+      card: "summary"
+    }
+  };
+}
+
 createPlasmicElementProxy;
 
 export type PlasmicHamyarAdd__VariantMembers = {};
@@ -197,25 +221,25 @@ function PlasmicHamyarAdd__RenderFunc(props: {
         path: "button.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "number2.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "textInput.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "antdInput.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("value", Input_Helpers)
       },
@@ -223,31 +247,31 @@ function PlasmicHamyarAdd__RenderFunc(props: {
         path: "button2.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "number",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "name2.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "textInput2.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "antdInput2.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("value", Input_Helpers)
       },
@@ -255,31 +279,31 @@ function PlasmicHamyarAdd__RenderFunc(props: {
         path: "button3.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "name",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ``
       },
       {
         path: "relation",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "type",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.userinfo.healthStatus == "pregnancy"
@@ -300,31 +324,31 @@ function PlasmicHamyarAdd__RenderFunc(props: {
         path: "masseg",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       },
       {
         path: "errror",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       },
       {
         path: "sms.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "button4.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "button5.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "clear"
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => "clear"
       },
       {
         path: "switchbest[].isChecked",
@@ -350,13 +374,13 @@ function PlasmicHamyarAdd__RenderFunc(props: {
         path: "remove.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "removeBtn.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           hasVariant(globalVariants, "screen", "mobile")
             ? "whiteYellowLine"
             : "whiteYellowLine"
@@ -365,97 +389,97 @@ function PlasmicHamyarAdd__RenderFunc(props: {
         path: "button9.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "clear"
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => "clear"
       },
       {
         path: "hamyarList.data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "hamyarList.error",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "hamyarList.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "popoverOpen",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [false, false]
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [false, false]
       },
       {
         path: "removeItem",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       },
       {
         path: "loadingBtn",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "v",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "directDialog2.selectShop",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "directDialog2.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "errorMassege",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "v2",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "load.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "paramsObject",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       },
       {
         path: "userinfo",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       },
       {
         path: "info",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({
           success: true,
           result: {
             text: "\u0628\u0627 \u0627\u0636\u0627\u0641\u0647 \u06a9\u0631\u062f\u0646 \u0647\u0645\u06cc\u0627\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u060c \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u0647 \u06a9\u0633\u06cc \u06a9\u0647 \u0634\u0645\u0627\u0631\u0647\u200c\u0634\u0648 \u0648\u0627\u0631\u062f \u0645\u06cc\u200c\u06a9\u0646\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u0628\u062f\u06cc \u062a\u0627 \u0645\u0631\u0627\u062d\u0644 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a \u0631\u0648 \u0628\u0628\u06cc\u0646\u0647 \u0648 \u062a\u0648 \u0644\u062d\u0638\u0627\u062a \u062d\u0633\u0627\u0633 \u06a9\u0646\u0627\u0631\u062a \u0628\u0627\u0634\u0647 \u0648 \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9\u062a \u06a9\u0646\u0647 \u062a\u0627 \u062d\u0633 \u0647\u0645\u0631\u0627\u0647\u06cc \u0631\u0648 \u062a\u0648\u06cc \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u062a\u062c\u0631\u0628\u0647 \u06a9\u0646\u06cc. \u2764\ufe0f \u0627\u06af\u0647 \u06af\u0632\u06cc\u0646\u0647 \u0627\u0637\u0644\u0627\u0639\u200c\u0631\u0633\u0627\u0646\u06cc \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0646\u06cc\u060c \u0645\u0627 \u0628\u0647 \u0637\u0648\u0631 \u0645\u0646\u0638\u0645 \u0647\u0631 \u0647\u0641\u062a\u0647 \u067e\u06cc\u0627\u0645\u06cc \u0628\u0647 \u0627\u0648\u0646 \u0634\u062e\u0635 \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u06a9\u0646\u06cc\u0645 \u06a9\u0647 \u0634\u0627\u0645\u0644 \u0627\u0637\u0644\u0627\u0639\u0627\u062a\u06cc \u0627\u0632 \u0648\u0636\u0639\u06cc\u062a \u0631\u0634\u062f \u06a9\u0648\u062f\u06a9 \u0648 \u0646\u06cc\u0627\u0632\u0647\u0627\u06cc \u062a\u0648 \u062f\u0631 \u0627\u06cc\u0646 \u0647\u0641\u062a\u0647 \u0627\u0632 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u0647. \u0627\u06cc\u0646 \u067e\u06cc\u0627\u0645\u200c\u0647\u0627 \u06a9\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0646 \u062a\u0627 \u0628\u0627 \u0634\u0631\u0627\u06cc\u0637\u062a \u0622\u0634\u0646\u0627 \u0628\u0634\u0647 \u0648 \u062f\u0631 \u0645\u0648\u0627\u0642\u0639\u06cc \u06a9\u0647 \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u06cc\u060c \u0647\u0645\u0631\u0627\u0647 \u0648 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u062a \u0628\u0627\u0634\u0647  \u062a\u0627 \u0628\u0627 \u0622\u0631\u0627\u0645\u0634 \u0628\u06cc\u0634\u062a\u0631\u06cc \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0631\u0648 \u0628\u06af\u0630\u0631\u0648\u0646\u06cc. \u0628\u0627 \u0647\u0645\u06cc\u0627\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u060c \u06cc\u06a9 \u0645\u0633\u06cc\u0631 \u0622\u0631\u0627\u0645\u200c\u062a\u0631 \u0648 \u062d\u0633 \u062d\u0645\u0627\u06cc\u062a \u0648\u0627\u0642\u0639\u06cc \u0631\u0648 \u062a\u062c\u0631\u0628\u0647 \u06a9\u0646! ",
@@ -489,55 +513,55 @@ function PlasmicHamyarAdd__RenderFunc(props: {
         path: "loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => true
       },
       {
         path: "shopType",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "button2.load",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "button3.load",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "button4.load",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "button5.load",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "removeBtn.load",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "button9.load",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "button.load",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "button6[].load",
@@ -553,13 +577,13 @@ function PlasmicHamyarAdd__RenderFunc(props: {
         path: "button2.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "button3.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.loadingBtn;
@@ -578,19 +602,19 @@ function PlasmicHamyarAdd__RenderFunc(props: {
         path: "button4.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "button5.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "removeBtn.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.loadingBtn;
@@ -609,13 +633,13 @@ function PlasmicHamyarAdd__RenderFunc(props: {
         path: "button9.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "button.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "button6[].loading",
@@ -639,8 +663,14 @@ function PlasmicHamyarAdd__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
+
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
 
   const styleTokensClassNames = _useStyleTokens();
 
@@ -3733,7 +3763,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                           initFunc: ({
                                             $props,
                                             $state,
-                                            $queries
+                                            $queries,
+                                            $q
                                           }) => "clear"
                                         },
                                         {
@@ -3741,7 +3772,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                           initFunc: ({
                                             $props,
                                             $state,
-                                            $queries
+                                            $queries,
+                                            $q
                                           }) => false
                                         },
                                         {
@@ -3749,7 +3781,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                           initFunc: ({
                                             $props,
                                             $state,
-                                            $queries
+                                            $queries,
+                                            $q
                                           }) => undefined
                                         }
                                       ],
@@ -3995,7 +4028,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                           initFunc: ({
                                             $props,
                                             $state,
-                                            $queries
+                                            $queries,
+                                            $q
                                           }) => "clear"
                                         },
                                         {
@@ -4003,7 +4037,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                           initFunc: ({
                                             $props,
                                             $state,
-                                            $queries
+                                            $queries,
+                                            $q
                                           }) => false
                                         },
                                         {
@@ -4011,7 +4046,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                           initFunc: ({
                                             $props,
                                             $state,
-                                            $queries
+                                            $queries,
+                                            $q
                                           }) => undefined
                                         }
                                       ],
@@ -4084,8 +4120,12 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                               [
                                 {
                                   name: "popover[].open",
-                                  initFunc: ({ $props, $state, $queries }) =>
-                                    undefined
+                                  initFunc: ({
+                                    $props,
+                                    $state,
+                                    $queries,
+                                    $q
+                                  }) => undefined
                                 }
                               ],
                               [__plasmic_idx_0]
@@ -4642,7 +4682,12 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                 [
                                   {
                                     name: "switchbest[].isChecked",
-                                    initFunc: ({ $props, $state, $queries }) =>
+                                    initFunc: ({
+                                      $props,
+                                      $state,
+                                      $queries,
+                                      $q
+                                    }) =>
                                       (() => {
                                         try {
                                           return currentItem.rel.statusSms;
@@ -4663,7 +4708,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                     initFunc: ({
                                       $props,
                                       $state,
-                                      $queries
+                                      $queries,
+                                      $q
                                     }) => ({})
                                   }
                                 ],
@@ -5634,13 +5680,11 @@ export const PlasmicHamyarAdd = Object.assign(
     internalVariantProps: PlasmicHamyarAdd__VariantProps,
     internalArgProps: PlasmicHamyarAdd__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/hamyar-add",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 

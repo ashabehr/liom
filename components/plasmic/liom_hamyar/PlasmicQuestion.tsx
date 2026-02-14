@@ -149,13 +149,13 @@ function PlasmicQuestion__RenderFunc(props: {
         path: "_2Question",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props._2Question
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props._2Question
       },
       {
         path: "_4Question",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props._4Question
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props._4Question
       }
     ],
     [$props, $ctx, $refs]
@@ -164,6 +164,7 @@ function PlasmicQuestion__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

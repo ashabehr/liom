@@ -154,7 +154,7 @@ function PlasmicSteps2__RenderFunc(props: {
         path: "steps",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return ["تنظیم", "طریقه ارسال "];
@@ -192,6 +192,7 @@ function PlasmicSteps2__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

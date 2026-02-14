@@ -278,7 +278,7 @@ function PlasmicChartViow__RenderFunc(props: {
         path: "userdata",
         type: "readonly",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({}),
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({}),
 
         onChangeProp: "onUserdataChange"
       },
@@ -286,7 +286,7 @@ function PlasmicChartViow__RenderFunc(props: {
         path: "variable",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -295,6 +295,7 @@ function PlasmicChartViow__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

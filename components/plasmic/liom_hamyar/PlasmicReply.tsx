@@ -165,6 +165,7 @@ function PlasmicReply__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

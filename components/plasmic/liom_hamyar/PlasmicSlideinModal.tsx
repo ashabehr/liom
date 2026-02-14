@@ -170,7 +170,7 @@ function PlasmicSlideinModal__RenderFunc(props: {
         path: "dark2",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $props.dark;
@@ -192,6 +192,7 @@ function PlasmicSlideinModal__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

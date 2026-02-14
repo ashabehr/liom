@@ -157,7 +157,7 @@ function PlasmicMedisene__RenderFunc(props: {
         path: "open",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.open
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.open
       }
     ],
     [$props, $ctx, $refs]
@@ -166,6 +166,7 @@ function PlasmicMedisene__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

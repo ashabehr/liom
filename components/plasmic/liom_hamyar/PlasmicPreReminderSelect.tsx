@@ -154,7 +154,7 @@ function PlasmicPreReminderSelect__RenderFunc(props: {
         path: "checkboxGroup2.value",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "checkbox4[].isChecked",
@@ -184,6 +184,7 @@ function PlasmicPreReminderSelect__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 
@@ -305,7 +306,7 @@ function PlasmicPreReminderSelect__RenderFunc(props: {
                     [
                       {
                         name: "checkbox4[].isChecked",
-                        initFunc: ({ $props, $state, $queries }) =>
+                        initFunc: ({ $props, $state, $queries, $q }) =>
                           (() => {
                             try {
                               return $state.selectItem.find(

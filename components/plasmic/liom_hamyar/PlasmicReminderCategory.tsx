@@ -184,7 +184,7 @@ function PlasmicReminderCategory__RenderFunc(props: {
         path: "select",
         type: "readonly",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({}),
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({}),
 
         onChangeProp: "onSelectChange"
       },
@@ -192,7 +192,7 @@ function PlasmicReminderCategory__RenderFunc(props: {
         path: "more3",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       },
       {
         path: "show",
@@ -230,13 +230,13 @@ function PlasmicReminderCategory__RenderFunc(props: {
         path: "scroll",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => true
       },
       {
         path: "htmlInput.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.title;
@@ -255,13 +255,13 @@ function PlasmicReminderCategory__RenderFunc(props: {
         path: "sort.selected",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props["selected"]
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props["selected"]
       },
       {
         path: "sort.list",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return (() => {
@@ -286,7 +286,7 @@ function PlasmicReminderCategory__RenderFunc(props: {
         path: "sort.selects",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => []
       },
       {
         path: "radioGroupLiom2[].selected",
@@ -310,6 +310,7 @@ function PlasmicReminderCategory__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 
@@ -906,11 +907,11 @@ function PlasmicReminderCategory__RenderFunc(props: {
                     [
                       {
                         name: "radioGroupLiom2[].selected",
-                        initFunc: ({ $props, $state, $queries }) => ""
+                        initFunc: ({ $props, $state, $queries, $q }) => ""
                       },
                       {
                         name: "radioGroupLiom2[].list",
-                        initFunc: ({ $props, $state, $queries }) =>
+                        initFunc: ({ $props, $state, $queries, $q }) =>
                           (() => {
                             try {
                               return (() => {
@@ -933,7 +934,7 @@ function PlasmicReminderCategory__RenderFunc(props: {
                       },
                       {
                         name: "radioGroupLiom2[].selects",
-                        initFunc: ({ $props, $state, $queries }) => []
+                        initFunc: ({ $props, $state, $queries, $q }) => []
                       }
                     ],
                     [__plasmic_idx_0]

@@ -171,19 +171,19 @@ function PlasmicMassage__RenderFunc(props: {
         path: "you",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.you
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.you
       },
       {
         path: "end",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.end
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.end
       },
       {
         path: "button.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "red"
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => "red"
       },
       {
         path: "loading",
@@ -197,13 +197,13 @@ function PlasmicMassage__RenderFunc(props: {
         path: "button.load",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "button.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -212,6 +212,7 @@ function PlasmicMassage__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

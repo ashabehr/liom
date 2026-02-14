@@ -157,7 +157,7 @@ function PlasmicReplyLikeButton__RenderFunc(props: {
         path: "variableForReplyLike",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $props.replyLikeCount;
@@ -176,7 +176,8 @@ function PlasmicReplyLikeButton__RenderFunc(props: {
         path: "islikeforReply",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.islikeforReply
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
+          $props.islikeforReply
       }
     ],
     [$props, $ctx, $refs]
@@ -185,6 +186,7 @@ function PlasmicReplyLikeButton__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

@@ -154,13 +154,13 @@ function PlasmicFutureItem__RenderFunc(props: {
         path: "type",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.type
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.type
       },
       {
         path: "now",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.now
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.now
       }
     ],
     [$props, $ctx, $refs]
@@ -169,6 +169,7 @@ function PlasmicFutureItem__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

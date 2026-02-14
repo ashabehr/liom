@@ -167,7 +167,7 @@ function PlasmicSteps__RenderFunc(props: {
         path: "steps",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return "_" + $state.step;
@@ -189,6 +189,7 @@ function PlasmicSteps__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

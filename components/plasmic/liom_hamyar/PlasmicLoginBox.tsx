@@ -159,7 +159,7 @@ function PlasmicLoginBox__RenderFunc(props: {
         path: "loading",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.loading
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.loading
       }
     ],
     [$props, $ctx, $refs]
@@ -168,6 +168,7 @@ function PlasmicLoginBox__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

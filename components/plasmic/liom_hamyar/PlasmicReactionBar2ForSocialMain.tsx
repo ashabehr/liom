@@ -171,13 +171,13 @@ function PlasmicReactionBar2ForSocialMain__RenderFunc(props: {
         path: "like",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.like
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.like
       },
       {
         path: "main",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.main
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.main
       }
     ],
     [$props, $ctx, $refs]
@@ -186,6 +186,7 @@ function PlasmicReactionBar2ForSocialMain__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

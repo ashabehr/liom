@@ -211,7 +211,7 @@ function PlasmicSendnotif__RenderFunc(props: {
         path: "titre",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [
           {
             title:
               "\u0627\u0634\u062a\u0631\u0627\u06a9\u200c\u0647\u0627\u06cc \u063a\u06cc\u0631 \u0641\u0639\u0627\u0644 \u0647\u0645\u06cc\u0627\u0631",
@@ -282,7 +282,7 @@ function PlasmicSendnotif__RenderFunc(props: {
         path: "filess",
         type: "readonly",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({}),
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({}),
 
         onChangeProp: "onFilessChange"
       },
@@ -290,7 +290,7 @@ function PlasmicSendnotif__RenderFunc(props: {
         path: "imageload",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "title[].value",
@@ -301,7 +301,7 @@ function PlasmicSendnotif__RenderFunc(props: {
         path: "step",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [
           {
             label: "\u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u0634\u0646",
             value: "notification"
@@ -314,7 +314,7 @@ function PlasmicSendnotif__RenderFunc(props: {
         path: "selectstep",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "notification"
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => "notification"
       },
       {
         path: "antdInput[].value",
@@ -398,7 +398,7 @@ function PlasmicSendnotif__RenderFunc(props: {
         path: "fcm",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => []
       },
       {
         path: "fcm3[].value",
@@ -426,7 +426,7 @@ function PlasmicSendnotif__RenderFunc(props: {
         path: "userId",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => []
       },
       {
         path: "topic[].value",
@@ -459,19 +459,19 @@ function PlasmicSendnotif__RenderFunc(props: {
         path: "date",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "time",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "datapickerbool",
         type: "readonly",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false,
 
         onChangeProp: "onDatapickerboolChange"
       },
@@ -479,7 +479,7 @@ function PlasmicSendnotif__RenderFunc(props: {
         path: "datepic",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return undefined;
@@ -516,6 +516,7 @@ function PlasmicSendnotif__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 
@@ -781,7 +782,8 @@ function PlasmicSendnotif__RenderFunc(props: {
                             [
                               {
                                 name: "title[].value",
-                                initFunc: ({ $props, $state, $queries }) => ""
+                                initFunc: ({ $props, $state, $queries, $q }) =>
+                                  ""
                               }
                             ],
                             [__plasmic_idx_0]
@@ -849,8 +851,12 @@ function PlasmicSendnotif__RenderFunc(props: {
                                 [
                                   {
                                     name: "antdInput[].value",
-                                    initFunc: ({ $props, $state, $queries }) =>
-                                      undefined
+                                    initFunc: ({
+                                      $props,
+                                      $state,
+                                      $queries,
+                                      $q
+                                    }) => undefined
                                   }
                                 ],
                                 [__plasmic_idx_0]
@@ -899,7 +905,8 @@ function PlasmicSendnotif__RenderFunc(props: {
                             [
                               {
                                 name: "text[].value",
-                                initFunc: ({ $props, $state, $queries }) => ""
+                                initFunc: ({ $props, $state, $queries, $q }) =>
+                                  ""
                               }
                             ],
                             [__plasmic_idx_0]
@@ -969,8 +976,12 @@ function PlasmicSendnotif__RenderFunc(props: {
                                 [
                                   {
                                     name: "antdInput2[].value",
-                                    initFunc: ({ $props, $state, $queries }) =>
-                                      undefined
+                                    initFunc: ({
+                                      $props,
+                                      $state,
+                                      $queries,
+                                      $q
+                                    }) => undefined
                                   }
                                 ],
                                 [__plasmic_idx_0]
@@ -1065,18 +1076,30 @@ function PlasmicSendnotif__RenderFunc(props: {
                                 [
                                   {
                                     name: "button[].color",
-                                    initFunc: ({ $props, $state, $queries }) =>
-                                      "perper"
+                                    initFunc: ({
+                                      $props,
+                                      $state,
+                                      $queries,
+                                      $q
+                                    }) => "perper"
                                   },
                                   {
                                     name: "button[].loading",
-                                    initFunc: ({ $props, $state, $queries }) =>
-                                      undefined
+                                    initFunc: ({
+                                      $props,
+                                      $state,
+                                      $queries,
+                                      $q
+                                    }) => undefined
                                   },
                                   {
                                     name: "button[].load",
-                                    initFunc: ({ $props, $state, $queries }) =>
-                                      false
+                                    initFunc: ({
+                                      $props,
+                                      $state,
+                                      $queries,
+                                      $q
+                                    }) => false
                                   }
                                 ],
                                 [__plasmic_idx_0]
@@ -1132,7 +1155,8 @@ function PlasmicSendnotif__RenderFunc(props: {
                             [
                               {
                                 name: "image2[].value",
-                                initFunc: ({ $props, $state, $queries }) => ""
+                                initFunc: ({ $props, $state, $queries, $q }) =>
+                                  ""
                               }
                             ],
                             [__plasmic_idx_0]
@@ -1202,8 +1226,12 @@ function PlasmicSendnotif__RenderFunc(props: {
                                 [
                                   {
                                     name: "antdInput3[].value",
-                                    initFunc: ({ $props, $state, $queries }) =>
-                                      undefined
+                                    initFunc: ({
+                                      $props,
+                                      $state,
+                                      $queries,
+                                      $q
+                                    }) => undefined
                                   }
                                 ],
                                 [__plasmic_idx_0]
@@ -1252,7 +1280,8 @@ function PlasmicSendnotif__RenderFunc(props: {
                             [
                               {
                                 name: "action[].value",
-                                initFunc: ({ $props, $state, $queries }) => ""
+                                initFunc: ({ $props, $state, $queries, $q }) =>
+                                  ""
                               }
                             ],
                             [__plasmic_idx_0]
@@ -1348,12 +1377,17 @@ function PlasmicSendnotif__RenderFunc(props: {
                             [
                               {
                                 name: "switchbest[].isChecked",
-                                initFunc: ({ $props, $state, $queries }) =>
+                                initFunc: ({ $props, $state, $queries, $q }) =>
                                   undefined
                               },
                               {
                                 name: "switchbest[].data",
-                                initFunc: ({ $props, $state, $queries }) => ({})
+                                initFunc: ({
+                                  $props,
+                                  $state,
+                                  $queries,
+                                  $q
+                                }) => ({})
                               }
                             ],
                             [__plasmic_idx_0]
@@ -1627,7 +1661,8 @@ function PlasmicSendnotif__RenderFunc(props: {
                                       initFunc: ({
                                         $props,
                                         $state,
-                                        $queries
+                                        $queries,
+                                        $q
                                       }) => ""
                                     }
                                   ],
@@ -1766,7 +1801,8 @@ function PlasmicSendnotif__RenderFunc(props: {
                                             initFunc: ({
                                               $props,
                                               $state,
-                                              $queries
+                                              $queries,
+                                              $q
                                             }) => ({})
                                           }
                                         ],
@@ -1923,7 +1959,8 @@ function PlasmicSendnotif__RenderFunc(props: {
                                       initFunc: ({
                                         $props,
                                         $state,
-                                        $queries
+                                        $queries,
+                                        $q
                                       }) => ""
                                     }
                                   ],
@@ -2037,12 +2074,17 @@ function PlasmicSendnotif__RenderFunc(props: {
                             [
                               {
                                 name: "radioGroupLiom[].selected",
-                                initFunc: ({ $props, $state, $queries }) =>
+                                initFunc: ({ $props, $state, $queries, $q }) =>
                                   "fcm"
                               },
                               {
                                 name: "radioGroupLiom[].list",
-                                initFunc: ({ $props, $state, $queries }) => [
+                                initFunc: ({
+                                  $props,
+                                  $state,
+                                  $queries,
+                                  $q
+                                }) => [
                                   { label: "fcm", value: "fcm" },
                                   { label: "user id", value: "userId" },
                                   { label: "topic", value: "topic" }
@@ -2050,7 +2092,12 @@ function PlasmicSendnotif__RenderFunc(props: {
                               },
                               {
                                 name: "radioGroupLiom[].selects",
-                                initFunc: ({ $props, $state, $queries }) => []
+                                initFunc: ({
+                                  $props,
+                                  $state,
+                                  $queries,
+                                  $q
+                                }) => []
                               }
                             ],
                             [__plasmic_idx_0]
@@ -2149,7 +2196,8 @@ function PlasmicSendnotif__RenderFunc(props: {
                                         initFunc: ({
                                           $props,
                                           $state,
-                                          $queries
+                                          $queries,
+                                          $q
                                         }) => undefined
                                       }
                                     ],
@@ -2259,8 +2307,12 @@ function PlasmicSendnotif__RenderFunc(props: {
                                 [
                                   {
                                     name: "fcm2[].value",
-                                    initFunc: ({ $props, $state, $queries }) =>
-                                      ""
+                                    initFunc: ({
+                                      $props,
+                                      $state,
+                                      $queries,
+                                      $q
+                                    }) => ""
                                   }
                                 ],
                                 [__plasmic_idx_0]
@@ -2406,7 +2458,8 @@ function PlasmicSendnotif__RenderFunc(props: {
                                               initFunc: ({
                                                 $props,
                                                 $state,
-                                                $queries
+                                                $queries,
+                                                $q
                                               }) =>
                                                 (() => {
                                                   try {
@@ -2480,7 +2533,8 @@ function PlasmicSendnotif__RenderFunc(props: {
                                       initFunc: ({
                                         $props,
                                         $state,
-                                        $queries
+                                        $queries,
+                                        $q
                                       }) => undefined
                                     }
                                   ],
@@ -2586,7 +2640,8 @@ function PlasmicSendnotif__RenderFunc(props: {
                                         initFunc: ({
                                           $props,
                                           $state,
-                                          $queries
+                                          $queries,
+                                          $q
                                         }) => undefined
                                       }
                                     ],
@@ -2645,8 +2700,12 @@ function PlasmicSendnotif__RenderFunc(props: {
                                 [
                                   {
                                     name: "topic[].value",
-                                    initFunc: ({ $props, $state, $queries }) =>
-                                      ""
+                                    initFunc: ({
+                                      $props,
+                                      $state,
+                                      $queries,
+                                      $q
+                                    }) => ""
                                   }
                                 ],
                                 [__plasmic_idx_0]
@@ -2748,7 +2807,8 @@ function PlasmicSendnotif__RenderFunc(props: {
                                         initFunc: ({
                                           $props,
                                           $state,
-                                          $queries
+                                          $queries,
+                                          $q
                                         }) => undefined
                                       }
                                     ],
@@ -2858,8 +2918,12 @@ function PlasmicSendnotif__RenderFunc(props: {
                                 [
                                   {
                                     name: "fcm3[].value",
-                                    initFunc: ({ $props, $state, $queries }) =>
-                                      ""
+                                    initFunc: ({
+                                      $props,
+                                      $state,
+                                      $queries,
+                                      $q
+                                    }) => ""
                                   }
                                 ],
                                 [__plasmic_idx_0]
@@ -3005,7 +3069,8 @@ function PlasmicSendnotif__RenderFunc(props: {
                                               initFunc: ({
                                                 $props,
                                                 $state,
-                                                $queries
+                                                $queries,
+                                                $q
                                               }) =>
                                                 (() => {
                                                   try {
@@ -3079,7 +3144,8 @@ function PlasmicSendnotif__RenderFunc(props: {
                                       initFunc: ({
                                         $props,
                                         $state,
-                                        $queries
+                                        $queries,
+                                        $q
                                       }) => undefined
                                     }
                                   ],

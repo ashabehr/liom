@@ -2008,7 +2008,6 @@
   flex-shrink: 0;
 }
 .freeBox__yxmvm {
-  display: flex;
   flex-direction: column;
   position: relative;
   align-items: center;
@@ -2021,6 +2020,7 @@
   box-shadow: 0px 4px 16px 0px #c0bcbc14;
   min-width: 0;
   min-height: 0;
+  display: none;
   border-radius: var(--token-uOLZE7OyOW-J);
   padding: var(--token-uOLZE7OyOW-J);
 }

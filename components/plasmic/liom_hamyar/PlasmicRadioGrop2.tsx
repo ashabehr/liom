@@ -170,31 +170,32 @@ function PlasmicRadioGrop2__RenderFunc(props: {
         path: "selected",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.selected
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.selected
       },
       {
         path: "selectedLine",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.selectedLine
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
+          $props.selectedLine
       },
       {
         path: "disable",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.disable
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.disable
       },
       {
         path: "color",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.color
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.color
       },
       {
         path: "style2",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.style2
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.style2
       }
     ],
     [$props, $ctx, $refs]
@@ -203,6 +204,7 @@ function PlasmicRadioGrop2__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

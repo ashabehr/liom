@@ -173,7 +173,7 @@ function PlasmicTodoList__RenderFunc(props: {
         path: "darkMod",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.darkMod
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.darkMod
       },
       {
         path: "checkbox2[].isChecked",
@@ -184,7 +184,7 @@ function PlasmicTodoList__RenderFunc(props: {
         path: "collapse.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => true,
 
         onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
       }
@@ -195,6 +195,7 @@ function PlasmicTodoList__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 
@@ -1091,7 +1092,7 @@ function PlasmicTodoList__RenderFunc(props: {
                           [
                             {
                               name: "checkbox2[].isChecked",
-                              initFunc: ({ $props, $state, $queries }) =>
+                              initFunc: ({ $props, $state, $queries, $q }) =>
                                 (() => {
                                   try {
                                     return $props.tasks[currentIndex]

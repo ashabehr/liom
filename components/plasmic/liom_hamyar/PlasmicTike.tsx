@@ -144,7 +144,7 @@ function PlasmicTike__RenderFunc(props: {
         path: "tike",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.tike
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.tike
       }
     ],
     [$props, $ctx, $refs]
@@ -153,6 +153,7 @@ function PlasmicTike__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

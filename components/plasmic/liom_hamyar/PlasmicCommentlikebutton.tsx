@@ -192,7 +192,7 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
         path: "likeCount",
         type: "readonly",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $props.likeCommentCount;
@@ -224,6 +224,7 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

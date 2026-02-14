@@ -195,6 +195,7 @@ function PlasmicHistory2__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 
@@ -404,7 +405,7 @@ function PlasmicHistory2__RenderFunc(props: {
                     [
                       {
                         name: "ariaRangeSlider[][].value",
-                        initFunc: ({ $props, $state, $queries }) =>
+                        initFunc: ({ $props, $state, $queries, $q }) =>
                           (() => {
                             try {
                               return [

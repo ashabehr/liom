@@ -81,6 +81,30 @@ import sty from "./PlasmicMainPregnancy.module.css"; // plasmic-import: x3lX8YdI
 import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: 3QmHdQOUm1zK/icon
 import Icons8NotificationSvgIcon from "./icons/PlasmicIcon__Icons8NotificationSvg"; // plasmic-import: uQSfUo_9mVxb/icon
 
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    openGraph: {},
+    twitter: {
+      card: "summary"
+    }
+  };
+}
+
 createPlasmicElementProxy;
 
 export type PlasmicMainPregnancy__VariantMembers = {
@@ -169,7 +193,7 @@ function PlasmicMainPregnancy__RenderFunc(props: {
         path: "page",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return [
@@ -192,31 +216,31 @@ function PlasmicMainPregnancy__RenderFunc(props: {
         path: "setting",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.setting
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.setting
       },
       {
         path: "subItem",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.subItem
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.subItem
       },
       {
         path: "edit",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.edit
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.edit
       },
       {
         path: "loadBack",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => true
       },
       {
         path: "footerMain.type",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return window.sessionStorage.getItem("footer") || "calendar";
@@ -235,7 +259,7 @@ function PlasmicMainPregnancy__RenderFunc(props: {
         path: "mainHeader.dopen",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.dopen;
@@ -254,7 +278,7 @@ function PlasmicMainPregnancy__RenderFunc(props: {
         path: "userInfo",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return (() => {
@@ -275,19 +299,19 @@ function PlasmicMainPregnancy__RenderFunc(props: {
         path: "mainPagePregnancy.editTime",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "mainPagePregnancy.userInfo",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       },
       {
         path: "mainPagePregnancy.token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.token;
@@ -306,19 +330,19 @@ function PlasmicMainPregnancy__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "settingCycle4.token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ``
       },
       {
         path: "settingCycle4.editTime",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "kjlkjkj"
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => "kjlkjkj"
       }
     ],
     [$props, $ctx, $refs]
@@ -327,8 +351,14 @@ function PlasmicMainPregnancy__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
+
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
 
   const styleTokensClassNames = _useStyleTokens();
 
@@ -834,7 +864,7 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                   [
                     {
                       name: "footerMain.type",
-                      initFunc: ({ $props, $state, $queries }) =>
+                      initFunc: ({ $props, $state, $queries, $q }) =>
                         (() => {
                           try {
                             return (
@@ -1313,13 +1343,11 @@ export const PlasmicMainPregnancy = Object.assign(
     internalVariantProps: PlasmicMainPregnancy__VariantProps,
     internalArgProps: PlasmicMainPregnancy__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/mainPregnancy",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 

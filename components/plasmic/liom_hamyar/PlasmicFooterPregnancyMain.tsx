@@ -159,7 +159,7 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
         path: "lackOfCourseInformation",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           $props.lackOfCourseInformation
       },
       {
@@ -174,7 +174,7 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
         path: "footer2",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.footer2
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.footer2
       }
     ],
     [$props, $ctx, $refs]
@@ -183,6 +183,7 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

@@ -146,13 +146,13 @@ function Plasmic_3DIcon__RenderFunc(props: {
         path: "sms",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.sms
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.sms
       },
       {
         path: "icon",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.icon
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.icon
       }
     ],
     [$props, $ctx, $refs]
@@ -161,6 +161,7 @@ function Plasmic_3DIcon__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

@@ -187,6 +187,7 @@ function PlasmicPopover__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

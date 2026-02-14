@@ -201,13 +201,13 @@ function PlasmicButtonWithNote__RenderFunc(props: {
         path: "selected",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "shaoe",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.shaoe
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.shaoe
       },
       {
         path: "text",
@@ -224,6 +224,7 @@ function PlasmicButtonWithNote__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

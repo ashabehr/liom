@@ -165,6 +165,7 @@ function PlasmicRepead__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

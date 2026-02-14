@@ -440,20 +440,20 @@ function PlasmicCharts__RenderFunc(props: {
         path: "upseling",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => []
       },
       {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tX3BhbmVsIn0.X3Y6yLedtYcV-7xxz2sFVoO6OBddGxGU3cB6Z23GBEQ"
       },
       {
         path: "charts",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [
           {
             lable:
               "\u0646\u0631\u062e \u067e\u0631\u062f\u0627\u062e\u062a \u0645\u0648\u0641\u0642",
@@ -615,6 +615,7 @@ function PlasmicCharts__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 
@@ -1001,15 +1002,16 @@ function PlasmicCharts__RenderFunc(props: {
                     [
                       {
                         name: "button3[].color",
-                        initFunc: ({ $props, $state, $queries }) => []
+                        initFunc: ({ $props, $state, $queries, $q }) => []
                       },
                       {
                         name: "button3[].loading",
-                        initFunc: ({ $props, $state, $queries }) => undefined
+                        initFunc: ({ $props, $state, $queries, $q }) =>
+                          undefined
                       },
                       {
                         name: "button3[].load",
-                        initFunc: ({ $props, $state, $queries }) => false
+                        initFunc: ({ $props, $state, $queries, $q }) => false
                       }
                     ],
                     [__plasmic_idx_0]

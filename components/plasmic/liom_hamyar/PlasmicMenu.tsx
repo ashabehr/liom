@@ -220,6 +220,7 @@ function PlasmicMenu__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

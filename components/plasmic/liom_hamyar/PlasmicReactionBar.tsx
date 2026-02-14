@@ -168,7 +168,7 @@ function PlasmicReactionBar__RenderFunc(props: {
         path: "like",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.like
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.like
       }
     ],
     [$props, $ctx, $refs]
@@ -177,6 +177,7 @@ function PlasmicReactionBar__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

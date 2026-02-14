@@ -72,6 +72,30 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicPregnancy.module.css"; // plasmic-import: Tu6H8DIKZJrf/css
 
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    openGraph: {},
+    twitter: {
+      card: "summary"
+    }
+  };
+}
+
 createPlasmicElementProxy;
 
 export type PlasmicPregnancy__VariantMembers = {
@@ -145,7 +169,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "toolsList",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [
           {
             title:
               "\u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0647\u0641\u062a\u0647 \u0628\u0647 \u0647\u0641\u062a\u0647",
@@ -160,7 +184,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "darkMod",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $ctx.query.theme == "dark";
@@ -179,7 +203,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "randomText",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [
           "\u0646\u06cc \u0646\u06cc \u06a9\u0648\u0686\u0648\u0644\u0648\u062a \u062a\u0648 \u0628\u063a\u0644\u062a\u0647 :)",
           "\u0641\u0631\u0634\u062a\u0647 \u06a9\u0648\u0686\u0648\u0644\u0648\u062a \u0628\u0647 \u062f\u0646\u06cc\u0627 \u0645\u06cc\u0627\u062f :)"
         ]
@@ -188,7 +212,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "babySize",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [
           {
             h: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
             w: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
@@ -256,7 +280,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "textWeek",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [
           "",
           "اول",
           "دوم",
@@ -304,7 +328,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "weeksPregnant",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             if ($state.user?.[0]?.dueDate) {
               let initialDate = new Date($state.user?.[0]?.dueDate);
@@ -331,7 +355,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "daysPregnant",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             if ($state.user?.[0]?.dueDate) {
               let initialDate = new Date($state.user?.[0]?.dueDate);
@@ -354,32 +378,32 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "monthPregnant",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           parseInt(($state.weeksPregnant / 4).toString().substring(0, 1))
       },
       {
         path: "dateOfBirth",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({ data: "" })
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({ data: "" })
       },
       {
         path: "lastTime",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({ data: "" })
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({ data: "" })
       },
       {
         path: "typeInterDate",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "sizeByFruit",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [
           "",
           "\u062a\u062e\u0645\u06a9",
           "\u0644\u0642\u0627\u062d",
@@ -427,19 +451,19 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "isTimer",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "getAdvice",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({ text: "" })
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({ text: "" })
       },
       {
         path: "getTask",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({
           loading: true,
           list: []
         })
@@ -448,25 +472,25 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "user",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       },
       {
         path: "loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => true
       },
       {
         path: "isNoData",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => true
       },
       {
         path: "textBaby",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return [
@@ -526,7 +550,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "adviceHealth",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return [
@@ -586,7 +610,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "textMother",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return [
@@ -646,7 +670,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "selectedWeek",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.weeksPregnant;
@@ -665,7 +689,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "componentPregnancy.weeksPregnant",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -674,8 +698,14 @@ function PlasmicPregnancy__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
+
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
 
   const styleTokensClassNames = _useStyleTokens();
 
@@ -848,13 +878,11 @@ export const PlasmicPregnancy = Object.assign(
     internalVariantProps: PlasmicPregnancy__VariantProps,
     internalArgProps: PlasmicPregnancy__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/pregnancy",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 

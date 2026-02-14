@@ -441,7 +441,7 @@ function PlasmicUserPage__RenderFunc(props: {
         path: "userdata",
         type: "readonly",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({}),
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({}),
 
         onChangeProp: "onUserdataChange"
       },
@@ -449,7 +449,7 @@ function PlasmicUserPage__RenderFunc(props: {
         path: "variable",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "switchbest[][].data",
@@ -463,6 +463,7 @@ function PlasmicUserPage__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 
@@ -948,7 +949,8 @@ function PlasmicUserPage__RenderFunc(props: {
                                               initFunc: ({
                                                 $props,
                                                 $state,
-                                                $queries
+                                                $queries,
+                                                $q
                                               }) => undefined
                                             }
                                           ],
@@ -1049,7 +1051,8 @@ function PlasmicUserPage__RenderFunc(props: {
                                         initFunc: ({
                                           $props,
                                           $state,
-                                          $queries
+                                          $queries,
+                                          $q
                                         }) =>
                                           (() => {
                                             try {
@@ -1071,7 +1074,8 @@ function PlasmicUserPage__RenderFunc(props: {
                                         initFunc: ({
                                           $props,
                                           $state,
-                                          $queries
+                                          $queries,
+                                          $q
                                         }) => ({})
                                       }
                                     ],

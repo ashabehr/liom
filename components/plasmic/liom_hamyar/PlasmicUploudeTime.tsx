@@ -137,7 +137,7 @@ function PlasmicUploudeTime__RenderFunc(props: {
         path: "time",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $props.posttime;
@@ -159,6 +159,7 @@ function PlasmicUploudeTime__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

@@ -156,13 +156,13 @@ function PlasmicCommentNum__RenderFunc(props: {
         path: "main",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.main
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.main
       },
       {
         path: "active",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.active
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.active
       }
     ],
     [$props, $ctx, $refs]
@@ -171,6 +171,7 @@ function PlasmicCommentNum__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

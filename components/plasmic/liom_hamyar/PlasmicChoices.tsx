@@ -226,7 +226,7 @@ function PlasmicChoices__RenderFunc(props: {
         path: "select",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "buttonWithNote[].select",
@@ -245,7 +245,7 @@ function PlasmicChoices__RenderFunc(props: {
         path: "circl",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.circl
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.circl
       },
       {
         path: "buttonWithNote[].text",
@@ -256,7 +256,7 @@ function PlasmicChoices__RenderFunc(props: {
         path: "rectangle",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.rectangle
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.rectangle
       }
     ],
     [$props, $ctx, $refs]
@@ -265,6 +265,7 @@ function PlasmicChoices__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 
@@ -573,11 +574,11 @@ function PlasmicChoices__RenderFunc(props: {
                 [
                   {
                     name: "buttonWithNote[].arraylist",
-                    initFunc: ({ $props, $state, $queries }) => []
+                    initFunc: ({ $props, $state, $queries, $q }) => []
                   },
                   {
                     name: "buttonWithNote[].select",
-                    initFunc: ({ $props, $state, $queries }) =>
+                    initFunc: ({ $props, $state, $queries, $q }) =>
                       (() => {
                         try {
                           return (
@@ -598,7 +599,7 @@ function PlasmicChoices__RenderFunc(props: {
                   },
                   {
                     name: "buttonWithNote[].text",
-                    initFunc: ({ $props, $state, $queries }) =>
+                    initFunc: ({ $props, $state, $queries, $q }) =>
                       (() => {
                         try {
                           return currentItem.meaning;

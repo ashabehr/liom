@@ -169,7 +169,7 @@ function PlasmicTabPage__RenderFunc(props: {
         path: "titre",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [
           {
             title:
               "\u0627\u0634\u062a\u0631\u0627\u06a9\u200c\u0647\u0627\u06cc \u063a\u06cc\u0631 \u0641\u0639\u0627\u0644 \u0647\u0645\u06cc\u0627\u0631",
@@ -231,6 +231,7 @@ function PlasmicTabPage__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

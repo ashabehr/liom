@@ -161,7 +161,7 @@ function PlasmicRadio__RenderFunc(props: {
         path: "custom",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.custom
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.custom
       }
     ],
     [$props, $ctx, $refs]
@@ -170,6 +170,7 @@ function PlasmicRadio__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

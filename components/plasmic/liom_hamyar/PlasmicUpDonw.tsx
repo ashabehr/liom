@@ -142,7 +142,7 @@ function PlasmicUpDonw__RenderFunc(props: {
         path: "up",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.up
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.up
       }
     ],
     [$props, $ctx, $refs]
@@ -151,6 +151,7 @@ function PlasmicUpDonw__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

@@ -146,7 +146,7 @@ function PlasmicDownloadBox__RenderFunc(props: {
         path: "resalt",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.resalt
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.resalt
       }
     ],
     [$props, $ctx, $refs]
@@ -155,6 +155,7 @@ function PlasmicDownloadBox__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 
@@ -263,6 +264,7 @@ function PlasmicDownloadBox__RenderFunc(props: {
           href={
             "https://play.google.com/store/apps/details?id=com.diacotdj.liom&amp;hl=en&amp;gl=US"
           }
+          legacyBehavior={false}
           platform={"nextjs"}
         >
           <PlasmicImg__
@@ -282,6 +284,7 @@ function PlasmicDownloadBox__RenderFunc(props: {
           className={classNames(projectcss.all, projectcss.a, sty.link___8J6Ek)}
           component={Link}
           href={"https://cafebazaar.ir/app/com.diacotdj.liom"}
+          legacyBehavior={false}
           platform={"nextjs"}
         >
           <PlasmicImg__
@@ -301,6 +304,7 @@ function PlasmicDownloadBox__RenderFunc(props: {
           className={classNames(projectcss.all, projectcss.a, sty.link__b6DrW)}
           component={Link}
           href={"https://myket.ir/app/com.diacotdj.liom"}
+          legacyBehavior={false}
           platform={"nextjs"}
         >
           <PlasmicImg__
@@ -320,6 +324,7 @@ function PlasmicDownloadBox__RenderFunc(props: {
           className={classNames(projectcss.all, projectcss.a, sty.link__tfbcn)}
           component={Link}
           href={"https://apps.liom.app/login"}
+          legacyBehavior={false}
           platform={"nextjs"}
         >
           <PlasmicImg__

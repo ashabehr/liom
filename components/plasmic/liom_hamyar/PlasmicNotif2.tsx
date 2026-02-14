@@ -79,6 +79,30 @@ import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    openGraph: {},
+    twitter: {
+      card: "summary"
+    }
+  };
+}
+
 createPlasmicElementProxy;
 
 export type PlasmicNotif2__VariantMembers = {
@@ -161,7 +185,7 @@ function PlasmicNotif2__RenderFunc(props: {
         path: "noNotification",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return false;
@@ -180,19 +204,19 @@ function PlasmicNotif2__RenderFunc(props: {
         path: "apiRequest.data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "apiRequest.error",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "apiRequest.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "notifBox2[].seen",
@@ -223,7 +247,7 @@ function PlasmicNotif2__RenderFunc(props: {
         path: "userInfo",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return (() => {
@@ -245,13 +269,13 @@ function PlasmicNotif2__RenderFunc(props: {
         path: "paramsObject",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       },
       {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ``
       },
       {
         path: "button[].color",
@@ -290,8 +314,14 @@ function PlasmicNotif2__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
+
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
 
   const styleTokensClassNames = _useStyleTokens();
 
@@ -1235,7 +1265,8 @@ function PlasmicNotif2__RenderFunc(props: {
                                           initFunc: ({
                                             $props,
                                             $state,
-                                            $queries
+                                            $queries,
+                                            $q
                                           }) => "line"
                                         },
                                         {
@@ -1243,7 +1274,8 @@ function PlasmicNotif2__RenderFunc(props: {
                                           initFunc: ({
                                             $props,
                                             $state,
-                                            $queries
+                                            $queries,
+                                            $q
                                           }) => undefined
                                         },
                                         {
@@ -1251,7 +1283,8 @@ function PlasmicNotif2__RenderFunc(props: {
                                           initFunc: ({
                                             $props,
                                             $state,
-                                            $queries
+                                            $queries,
+                                            $q
                                           }) => false
                                         }
                                       ],
@@ -1673,7 +1706,8 @@ function PlasmicNotif2__RenderFunc(props: {
                                           initFunc: ({
                                             $props,
                                             $state,
-                                            $queries
+                                            $queries,
+                                            $q
                                           }) => "line"
                                         },
                                         {
@@ -1681,7 +1715,8 @@ function PlasmicNotif2__RenderFunc(props: {
                                           initFunc: ({
                                             $props,
                                             $state,
-                                            $queries
+                                            $queries,
+                                            $q
                                           }) => undefined
                                         },
                                         {
@@ -1689,7 +1724,8 @@ function PlasmicNotif2__RenderFunc(props: {
                                           initFunc: ({
                                             $props,
                                             $state,
-                                            $queries
+                                            $queries,
+                                            $q
                                           }) => false
                                         }
                                       ],
@@ -1995,7 +2031,7 @@ function PlasmicNotif2__RenderFunc(props: {
                       [
                         {
                           name: "notifBox2[].seen",
-                          initFunc: ({ $props, $state, $queries }) =>
+                          initFunc: ({ $props, $state, $queries, $q }) =>
                             (() => {
                               try {
                                 return (() => {
@@ -2021,7 +2057,7 @@ function PlasmicNotif2__RenderFunc(props: {
                         },
                         {
                           name: "notifBox2[].title",
-                          initFunc: ({ $props, $state, $queries }) =>
+                          initFunc: ({ $props, $state, $queries, $q }) =>
                             (() => {
                               try {
                                 return notifItem.title;
@@ -2038,7 +2074,7 @@ function PlasmicNotif2__RenderFunc(props: {
                         },
                         {
                           name: "notifBox2[].text",
-                          initFunc: ({ $props, $state, $queries }) =>
+                          initFunc: ({ $props, $state, $queries, $q }) =>
                             (() => {
                               try {
                                 return notifItem.text;
@@ -2055,7 +2091,7 @@ function PlasmicNotif2__RenderFunc(props: {
                         },
                         {
                           name: "notifBox2[].date",
-                          initFunc: ({ $props, $state, $queries }) =>
+                          initFunc: ({ $props, $state, $queries, $q }) =>
                             (() => {
                               try {
                                 return (() => {
@@ -2132,7 +2168,7 @@ function PlasmicNotif2__RenderFunc(props: {
                         },
                         {
                           name: "notifBox2[].delet",
-                          initFunc: ({ $props, $state, $queries }) =>
+                          initFunc: ({ $props, $state, $queries, $q }) =>
                             (() => {
                               try {
                                 return (() => {
@@ -2309,13 +2345,11 @@ export const PlasmicNotif2 = Object.assign(
     internalVariantProps: PlasmicNotif2__VariantProps,
     internalArgProps: PlasmicNotif2__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/notif",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 

@@ -161,19 +161,19 @@ function PlasmicSelectionChoise__RenderFunc(props: {
         path: "select",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.select
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.select
       },
       {
         path: "variable",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "filter",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.filter
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.filter
       }
     ],
     [$props, $ctx, $refs]
@@ -182,6 +182,7 @@ function PlasmicSelectionChoise__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

@@ -72,6 +72,30 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicPan.module.css"; // plasmic-import: 8-KHcxmihxtJ/css
 
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    openGraph: {},
+    twitter: {
+      card: "summary"
+    }
+  };
+}
+
 createPlasmicElementProxy;
 
 export type PlasmicPan__VariantMembers = {};
@@ -141,7 +165,7 @@ function PlasmicPan__RenderFunc(props: {
         path: "menu",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [
           {
             id: "dashboard",
             label_fa: "\u062f\u0627\u0634\u0628\u0648\u0631\u062f",
@@ -199,13 +223,13 @@ function PlasmicPan__RenderFunc(props: {
         path: "menu2.select",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "reports"
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => "reports"
       },
       {
         path: "header",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [
           "\u0646\u0627\u0645 \u0648 \u0646\u0627\u0645 \u062e\u0627\u0646\u0648\u0627\u062f\u06af\u06cc",
           "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc",
           "\u062c\u0646\u0633\u06cc\u062a",
@@ -216,7 +240,7 @@ function PlasmicPan__RenderFunc(props: {
         path: "main2.page2",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "0"
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => "0"
       }
     ],
     [$props, $ctx, $refs]
@@ -225,8 +249,14 @@ function PlasmicPan__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
+
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
 
   const styleTokensClassNames = _useStyleTokens();
 
@@ -435,13 +465,11 @@ export const PlasmicPan = Object.assign(
     internalVariantProps: PlasmicPan__VariantProps,
     internalArgProps: PlasmicPan__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/pan",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 

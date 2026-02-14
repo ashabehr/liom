@@ -157,6 +157,7 @@ function PlasmicShopPage__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

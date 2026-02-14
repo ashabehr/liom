@@ -173,7 +173,7 @@ function PlasmicMainPagePregnancy__RenderFunc(props: {
         path: "page",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.page
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.page
       },
       {
         path: "editTime",
@@ -203,7 +203,7 @@ function PlasmicMainPagePregnancy__RenderFunc(props: {
         path: "componentPregnancy.weeksPregnant",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -212,6 +212,7 @@ function PlasmicMainPagePregnancy__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

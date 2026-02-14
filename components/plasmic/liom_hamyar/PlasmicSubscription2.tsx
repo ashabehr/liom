@@ -180,7 +180,7 @@ function PlasmicSubscription2__RenderFunc(props: {
         path: "click",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.clickitem;
@@ -243,6 +243,7 @@ function PlasmicSubscription2__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

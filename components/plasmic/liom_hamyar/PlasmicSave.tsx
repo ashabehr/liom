@@ -186,7 +186,7 @@ function PlasmicSave__RenderFunc(props: {
         path: "click",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.isbookMarked;
@@ -205,7 +205,7 @@ function PlasmicSave__RenderFunc(props: {
         path: "bookmarkcount",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $props.bokmarkcount;
@@ -224,7 +224,7 @@ function PlasmicSave__RenderFunc(props: {
         path: "isbookMarked",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $props.isBooookMarked;
@@ -243,13 +243,13 @@ function PlasmicSave__RenderFunc(props: {
         path: "modal.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "main",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.main
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.main
       }
     ],
     [$props, $ctx, $refs]
@@ -258,6 +258,7 @@ function PlasmicSave__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

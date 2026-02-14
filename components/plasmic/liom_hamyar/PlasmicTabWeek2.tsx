@@ -188,55 +188,56 @@ function PlasmicTabWeek2__RenderFunc(props: {
         path: "selected",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.selected
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.selected
       },
       {
         path: "dark",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.dark
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.dark
       },
       {
         path: "darkSelected",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.darkSelected
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
+          $props.darkSelected
       },
       {
         path: "currentWeek",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.currentWeek
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.currentWeek
       },
       {
         path: "haveData",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.haveData
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.haveData
       },
       {
         path: "color",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.color
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.color
       },
       {
         path: "startend",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.startend
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.startend
       },
       {
         path: "size",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.size
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.size
       },
       {
         path: "report",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.report
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.report
       }
     ],
     [$props, $ctx, $refs]
@@ -245,6 +246,7 @@ function PlasmicTabWeek2__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

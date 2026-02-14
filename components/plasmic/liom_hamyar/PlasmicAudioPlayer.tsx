@@ -145,13 +145,13 @@ function PlasmicAudioPlayer__RenderFunc(props: {
         path: "postType",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.postType
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.postType
       },
       {
         path: "audioLink2",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $props.audioLink;
@@ -173,6 +173,7 @@ function PlasmicAudioPlayer__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

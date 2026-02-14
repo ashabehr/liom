@@ -247,31 +247,31 @@ function PlasmicMainHamyar__RenderFunc(props: {
         path: "selfCare2.subItems",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       },
       {
         path: "page",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.page
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.page
       },
       {
         path: "hamyar2.userdata",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       },
       {
         path: "hamyar2.remind",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props["remind"]
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props["remind"]
       },
       {
         path: "hamyar2.tokenUser",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "token",
@@ -301,7 +301,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
         path: "haader",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $props.headershow;
@@ -352,13 +352,13 @@ function PlasmicMainHamyar__RenderFunc(props: {
         path: "reminder.refresh",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "reminder.sms",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.hamyar2.userdata?.result?.man?.activeSmsNotif
@@ -379,7 +379,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
         path: "reminder.tel",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.hamyar2.userdata?.result?.man?.activeNotifTel
@@ -400,7 +400,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
         path: "reminder.slide3",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "reminder.reminderSettingReminderCategory2Data",
@@ -414,7 +414,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
         path: "reminder.active",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.page == "reminder";
@@ -433,19 +433,19 @@ function PlasmicMainHamyar__RenderFunc(props: {
         path: "reminder.balance",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 0
       },
       {
         path: "reminder3.refresh",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "reminder3.sms",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.hamyar2.userdata?.result?.man?.activeSmsNotif
@@ -466,7 +466,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
         path: "reminder3.tel",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.hamyar2.userdata?.result?.man?.activeNotifTel
@@ -487,13 +487,13 @@ function PlasmicMainHamyar__RenderFunc(props: {
         path: "reminder3.slide3",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "slide3"
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => "slide3"
       },
       {
         path: "reminder3.reminderSettingReminderCategory2Data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({
           category: [
             {
               id: 1,
@@ -876,13 +876,13 @@ function PlasmicMainHamyar__RenderFunc(props: {
         path: "reminder3.balance",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 0
       },
       {
         path: "reminder3.active",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.page == "reminder";
@@ -901,25 +901,25 @@ function PlasmicMainHamyar__RenderFunc(props: {
         path: "reminder3.ofline",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "reminder.ofline",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "reminder5.refresh",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "reminder5.sms",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.hamyar2.userdata?.result?.man?.activeSmsNotif
@@ -940,7 +940,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
         path: "reminder5.tel",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.hamyar2.userdata?.result?.man?.activeNotifTel
@@ -961,19 +961,19 @@ function PlasmicMainHamyar__RenderFunc(props: {
         path: "reminder5.ofline",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "reminder5.slide3",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "slide3"
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => "slide3"
       },
       {
         path: "reminder5.reminderSettingReminderCategory2Data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({
           category: [
             {
               id: 1,
@@ -1356,13 +1356,13 @@ function PlasmicMainHamyar__RenderFunc(props: {
         path: "reminder5.balance",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 0
       },
       {
         path: "reminder5.active",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.page == "reminder";
@@ -1381,7 +1381,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
         path: "hamyar2.reminderSub",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return window.localStorage.getItem("SugRec") != "false";
@@ -1400,7 +1400,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
         path: "hamyar2.reminderBoxOpen",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return window.localStorage.getItem("reminderBox") != "false";
@@ -1419,25 +1419,25 @@ function PlasmicMainHamyar__RenderFunc(props: {
         path: "reminder3.first",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "reminder5.first",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "reminder.first",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "hamyar2.reminderBoxHide",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.reminder5.ofline.length == 0;
@@ -1464,19 +1464,19 @@ function PlasmicMainHamyar__RenderFunc(props: {
         path: "button.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "button.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "button.load",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1485,6 +1485,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 
@@ -2531,7 +2532,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
           [
             {
               name: "hamyar2.reminderSub",
-              initFunc: ({ $props, $state, $queries }) =>
+              initFunc: ({ $props, $state, $queries, $q }) =>
                 (() => {
                   try {
                     return window.localStorage.getItem("SugRec") != "false";
@@ -2548,7 +2549,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
             },
             {
               name: "hamyar2.reminderBoxOpen",
-              initFunc: ({ $props, $state, $queries }) =>
+              initFunc: ({ $props, $state, $queries, $q }) =>
                 (() => {
                   try {
                     return (

@@ -151,13 +151,13 @@ function PlasmicStepicon__RenderFunc(props: {
         path: "current",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.current
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.current
       },
       {
         path: "submit",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.submit
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.submit
       }
     ],
     [$props, $ctx, $refs]
@@ -166,6 +166,7 @@ function PlasmicStepicon__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

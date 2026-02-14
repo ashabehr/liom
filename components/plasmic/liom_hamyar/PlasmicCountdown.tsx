@@ -175,19 +175,19 @@ function PlasmicCountdown__RenderFunc(props: {
         path: "color",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.color
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.color
       },
       {
         path: "date",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.date
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.date
       },
       {
         path: "normal",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.normal
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.normal
       }
     ],
     [$props, $ctx, $refs]
@@ -196,6 +196,7 @@ function PlasmicCountdown__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

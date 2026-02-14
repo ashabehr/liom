@@ -172,14 +172,14 @@ function PlasmicReminderBox__RenderFunc(props: {
         path: "lackOfCourseInformation",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           $props.lackOfCourseInformation
       },
       {
         path: "noPartner",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.noPartner
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.noPartner
       },
       {
         path: "open",
@@ -201,13 +201,13 @@ function PlasmicReminderBox__RenderFunc(props: {
         path: "sugRec",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.sugRec
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.sugRec
       },
       {
         path: "openBox",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return (() => {
@@ -234,6 +234,7 @@ function PlasmicReminderBox__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 
