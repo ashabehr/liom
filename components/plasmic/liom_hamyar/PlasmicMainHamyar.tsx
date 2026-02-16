@@ -4312,7 +4312,14 @@ function PlasmicMainHamyar__RenderFunc(props: {
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
-                        return window.open("https://t.me/liomApp_bot");
+                        return (() => {
+                          let r = localStorage.getItem("refCode");
+                          let url = "https://t.me/liomApp_bot";
+                          if (r) {
+                            url += `?start=ref_${r}`;
+                          }
+                          return window.open(url);
+                        })();
                       }
                     };
                     return (({ customFunction }) => {

@@ -3239,14 +3239,18 @@ function PlasmicCalendar2__RenderFunc(props: {
                           $state?.profile?.result?.user?.last_login_method ??
                           "";
                         if (lastMethod === "guest") {
-                          return localStorage.setItem("guest", "true");
+                          localStorage.setItem("guest", "true");
                         }
                       } catch (e) {
-                        return console.error(
+                        console.error(
                           "\u274C خطای ذخیره‌سازی allowance یا guest:",
                           e
                         );
                       }
+                      return localStorage.setItem(
+                        "refCode",
+                        $state?.profile?.result?.user?.refCode
+                      );
                     })();
                   }
                 };

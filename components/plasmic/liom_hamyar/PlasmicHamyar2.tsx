@@ -3568,11 +3568,17 @@ function PlasmicHamyar2__RenderFunc(props: {
                           );
                         }
                         if ($steps?.userdata?.data?.result?.man?.birthDate) {
-                          return window.sessionStorage.setItem(
+                          window.sessionStorage.setItem(
                             "birthDate",
                             JSON.stringify(
                               $steps.userdata.data.result.man.birthDate
                             )
+                          );
+                        }
+                        if ($steps?.userdata?.data?.result?.man?.refCode) {
+                          return localStorage.setItem(
+                            "refCode",
+                            $steps.userdata.data.result.man.refCode
                           );
                         }
                       })();

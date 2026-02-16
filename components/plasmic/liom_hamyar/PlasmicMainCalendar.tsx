@@ -3753,6 +3753,36 @@ function PlasmicMainCalendar__RenderFunc(props: {
             <ReminderSetting
               data-plasmic-name={"reminderSetting"}
               data-plasmic-override={overrides.reminderSetting}
+              activeBale={async () => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            let r = localStorage.getItem("refCode");
+                            let url = "https://ble.ir/liomApp_bot";
+                            if (r) {
+                              url += `?start=ref_${r}`;
+                            }
+                            return window.open(url);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }}
               activeTelegram={async () => {
                 const $steps = {};
 
@@ -3837,6 +3867,7 @@ function PlasmicMainCalendar__RenderFunc(props: {
                   $steps["goToMain2"] = await $steps["goToMain2"];
                 }
               }}
+              baleId={$state.mainPage.userInfo?.result?.user?.baleId}
               className={classNames("__wab_instance", sty.reminderSetting, {
                 [sty.reminderSettingpage2_reminderSetting]: hasVariant(
                   $state,

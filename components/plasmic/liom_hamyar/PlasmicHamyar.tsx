@@ -7497,6 +7497,36 @@ function PlasmicHamyar__RenderFunc(props: {
             <ReminderSetting
               data-plasmic-name={"reminderSetting"}
               data-plasmic-override={overrides.reminderSetting}
+              activeBale={async () => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            let r = localStorage.getItem("refCode");
+                            let url = "https://ble.ir/liomApp_bot";
+                            if (r) {
+                              url += `?start=ref_${r}`;
+                            }
+                            return window.open(url);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }}
               activeTelegram={async () => {
                 const $steps = {};
 
@@ -7584,6 +7614,7 @@ function PlasmicHamyar__RenderFunc(props: {
                   $steps["updateReminder"] = await $steps["updateReminder"];
                 }
               }}
+              baleId={$state.userdata?.result?.man?.baleId}
               className={classNames("__wab_instance", sty.reminderSetting, {
                 [sty.reminderSettingedit]: hasVariant($state, "edit", "edit"),
                 [sty.reminderSettingremindersetting]: hasVariant(
