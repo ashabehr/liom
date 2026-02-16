@@ -639,10 +639,11 @@ function PlasmicMainLiad__RenderFunc(props: {
                           $state.remind.length == 0 &&
                           !window.localStorage.getItem("reminder")
                         )
-                          return window.localStorage.setItem(
-                            "reminder",
-                            "false"
-                          );
+                          window.localStorage.setItem("reminder", "false");
+                        return localStorage.setItem(
+                          "refCode",
+                          $state?.profile?.data?.result?.user?.refCode
+                        );
                       })();
                     }
                   };
