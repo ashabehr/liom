@@ -103,6 +103,7 @@ export const PlasmicEditProfile2__VariantProps = new Array<VariantPropType>(
 );
 
 export type PlasmicEditProfile2__ArgsType = {
+  onGetinfoChange?: (val: any) => void;
   token?: string;
   onTokenChange?: (val: string) => void;
   back?: () => void;
@@ -111,6 +112,7 @@ export type PlasmicEditProfile2__ArgsType = {
 };
 type ArgPropType = keyof PlasmicEditProfile2__ArgsType;
 export const PlasmicEditProfile2__ArgProps = new Array<ArgPropType>(
+  "onGetinfoChange",
   "token",
   "onTokenChange",
   "back",
@@ -187,6 +189,7 @@ export type PlasmicEditProfile2__OverridesType = {
 };
 
 export interface DefaultEditProfile2Props {
+  onGetinfoChange?: (val: any) => void;
   token?: string;
   onTokenChange?: (val: string) => void;
   back?: () => void;
@@ -569,9 +572,11 @@ function PlasmicEditProfile2__RenderFunc(props: {
       },
       {
         path: "getInfo.data",
-        type: "private",
+        type: "readonly",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
+
+        onChangeProp: "onGetinfoChange"
       },
       {
         path: "getInfo.error",

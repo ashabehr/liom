@@ -343,6 +343,31 @@ function PlasmicMainPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $q, $ctx }) => "kjlkjkj"
+      },
+      {
+        path: "editProfile2.getinfo",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
+      },
+      {
+        path: "editProfile2.token",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
+          (() => {
+            try {
+              return $state.token;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -1148,19 +1173,35 @@ function PlasmicMainPregnancy__RenderFunc(props: {
               className={classNames("__wab_instance", sty.editProfile2, {
                 [sty.editProfile2edit]: hasVariant($state, "edit", "edit")
               })}
-              token={(() => {
-                try {
-                  return $state.token;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
+              onGetinfoChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "editProfile2",
+                  "getinfo"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
                 }
-              })()}
+              }}
+              onTokenChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "editProfile2",
+                  "token"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              token={generateStateValueProp($state, ["editProfile2", "token"])}
             />
           </Reveal>
           <BackHandler

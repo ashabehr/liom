@@ -3956,7 +3956,9 @@ function PlasmicMainPage__RenderFunc(props: {
             throw e;
           }
         })()}
-        className={classNames("__wab_instance", sty.reminderApi)}
+        className={classNames("__wab_instance", sty.reminderApi, {
+          [sty.reminderApipage_calendar]: hasVariant($state, "page", "calendar")
+        })}
         errorDisplay={null}
         loadingDisplay={null}
         method={"POST"}
@@ -4059,7 +4061,9 @@ function PlasmicMainPage__RenderFunc(props: {
       <ApiRequest
         data-plasmic-name={"apiRequest"}
         data-plasmic-override={overrides.apiRequest}
-        className={classNames("__wab_instance", sty.apiRequest)}
+        className={classNames("__wab_instance", sty.apiRequest, {
+          [sty.apiRequestpage_calendar]: hasVariant($state, "page", "calendar")
+        })}
         errorDisplay={null}
         loadingDisplay={null}
         method={"GET"}

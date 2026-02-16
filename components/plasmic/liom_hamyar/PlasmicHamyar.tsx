@@ -2797,6 +2797,12 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
+      },
+      {
+        path: "editProfile2.getinfo",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -7614,7 +7620,7 @@ function PlasmicHamyar__RenderFunc(props: {
                   $steps["updateReminder"] = await $steps["updateReminder"];
                 }
               }}
-              baleId={$state.userdata?.result?.man?.baleId}
+              baleId={$state.editProfile2?.getinfo?.result?.user?.baleId}
               className={classNames("__wab_instance", sty.reminderSetting, {
                 [sty.reminderSettingedit]: hasVariant($state, "edit", "edit"),
                 [sty.reminderSettingremindersetting]: hasVariant(
@@ -8322,6 +8328,20 @@ function PlasmicHamyar__RenderFunc(props: {
                 [sty.editProfile2edit]: hasVariant($state, "edit", "edit")
               })}
               hamyar={true}
+              onGetinfoChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "editProfile2",
+                  "getinfo"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
               onTokenChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "editProfile2",

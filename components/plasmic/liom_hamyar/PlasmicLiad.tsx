@@ -1231,6 +1231,12 @@ function PlasmicLiad__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
+      },
+      {
+        path: "editProfile2.getinfo",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -2227,6 +2233,20 @@ function PlasmicLiad__RenderFunc(props: {
                 )
               })}
               hamyar={true}
+              onGetinfoChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "editProfile2",
+                  "getinfo"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
               onTokenChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "editProfile2",

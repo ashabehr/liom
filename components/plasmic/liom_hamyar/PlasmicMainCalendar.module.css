@@ -99,9 +99,6 @@
 .mainpage2_reminderSetting {
   display: none;
 }
-.link {
-  display: flex;
-}
 .mainPage:global(.__wab_instance) {
   width: 100%;
   min-width: 0;

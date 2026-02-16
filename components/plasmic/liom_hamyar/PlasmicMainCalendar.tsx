@@ -138,7 +138,6 @@ export type PlasmicMainCalendar__OverridesType = {
   hotjarReminder?: Flex__<typeof Embed>;
   clarity?: Flex__<typeof Embed>;
   main?: Flex__<"div">;
-  link?: Flex__<"a"> & Partial<LinkProps>;
   mainPage?: Flex__<typeof MainPage>;
   footerMain?: Flex__<typeof FooterMain>;
   mainHeader?: Flex__<typeof MainHeader>;
@@ -1218,6 +1217,12 @@ function PlasmicMainCalendar__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
+      },
+      {
+        path: "editProfile2.getinfo",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -1306,345 +1311,326 @@ function PlasmicMainCalendar__RenderFunc(props: {
               [sty.mainsubItem]: hasVariant($state, "subItem", "subItem")
             })}
           >
-            <PlasmicLink__
-              data-plasmic-name={"link"}
-              data-plasmic-override={overrides.link}
-              className={classNames(projectcss.all, projectcss.a, sty.link)}
-              component={Link}
-              legacyBehavior={false}
-              platform={"nextjs"}
-            >
-              <MainPage
-                data-plasmic-name={"mainPage"}
-                data-plasmic-override={overrides.mainPage}
-                className={classNames("__wab_instance", sty.mainPage, {
-                  [sty.mainPagepage2_cycle]: hasVariant(
-                    $state,
-                    "page2",
-                    "cycle"
-                  ),
-                  [sty.mainPagepage2_edit]: hasVariant($state, "page2", "edit"),
-                  [sty.mainPagepage2_reminderSetting]: hasVariant(
-                    $state,
-                    "page2",
-                    "reminderSetting"
-                  ),
-                  [sty.mainPagepage2_setting]: hasVariant(
-                    $state,
-                    "page2",
-                    "setting"
-                  ),
-                  [sty.mainPagesubItem]: hasVariant(
-                    $state,
-                    "subItem",
-                    "subItem"
-                  )
-                })}
-                editTime={generateStateValueProp($state, [
+            <MainPage
+              data-plasmic-name={"mainPage"}
+              data-plasmic-override={overrides.mainPage}
+              className={classNames("__wab_instance", sty.mainPage, {
+                [sty.mainPagepage2_cycle]: hasVariant($state, "page2", "cycle"),
+                [sty.mainPagepage2_edit]: hasVariant($state, "page2", "edit"),
+                [sty.mainPagepage2_reminderSetting]: hasVariant(
+                  $state,
+                  "page2",
+                  "reminderSetting"
+                ),
+                [sty.mainPagepage2_setting]: hasVariant(
+                  $state,
+                  "page2",
+                  "setting"
+                ),
+                [sty.mainPagesubItem]: hasVariant($state, "subItem", "subItem")
+              })}
+              editTime={generateStateValueProp($state, [
+                "mainPage",
+                "editTime"
+              ])}
+              fuchereCycle={async event => {
+                const $steps = {};
+
+                $steps["goToMain2"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        destination: `/main/${(() => {
+                          try {
+                            return (() => {
+                              var s = $ctx.params.page || ["calendar"];
+                              s.push("cycle");
+                              return s.join("/");
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}`
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["goToMain2"] != null &&
+                  typeof $steps["goToMain2"] === "object" &&
+                  typeof $steps["goToMain2"].then === "function"
+                ) {
+                  $steps["goToMain2"] = await $steps["goToMain2"];
+                }
+              }}
+              mobileDialogOpen={generateStateValueProp($state, [
+                "mainPage",
+                "mobileDialogOpen"
+              ])}
+              onEditTimeChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
                   "mainPage",
                   "editTime"
-                ])}
-                fuchereCycle={async event => {
-                  const $steps = {};
+                ]).apply(null, eventArgs);
 
-                  $steps["goToMain2"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          destination: `/main/${(() => {
-                            try {
-                              return (() => {
-                                var s = $ctx.params.page || ["calendar"];
-                                s.push("cycle");
-                                return s.join("/");
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()}`
-                        };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["goToMain2"] != null &&
-                    typeof $steps["goToMain2"] === "object" &&
-                    typeof $steps["goToMain2"].then === "function"
-                  ) {
-                    $steps["goToMain2"] = await $steps["goToMain2"];
-                  }
-                }}
-                mobileDialogOpen={generateStateValueProp($state, [
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onMobileDialogOpenChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
                   "mainPage",
                   "mobileDialogOpen"
-                ])}
-                onEditTimeChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "mainPage",
-                    "editTime"
-                  ]).apply(null, eventArgs);
+                ]).apply(null, eventArgs);
 
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onMobileDialogOpenChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "mainPage",
-                    "mobileDialogOpen"
-                  ]).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onRefreshChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "mainPage",
-                    "refresh"
-                  ]).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onRemindChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "mainPage",
-                    "remind"
-                  ]).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onReminderBalanceChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "mainPage",
-                    "reminderBalance"
-                  ]).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onReminderCategoryChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "mainPage",
-                    "reminderCategory"
-                  ]).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onTelegramOpendialogChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "mainPage",
-                    "telegramOpendialog"
-                  ]).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onTokenChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "mainPage",
-                    "token"
-                  ]).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onUserInfoChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "mainPage",
-                    "userInfo"
-                  ]).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                page={(() => {
-                  try {
-                    return $ctx.params.page?.[0] || "calendar";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return [];
-                    }
-                    throw e;
-                  }
-                })()}
-                refresh={generateStateValueProp($state, [
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onRefreshChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
                   "mainPage",
                   "refresh"
-                ])}
-                remind={generateStateValueProp($state, ["mainPage", "remind"])}
-                reminderCategory={generateStateValueProp($state, [
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onRemindChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["mainPage", "remind"]).apply(
+                  null,
+                  eventArgs
+                );
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onReminderBalanceChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "mainPage",
+                  "reminderBalance"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onReminderCategoryChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
                   "mainPage",
                   "reminderCategory"
-                ])}
-                reminderSetting={async () => {
-                  const $steps = {};
+                ]).apply(null, eventArgs);
 
-                  $steps["goToMain2"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          destination: `/main/${(() => {
-                            try {
-                              return (() => {
-                                var s = $ctx.params.page || ["calendar"];
-                                s.push("reminderSetting");
-                                return s.join("/");
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()}`
-                        };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["goToMain2"] != null &&
-                    typeof $steps["goToMain2"] === "object" &&
-                    typeof $steps["goToMain2"].then === "function"
-                  ) {
-                    $steps["goToMain2"] = await $steps["goToMain2"];
-                  }
-                }}
-                setting={async () => {
-                  const $steps = {};
-
-                  $steps["goToMain2"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          destination: `/main/${(() => {
-                            try {
-                              return (() => {
-                                var s = $ctx.params.page || ["calendar"];
-                                s.push("setting");
-                                return s.join("/");
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()}`
-                        };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["goToMain2"] != null &&
-                    typeof $steps["goToMain2"] === "object" &&
-                    typeof $steps["goToMain2"].then === "function"
-                  ) {
-                    $steps["goToMain2"] = await $steps["goToMain2"];
-                  }
-                }}
-                telegramOpendialog={generateStateValueProp($state, [
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onTelegramOpendialogChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
                   "mainPage",
                   "telegramOpendialog"
-                ])}
-                token={generateStateValueProp($state, ["mainPage", "token"])}
-                userInfo={generateStateValueProp($state, [
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onTokenChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["mainPage", "token"]).apply(
+                  null,
+                  eventArgs
+                );
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onUserInfoChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
                   "mainPage",
                   "userInfo"
-                ])}
-              />
-            </PlasmicLink__>
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              page={(() => {
+                try {
+                  return $ctx.params.page?.[0] || "calendar";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [];
+                  }
+                  throw e;
+                }
+              })()}
+              refresh={generateStateValueProp($state, ["mainPage", "refresh"])}
+              remind={generateStateValueProp($state, ["mainPage", "remind"])}
+              reminderCategory={generateStateValueProp($state, [
+                "mainPage",
+                "reminderCategory"
+              ])}
+              reminderSetting={async () => {
+                const $steps = {};
+
+                $steps["goToMain2"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        destination: `/main/${(() => {
+                          try {
+                            return (() => {
+                              var s = $ctx.params.page || ["calendar"];
+                              s.push("reminderSetting");
+                              return s.join("/");
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}`
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["goToMain2"] != null &&
+                  typeof $steps["goToMain2"] === "object" &&
+                  typeof $steps["goToMain2"].then === "function"
+                ) {
+                  $steps["goToMain2"] = await $steps["goToMain2"];
+                }
+              }}
+              setting={async () => {
+                const $steps = {};
+
+                $steps["goToMain2"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        destination: `/main/${(() => {
+                          try {
+                            return (() => {
+                              var s = $ctx.params.page || ["calendar"];
+                              s.push("setting");
+                              return s.join("/");
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}`
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["goToMain2"] != null &&
+                  typeof $steps["goToMain2"] === "object" &&
+                  typeof $steps["goToMain2"].then === "function"
+                ) {
+                  $steps["goToMain2"] = await $steps["goToMain2"];
+                }
+              }}
+              telegramOpendialog={generateStateValueProp($state, [
+                "mainPage",
+                "telegramOpendialog"
+              ])}
+              token={generateStateValueProp($state, ["mainPage", "token"])}
+              userInfo={generateStateValueProp($state, [
+                "mainPage",
+                "userInfo"
+              ])}
+            />
+
             {(() => {
               try {
                 return (() => {
@@ -3441,6 +3427,20 @@ function PlasmicMainCalendar__RenderFunc(props: {
                   "edit"
                 )
               })}
+              onGetinfoChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "editProfile2",
+                  "getinfo"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
               onTokenChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "editProfile2",
@@ -3867,7 +3867,7 @@ function PlasmicMainCalendar__RenderFunc(props: {
                   $steps["goToMain2"] = await $steps["goToMain2"];
                 }
               }}
-              baleId={$state.mainPage.userInfo?.result?.user?.baleId}
+              baleId={$state.editProfile2?.getinfo?.result?.user?.baleId}
               className={classNames("__wab_instance", sty.reminderSetting, {
                 [sty.reminderSettingpage2_reminderSetting]: hasVariant(
                   $state,
@@ -4748,7 +4748,6 @@ const PlasmicDescendants = {
     "hotjarReminder",
     "clarity",
     "main",
-    "link",
     "mainPage",
     "footerMain",
     "mainHeader",
@@ -4765,7 +4764,6 @@ const PlasmicDescendants = {
   clarity: ["clarity"],
   main: [
     "main",
-    "link",
     "mainPage",
     "footerMain",
     "mainHeader",
@@ -4773,7 +4771,6 @@ const PlasmicDescendants = {
     "lottie",
     "creaditButten"
   ],
-  link: ["link", "mainPage"],
   mainPage: ["mainPage"],
   footerMain: ["footerMain"],
   mainHeader: ["mainHeader", "button", "lottie", "creaditButten"],
@@ -4794,7 +4791,6 @@ type NodeDefaultElementType = {
   hotjarReminder: typeof Embed;
   clarity: typeof Embed;
   main: "div";
-  link: "a";
   mainPage: typeof MainPage;
   footerMain: typeof FooterMain;
   mainHeader: typeof MainHeader;
@@ -4898,7 +4894,6 @@ export const PlasmicMainCalendar = Object.assign(
     hotjarReminder: makeNodeComponent("hotjarReminder"),
     clarity: makeNodeComponent("clarity"),
     main: makeNodeComponent("main"),
-    link: makeNodeComponent("link"),
     mainPage: makeNodeComponent("mainPage"),
     footerMain: makeNodeComponent("footerMain"),
     mainHeader: makeNodeComponent("mainHeader"),
