@@ -127,6 +127,7 @@ export type PlasmicNotif2__OverridesType = {
   headerLiom?: Flex__<typeof HeaderLiom>;
   svg?: Flex__<"svg">;
   apiRequest?: Flex__<typeof ApiRequest>;
+  img?: Flex__<typeof PlasmicImg__>;
   notifBox2?: Flex__<typeof NotifBox>;
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
@@ -362,7 +363,7 @@ function PlasmicNotif2__RenderFunc(props: {
                 "padding-top":
                   typeof window?.FlutterChannel?.postMessage == "function"
                     ? "8px"
-                    : "70px"
+                    : "60px"
               };
             } catch (e) {
               if (
@@ -538,6 +539,7 @@ function PlasmicNotif2__RenderFunc(props: {
                 data-plasmic-name={"headerLiom"}
                 data-plasmic-override={overrides.headerLiom}
                 className={classNames("__wab_instance", sty.headerLiom)}
+                slot={null}
               >
                 <div className={classNames(projectcss.all, sty.freeBox__yqZ1W)}>
                   <XIcon
@@ -587,67 +589,6 @@ function PlasmicNotif2__RenderFunc(props: {
               </HeaderLiom>
             ) : null}
           </section>
-          <div
-            className={classNames(projectcss.all, sty.freeBox___9EZ6E, {
-              [sty.freeBoxnoNotification___9EZ6ENShOl]: hasVariant(
-                $state,
-                "noNotification",
-                "noNotification"
-              )
-            })}
-          >
-            <PlasmicImg__
-              alt={""}
-              className={classNames(sty.img__majxv, {
-                [sty.imgnoNotification__majxvNShOl]: hasVariant(
-                  $state,
-                  "noNotification",
-                  "noNotification"
-                )
-              })}
-              displayHeight={"auto"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={
-                hasVariant($state, "noNotification", "noNotification") &&
-                hasVariant(globalVariants, "screen", "mobile")
-                  ? "50%"
-                  : hasVariant($state, "noNotification", "noNotification")
-                    ? "30%"
-                    : hasVariant(globalVariants, "screen", "mobile")
-                      ? "50%"
-                      : "30%"
-              }
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={"auto"}
-              loading={"lazy"}
-              src={{
-                src: "/plasmic/liom_hamyar/images/image9.png",
-                fullWidth: 450,
-                fullHeight: 450,
-                aspectRatio: undefined
-              }}
-            />
-
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__gycev,
-                {
-                  [sty.textnoNotification__gycevnShOl]: hasVariant(
-                    $state,
-                    "noNotification",
-                    "noNotification"
-                  )
-                }
-              )}
-            >
-              {hasVariant($state, "noNotification", "noNotification")
-                ? "\u0627\u0639\u0644\u0627\u0646\u06cc \u0628\u0631\u0627\u06cc \u0634\u0645\u0627 \u0648\u062c\u0648\u062f \u0646\u062f\u0627\u0631\u062f."
-                : "Enter some text"}
-            </div>
-          </div>
           <div className={classNames(projectcss.all, sty.freeBox__huhNg)}>
             <ApiRequest
               data-plasmic-name={"apiRequest"}
@@ -801,8 +742,10 @@ function PlasmicNotif2__RenderFunc(props: {
               })() ? (
                 <div className={classNames(projectcss.all, sty.freeBox__jeVng)}>
                   <PlasmicImg__
+                    data-plasmic-name={"img"}
+                    data-plasmic-override={overrides.img}
                     alt={""}
-                    className={classNames(sty.img__mben)}
+                    className={classNames(sty.img)}
                     displayHeight={"auto"}
                     displayMaxHeight={"none"}
                     displayMaxWidth={"100%"}
@@ -874,7 +817,20 @@ function PlasmicNotif2__RenderFunc(props: {
                         <React.Fragment>
                           {(() => {
                             try {
-                              return JSON.parse(notifItem.butten).length == 1;
+                              return (() => {
+                                let btnLength = 0;
+                                try {
+                                  const parsed = JSON.parse(
+                                    notifItem?.butten || "[]"
+                                  );
+                                  btnLength = Array.isArray(parsed)
+                                    ? parsed.length
+                                    : 0;
+                                } catch (e) {
+                                  btnLength = 0;
+                                }
+                                return btnLength === 0;
+                              })();
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -1315,7 +1271,16 @@ function PlasmicNotif2__RenderFunc(props: {
                           ) : null}
                           {(() => {
                             try {
-                              return JSON.parse(notifItem.butten).length > 1;
+                              return (() => {
+                                try {
+                                  const data = JSON.parse(
+                                    notifItem?.butten ?? "[]"
+                                  );
+                                  return Array.isArray(data) && data.length > 1;
+                                } catch {
+                                  return false;
+                                }
+                              })();
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -2217,6 +2182,7 @@ const PlasmicDescendants = {
     "headerLiom",
     "svg",
     "apiRequest",
+    "img",
     "notifBox2",
     "button",
     "button2"
@@ -2225,7 +2191,8 @@ const PlasmicDescendants = {
   section: ["section", "headerLiom", "svg"],
   headerLiom: ["headerLiom", "svg"],
   svg: ["svg"],
-  apiRequest: ["apiRequest", "notifBox2", "button", "button2"],
+  apiRequest: ["apiRequest", "img", "notifBox2", "button", "button2"],
+  img: ["img"],
   notifBox2: ["notifBox2", "button", "button2"],
   button: ["button"],
   button2: ["button2"]
@@ -2240,6 +2207,7 @@ type NodeDefaultElementType = {
   headerLiom: typeof HeaderLiom;
   svg: "svg";
   apiRequest: typeof ApiRequest;
+  img: typeof PlasmicImg__;
   notifBox2: typeof NotifBox;
   button: typeof Button;
   button2: typeof Button;
@@ -2337,6 +2305,7 @@ export const PlasmicNotif2 = Object.assign(
     headerLiom: makeNodeComponent("headerLiom"),
     svg: makeNodeComponent("svg"),
     apiRequest: makeNodeComponent("apiRequest"),
+    img: makeNodeComponent("img"),
     notifBox2: makeNodeComponent("notifBox2"),
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),

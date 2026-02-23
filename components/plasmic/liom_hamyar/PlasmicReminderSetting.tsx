@@ -4966,7 +4966,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             return;
                           }
                         },
-                        onData2Change2: async (...eventArgs: any) => {
+                        onData2Change: async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
                             "report2",
                             "data2"
@@ -13748,7 +13748,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             return;
                           }
                         },
-                        onData2Change2: async (...eventArgs: any) => {
+                        onData2Change: async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
                             "report4",
                             "data2"

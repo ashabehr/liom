@@ -87,7 +87,7 @@ export type PlasmicReport2__ArgsType = {
   onActiveChange?: (val: string) => void;
   data?: any;
   data2?: any;
-  onData2Change2?: (val: string) => void;
+  onData2Change?: (val: string) => void;
   selectchanels?: any;
   onSelectchanelsChange?: (val: string) => void;
   button2?: React.ReactNode;
@@ -99,7 +99,7 @@ export const PlasmicReport2__ArgProps = new Array<ArgPropType>(
   "onActiveChange",
   "data",
   "data2",
-  "onData2Change2",
+  "onData2Change",
   "selectchanels",
   "onSelectchanelsChange",
   "button2"
@@ -118,7 +118,7 @@ export interface DefaultReport2Props {
   onActiveChange?: (val: string) => void;
   data?: any;
   data2?: any;
-  onData2Change2?: (val: string) => void;
+  onData2Change?: (val: string) => void;
   selectchanels?: any;
   onSelectchanelsChange?: (val: string) => void;
   button2?: React.ReactNode;
@@ -162,7 +162,8 @@ function PlasmicReport2__RenderFunc(props: {
               label: "\u067e\u06cc\u0627\u0645\u06a9",
               value: "sms",
               paid: true
-            }
+            },
+            { label: "\u0628\u0644\u0647", value: "bale", paid: true }
           ]
         },
         Object.fromEntries(
@@ -253,7 +254,7 @@ function PlasmicReport2__RenderFunc(props: {
         variableType: "object",
 
         valueProp: "data2",
-        onChangeProp: "onData2Change2"
+        onChangeProp: "onData2Change"
       },
       {
         path: "selectchanels",
@@ -631,7 +632,8 @@ function PlasmicReport2__RenderFunc(props: {
                                   const typeMap = {
                                     telegram: "تلگرام",
                                     sms: "پیامک",
-                                    notification: "نوتیفیکیشن"
+                                    notification: "نوتیفیکیشن",
+                                    bale: "بله"
                                   };
                                   return `${typeMap[currentItem]}`;
                                 })();
