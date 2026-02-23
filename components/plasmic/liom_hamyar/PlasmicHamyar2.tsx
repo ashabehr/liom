@@ -399,81 +399,23 @@ function PlasmicHamyar2__RenderFunc(props: {
       {
         path: "r",
         type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
-          (() => {
-            try {
-              return $ctx.query.r;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        variableType: "text"
       },
       {
         path: "m",
         type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
-          (() => {
-            try {
-              return $ctx.query.m;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        variableType: "text"
       },
       {
         path: "subscriptionCurrentIndex",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
-          (() => {
-            try {
-              return $state.shapData.result.findIndex(
-                item => item.selected === 1
-              );
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return 0;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 0
       },
       {
         path: "buyId",
         type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
-          (() => {
-            try {
-              return $state.shop.data.result.find(item => item.selected === 1)
-                .id;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        variableType: "text"
       },
       {
         path: "discountCode",
@@ -485,22 +427,7 @@ function PlasmicHamyar2__RenderFunc(props: {
         path: "selectedShop",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
-          (() => {
-            try {
-              return $state.shapData.result.findIndex(
-                item => item.selected === 1
-              );
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return 0;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 0
       },
       {
         path: "subscription2[].clickitem",
@@ -719,35 +646,6 @@ function PlasmicHamyar2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
-        path: "expdate",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
-          (() => {
-            try {
-              return (() => {
-                let future_date = new Date(
-                  $state.userdata.result.man.hamyarTime.year,
-                  $state.userdata.result.man.hamyarTime.month - 1,
-                  $state.userdata.result.man.hamyarTime.day,
-                  $state.userdata.result.man.hamyarTime.hour + 3,
-                  $state.userdata.result.man.hamyarTime.minute,
-                  $state.userdata.result.man.hamyarTime.second
-                );
-                return future_date.setTime(future_date.getTime());
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return 0;
-              }
-              throw e;
-            }
-          })()
-      },
-      {
         path: "button2.color",
         type: "private",
         variableType: "text",
@@ -768,36 +666,10 @@ function PlasmicHamyar2__RenderFunc(props: {
         onChangeProp: "onPlasmicAntd5ModalOpenChange"
       },
       {
-        path: "variable",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
-      },
-      {
         path: "guideShow",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
-          (() => {
-            try {
-              return (() => {
-                let value = localStorage.getItem("guideShow");
-                if (value) {
-                  return false;
-                } else {
-                  return true;
-                }
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => true
       },
       {
         path: "cyclebox.textsycle",
@@ -917,202 +789,18 @@ function PlasmicHamyar2__RenderFunc(props: {
         path: "payam",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [
-          {
-            pms: [
-              "\u0639\u0634\u0642\u0645\u060c \u0647\u0631 \u0627\u062a\u0641\u0627\u0642\u06cc \u0628\u06cc\u0641\u062a\u0647 \u0645\u0646 \u0647\u0645\u06cc\u0634\u0647 \u067e\u06cc\u0634\u062a\u0645. \u0647\u0631 \u0648\u0642\u062a \u062d\u0633 \u06a9\u0631\u062f\u06cc \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u06cc\u060c \u0628\u062f\u0648\u0646 \u06a9\u0647 \u0645\u0646 \u0627\u06cc\u0646\u062c\u0627\u0645 \u0648 \u0647\u06cc\u0686\u200c\u0648\u0642\u062a \u062a\u0646\u0647\u0627\u062a \u0646\u0645\u06cc\u200c\u0630\u0627\u0631\u0645. \u062a\u0648 \u0642\u0644\u0628\u0645\u06cc \u0648 \u0647\u0645\u06cc\u0634\u0647 \u0628\u0627 \u0647\u0645\u06cc\u0645! ",
-              "\u0639\u0634\u0642\u0645\u060c \u0647\u0631 \u0631\u0648\u0632 \u06a9\u0647 \u0645\u06cc\u200c\u06af\u0630\u0631\u0647 \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0647\u0645\u06cc\u0634\u0647 \u062d\u0633 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u062a\u0648 \u0628\u0647\u062a\u0631\u06cc\u0646 \u0627\u062a\u0641\u0627\u0642 \u0632\u0646\u062f\u06af\u06cc\u0645\u06cc. \u0628\u062f\u0648\u0646 \u06a9\u0647 \u062a\u0648 \u0647\u0631 \u0634\u0631\u0627\u06cc\u0637\u06cc \u0645\u0646 \u06a9\u0646\u0627\u0631\u062a\u0645 \u0648 \u0647\u06cc\u0686\u200c\u0686\u06cc\u0632\u06cc \u0646\u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u0627\u06cc\u0646\u0648 \u0639\u0648\u0636 \u06a9\u0646\u0647. \u062f\u0644\u0645 \u0647\u0645\u06cc\u0634\u0647 \u067e\u06cc\u0634 \u062a\u0648\u0626\u0647! ",
-              "\u0642\u0644\u0628\u0645\u060c \u0647\u0631 \u0644\u062d\u0638\u0647 \u0628\u0647 \u062a\u0648 \u0641\u06a9\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u0628\u06cc\u0634\u062a\u0631 \u0645\u06cc\u0641\u0647\u0645\u0645 \u0647\u06cc\u0686\u200c\u06a9\u0633 \u062c\u0627\u062a\u0648 \u0646\u0645\u06cc\u06af\u06cc\u0631\u0647. \u0647\u0631 \u062c\u0627 \u0628\u0631\u06cc\u060c \u0645\u0646 \u0628\u0627\u0647\u0627\u062a\u0645 \u0648 \u0647\u06cc\u0686\u200c\u0648\u0642\u062a \u062a\u0646\u0647\u0627\u062a \u0646\u0645\u06cc\u200c\u0630\u0627\u0631\u0645. \u062a\u0648 \u0647\u0645\u0647 \u062f\u0646\u06cc\u0627\u06cc \u0645\u0646\u06cc. ",
-              "\u0639\u0632\u06cc\u0632 \u062f\u0644\u0645\u060c \u0647\u0631 \u0648\u0642\u062a \u062d\u0633 \u06a9\u0631\u062f\u06cc \u0632\u0646\u062f\u06af\u06cc \u0633\u062e\u062a \u0645\u06cc\u06af\u0630\u0631\u0647\u060c \u0628\u062f\u0648\u0646 \u06a9\u0647 \u0645\u0646 \u0627\u06cc\u0646\u062c\u0627\u0645. \u0628\u0627 \u0647\u0645 \u0627\u0632 \u067e\u0633 \u0647\u0645\u0647\u200c\u0686\u06cc \u0628\u0631\u0645\u06cc\u0627\u06cc\u0645\u060c \u0686\u0648\u0646 \u0647\u06cc\u0686\u200c\u0686\u06cc\u0632\u06cc \u0628\u0631\u0627\u06cc \u0645\u0646 \u0645\u0647\u0645\u200c\u062a\u0631 \u0627\u0632 \u062a\u0648 \u0646\u06cc\u0633\u062a. ",
-              "\u0639\u0634\u0642\u0645\u060c \u0648\u0642\u062a\u06cc \u0628\u0647\u062a \u0641\u06a9\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0645\u060c \u0647\u0645\u0647\u200c\u0686\u06cc\u0632 \u0642\u0634\u0646\u06af\u200c\u062a\u0631 \u0645\u06cc\u200c\u0634\u0647. \u0628\u062f\u0648\u0646 \u06a9\u0647 \u0647\u0645\u06cc\u0634\u0647 \u062a\u0648 \u0642\u0644\u0628 \u0645\u0646\u06cc\u060c \u0647\u0631\u062c\u0627 \u06a9\u0647 \u0628\u0627\u0634\u06cc\u060c \u0645\u0646 \u06a9\u0646\u0627\u0631\u062a\u0645! ",
-              "\u0639\u0632\u06cc\u0632\u0645\u060c \u0645\u06cc\u200c\u062f\u0648\u0646\u06cc \u06a9\u0647 \u062a\u0648 \u0628\u0647\u062a\u0631\u06cc\u0646 \u0628\u062e\u0634 \u0632\u0646\u062f\u06af\u06cc \u0645\u0646\u06cc. \u0647\u0631 \u0644\u062d\u0638\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0628\u0627 \u062a\u0648\u0627\u0645\u060c \u0645\u062b\u0644 \u06cc\u06a9 \u0631\u0648\u06cc\u0627\u0633\u062a \u0648 \u062f\u0644\u0645 \u0645\u06cc\u200c\u062e\u0648\u0627\u062f \u0647\u06cc\u0686\u200c\u0648\u0642\u062a \u062a\u0645\u0648\u0645 \u0646\u0634\u0647. "
-            ]
-          },
-          {
-            blood: [
-              "\u0639\u0634\u0642\u0645\u060c \u062a\u0648 \u0645\u062b\u0644 \u062e\u0648\u0646 \u062a\u0648\u06cc \u0631\u06af\u0627\u0645\u06cc. \u0628\u062f\u0648\u0646 \u062a\u0648 \u0632\u0646\u062f\u06af\u06cc \u0628\u0631\u0627\u0645 \u0645\u0639\u0646\u06cc \u0646\u062f\u0627\u0631\u0647. \u0644\u062d\u0638\u0647 \u0644\u062d\u0638\u0647 \u0628\u0627 \u062a\u0648 \u0628\u0648\u062f\u0646\u060c \u0645\u062b\u0644 \u0631\u0648\u06cc\u0627\u0633\u062a! ",
-              "\u0646\u0641\u0633\u0645\u060c \u0647\u0631 \u0631\u0648\u0632 \u0628\u06cc\u0634\u062a\u0631 \u0639\u0627\u0634\u0642\u062a \u0645\u06cc\u200c\u0634\u0645. \u062a\u0648 \u0646\u0647 \u062a\u0646\u0647\u0627 \u0639\u0634\u0642 \u0645\u0646\u06cc\u060c \u0628\u0647\u062a\u0631\u06cc\u0646 \u062f\u0648\u0633\u062a \u0645\u0646\u0645 \u0647\u0633\u062a\u06cc. \u0646\u0645\u06cc\u200c\u062a\u0648\u0646\u0645 \u062a\u0635\u0648\u0631 \u06a9\u0646\u0645 \u0628\u062f\u0648\u0646 \u062a\u0648 \u0686\u0637\u0648\u0631 \u0645\u06cc\u200c\u06af\u0630\u0631\u0647. ",
-              "\u0639\u0645\u0631\u0645\u060c \u0628\u0627 \u062a\u0648 \u0632\u0646\u062f\u06af\u06cc \u0632\u06cc\u0628\u0627\u0633\u062a. \u0686\u0648\u0646 \u0645\u06cc\u062a\u0648\u0646\u0645 \u0647\u0631 \u0631\u0648\u0632 \u062e\u0648\u062f\u0645\u0648 \u062a\u0648 \u0686\u0634\u0645\u0627\u062a \u0628\u0628\u06cc\u0646\u0645. ",
-              "\u0642\u0644\u0628\u0645\u060c \u062a\u0648 \u0645\u062b\u0644 \u0646\u0648\u0631 \u062a\u0648\u06cc \u0632\u0646\u062f\u06af\u06cc\u0645 \u0645\u06cc\u200c\u062f\u0631\u062e\u0634\u06cc. \u0645\u06cc\u200c\u062f\u0648\u0646\u0645 \u06a9\u0647 \u0628\u0627 \u062a\u0648 \u0645\u06cc\u200c\u062a\u0648\u0646\u0645 \u0627\u0632 \u067e\u0633 \u0647\u0631\u0686\u06cc\u0632\u06cc \u0628\u0631\u0628\u06cc\u0627\u0645. \u0645\u0631\u0633\u06cc \u06a9\u0646\u0627\u0631\u0645\u06cc. ",
-              "\u0639\u0634\u0642\u0645\u060c \u0647\u0631 \u0628\u0627\u0631 \u0628\u0647 \u0686\u0634\u0645\u0627\u06cc \u0642\u0634\u0646\u06af\u062a \u0646\u06af\u0627\u0647 \u0645\u06cc\u200c\u06a9\u0646\u0645\u060c \u062d\u0633 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u0647\u06cc\u0686 \u0686\u06cc\u0632\u06cc \u0646\u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u0645\u0627 \u0631\u0648 \u0627\u0632 \u0647\u0645 \u062c\u062f\u0627 \u06a9\u0646\u0647. \u062a\u0648 \u0647\u0645\u06cc\u0634\u0647 \u062a\u0648\u06cc \u0642\u0644\u0628 \u0645\u0646\u06cc. ",
-              "\u0639\u0632\u06cc\u0632 \u062f\u0644\u0645\u060c \u062a\u0648 \u062f\u0644\u06cc\u0644 \u0644\u0628\u062e\u0646\u062f\u0647\u0627\u06cc \u0645\u0646\u06cc. \u062a\u0648 \u0645\u062b\u0644 \u06cc\u06a9 \u0631\u0627\u0632 \u0642\u0634\u0646\u06af \u062a\u0648\u06cc \u0642\u0644\u0628\u0645\u06cc \u0648 \u0647\u0631 \u0631\u0648\u0632 \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u062f\u06cc\u0631\u0648\u0632 \u0639\u0627\u0634\u0642\u062a\u0645. "
-            ]
-          },
-          {
-            white: [
-              "\u062f\u0646\u06cc\u0627\u06cc \u0645\u0646\u060c \u062a\u0648 \u0631\u0648 \u062e\u06cc\u0644\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0627\u06cc\u0646\u06a9\u0647 \u0628\u062a\u0648\u0646\u0645 \u0628\u0647 \u0632\u0628\u0648\u0646 \u0628\u06cc\u0627\u0631\u0645\u060c\u062f\u0648\u0633\u062a \u062f\u0627\u0631\u0645 ...",
-              "\u0639\u0634\u0642\u0645\u060c \u0648\u0642\u062a\u06cc \u0645\u06cc\u062e\u0646\u062f\u06cc \u062f\u0646\u06cc\u0627\u0645 \u067e\u0631 \u0631\u0646\u06af \u0645\u06cc\u0634\u0647 \u0648 \u063a\u0645 \u0647\u0627\u0645 \u0641\u0631\u0627\u0631\u06cc \u067e\u0633 \u0647\u0645\u06cc\u0634\u0647 \u0628\u062e\u0646\u062f. ",
-              "\u062c\u0648\u0646\u0645\u060c \u062a\u0646\u0647\u0627 \u0628\u0647\u0648\u0646\u0647 \u0632\u0646\u062f\u06af\u06cc \u06a9\u0631\u062f\u0646\u0645 \u062a\u0648\u06cc\u06cc. \u0645\u0645\u0646\u0648\u0646\u0645 \u06a9\u0647 \u0647\u0633\u062a\u06cc. ",
-              "\u0646\u0641\u0633\u0645\u060c \u062a\u0648 \u0647\u0645\u0648\u0646 \u06a9\u0633\u06cc \u0647\u0633\u062a\u06cc \u06a9\u0647 \u0645\u06cc\u200c\u062e\u0648\u0627\u0645 \u0647\u0645\u06cc\u0634\u0647 \u06a9\u0646\u0627\u0631\u0645 \u0628\u0627\u0634\u0647. \u0647\u0645\u06cc\u0646 \u06a9\u0647 \u062a\u0648 \u0647\u0633\u062a\u06cc \u0628\u0631\u0627\u0645 \u06a9\u0627\u0641\u06cc\u0647. ",
-              "\u0639\u0634\u0642\u0645\u060c \u0648\u0642\u062a\u06cc \u06a9\u0646\u0627\u0631\u062a\u0645\u060c \u0627\u0646\u06af\u0627\u0631 \u0647\u0645\u0647 \u0686\u06cc\u0632 \u0632\u06cc\u0628\u0627\u062a\u0631 \u0645\u06cc\u0634\u0647. \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u06a9\u0644 \u062f\u0646\u06cc\u0627 \u062f\u0648\u0633\u062a \u062f\u0627\u0631\u0645. ",
-              "\u0639\u0632\u06cc\u0632 \u062f\u0644\u0645\u060c \u0647\u0631 \u0631\u0648\u0632 \u06a9\u0647 \u0645\u06cc\u200c\u0628\u06cc\u0646\u0645\u062a\u060c \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0642\u0628\u0644 \u0645\u06cc\u0641\u0647\u0645\u0645 \u06a9\u0647 \u0686\u0642\u062f\u0631 \u062a\u0648 \u0632\u06cc\u0628\u0627\u06cc\u06cc. "
-            ]
-          }
-        ]
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => []
       },
       {
         path: "p",
         type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
-          (() => {
-            try {
-              return (() => {
-                const whiteMessages =
-                  $state.payam.find(item => item[$state.cyclebox.cycle])?.[
-                    $state.cyclebox.cycle
-                  ] || [];
-                const randomMessage =
-                  whiteMessages.length > 0
-                    ? whiteMessages[
-                        Math.floor(Math.random() * whiteMessages.length)
-                      ]
-                    : "";
-                return randomMessage;
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
-      },
-      {
-        path: "variable2",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
+        variableType: "text"
       },
       {
         path: "dosAndDonts",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({
-          blood: {
-            todo: [
-              {
-                title:
-                  "\u06a9\u0645\u06a9 \u062a\u0648 \u06a9\u0627\u0631\u0627\u06cc \u062e\u0648\u0646\u0647",
-                desc: "\u062f\u0631 \u062f\u0648\u0631\u0627\u0646 \u067e\u0631\u06cc\u0648\u062f\u060c \u0627\u0646\u0631\u0698\u06cc \u06a9\u0645\u062a\u0631\u06cc \u062f\u0627\u0631\u0647 \u0648 \u0645\u0645\u06a9\u0646\u0647 \u0627\u062d\u0633\u0627\u0633 \u062e\u0633\u062a\u06af\u06cc \u06a9\u0646\u0647. \u067e\u0633 \u062a\u0648 \u06a9\u0627\u0631\u0647\u0627\u06cc \u062e\u0648\u0646\u0647 \u0628\u0647\u0634 \u06a9\u0645\u06a9 \u06a9\u0646 \u062a\u0627 \u0647\u0645 \u0627\u0632 \u0644\u062d\u0627\u0638 \u0641\u06cc\u0632\u06cc\u06a9\u06cc \u0641\u0634\u0627\u0631 \u06a9\u0645\u062a\u0631\u06cc \u0631\u0648\u0634 \u0628\u0627\u0634\u0647 \u0648 \u0647\u0645 \u062d\u0633 \u06a9\u0646\u0647 \u06a9\u0647 \u062a\u0646\u0647\u0627 \u0646\u06cc\u0633\u062a.",
-                icon: "\ud83e\uddf9",
-                type: "menstruation"
-              },
-              {
-                title:
-                  "\u0627\u0628\u0631\u0627\u0632 \u0627\u062d\u0633\u0627\u0633\u0627\u062a",
-                desc: "\u0627\u06cc\u0646 \u0631\u0648\u0632\u0647\u0627 \u0646\u0648\u0633\u0627\u0646\u0627\u062a \u062e\u0644\u0642\u06cc \u0634\u062f\u06cc\u062f\u06cc \u062f\u0627\u0631\u0647 \u0648 \u0645\u0645\u06a9\u0646\u0647 \u0628\u0647 \u0645\u062d\u0628\u062a \u0648 \u062a\u0648\u062c\u0647 \u0628\u06cc\u0634\u062a\u0631\u06cc \u0646\u06cc\u0627\u0632 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u0647. \u0628\u0647\u062a\u0631\u0647 \u0628\u06cc\u0634\u062a\u0631 \u0627\u0628\u0631\u0627\u0632 \u0627\u062d\u0633\u0627\u0633\u0627\u062a \u06a9\u0646\u06cc\u060c \u062d\u0645\u0627\u06cc\u062a\u0634 \u06a9\u0646\u06cc \u0648 \u0628\u0647\u0634 \u0646\u0634\u0648\u0646 \u0628\u062f\u06cc \u06a9\u0647 \u062f\u0631\u06a9\u0634 \u0645\u06cc\u200c\u06a9\u0646\u06cc.",
-                icon: "\ud83d\udc96",
-                type: "menstruation"
-              },
-              {
-                title: "\u0645\u0627\u0633\u0627\u0698",
-                desc: "\u06cc\u06a9 \u0645\u0627\u0633\u0627\u0698 \u0645\u0644\u0627\u06cc\u0645 \u0645\u062e\u0635\u0648\u0635\u0627\u064b \u0628\u0631\u0627\u06cc \u06a9\u0645\u0631 \u0648 \u0634\u06a9\u0645\u060c \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u06a9\u0645\u06a9 \u0628\u0632\u0631\u06af\u06cc \u0628\u0647 \u062a\u0633\u06a9\u06cc\u0646 \u062f\u0631\u062f\u0647\u0627\u0634 \u06a9\u0646\u0647 \u0648 \u062d\u0633 \u0631\u0627\u062d\u062a\u06cc \u0628\u06cc\u0634\u062a\u0631\u06cc \u0628\u0647\u0634 \u0628\u062f\u0647.",
-                icon: "\ud83d\udc86\ud83c\udffb\u200d\u2640\ufe0f",
-                type: "menstruation"
-              }
-            ],
-            notToDo: [
-              {
-                title:
-                  "\u0627\u0646\u062a\u0642\u0627\u062f \u0627\u0632 \u062e\u0644\u0642 \u0648 \u062e\u0648",
-                desc: "\u0646\u0648\u0633\u0627\u0646\u0627\u062a \u0647\u0648\u0631\u0645\u0648\u0646\u06cc \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0628\u0627\u0639\u062b \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062e\u0644\u0642\u06cc \u0645\u06cc\u200c\u0634\u0647. \u0627\u06af\u0631 \u0645\u06cc\u200c\u0628\u06cc\u0646\u06cc \u06a9\u0647 \u0639\u0635\u0628\u06cc \u06cc\u0627 \u06a9\u0645\u200c\u062d\u0648\u0635\u0644\u0647 \u0634\u062f\u0647\u060c \u0627\u0632\u0634 \u0627\u0646\u062a\u0642\u0627\u062f \u0646\u06a9\u0646 \u0648 \u0633\u0639\u06cc \u06a9\u0646 \u0634\u0631\u0627\u06cc\u0637 \u0631\u0648 \u062f\u0631\u06a9 \u06a9\u0646\u06cc.",
-                icon: "\ud83d\ude20",
-                type: "menstruation"
-              },
-              {
-                title:
-                  "\u0628\u06cc\u200c\u062a\u0648\u062c\u0647\u06cc \u0628\u0647 \u0627\u062d\u0633\u0627\u0633\u0627\u062a\u0634",
-                desc: "\u062f\u0631 \u0627\u06cc\u0646 \u062f\u0648\u0631\u0627\u0646\u060c \u0645\u0645\u06a9\u0646\u0647 \u062d\u0633\u0627\u0633\u200c\u062a\u0631 \u0628\u0634\u0647 \u0648 \u0628\u0647 \u062a\u0648\u062c\u0647 \u0628\u06cc\u0634\u062a\u0631\u06cc \u0646\u06cc\u0627\u0632 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u0647. \u0628\u06cc\u200c\u062a\u0648\u062c\u0647\u06cc \u0628\u0647 \u0627\u062d\u0633\u0627\u0633\u0627\u062a\u0634 \u06cc\u0627 \u0646\u0627\u062f\u06cc\u062f\u0647 \u06af\u0631\u0641\u062a\u0646 \u0646\u06cc\u0627\u0632\u0647\u0627\u0634 \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u0628\u0627\u0639\u062b \u062f\u0644\u062e\u0648\u0631\u06cc \u0648 \u0627\u062d\u0633\u0627\u0633 \u062a\u0646\u0647\u0627\u06cc\u06cc \u0628\u0634\u0647.",
-                icon: "\ud83d\ude47\ud83c\udffb\u200d\u2640\ufe0f",
-                type: "menstruation"
-              },
-              {
-                title:
-                  "\u0628\u0631\u06cc\u062f\u0646 \u0627\u0631\u062a\u0628\u0627\u0637",
-                desc: "\u0642\u0637\u0639 \u06a9\u0631\u062f\u0646 \u0627\u0631\u062a\u0628\u0627\u0637 \u06cc\u0627 \u0641\u0627\u0635\u0644\u0647 \u06af\u0631\u0641\u062a\u0646 \u0627\u0632\u0634\u060c \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u0628\u0627\u0639\u062b \u0628\u0634\u0647 \u062d\u0633 \u06a9\u0646\u0647 \u062a\u0646\u0647\u0627\u0633\u062a \u0648 \u0627\u0632 \u062d\u0645\u0627\u06cc\u062a \u062a\u0648 \u0645\u062d\u0631\u0648\u0645 \u0634\u062f\u0647. \u0628\u0647\u062a\u0631\u0647 \u0627\u0631\u062a\u0628\u0627\u0637\u062a \u0631\u0648 \u062d\u0641\u0638 \u06a9\u0646\u06cc \u0648 \u0647\u0645\u0631\u0627\u0647\u0634 \u0628\u0627\u0634\u06cc.",
-                icon: "\ud83d\ude45\ud83c\udffb\u200d\u2642\ufe0f",
-                type: "menstruation"
-              }
-            ]
-          },
-          pms: {
-            todo: [
-              {
-                title: "\u0635\u0628\u0648\u0631 \u0628\u0648\u062f\u0646",
-                desc: "\u062a\u0648 \u0627\u06cc\u0646 \u0631\u0648\u0632\u0647\u0627 \u06a9\u0645\u06cc \u0635\u0628\u0648\u0631 \u0628\u0627\u0634. \u0645\u0645\u06a9\u0646\u0647 \u067e\u0627\u0631\u062a\u0646\u0631\u062a \u0628\u0627 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0647\u0648\u0631\u0645\u0648\u0646\u06cc \u0648 \u0627\u062d\u0633\u0627\u0633\u0627\u062a\u06cc \u062f\u0633\u062a \u0648 \u067e\u0646\u062c\u0647 \u0646\u0631\u0645 \u06a9\u0646\u0647. \u0628\u0627 \u062f\u0631\u06a9 \u0648 \u062d\u0645\u0627\u06cc\u062a \u0627\u0632\u0634\u060c \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc\u062f \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0631\u0648 \u0631\u0627\u062d\u062a\u200c\u062a\u0631 \u0628\u06af\u0630\u0631\u0648\u0646\u06cc\u062f.",
-                icon: "\ud83d\udc96",
-                type: "pms"
-              },
-              {
-                title:
-                  "\u062d\u0645\u0627\u06cc\u062a \u0639\u0627\u0637\u0641\u06cc",
-                desc: "\u062e\u06cc\u0644\u06cc \u0645\u0647\u0645\u0647 \u06a9\u0647 \u062f\u0631 \u0627\u06cc\u0646 \u0631\u0648\u0632\u0647\u0627 \u0628\u0627\u0632\u0634 \u062d\u0645\u0627\u06cc\u062a \u0639\u0627\u0637\u0641\u06cc \u06a9\u0646\u06cc. \u0627\u0628\u0631\u0627\u0632 \u0645\u062d\u0628\u062a \u0648 \u062a\u0648\u062c\u0647 \u062a\u0648 \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u062d\u0627\u0644\u0634 \u0631\u0648 \u0628\u0647\u062a\u0631 \u06a9\u0646\u0647. \u06cc\u06a9 \u06a9\u0644\u0645\u0647 \u0645\u062d\u0628\u062a\u200c\u0622\u0645\u06cc\u0632 \u06cc\u0627 \u062d\u062a\u06cc \u06cc\u06a9 \u06a9\u0627\u0631 \u06a9\u0648\u0686\u06a9 \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u0627\u062d\u0633\u0627\u0633 \u0627\u0645\u0646\u06cc\u062a \u0648 \u0622\u0631\u0627\u0645\u0634 \u0631\u0648 \u0628\u0631\u0627\u0634 \u0628\u0647 \u0627\u0631\u0645\u063a\u0627\u0646 \u0628\u06cc\u0627\u0631\u0647.",
-                icon: "\ud83e\udd17",
-                type: "pms"
-              }
-            ],
-            notToDo: [
-              {
-                title: "\u0628\u062d\u062b \u0648 \u062f\u0639\u0648\u0627",
-                desc: "\u062a\u0648 \u0627\u06cc\u0646 \u0631\u0648\u0632\u0647\u0627 \u0627\u0632 \u0628\u062d\u062b \u0648 \u062f\u0639\u0648\u0627 \u062f\u0648\u0631\u06cc \u06a9\u0646. \u0627\u06cc\u0646 \u06a9\u0627\u0631 \u0641\u0642\u0637 \u0627\u0633\u062a\u0631\u0633 \u0631\u0648 \u0628\u06cc\u0634\u062a\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0647 \u0648 \u0645\u0645\u06a9\u0646\u0647 \u0628\u0647 \u0627\u062e\u062a\u0644\u0627\u0641\u0627\u062a \u0628\u06cc\u0634\u062a\u0631\u06cc \u0645\u0646\u062c\u0631 \u0628\u0634\u0647. \u0627\u06af\u0631 \u0645\u0648\u0636\u0648\u0639\u06cc \u0628\u0631\u0627\u062a \u0645\u0647\u0645\u0647\u060c \u0628\u0647\u062a\u0631\u0647 \u0628\u0647 \u0632\u0645\u0627\u0646 \u062f\u06cc\u06af\u0647\u200c\u0627\u06cc \u0645\u0648\u06a9\u0648\u0644\u0634 \u06a9\u0646\u06cc.",
-                icon: "\u26a0\ufe0f",
-                type: "pms"
-              },
-              {
-                title:
-                  "\u0641\u0634\u0627\u0631 \u0622\u0648\u0631\u062f\u0646",
-                desc: "\u0628\u0647\u0634 \u0641\u0634\u0627\u0631 \u0646\u06cc\u0627\u0648\u0631. \u062f\u0631\u06a9 \u0627\u062d\u0633\u0627\u0633\u0627\u062a\u0634 \u0648 \u0627\u06cc\u062c\u0627\u062f \u0641\u0636\u0627\u06cc\u06cc \u0622\u0631\u0627\u0645 \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u062e\u06cc\u0644\u06cc \u06a9\u0645\u06a9 \u06a9\u0646\u0647. \u0627\u06af\u0631 \u067e\u0627\u0631\u062a\u0646\u0631\u062a \u0627\u062d\u0633\u0627\u0633 \u0628\u062f\u06cc \u062f\u0627\u0631\u0647\u060c \u0627\u062c\u0627\u0632\u0647 \u0628\u062f\u0647 \u06a9\u0645\u06cc \u0628\u0627 \u062e\u0648\u062f\u0634 \u062a\u0646\u0647\u0627 \u0628\u0627\u0634\u0647.",
-                icon: "\ud83d\uded1",
-                type: "pms"
-              },
-              {
-                title:
-                  "\u062d\u0631\u0641 \u0632\u062f\u0646 \u062f\u0631\u0628\u0627\u0631\u0647 \u0645\u0648\u0636\u0648\u0639\u0627\u062a \u0645\u0647\u0645",
-                desc: "\u0628\u0647\u062a\u0631\u0647 \u0627\u0632 \u0635\u062d\u0628\u062a \u062f\u0631\u0628\u0627\u0631\u0647 \u0645\u0648\u0636\u0648\u0639\u0627\u062a \u062d\u0633\u0627\u0633 \u062f\u0648\u0631\u06cc \u06a9\u0646\u06cc. \u0645\u0645\u06a9\u0646\u0647 \u0646\u062a\u0648\u0646\u0647 \u0627\u062d\u0633\u0627\u0633\u0627\u062a\u0634 \u0631\u0648 \u0628\u0647 \u062f\u0631\u0633\u062a\u06cc \u0628\u06cc\u0627\u0646 \u06a9\u0646\u0647 \u0648 \u0627\u06cc\u0646 \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u0628\u0627\u0639\u062b \u0633\u0648\u062a\u0641\u0627\u0647\u0645 \u0628\u0634\u0647. \u0628\u0647 \u062c\u0627\u06cc \u0627\u0648\u0646\u060c \u0645\u0648\u0636\u0648\u0639\u0627\u062a \u0633\u0628\u06a9\u200c\u062a\u0631 \u0648 \u062e\u0648\u0634\u0627\u06cc\u0646\u062f\u062a\u0631 \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646 \u062a\u0627 \u0641\u0636\u0627\u06cc \u0645\u062b\u0628\u062a\u200c\u062a\u0631\u06cc \u0627\u06cc\u062c\u0627\u062f \u0628\u0634\u0647.",
-                icon: "\u274c",
-                type: "pms"
-              }
-            ]
-          },
-          fertility: {
-            todo: [
-              {
-                title:
-                  "\u062d\u0645\u0627\u06cc\u062a \u0627\u0632 \u062a\u0635\u0645\u06cc\u0645\u200c\u06af\u06cc\u0631\u06cc\u200c\u0647\u0627\u06cc\u0634",
-                desc: "\u0627\u06cc\u0646 \u062f\u0648\u0631\u0627\u0646 \u0628\u0647\u062a\u0631\u06cc\u0646 \u0632\u0645\u0627\u0646 \u0628\u0631\u0627\u06cc \u062a\u0635\u0645\u06cc\u0645\u200c\u06af\u06cc\u0631\u06cc\u200c\u0647\u0627\u06cc \u0645\u0647\u0645\u0647 \u0686\u0648\u0646 \u0647\u0645\u0633\u0631\u062a \u0645\u0646\u0637\u0642\u06cc\u200c\u062a\u0631 \u0648 \u0645\u0637\u0645\u0626\u0646\u200c\u062a\u0631 \u062a\u0635\u0645\u06cc\u0645 \u0645\u06cc\u200c\u06af\u06cc\u0631\u0647. \u0627\u0632 \u0646\u0638\u0631\u0627\u062a \u0648 \u062a\u0635\u0645\u06cc\u0645\u200c\u0647\u0627\u0634 \u062d\u0645\u0627\u06cc\u062a \u06a9\u0646 \u0648 \u0628\u0647\u0634 \u0627\u0639\u062a\u0645\u0627\u062f \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634. \u0627\u06cc\u0646 \u062d\u0645\u0627\u06cc\u062a \u0627\u0639\u062a\u0645\u0627\u062f \u0628\u0647 \u0646\u0641\u0633\u0634 \u0631\u0648 \u0628\u06cc\u0634\u062a\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0647.",
-                icon: "\ud83e\udde0",
-                type: "ovulation"
-              },
-              {
-                title:
-                  "\u0627\u0628\u0631\u0627\u0632 \u0627\u062d\u0633\u0627\u0633\u0627\u062a \u0628\u06cc\u0634\u062a\u0631",
-                desc: "\u062f\u0631 \u0627\u06cc\u0646 \u0631\u0648\u0632\u0647\u0627\u060c \u0627\u0628\u0631\u0627\u0632 \u0627\u062d\u0633\u0627\u0633\u0627\u062a \u0648 \u0645\u062d\u0628\u062a \u0628\u06cc\u0634\u062a\u0631\u06cc \u0627\u0632 \u0637\u0631\u0641 \u062a\u0648 \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u0631\u0627\u0628\u0637\u0647\u200c\u062a\u0648\u0646 \u0631\u0648 \u0642\u0648\u06cc\u200c\u062a\u0631 \u06a9\u0646\u0647. \u0627\u06cc\u0646 \u062f\u0648\u0631\u0627\u0646\u060c \u0647\u0645\u0633\u0631\u062a \u0627\u0632 \u0644\u062d\u0627\u0638 \u0639\u0627\u0637\u0641\u06cc \u0648 \u0627\u062d\u0633\u0627\u0633\u06cc \u067e\u0630\u06cc\u0631\u0627\u062a\u0631 \u0648 \u0642\u0648\u06cc\u200c\u062a\u0631\u0647\u060c \u067e\u0633 \u0628\u0627 \u0646\u0634\u0648\u0646 \u062f\u0627\u062f\u0646 \u0645\u062d\u0628\u062a \u0648 \u062a\u0648\u062c\u0647\u060c \u0627\u062d\u0633\u0627\u0633 \u0646\u0632\u062f\u06cc\u06a9\u06cc \u0628\u06cc\u0634\u062a\u0631\u06cc \u0627\u06cc\u062c\u0627\u062f \u06a9\u0646.",
-                icon: "\ud83d\udc9e",
-                type: "ovulation"
-              }
-            ],
-            notToDo: [
-              {
-                title:
-                  "\u0627\u06cc\u062c\u0627\u062f \u0627\u0633\u062a\u0631\u0633",
-                desc: "\u062f\u0631 \u0627\u06cc\u0646 \u0631\u0648\u0632\u0647\u0627 \u0627\u0632 \u0627\u06cc\u062c\u0627\u062f \u0645\u0648\u0642\u0639\u06cc\u062a\u200c\u0647\u0627\u06cc \u0627\u0633\u062a\u0631\u0633\u200c\u0632\u0627 \u062f\u0648\u0631\u06cc \u06a9\u0646. \u0627\u0633\u062a\u0631\u0633 \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u062a\u0623\u062b\u06cc\u0631 \u0645\u0646\u0641\u06cc \u0631\u0648\u06cc \u062e\u0644\u0642 \u0648 \u062e\u0648\u06cc \u0647\u0645\u0633\u0631\u062a \u0628\u0630\u0627\u0631\u0647 \u0648 \u0627\u0632 \u0627\u0646\u0631\u0698\u06cc \u0645\u062b\u0628\u062a\u0634 \u06a9\u0645 \u06a9\u0646\u0647. \u0628\u0647 \u062c\u0627\u06cc \u0627\u0648\u0646\u060c \u0641\u0636\u0627\u06cc\u06cc \u0622\u0631\u0627\u0645 \u0648 \u067e\u0631 \u0627\u0632 \u062d\u0645\u0627\u06cc\u062a \u0627\u06cc\u062c\u0627\u062f \u06a9\u0646.",
-                icon: "\ud83d\ude30",
-                type: "ovulation"
-              },
-              {
-                title:
-                  "\u0646\u0627\u062f\u06cc\u062f\u0647 \u06af\u0631\u0641\u062a\u0646 \u0627\u062d\u0633\u0627\u0633\u0627\u062a\u0634",
-                desc: "\u062f\u0631 \u0627\u06cc\u0646 \u062f\u0648\u0631\u0627\u0646\u060c \u0647\u0645\u0633\u0631\u062a \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u0647 \u06a9\u0647 \u0628\u06cc\u0634\u062a\u0631 \u0628\u0647 \u0627\u062d\u0633\u0627\u0633\u0627\u062a\u0634 \u062a\u0648\u062c\u0647 \u06a9\u0646\u06cc. \u0646\u0627\u062f\u06cc\u062f\u0647 \u06af\u0631\u0641\u062a\u0646 \u06cc\u0627 \u0628\u06cc\u200c\u062a\u0648\u062c\u0647\u06cc \u0628\u0647 \u0627\u062d\u0633\u0627\u0633\u0627\u062a\u0634 \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u0628\u0627\u0639\u062b \u0646\u0627\u0631\u0627\u062d\u062a\u06cc \u0628\u0634\u0647. \u0628\u0627 \u0645\u062d\u0628\u062a \u0648 \u0647\u0645\u062f\u0644\u06cc \u0628\u0647\u0634 \u0646\u0634\u0648\u0646 \u0628\u062f\u0647 \u06a9\u0647 \u06a9\u0646\u0627\u0631\u0634 \u0647\u0633\u062a\u06cc \u0648 \u0628\u0647 \u062d\u0627\u0644 \u0648 \u0647\u0648\u0627\u06cc \u062f\u0631\u0648\u0646\u06cc\u200c\u0627\u0634 \u0627\u0647\u0645\u06cc\u062a \u0645\u06cc\u062f\u06cc.",
-                icon: "\ud83d\udc94",
-                type: "ovulation"
-              }
-            ]
-          }
-        })
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       },
       {
         path: "useful2[].text",
@@ -1157,211 +845,13 @@ function PlasmicHamyar2__RenderFunc(props: {
         path: "pregnancy",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
-          (() => {
-            try {
-              return undefined;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return { days: 190, week: 13, months: 3 };
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       },
       {
         path: "pregnancyData",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [
-          {
-            week: "\u0627\u0648\u0644",
-            height: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
-            weight: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
-          },
-          {
-            week: "\u062f\u0648\u0645",
-            height: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
-            weight: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
-          },
-          {
-            week: "\u0633\u0648\u0645",
-            height: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
-            weight: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
-          },
-          {
-            week: "\u0686\u0647\u0627\u0631\u0645",
-            height: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
-            weight: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
-          },
-          {
-            week: "\u067e\u0646\u062c\u0645",
-            height: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
-            weight: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
-          },
-          {
-            week: "\u0634\u0634\u0645",
-            height: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
-            weight: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
-          },
-          {
-            week: "\u0647\u0641\u062a\u0645",
-            height: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
-            weight: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
-          },
-          { week: "\u0647\u0634\u062a\u0645", height: "1.9", weight: "1" },
-          { week: "\u0646\u0647\u0645", height: "2.3", weight: "2" },
-          { week: "\u062f\u0647\u0645", height: "3.1", weight: "4" },
-          {
-            week: "\u06cc\u0627\u0632\u062f\u0647\u0645",
-            height: "4.1",
-            weight: "7"
-          },
-          {
-            week: "\u062f\u0648\u0627\u0632\u062f\u0647\u0645",
-            height: "5.4",
-            weight: "14"
-          },
-          {
-            week: "\u0633\u06cc\u0632\u062f\u0647\u0645",
-            height: "7.4",
-            weight: "23"
-          },
-          {
-            week: "\u0686\u0647\u0627\u0631\u062f\u0647\u0645",
-            height: "8.7",
-            weight: "43"
-          },
-          {
-            week: "\u067e\u0627\u0646\u0632\u062f\u0647\u0645",
-            height: "10.1",
-            weight: "70"
-          },
-          {
-            week: "\u0634\u0627\u0646\u0632\u062f\u0647\u0645",
-            height: "11.6",
-            weight: "100"
-          },
-          {
-            week: "\u0647\u0641\u062f\u0647\u0645",
-            height: "13",
-            weight: "140"
-          },
-          {
-            week: "\u0647\u062c\u062f\u0647\u0645",
-            height: "14.2",
-            weight: "190"
-          },
-          {
-            week: "\u0646\u0648\u0632\u062f\u0647\u0645",
-            height: "15.3",
-            weight: "240"
-          },
-          {
-            week: "\u0628\u06cc\u0633\u062a\u0645",
-            height: "25.6",
-            weight: "300"
-          },
-          {
-            week: "\u0628\u06cc\u0633\u062a \u0648 \u06cc\u06a9\u0645",
-            height: "26.7",
-            weight: "360"
-          },
-          {
-            week: "\u0628\u06cc\u0633\u062a \u0648 \u062f\u0648\u0645",
-            height: "27.8",
-            weight: "430"
-          },
-          {
-            week: "\u0628\u06cc\u0633\u062a \u0648 \u0633\u0648\u0645",
-            height: "28.9",
-            weight: "500"
-          },
-          {
-            week: "\u0628\u06cc\u0633\u062a \u0648 \u0686\u0647\u0627\u0631\u0645",
-            height: "30",
-            weight: "600"
-          },
-          {
-            week: "\u0628\u06cc\u0633\u062a \u0648 \u067e\u0646\u062c\u0645",
-            height: "34.6",
-            weight: "660"
-          },
-          {
-            week: "\u0628\u06cc\u0633\u062a \u0648 \u0634\u0634\u0645",
-            height: "35.6",
-            weight: "760"
-          },
-          {
-            week: "\u0628\u06cc\u0633\u062a \u0648 \u0647\u0641\u062a\u0645",
-            height: "36.6",
-            weight: "875"
-          },
-          {
-            week: "\u0628\u06cc\u0633\u062a \u0648 \u0647\u0634\u062a\u0645",
-            height: "37.6",
-            weight: "1"
-          },
-          {
-            week: "\u0628\u06cc\u0633\u062a \u0648 \u0646\u0647\u0645",
-            height: "38.6",
-            weight: "1.2"
-          },
-          {
-            week: "\u0633\u06cc\u200c\u0627\u0645",
-            height: "39.9",
-            weight: "1.3"
-          },
-          {
-            week: "\u0633\u06cc \u0648 \u06cc\u06a9\u0645",
-            height: "41.1",
-            weight: "1.5"
-          },
-          {
-            week: "\u0633\u06cc \u0648 \u062f\u0648\u0645",
-            height: "42.4",
-            weight: "1.7"
-          },
-          {
-            week: "\u0633\u06cc \u0648 \u0633\u0648\u0645",
-            height: "43.7",
-            weight: "1.9"
-          },
-          {
-            week: "\u0633\u06cc \u0648 \u0686\u0647\u0627\u0631\u0645",
-            height: "45",
-            weight: "2.1"
-          },
-          {
-            week: "\u0633\u06cc \u0648 \u067e\u0646\u062c\u0645",
-            height: "46.2",
-            weight: "2.4"
-          },
-          {
-            week: "\u0633\u06cc \u0648 \u0634\u0634\u0645",
-            height: "47.4",
-            weight: "2.6"
-          },
-          {
-            week: "\u0633\u06cc \u0648 \u0647\u0641\u062a\u0645",
-            height: "48.6",
-            weight: "2.9"
-          },
-          {
-            week: "\u0633\u06cc \u0648 \u0647\u0634\u062a\u0645",
-            height: "49.8",
-            weight: "3.1"
-          },
-          {
-            week: "\u0633\u06cc \u0648 \u0646\u0647\u0645",
-            height: "50.7",
-            weight: "3.3"
-          },
-          { week: "\u0686\u0647\u0644\u0645", height: "51.2", weight: "3.5" }
-        ]
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => []
       },
       {
         path: "lineClomp.line",
@@ -1456,22 +946,7 @@ function PlasmicHamyar2__RenderFunc(props: {
         path: "intro",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
-          (() => {
-            try {
-              return window.localStorage.getItem("liomHamyar_intro")
-                ? false
-                : true;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "button7.color",
@@ -1773,38 +1248,7 @@ function PlasmicHamyar2__RenderFunc(props: {
         path: "shopListText",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [
-          {
-            title:
-              "\u062f\u0639\u0648\u0627\u0647\u0627\u062a\u0648\u0646 \u062f\u0631 \u062f\u0648\u0631\u0627\u0646 \u067e\u0631\u06cc\u0648\u062f \u0648 pms \u06a9\u0645\u062a\u0631 \u0645\u06cc\u0634\u0647",
-            text: "\u06a9\u0645\u06a9 \u0645\u06cc\u06a9\u0646\u06cc\u0645 \u062a\u0627 \u0634\u0631\u0648\u0639 \u0648 \u062f\u0648\u0631\u0627\u0646 \u067e\u0631\u06cc\u0648\u062f \u0647\u0645\u0633\u0631\u062a \u0631\u0648 \u067e\u06cc\u06af\u06cc\u0631\u06cc \u06a9\u0646\u06cc \u0648 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0631\u0648\u062d\u06cc \u0648 \u062c\u0633\u0645\u06cc\u0634 \u0631\u0648 \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0646\u06cc.",
-            type: "relationship"
-          },
-          {
-            title:
-              "\u0631\u0627\u0628\u0637\u0647\u200c\u062a \u0631\u0648 \u0631\u0648\u0632\u0627\u0646\u0647 \u0628\u0627 \u0646\u06a9\u0627\u062a \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc \u062a\u0642\u0648\u06cc\u062a \u0645\u06cc\u06a9\u0646\u06cc",
-            text: "\u0647\u0645\u0647 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc\u200c\u0647\u0627 \u0648 \u0646\u06a9\u0627\u062a \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc \u0631\u0648\u06cc \u067e\u06cc\u0627\u0645\u06a9 \u0648 \u062a\u0644\u06af\u0631\u0627\u0645 \u0628\u0631\u0627\u062a \u0645\u06cc\u0627\u062f \u062a\u0627 \u0647\u06cc\u0686 \u0646\u06a9\u062a\u0647\u200c\u0627\u06cc \u0627\u0632 \u062f\u0633\u062a \u0646\u0631\u0647.",
-            type: "reminder"
-          },
-          {
-            title:
-              "\u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u0647\u0645\u0633\u0631\u062a \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u067e\u0631\u06cc\u0648\u062f \u0622\u0633\u0627\u0646\u200c\u062a\u0631 \u0645\u06cc\u200c\u0634\u0647",
-            text: "\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f \u0647\u0645\u0633\u0631\u062a \u0631\u0648 \u067e\u06cc\u06af\u06cc\u0631\u06cc \u0645\u06cc\u06a9\u0646\u06cc \u0648 \u0628\u0627 \u0645\u0631\u0627\u0642\u0628\u062a \u0628\u06cc\u0634\u062a\u0631\u060c \u0645\u06cc\u062a\u0648\u0646\u06cc \u062f\u0631\u062f \u0648 \u0646\u0627\u0631\u0627\u062d\u062a\u06cc\u200c\u0647\u0627 \u0631\u0648 \u06a9\u0627\u0647\u0634 \u0628\u062f\u06cc.",
-            type: "care"
-          },
-          {
-            title:
-              "\u0647\u0645\u0633\u0631\u062a \u0647\u0645 \u0628\u0647 \u062a\u0648 \u0641\u06a9\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0647 \u0648 \u062d\u0648\u0627\u0633\u0634 \u0628\u0647 \u0631\u0627\u0628\u0637\u0647\u200c\u062a\u0648\u0646\u0647",
-            text: "\u067e\u06cc\u0627\u0645\u200c\u0647\u0627\u06cc\u06cc \u0647\u0645 \u0628\u0631\u0627\u06cc \u062e\u0627\u0646\u0648\u0645\u062a \u0645\u06cc\u0641\u0631\u0633\u062a\u06cc\u0645 \u06a9\u0647 \u06a9\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0646\u062f \u0647\u0645\u0633\u0631\u062a \u0647\u0645 \u0628\u0647 \u062a\u0648 \u0641\u06a9\u0631 \u06a9\u0646\u0647 \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc\u0646.",
-            type: "mutual"
-          },
-          {
-            title:
-              "\u0647\u06cc\u0686 \u0631\u0648\u0632 \u0645\u0647\u0645\u06cc \u0645\u062b\u0644 \u062a\u0648\u0644\u062f\u060c \u0633\u0627\u0644\u06af\u0631\u062f \u06cc\u0627\u2026 \u06cc\u0627\u062f\u062a \u0646\u0645\u06cc\u200c\u0631\u0647",
-            text: "\u062a\u0648\u0644\u062f\u060c \u0633\u0627\u0644\u06af\u0631\u062f \u0648 \u0633\u0627\u06cc\u0631 \u0645\u0646\u0627\u0633\u0628\u062a\u200c\u0647\u0627 \u0631\u0648 \u06a9\u0627\u0641\u06cc\u0647 \u062b\u0628\u062a \u06a9\u0646\u06cc \u062a\u0627 \u0628\u0631\u0627\u062a \u0686\u0646\u062f \u0631\u0648\u0632 \u0642\u0628\u0644\u0634 \u0648 \u062f\u0631 \u0647\u0645\u0627\u0646 \u0631\u0648\u0632 \u06cc\u0627\u062f\u0627\u0648\u0631\u06cc \u06a9\u0646\u06cc\u0645",
-            type: "event"
-          }
-        ]
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => []
       },
       {
         path: "shopText.open",
@@ -1816,12 +1260,7 @@ function PlasmicHamyar2__RenderFunc(props: {
         path: "modalshopText",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({
-          title:
-            "\u062f\u0631 \u062f\u0648\u0631\u0627\u0646 PMS \u0648 \u067e\u0631\u06cc\u0648\u062f \u0647\u0645\u0633\u0631\u062a \u062f\u0639\u0648\u0627\u0647\u0627\u062a\u0648\u0646 \u0631\u0648 \u06a9\u0645\u062a\u0631 \u0645\u06cc\u0634\u0647",
-          text: "\u06a9\u0645\u06a9 \u0645\u06cc\u06a9\u0646\u06cc\u0645 \u062a\u0627 \u0634\u0631\u0648\u0639 \u0648 \u062f\u0648\u0631\u0627\u0646 \u067e\u0631\u06cc\u0648\u062f \u0647\u0645\u0633\u0631\u062a \u0631\u0648 \u067e\u06cc\u06af\u06cc\u0631\u06cc \u06a9\u0646\u06cc \u0648 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0631\u0648\u062d\u06cc \u0648 \u062c\u0633\u0645\u06cc\u0634 \u0631\u0648 \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0646\u06cc.",
-          type: "relationship"
-        })
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       },
       {
         path: "button20.color",
@@ -3347,7 +2786,15 @@ function PlasmicHamyar2__RenderFunc(props: {
                           }
                           return "";
                         };
-                        return ($state.tokenUser = getCookie("token") || "");
+                        $state.tokenUser = getCookie("token") || "";
+                        $state.guideShow = localStorage.getItem("guideShow")
+                          ? false
+                          : true;
+                        return ($state.intro = window.localStorage.getItem(
+                          "liomHamyar_intro"
+                        )
+                          ? false
+                          : true);
                       })();
                     }
                   };
@@ -4121,6 +3568,436 @@ function PlasmicHamyar2__RenderFunc(props: {
               typeof $steps["updateShapData"].then === "function"
             ) {
               $steps["updateShapData"] = await $steps["updateShapData"];
+            }
+
+            $steps["stateLoad"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        $state.subscriptionCurrentIndex =
+                          $state.shapData.result.findIndex(
+                            item => item.selected === 1
+                          );
+                        $state.selectedShop = $state.shapData.result.findIndex(
+                          item => item.selected === 1
+                        );
+                        $state.payam = [
+                          {
+                            pms: [
+                              "عشقم\u060C هر اتفاقی بیفته من همیشه پیشتم. هر وقت حس کردی نیاز داری\u060C بدون که من اینجام و هیچ‌وقت تنهات نمی‌ذارم. تو قلبمی و همیشه با همیم! ",
+                              "عشقم\u060C هر روز که می‌گذره بیشتر از همیشه حس می‌کنم تو بهترین اتفاق زندگیمی. بدون که تو هر شرایطی من کنارتم و هیچ‌چیزی نمی‌تونه اینو عوض کنه. دلم همیشه پیش توئه! ",
+                              "قلبم\u060C هر لحظه به تو فکر می‌کنم بیشتر میفهمم هیچ‌کس جاتو نمیگیره. هر جا بری\u060C من باهاتم و هیچ‌وقت تنهات نمی‌ذارم. تو همه دنیای منی. ",
+                              "عزیز دلم\u060C هر وقت حس کردی زندگی سخت میگذره\u060C بدون که من اینجام. با هم از پس همه‌چی برمیایم\u060C چون هیچ‌چیزی برای من مهم‌تر از تو نیست. ",
+                              "عشقم\u060C وقتی بهت فکر می‌کنم\u060C همه‌چیز قشنگ‌تر می‌شه. بدون که همیشه تو قلب منی\u060C هرجا که باشی\u060C من کنارتم! ",
+                              "عزیزم\u060C می‌دونی که تو بهترین بخش زندگی منی. هر لحظه‌ای که با توام\u060C مثل یک رویاست و دلم می‌خواد هیچ‌وقت تموم نشه. "
+                            ]
+                          },
+                          {
+                            blood: [
+                              "عشقم\u060C تو مثل خون توی رگامی. بدون تو زندگی برام معنی نداره. لحظه لحظه با تو بودن\u060C مثل رویاست! ",
+                              "نفسم\u060C هر روز بیشتر عاشقت می‌شم. تو نه تنها عشق منی\u060C بهترین دوست منم هستی. نمی‌تونم تصور کنم بدون تو چطور می‌گذره. ",
+                              "عمرم\u060C با تو زندگی زیباست. چون میتونم هر روز خودمو تو چشمات ببینم. ",
+                              "قلبم\u060C تو مثل نور توی زندگیم می‌درخشی. می‌دونم که با تو می‌تونم از پس هرچیزی بربیام. مرسی کنارمی. ",
+                              "عشقم\u060C هر بار به چشمای قشنگت نگاه می‌کنم\u060C حس می‌کنم هیچ چیزی نمی‌تونه ما رو از هم جدا کنه. تو همیشه توی قلب منی. ",
+                              "عزیز دلم\u060C تو دلیل لبخندهای منی. تو مثل یک راز قشنگ توی قلبمی و هر روز بیشتر از دیروز عاشقتم. "
+                            ]
+                          },
+                          {
+                            white: [
+                              "دنیای من\u060C تو رو خیلی بیشتر از اینکه بتونم به زبون بیارم\u060Cدوست دارم ...",
+                              "عشقم\u060C وقتی میخندی دنیام پر رنگ میشه و غم هام فراری پس همیشه بخند. ",
+                              "جونم\u060C تنها بهونه زندگی کردنم تویی. ممنونم که هستی. ",
+                              "نفسم\u060C تو همون کسی هستی که می‌خوام همیشه کنارم باشه. همین که تو هستی برام کافیه. ",
+                              "عشقم\u060C وقتی کنارتم\u060C انگار همه چیز زیباتر میشه. بیشتر از کل دنیا دوست دارم. ",
+                              "عزیز دلم\u060C هر روز که می‌بینمت\u060C بیشتر از قبل میفهمم که چقدر تو زیبایی. "
+                            ]
+                          }
+                        ];
+
+                        $state.p = () => {
+                          const whiteMessages =
+                            $state.payam.find(
+                              item => item[$state.cyclebox.cycle]
+                            )?.[$state.cyclebox.cycle] || [];
+                          const randomMessage =
+                            whiteMessages.length > 0
+                              ? whiteMessages[
+                                  Math.floor(
+                                    Math.random() * whiteMessages.length
+                                  )
+                                ]
+                              : "";
+                          return randomMessage;
+                        };
+                        $state.dosAndDonts = {
+                          blood: {
+                            todo: [
+                              {
+                                title: "کمک تو کارای خونه",
+                                desc: "در دوران پریود\u060C انرژی کمتری داره و ممکنه احساس خستگی کنه. پس تو کارهای خونه بهش کمک کن تا هم از لحاظ فیزیکی فشار کمتری روش باشه و هم حس کنه که تنها نیست.",
+                                icon: "\uD83E\uDDF9",
+                                type: "menstruation"
+                              },
+                              {
+                                title: "ابراز احساسات",
+                                desc: "این روزها نوسانات خلقی شدیدی داره و ممکنه به محبت و توجه بیشتری نیاز داشته باشه. بهتره بیشتر ابراز احساسات کنی\u060C حمایتش کنی و بهش نشون بدی که درکش می‌کنی.",
+                                icon: "\uD83D\uDC96",
+                                type: "menstruation"
+                              },
+                              {
+                                title: "ماساژ",
+                                desc: "یک ماساژ ملایم مخصوصاً برای کمر و شکم\u060C می‌تونه کمک بزرگی به تسکین دردهاش کنه و حس راحتی بیشتری بهش بده.",
+                                icon: "\uD83D\uDC86\uD83C\uDFFB‍\u2640️",
+                                type: "menstruation"
+                              }
+                            ],
+
+                            notToDo: [
+                              {
+                                title: "انتقاد از خلق و خو",
+                                desc: "نوسانات هورمونی این دوره باعث تغییرات خلقی می‌شه. اگر می‌بینی که عصبی یا کم‌حوصله شده\u060C ازش انتقاد نکن و سعی کن شرایط رو درک کنی.",
+                                icon: "\uD83D\uDE20",
+                                type: "menstruation"
+                              },
+                              {
+                                title: "بی‌توجهی به احساساتش",
+                                desc: "در این دوران\u060C ممکنه حساس‌تر بشه و به توجه بیشتری نیاز داشته باشه. بی‌توجهی به احساساتش یا نادیده گرفتن نیازهاش می‌تونه باعث دلخوری و احساس تنهایی بشه.",
+                                icon: "\uD83D\uDE47\uD83C\uDFFB‍\u2640️",
+                                type: "menstruation"
+                              },
+                              {
+                                title: "بریدن ارتباط",
+                                desc: "قطع کردن ارتباط یا فاصله گرفتن ازش\u060C می‌تونه باعث بشه حس کنه تنهاست و از حمایت تو محروم شده. بهتره ارتباطت رو حفظ کنی و همراهش باشی.",
+                                icon: "\uD83D\uDE45\uD83C\uDFFB‍\u2642️",
+                                type: "menstruation"
+                              }
+                            ]
+                          },
+                          pms: {
+                            todo: [
+                              {
+                                title: "صبور بودن",
+                                desc: "تو این روزها کمی صبور باش. ممکنه پارتنرت با تغییرات هورمونی و احساساتی دست و پنجه نرم کنه. با درک و حمایت ازش\u060C می‌تونید این دوره رو راحت‌تر بگذرونید.",
+                                icon: "\uD83D\uDC96",
+                                type: "pms"
+                              },
+                              {
+                                title: "حمایت عاطفی",
+                                desc: "خیلی مهمه که در این روزها بازش حمایت عاطفی کنی. ابراز محبت و توجه تو می‌تونه حالش رو بهتر کنه. یک کلمه محبت‌آمیز یا حتی یک کار کوچک می‌تونه احساس امنیت و آرامش رو براش به ارمغان بیاره.",
+                                icon: "\uD83E\uDD17",
+                                type: "pms"
+                              }
+                            ],
+
+                            notToDo: [
+                              {
+                                title: "بحث و دعوا",
+                                desc: "تو این روزها از بحث و دعوا دوری کن. این کار فقط استرس رو بیشتر می‌کنه و ممکنه به اختلافات بیشتری منجر بشه. اگر موضوعی برات مهمه\u060C بهتره به زمان دیگه‌ای موکولش کنی.",
+                                icon: "\u26A0️",
+                                type: "pms"
+                              },
+                              {
+                                title: "فشار آوردن",
+                                desc: "بهش فشار نیاور. درک احساساتش و ایجاد فضایی آرام می‌تونه خیلی کمک کنه. اگر پارتنرت احساس بدی داره\u060C اجازه بده کمی با خودش تنها باشه.",
+                                icon: "\uD83D\uDED1",
+                                type: "pms"
+                              },
+                              {
+                                title: "حرف زدن درباره موضوعات مهم",
+                                desc: "بهتره از صحبت درباره موضوعات حساس دوری کنی. ممکنه نتونه احساساتش رو به درستی بیان کنه و این می‌تونه باعث سوتفاهم بشه. به جای اون\u060C موضوعات سبک‌تر و خوشایندتر رو انتخاب کن تا فضای مثبت‌تری ایجاد بشه.",
+                                icon: "\u274C",
+                                type: "pms"
+                              }
+                            ]
+                          },
+                          fertility: {
+                            todo: [
+                              {
+                                title: "حمایت از تصمیم‌گیری‌هایش",
+                                desc: "این دوران بهترین زمان برای تصمیم‌گیری‌های مهمه چون همسرت منطقی‌تر و مطمئن‌تر تصمیم می‌گیره. از نظرات و تصمیم‌هاش حمایت کن و بهش اعتماد داشته باش. این حمایت اعتماد به نفسش رو بیشتر می‌کنه.",
+                                icon: "\uD83E\uDDE0",
+                                type: "ovulation"
+                              },
+                              {
+                                title: "ابراز احساسات بیشتر",
+                                desc: "در این روزها\u060C ابراز احساسات و محبت بیشتری از طرف تو می‌تونه رابطه‌تون رو قوی‌تر کنه. این دوران\u060C همسرت از لحاظ عاطفی و احساسی پذیراتر و قوی‌تره\u060C پس با نشون دادن محبت و توجه\u060C احساس نزدیکی بیشتری ایجاد کن.",
+                                icon: "\uD83D\uDC9E",
+                                type: "ovulation"
+                              }
+                            ],
+
+                            notToDo: [
+                              {
+                                title: "ایجاد استرس",
+                                desc: "در این روزها از ایجاد موقعیت‌های استرس‌زا دوری کن. استرس می‌تونه تأثیر منفی روی خلق و خوی همسرت بذاره و از انرژی مثبتش کم کنه. به جای اون\u060C فضایی آرام و پر از حمایت ایجاد کن.",
+                                icon: "\uD83D\uDE30",
+                                type: "ovulation"
+                              },
+                              {
+                                title: "نادیده گرفتن احساساتش",
+                                desc: "در این دوران\u060C همسرت نیاز داره که بیشتر به احساساتش توجه کنی. نادیده گرفتن یا بی‌توجهی به احساساتش می‌تونه باعث ناراحتی بشه. با محبت و همدلی بهش نشون بده که کنارش هستی و به حال و هوای درونی‌اش اهمیت میدی.",
+                                icon: "\uD83D\uDC94",
+                                type: "ovulation"
+                              }
+                            ]
+                          }
+                        };
+                        $state.pregnancyData = [
+                          {
+                            week: "اول",
+                            height: "کمتر از ۱",
+                            weight: "کمتر از ۱"
+                          },
+                          {
+                            week: "دوم",
+                            height: "کمتر از ۱",
+                            weight: "کمتر از ۱"
+                          },
+                          {
+                            week: "سوم",
+                            height: "کمتر از ۱",
+                            weight: "کمتر از ۱"
+                          },
+                          {
+                            week: "چهارم",
+                            height: "کمتر از ۱",
+                            weight: "کمتر از ۱"
+                          },
+                          {
+                            week: "پنجم",
+                            height: "کمتر از ۱",
+                            weight: "کمتر از ۱"
+                          },
+                          {
+                            week: "ششم",
+                            height: "کمتر از ۱",
+                            weight: "کمتر از ۱"
+                          },
+                          {
+                            week: "هفتم",
+                            height: "کمتر از ۱",
+                            weight: "کمتر از ۱"
+                          },
+                          {
+                            week: "هشتم",
+                            height: "1.9",
+                            weight: "1"
+                          },
+                          {
+                            week: "نهم",
+                            height: "2.3",
+                            weight: "2"
+                          },
+                          {
+                            week: "دهم",
+                            height: "3.1",
+                            weight: "4"
+                          },
+                          {
+                            week: "یازدهم",
+                            height: "4.1",
+                            weight: "7"
+                          },
+                          {
+                            week: "دوازدهم",
+                            height: "5.4",
+                            weight: "14"
+                          },
+                          {
+                            week: "سیزدهم",
+                            height: "7.4",
+                            weight: "23"
+                          },
+                          {
+                            week: "چهاردهم",
+                            height: "8.7",
+                            weight: "43"
+                          },
+                          {
+                            week: "پانزدهم",
+                            height: "10.1",
+                            weight: "70"
+                          },
+                          {
+                            week: "شانزدهم",
+                            height: "11.6",
+                            weight: "100"
+                          },
+                          {
+                            week: "هفدهم",
+                            height: "13",
+                            weight: "140"
+                          },
+                          {
+                            week: "هجدهم",
+                            height: "14.2",
+                            weight: "190"
+                          },
+                          {
+                            week: "نوزدهم",
+                            height: "15.3",
+                            weight: "240"
+                          },
+                          {
+                            week: "بیستم",
+                            height: "25.6",
+                            weight: "300"
+                          },
+                          {
+                            week: "بیست و یکم",
+                            height: "26.7",
+                            weight: "360"
+                          },
+                          {
+                            week: "بیست و دوم",
+                            height: "27.8",
+                            weight: "430"
+                          },
+                          {
+                            week: "بیست و سوم",
+                            height: "28.9",
+                            weight: "500"
+                          },
+                          {
+                            week: "بیست و چهارم",
+                            height: "30",
+                            weight: "600"
+                          },
+                          {
+                            week: "بیست و پنجم",
+                            height: "34.6",
+                            weight: "660"
+                          },
+                          {
+                            week: "بیست و ششم",
+                            height: "35.6",
+                            weight: "760"
+                          },
+                          {
+                            week: "بیست و هفتم",
+                            height: "36.6",
+                            weight: "875"
+                          },
+                          {
+                            week: "بیست و هشتم",
+                            height: "37.6",
+                            weight: "1"
+                          },
+                          {
+                            week: "بیست و نهم",
+                            height: "38.6",
+                            weight: "1.2"
+                          },
+                          {
+                            week: "سی‌ام",
+                            height: "39.9",
+                            weight: "1.3"
+                          },
+                          {
+                            week: "سی و یکم",
+                            height: "41.1",
+                            weight: "1.5"
+                          },
+                          {
+                            week: "سی و دوم",
+                            height: "42.4",
+                            weight: "1.7"
+                          },
+                          {
+                            week: "سی و سوم",
+                            height: "43.7",
+                            weight: "1.9"
+                          },
+                          {
+                            week: "سی و چهارم",
+                            height: "45",
+                            weight: "2.1"
+                          },
+                          {
+                            week: "سی و پنجم",
+                            height: "46.2",
+                            weight: "2.4"
+                          },
+                          {
+                            week: "سی و ششم",
+                            height: "47.4",
+                            weight: "2.6"
+                          },
+                          {
+                            week: "سی و هفتم",
+                            height: "48.6",
+                            weight: "2.9"
+                          },
+                          {
+                            week: "سی و هشتم",
+                            height: "49.8",
+                            weight: "3.1"
+                          },
+                          {
+                            week: "سی و نهم",
+                            height: "50.7",
+                            weight: "3.3"
+                          },
+                          {
+                            week: "چهلم",
+                            height: "51.2",
+                            weight: "3.5"
+                          }
+                        ];
+
+                        $state.shopListText = [
+                          {
+                            title: "دعواهاتون در دوران پریود و pms کمتر میشه",
+                            text: "کمک میکنیم تا شروع و دوران پریود همسرت رو پیگیری کنی و تغییرات روحی و جسمیش رو بهتر درک کنی.",
+                            type: "relationship"
+                          },
+                          {
+                            title:
+                              "رابطه‌ت رو روزانه با نکات کاربردی تقویت میکنی",
+                            text: "همه یادآوری‌ها و نکات کاربردی روی پیامک و تلگرام برات میاد تا هیچ نکته‌ای از دست نره.",
+                            type: "reminder"
+                          },
+                          {
+                            title:
+                              "مراقبت از همسرت در روزهای پریود آسان‌تر می‌شه",
+                            text: "شروع پریود همسرت رو پیگیری میکنی و با مراقبت بیشتر\u060C میتونی درد و ناراحتی‌ها رو کاهش بدی.",
+                            type: "care"
+                          },
+                          {
+                            title:
+                              "همسرت هم به تو فکر می‌کنه و حواسش به رابطه‌تونه",
+                            text: "پیام‌هایی هم برای خانومت میفرستیم که کمک می‌کنند همسرت هم به تو فکر کنه و رابطه شادتری بسازین.",
+                            type: "mutual"
+                          },
+                          {
+                            title:
+                              "هیچ روز مهمی مثل تولد\u060C سالگرد یا\u2026 یادت نمی‌ره",
+                            text: "تولد\u060C سالگرد و سایر مناسبت‌ها رو کافیه ثبت کنی تا برات چند روز قبلش و در همان روز یاداوری کنیم",
+                            type: "event"
+                          }
+                        ];
+
+                        return ($state.modalshopText = {
+                          title:
+                            "در دوران PMS و پریود همسرت دعواهاتون رو کمتر میشه",
+                          text: "کمک میکنیم تا شروع و دوران پریود همسرت رو پیگیری کنی و تغییرات روحی و جسمیش رو بهتر درک کنی.",
+                          type: "relationship"
+                        });
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["stateLoad"] != null &&
+              typeof $steps["stateLoad"] === "object" &&
+              typeof $steps["stateLoad"].then === "function"
+            ) {
+              $steps["stateLoad"] = await $steps["stateLoad"];
             }
 
             $steps["stote"] = (
