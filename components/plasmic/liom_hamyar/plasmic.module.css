@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto%3Aital%2Cwght%400%2C100%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C700%3B0%2C900%3B1%2C100%3B1%2C300%3B1%2C400%3B1%2C500%3B1%2C700%3B1%2C900&family=Inter%3Aital%2Cwght%400%2C100%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Inconsolata%3Aital%2Cwght%400%2C200%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Vazirmatn%3Aital%2Cwght%400%2C100%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Poppins%3Aital%2Cwght%400%2C100%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900%3B1%2C100%3B1%2C300%3B1%2C400%3B1%2C500%3B1%2C600%3B1%2C700%3B1%2C800%3B1%2C900&family=Risque%3Aital%2Cwght%400%2C400&family=Ubuntu%3Aital%2Cwght%400%2C300%3B0%2C400%3B0%2C500%3B0%2C700%3B1%2C300%3B1%2C400%3B1%2C500%3B1%2C700&display=swap");
 
 .plasmic_tokens {
   --token-gCi4wau0q9pg: rgba(175, 47, 47, 0.15);
@@ -352,7 +351,7 @@
 .plasmic_default_styles:where(
   .global_unnamedGlobalGroupOfVariants8_unnamedVariant
 ) {
-  --mixin-WzkLzR3lM3YC_font-family: "Roboto", sans-serif;
+  --mixin-WzkLzR3lM3YC_font-family: "yekan_bakh", sans-serif;
   --mixin-WzkLzR3lM3YC_font-size: 14px;
   --mixin-WzkLzR3lM3YC_font-weight: normal;
   --mixin-WzkLzR3lM3YC_font-style: normal;
@@ -362,42 +361,42 @@
   --mixin-WzkLzR3lM3YC_line-height: 1.5;
   --mixin-WzkLzR3lM3YC_letter-spacing: normal;
   --mixin-WzkLzR3lM3YC_white-space: pre-wrap;
-  --mixin-5IShjEuhRZeZ_font-family: "Inter", sans-serif;
+  --mixin-5IShjEuhRZeZ_font-family: "yekan_bakh", sans-serif;
   --mixin-5IShjEuhRZeZ_color: #000000;
   --mixin-5IShjEuhRZeZ_font-size: 72px;
   --mixin-5IShjEuhRZeZ_font-weight: 900;
   --mixin-5IShjEuhRZeZ_letter-spacing: -4px;
   --mixin-5IShjEuhRZeZ_line-height: 1;
   --mixin-5IShjEuhRZeZ_white-space: pre-wrap;
-  --mixin-IYgKuHv-ZgcV_font-family: "Inter", sans-serif;
+  --mixin-IYgKuHv-ZgcV_font-family: "yekan_bakh", sans-serif;
   --mixin-IYgKuHv-ZgcV_color: #000000;
   --mixin-IYgKuHv-ZgcV_font-size: 48px;
   --mixin-IYgKuHv-ZgcV_font-weight: 700;
   --mixin-IYgKuHv-ZgcV_letter-spacing: -1px;
   --mixin-IYgKuHv-ZgcV_line-height: 1.1;
   --mixin-IYgKuHv-ZgcV_white-space: pre-wrap;
-  --mixin-uiKgPFbvj-vu_font-family: "Inter", sans-serif;
+  --mixin-uiKgPFbvj-vu_font-family: "yekan_bakh", sans-serif;
   --mixin-uiKgPFbvj-vu_color: #000000;
   --mixin-uiKgPFbvj-vu_font-size: 32px;
   --mixin-uiKgPFbvj-vu_font-weight: 600;
   --mixin-uiKgPFbvj-vu_letter-spacing: -0.8px;
   --mixin-uiKgPFbvj-vu_line-height: 1.2;
   --mixin-uiKgPFbvj-vu_white-space: pre-wrap;
-  --mixin-yj2YC6-Fyhcg_font-family: "Inter", sans-serif;
+  --mixin-yj2YC6-Fyhcg_font-family: "yekan_bakh", sans-serif;
   --mixin-yj2YC6-Fyhcg_color: #000000;
   --mixin-yj2YC6-Fyhcg_font-size: 24px;
   --mixin-yj2YC6-Fyhcg_font-weight: 600;
   --mixin-yj2YC6-Fyhcg_letter-spacing: -0.5px;
   --mixin-yj2YC6-Fyhcg_line-height: 1.3;
   --mixin-yj2YC6-Fyhcg_white-space: pre-wrap;
-  --mixin-zPn8YLU-Z5S5_font-family: "Inter", sans-serif;
+  --mixin-zPn8YLU-Z5S5_font-family: "yekan_bakh", sans-serif;
   --mixin-zPn8YLU-Z5S5_color: #000000;
   --mixin-zPn8YLU-Z5S5_font-size: 20px;
   --mixin-zPn8YLU-Z5S5_font-weight: 600;
   --mixin-zPn8YLU-Z5S5_letter-spacing: -0.3px;
   --mixin-zPn8YLU-Z5S5_line-height: 1.5;
   --mixin-zPn8YLU-Z5S5_white-space: pre-wrap;
-  --mixin-Rgr6TUAkH1V9_font-family: "Inter", sans-serif;
+  --mixin-Rgr6TUAkH1V9_font-family: "yekan_bakh", sans-serif;
   --mixin-Rgr6TUAkH1V9_color: #000000;
   --mixin-Rgr6TUAkH1V9_font-size: 16px;
   --mixin-Rgr6TUAkH1V9_font-weight: 600;
@@ -430,7 +429,7 @@
   --mixin-kTBEzZFqY02y_border-bottom-right-radius: 3px;
   --mixin-kTBEzZFqY02y_border-top-left-radius: 3px;
   --mixin-kTBEzZFqY02y_border-top-right-radius: 3px;
-  --mixin-kTBEzZFqY02y_font-family: "Inconsolata";
+  --mixin-kTBEzZFqY02y_font-family: "yekan_bakh";
   --mixin-kTBEzZFqY02y_padding-bottom: 1px;
   --mixin-kTBEzZFqY02y_padding-left: 4px;
   --mixin-kTBEzZFqY02y_padding-right: 4px;
@@ -453,7 +452,7 @@
   --mixin-Jvn2xtjJ4Qsj_border-bottom-right-radius: 3px;
   --mixin-Jvn2xtjJ4Qsj_border-top-left-radius: 3px;
   --mixin-Jvn2xtjJ4Qsj_border-top-right-radius: 3px;
-  --mixin-Jvn2xtjJ4Qsj_font-family: "Inconsolata";
+  --mixin-Jvn2xtjJ4Qsj_font-family: "yekan_bakh";
   --mixin-Jvn2xtjJ4Qsj_padding-bottom: 3px;
   --mixin-Jvn2xtjJ4Qsj_padding-left: 6px;
   --mixin-Jvn2xtjJ4Qsj_padding-right: 6px;

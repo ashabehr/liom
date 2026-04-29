@@ -532,7 +532,7 @@
   user-select: text;
   text-decoration-line: none;
   text-overflow: clip;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   align-self: center;
 }
 .freeBox__xyXAb {
@@ -574,7 +574,7 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: var(--token-OuIr9F3wieyv);
   font-weight: 400;
   font-style: normal;
@@ -628,7 +628,7 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: var(--token-cunRwTCjQp3O);
   font-weight: 700;
   font-style: normal;
@@ -664,7 +664,7 @@
   height: auto;
   max-width: 100%;
   position: relative;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 14px;
   font-weight: 400;
   font-style: normal;
@@ -751,7 +751,7 @@
   text-align: center;
   font-weight: 500;
   z-index: 1;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 14px;
   font-style: normal;
   color: #535353;
@@ -809,7 +809,7 @@
   user-select: text;
   text-decoration-line: none !important;
   text-overflow: clip !important;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   min-width: 0;
 }
 .svg__rYnSz {
@@ -849,7 +849,7 @@
   user-select: text;
   text-decoration-line: none !important;
   text-overflow: clip !important;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   min-width: 0;
 }
 @media (max-width: 640px) {
@@ -917,7 +917,7 @@
   height: 1em;
 }
 .text___7Lyzh {
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 14px;
   font-weight: 500;
   font-style: normal;

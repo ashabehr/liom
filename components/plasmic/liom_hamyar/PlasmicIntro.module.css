@@ -669,7 +669,7 @@
   user-select: text;
   text-decoration-line: none;
   text-overflow: clip;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
 }
 .freeBox__vpMn {
   display: flex;
@@ -701,7 +701,7 @@
   user-select: text;
   text-decoration-line: none;
   text-overflow: clip;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   align-self: flex-start;
   min-width: 0;
 }
@@ -785,7 +785,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 18px;
   font-weight: 700;
   font-style: normal;
@@ -853,7 +853,7 @@
   height: auto;
   max-width: 100%;
   padding-left: 40px;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 14px;
   font-weight: 400;
   font-style: normal;
@@ -880,7 +880,7 @@
   height: auto;
   max-width: 100%;
   margin-right: 0px;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 16px;
   font-weight: 700;
   font-style: normal;
@@ -924,7 +924,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 14px;
   font-weight: 400;
   font-style: normal;
@@ -956,7 +956,7 @@
   padding-right: 10px;
   padding-left: 10px;
   color: #8254c6;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 14px;
   font-style: normal;
   text-transform: none;
@@ -1033,7 +1033,7 @@
   height: 1em;
 }
 .text__hctl4 {
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 14px;
   font-weight: 500;
   font-style: normal;
@@ -1086,7 +1086,7 @@
   user-select: text;
   text-decoration-line: none !important;
   text-overflow: clip !important;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   min-width: 0;
 }
 .svg__nYxIw {
@@ -1110,7 +1110,7 @@
   text-decoration-line: none;
   text-overflow: clip;
   cursor: pointer;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
 }
 .p__upWkI {
   text-align: center;
@@ -1126,7 +1126,7 @@
   text-decoration-line: none;
   text-overflow: clip;
   cursor: pointer;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   display: none;
 }
 .dialog2:global(.__wab_instance):global(.__wab_instance) {
@@ -1179,7 +1179,7 @@
   user-select: text;
   text-decoration-line: none !important;
   text-overflow: clip !important;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   min-width: 0;
 }
 .svg__egsL0 {
